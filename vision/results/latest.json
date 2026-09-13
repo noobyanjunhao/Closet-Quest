@@ -1,0 +1,1242 @@
+{
+  "generatedAt": "2026-09-13T05:35:05.739Z",
+  "node": "v24.19.0",
+  "environment": {
+    "cpu": "AMD Ryzen 9 8945HS w/ Radeon 780M Graphics",
+    "logicalCpus": 16,
+    "ramGiB": 15
+  },
+  "lockfileSha256": "61e0c209df0a2af568f0bcfd570137815d01693cf2fd219be7f8e4dd53dc1ea5",
+  "manifestSha256": "67f8603cf4147fced7f4abae0af233dbf81a341e39283ced2c007316681a5d42",
+  "labels": {
+    "Top": "a shirt or sweater",
+    "Bottom": "a pair of trousers",
+    "Shoes": "a shoe",
+    "Outerwear": "a jacket or coat",
+    "Dress": "a dress",
+    "Accessory": "a handbag"
+  },
+  "hypothesisTemplate": "a photo of {}",
+  "scope": "Original garment silhouettes derived from the project SVG illustrations; 6 shapes x 3 color/background variations. This is a synthetic inference smoke test, not real-photo recognition validation. Files are anonymous to prevent filename label leakage.",
+  "filenameBaseline": {
+    "correct": 3,
+    "total": 18,
+    "description": "Existing filename heuristic returns Top for every anonymous image-NN.png."
+  },
+  "summary": [
+    {
+      "model": "Xenova/clip-vit-base-patch32",
+      "revision": "d15189d7028b43f1d3e65039190477f6af591c2a",
+      "dtype": "q8",
+      "device": "cpu",
+      "correct": 18,
+      "total": 18,
+      "accuracy": 1,
+      "loadIncludingDownloadMs": 1991.6401,
+      "p50Ms": 32.23939999999948,
+      "p95Ms": 40.20309999999972
+    },
+    {
+      "model": "Xenova/siglip-base-patch16-224",
+      "revision": "4649052661e53c7000355844105f8a1792088239",
+      "dtype": "q8",
+      "device": "cpu",
+      "correct": 17,
+      "total": 18,
+      "accuracy": 0.9444444444444444,
+      "loadIncludingDownloadMs": 913.2510000000002,
+      "p50Ms": 137.15160000000014,
+      "p95Ms": 159.9363000000003
+    }
+  ],
+  "rows": [
+    {
+      "model": "Xenova/clip-vit-base-patch32",
+      "id": "image-01",
+      "expected": "Top",
+      "predicted": "Top",
+      "elapsedMs": 35.51899999999978,
+      "scores": [
+        {
+          "score": 0.9105210304260254,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.04139035567641258,
+          "label": "a dress"
+        },
+        {
+          "score": 0.020057296380400658,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.013291699811816216,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.010541729629039764,
+          "label": "a handbag"
+        },
+        {
+          "score": 0.004197891801595688,
+          "label": "a shoe"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/clip-vit-base-patch32",
+      "id": "image-02",
+      "expected": "Top",
+      "predicted": "Top",
+      "elapsedMs": 34.554299999999785,
+      "scores": [
+        {
+          "score": 0.8692755103111267,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.0643269419670105,
+          "label": "a dress"
+        },
+        {
+          "score": 0.035887088626623154,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.015078130178153515,
+          "label": "a handbag"
+        },
+        {
+          "score": 0.011418860405683517,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.00401349226012826,
+          "label": "a shoe"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/clip-vit-base-patch32",
+      "id": "image-03",
+      "expected": "Top",
+      "predicted": "Top",
+      "elapsedMs": 29.325800000000072,
+      "scores": [
+        {
+          "score": 0.8874596953392029,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.061253871768713,
+          "label": "a dress"
+        },
+        {
+          "score": 0.02143828757107258,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.013019458390772343,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.011766946874558926,
+          "label": "a handbag"
+        },
+        {
+          "score": 0.005061750300228596,
+          "label": "a shoe"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/clip-vit-base-patch32",
+      "id": "image-04",
+      "expected": "Bottom",
+      "predicted": "Bottom",
+      "elapsedMs": 34.40079999999989,
+      "scores": [
+        {
+          "score": 0.9809598326683044,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.006529872305691242,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.006098502781242132,
+          "label": "a shoe"
+        },
+        {
+          "score": 0.0027581905014812946,
+          "label": "a handbag"
+        },
+        {
+          "score": 0.0022427309304475784,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.0014108594041317701,
+          "label": "a dress"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/clip-vit-base-patch32",
+      "id": "image-05",
+      "expected": "Bottom",
+      "predicted": "Bottom",
+      "elapsedMs": 34.78030000000035,
+      "scores": [
+        {
+          "score": 0.9846242666244507,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.008116548880934715,
+          "label": "a shoe"
+        },
+        {
+          "score": 0.003158205421641469,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.0018189710099250078,
+          "label": "a handbag"
+        },
+        {
+          "score": 0.0013391801621764898,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.0009428223711438477,
+          "label": "a dress"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/clip-vit-base-patch32",
+      "id": "image-06",
+      "expected": "Bottom",
+      "predicted": "Bottom",
+      "elapsedMs": 32.85290000000077,
+      "scores": [
+        {
+          "score": 0.9864294528961182,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.005030137486755848,
+          "label": "a shoe"
+        },
+        {
+          "score": 0.0039919521659612656,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.0018066008342429996,
+          "label": "a handbag"
+        },
+        {
+          "score": 0.0017754873260855675,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.0009663492674008012,
+          "label": "a dress"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/clip-vit-base-patch32",
+      "id": "image-07",
+      "expected": "Shoes",
+      "predicted": "Shoes",
+      "elapsedMs": 35.28309999999965,
+      "scores": [
+        {
+          "score": 0.972380518913269,
+          "label": "a shoe"
+        },
+        {
+          "score": 0.01040742639452219,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.007932532578706741,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.005464624613523483,
+          "label": "a handbag"
+        },
+        {
+          "score": 0.0034985740203410387,
+          "label": "a dress"
+        },
+        {
+          "score": 0.0003162982175126672,
+          "label": "a shirt or sweater"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/clip-vit-base-patch32",
+      "id": "image-08",
+      "expected": "Shoes",
+      "predicted": "Shoes",
+      "elapsedMs": 27.797600000000784,
+      "scores": [
+        {
+          "score": 0.9765623807907104,
+          "label": "a shoe"
+        },
+        {
+          "score": 0.012567310594022274,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.00524981738999486,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.003454082878306508,
+          "label": "a handbag"
+        },
+        {
+          "score": 0.0018110763048753142,
+          "label": "a dress"
+        },
+        {
+          "score": 0.0003553266287781298,
+          "label": "a shirt or sweater"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/clip-vit-base-patch32",
+      "id": "image-09",
+      "expected": "Shoes",
+      "predicted": "Shoes",
+      "elapsedMs": 31.363999999999578,
+      "scores": [
+        {
+          "score": 0.9763442873954773,
+          "label": "a shoe"
+        },
+        {
+          "score": 0.00859589409083128,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.008214596658945084,
+          "label": "a handbag"
+        },
+        {
+          "score": 0.004926048684865236,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.0015021595172584057,
+          "label": "a dress"
+        },
+        {
+          "score": 0.00041703757597133517,
+          "label": "a shirt or sweater"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/clip-vit-base-patch32",
+      "id": "image-10",
+      "expected": "Outerwear",
+      "predicted": "Outerwear",
+      "elapsedMs": 33.57330000000002,
+      "scores": [
+        {
+          "score": 0.8824307322502136,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.08244143426418304,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.019710874184966087,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.012787637300789356,
+          "label": "a dress"
+        },
+        {
+          "score": 0.0023933264892548323,
+          "label": "a handbag"
+        },
+        {
+          "score": 0.00023601649445481598,
+          "label": "a shoe"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/clip-vit-base-patch32",
+      "id": "image-11",
+      "expected": "Outerwear",
+      "predicted": "Outerwear",
+      "elapsedMs": 27.717399999999543,
+      "scores": [
+        {
+          "score": 0.8031130433082581,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.11285573989152908,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.04314301162958145,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.03026396594941616,
+          "label": "a dress"
+        },
+        {
+          "score": 0.009435993619263172,
+          "label": "a handbag"
+        },
+        {
+          "score": 0.0011882383842021227,
+          "label": "a shoe"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/clip-vit-base-patch32",
+      "id": "image-12",
+      "expected": "Outerwear",
+      "predicted": "Outerwear",
+      "elapsedMs": 40.20309999999972,
+      "scores": [
+        {
+          "score": 0.9278368949890137,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.055406708270311356,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.009649531915783882,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.004994113929569721,
+          "label": "a dress"
+        },
+        {
+          "score": 0.001974467420950532,
+          "label": "a handbag"
+        },
+        {
+          "score": 0.00013826625945512205,
+          "label": "a shoe"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/clip-vit-base-patch32",
+      "id": "image-13",
+      "expected": "Dress",
+      "predicted": "Dress",
+      "elapsedMs": 31.676800000000185,
+      "scores": [
+        {
+          "score": 0.9417316317558289,
+          "label": "a dress"
+        },
+        {
+          "score": 0.0265148114413023,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.01792846992611885,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.00793487299233675,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.004094116389751434,
+          "label": "a handbag"
+        },
+        {
+          "score": 0.001796087366528809,
+          "label": "a shoe"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/clip-vit-base-patch32",
+      "id": "image-14",
+      "expected": "Dress",
+      "predicted": "Dress",
+      "elapsedMs": 27.21939999999995,
+      "scores": [
+        {
+          "score": 0.9335264563560486,
+          "label": "a dress"
+        },
+        {
+          "score": 0.03799070790410042,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.013030494563281536,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.009443783201277256,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.0043989685364067554,
+          "label": "a handbag"
+        },
+        {
+          "score": 0.0016095814062282443,
+          "label": "a shoe"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/clip-vit-base-patch32",
+      "id": "image-15",
+      "expected": "Dress",
+      "predicted": "Dress",
+      "elapsedMs": 34.050099999999475,
+      "scores": [
+        {
+          "score": 0.8745876550674438,
+          "label": "a dress"
+        },
+        {
+          "score": 0.04572492465376854,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.044275958091020584,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.02358517050743103,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.007456377614289522,
+          "label": "a handbag"
+        },
+        {
+          "score": 0.004369929898530245,
+          "label": "a shoe"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/clip-vit-base-patch32",
+      "id": "image-16",
+      "expected": "Accessory",
+      "predicted": "Accessory",
+      "elapsedMs": 32.12970000000041,
+      "scores": [
+        {
+          "score": 0.8425979018211365,
+          "label": "a handbag"
+        },
+        {
+          "score": 0.041322868317365646,
+          "label": "a dress"
+        },
+        {
+          "score": 0.03776106610894203,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.03248446807265282,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.025146042928099632,
+          "label": "a shoe"
+        },
+        {
+          "score": 0.02068764716386795,
+          "label": "a shirt or sweater"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/clip-vit-base-patch32",
+      "id": "image-17",
+      "expected": "Accessory",
+      "predicted": "Accessory",
+      "elapsedMs": 32.23939999999948,
+      "scores": [
+        {
+          "score": 0.8989167809486389,
+          "label": "a handbag"
+        },
+        {
+          "score": 0.028355447575449944,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.02387804538011551,
+          "label": "a dress"
+        },
+        {
+          "score": 0.021445291116833687,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.019313035532832146,
+          "label": "a shoe"
+        },
+        {
+          "score": 0.008091404102742672,
+          "label": "a shirt or sweater"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/clip-vit-base-patch32",
+      "id": "image-18",
+      "expected": "Accessory",
+      "predicted": "Accessory",
+      "elapsedMs": 28.614000000000487,
+      "scores": [
+        {
+          "score": 0.9021624326705933,
+          "label": "a handbag"
+        },
+        {
+          "score": 0.027694610878825188,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.024477263912558556,
+          "label": "a dress"
+        },
+        {
+          "score": 0.019095955416560173,
+          "label": "a shoe"
+        },
+        {
+          "score": 0.01701902411878109,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.009550686925649643,
+          "label": "a shirt or sweater"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/siglip-base-patch16-224",
+      "id": "image-01",
+      "expected": "Top",
+      "predicted": "Top",
+      "elapsedMs": 146.8703999999998,
+      "scores": [
+        {
+          "score": 0.04893437400460243,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.0002777845656964928,
+          "label": "a dress"
+        },
+        {
+          "score": 0.000250573008088395,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.00007719636778347194,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.0000024727687559789047,
+          "label": "a shoe"
+        },
+        {
+          "score": 0.000001449378714823979,
+          "label": "a handbag"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/siglip-base-patch16-224",
+      "id": "image-02",
+      "expected": "Top",
+      "predicted": "Top",
+      "elapsedMs": 159.9363000000003,
+      "scores": [
+        {
+          "score": 0.10390036553144455,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.000470816099550575,
+          "label": "a dress"
+        },
+        {
+          "score": 0.000302720203762874,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.00021529995137825608,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.000010733951057773083,
+          "label": "a shoe"
+        },
+        {
+          "score": 0.000003084557420152123,
+          "label": "a handbag"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/siglip-base-patch16-224",
+      "id": "image-03",
+      "expected": "Top",
+      "predicted": "Top",
+      "elapsedMs": 138.3678,
+      "scores": [
+        {
+          "score": 0.133914053440094,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.0005910559557378292,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.00039634559652768075,
+          "label": "a dress"
+        },
+        {
+          "score": 0.00014088013267610222,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.000009484441761742346,
+          "label": "a shoe"
+        },
+        {
+          "score": 0.000003372472065166221,
+          "label": "a handbag"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/siglip-base-patch16-224",
+      "id": "image-04",
+      "expected": "Bottom",
+      "predicted": "Bottom",
+      "elapsedMs": 151.96770000000015,
+      "scores": [
+        {
+          "score": 0.0345129556953907,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.00007252639625221491,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.000017030530216288753,
+          "label": "a dress"
+        },
+        {
+          "score": 0.000014970240954426117,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.0000014159146530801081,
+          "label": "a shoe"
+        },
+        {
+          "score": 5.104224669594259e-7,
+          "label": "a handbag"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/siglip-base-patch16-224",
+      "id": "image-05",
+      "expected": "Bottom",
+      "predicted": "Bottom",
+      "elapsedMs": 131.54700000000048,
+      "scores": [
+        {
+          "score": 0.5009903907775879,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.0002823116956278682,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.00020702581969089806,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.0001779949525371194,
+          "label": "a dress"
+        },
+        {
+          "score": 0.000007113453193596797,
+          "label": "a shoe"
+        },
+        {
+          "score": 0.000006728439529979369,
+          "label": "a handbag"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/siglip-base-patch16-224",
+      "id": "image-06",
+      "expected": "Bottom",
+      "predicted": "Bottom",
+      "elapsedMs": 158.66610000000037,
+      "scores": [
+        {
+          "score": 0.28893202543258667,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.0003624304081313312,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.00019556372717488557,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.00007358369475696236,
+          "label": "a dress"
+        },
+        {
+          "score": 0.000005557179520110367,
+          "label": "a shoe"
+        },
+        {
+          "score": 0.000004563258244161261,
+          "label": "a handbag"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/siglip-base-patch16-224",
+      "id": "image-07",
+      "expected": "Shoes",
+      "predicted": "Shoes",
+      "elapsedMs": 120.44999999999982,
+      "scores": [
+        {
+          "score": 0.02530517615377903,
+          "label": "a shoe"
+        },
+        {
+          "score": 0.000005519541900866898,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.000002007165676332079,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.0000013927138979852316,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 7.145887366277748e-7,
+          "label": "a handbag"
+        },
+        {
+          "score": 6.827763741057424e-7,
+          "label": "a dress"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/siglip-base-patch16-224",
+      "id": "image-08",
+      "expected": "Shoes",
+      "predicted": "Shoes",
+      "elapsedMs": 144.46479999999974,
+      "scores": [
+        {
+          "score": 0.045472677797079086,
+          "label": "a shoe"
+        },
+        {
+          "score": 0.000004390816684463061,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.0000030091352982708486,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.000002120411863870686,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.00000199252804122807,
+          "label": "a handbag"
+        },
+        {
+          "score": 9.142081012214476e-7,
+          "label": "a dress"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/siglip-base-patch16-224",
+      "id": "image-09",
+      "expected": "Shoes",
+      "predicted": "Shoes",
+      "elapsedMs": 135.27779999999984,
+      "scores": [
+        {
+          "score": 0.12285343557596207,
+          "label": "a shoe"
+        },
+        {
+          "score": 0.000012650206372200046,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.0000072281195571122225,
+          "label": "a handbag"
+        },
+        {
+          "score": 0.000006405614840332419,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.000005544448413274949,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.000001845826773205772,
+          "label": "a dress"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/siglip-base-patch16-224",
+      "id": "image-10",
+      "expected": "Outerwear",
+      "predicted": "Outerwear",
+      "elapsedMs": 127.92799999999988,
+      "scores": [
+        {
+          "score": 0.18991619348526,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.15893444418907166,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.002026901114732027,
+          "label": "a dress"
+        },
+        {
+          "score": 0.001124644884839654,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.000003898424438375514,
+          "label": "a handbag"
+        },
+        {
+          "score": 0.000002226971218988183,
+          "label": "a shoe"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/siglip-base-patch16-224",
+      "id": "image-11",
+      "expected": "Outerwear",
+      "predicted": "Top",
+      "elapsedMs": 131.1882000000005,
+      "scores": [
+        {
+          "score": 0.2985159456729889,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.15455536544322968,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.0019551857840269804,
+          "label": "a dress"
+        },
+        {
+          "score": 0.0015476510161533952,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.000012081605746061541,
+          "label": "a handbag"
+        },
+        {
+          "score": 0.00000531528576175333,
+          "label": "a shoe"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/siglip-base-patch16-224",
+      "id": "image-12",
+      "expected": "Outerwear",
+      "predicted": "Outerwear",
+      "elapsedMs": 134.55109999999968,
+      "scores": [
+        {
+          "score": 0.5365903973579407,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.2518109977245331,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.0020527138840407133,
+          "label": "a dress"
+        },
+        {
+          "score": 0.0011776889441534877,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.00002329366179765202,
+          "label": "a handbag"
+        },
+        {
+          "score": 0.00000687861802362022,
+          "label": "a shoe"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/siglip-base-patch16-224",
+      "id": "image-13",
+      "expected": "Dress",
+      "predicted": "Dress",
+      "elapsedMs": 130.57970000000023,
+      "scores": [
+        {
+          "score": 0.16356779634952545,
+          "label": "a dress"
+        },
+        {
+          "score": 0.002277894178405404,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.000785793992690742,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.00004530959267867729,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.000011366371836629696,
+          "label": "a shoe"
+        },
+        {
+          "score": 0.00000909549453353975,
+          "label": "a handbag"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/siglip-base-patch16-224",
+      "id": "image-14",
+      "expected": "Dress",
+      "predicted": "Dress",
+      "elapsedMs": 137.9395999999997,
+      "scores": [
+        {
+          "score": 0.3728770911693573,
+          "label": "a dress"
+        },
+        {
+          "score": 0.001811175374314189,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.0013415553839877248,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.0001472911098971963,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.0000896592391654849,
+          "label": "a shoe"
+        },
+        {
+          "score": 0.000037849778891541064,
+          "label": "a handbag"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/siglip-base-patch16-224",
+      "id": "image-15",
+      "expected": "Dress",
+      "predicted": "Dress",
+      "elapsedMs": 137.15160000000014,
+      "scores": [
+        {
+          "score": 0.24637429416179657,
+          "label": "a dress"
+        },
+        {
+          "score": 0.002735064597800374,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.0009195077000185847,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.00010498283518245444,
+          "label": "a pair of trousers"
+        },
+        {
+          "score": 0.000057177396229235455,
+          "label": "a handbag"
+        },
+        {
+          "score": 0.00005443228656076826,
+          "label": "a shoe"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/siglip-base-patch16-224",
+      "id": "image-16",
+      "expected": "Accessory",
+      "predicted": "Accessory",
+      "elapsedMs": 142.90669999999955,
+      "scores": [
+        {
+          "score": 0.3149195909500122,
+          "label": "a handbag"
+        },
+        {
+          "score": 0.0001619573013158515,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.0001259790442418307,
+          "label": "a dress"
+        },
+        {
+          "score": 0.00003938079680665396,
+          "label": "a shoe"
+        },
+        {
+          "score": 0.000036883782740915194,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.000005035869435232598,
+          "label": "a pair of trousers"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/siglip-base-patch16-224",
+      "id": "image-17",
+      "expected": "Accessory",
+      "predicted": "Accessory",
+      "elapsedMs": 145.92630000000008,
+      "scores": [
+        {
+          "score": 0.4612158536911011,
+          "label": "a handbag"
+        },
+        {
+          "score": 0.00014767530956305563,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.00014633442333433777,
+          "label": "a dress"
+        },
+        {
+          "score": 0.00009567266533849761,
+          "label": "a shoe"
+        },
+        {
+          "score": 0.00008737984171602875,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.00001539363438496366,
+          "label": "a pair of trousers"
+        }
+      ]
+    },
+    {
+      "model": "Xenova/siglip-base-patch16-224",
+      "id": "image-18",
+      "expected": "Accessory",
+      "predicted": "Accessory",
+      "elapsedMs": 121.26960000000054,
+      "scores": [
+        {
+          "score": 0.6238870024681091,
+          "label": "a handbag"
+        },
+        {
+          "score": 0.0003064618504140526,
+          "label": "a jacket or coat"
+        },
+        {
+          "score": 0.00021243435912765563,
+          "label": "a dress"
+        },
+        {
+          "score": 0.0001696467661531642,
+          "label": "a shoe"
+        },
+        {
+          "score": 0.00007031492714304477,
+          "label": "a shirt or sweater"
+        },
+        {
+          "score": 0.000013761084119323641,
+          "label": "a pair of trousers"
+        }
+      ]
+    }
+  ]
+}

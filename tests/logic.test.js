@@ -11,7 +11,7 @@ test('outfit uses owned pieces and prioritizes a low-use matching item', () => {
 test('incomplete closets cannot produce an outfit; dress plus shoes can', () => {
   assert.deepEqual(recommend([], 'Campus casual'), []);
   assert.deepEqual(recommend(initialState().items.filter(i => i.category !== 'Shoes'), 'Campus casual'), []);
-  const items = [{ id:'dress',category:'Dress',tags:'',wears:0 }, initialState().items[2]];
+  const items = [{ id:'dress',category:'Dress',tags:'Coffee date',wears:0 }, initialState().items[2]];
   assert.equal(recommend(items,'Coffee date').length,2);
 });
 test('quest rewards only once and validates context, ownership, and low-use rule', () => {
@@ -38,4 +38,11 @@ test('resale drafts include garment data and require condition verification', ()
   assert.match(draft,/Everyday cotton tee/);
   assert.match(draft,/condition/);
   assert.match(draft,/do not establish condition/);
+});
+test('quest submission rejects partial, duplicate, and forged outfits', () => {
+  const state=initialState(),quest=quests[0],outfit=recommend(state.items,quest.context);
+  assert.throws(()=>completeQuest(state,quest,[outfit[0]],quest.context));
+  assert.throws(()=>completeQuest(state,quest,[...outfit,outfit[0]],quest.context));
+  const wrong={...state,items:state.items.map(i=>({...i,tags:'Coffee date'}))};
+  assert.throws(()=>completeQuest(wrong,quest,outfit,quest.context));
 });

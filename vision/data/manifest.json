@@ -1,0 +1,131 @@
+{
+  "provenance": "Original garment silhouettes derived from the project SVG illustrations; 6 shapes x 3 color/background variations. This is a synthetic inference smoke test, not real-photo recognition validation. Files are anonymous to prevent filename label leakage.",
+  "images": [
+    {
+      "id": "image-01",
+      "path": "vision/data/image-01.png",
+      "category": "Top",
+      "variation": 0,
+      "sha256": "363d9d1fef793bc94ff7f362a609184f4acd404a6553ffeae2758840e73780c7"
+    },
+    {
+      "id": "image-02",
+      "path": "vision/data/image-02.png",
+      "category": "Top",
+      "variation": 1,
+      "sha256": "533c1ae5a171703e7e1bd31c288098c0d22c7afddd5a8006b078043e1a675141"
+    },
+    {
+      "id": "image-03",
+      "path": "vision/data/image-03.png",
+      "category": "Top",
+      "variation": 2,
+      "sha256": "90817db3274f521a63884958f6cf4789dd8cc8dd05abfabf9dc9d419fffa45a0"
+    },
+    {
+      "id": "image-04",
+      "path": "vision/data/image-04.png",
+      "category": "Bottom",
+      "variation": 0,
+      "sha256": "04d3b5fea076fcf13c62c2d26890f63b22224af86c4749939dcf6385b438c238"
+    },
+    {
+      "id": "image-05",
+      "path": "vision/data/image-05.png",
+      "category": "Bottom",
+      "variation": 1,
+      "sha256": "3a43212a326db302dc4f28219a86f02c8b7d68e5d9042698ab4296aed9415ee6"
+    },
+    {
+      "id": "image-06",
+      "path": "vision/data/image-06.png",
+      "category": "Bottom",
+      "variation": 2,
+      "sha256": "3b90448890b8ac2c69243f6aa8a026a433fd29e104db4526aac987878a9d0700"
+    },
+    {
+      "id": "image-07",
+      "path": "vision/data/image-07.png",
+      "category": "Shoes",
+      "variation": 0,
+      "sha256": "ba9b808b7801fbb3afc65e8ee6b9c70353f4ec5ea7c620f6d0212b30171aa182"
+    },
+    {
+      "id": "image-08",
+      "path": "vision/data/image-08.png",
+      "category": "Shoes",
+      "variation": 1,
+      "sha256": "31d1ce82a1367a6434ba831cb5b8357bb79da2dd5100ba28e18cd9b36a6d3fe0"
+    },
+    {
+      "id": "image-09",
+      "path": "vision/data/image-09.png",
+      "category": "Shoes",
+      "variation": 2,
+      "sha256": "0c3036e6c37dd4d59414f8c24216e82dc693ebb92a886a192dd74f8ed54289ee"
+    },
+    {
+      "id": "image-10",
+      "path": "vision/data/image-10.png",
+      "category": "Outerwear",
+      "variation": 0,
+      "sha256": "868a00b5408b202f1579db496cfcb99e6910935c3dc2e9a73df35e2baf856f1a"
+    },
+    {
+      "id": "image-11",
+      "path": "vision/data/image-11.png",
+      "category": "Outerwear",
+      "variation": 1,
+      "sha256": "2ce40f43d581dc32f21759d4925f26b30885b3c8c59aa192d7895a2ee4dd2fed"
+    },
+    {
+      "id": "image-12",
+      "path": "vision/data/image-12.png",
+      "category": "Outerwear",
+      "variation": 2,
+      "sha256": "0cdd66ac30d2a5609eaf6a7917f33e5863ecbcee2da5edf11089a0802d2646a3"
+    },
+    {
+      "id": "image-13",
+      "path": "vision/data/image-13.png",
+      "category": "Dress",
+      "variation": 0,
+      "sha256": "c9c7ae4b8041e736f600fd17176179deaa1e7f2268fe26814171611b41ed0dfa"
+    },
+    {
+      "id": "image-14",
+      "path": "vision/data/image-14.png",
+      "category": "Dress",
+      "variation": 1,
+      "sha256": "d05fadd4bfa97aec0b8dd34d9b39559a18101c58e129bee4e30d1375eca896e4"
+    },
+    {
+      "id": "image-15",
+      "path": "vision/data/image-15.png",
+      "category": "Dress",
+      "variation": 2,
+      "sha256": "2ab5d33805656bf7fb715f35c426d9b9e51c48662dee80455ec48785cc802ea6"
+    },
+    {
+      "id": "image-16",
+      "path": "vision/data/image-16.png",
+      "category": "Accessory",
+      "variation": 0,
+      "sha256": "9cbc7c47d2aa9bd9ab83d16a4235814f57bcdba29379b65d9c9958d7dd24ccae"
+    },
+    {
+      "id": "image-17",
+      "path": "vision/data/image-17.png",
+      "category": "Accessory",
+      "variation": 1,
+      "sha256": "4ee756d456ca38a48be34fc483c0bce5e2c24fb65b536f2f1467e0b3624ca5bd"
+    },
+    {
+      "id": "image-18",
+      "path": "vision/data/image-18.png",
+      "category": "Accessory",
+      "variation": 2,
+      "sha256": "6b64fd2a533ee5f25dc605e3d14cbd77825b5ec4be409420fe453fea8532b6a2"
+    }
+  ]
+}

@@ -4,3 +4,6 @@ dist/
 .env.*
 !.env.example
 *.log
+tmp/
+.model-cache/
+vision/private/

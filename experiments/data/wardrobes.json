@@ -1,0 +1,4509 @@
+{
+  "schemaVersion": 1,
+  "seed": 20260913,
+  "provenance": "Original deterministic synthetic wardrobe metadata authored for Sprint 3. Not observations of users and not an independent fashion-quality dataset.",
+  "wardrobes": [
+    {
+      "id": "balanced-1",
+      "scenario": "balanced",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date",
+          "wears": 4,
+          "color": "#808080"
+        },
+        {
+          "id": "g1",
+          "name": "Oxford shirt",
+          "category": "Top",
+          "tags": "Coffee date, Presentation day",
+          "wears": 4,
+          "color": "#808080"
+        },
+        {
+          "id": "g2",
+          "name": "Knit sweater",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g3",
+          "name": "Graphic tee",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g5",
+          "name": "Linen trousers",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g6",
+          "name": "Tailored trousers",
+          "category": "Bottom",
+          "tags": "Presentation day",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g7",
+          "name": "Cargo pants",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual, Coffee date",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g9",
+          "name": "Leather loafers",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g10",
+          "name": "Canvas sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g11",
+          "name": "Ankle boots",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "Campus casual, Coffee date",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "Coffee date, Presentation day",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "Presentation day",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 3,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "balanced-2",
+      "scenario": "balanced",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g1",
+          "name": "Oxford shirt",
+          "category": "Top",
+          "tags": "Coffee date, Presentation day",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g2",
+          "name": "Knit sweater",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g3",
+          "name": "Graphic tee",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 9,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date",
+          "wears": 9,
+          "color": "#808080"
+        },
+        {
+          "id": "g5",
+          "name": "Linen trousers",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 7,
+          "color": "#808080"
+        },
+        {
+          "id": "g6",
+          "name": "Tailored trousers",
+          "category": "Bottom",
+          "tags": "Presentation day",
+          "wears": 7,
+          "color": "#808080"
+        },
+        {
+          "id": "g7",
+          "name": "Cargo pants",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual, Coffee date",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g9",
+          "name": "Leather loafers",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g10",
+          "name": "Canvas sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g11",
+          "name": "Ankle boots",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "Campus casual, Coffee date",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "Presentation day",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 7,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "balanced-3",
+      "scenario": "balanced",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g1",
+          "name": "Oxford shirt",
+          "category": "Top",
+          "tags": "Coffee date, Presentation day",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g2",
+          "name": "Knit sweater",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 7,
+          "color": "#808080"
+        },
+        {
+          "id": "g3",
+          "name": "Graphic tee",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 9,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g5",
+          "name": "Linen trousers",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 2,
+          "color": "#808080"
+        },
+        {
+          "id": "g6",
+          "name": "Tailored trousers",
+          "category": "Bottom",
+          "tags": "Presentation day",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g7",
+          "name": "Cargo pants",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual, Coffee date",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g9",
+          "name": "Leather loafers",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g10",
+          "name": "Canvas sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g11",
+          "name": "Ankle boots",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "Campus casual, Coffee date",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "Coffee date, Presentation day",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "Presentation day",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 7,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "context-conflict-1",
+      "scenario": "context-conflict",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g1",
+          "name": "Oxford shirt",
+          "category": "Top",
+          "tags": "Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g2",
+          "name": "Knit sweater",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g3",
+          "name": "Graphic tee",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g5",
+          "name": "Linen trousers",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g6",
+          "name": "Tailored trousers",
+          "category": "Bottom",
+          "tags": "Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g7",
+          "name": "Cargo pants",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual, Coffee date",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g9",
+          "name": "Leather loafers",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g10",
+          "name": "Canvas sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g11",
+          "name": "Ankle boots",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "Campus casual, Coffee date",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "context-conflict-2",
+      "scenario": "context-conflict",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g1",
+          "name": "Oxford shirt",
+          "category": "Top",
+          "tags": "Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g2",
+          "name": "Knit sweater",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g3",
+          "name": "Graphic tee",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g5",
+          "name": "Linen trousers",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g6",
+          "name": "Tailored trousers",
+          "category": "Bottom",
+          "tags": "Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g7",
+          "name": "Cargo pants",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual, Coffee date",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g9",
+          "name": "Leather loafers",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g10",
+          "name": "Canvas sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g11",
+          "name": "Ankle boots",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "Campus casual, Coffee date",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "context-conflict-3",
+      "scenario": "context-conflict",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g1",
+          "name": "Oxford shirt",
+          "category": "Top",
+          "tags": "Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g2",
+          "name": "Knit sweater",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g3",
+          "name": "Graphic tee",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g5",
+          "name": "Linen trousers",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g6",
+          "name": "Tailored trousers",
+          "category": "Bottom",
+          "tags": "Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g7",
+          "name": "Cargo pants",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual, Coffee date",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g9",
+          "name": "Leather loafers",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g10",
+          "name": "Canvas sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g11",
+          "name": "Ankle boots",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "Campus casual, Coffee date",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "dress-only-1",
+      "scenario": "dress-only",
+      "items": [
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual, Coffee date",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g9",
+          "name": "Leather loafers",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g10",
+          "name": "Canvas sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g11",
+          "name": "Ankle boots",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "Campus casual, Coffee date",
+          "wears": 9,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "Presentation day",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 7,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "dress-only-2",
+      "scenario": "dress-only",
+      "items": [
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual, Coffee date",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g9",
+          "name": "Leather loafers",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g10",
+          "name": "Canvas sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g11",
+          "name": "Ankle boots",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "Campus casual, Coffee date",
+          "wears": 2,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "Coffee date, Presentation day",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "Presentation day",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 1,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "dress-only-3",
+      "scenario": "dress-only",
+      "items": [
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual, Coffee date",
+          "wears": 7,
+          "color": "#808080"
+        },
+        {
+          "id": "g9",
+          "name": "Leather loafers",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 9,
+          "color": "#808080"
+        },
+        {
+          "id": "g10",
+          "name": "Canvas sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g11",
+          "name": "Ankle boots",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "Campus casual, Coffee date",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "Presentation day",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 8,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "missing-shoes-1",
+      "scenario": "missing-shoes",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g1",
+          "name": "Oxford shirt",
+          "category": "Top",
+          "tags": "Coffee date, Presentation day",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g2",
+          "name": "Knit sweater",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g3",
+          "name": "Graphic tee",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 4,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g5",
+          "name": "Linen trousers",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g6",
+          "name": "Tailored trousers",
+          "category": "Bottom",
+          "tags": "Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g7",
+          "name": "Cargo pants",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "Campus casual, Coffee date",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "Coffee date, Presentation day",
+          "wears": 2,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "Presentation day",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 5,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "missing-shoes-2",
+      "scenario": "missing-shoes",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g1",
+          "name": "Oxford shirt",
+          "category": "Top",
+          "tags": "Coffee date, Presentation day",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g2",
+          "name": "Knit sweater",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g3",
+          "name": "Graphic tee",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g5",
+          "name": "Linen trousers",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g6",
+          "name": "Tailored trousers",
+          "category": "Bottom",
+          "tags": "Presentation day",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g7",
+          "name": "Cargo pants",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "Campus casual, Coffee date",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "Coffee date, Presentation day",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "Presentation day",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 8,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "missing-shoes-3",
+      "scenario": "missing-shoes",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g1",
+          "name": "Oxford shirt",
+          "category": "Top",
+          "tags": "Coffee date, Presentation day",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g2",
+          "name": "Knit sweater",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g3",
+          "name": "Graphic tee",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date",
+          "wears": 7,
+          "color": "#808080"
+        },
+        {
+          "id": "g5",
+          "name": "Linen trousers",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g6",
+          "name": "Tailored trousers",
+          "category": "Bottom",
+          "tags": "Presentation day",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g7",
+          "name": "Cargo pants",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "Campus casual, Coffee date",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "Coffee date, Presentation day",
+          "wears": 2,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 6,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "sparse-1",
+      "scenario": "sparse",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual, Coffee date",
+          "wears": 0,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "sparse-2",
+      "scenario": "sparse",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual, Coffee date",
+          "wears": 8,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "sparse-3",
+      "scenario": "sparse",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date",
+          "wears": 7,
+          "color": "#808080"
+        },
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual, Coffee date",
+          "wears": 0,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "unknown-tags-1",
+      "scenario": "unknown-tags",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g1",
+          "name": "Oxford shirt",
+          "category": "Top",
+          "tags": "",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g2",
+          "name": "Knit sweater",
+          "category": "Top",
+          "tags": "",
+          "wears": 2,
+          "color": "#808080"
+        },
+        {
+          "id": "g3",
+          "name": "Graphic tee",
+          "category": "Top",
+          "tags": "",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g5",
+          "name": "Linen trousers",
+          "category": "Bottom",
+          "tags": "",
+          "wears": 4,
+          "color": "#808080"
+        },
+        {
+          "id": "g6",
+          "name": "Tailored trousers",
+          "category": "Bottom",
+          "tags": "",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g7",
+          "name": "Cargo pants",
+          "category": "Bottom",
+          "tags": "",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Shoes",
+          "tags": "",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g9",
+          "name": "Leather loafers",
+          "category": "Shoes",
+          "tags": "",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g10",
+          "name": "Canvas sneakers",
+          "category": "Shoes",
+          "tags": "",
+          "wears": 4,
+          "color": "#808080"
+        },
+        {
+          "id": "g11",
+          "name": "Ankle boots",
+          "category": "Shoes",
+          "tags": "",
+          "wears": 4,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "",
+          "wears": 2,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "unknown-tags-2",
+      "scenario": "unknown-tags",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g1",
+          "name": "Oxford shirt",
+          "category": "Top",
+          "tags": "",
+          "wears": 7,
+          "color": "#808080"
+        },
+        {
+          "id": "g2",
+          "name": "Knit sweater",
+          "category": "Top",
+          "tags": "",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g3",
+          "name": "Graphic tee",
+          "category": "Top",
+          "tags": "",
+          "wears": 7,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g5",
+          "name": "Linen trousers",
+          "category": "Bottom",
+          "tags": "",
+          "wears": 9,
+          "color": "#808080"
+        },
+        {
+          "id": "g6",
+          "name": "Tailored trousers",
+          "category": "Bottom",
+          "tags": "",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g7",
+          "name": "Cargo pants",
+          "category": "Bottom",
+          "tags": "",
+          "wears": 9,
+          "color": "#808080"
+        },
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Shoes",
+          "tags": "",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g9",
+          "name": "Leather loafers",
+          "category": "Shoes",
+          "tags": "",
+          "wears": 7,
+          "color": "#808080"
+        },
+        {
+          "id": "g10",
+          "name": "Canvas sneakers",
+          "category": "Shoes",
+          "tags": "",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g11",
+          "name": "Ankle boots",
+          "category": "Shoes",
+          "tags": "",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "",
+          "wears": 7,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "unknown-tags-3",
+      "scenario": "unknown-tags",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g1",
+          "name": "Oxford shirt",
+          "category": "Top",
+          "tags": "",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g2",
+          "name": "Knit sweater",
+          "category": "Top",
+          "tags": "",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g3",
+          "name": "Graphic tee",
+          "category": "Top",
+          "tags": "",
+          "wears": 4,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g5",
+          "name": "Linen trousers",
+          "category": "Bottom",
+          "tags": "",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g6",
+          "name": "Tailored trousers",
+          "category": "Bottom",
+          "tags": "",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g7",
+          "name": "Cargo pants",
+          "category": "Bottom",
+          "tags": "",
+          "wears": 4,
+          "color": "#808080"
+        },
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Shoes",
+          "tags": "",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g9",
+          "name": "Leather loafers",
+          "category": "Shoes",
+          "tags": "",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g10",
+          "name": "Canvas sneakers",
+          "category": "Shoes",
+          "tags": "",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g11",
+          "name": "Ankle boots",
+          "category": "Shoes",
+          "tags": "",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "",
+          "wears": 11,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "all-used-1",
+      "scenario": "all-used",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date",
+          "wears": 12,
+          "color": "#808080"
+        },
+        {
+          "id": "g1",
+          "name": "Oxford shirt",
+          "category": "Top",
+          "tags": "Coffee date, Presentation day",
+          "wears": 12,
+          "color": "#808080"
+        },
+        {
+          "id": "g2",
+          "name": "Knit sweater",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 2,
+          "color": "#808080"
+        },
+        {
+          "id": "g3",
+          "name": "Graphic tee",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 9,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g5",
+          "name": "Linen trousers",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 9,
+          "color": "#808080"
+        },
+        {
+          "id": "g6",
+          "name": "Tailored trousers",
+          "category": "Bottom",
+          "tags": "Presentation day",
+          "wears": 7,
+          "color": "#808080"
+        },
+        {
+          "id": "g7",
+          "name": "Cargo pants",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual, Coffee date",
+          "wears": 13,
+          "color": "#808080"
+        },
+        {
+          "id": "g9",
+          "name": "Leather loafers",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g10",
+          "name": "Canvas sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g11",
+          "name": "Ankle boots",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 12,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "Campus casual, Coffee date",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "Coffee date, Presentation day",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "Presentation day",
+          "wears": 4,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 3,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "all-used-2",
+      "scenario": "all-used",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date",
+          "wears": 7,
+          "color": "#808080"
+        },
+        {
+          "id": "g1",
+          "name": "Oxford shirt",
+          "category": "Top",
+          "tags": "Coffee date, Presentation day",
+          "wears": 7,
+          "color": "#808080"
+        },
+        {
+          "id": "g2",
+          "name": "Knit sweater",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g3",
+          "name": "Graphic tee",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date",
+          "wears": 7,
+          "color": "#808080"
+        },
+        {
+          "id": "g5",
+          "name": "Linen trousers",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g6",
+          "name": "Tailored trousers",
+          "category": "Bottom",
+          "tags": "Presentation day",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g7",
+          "name": "Cargo pants",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual, Coffee date",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g9",
+          "name": "Leather loafers",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g10",
+          "name": "Canvas sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g11",
+          "name": "Ankle boots",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 4,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "Campus casual, Coffee date",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "Coffee date, Presentation day",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "Presentation day",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 6,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "all-used-3",
+      "scenario": "all-used",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g1",
+          "name": "Oxford shirt",
+          "category": "Top",
+          "tags": "Coffee date, Presentation day",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g2",
+          "name": "Knit sweater",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g3",
+          "name": "Graphic tee",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 2,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date",
+          "wears": 7,
+          "color": "#808080"
+        },
+        {
+          "id": "g5",
+          "name": "Linen trousers",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 2,
+          "color": "#808080"
+        },
+        {
+          "id": "g6",
+          "name": "Tailored trousers",
+          "category": "Bottom",
+          "tags": "Presentation day",
+          "wears": 2,
+          "color": "#808080"
+        },
+        {
+          "id": "g7",
+          "name": "Cargo pants",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 13,
+          "color": "#808080"
+        },
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual, Coffee date",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g9",
+          "name": "Leather loafers",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 9,
+          "color": "#808080"
+        },
+        {
+          "id": "g10",
+          "name": "Canvas sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g11",
+          "name": "Ankle boots",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "Campus casual, Coffee date",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "Coffee date, Presentation day",
+          "wears": 2,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "Presentation day",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 12,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "mixed-case-1",
+      "scenario": "mixed-case",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "CAMPUS CASUAL ,  COFFEE DATE",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g1",
+          "name": "Oxford shirt",
+          "category": "Top",
+          "tags": "COFFEE DATE ,  PRESENTATION DAY",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g2",
+          "name": "Knit sweater",
+          "category": "Top",
+          "tags": "CAMPUS CASUAL ,  COFFEE DATE ,  PRESENTATION DAY",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g3",
+          "name": "Graphic tee",
+          "category": "Top",
+          "tags": "CAMPUS CASUAL",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "CAMPUS CASUAL ,  COFFEE DATE",
+          "wears": 2,
+          "color": "#808080"
+        },
+        {
+          "id": "g5",
+          "name": "Linen trousers",
+          "category": "Bottom",
+          "tags": "CAMPUS CASUAL ,  COFFEE DATE ,  PRESENTATION DAY",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g6",
+          "name": "Tailored trousers",
+          "category": "Bottom",
+          "tags": "PRESENTATION DAY",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g7",
+          "name": "Cargo pants",
+          "category": "Bottom",
+          "tags": "CAMPUS CASUAL",
+          "wears": 4,
+          "color": "#808080"
+        },
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Shoes",
+          "tags": "CAMPUS CASUAL ,  COFFEE DATE",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g9",
+          "name": "Leather loafers",
+          "category": "Shoes",
+          "tags": "COFFEE DATE ,  PRESENTATION DAY",
+          "wears": 4,
+          "color": "#808080"
+        },
+        {
+          "id": "g10",
+          "name": "Canvas sneakers",
+          "category": "Shoes",
+          "tags": "CAMPUS CASUAL",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g11",
+          "name": "Ankle boots",
+          "category": "Shoes",
+          "tags": "COFFEE DATE ,  PRESENTATION DAY",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "CAMPUS CASUAL ,  COFFEE DATE",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "COFFEE DATE ,  PRESENTATION DAY",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "PRESENTATION DAY",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "CAMPUS CASUAL ,  COFFEE DATE ,  PRESENTATION DAY",
+          "wears": 10,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "mixed-case-2",
+      "scenario": "mixed-case",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "CAMPUS CASUAL ,  COFFEE DATE",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g1",
+          "name": "Oxford shirt",
+          "category": "Top",
+          "tags": "COFFEE DATE ,  PRESENTATION DAY",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g2",
+          "name": "Knit sweater",
+          "category": "Top",
+          "tags": "CAMPUS CASUAL ,  COFFEE DATE ,  PRESENTATION DAY",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g3",
+          "name": "Graphic tee",
+          "category": "Top",
+          "tags": "CAMPUS CASUAL",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "CAMPUS CASUAL ,  COFFEE DATE",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g5",
+          "name": "Linen trousers",
+          "category": "Bottom",
+          "tags": "CAMPUS CASUAL ,  COFFEE DATE ,  PRESENTATION DAY",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g6",
+          "name": "Tailored trousers",
+          "category": "Bottom",
+          "tags": "PRESENTATION DAY",
+          "wears": 9,
+          "color": "#808080"
+        },
+        {
+          "id": "g7",
+          "name": "Cargo pants",
+          "category": "Bottom",
+          "tags": "CAMPUS CASUAL",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Shoes",
+          "tags": "CAMPUS CASUAL ,  COFFEE DATE",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g9",
+          "name": "Leather loafers",
+          "category": "Shoes",
+          "tags": "COFFEE DATE ,  PRESENTATION DAY",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g10",
+          "name": "Canvas sneakers",
+          "category": "Shoes",
+          "tags": "CAMPUS CASUAL",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g11",
+          "name": "Ankle boots",
+          "category": "Shoes",
+          "tags": "COFFEE DATE ,  PRESENTATION DAY",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "CAMPUS CASUAL ,  COFFEE DATE",
+          "wears": 4,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "COFFEE DATE ,  PRESENTATION DAY",
+          "wears": 2,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "PRESENTATION DAY",
+          "wears": 7,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "CAMPUS CASUAL ,  COFFEE DATE ,  PRESENTATION DAY",
+          "wears": 9,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "mixed-case-3",
+      "scenario": "mixed-case",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "CAMPUS CASUAL ,  COFFEE DATE",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g1",
+          "name": "Oxford shirt",
+          "category": "Top",
+          "tags": "COFFEE DATE ,  PRESENTATION DAY",
+          "wears": 7,
+          "color": "#808080"
+        },
+        {
+          "id": "g2",
+          "name": "Knit sweater",
+          "category": "Top",
+          "tags": "CAMPUS CASUAL ,  COFFEE DATE ,  PRESENTATION DAY",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g3",
+          "name": "Graphic tee",
+          "category": "Top",
+          "tags": "CAMPUS CASUAL",
+          "wears": 2,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "CAMPUS CASUAL ,  COFFEE DATE",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g5",
+          "name": "Linen trousers",
+          "category": "Bottom",
+          "tags": "CAMPUS CASUAL ,  COFFEE DATE ,  PRESENTATION DAY",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g6",
+          "name": "Tailored trousers",
+          "category": "Bottom",
+          "tags": "PRESENTATION DAY",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g7",
+          "name": "Cargo pants",
+          "category": "Bottom",
+          "tags": "CAMPUS CASUAL",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Shoes",
+          "tags": "CAMPUS CASUAL ,  COFFEE DATE",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g9",
+          "name": "Leather loafers",
+          "category": "Shoes",
+          "tags": "COFFEE DATE ,  PRESENTATION DAY",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g10",
+          "name": "Canvas sneakers",
+          "category": "Shoes",
+          "tags": "CAMPUS CASUAL",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g11",
+          "name": "Ankle boots",
+          "category": "Shoes",
+          "tags": "COFFEE DATE ,  PRESENTATION DAY",
+          "wears": 7,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "CAMPUS CASUAL ,  COFFEE DATE",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "COFFEE DATE ,  PRESENTATION DAY",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "PRESENTATION DAY",
+          "wears": 2,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "CAMPUS CASUAL ,  COFFEE DATE ,  PRESENTATION DAY",
+          "wears": 5,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "dress-alternative-1",
+      "scenario": "dress-alternative",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g1",
+          "name": "Oxford shirt",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 2,
+          "color": "#808080"
+        },
+        {
+          "id": "g2",
+          "name": "Knit sweater",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g3",
+          "name": "Graphic tee",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 2,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 9,
+          "color": "#808080"
+        },
+        {
+          "id": "g5",
+          "name": "Linen trousers",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 9,
+          "color": "#808080"
+        },
+        {
+          "id": "g6",
+          "name": "Tailored trousers",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g7",
+          "name": "Cargo pants",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual, Coffee date",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g9",
+          "name": "Leather loafers",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g10",
+          "name": "Canvas sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g11",
+          "name": "Ankle boots",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 9,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "Campus casual, Coffee date",
+          "wears": 4,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "Coffee date, Presentation day",
+          "wears": 9,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "Presentation day",
+          "wears": 7,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 8,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "dress-alternative-2",
+      "scenario": "dress-alternative",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g1",
+          "name": "Oxford shirt",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g2",
+          "name": "Knit sweater",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g3",
+          "name": "Graphic tee",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g5",
+          "name": "Linen trousers",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g6",
+          "name": "Tailored trousers",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g7",
+          "name": "Cargo pants",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual, Coffee date",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g9",
+          "name": "Leather loafers",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g10",
+          "name": "Canvas sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g11",
+          "name": "Ankle boots",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 4,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "Campus casual, Coffee date",
+          "wears": 9,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "Coffee date, Presentation day",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "Presentation day",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 1,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "dress-alternative-3",
+      "scenario": "dress-alternative",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g1",
+          "name": "Oxford shirt",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 7,
+          "color": "#808080"
+        },
+        {
+          "id": "g2",
+          "name": "Knit sweater",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 4,
+          "color": "#808080"
+        },
+        {
+          "id": "g3",
+          "name": "Graphic tee",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 7,
+          "color": "#808080"
+        },
+        {
+          "id": "g5",
+          "name": "Linen trousers",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g6",
+          "name": "Tailored trousers",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g7",
+          "name": "Cargo pants",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual, Coffee date",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g9",
+          "name": "Leather loafers",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g10",
+          "name": "Canvas sneakers",
+          "category": "Shoes",
+          "tags": "Campus casual",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g11",
+          "name": "Ankle boots",
+          "category": "Shoes",
+          "tags": "Coffee date, Presentation day",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "Campus casual, Coffee date",
+          "wears": 2,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "Presentation day",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 4,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "mislabeled-1",
+      "scenario": "mislabeled",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g1",
+          "name": "Oxford shirt",
+          "category": "Top",
+          "tags": "Coffee date, Presentation day",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g2",
+          "name": "Knit sweater",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 9,
+          "color": "#808080"
+        },
+        {
+          "id": "g3",
+          "name": "Graphic tee",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g5",
+          "name": "Linen trousers",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 3,
+          "color": "#808080"
+        },
+        {
+          "id": "g6",
+          "name": "Tailored trousers",
+          "category": "Bottom",
+          "tags": "Presentation day",
+          "wears": 4,
+          "color": "#808080"
+        },
+        {
+          "id": "g7",
+          "name": "Cargo pants",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Accessory",
+          "tags": "Campus casual, Coffee date",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g9",
+          "name": "Leather loafers",
+          "category": "Accessory",
+          "tags": "Coffee date, Presentation day",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g10",
+          "name": "Canvas sneakers",
+          "category": "Accessory",
+          "tags": "Campus casual",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g11",
+          "name": "Ankle boots",
+          "category": "Accessory",
+          "tags": "Coffee date, Presentation day",
+          "wears": 4,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "Campus casual, Coffee date",
+          "wears": 4,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "Coffee date, Presentation day",
+          "wears": 2,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "Presentation day",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 11,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "mislabeled-2",
+      "scenario": "mislabeled",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g1",
+          "name": "Oxford shirt",
+          "category": "Top",
+          "tags": "Coffee date, Presentation day",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g2",
+          "name": "Knit sweater",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g3",
+          "name": "Graphic tee",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 9,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g5",
+          "name": "Linen trousers",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 7,
+          "color": "#808080"
+        },
+        {
+          "id": "g6",
+          "name": "Tailored trousers",
+          "category": "Bottom",
+          "tags": "Presentation day",
+          "wears": 7,
+          "color": "#808080"
+        },
+        {
+          "id": "g7",
+          "name": "Cargo pants",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 0,
+          "color": "#808080"
+        },
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Accessory",
+          "tags": "Campus casual, Coffee date",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g9",
+          "name": "Leather loafers",
+          "category": "Accessory",
+          "tags": "Coffee date, Presentation day",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g10",
+          "name": "Canvas sneakers",
+          "category": "Accessory",
+          "tags": "Campus casual",
+          "wears": 4,
+          "color": "#808080"
+        },
+        {
+          "id": "g11",
+          "name": "Ankle boots",
+          "category": "Accessory",
+          "tags": "Coffee date, Presentation day",
+          "wears": 4,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "Campus casual, Coffee date",
+          "wears": 8,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "Presentation day",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 5,
+          "color": "#808080"
+        }
+      ]
+    },
+    {
+      "id": "mislabeled-3",
+      "scenario": "mislabeled",
+      "items": [
+        {
+          "id": "g0",
+          "name": "Cotton tee",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g1",
+          "name": "Oxford shirt",
+          "category": "Top",
+          "tags": "Coffee date, Presentation day",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g2",
+          "name": "Knit sweater",
+          "category": "Top",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 11,
+          "color": "#808080"
+        },
+        {
+          "id": "g3",
+          "name": "Graphic tee",
+          "category": "Top",
+          "tags": "Campus casual",
+          "wears": 9,
+          "color": "#808080"
+        },
+        {
+          "id": "g4",
+          "name": "Blue jeans",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date",
+          "wears": 6,
+          "color": "#808080"
+        },
+        {
+          "id": "g5",
+          "name": "Linen trousers",
+          "category": "Bottom",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 9,
+          "color": "#808080"
+        },
+        {
+          "id": "g6",
+          "name": "Tailored trousers",
+          "category": "Bottom",
+          "tags": "Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g7",
+          "name": "Cargo pants",
+          "category": "Bottom",
+          "tags": "Campus casual",
+          "wears": 1,
+          "color": "#808080"
+        },
+        {
+          "id": "g8",
+          "name": "White sneakers",
+          "category": "Accessory",
+          "tags": "Campus casual, Coffee date",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g9",
+          "name": "Leather loafers",
+          "category": "Accessory",
+          "tags": "Coffee date, Presentation day",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g10",
+          "name": "Canvas sneakers",
+          "category": "Accessory",
+          "tags": "Campus casual",
+          "wears": 10,
+          "color": "#808080"
+        },
+        {
+          "id": "g11",
+          "name": "Ankle boots",
+          "category": "Accessory",
+          "tags": "Coffee date, Presentation day",
+          "wears": 5,
+          "color": "#808080"
+        },
+        {
+          "id": "g12",
+          "name": "Cotton dress",
+          "category": "Dress",
+          "tags": "Campus casual, Coffee date",
+          "wears": 7,
+          "color": "#808080"
+        },
+        {
+          "id": "g13",
+          "name": "Midi dress",
+          "category": "Dress",
+          "tags": "Coffee date, Presentation day",
+          "wears": 9,
+          "color": "#808080"
+        },
+        {
+          "id": "g14",
+          "name": "Blazer",
+          "category": "Outerwear",
+          "tags": "Presentation day",
+          "wears": 4,
+          "color": "#808080"
+        },
+        {
+          "id": "g15",
+          "name": "Cardigan",
+          "category": "Outerwear",
+          "tags": "Campus casual, Coffee date, Presentation day",
+          "wears": 6,
+          "color": "#808080"
+        }
+      ]
+    }
+  ],
+  "queries": [
+    {
+      "id": "balanced-1-0-style",
+      "wardrobeId": "balanced-1",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "balanced-1-0-quest",
+      "wardrobeId": "balanced-1",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "balanced-1-1-style",
+      "wardrobeId": "balanced-1",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "balanced-1-1-quest",
+      "wardrobeId": "balanced-1",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "balanced-1-2-style",
+      "wardrobeId": "balanced-1",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "balanced-1-2-quest",
+      "wardrobeId": "balanced-1",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "balanced-2-0-style",
+      "wardrobeId": "balanced-2",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "balanced-2-0-quest",
+      "wardrobeId": "balanced-2",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "balanced-2-1-style",
+      "wardrobeId": "balanced-2",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "balanced-2-1-quest",
+      "wardrobeId": "balanced-2",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "balanced-2-2-style",
+      "wardrobeId": "balanced-2",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "balanced-2-2-quest",
+      "wardrobeId": "balanced-2",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "balanced-3-0-style",
+      "wardrobeId": "balanced-3",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "balanced-3-0-quest",
+      "wardrobeId": "balanced-3",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "balanced-3-1-style",
+      "wardrobeId": "balanced-3",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "balanced-3-1-quest",
+      "wardrobeId": "balanced-3",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "balanced-3-2-style",
+      "wardrobeId": "balanced-3",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "balanced-3-2-quest",
+      "wardrobeId": "balanced-3",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "context-conflict-1-0-style",
+      "wardrobeId": "context-conflict-1",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "context-conflict-1-0-quest",
+      "wardrobeId": "context-conflict-1",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "context-conflict-1-1-style",
+      "wardrobeId": "context-conflict-1",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "context-conflict-1-1-quest",
+      "wardrobeId": "context-conflict-1",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "context-conflict-1-2-style",
+      "wardrobeId": "context-conflict-1",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "context-conflict-1-2-quest",
+      "wardrobeId": "context-conflict-1",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "context-conflict-2-0-style",
+      "wardrobeId": "context-conflict-2",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "context-conflict-2-0-quest",
+      "wardrobeId": "context-conflict-2",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "context-conflict-2-1-style",
+      "wardrobeId": "context-conflict-2",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "context-conflict-2-1-quest",
+      "wardrobeId": "context-conflict-2",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "context-conflict-2-2-style",
+      "wardrobeId": "context-conflict-2",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "context-conflict-2-2-quest",
+      "wardrobeId": "context-conflict-2",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "context-conflict-3-0-style",
+      "wardrobeId": "context-conflict-3",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "context-conflict-3-0-quest",
+      "wardrobeId": "context-conflict-3",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "context-conflict-3-1-style",
+      "wardrobeId": "context-conflict-3",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "context-conflict-3-1-quest",
+      "wardrobeId": "context-conflict-3",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "context-conflict-3-2-style",
+      "wardrobeId": "context-conflict-3",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "context-conflict-3-2-quest",
+      "wardrobeId": "context-conflict-3",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "dress-only-1-0-style",
+      "wardrobeId": "dress-only-1",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "dress-only-1-0-quest",
+      "wardrobeId": "dress-only-1",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "dress-only-1-1-style",
+      "wardrobeId": "dress-only-1",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "dress-only-1-1-quest",
+      "wardrobeId": "dress-only-1",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "dress-only-1-2-style",
+      "wardrobeId": "dress-only-1",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "dress-only-1-2-quest",
+      "wardrobeId": "dress-only-1",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "dress-only-2-0-style",
+      "wardrobeId": "dress-only-2",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "dress-only-2-0-quest",
+      "wardrobeId": "dress-only-2",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "dress-only-2-1-style",
+      "wardrobeId": "dress-only-2",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "dress-only-2-1-quest",
+      "wardrobeId": "dress-only-2",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "dress-only-2-2-style",
+      "wardrobeId": "dress-only-2",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "dress-only-2-2-quest",
+      "wardrobeId": "dress-only-2",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "dress-only-3-0-style",
+      "wardrobeId": "dress-only-3",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "dress-only-3-0-quest",
+      "wardrobeId": "dress-only-3",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "dress-only-3-1-style",
+      "wardrobeId": "dress-only-3",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "dress-only-3-1-quest",
+      "wardrobeId": "dress-only-3",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "dress-only-3-2-style",
+      "wardrobeId": "dress-only-3",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "dress-only-3-2-quest",
+      "wardrobeId": "dress-only-3",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "missing-shoes-1-0-style",
+      "wardrobeId": "missing-shoes-1",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "missing-shoes-1-0-quest",
+      "wardrobeId": "missing-shoes-1",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "missing-shoes-1-1-style",
+      "wardrobeId": "missing-shoes-1",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "missing-shoes-1-1-quest",
+      "wardrobeId": "missing-shoes-1",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "missing-shoes-1-2-style",
+      "wardrobeId": "missing-shoes-1",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "missing-shoes-1-2-quest",
+      "wardrobeId": "missing-shoes-1",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "missing-shoes-2-0-style",
+      "wardrobeId": "missing-shoes-2",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "missing-shoes-2-0-quest",
+      "wardrobeId": "missing-shoes-2",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "missing-shoes-2-1-style",
+      "wardrobeId": "missing-shoes-2",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "missing-shoes-2-1-quest",
+      "wardrobeId": "missing-shoes-2",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "missing-shoes-2-2-style",
+      "wardrobeId": "missing-shoes-2",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "missing-shoes-2-2-quest",
+      "wardrobeId": "missing-shoes-2",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "missing-shoes-3-0-style",
+      "wardrobeId": "missing-shoes-3",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "missing-shoes-3-0-quest",
+      "wardrobeId": "missing-shoes-3",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "missing-shoes-3-1-style",
+      "wardrobeId": "missing-shoes-3",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "missing-shoes-3-1-quest",
+      "wardrobeId": "missing-shoes-3",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "missing-shoes-3-2-style",
+      "wardrobeId": "missing-shoes-3",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "missing-shoes-3-2-quest",
+      "wardrobeId": "missing-shoes-3",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "sparse-1-0-style",
+      "wardrobeId": "sparse-1",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "sparse-1-0-quest",
+      "wardrobeId": "sparse-1",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "sparse-1-1-style",
+      "wardrobeId": "sparse-1",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "sparse-1-1-quest",
+      "wardrobeId": "sparse-1",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "sparse-1-2-style",
+      "wardrobeId": "sparse-1",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "sparse-1-2-quest",
+      "wardrobeId": "sparse-1",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "sparse-2-0-style",
+      "wardrobeId": "sparse-2",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "sparse-2-0-quest",
+      "wardrobeId": "sparse-2",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "sparse-2-1-style",
+      "wardrobeId": "sparse-2",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "sparse-2-1-quest",
+      "wardrobeId": "sparse-2",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "sparse-2-2-style",
+      "wardrobeId": "sparse-2",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "sparse-2-2-quest",
+      "wardrobeId": "sparse-2",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "sparse-3-0-style",
+      "wardrobeId": "sparse-3",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "sparse-3-0-quest",
+      "wardrobeId": "sparse-3",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "sparse-3-1-style",
+      "wardrobeId": "sparse-3",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "sparse-3-1-quest",
+      "wardrobeId": "sparse-3",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "sparse-3-2-style",
+      "wardrobeId": "sparse-3",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "sparse-3-2-quest",
+      "wardrobeId": "sparse-3",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "unknown-tags-1-0-style",
+      "wardrobeId": "unknown-tags-1",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "unknown-tags-1-0-quest",
+      "wardrobeId": "unknown-tags-1",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "unknown-tags-1-1-style",
+      "wardrobeId": "unknown-tags-1",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "unknown-tags-1-1-quest",
+      "wardrobeId": "unknown-tags-1",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "unknown-tags-1-2-style",
+      "wardrobeId": "unknown-tags-1",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "unknown-tags-1-2-quest",
+      "wardrobeId": "unknown-tags-1",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "unknown-tags-2-0-style",
+      "wardrobeId": "unknown-tags-2",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "unknown-tags-2-0-quest",
+      "wardrobeId": "unknown-tags-2",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "unknown-tags-2-1-style",
+      "wardrobeId": "unknown-tags-2",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "unknown-tags-2-1-quest",
+      "wardrobeId": "unknown-tags-2",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "unknown-tags-2-2-style",
+      "wardrobeId": "unknown-tags-2",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "unknown-tags-2-2-quest",
+      "wardrobeId": "unknown-tags-2",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "unknown-tags-3-0-style",
+      "wardrobeId": "unknown-tags-3",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "unknown-tags-3-0-quest",
+      "wardrobeId": "unknown-tags-3",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "unknown-tags-3-1-style",
+      "wardrobeId": "unknown-tags-3",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "unknown-tags-3-1-quest",
+      "wardrobeId": "unknown-tags-3",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "unknown-tags-3-2-style",
+      "wardrobeId": "unknown-tags-3",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "unknown-tags-3-2-quest",
+      "wardrobeId": "unknown-tags-3",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "all-used-1-0-style",
+      "wardrobeId": "all-used-1",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "all-used-1-0-quest",
+      "wardrobeId": "all-used-1",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "all-used-1-1-style",
+      "wardrobeId": "all-used-1",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "all-used-1-1-quest",
+      "wardrobeId": "all-used-1",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "all-used-1-2-style",
+      "wardrobeId": "all-used-1",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "all-used-1-2-quest",
+      "wardrobeId": "all-used-1",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "all-used-2-0-style",
+      "wardrobeId": "all-used-2",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "all-used-2-0-quest",
+      "wardrobeId": "all-used-2",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "all-used-2-1-style",
+      "wardrobeId": "all-used-2",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "all-used-2-1-quest",
+      "wardrobeId": "all-used-2",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "all-used-2-2-style",
+      "wardrobeId": "all-used-2",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "all-used-2-2-quest",
+      "wardrobeId": "all-used-2",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "all-used-3-0-style",
+      "wardrobeId": "all-used-3",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "all-used-3-0-quest",
+      "wardrobeId": "all-used-3",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "all-used-3-1-style",
+      "wardrobeId": "all-used-3",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "all-used-3-1-quest",
+      "wardrobeId": "all-used-3",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "all-used-3-2-style",
+      "wardrobeId": "all-used-3",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "all-used-3-2-quest",
+      "wardrobeId": "all-used-3",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "mixed-case-1-0-style",
+      "wardrobeId": "mixed-case-1",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "mixed-case-1-0-quest",
+      "wardrobeId": "mixed-case-1",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "mixed-case-1-1-style",
+      "wardrobeId": "mixed-case-1",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "mixed-case-1-1-quest",
+      "wardrobeId": "mixed-case-1",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "mixed-case-1-2-style",
+      "wardrobeId": "mixed-case-1",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "mixed-case-1-2-quest",
+      "wardrobeId": "mixed-case-1",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "mixed-case-2-0-style",
+      "wardrobeId": "mixed-case-2",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "mixed-case-2-0-quest",
+      "wardrobeId": "mixed-case-2",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "mixed-case-2-1-style",
+      "wardrobeId": "mixed-case-2",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "mixed-case-2-1-quest",
+      "wardrobeId": "mixed-case-2",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "mixed-case-2-2-style",
+      "wardrobeId": "mixed-case-2",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "mixed-case-2-2-quest",
+      "wardrobeId": "mixed-case-2",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "mixed-case-3-0-style",
+      "wardrobeId": "mixed-case-3",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "mixed-case-3-0-quest",
+      "wardrobeId": "mixed-case-3",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "mixed-case-3-1-style",
+      "wardrobeId": "mixed-case-3",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "mixed-case-3-1-quest",
+      "wardrobeId": "mixed-case-3",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "mixed-case-3-2-style",
+      "wardrobeId": "mixed-case-3",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "mixed-case-3-2-quest",
+      "wardrobeId": "mixed-case-3",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "dress-alternative-1-0-style",
+      "wardrobeId": "dress-alternative-1",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "dress-alternative-1-0-quest",
+      "wardrobeId": "dress-alternative-1",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "dress-alternative-1-1-style",
+      "wardrobeId": "dress-alternative-1",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "dress-alternative-1-1-quest",
+      "wardrobeId": "dress-alternative-1",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "dress-alternative-1-2-style",
+      "wardrobeId": "dress-alternative-1",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "dress-alternative-1-2-quest",
+      "wardrobeId": "dress-alternative-1",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "dress-alternative-2-0-style",
+      "wardrobeId": "dress-alternative-2",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "dress-alternative-2-0-quest",
+      "wardrobeId": "dress-alternative-2",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "dress-alternative-2-1-style",
+      "wardrobeId": "dress-alternative-2",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "dress-alternative-2-1-quest",
+      "wardrobeId": "dress-alternative-2",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "dress-alternative-2-2-style",
+      "wardrobeId": "dress-alternative-2",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "dress-alternative-2-2-quest",
+      "wardrobeId": "dress-alternative-2",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "dress-alternative-3-0-style",
+      "wardrobeId": "dress-alternative-3",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "dress-alternative-3-0-quest",
+      "wardrobeId": "dress-alternative-3",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "dress-alternative-3-1-style",
+      "wardrobeId": "dress-alternative-3",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "dress-alternative-3-1-quest",
+      "wardrobeId": "dress-alternative-3",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "dress-alternative-3-2-style",
+      "wardrobeId": "dress-alternative-3",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "dress-alternative-3-2-quest",
+      "wardrobeId": "dress-alternative-3",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "mislabeled-1-0-style",
+      "wardrobeId": "mislabeled-1",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "mislabeled-1-0-quest",
+      "wardrobeId": "mislabeled-1",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "mislabeled-1-1-style",
+      "wardrobeId": "mislabeled-1",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "mislabeled-1-1-quest",
+      "wardrobeId": "mislabeled-1",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "mislabeled-1-2-style",
+      "wardrobeId": "mislabeled-1",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "mislabeled-1-2-quest",
+      "wardrobeId": "mislabeled-1",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "mislabeled-2-0-style",
+      "wardrobeId": "mislabeled-2",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "mislabeled-2-0-quest",
+      "wardrobeId": "mislabeled-2",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "mislabeled-2-1-style",
+      "wardrobeId": "mislabeled-2",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "mislabeled-2-1-quest",
+      "wardrobeId": "mislabeled-2",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "mislabeled-2-2-style",
+      "wardrobeId": "mislabeled-2",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "mislabeled-2-2-quest",
+      "wardrobeId": "mislabeled-2",
+      "context": "Presentation day",
+      "requireLowUse": true
+    },
+    {
+      "id": "mislabeled-3-0-style",
+      "wardrobeId": "mislabeled-3",
+      "context": "Campus casual",
+      "requireLowUse": false
+    },
+    {
+      "id": "mislabeled-3-0-quest",
+      "wardrobeId": "mislabeled-3",
+      "context": "Campus casual",
+      "requireLowUse": true
+    },
+    {
+      "id": "mislabeled-3-1-style",
+      "wardrobeId": "mislabeled-3",
+      "context": "Coffee date",
+      "requireLowUse": false
+    },
+    {
+      "id": "mislabeled-3-1-quest",
+      "wardrobeId": "mislabeled-3",
+      "context": "Coffee date",
+      "requireLowUse": true
+    },
+    {
+      "id": "mislabeled-3-2-style",
+      "wardrobeId": "mislabeled-3",
+      "context": "Presentation day",
+      "requireLowUse": false
+    },
+    {
+      "id": "mislabeled-3-2-quest",
+      "wardrobeId": "mislabeled-3",
+      "context": "Presentation day",
+      "requireLowUse": true
+    }
+  ]
+}

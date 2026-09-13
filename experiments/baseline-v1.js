@@ -1,4 +1,3 @@
-import { rankOutfits, validShape, matchesContext } from './recommender.js';
 export const categories = ['Top', 'Bottom', 'Shoes', 'Outerwear', 'Dress', 'Accessory'];
 export const contexts = ['Campus casual', 'Coffee date', 'Presentation day'];
 export const quests = [
@@ -12,18 +11,23 @@ export function initialState() {
     { id: '2', name: 'Straight-leg denim', category: 'Bottom', color: '#6f8b9e', tags: 'Campus casual, Coffee date', wears: 12 },
     { id: '3', name: 'Classic sneakers', category: 'Shoes', color: '#e9e5dd', tags: 'Campus casual, Coffee date, Presentation day', wears: 15 },
     { id: '4', name: 'Forest knit sweater', category: 'Top', color: '#59705a', tags: 'Coffee date, Presentation day', wears: 1 },
-    { id: '5', name: 'Relaxed linen trousers', category: 'Bottom', color: '#b8a48b', tags: 'Campus casual, Coffee date, Presentation day', wears: 0 },
+    { id: '5', name: 'Relaxed linen trousers', category: 'Bottom', color: '#b8a48b', tags: 'Coffee date, Presentation day', wears: 0 },
     { id: '6', name: 'Chocolate blazer', category: 'Outerwear', color: '#785745', tags: 'Presentation day', wears: 0 },
   ] };
 }
 export function recommend(items, context, variation = 0) {
-  const { outfits } = rankOutfits(items, context);
-  return outfits.length ? outfits[Math.abs(Math.floor(variation)) % outfits.length].items : [];
+  const pick = category => {
+    const pool = items.filter(i => i.category === category).sort((a,b) =>
+      Number(b.wears <= 1) - Number(a.wears <= 1) || Number(b.tags.includes(context)) - Number(a.tags.includes(context)) || a.wears - b.wears || a.id.localeCompare(b.id));
+    return pool.length ? pool[variation % pool.length] : null;
+  };
+  const top = pick('Top'), bottom = pick('Bottom'), dress = pick('Dress'), shoes = pick('Shoes');
+  if ((!top || !bottom) && !dress || !shoes) return [];
+  return [...(top && bottom ? [top, bottom] : [dress]), shoes, ...(context === 'Presentation day' && pick('Outerwear') ? [pick('Outerwear')] : [])];
 }
 export function completeQuest(state, quest, outfit, context) {
   if (state.completed.includes(quest.id)) throw new Error('You already completed this quest. Try another one!');
-  const ownedOutfit = outfit.map(i => state.items.find(owned => owned.id === i.id));
-  if (context !== quest.context || ownedOutfit.some(i => !i) || new Set(outfit.map(i => i.id)).size !== outfit.length || !validShape(ownedOutfit) || !ownedOutfit.every(i => matchesContext(i,context))) throw new Error('Generate a complete outfit with matching style tags for this quest first.');
+  if (context !== quest.context || !outfit.length || !outfit.every(i => state.items.some(owned => owned.id === i.id))) throw new Error('Generate an outfit for this quest first.');
   if (quest.id === 'rediscover' && !outfit.some(i => state.items.find(o => o.id === i.id).wears <= 1)) throw new Error('Include an item worn once or less. Try another outfit.');
   return { ...state, xp: state.xp + quest.xp, completed: [...state.completed, quest.id], submissions: [...state.submissions, { questId: quest.id, itemIds: outfit.map(i => i.id), submittedAt: new Date().toISOString() }] };
 }

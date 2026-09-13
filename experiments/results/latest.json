@@ -1,0 +1,8013 @@
+{
+  "experiment": "sprint3-outfit-feasibility-v1",
+  "generatedAt": "2026-09-13T04:55:42.247Z",
+  "datasetSha256": "f220a85e17dca209782f1726f1cabbb25b68a60619dfc5571dffc375c3f891a7",
+  "environment": {
+    "node": "v24.19.0",
+    "platform": "win32",
+    "architecture": "x64",
+    "cpu": "AMD Ryzen 9 8945HS w/ Radeon 780M Graphics",
+    "logicalCpus": 16,
+    "ramGiB": 15
+  },
+  "protocol": {
+    "warmupsPerQuery": 5,
+    "timedRepeatsPerQuery": 30,
+    "styleJudgment": "Constraint proxy only; no human preference ratings",
+    "timing": "Warm in-process CPU latency; no network, model inference, database, or image processing"
+  },
+  "summary": {
+    "baseline": {
+      "queries": 180,
+      "eligible": 98,
+      "top3Hits": 78,
+      "top3ConstraintSuccess": 0.7959183673469388,
+      "impossible": 82,
+      "correctAbstentions": 36,
+      "returnedOutfits": 432,
+      "invalidOutfits": 304,
+      "ownedOutfits": 432,
+      "duplicateSuggestions": 36,
+      "timingSamples": 5400,
+      "p50Ms": 0.003999999999990678,
+      "p95Ms": 0.011000000000002785
+    },
+    "prototype": {
+      "queries": 180,
+      "eligible": 98,
+      "top3Hits": 98,
+      "top3ConstraintSuccess": 1,
+      "impossible": 82,
+      "correctAbstentions": 82,
+      "returnedOutfits": 263,
+      "invalidOutfits": 0,
+      "ownedOutfits": 263,
+      "duplicateSuggestions": 0,
+      "timingSamples": 5400,
+      "p50Ms": 0.006000000000000227,
+      "p95Ms": 0.036000000000001364
+    }
+  },
+  "stress": [
+    {
+      "method": "baseline",
+      "size": 50,
+      "samples": 10,
+      "p50Ms": 0.05750000000000455,
+      "p95Ms": 0.0787000000000262
+    },
+    {
+      "method": "prototype",
+      "size": 50,
+      "samples": 10,
+      "p50Ms": 0.14230000000000587,
+      "p95Ms": 0.3089999999999975
+    },
+    {
+      "method": "baseline",
+      "size": 100,
+      "samples": 10,
+      "p50Ms": 0.11180000000001655,
+      "p95Ms": 0.36129999999999995
+    },
+    {
+      "method": "prototype",
+      "size": 100,
+      "samples": 10,
+      "p50Ms": 0.13400000000001455,
+      "p95Ms": 0.2639000000000067
+    },
+    {
+      "method": "baseline",
+      "size": 200,
+      "samples": 10,
+      "p50Ms": 0.23230000000000928,
+      "p95Ms": 0.24399999999999977
+    },
+    {
+      "method": "prototype",
+      "size": 200,
+      "samples": 10,
+      "p50Ms": 0.18200000000001637,
+      "p95Ms": 0.33379999999999654
+    }
+  ],
+  "raw": [
+    {
+      "method": "baseline",
+      "queryId": "balanced-1-0-style",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g3",
+          "g7",
+          "g8"
+        ],
+        [
+          "g0",
+          "g6",
+          "g10"
+        ],
+        [
+          "g2",
+          "g4",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "balanced-1-0-quest",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g3",
+          "g7",
+          "g8"
+        ],
+        [
+          "g0",
+          "g6",
+          "g10"
+        ],
+        [
+          "g2",
+          "g4",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "balanced-1-1-style",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g3",
+          "g6",
+          "g11"
+        ],
+        [
+          "g0",
+          "g7",
+          "g8"
+        ],
+        [
+          "g1",
+          "g4",
+          "g9"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "balanced-1-1-quest",
+      "scenario": "balanced",
+      "possible": true,
+      "success": false,
+      "outfits": [
+        [
+          "g3",
+          "g6",
+          "g11"
+        ],
+        [
+          "g0",
+          "g7",
+          "g8"
+        ],
+        [
+          "g1",
+          "g4",
+          "g9"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "balanced-1-2-style",
+      "scenario": "balanced",
+      "possible": true,
+      "success": false,
+      "outfits": [
+        [
+          "g3",
+          "g6",
+          "g11",
+          "g15"
+        ],
+        [
+          "g1",
+          "g7",
+          "g9",
+          "g14"
+        ],
+        [
+          "g2",
+          "g5",
+          "g8",
+          "g15"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "balanced-1-2-quest",
+      "scenario": "balanced",
+      "possible": true,
+      "success": false,
+      "outfits": [
+        [
+          "g3",
+          "g6",
+          "g11",
+          "g15"
+        ],
+        [
+          "g1",
+          "g7",
+          "g9",
+          "g14"
+        ],
+        [
+          "g2",
+          "g5",
+          "g8",
+          "g15"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "balanced-2-0-style",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g2",
+          "g7",
+          "g8"
+        ],
+        [
+          "g3",
+          "g5",
+          "g10"
+        ],
+        [
+          "g0",
+          "g4",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "balanced-2-0-quest",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g2",
+          "g7",
+          "g8"
+        ],
+        [
+          "g3",
+          "g5",
+          "g10"
+        ],
+        [
+          "g0",
+          "g4",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "balanced-2-1-style",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g2",
+          "g5",
+          "g11"
+        ],
+        [
+          "g1",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g7",
+          "g10"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "balanced-2-1-quest",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g2",
+          "g5",
+          "g11"
+        ],
+        [
+          "g1",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g7",
+          "g10"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "balanced-2-2-style",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g2",
+          "g5",
+          "g11",
+          "g14"
+        ],
+        [
+          "g1",
+          "g6",
+          "g8",
+          "g15"
+        ],
+        [
+          "g3",
+          "g7",
+          "g10",
+          "g14"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "balanced-2-2-quest",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g2",
+          "g5",
+          "g11",
+          "g14"
+        ],
+        [
+          "g1",
+          "g6",
+          "g8",
+          "g15"
+        ],
+        [
+          "g3",
+          "g7",
+          "g10",
+          "g14"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "balanced-3-0-style",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g1",
+          "g7",
+          "g8"
+        ],
+        [
+          "g0",
+          "g5",
+          "g10"
+        ],
+        [
+          "g2",
+          "g4",
+          "g11"
+        ]
+      ],
+      "valid": [
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "balanced-3-0-quest",
+      "scenario": "balanced",
+      "possible": true,
+      "success": false,
+      "outfits": [
+        [
+          "g1",
+          "g7",
+          "g8"
+        ],
+        [
+          "g0",
+          "g5",
+          "g10"
+        ],
+        [
+          "g2",
+          "g4",
+          "g11"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "balanced-3-1-style",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g1",
+          "g7",
+          "g8"
+        ],
+        [
+          "g0",
+          "g5",
+          "g11"
+        ],
+        [
+          "g2",
+          "g4",
+          "g9"
+        ]
+      ],
+      "valid": [
+        false,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "balanced-3-1-quest",
+      "scenario": "balanced",
+      "possible": true,
+      "success": false,
+      "outfits": [
+        [
+          "g1",
+          "g7",
+          "g8"
+        ],
+        [
+          "g0",
+          "g5",
+          "g11"
+        ],
+        [
+          "g2",
+          "g4",
+          "g9"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "balanced-3-2-style",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g1",
+          "g7",
+          "g11",
+          "g14"
+        ],
+        [
+          "g2",
+          "g5",
+          "g9",
+          "g15"
+        ],
+        [
+          "g0",
+          "g6",
+          "g8",
+          "g14"
+        ]
+      ],
+      "valid": [
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "balanced-3-2-quest",
+      "scenario": "balanced",
+      "possible": true,
+      "success": false,
+      "outfits": [
+        [
+          "g1",
+          "g7",
+          "g11",
+          "g14"
+        ],
+        [
+          "g2",
+          "g5",
+          "g9",
+          "g15"
+        ],
+        [
+          "g0",
+          "g6",
+          "g8",
+          "g14"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "context-conflict-1-0-style",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g10"
+        ],
+        [
+          "g3",
+          "g7",
+          "g8"
+        ],
+        [
+          "g2",
+          "g5",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "context-conflict-1-0-quest",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g10"
+        ],
+        [
+          "g3",
+          "g7",
+          "g8"
+        ],
+        [
+          "g2",
+          "g5",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "context-conflict-1-1-style",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g3",
+          "g7",
+          "g10"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "context-conflict-1-1-quest",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g3",
+          "g7",
+          "g10"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "context-conflict-1-2-style",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g10",
+          "g14"
+        ],
+        [
+          "g3",
+          "g7",
+          "g8",
+          "g15"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11",
+          "g14"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "context-conflict-1-2-quest",
+      "scenario": "context-conflict",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g10",
+          "g14"
+        ],
+        [
+          "g3",
+          "g7",
+          "g8",
+          "g15"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11",
+          "g14"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "context-conflict-2-0-style",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g10"
+        ],
+        [
+          "g3",
+          "g7",
+          "g8"
+        ],
+        [
+          "g2",
+          "g5",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "context-conflict-2-0-quest",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g10"
+        ],
+        [
+          "g3",
+          "g7",
+          "g8"
+        ],
+        [
+          "g2",
+          "g5",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "context-conflict-2-1-style",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g3",
+          "g7",
+          "g10"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "context-conflict-2-1-quest",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g3",
+          "g7",
+          "g10"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "context-conflict-2-2-style",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g10",
+          "g14"
+        ],
+        [
+          "g3",
+          "g7",
+          "g8",
+          "g15"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11",
+          "g14"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "context-conflict-2-2-quest",
+      "scenario": "context-conflict",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g10",
+          "g14"
+        ],
+        [
+          "g3",
+          "g7",
+          "g8",
+          "g15"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11",
+          "g14"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "context-conflict-3-0-style",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g10"
+        ],
+        [
+          "g3",
+          "g7",
+          "g8"
+        ],
+        [
+          "g2",
+          "g5",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "context-conflict-3-0-quest",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g10"
+        ],
+        [
+          "g3",
+          "g7",
+          "g8"
+        ],
+        [
+          "g2",
+          "g5",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "context-conflict-3-1-style",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g3",
+          "g7",
+          "g10"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "context-conflict-3-1-quest",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g3",
+          "g7",
+          "g10"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "context-conflict-3-2-style",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g10",
+          "g14"
+        ],
+        [
+          "g3",
+          "g7",
+          "g8",
+          "g15"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11",
+          "g14"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "context-conflict-3-2-quest",
+      "scenario": "context-conflict",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g10",
+          "g14"
+        ],
+        [
+          "g3",
+          "g7",
+          "g8",
+          "g15"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11",
+          "g14"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-only-1-0-style",
+      "scenario": "dress-only",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g10"
+        ],
+        [
+          "g13",
+          "g8"
+        ],
+        [
+          "g12",
+          "g9"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-only-1-0-quest",
+      "scenario": "dress-only",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g10"
+        ],
+        [
+          "g13",
+          "g8"
+        ],
+        [
+          "g12",
+          "g9"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-only-1-1-style",
+      "scenario": "dress-only",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g10"
+        ],
+        [
+          "g13",
+          "g9"
+        ],
+        [
+          "g12",
+          "g11"
+        ]
+      ],
+      "valid": [
+        false,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-only-1-1-quest",
+      "scenario": "dress-only",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g12",
+          "g10"
+        ],
+        [
+          "g13",
+          "g9"
+        ],
+        [
+          "g12",
+          "g11"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-only-1-2-style",
+      "scenario": "dress-only",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g13",
+          "g10",
+          "g15"
+        ],
+        [
+          "g12",
+          "g9",
+          "g14"
+        ],
+        [
+          "g13",
+          "g11",
+          "g15"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-only-1-2-quest",
+      "scenario": "dress-only",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g13",
+          "g10",
+          "g15"
+        ],
+        [
+          "g12",
+          "g9",
+          "g14"
+        ],
+        [
+          "g13",
+          "g11",
+          "g15"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-only-2-0-style",
+      "scenario": "dress-only",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g10"
+        ],
+        [
+          "g13",
+          "g8"
+        ],
+        [
+          "g12",
+          "g9"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-only-2-0-quest",
+      "scenario": "dress-only",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g10"
+        ],
+        [
+          "g13",
+          "g8"
+        ],
+        [
+          "g12",
+          "g9"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-only-2-1-style",
+      "scenario": "dress-only",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g10"
+        ],
+        [
+          "g13",
+          "g8"
+        ],
+        [
+          "g12",
+          "g9"
+        ]
+      ],
+      "valid": [
+        false,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-only-2-1-quest",
+      "scenario": "dress-only",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g12",
+          "g10"
+        ],
+        [
+          "g13",
+          "g8"
+        ],
+        [
+          "g12",
+          "g9"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-only-2-2-style",
+      "scenario": "dress-only",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g13",
+          "g10",
+          "g15"
+        ],
+        [
+          "g12",
+          "g9",
+          "g14"
+        ],
+        [
+          "g13",
+          "g11",
+          "g15"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-only-2-2-quest",
+      "scenario": "dress-only",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g13",
+          "g10",
+          "g15"
+        ],
+        [
+          "g12",
+          "g9",
+          "g14"
+        ],
+        [
+          "g13",
+          "g11",
+          "g15"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-only-3-0-style",
+      "scenario": "dress-only",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g10"
+        ],
+        [
+          "g13",
+          "g8"
+        ],
+        [
+          "g12",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-only-3-0-quest",
+      "scenario": "dress-only",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g10"
+        ],
+        [
+          "g13",
+          "g8"
+        ],
+        [
+          "g12",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-only-3-1-style",
+      "scenario": "dress-only",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g10"
+        ],
+        [
+          "g13",
+          "g8"
+        ],
+        [
+          "g12",
+          "g11"
+        ]
+      ],
+      "valid": [
+        false,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-only-3-1-quest",
+      "scenario": "dress-only",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g12",
+          "g10"
+        ],
+        [
+          "g13",
+          "g8"
+        ],
+        [
+          "g12",
+          "g11"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-only-3-2-style",
+      "scenario": "dress-only",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g13",
+          "g10",
+          "g14"
+        ],
+        [
+          "g12",
+          "g11",
+          "g15"
+        ],
+        [
+          "g13",
+          "g9",
+          "g14"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-only-3-2-quest",
+      "scenario": "dress-only",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g13",
+          "g10",
+          "g14"
+        ],
+        [
+          "g12",
+          "g11",
+          "g15"
+        ],
+        [
+          "g13",
+          "g9",
+          "g14"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "missing-shoes-1-0-style",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "missing-shoes-1-0-quest",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "missing-shoes-1-1-style",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "missing-shoes-1-1-quest",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "missing-shoes-1-2-style",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "missing-shoes-1-2-quest",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "missing-shoes-2-0-style",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "missing-shoes-2-0-quest",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "missing-shoes-2-1-style",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "missing-shoes-2-1-quest",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "missing-shoes-2-2-style",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "missing-shoes-2-2-quest",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "missing-shoes-3-0-style",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "missing-shoes-3-0-quest",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "missing-shoes-3-1-style",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "missing-shoes-3-1-quest",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "missing-shoes-3-2-style",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "missing-shoes-3-2-quest",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "sparse-1-0-style",
+      "scenario": "sparse",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "sparse-1-0-quest",
+      "scenario": "sparse",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "sparse-1-1-style",
+      "scenario": "sparse",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "sparse-1-1-quest",
+      "scenario": "sparse",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "sparse-1-2-style",
+      "scenario": "sparse",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "sparse-1-2-quest",
+      "scenario": "sparse",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "sparse-2-0-style",
+      "scenario": "sparse",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "sparse-2-0-quest",
+      "scenario": "sparse",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "sparse-2-1-style",
+      "scenario": "sparse",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "sparse-2-1-quest",
+      "scenario": "sparse",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "sparse-2-2-style",
+      "scenario": "sparse",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "sparse-2-2-quest",
+      "scenario": "sparse",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "sparse-3-0-style",
+      "scenario": "sparse",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "sparse-3-0-quest",
+      "scenario": "sparse",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "sparse-3-1-style",
+      "scenario": "sparse",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "sparse-3-1-quest",
+      "scenario": "sparse",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "sparse-3-2-style",
+      "scenario": "sparse",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "sparse-3-2-quest",
+      "scenario": "sparse",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "unknown-tags-1-0-style",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g2",
+          "g6",
+          "g10"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11"
+        ],
+        [
+          "g0",
+          "g7",
+          "g8"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "unknown-tags-1-0-quest",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g2",
+          "g6",
+          "g10"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11"
+        ],
+        [
+          "g0",
+          "g7",
+          "g8"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "unknown-tags-1-1-style",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g2",
+          "g6",
+          "g10"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11"
+        ],
+        [
+          "g0",
+          "g7",
+          "g8"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "unknown-tags-1-1-quest",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g2",
+          "g6",
+          "g10"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11"
+        ],
+        [
+          "g0",
+          "g7",
+          "g8"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "unknown-tags-1-2-style",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g2",
+          "g6",
+          "g10",
+          "g15"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11",
+          "g14"
+        ],
+        [
+          "g0",
+          "g7",
+          "g8",
+          "g15"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "unknown-tags-1-2-quest",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g2",
+          "g6",
+          "g10",
+          "g15"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11",
+          "g14"
+        ],
+        [
+          "g0",
+          "g7",
+          "g8",
+          "g15"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "unknown-tags-2-0-style",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g0",
+          "g6",
+          "g10"
+        ],
+        [
+          "g2",
+          "g4",
+          "g8"
+        ],
+        [
+          "g1",
+          "g5",
+          "g9"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "unknown-tags-2-0-quest",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g0",
+          "g6",
+          "g10"
+        ],
+        [
+          "g2",
+          "g4",
+          "g8"
+        ],
+        [
+          "g1",
+          "g5",
+          "g9"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "unknown-tags-2-1-style",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g0",
+          "g6",
+          "g10"
+        ],
+        [
+          "g2",
+          "g4",
+          "g8"
+        ],
+        [
+          "g1",
+          "g5",
+          "g9"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "unknown-tags-2-1-quest",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g0",
+          "g6",
+          "g10"
+        ],
+        [
+          "g2",
+          "g4",
+          "g8"
+        ],
+        [
+          "g1",
+          "g5",
+          "g9"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "unknown-tags-2-2-style",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g0",
+          "g6",
+          "g10",
+          "g14"
+        ],
+        [
+          "g2",
+          "g4",
+          "g8",
+          "g15"
+        ],
+        [
+          "g1",
+          "g5",
+          "g9",
+          "g14"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "unknown-tags-2-2-quest",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g0",
+          "g6",
+          "g10",
+          "g14"
+        ],
+        [
+          "g2",
+          "g4",
+          "g8",
+          "g15"
+        ],
+        [
+          "g1",
+          "g5",
+          "g9",
+          "g14"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "unknown-tags-3-0-style",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g3",
+          "g7",
+          "g9"
+        ],
+        [
+          "g1",
+          "g6",
+          "g10"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "unknown-tags-3-0-quest",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g3",
+          "g7",
+          "g9"
+        ],
+        [
+          "g1",
+          "g6",
+          "g10"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "unknown-tags-3-1-style",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g3",
+          "g7",
+          "g9"
+        ],
+        [
+          "g1",
+          "g6",
+          "g10"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "unknown-tags-3-1-quest",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g3",
+          "g7",
+          "g9"
+        ],
+        [
+          "g1",
+          "g6",
+          "g10"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "unknown-tags-3-2-style",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8",
+          "g14"
+        ],
+        [
+          "g3",
+          "g7",
+          "g9",
+          "g15"
+        ],
+        [
+          "g1",
+          "g6",
+          "g10",
+          "g14"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "unknown-tags-3-2-quest",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8",
+          "g14"
+        ],
+        [
+          "g3",
+          "g7",
+          "g9",
+          "g15"
+        ],
+        [
+          "g1",
+          "g6",
+          "g10",
+          "g14"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "all-used-1-0-style",
+      "scenario": "all-used",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g2",
+          "g7",
+          "g10"
+        ],
+        [
+          "g3",
+          "g5",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g9"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "all-used-1-0-quest",
+      "scenario": "all-used",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g2",
+          "g7",
+          "g10"
+        ],
+        [
+          "g3",
+          "g5",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g9"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "all-used-1-1-style",
+      "scenario": "all-used",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g2",
+          "g5",
+          "g9"
+        ],
+        [
+          "g0",
+          "g4",
+          "g11"
+        ],
+        [
+          "g1",
+          "g6",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "all-used-1-1-quest",
+      "scenario": "all-used",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g2",
+          "g5",
+          "g9"
+        ],
+        [
+          "g0",
+          "g4",
+          "g11"
+        ],
+        [
+          "g1",
+          "g6",
+          "g8"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "all-used-1-2-style",
+      "scenario": "all-used",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g2",
+          "g6",
+          "g9",
+          "g15"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11",
+          "g14"
+        ],
+        [
+          "g3",
+          "g7",
+          "g10",
+          "g15"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "all-used-1-2-quest",
+      "scenario": "all-used",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g2",
+          "g6",
+          "g9",
+          "g15"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11",
+          "g14"
+        ],
+        [
+          "g3",
+          "g7",
+          "g10",
+          "g15"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "all-used-2-0-style",
+      "scenario": "all-used",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g3",
+          "g7",
+          "g10"
+        ],
+        [
+          "g0",
+          "g5",
+          "g8"
+        ],
+        [
+          "g2",
+          "g4",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "all-used-2-0-quest",
+      "scenario": "all-used",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g3",
+          "g7",
+          "g10"
+        ],
+        [
+          "g0",
+          "g5",
+          "g8"
+        ],
+        [
+          "g2",
+          "g4",
+          "g11"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "all-used-2-1-style",
+      "scenario": "all-used",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g5",
+          "g11"
+        ],
+        [
+          "g1",
+          "g4",
+          "g8"
+        ],
+        [
+          "g2",
+          "g7",
+          "g9"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "all-used-2-1-quest",
+      "scenario": "all-used",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g0",
+          "g5",
+          "g11"
+        ],
+        [
+          "g1",
+          "g4",
+          "g8"
+        ],
+        [
+          "g2",
+          "g7",
+          "g9"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "all-used-2-2-style",
+      "scenario": "all-used",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g1",
+          "g5",
+          "g11",
+          "g15"
+        ],
+        [
+          "g2",
+          "g6",
+          "g9",
+          "g14"
+        ],
+        [
+          "g3",
+          "g7",
+          "g10",
+          "g15"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "all-used-2-2-quest",
+      "scenario": "all-used",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g1",
+          "g5",
+          "g11",
+          "g15"
+        ],
+        [
+          "g2",
+          "g6",
+          "g9",
+          "g14"
+        ],
+        [
+          "g3",
+          "g7",
+          "g10",
+          "g15"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "all-used-3-0-style",
+      "scenario": "all-used",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g3",
+          "g5",
+          "g10"
+        ],
+        [
+          "g2",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g7",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "all-used-3-0-quest",
+      "scenario": "all-used",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g3",
+          "g5",
+          "g10"
+        ],
+        [
+          "g2",
+          "g4",
+          "g8"
+        ],
+        [
+          "g0",
+          "g7",
+          "g11"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "all-used-3-1-style",
+      "scenario": "all-used",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g1",
+          "g5",
+          "g11"
+        ],
+        [
+          "g2",
+          "g4",
+          "g9"
+        ],
+        [
+          "g0",
+          "g6",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "all-used-3-1-quest",
+      "scenario": "all-used",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g1",
+          "g5",
+          "g11"
+        ],
+        [
+          "g2",
+          "g4",
+          "g9"
+        ],
+        [
+          "g0",
+          "g6",
+          "g8"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "all-used-3-2-style",
+      "scenario": "all-used",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g1",
+          "g5",
+          "g11",
+          "g14"
+        ],
+        [
+          "g2",
+          "g6",
+          "g9",
+          "g15"
+        ],
+        [
+          "g3",
+          "g4",
+          "g10",
+          "g14"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "all-used-3-2-quest",
+      "scenario": "all-used",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g1",
+          "g5",
+          "g11",
+          "g14"
+        ],
+        [
+          "g2",
+          "g6",
+          "g9",
+          "g15"
+        ],
+        [
+          "g3",
+          "g4",
+          "g10",
+          "g14"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "mixed-case-1-0-style",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g5",
+          "g8"
+        ],
+        [
+          "g3",
+          "g4",
+          "g10"
+        ],
+        [
+          "g1",
+          "g7",
+          "g9"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "mixed-case-1-0-quest",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g5",
+          "g8"
+        ],
+        [
+          "g3",
+          "g4",
+          "g10"
+        ],
+        [
+          "g1",
+          "g7",
+          "g9"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "mixed-case-1-1-style",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g5",
+          "g8"
+        ],
+        [
+          "g3",
+          "g4",
+          "g10"
+        ],
+        [
+          "g1",
+          "g7",
+          "g9"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "mixed-case-1-1-quest",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g5",
+          "g8"
+        ],
+        [
+          "g3",
+          "g4",
+          "g10"
+        ],
+        [
+          "g1",
+          "g7",
+          "g9"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "mixed-case-1-2-style",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": false,
+      "outfits": [
+        [
+          "g0",
+          "g5",
+          "g8",
+          "g14"
+        ],
+        [
+          "g3",
+          "g4",
+          "g10",
+          "g15"
+        ],
+        [
+          "g1",
+          "g7",
+          "g9",
+          "g14"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "mixed-case-1-2-quest",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": false,
+      "outfits": [
+        [
+          "g0",
+          "g5",
+          "g8",
+          "g14"
+        ],
+        [
+          "g3",
+          "g4",
+          "g10",
+          "g15"
+        ],
+        [
+          "g1",
+          "g7",
+          "g9",
+          "g14"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "mixed-case-2-0-style",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g5",
+          "g8"
+        ],
+        [
+          "g2",
+          "g6",
+          "g11"
+        ],
+        [
+          "g3",
+          "g4",
+          "g9"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "mixed-case-2-0-quest",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g5",
+          "g8"
+        ],
+        [
+          "g2",
+          "g6",
+          "g11"
+        ],
+        [
+          "g3",
+          "g4",
+          "g9"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "mixed-case-2-1-style",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g5",
+          "g8"
+        ],
+        [
+          "g2",
+          "g6",
+          "g11"
+        ],
+        [
+          "g3",
+          "g4",
+          "g9"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "mixed-case-2-1-quest",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g5",
+          "g8"
+        ],
+        [
+          "g2",
+          "g6",
+          "g11"
+        ],
+        [
+          "g3",
+          "g4",
+          "g9"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "mixed-case-2-2-style",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g5",
+          "g8",
+          "g14"
+        ],
+        [
+          "g2",
+          "g6",
+          "g11",
+          "g15"
+        ],
+        [
+          "g3",
+          "g4",
+          "g9",
+          "g14"
+        ]
+      ],
+      "valid": [
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "mixed-case-2-2-quest",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g5",
+          "g8",
+          "g14"
+        ],
+        [
+          "g2",
+          "g6",
+          "g11",
+          "g15"
+        ],
+        [
+          "g3",
+          "g4",
+          "g9",
+          "g14"
+        ]
+      ],
+      "valid": [
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "mixed-case-3-0-style",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g3",
+          "g7",
+          "g10"
+        ],
+        [
+          "g0",
+          "g6",
+          "g9"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "mixed-case-3-0-quest",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g3",
+          "g7",
+          "g10"
+        ],
+        [
+          "g0",
+          "g6",
+          "g9"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "mixed-case-3-1-style",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g3",
+          "g7",
+          "g10"
+        ],
+        [
+          "g0",
+          "g6",
+          "g9"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "mixed-case-3-1-quest",
+      "scenario": "mixed-case",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g3",
+          "g7",
+          "g10"
+        ],
+        [
+          "g0",
+          "g6",
+          "g9"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "mixed-case-3-2-style",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g3",
+          "g7",
+          "g10",
+          "g14"
+        ],
+        [
+          "g0",
+          "g6",
+          "g9",
+          "g15"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11",
+          "g14"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "mixed-case-3-2-quest",
+      "scenario": "mixed-case",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g3",
+          "g7",
+          "g10",
+          "g14"
+        ],
+        [
+          "g0",
+          "g6",
+          "g9",
+          "g15"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11",
+          "g14"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-alternative-1-0-style",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g1",
+          "g6",
+          "g8"
+        ],
+        [
+          "g3",
+          "g7",
+          "g9"
+        ],
+        [
+          "g0",
+          "g4",
+          "g10"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-alternative-1-0-quest",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g1",
+          "g6",
+          "g8"
+        ],
+        [
+          "g3",
+          "g7",
+          "g9"
+        ],
+        [
+          "g0",
+          "g4",
+          "g10"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-alternative-1-1-style",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": false,
+      "outfits": [
+        [
+          "g1",
+          "g6",
+          "g8"
+        ],
+        [
+          "g3",
+          "g7",
+          "g9"
+        ],
+        [
+          "g0",
+          "g4",
+          "g11"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-alternative-1-1-quest",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": false,
+      "outfits": [
+        [
+          "g1",
+          "g6",
+          "g8"
+        ],
+        [
+          "g3",
+          "g7",
+          "g9"
+        ],
+        [
+          "g0",
+          "g4",
+          "g11"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-alternative-1-2-style",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": false,
+      "outfits": [
+        [
+          "g1",
+          "g6",
+          "g9",
+          "g14"
+        ],
+        [
+          "g3",
+          "g7",
+          "g8",
+          "g15"
+        ],
+        [
+          "g0",
+          "g4",
+          "g11",
+          "g14"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-alternative-1-2-quest",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": false,
+      "outfits": [
+        [
+          "g1",
+          "g6",
+          "g9",
+          "g14"
+        ],
+        [
+          "g3",
+          "g7",
+          "g8",
+          "g15"
+        ],
+        [
+          "g0",
+          "g4",
+          "g11",
+          "g14"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-alternative-2-0-style",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g1",
+          "g5",
+          "g9"
+        ],
+        [
+          "g2",
+          "g7",
+          "g8"
+        ],
+        [
+          "g3",
+          "g6",
+          "g10"
+        ]
+      ],
+      "valid": [
+        false,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-alternative-2-0-quest",
+      "scenario": "dress-alternative",
+      "possible": false,
+      "success": false,
+      "outfits": [
+        [
+          "g1",
+          "g5",
+          "g9"
+        ],
+        [
+          "g2",
+          "g7",
+          "g8"
+        ],
+        [
+          "g3",
+          "g6",
+          "g10"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-alternative-2-1-style",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": false,
+      "outfits": [
+        [
+          "g1",
+          "g5",
+          "g9"
+        ],
+        [
+          "g2",
+          "g7",
+          "g11"
+        ],
+        [
+          "g3",
+          "g6",
+          "g8"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-alternative-2-1-quest",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": false,
+      "outfits": [
+        [
+          "g1",
+          "g5",
+          "g9"
+        ],
+        [
+          "g2",
+          "g7",
+          "g11"
+        ],
+        [
+          "g3",
+          "g6",
+          "g8"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-alternative-2-2-style",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": false,
+      "outfits": [
+        [
+          "g1",
+          "g5",
+          "g9",
+          "g14"
+        ],
+        [
+          "g2",
+          "g7",
+          "g11",
+          "g15"
+        ],
+        [
+          "g3",
+          "g6",
+          "g8",
+          "g14"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-alternative-2-2-quest",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": false,
+      "outfits": [
+        [
+          "g1",
+          "g5",
+          "g9",
+          "g14"
+        ],
+        [
+          "g2",
+          "g7",
+          "g11",
+          "g15"
+        ],
+        [
+          "g3",
+          "g6",
+          "g8",
+          "g14"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-alternative-3-0-style",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g2",
+          "g4",
+          "g8"
+        ],
+        [
+          "g1",
+          "g6",
+          "g9"
+        ],
+        [
+          "g3",
+          "g5",
+          "g10"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-alternative-3-0-quest",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g2",
+          "g4",
+          "g8"
+        ],
+        [
+          "g1",
+          "g6",
+          "g9"
+        ],
+        [
+          "g3",
+          "g5",
+          "g10"
+        ]
+      ],
+      "valid": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-alternative-3-1-style",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": false,
+      "outfits": [
+        [
+          "g2",
+          "g4",
+          "g8"
+        ],
+        [
+          "g1",
+          "g6",
+          "g9"
+        ],
+        [
+          "g3",
+          "g5",
+          "g11"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-alternative-3-1-quest",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": false,
+      "outfits": [
+        [
+          "g2",
+          "g4",
+          "g8"
+        ],
+        [
+          "g1",
+          "g6",
+          "g9"
+        ],
+        [
+          "g3",
+          "g5",
+          "g11"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-alternative-3-2-style",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": false,
+      "outfits": [
+        [
+          "g2",
+          "g4",
+          "g9",
+          "g15"
+        ],
+        [
+          "g1",
+          "g6",
+          "g8",
+          "g14"
+        ],
+        [
+          "g3",
+          "g5",
+          "g11",
+          "g15"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "dress-alternative-3-2-quest",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": false,
+      "outfits": [
+        [
+          "g2",
+          "g4",
+          "g9",
+          "g15"
+        ],
+        [
+          "g1",
+          "g6",
+          "g8",
+          "g14"
+        ],
+        [
+          "g3",
+          "g5",
+          "g11",
+          "g15"
+        ]
+      ],
+      "valid": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "method": "baseline",
+      "queryId": "mislabeled-1-0-style",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "mislabeled-1-0-quest",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "mislabeled-1-1-style",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "mislabeled-1-1-quest",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "mislabeled-1-2-style",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "mislabeled-1-2-quest",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "mislabeled-2-0-style",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "mislabeled-2-0-quest",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "mislabeled-2-1-style",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "mislabeled-2-1-quest",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "mislabeled-2-2-style",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "mislabeled-2-2-quest",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "mislabeled-3-0-style",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "mislabeled-3-0-quest",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "mislabeled-3-1-style",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "mislabeled-3-1-quest",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "mislabeled-3-2-style",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "baseline",
+      "queryId": "mislabeled-3-2-quest",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "balanced-1-0-style",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g3",
+          "g7",
+          "g8"
+        ],
+        [
+          "g3",
+          "g7",
+          "g10"
+        ],
+        [
+          "g3",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "balanced-1-0-quest",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g3",
+          "g7",
+          "g8"
+        ],
+        [
+          "g3",
+          "g7",
+          "g10"
+        ],
+        [
+          "g3",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "balanced-1-1-style",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g11"
+        ],
+        [
+          "g12",
+          "g8"
+        ],
+        [
+          "g12",
+          "g9"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "balanced-1-1-quest",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g11"
+        ],
+        [
+          "g12",
+          "g8"
+        ],
+        [
+          "g12",
+          "g9"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "balanced-1-2-style",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g1",
+          "g6",
+          "g11"
+        ],
+        [
+          "g1",
+          "g6",
+          "g9"
+        ],
+        [
+          "g1",
+          "g6",
+          "g11",
+          "g15"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "balanced-1-2-quest",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g1",
+          "g6",
+          "g11"
+        ],
+        [
+          "g1",
+          "g6",
+          "g9"
+        ],
+        [
+          "g1",
+          "g6",
+          "g11",
+          "g15"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "balanced-2-0-style",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g8"
+        ],
+        [
+          "g2",
+          "g7",
+          "g8"
+        ],
+        [
+          "g2",
+          "g5",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "balanced-2-0-quest",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g8"
+        ],
+        [
+          "g2",
+          "g7",
+          "g8"
+        ],
+        [
+          "g2",
+          "g5",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "balanced-2-1-style",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g11"
+        ],
+        [
+          "g12",
+          "g8"
+        ],
+        [
+          "g13",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "balanced-2-1-quest",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g11"
+        ],
+        [
+          "g12",
+          "g8"
+        ],
+        [
+          "g13",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "balanced-2-2-style",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g13",
+          "g11",
+          "g14"
+        ],
+        [
+          "g2",
+          "g5",
+          "g11",
+          "g14"
+        ],
+        [
+          "g2",
+          "g6",
+          "g11",
+          "g14"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "balanced-2-2-quest",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g13",
+          "g11",
+          "g14"
+        ],
+        [
+          "g2",
+          "g5",
+          "g11",
+          "g14"
+        ],
+        [
+          "g2",
+          "g6",
+          "g11",
+          "g14"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "balanced-3-0-style",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g7",
+          "g8"
+        ],
+        [
+          "g2",
+          "g7",
+          "g8"
+        ],
+        [
+          "g3",
+          "g7",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "balanced-3-0-quest",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g7",
+          "g8"
+        ],
+        [
+          "g2",
+          "g7",
+          "g8"
+        ],
+        [
+          "g3",
+          "g7",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "balanced-3-1-style",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g1",
+          "g5",
+          "g8"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11"
+        ],
+        [
+          "g1",
+          "g5",
+          "g9"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "balanced-3-1-quest",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g1",
+          "g5",
+          "g8"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11"
+        ],
+        [
+          "g1",
+          "g5",
+          "g9"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "balanced-3-2-style",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g1",
+          "g5",
+          "g11"
+        ],
+        [
+          "g1",
+          "g5",
+          "g9"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11",
+          "g14"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "balanced-3-2-quest",
+      "scenario": "balanced",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g1",
+          "g5",
+          "g11"
+        ],
+        [
+          "g1",
+          "g5",
+          "g9"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11",
+          "g14"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "context-conflict-1-0-style",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g10"
+        ],
+        [
+          "g0",
+          "g7",
+          "g10"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "context-conflict-1-0-quest",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g10"
+        ],
+        [
+          "g0",
+          "g7",
+          "g10"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "context-conflict-1-1-style",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g12",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "context-conflict-1-1-quest",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g12",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "context-conflict-1-2-style",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g1",
+          "g5",
+          "g11",
+          "g14"
+        ],
+        [
+          "g1",
+          "g6",
+          "g11",
+          "g14"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11",
+          "g15"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "context-conflict-1-2-quest",
+      "scenario": "context-conflict",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "context-conflict-2-0-style",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g10"
+        ],
+        [
+          "g0",
+          "g7",
+          "g10"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "context-conflict-2-0-quest",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g10"
+        ],
+        [
+          "g0",
+          "g7",
+          "g10"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "context-conflict-2-1-style",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g12",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "context-conflict-2-1-quest",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g12",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "context-conflict-2-2-style",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g1",
+          "g5",
+          "g11",
+          "g14"
+        ],
+        [
+          "g1",
+          "g6",
+          "g11",
+          "g14"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11",
+          "g15"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "context-conflict-2-2-quest",
+      "scenario": "context-conflict",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "context-conflict-3-0-style",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g10"
+        ],
+        [
+          "g0",
+          "g7",
+          "g10"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "context-conflict-3-0-quest",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g10"
+        ],
+        [
+          "g0",
+          "g7",
+          "g10"
+        ],
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "context-conflict-3-1-style",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g12",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "context-conflict-3-1-quest",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ],
+        [
+          "g12",
+          "g8"
+        ],
+        [
+          "g0",
+          "g4",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "context-conflict-3-2-style",
+      "scenario": "context-conflict",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g1",
+          "g5",
+          "g11",
+          "g14"
+        ],
+        [
+          "g1",
+          "g6",
+          "g11",
+          "g14"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11",
+          "g15"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "context-conflict-3-2-quest",
+      "scenario": "context-conflict",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-only-1-0-style",
+      "scenario": "dress-only",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g10"
+        ],
+        [
+          "g12",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-only-1-0-quest",
+      "scenario": "dress-only",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g10"
+        ]
+      ],
+      "valid": [
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-only-1-1-style",
+      "scenario": "dress-only",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g9"
+        ],
+        [
+          "g13",
+          "g9"
+        ],
+        [
+          "g12",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-only-1-1-quest",
+      "scenario": "dress-only",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-only-1-2-style",
+      "scenario": "dress-only",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g13",
+          "g9"
+        ],
+        [
+          "g13",
+          "g9",
+          "g15"
+        ],
+        [
+          "g13",
+          "g9",
+          "g14"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-only-1-2-quest",
+      "scenario": "dress-only",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-only-2-0-style",
+      "scenario": "dress-only",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g10"
+        ],
+        [
+          "g12",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-only-2-0-quest",
+      "scenario": "dress-only",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g10"
+        ]
+      ],
+      "valid": [
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-only-2-1-style",
+      "scenario": "dress-only",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g8"
+        ],
+        [
+          "g12",
+          "g9"
+        ],
+        [
+          "g12",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-only-2-1-quest",
+      "scenario": "dress-only",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-only-2-2-style",
+      "scenario": "dress-only",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g13",
+          "g9",
+          "g15"
+        ],
+        [
+          "g13",
+          "g11",
+          "g15"
+        ],
+        [
+          "g13",
+          "g9",
+          "g14"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-only-2-2-quest",
+      "scenario": "dress-only",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g13",
+          "g9",
+          "g15"
+        ],
+        [
+          "g13",
+          "g11",
+          "g15"
+        ]
+      ],
+      "valid": [
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-only-3-0-style",
+      "scenario": "dress-only",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g10"
+        ],
+        [
+          "g12",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-only-3-0-quest",
+      "scenario": "dress-only",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g10"
+        ]
+      ],
+      "valid": [
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-only-3-1-style",
+      "scenario": "dress-only",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g8"
+        ],
+        [
+          "g13",
+          "g8"
+        ],
+        [
+          "g12",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-only-3-1-quest",
+      "scenario": "dress-only",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-only-3-2-style",
+      "scenario": "dress-only",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g13",
+          "g11",
+          "g14"
+        ],
+        [
+          "g13",
+          "g9",
+          "g14"
+        ],
+        [
+          "g13",
+          "g11",
+          "g15"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-only-3-2-quest",
+      "scenario": "dress-only",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "missing-shoes-1-0-style",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "missing-shoes-1-0-quest",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "missing-shoes-1-1-style",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "missing-shoes-1-1-quest",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "missing-shoes-1-2-style",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "missing-shoes-1-2-quest",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "missing-shoes-2-0-style",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "missing-shoes-2-0-quest",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "missing-shoes-2-1-style",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "missing-shoes-2-1-quest",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "missing-shoes-2-2-style",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "missing-shoes-2-2-quest",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "missing-shoes-3-0-style",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "missing-shoes-3-0-quest",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "missing-shoes-3-1-style",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "missing-shoes-3-1-quest",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "missing-shoes-3-2-style",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "missing-shoes-3-2-quest",
+      "scenario": "missing-shoes",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "sparse-1-0-style",
+      "scenario": "sparse",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "sparse-1-0-quest",
+      "scenario": "sparse",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "sparse-1-1-style",
+      "scenario": "sparse",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "sparse-1-1-quest",
+      "scenario": "sparse",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "sparse-1-2-style",
+      "scenario": "sparse",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "sparse-1-2-quest",
+      "scenario": "sparse",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "sparse-2-0-style",
+      "scenario": "sparse",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "sparse-2-0-quest",
+      "scenario": "sparse",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "sparse-2-1-style",
+      "scenario": "sparse",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "sparse-2-1-quest",
+      "scenario": "sparse",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "sparse-2-2-style",
+      "scenario": "sparse",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "sparse-2-2-quest",
+      "scenario": "sparse",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "sparse-3-0-style",
+      "scenario": "sparse",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "sparse-3-0-quest",
+      "scenario": "sparse",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "sparse-3-1-style",
+      "scenario": "sparse",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "sparse-3-1-quest",
+      "scenario": "sparse",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g4",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "sparse-3-2-style",
+      "scenario": "sparse",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "sparse-3-2-quest",
+      "scenario": "sparse",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "unknown-tags-1-0-style",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "unknown-tags-1-0-quest",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "unknown-tags-1-1-style",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "unknown-tags-1-1-quest",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "unknown-tags-1-2-style",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "unknown-tags-1-2-quest",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "unknown-tags-2-0-style",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "unknown-tags-2-0-quest",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "unknown-tags-2-1-style",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "unknown-tags-2-1-quest",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "unknown-tags-2-2-style",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "unknown-tags-2-2-quest",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "unknown-tags-3-0-style",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "unknown-tags-3-0-quest",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "unknown-tags-3-1-style",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "unknown-tags-3-1-quest",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "unknown-tags-3-2-style",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "unknown-tags-3-2-quest",
+      "scenario": "unknown-tags",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "all-used-1-0-style",
+      "scenario": "all-used",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g2",
+          "g7",
+          "g10"
+        ],
+        [
+          "g2",
+          "g5",
+          "g10"
+        ],
+        [
+          "g2",
+          "g4",
+          "g10"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "all-used-1-0-quest",
+      "scenario": "all-used",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "all-used-1-1-style",
+      "scenario": "all-used",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g2",
+          "g5",
+          "g9"
+        ],
+        [
+          "g2",
+          "g5",
+          "g11"
+        ],
+        [
+          "g2",
+          "g4",
+          "g9"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "all-used-1-1-quest",
+      "scenario": "all-used",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "all-used-1-2-style",
+      "scenario": "all-used",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g2",
+          "g6",
+          "g9",
+          "g15"
+        ],
+        [
+          "g2",
+          "g6",
+          "g11",
+          "g15"
+        ],
+        [
+          "g2",
+          "g5",
+          "g9",
+          "g15"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "all-used-1-2-quest",
+      "scenario": "all-used",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "all-used-2-0-style",
+      "scenario": "all-used",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g10"
+        ],
+        [
+          "g12",
+          "g8"
+        ],
+        [
+          "g3",
+          "g7",
+          "g10"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "all-used-2-0-quest",
+      "scenario": "all-used",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "all-used-2-1-style",
+      "scenario": "all-used",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g11"
+        ],
+        [
+          "g13",
+          "g11"
+        ],
+        [
+          "g12",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "all-used-2-1-quest",
+      "scenario": "all-used",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "all-used-2-2-style",
+      "scenario": "all-used",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g13",
+          "g11"
+        ],
+        [
+          "g13",
+          "g11",
+          "g15"
+        ],
+        [
+          "g13",
+          "g9"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "all-used-2-2-quest",
+      "scenario": "all-used",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "all-used-3-0-style",
+      "scenario": "all-used",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g3",
+          "g5",
+          "g10"
+        ],
+        [
+          "g3",
+          "g5",
+          "g8"
+        ],
+        [
+          "g2",
+          "g5",
+          "g10"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "all-used-3-0-quest",
+      "scenario": "all-used",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "all-used-3-1-style",
+      "scenario": "all-used",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g13",
+          "g11"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11"
+        ],
+        [
+          "g2",
+          "g5",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "all-used-3-1-quest",
+      "scenario": "all-used",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "all-used-3-2-style",
+      "scenario": "all-used",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g13",
+          "g11"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11"
+        ],
+        [
+          "g1",
+          "g6",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "all-used-3-2-quest",
+      "scenario": "all-used",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "mixed-case-1-0-style",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g5",
+          "g8"
+        ],
+        [
+          "g3",
+          "g5",
+          "g8"
+        ],
+        [
+          "g2",
+          "g5",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "mixed-case-1-0-quest",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g5",
+          "g8"
+        ],
+        [
+          "g3",
+          "g5",
+          "g8"
+        ],
+        [
+          "g2",
+          "g5",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "mixed-case-1-1-style",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g5",
+          "g8"
+        ],
+        [
+          "g1",
+          "g5",
+          "g8"
+        ],
+        [
+          "g2",
+          "g5",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "mixed-case-1-1-quest",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g5",
+          "g8"
+        ],
+        [
+          "g1",
+          "g5",
+          "g8"
+        ],
+        [
+          "g2",
+          "g5",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "mixed-case-1-2-style",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g1",
+          "g5",
+          "g9"
+        ],
+        [
+          "g2",
+          "g5",
+          "g9"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "mixed-case-1-2-quest",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g1",
+          "g5",
+          "g9"
+        ],
+        [
+          "g2",
+          "g5",
+          "g9"
+        ],
+        [
+          "g1",
+          "g5",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "mixed-case-2-0-style",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g5",
+          "g8"
+        ],
+        [
+          "g2",
+          "g5",
+          "g8"
+        ],
+        [
+          "g0",
+          "g5",
+          "g10"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "mixed-case-2-0-quest",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g5",
+          "g8"
+        ],
+        [
+          "g2",
+          "g5",
+          "g8"
+        ],
+        [
+          "g0",
+          "g5",
+          "g10"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "mixed-case-2-1-style",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g5",
+          "g8"
+        ],
+        [
+          "g2",
+          "g5",
+          "g8"
+        ],
+        [
+          "g0",
+          "g5",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "mixed-case-2-1-quest",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g5",
+          "g8"
+        ],
+        [
+          "g2",
+          "g5",
+          "g8"
+        ],
+        [
+          "g0",
+          "g5",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "mixed-case-2-2-style",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g2",
+          "g5",
+          "g11"
+        ],
+        [
+          "g2",
+          "g5",
+          "g9"
+        ],
+        [
+          "g2",
+          "g6",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "mixed-case-2-2-quest",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g2",
+          "g5",
+          "g11"
+        ],
+        [
+          "g2",
+          "g5",
+          "g9"
+        ],
+        [
+          "g2",
+          "g6",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "mixed-case-3-0-style",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g3",
+          "g7",
+          "g10"
+        ],
+        [
+          "g3",
+          "g7",
+          "g8"
+        ],
+        [
+          "g0",
+          "g7",
+          "g10"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "mixed-case-3-0-quest",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g3",
+          "g7",
+          "g10"
+        ],
+        [
+          "g3",
+          "g7",
+          "g8"
+        ],
+        [
+          "g0",
+          "g7",
+          "g10"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "mixed-case-3-1-style",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g0",
+          "g5",
+          "g9"
+        ],
+        [
+          "g0",
+          "g4",
+          "g9"
+        ],
+        [
+          "g0",
+          "g5",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "mixed-case-3-1-quest",
+      "scenario": "mixed-case",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "mixed-case-3-2-style",
+      "scenario": "mixed-case",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g1",
+          "g6",
+          "g9",
+          "g14"
+        ],
+        [
+          "g2",
+          "g6",
+          "g9",
+          "g14"
+        ],
+        [
+          "g1",
+          "g6",
+          "g11",
+          "g14"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "mixed-case-3-2-quest",
+      "scenario": "mixed-case",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-alternative-1-0-style",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g1",
+          "g6",
+          "g8"
+        ],
+        [
+          "g1",
+          "g7",
+          "g8"
+        ],
+        [
+          "g3",
+          "g6",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-alternative-1-0-quest",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g1",
+          "g6",
+          "g8"
+        ],
+        [
+          "g1",
+          "g7",
+          "g8"
+        ],
+        [
+          "g3",
+          "g6",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-alternative-1-1-style",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g8"
+        ],
+        [
+          "g12",
+          "g9"
+        ],
+        [
+          "g13",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-alternative-1-1-quest",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g8"
+        ],
+        [
+          "g12",
+          "g9"
+        ],
+        [
+          "g13",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-alternative-1-2-style",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g13",
+          "g9"
+        ],
+        [
+          "g13",
+          "g9",
+          "g14"
+        ],
+        [
+          "g13",
+          "g9",
+          "g15"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-alternative-1-2-quest",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g13",
+          "g9"
+        ],
+        [
+          "g13",
+          "g9",
+          "g14"
+        ],
+        [
+          "g13",
+          "g9",
+          "g15"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-alternative-2-0-style",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g1",
+          "g5",
+          "g8"
+        ],
+        [
+          "g1",
+          "g7",
+          "g8"
+        ],
+        [
+          "g2",
+          "g5",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-alternative-2-0-quest",
+      "scenario": "dress-alternative",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-alternative-2-1-style",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g13",
+          "g9"
+        ],
+        [
+          "g12",
+          "g9"
+        ],
+        [
+          "g13",
+          "g11"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-alternative-2-1-quest",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g13",
+          "g9"
+        ],
+        [
+          "g12",
+          "g9"
+        ]
+      ],
+      "valid": [
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-alternative-2-2-style",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g13",
+          "g9",
+          "g14"
+        ],
+        [
+          "g13",
+          "g9",
+          "g15"
+        ],
+        [
+          "g13",
+          "g9"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-alternative-2-2-quest",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g13",
+          "g9",
+          "g14"
+        ],
+        [
+          "g13",
+          "g9",
+          "g15"
+        ],
+        [
+          "g13",
+          "g9"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-alternative-3-0-style",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g8"
+        ],
+        [
+          "g2",
+          "g4",
+          "g8"
+        ],
+        [
+          "g2",
+          "g6",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-alternative-3-0-quest",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g8"
+        ],
+        [
+          "g2",
+          "g4",
+          "g8"
+        ],
+        [
+          "g2",
+          "g6",
+          "g8"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-alternative-3-1-style",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g8"
+        ],
+        [
+          "g13",
+          "g8"
+        ],
+        [
+          "g12",
+          "g9"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-alternative-3-1-quest",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g12",
+          "g8"
+        ],
+        [
+          "g13",
+          "g8"
+        ],
+        [
+          "g12",
+          "g9"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-alternative-3-2-style",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g13",
+          "g9"
+        ],
+        [
+          "g13",
+          "g9",
+          "g15"
+        ],
+        [
+          "g13",
+          "g9",
+          "g14"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "dress-alternative-3-2-quest",
+      "scenario": "dress-alternative",
+      "possible": true,
+      "success": true,
+      "outfits": [
+        [
+          "g13",
+          "g9"
+        ],
+        [
+          "g13",
+          "g9",
+          "g15"
+        ],
+        [
+          "g13",
+          "g9",
+          "g14"
+        ]
+      ],
+      "valid": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "method": "prototype",
+      "queryId": "mislabeled-1-0-style",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "mislabeled-1-0-quest",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "mislabeled-1-1-style",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "mislabeled-1-1-quest",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "mislabeled-1-2-style",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "mislabeled-1-2-quest",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "mislabeled-2-0-style",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "mislabeled-2-0-quest",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "mislabeled-2-1-style",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "mislabeled-2-1-quest",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "mislabeled-2-2-style",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "mislabeled-2-2-quest",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "mislabeled-3-0-style",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "mislabeled-3-0-quest",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "mislabeled-3-1-style",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "mislabeled-3-1-quest",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "mislabeled-3-2-style",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    },
+    {
+      "method": "prototype",
+      "queryId": "mislabeled-3-2-quest",
+      "scenario": "mislabeled",
+      "possible": false,
+      "success": false,
+      "outfits": [],
+      "valid": []
+    }
+  ]
+}
