@@ -1,0 +1,508 @@
+{
+  "date": "2026-09-22T19:04:35.719Z",
+  "model": "qwen3-vl:4b-instruct-q4_K_M",
+  "digest": "ee4b975b58c17ce268cd19d40db35d5edc64603035d2ffc1fee1968eb0947f7b",
+  "pipelineVersion": "garment-v2.1",
+  "promptSha256": "0666916dbf2e73ed14fd0367cbf4356c95e5eececa98fa7c72fd650469e0f79c",
+  "protocol": "Seven reused public demo photos; development comparison only, not held-out accuracy. No model weights have been fine-tuned. Expected labels are scoring-only.",
+  "recognition": [
+    {
+      "id": "tee",
+      "expectedCategory": "Top",
+      "data": {
+        "isGarment": true,
+        "name": "White T-shirt",
+        "category": "Top",
+        "itemType": "T-shirt",
+        "color": "#f4f3ef",
+        "colorName": "White",
+        "secondaryColors": [
+          "Black",
+          "Green",
+          "Blue"
+        ],
+        "pattern": "Abstract graphic print",
+        "fit": "Regular",
+        "materialAppearance": "Soft, slightly wrinkled fabric with a smooth texture",
+        "styleTags": [
+          "Casual",
+          "Graphic tee",
+          "Modern",
+          "Minimalist",
+          "Streetwear"
+        ],
+        "occasions": [
+          "Campus casual",
+          "Coffee date",
+          "Presentation day"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [
+          "Graphic print is pixelated and partially obscured",
+          "T-shirt hangs on a wooden hanger",
+          "Fabric appears to be cotton or cotton blend",
+          "Print is centered on the chest area",
+          "No visible stitching or seams on front",
+          "Background includes wood and white wall",
+          "Color swatch is an approximate palette color, not a measured fabric color.",
+          "Material and occasions are visual suggestions; verify them manually."
+        ],
+        "brandVerified": false,
+        "targetDescription": "White T-shirt with a rectangular abstract graphic print on the front",
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "reviewRequired": true
+      },
+      "model": "qwen3-vl:4b-instruct-q4_K_M",
+      "latencyMs": 17191,
+      "tokens": 227,
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "0666916dbf2e73ed14fd0367cbf4356c95e5eececa98fa7c72fd650469e0f79c",
+        "inputSha256": "e4f740b470153120571fbf266b91d880bbe8d265b87ac817fa22e7f80d142563",
+        "normalizedSha256": "cb5f04785d6e989713452f420068cc2c0e508f06f944227cf34fbaa649514837",
+        "width": 750,
+        "height": 1000,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 88
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 17103
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette"
+      },
+      "categoryMatches": true,
+      "totalMs": 17192
+    },
+    {
+      "id": "denim",
+      "expectedCategory": "Bottom",
+      "data": {
+        "isGarment": true,
+        "name": "Blue Jeans",
+        "category": "Bottom",
+        "itemType": "Jeans",
+        "color": "#537fab",
+        "colorName": "Blue",
+        "secondaryColors": [],
+        "pattern": "Solid",
+        "fit": "Regular",
+        "materialAppearance": "Washed denim fabric with visible stitching and slight fading",
+        "styleTags": [
+          "Classic denim",
+          "Straight leg",
+          "Washed finish",
+          "Casual wear"
+        ],
+        "occasions": [
+          "Campus casual",
+          "Coffee date",
+          "Presentation day"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [
+          "Color swatch is an approximate palette color, not a measured fabric color.",
+          "Material and occasions are visual suggestions; verify them manually."
+        ],
+        "brandVerified": false,
+        "targetDescription": "Blue denim jeans with a straight-leg cut, laid flat on a textured surface.",
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "reviewRequired": true
+      },
+      "model": "qwen3-vl:4b-instruct-q4_K_M",
+      "latencyMs": 3827,
+      "tokens": 148,
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "0666916dbf2e73ed14fd0367cbf4356c95e5eececa98fa7c72fd650469e0f79c",
+        "inputSha256": "25913773a47fa7f10e2e17d7b828a271e027983c91e8bbbc090f9e76de77ffa1",
+        "normalizedSha256": "076bd2557389c2b4603ad95d0c9563a20e58d8d8e13722f01ab44b96d4c32009",
+        "width": 435,
+        "height": 650,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 47
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 3780
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette"
+      },
+      "categoryMatches": true,
+      "totalMs": 3827
+    },
+    {
+      "id": "sneakers",
+      "expectedCategory": "Shoes",
+      "data": {
+        "isGarment": true,
+        "name": "White Sneakers",
+        "category": "Shoes",
+        "itemType": "Sneakers",
+        "color": "#f4f3ef",
+        "colorName": "White",
+        "secondaryColors": [
+          "Black"
+        ],
+        "pattern": "Solid",
+        "fit": "Not applicable",
+        "materialAppearance": "Canvas upper with stitched details and rubber sole",
+        "styleTags": [
+          "Minimalist",
+          "Casual",
+          "Classic",
+          "Clean lines",
+          "Modern"
+        ],
+        "occasions": [
+          "Campus casual",
+          "Coffee date",
+          "Presentation day"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [
+          "Image shows product on a stone surface, not worn",
+          "Color swatch is an approximate palette color, not a measured fabric color.",
+          "Material and occasions are visual suggestions; verify them manually."
+        ],
+        "brandVerified": false,
+        "targetDescription": "White canvas sneakers with laces and a thick rubber sole",
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "reviewRequired": true
+      },
+      "model": "qwen3-vl:4b-instruct-q4_K_M",
+      "latencyMs": 4050,
+      "tokens": 165,
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "0666916dbf2e73ed14fd0367cbf4356c95e5eececa98fa7c72fd650469e0f79c",
+        "inputSha256": "ec0a7e4d396db5ffec08474bb2cd3dc40569f828a0983f8e3a87c9869b49a0a5",
+        "normalizedSha256": "0a346f9d5d9f2334cb3750c64f14e8a29db4b8e03f5726498aa2378af9ef242b",
+        "width": 900,
+        "height": 675,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 53
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 3997
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette"
+      },
+      "categoryMatches": true,
+      "totalMs": 4050
+    },
+    {
+      "id": "knit",
+      "expectedCategory": "Top",
+      "data": {
+        "isGarment": true,
+        "name": "Green Sweater",
+        "category": "Top",
+        "itemType": "Sweater",
+        "color": "#426448",
+        "colorName": "Green",
+        "secondaryColors": [],
+        "pattern": "Cable knit",
+        "fit": "Regular",
+        "materialAppearance": "Textured, chunky knit with a slightly fuzzy surface",
+        "styleTags": [
+          "Cozy",
+          "Casual",
+          "Classic",
+          "Warm",
+          "Textured"
+        ],
+        "occasions": [
+          "Campus casual",
+          "Coffee date",
+          "Presentation day"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [
+          "Color swatch is an approximate palette color, not a measured fabric color.",
+          "Material and occasions are visual suggestions; verify them manually."
+        ],
+        "brandVerified": false,
+        "targetDescription": "Dark green, knitted sweater with a ribbed crew neck and cuffs",
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "reviewRequired": true
+      },
+      "model": "qwen3-vl:4b-instruct-q4_K_M",
+      "latencyMs": 3917,
+      "tokens": 152,
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "0666916dbf2e73ed14fd0367cbf4356c95e5eececa98fa7c72fd650469e0f79c",
+        "inputSha256": "dff5e7646b8ca5d57dda2ac98fc1dcc20dedde406f5782f0338b62a727c91d19",
+        "normalizedSha256": "5aa5b4c34c659ecd08c93a7b3b28ad3a272969d2ba4133875326bd50657a95bc",
+        "width": 895,
+        "height": 1000,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 88
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 3829
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette"
+      },
+      "categoryMatches": true,
+      "totalMs": 3917
+    },
+    {
+      "id": "trousers",
+      "expectedCategory": "Bottom",
+      "data": {
+        "isGarment": true,
+        "name": "Cream Trousers",
+        "category": "Bottom",
+        "itemType": "Trousers",
+        "color": "#e9dfc6",
+        "colorName": "Cream",
+        "secondaryColors": [
+          "Black"
+        ],
+        "pattern": "Solid",
+        "fit": "Relaxed",
+        "materialAppearance": "Smooth, slightly creased fabric with a subtle sheen, suggesting a cotton or linen blend",
+        "styleTags": [
+          "Casual",
+          "Business casual",
+          "Classic",
+          "Comfortable",
+          "Smart casual"
+        ],
+        "occasions": [
+          "Campus casual",
+          "Presentation day",
+          "Coffee date"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [
+          "Image cropped to mid-thigh, obscuring full context",
+          "Color is highlighted in color, background is monochrome",
+          "Trousers appear to be slightly loose-fitting",
+          "Cuffed hems suggest a casual or smart-casual style",
+          "No visible branding or logos",
+          "Pairing with striped shirt and loafers suggests a coordinated outfit",
+          "Color swatch is an approximate palette color, not a measured fabric color.",
+          "Material and occasions are visual suggestions; verify them manually.",
+          "Other items are visible. Confirm the selected target before saving."
+        ],
+        "brandVerified": false,
+        "targetDescription": "Light-colored, straight-leg trousers with a relaxed fit, cuffed at the ankles",
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "reviewRequired": true
+      },
+      "model": "qwen3-vl:4b-instruct-q4_K_M",
+      "latencyMs": 5633,
+      "tokens": 249,
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "0666916dbf2e73ed14fd0367cbf4356c95e5eececa98fa7c72fd650469e0f79c",
+        "inputSha256": "0406eaae6629f391db66c4b682ad58e0f719204217d7054a239259b560253a8b",
+        "normalizedSha256": "0b66bbe050f22934ca49e72bffe86b7a8cea9ea3b0c8d52bd59f2ddea35f0fff",
+        "width": 805,
+        "height": 1000,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 82
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 5551
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette"
+      },
+      "categoryMatches": true,
+      "totalMs": 5633
+    },
+    {
+      "id": "blazer",
+      "expectedCategory": "Outerwear",
+      "data": {
+        "isGarment": true,
+        "name": "Gray Blazer",
+        "category": "Outerwear",
+        "itemType": "Blazer",
+        "color": "#888888",
+        "colorName": "Gray",
+        "secondaryColors": [],
+        "pattern": "Solid",
+        "fit": "Regular",
+        "materialAppearance": "Smooth, structured fabric with subtle sheen, likely wool or wool blend.",
+        "styleTags": [
+          "Classic",
+          "Formal",
+          "Tailored",
+          "Business casual",
+          "Professional"
+        ],
+        "occasions": [
+          "Presentation day",
+          "Campus casual",
+          "Coffee date"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [
+          "Color swatch is an approximate palette color, not a measured fabric color.",
+          "Material and occasions are visual suggestions; verify them manually."
+        ],
+        "brandVerified": false,
+        "targetDescription": "A dark gray single-breasted blazer with notched lapels, two front buttons, and flap pockets.",
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "reviewRequired": true
+      },
+      "model": "qwen3-vl:4b-instruct-q4_K_M",
+      "latencyMs": 4096,
+      "tokens": 159,
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "0666916dbf2e73ed14fd0367cbf4356c95e5eececa98fa7c72fd650469e0f79c",
+        "inputSha256": "a95708fcb1174d90ae371afb794fa09ac85478d65db7708382e7a91e84993041",
+        "normalizedSha256": "371663cc5695b9b41a523b3095a2340c87fd438f6bd00e59d38b49f62fe0714f",
+        "width": 750,
+        "height": 1000,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 76
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 4020
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette"
+      },
+      "categoryMatches": true,
+      "totalMs": 4097
+    },
+    {
+      "id": "tote",
+      "expectedCategory": "Accessory",
+      "data": {
+        "isGarment": true,
+        "name": "Beige Tote bag",
+        "category": "Accessory",
+        "itemType": "Tote bag",
+        "color": "#c6b18c",
+        "colorName": "Beige",
+        "secondaryColors": [
+          "Black"
+        ],
+        "pattern": "Solid",
+        "fit": "Not applicable",
+        "materialAppearance": "Textured canvas with visible stitching and a slightly worn look",
+        "styleTags": [
+          "Minimalist",
+          "Casual",
+          "Utility",
+          "Modern",
+          "Functional"
+        ],
+        "occasions": [
+          "Campus casual",
+          "Coffee date",
+          "Presentation day"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [
+          "Color swatch is an approximate palette color, not a measured fabric color.",
+          "Material and occasions are visual suggestions; verify them manually."
+        ],
+        "brandVerified": false,
+        "targetDescription": "A beige canvas tote bag with two vertical straps and metal buckles at the front, featuring a black handle top.",
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "reviewRequired": true
+      },
+      "model": "qwen3-vl:4b-instruct-q4_K_M",
+      "latencyMs": 3983,
+      "tokens": 160,
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "0666916dbf2e73ed14fd0367cbf4356c95e5eececa98fa7c72fd650469e0f79c",
+        "inputSha256": "76c3b64011b7b21320a56036639b4e5f31ea0930260b8f179bda35a279428d6d",
+        "normalizedSha256": "bbce0cd36e08374f54748c480845e7e7ce5bf7697329ee902d9f918127e049bb",
+        "width": 900,
+        "height": 900,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 72
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 3912
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette"
+      },
+      "categoryMatches": true,
+      "totalMs": 3983
+    }
+  ],
+  "summary": {
+    "total": 7,
+    "completed": 7,
+    "categoryMatches": 7,
+    "meanLatencyMs": 6100
+  }
+}

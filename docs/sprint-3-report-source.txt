@@ -1,6 +1,6 @@
 Closet Quest Technical Feasibility and Baseline
 
-Sprint 3 submission | Junhao Yan | Repository owner noobyanjunhao<br/>Evidence collected September 13 2026 | Submission due Tuesday September 15 at 10 am
+Sprint 3 submission | Junhao Yan | Repository owner noobyanjunhao<br/>Repository: <link href="https://github.com/noobyanjunhao/Closet-Quest" color="#254b3c">https://github.com/noobyanjunhao/Closet-Quest</link>
 
 <b>Decision: Modify.</b> Continue the closet, styling, quest, and resale workflow, but replace independent garment selection with constrained outfit ranking. Two experiments establish local technical feasibility: a reproducible metadata benchmark and a CPU-only pretrained-vision smoke test. They do not establish human styling acceptance or real-photo recognition accuracy. Keep manual corrections and defer a final model or fine-tuning decision until a real-photo evaluation is reviewed with Junhao.
 

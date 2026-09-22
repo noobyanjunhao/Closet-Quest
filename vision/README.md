@@ -1,5 +1,7 @@
 # Pretrained vision comparison
 
+The illustration experiment below remains frozen. The newer real-photo app collection and queued-API smoke run are documented in [the photo workflow](../docs/photo-workflow.md), with raw results in `results/photo-collection-smoke.json`. Seven demo photos do not constitute the planned independent 120-garment evaluation.
+
 No model was trained or fine-tuned. The CPU smoke test compares quantized CLIP ViT-B/32 and SigLIP Base through Transformers.js. CLIP and SigLIP ONNX model cards document zero-shot classification [CLIP](https://huggingface.co/Xenova/clip-vit-base-patch32), [SigLIP](https://huggingface.co/Xenova/siglip-base-patch16-224).
 
 ```sh

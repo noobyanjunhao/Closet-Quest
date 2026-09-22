@@ -1,0 +1,94 @@
+{
+  "date": "2026-09-15T05:36:19.866Z",
+  "protocol": "Two real-photo development smoke cases, one call each including load overhead. Not a held-out accuracy benchmark. Styling uses seeded metadata. No training.",
+  "cpuRequested": false,
+  "recognition": [
+    {
+      "file": "001.jpg",
+      "expectedCategory": "Bottom",
+      "source": "https://commons.wikimedia.org/wiki/File:Jeans.jpg",
+      "download": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Jeans.jpg",
+      "author": "Oktaeder",
+      "license": "Public domain",
+      "changes": "None in stored file; resized for inference",
+      "split": "development-smoke",
+      "error": "Invalid garment category or color; try another photo."
+    },
+    {
+      "file": "002.jpg",
+      "expectedCategory": "Top",
+      "source": "https://commons.wikimedia.org/wiki/File:Tshirt-userpage-tobefree-front.jpg",
+      "download": "https://upload.wikimedia.org/wikipedia/commons/0/03/Tshirt-userpage-tobefree-front.jpg",
+      "author": "Tobias ToBeFree Frei",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "changes": "None in stored file; resized for inference",
+      "split": "development-smoke",
+      "error": "Invalid garment category or color; try another photo."
+    }
+  ],
+  "runtime": {
+    "models": [
+      {
+        "name": "gemma3:4b",
+        "model": "gemma3:4b",
+        "size": 3029157806,
+        "digest": "a2af6cc3eb7fa8be8504abaf9b04e88f17a119ec3f04a3addf55f92841195f5a",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "gemma3",
+          "families": [
+            "gemma3"
+          ],
+          "parameter_size": "4.3B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-09-15T01:46:44.0006962-04:00",
+        "size_vram": 3029157806,
+        "context_length": 8192
+      }
+    ]
+  },
+  "styling": {
+    "data": {
+      "outfits": [
+        {
+          "itemIds": [
+            "1",
+            "2",
+            "3"
+          ],
+          "title": "Effortless Coffee Date",
+          "explanation": "This outfit leans into the 'relaxed but put together' vibe. The light grey tee (#ece6d9) paired with the dark denim (#6f8b9e) creates a lovely contrast in tone. The straight-leg denim offers a clean silhouette, while the sneakers (#e9e5dd) keep it casual. The color combination is fresh and approachable. The silhouette is balanced – the relaxed tee is softened by the structured denim.",
+          "stylingTip": "Roll up the sleeves of the tee for a more relaxed feel."
+        },
+        {
+          "itemIds": [
+            "4",
+            "5",
+            "3"
+          ],
+          "title": "Cozy Coffee Date",
+          "explanation": "This combination focuses on comfort and warmth. The forest green knit sweater (#59705a) is layered over the relaxed linen trousers (#b8a48b). The sneakers (#e9e5dd) provide a grounded base. The silhouette here is intentionally soft and flowing – the sweater's relaxed fit complements the loose linen. The color palette is earthy and calming, perfect for a relaxed coffee date.",
+          "stylingTip": "Tuck the sweater slightly into the trousers for a more defined waistline."
+        },
+        {
+          "itemIds": [
+            "1",
+            "5",
+            "3",
+            "6"
+          ],
+          "title": "Smart Casual Coffee Date",
+          "explanation": "This outfit elevates the coffee date with a touch of sophistication. The everyday cotton tee (#ece6d9) is paired with the relaxed linen trousers (#b8a48b) for a comfortable yet polished look. The classic sneakers (#e9e5dd) are swapped for the chocolate blazer (#785745) adding a layer of formality. The silhouette is created by the structured blazer over the relaxed bottom, creating a balanced and interesting shape. The color combination is sophisticated and works well for a slightly more formal coffee date.",
+          "stylingTip": "Leave the blazer unbuttoned for a more relaxed feel."
+        }
+      ],
+      "reason": "These outfits utilize all provided items and prioritize color harmony and silhouette considerations to meet the requested mood and occasion."
+    },
+    "model": "gemma3:4b",
+    "latencyMs": 8086,
+    "tokens": 538
+  }
+}

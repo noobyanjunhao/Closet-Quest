@@ -42,7 +42,7 @@ def footer(canvas,doc):
     canvas.drawRightString(566,28,f'{doc.page} / 4')
 
 para('Closet Quest Technical Feasibility and Baseline','ReportTitle')
-para('Sprint 3 submission | Junhao Yan | Repository owner noobyanjunhao<br/>Evidence collected September 13 2026 | Submission due Tuesday September 15 at 10 am','Sub')
+para('Sprint 3 submission | Junhao Yan | Repository owner noobyanjunhao<br/>Repository: <link href="https://github.com/noobyanjunhao/Closet-Quest" color="#254b3c">https://github.com/noobyanjunhao/Closet-Quest</link>','Sub')
 para('<b>Decision: Modify.</b> Continue the closet, styling, quest, and resale workflow, but replace independent garment selection with constrained outfit ranking. Two experiments establish local technical feasibility: a reproducible metadata benchmark and a CPU-only pretrained-vision smoke test. They do not establish human styling acceptance or real-photo recognition accuracy. Keep manual corrections and defer a final model or fine-tuning decision until a real-photo evaluation is reviewed with Junhao.')
 heading('Technical and data feasibility')
 para('The highest product risk is that digitization creates more correction work than value. A second critical assumption is that small, incomplete closets still support useful context-specific outfits. Sprint 3 directly tests the latter with representative metadata scenarios and tests whether existing vision models can execute locally without training. The semester targets remain category accuracy >=80%, color accuracy >=85%, valid-job success >=95%, 90% of uploads within 20 seconds, and human acceptance within the top three >=70%.')

@@ -1,0 +1,30 @@
+{
+  "capturedAt": "2026-09-22T19:00:23.3366927Z",
+  "note": "Post-evaluation runtime snapshot; not a per-case latency trace. Embeddings configured with num_gpu=0.",
+  "version": {
+    "version": "0.34.0"
+  },
+  "running": {
+    "models": [
+      {
+        "name": "qwen3-vl:4b",
+        "model": "qwen3-vl:4b",
+        "size": 4235345264,
+        "digest": "1343d82ebee38e26a4dd6b0180b915eb91550184e67c505dea97509571c8f683",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3vl",
+          "families": [
+            "qwen3vl"
+          ],
+          "parameter_size": "4.4B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-09-22T15:07:22.8389931-04:00",
+        "size_vram": 4235345264,
+        "context_length": 8192
+      }
+    ]
+  }
+}

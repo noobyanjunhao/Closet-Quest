@@ -1,0 +1,138 @@
+{
+  "date": "2026-09-15T05:37:43.421Z",
+  "protocol": "Two real-photo development smoke cases, one call each including load overhead. Not a held-out accuracy benchmark. Styling uses seeded metadata. No training.",
+  "cpuRequested": true,
+  "recognition": [
+    {
+      "file": "001.jpg",
+      "expectedCategory": "Bottom",
+      "source": "https://commons.wikimedia.org/wiki/File:Jeans.jpg",
+      "download": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Jeans.jpg",
+      "author": "Oktaeder",
+      "license": "Public domain",
+      "changes": "None in stored file; resized for inference",
+      "split": "development-smoke",
+      "sha256": "b316902ad85e8ff46b164ceb7f2c38d3c1424c9d789703e0267e3dfce68fbe1c",
+      "data": {
+        "isGarment": true,
+        "name": "Jeans",
+        "category": "Bottom",
+        "color": "#99B99E",
+        "colorName": "Light Blue",
+        "pattern": "Solid",
+        "fit": "Regular",
+        "materialAppearance": "Durable denim",
+        "styleTags": [
+          "Casual",
+          "Classic",
+          "Relaxed"
+        ],
+        "occasions": [
+          "Everyday wear",
+          "Weekend",
+          "Travel"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [
+          "Material composition uncertain"
+        ],
+        "brandVerified": false
+      },
+      "model": "gemma3:4b",
+      "latencyMs": 69732,
+      "tokens": 160,
+      "correct": true
+    },
+    {
+      "file": "002.jpg",
+      "expectedCategory": "Top",
+      "source": "https://commons.wikimedia.org/wiki/File:Tshirt-userpage-tobefree-front.jpg",
+      "download": "https://upload.wikimedia.org/wikipedia/commons/0/03/Tshirt-userpage-tobefree-front.jpg",
+      "author": "Tobias ToBeFree Frei",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "changes": "None in stored file; resized for inference",
+      "split": "development-smoke",
+      "sha256": "c3c7cb71721984abdabbd4e6656c051d55c4335da573dda19711e7f7c31378e5",
+      "data": {
+        "isGarment": true,
+        "name": "",
+        "category": "Top",
+        "color": "#ffffff",
+        "colorName": "White",
+        "pattern": "Abstract Graphic",
+        "fit": "Regular",
+        "materialAppearance": "Smooth, soft",
+        "styleTags": [
+          "Casual",
+          "Minimalist",
+          "Contemporary"
+        ],
+        "occasions": [
+          "Everyday Wear",
+          "Relaxed Settings"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [],
+        "brandVerified": false
+      },
+      "model": "gemma3:4b",
+      "latencyMs": 53184,
+      "tokens": 137,
+      "correct": true
+    }
+  ],
+  "runtime": {
+    "models": [
+      {
+        "name": "gemma3:4b",
+        "model": "gemma3:4b",
+        "size": 3040692141,
+        "digest": "a2af6cc3eb7fa8be8504abaf9b04e88f17a119ec3f04a3addf55f92841195f5a",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "gemma3",
+          "families": [
+            "gemma3"
+          ],
+          "parameter_size": "4.3B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-09-15T01:49:46.5371717-04:00",
+        "size_vram": 0,
+        "context_length": 8192
+      }
+    ]
+  },
+  "styling": {
+    "data": {
+      "outfits": [
+        {
+          "itemIds": [
+            "1",
+            "2",
+            "3"
+          ],
+          "title": "Effortless Coffee Date",
+          "explanation": "This outfit leans into the 'relaxed but put together' brief. The light gray tee (#ece6d9) paired with the dark denim (#6f8b9e) creates a classic, comfortable silhouette – a slightly cropped top with straight-leg trousers is always a winning combination. The sneakers (#e9e5dd) add a casual touch, while the overall color palette is soft and approachable. The straight-leg silhouette offers a modern, streamlined feel.",
+          "stylingTip": "Roll up the sleeves of the tee for a more relaxed vibe."
+        },
+        {
+          "itemIds": [
+            "1",
+            "5",
+            "3"
+          ],
+          "title": "Casual Coffee Date with a Twist",
+          "explanation": "This outfit balances casual comfort with a touch of unexpected color. The everyday cotton tee (#ece6d9) is paired with the relaxed linen trousers (#b8a48b) for a relaxed silhouette. The sneakers (#e9e5dd) keep it grounded, and the dark denim color of the trousers provides a nice contrast to the light tee. This combination feels fresh and modern.",
+          "stylingTip": "Add a simple silver necklace to elevate the look slightly."
+        }
+      ],
+      "reason": "The provided items lend themselves well to comfortable, casual outfits. I've prioritized combinations that utilize the available colors and textures to create refreshing looks suitable for a coffee date, focusing on silhouettes that are both comfortable and stylish."
+    },
+    "model": "gemma3:4b",
+    "latencyMs": 38539,
+    "tokens": 521
+  }
+}

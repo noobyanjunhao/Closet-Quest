@@ -7,3 +7,9 @@ dist/
 tmp/
 .model-cache/
 vision/private/
+.local-data/
+ml/checkpoints/
+ml/exports/
+ml/.venv/
+__pycache__/
+*.pyc

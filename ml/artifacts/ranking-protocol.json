@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "provenance": "Deterministic authored Sprint 3 wardrobe fixtures and explicit synthetic relevance proxy judgments. No real users or human taste labels.",
+  "judgment": "2 × saved occasion match + 1 × requested category match + 0.5 × low-use match when requested",
+  "splitProtocol": "Grouped by normalized wardrobe content; repeated variants and identical catalog families stay together. Brief templates are distinct per split. Catalog item types can recur; this is not independent fashion-quality evidence.",
+  "sourceSha256": "7e90abc7388956946433e8c20b8aade6969332091ab68546f7c25df10324654f",
+  "datasetSha256": "a1320920ae53e8fe150347804945bcf6ef30d171d529be77113f643640a88a1b",
+  "queries": 1080
+}

@@ -1,0 +1,4 @@
+[
+  {"file":"001.jpg","expectedCategory":"Bottom","source":"https://commons.wikimedia.org/wiki/File:Jeans.jpg","download":"https://upload.wikimedia.org/wikipedia/commons/5/5a/Jeans.jpg","author":"Oktaeder","license":"Public domain","changes":"None in stored file; resized for inference","split":"development-smoke"},
+  {"file":"002.jpg","expectedCategory":"Top","source":"https://commons.wikimedia.org/wiki/File:Tshirt-userpage-tobefree-front.jpg","download":"https://upload.wikimedia.org/wikipedia/commons/0/03/Tshirt-userpage-tobefree-front.jpg","author":"Tobias ToBeFree Frei","license":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","changes":"None in stored file; resized for inference","split":"development-smoke"}
+]

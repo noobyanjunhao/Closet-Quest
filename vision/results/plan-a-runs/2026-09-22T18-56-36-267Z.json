@@ -1,0 +1,58 @@
+{
+  "date": "2026-09-22T18:56:36.267Z",
+  "model": "qwen3-vl:4b",
+  "digest": "1343d82ebee38e26a4dd6b0180b915eb91550184e67c505dea97509571c8f683",
+  "pipelineVersion": "garment-v2.1",
+  "promptSha256": "0666916dbf2e73ed14fd0367cbf4356c95e5eececa98fa7c72fd650469e0f79c",
+  "protocol": "Seven reused public demo photos; development comparison only, not held-out accuracy. No model weights have been fine-tuned. Expected labels are scoring-only.",
+  "recognition": [
+    {
+      "id": "tee",
+      "error": "The model returned unreadable data. Retry the request.",
+      "code": "INVALID_RESPONSE",
+      "totalMs": 7739
+    },
+    {
+      "id": "denim",
+      "error": "The model returned unreadable data. Retry the request.",
+      "code": "INVALID_RESPONSE",
+      "totalMs": 6723
+    },
+    {
+      "id": "sneakers",
+      "error": "The model returned unreadable data. Retry the request.",
+      "code": "INVALID_RESPONSE",
+      "totalMs": 6423
+    },
+    {
+      "id": "knit",
+      "error": "The model returned unreadable data. Retry the request.",
+      "code": "INVALID_RESPONSE",
+      "totalMs": 5420
+    },
+    {
+      "id": "trousers",
+      "error": "The model returned unreadable data. Retry the request.",
+      "code": "INVALID_RESPONSE",
+      "totalMs": 6882
+    },
+    {
+      "id": "blazer",
+      "error": "The model returned unreadable data. Retry the request.",
+      "code": "INVALID_RESPONSE",
+      "totalMs": 9449
+    },
+    {
+      "id": "tote",
+      "error": "The model returned unreadable data. Retry the request.",
+      "code": "INVALID_RESPONSE",
+      "totalMs": 3914
+    }
+  ],
+  "summary": {
+    "total": 7,
+    "completed": 0,
+    "categoryMatches": 0,
+    "meanLatencyMs": 6650
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "version": "pairwise-linear-development-v1",
+  "featureVersion": "wardrobe-ranker-features-v1",
+  "featureNames": [
+    "lexicalReciprocalRank",
+    "denseReciprocalRank",
+    "contextTagMatch",
+    "briefOverlap",
+    "colorMatch",
+    "categoryMatch",
+    "rediscoveryMatch",
+    "anchorMatch"
+  ],
+  "weights": [
+    0.9303291490339841,
+    0,
+    2.0384535724359125,
+    1.6864443653875671,
+    0,
+    0.9824259512908874,
+    0.6898830059112717,
+    0
+  ],
+  "trainingDomain": "synthetic-development-proxy",
+  "denseFeaturesTrained": false,
+  "datasetSha256": "a1320920ae53e8fe150347804945bcf6ef30d171d529be77113f643640a88a1b",
+  "sourceSha256": "7e90abc7388956946433e8c20b8aade6969332091ab68546f7c25df10324654f",
+  "training": {
+    "algorithm": "Full-batch pairwise logistic loss + L2",
+    "epochs": 120,
+    "learningRate": 0.2,
+    "l2": 0.001,
+    "pairCount": 40638
+  },
+  "activation": {
+    "passed": true,
+    "minimumGain": 0.01,
+    "criterion": "Validation and test NDCG@5 improve by at least 0.01, and pair accuracy does not regress. This gate covers only the declared development proxy."
+  },
+  "metrics": {
+    "train": {
+      "baseline": {
+        "queries": 627,
+        "ndcgAt5": 0.9153184399545963,
+        "pairAccuracy": 0.8743909641222501,
+        "pairs": 40638
+      },
+      "trained": {
+        "queries": 627,
+        "ndcgAt5": 0.997090291003822,
+        "pairAccuracy": 0.9991141296323638,
+        "pairs": 40638
+      },
+      "gain": 0.08177185104922569
+    },
+    "validation": {
+      "baseline": {
+        "queries": 108,
+        "ndcgAt5": 0.9688568279918621,
+        "pairAccuracy": 0.9098639455782312,
+        "pairs": 2058
+      },
+      "trained": {
+        "queries": 108,
+        "ndcgAt5": 0.9967652610041503,
+        "pairAccuracy": 0.9970845481049563,
+        "pairs": 2058
+      },
+      "gain": 0.02790843301228818
+    },
+    "test": {
+      "baseline": {
+        "queries": 324,
+        "ndcgAt5": 0.8837343035773803,
+        "pairAccuracy": 0.8706786754002911,
+        "pairs": 21984
+      },
+      "trained": {
+        "queries": 324,
+        "ndcgAt5": 0.9974052016659344,
+        "pairAccuracy": 0.9986808588064047,
+        "pairs": 21984
+      },
+      "gain": 0.11367089808855413
+    }
+  },
+  "splits": {
+    "train": {
+      "queries": 648,
+      "families": [
+        "bc954f12e245a9937167e5da95ffd0f332b7877f00c03ea756a7e62cf32d5f8c",
+        "74406bdd8d57da64b788ec078aa4e01f1a0031605688813c84787d0737f785af",
+        "a56b4c1972119ef9ad1b3a16b33881f8a798bacb5c2dd379f66cf61a62247089"
+      ],
+      "wardrobes": [
+        "balanced-1",
+        "balanced-2",
+        "balanced-3",
+        "context-conflict-1",
+        "context-conflict-2",
+        "context-conflict-3",
+        "all-used-1",
+        "all-used-2",
+        "all-used-3",
+        "mixed-case-1",
+        "mixed-case-2",
+        "mixed-case-3",
+        "sparse-1",
+        "sparse-2",
+        "sparse-3",
+        "unknown-tags-1",
+        "unknown-tags-2",
+        "unknown-tags-3"
+      ]
+    },
+    "validation": {
+      "queries": 108,
+      "families": [
+        "293f84fa75d537bf233ae67ae81b76679812f6790b99c00a4795c09007a56743"
+      ],
+      "wardrobes": [
+        "dress-only-1",
+        "dress-only-2",
+        "dress-only-3"
+      ]
+    },
+    "test": {
+      "queries": 324,
+      "families": [
+        "8ebe0536b78226dbbaee6d9759fafa5020f7bb073267bb128b42ebd622296fbc",
+        "5b22eb0539628d8fe5298a091f6bba9fc68dcbc3d5acd12b8b449a7de212651e",
+        "c140c510b8928e22293b4f2a92ed867e4f295d53f5db38c4a12f17d5ec5e7090"
+      ],
+      "wardrobes": [
+        "missing-shoes-1",
+        "missing-shoes-2",
+        "missing-shoes-3",
+        "dress-alternative-1",
+        "dress-alternative-2",
+        "dress-alternative-3",
+        "mislabeled-1",
+        "mislabeled-2",
+        "mislabeled-3"
+      ]
+    }
+  }
+}

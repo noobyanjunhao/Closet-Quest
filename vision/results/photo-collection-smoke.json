@@ -1,0 +1,275 @@
+{
+  "date": "2026-09-22T02:14:06.605Z",
+  "protocol": "Seven attributed real photos used in the demo. Development smoke check, not a locked test set or an accuracy estimate. No prompt changes or training.",
+  "recognition": [
+    {
+      "id": "tee",
+      "sha256": "e4f740b470153120571fbf266b91d880bbe8d265b87ac817fa22e7f80d142563",
+      "source": "https://commons.wikimedia.org/wiki/File:Tshirt-userpage-tobefree-front.jpg",
+      "expectedCategory": "Top",
+      "acceptanceMs": 41,
+      "totalMs": 5144,
+      "status": "ready",
+      "data": {
+        "isGarment": true,
+        "name": "Top",
+        "category": "Top",
+        "color": "#ffffff",
+        "colorName": "White",
+        "pattern": "Abstract Graphic",
+        "fit": "Regular",
+        "materialAppearance": "Smooth, likely cotton or a cotton blend",
+        "styleTags": [
+          "Casual",
+          "Graphic Tee",
+          "Minimalist"
+        ],
+        "occasions": [
+          "Everyday Wear",
+          "Relaxed Settings"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [],
+        "brandVerified": false
+      },
+      "model": "gemma3:4b",
+      "latencyMs": 4479,
+      "tokens": 143,
+      "categoryMatches": true
+    },
+    {
+      "id": "denim",
+      "sha256": "25913773a47fa7f10e2e17d7b828a271e027983c91e8bbbc090f9e76de77ffa1",
+      "source": "https://commons.wikimedia.org/wiki/File:Jeans.jpg",
+      "expectedCategory": "Bottom",
+      "acceptanceMs": 12,
+      "totalMs": 4103,
+      "status": "ready",
+      "data": {
+        "isGarment": true,
+        "name": "Blue Jeans",
+        "category": "Bottom",
+        "color": "#ADD8E6",
+        "colorName": "Light Blue",
+        "pattern": "Solid",
+        "fit": "Regular",
+        "materialAppearance": "Denim",
+        "styleTags": [
+          "Casual",
+          "Classic",
+          "Relaxed"
+        ],
+        "occasions": [
+          "Everyday wear",
+          "Weekend",
+          "Travel"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [],
+        "brandVerified": false
+      },
+      "model": "gemma3:4b",
+      "latencyMs": 4034,
+      "tokens": 144,
+      "categoryMatches": true
+    },
+    {
+      "id": "sneakers",
+      "sha256": "ec0a7e4d396db5ffec08474bb2cd3dc40569f828a0983f8e3a87c9869b49a0a5",
+      "source": "https://commons.wikimedia.org/wiki/File:Converse_Jack_Purcell_sneakers_on_white_canvas.jpg",
+      "expectedCategory": "Shoes",
+      "acceptanceMs": 12,
+      "totalMs": 5144,
+      "status": "failed",
+      "error": "No single clear garment detected. Use a closer photo of one garment."
+    },
+    {
+      "id": "knit",
+      "sha256": "dff5e7646b8ca5d57dda2ac98fc1dcc20dedde406f5782f0338b62a727c91d19",
+      "source": "https://commons.wikimedia.org/wiki/File:Green_Aran_Sweater.JPG",
+      "expectedCategory": "Top",
+      "acceptanceMs": 14,
+      "totalMs": 6143,
+      "status": "ready",
+      "data": {
+        "isGarment": true,
+        "name": "Top",
+        "category": "Top",
+        "color": "#385269",
+        "colorName": "Dark Green",
+        "pattern": "Cable Knit",
+        "fit": "Relaxed",
+        "materialAppearance": "Coarse knit, appears to be wool or wool blend",
+        "styleTags": [
+          "Casual",
+          "Cozy",
+          "Classic",
+          "Autumnal"
+        ],
+        "occasions": [
+          "Relaxing at home",
+          "Outdoor activities",
+          "Casual gatherings"
+        ],
+        "visibleLabelText": "Caitlin Dough",
+        "uncertainty": [
+          "Material is uncertain, likely wool or wool blend based on appearance.",
+          "Occasion is subjective and based on the garment's style."
+        ],
+        "brandVerified": false
+      },
+      "model": "gemma3:4b",
+      "latencyMs": 5529,
+      "tokens": 203,
+      "categoryMatches": true
+    },
+    {
+      "id": "trousers",
+      "sha256": "0406eaae6629f391db66c4b682ad58e0f719204217d7054a239259b560253a8b",
+      "source": "https://commons.wikimedia.org/wiki/File:Trousers-colourisolated.jpg",
+      "expectedCategory": "Bottom",
+      "acceptanceMs": 16,
+      "totalMs": 5123,
+      "status": "ready",
+      "data": {
+        "isGarment": true,
+        "name": "Men's Trousers",
+        "category": "Top",
+        "color": "#F5E8DC",
+        "colorName": "Beige",
+        "pattern": "Striped",
+        "fit": "Relaxed Fit",
+        "materialAppearance": "Lightweight Fabric",
+        "styleTags": [
+          "Casual",
+          "Smart Casual",
+          "Retro",
+          "Classic"
+        ],
+        "occasions": [
+          "Business Casual",
+          "Weekend Outings",
+          "Travel"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [
+          "Material composition uncertain"
+        ],
+        "brandVerified": false
+      },
+      "model": "gemma3:4b",
+      "latencyMs": 4695,
+      "tokens": 173,
+      "categoryMatches": false
+    },
+    {
+      "id": "blazer",
+      "sha256": "a95708fcb1174d90ae371afb794fa09ac85478d65db7708382e7a91e84993041",
+      "source": "https://commons.wikimedia.org/wiki/File:Navy_blazer_jacket.jpg",
+      "expectedCategory": "Outerwear",
+      "acceptanceMs": 17,
+      "totalMs": 5139,
+      "status": "ready",
+      "data": {
+        "isGarment": true,
+        "name": "Suit Jacket",
+        "category": "Outerwear",
+        "color": "#363636",
+        "colorName": "Dark Gray",
+        "pattern": "Solid",
+        "fit": "Slim Fit",
+        "materialAppearance": "Smooth, possibly wool or a wool blend",
+        "styleTags": [
+          "Formal",
+          "Business",
+          "Classic",
+          "Sharp"
+        ],
+        "occasions": [
+          "Business Meetings",
+          "Weddings",
+          "Parties",
+          "Graduations"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [
+          "Material is uncertain, likely wool or a wool blend.",
+          "Occasion is subjective and depends on the specific context."
+        ],
+        "brandVerified": false
+      },
+      "model": "gemma3:4b",
+      "latencyMs": 4986,
+      "tokens": 200,
+      "categoryMatches": true
+    },
+    {
+      "id": "tote",
+      "sha256": "76c3b64011b7b21320a56036639b4e5f31ea0930260b8f179bda35a279428d6d",
+      "source": "https://commons.wikimedia.org/wiki/File:04-QWSTION-FLAP-TOTE-SMALL-SAND-FRONT.jpg",
+      "expectedCategory": "Accessory",
+      "acceptanceMs": 13,
+      "totalMs": 5140,
+      "status": "ready",
+      "data": {
+        "isGarment": true,
+        "name": "Canvas Tote Bag",
+        "category": "Top",
+        "color": "#D3C8B1",
+        "colorName": "Beige",
+        "pattern": "Solid",
+        "fit": "Relaxed",
+        "materialAppearance": "Canvas-like, slightly textured",
+        "styleTags": [
+          "Casual",
+          "Minimalist",
+          "Everyday",
+          "Practical"
+        ],
+        "occasions": [
+          "Shopping",
+          "Beach",
+          "Travel",
+          "Errands"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [
+          "Material is uncertain - appears to be a canvas-like material."
+        ],
+        "brandVerified": false
+      },
+      "model": "gemma3:4b",
+      "latencyMs": 4898,
+      "tokens": 185,
+      "categoryMatches": false
+    }
+  ],
+  "runtime": {
+    "models": [
+      {
+        "name": "gemma3:4b",
+        "model": "gemma3:4b",
+        "size": 3029157806,
+        "digest": "a2af6cc3eb7fa8be8504abaf9b04e88f17a119ec3f04a3addf55f92841195f5a",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "gemma3",
+          "families": [
+            "gemma3"
+          ],
+          "parameter_size": "4.3B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-09-21T22:24:42.3791075-04:00",
+        "size_vram": 3029157806,
+        "context_length": 8192
+      }
+    ]
+  },
+  "summary": {
+    "completed": 6,
+    "total": 7,
+    "categoryMatches": 4
+  }
+}

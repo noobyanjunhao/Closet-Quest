@@ -12,7 +12,20 @@
     "benchmark": "node experiments/evaluate.mjs",
     "vision:fixtures": "node vision/generate-fixtures.mjs",
     "vision:compare": "node vision/compare.mjs",
-    "vision:classify": "node vision/classify.mjs"
+    "vision:classify": "node vision/classify.mjs",
+    "agents:test": "node vision/test-agents.mjs",
+    "ai:start": "node scripts/start-local-ai.mjs",
+    "photos:collect": "node scripts/collect-demo-photos.mjs",
+    "photos:test": "node vision/evaluate-pipeline.mjs",
+    "pipeline:evaluate": "node vision/evaluate-pipeline.mjs",
+    "rag:evaluate": "node vision/evaluate-wardrobe-rag.mjs",
+    "start": "node server/start.mjs",
+    "ai:setup": "node scripts/setup-plan-a.mjs",
+    "ai:evaluate": "node vision/evaluate-plan-a.mjs",
+    "ml:train": "node ml/train-ranker.mjs",
+    "ml:test": "node --test ml/checks.test.mjs",
+    "ml:prepare": "node ml/prepare-lora.mjs --write",
+    "rag:hybrid": "node vision/evaluate-hybrid-retrieval.mjs"
   },
   "dependencies": {
     "react": "^19.1.1",
@@ -24,6 +37,7 @@
   },
   "devDependencies": {
     "@huggingface/transformers": "^4.2.0",
+    "sharp": "^0.35.4",
     "vite": "^7.1.5"
   }
 }

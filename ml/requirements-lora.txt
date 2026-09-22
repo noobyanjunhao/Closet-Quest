@@ -1,0 +1,9 @@
+# Install into an isolated environment only when real-data readiness passes.
+# Use the CUDA-enabled PyTorch wheel appropriate for the local driver.
+torch==2.8.0
+transformers==4.56.2
+peft==0.17.1
+trl==0.23.0
+datasets==4.1.1
+accelerate==1.10.1
+bitsandbytes==0.47.0

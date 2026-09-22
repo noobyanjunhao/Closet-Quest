@@ -1,0 +1,176 @@
+{
+  "date": "2026-09-22T18:51:14.179Z",
+  "model": "qwen3-vl:4b",
+  "digest": "1343d82ebee38e26a4dd6b0180b915eb91550184e67c505dea97509571c8f683",
+  "pipelineVersion": "garment-v2.1",
+  "promptSha256": "0666916dbf2e73ed14fd0367cbf4356c95e5eececa98fa7c72fd650469e0f79c",
+  "protocol": "Seven reused public demo photos; development comparison only, not held-out accuracy. No model weights have been fine-tuned. Expected labels are scoring-only.",
+  "recognition": [
+    {
+      "id": "tee",
+      "error": "Model response was truncated. Try a smaller input.",
+      "code": "TRUNCATED_RESPONSE"
+    },
+    {
+      "id": "denim",
+      "error": "Model response was truncated. Try a smaller input.",
+      "code": "TRUNCATED_RESPONSE"
+    },
+    {
+      "id": "sneakers",
+      "error": "Model response was truncated. Try a smaller input.",
+      "code": "TRUNCATED_RESPONSE"
+    },
+    {
+      "id": "knit",
+      "expectedCategory": "Top",
+      "data": {
+        "isGarment": true,
+        "name": "Green Sweater",
+        "category": "Top",
+        "itemType": "Sweater",
+        "color": "#426448",
+        "colorName": "Green",
+        "secondaryColors": [],
+        "pattern": "Cable knit",
+        "fit": "Regular",
+        "materialAppearance": "Thick, textured knit with a dense, woven appearance",
+        "styleTags": [
+          "Classic",
+          "Cozy",
+          "Textured",
+          "Casual",
+          "Warm"
+        ],
+        "occasions": [
+          "Campus casual",
+          "Presentation day"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [
+          "Flat lay image; no context of fit or wear; background is carpet, not relevant to item.",
+          "Color swatch is an approximate palette color, not a measured fabric color.",
+          "Material and occasions are visual suggestions; verify them manually."
+        ],
+        "brandVerified": false,
+        "targetDescription": "Dark green, thick cable knit crew neck sweater with long sleeves",
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "reviewRequired": true
+      },
+      "model": "qwen3-vl:4b",
+      "latencyMs": 36341,
+      "tokens": 1443,
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "0666916dbf2e73ed14fd0367cbf4356c95e5eececa98fa7c72fd650469e0f79c",
+        "inputSha256": "dff5e7646b8ca5d57dda2ac98fc1dcc20dedde406f5782f0338b62a727c91d19",
+        "normalizedSha256": "5aa5b4c34c659ecd08c93a7b3b28ad3a272969d2ba4133875326bd50657a95bc",
+        "width": 895,
+        "height": 1000,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 86
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 36254
+          },
+          {
+            "name": "validating",
+            "durationMs": 1
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette"
+      },
+      "categoryMatches": true
+    },
+    {
+      "id": "trousers",
+      "error": "Model response was truncated. Try a smaller input.",
+      "code": "TRUNCATED_RESPONSE"
+    },
+    {
+      "id": "blazer",
+      "error": "Model response was truncated. Try a smaller input.",
+      "code": "TRUNCATED_RESPONSE"
+    },
+    {
+      "id": "tote",
+      "expectedCategory": "Accessory",
+      "data": {
+        "isGarment": true,
+        "name": "Beige Tote bag",
+        "category": "Accessory",
+        "itemType": "Tote bag",
+        "color": "#c6b18c",
+        "colorName": "Beige",
+        "secondaryColors": [
+          "Black"
+        ],
+        "pattern": "Solid",
+        "fit": "Not applicable",
+        "materialAppearance": "Canvas texture with visible stitching",
+        "styleTags": [
+          "Minimalist",
+          "Casual",
+          "Functional",
+          "Modern",
+          "Everyday"
+        ],
+        "occasions": [
+          "Campus casual",
+          "Coffee date",
+          "Presentation day"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [
+          "Product image, no context for wear or fit",
+          "Color swatch is an approximate palette color, not a measured fabric color.",
+          "Material and occasions are visual suggestions; verify them manually."
+        ],
+        "brandVerified": false,
+        "targetDescription": "Beige canvas tote bag with two shoulder straps, metal buckles, and a top handle",
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "reviewRequired": true
+      },
+      "model": "qwen3-vl:4b",
+      "latencyMs": 36755,
+      "tokens": 1437,
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "0666916dbf2e73ed14fd0367cbf4356c95e5eececa98fa7c72fd650469e0f79c",
+        "inputSha256": "76c3b64011b7b21320a56036639b4e5f31ea0930260b8f179bda35a279428d6d",
+        "normalizedSha256": "bbce0cd36e08374f54748c480845e7e7ce5bf7697329ee902d9f918127e049bb",
+        "width": 900,
+        "height": 900,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 68
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 36686
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette"
+      },
+      "categoryMatches": true
+    }
+  ],
+  "summary": {
+    "total": 7,
+    "completed": 2,
+    "categoryMatches": 2,
+    "meanLatencyMs": 10442
+  }
+}

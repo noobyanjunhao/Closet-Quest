@@ -1,0 +1,972 @@
+{
+  "date": "2026-09-22T18:07:23.770Z",
+  "protocol": "Development integration check on authored metadata of the seven real-photo sample garments. Validates owned IDs, complete shapes, anchor inclusion, source facts and bounded context. Not a fashion-quality, retrieval-accuracy or user-preference study.",
+  "cases": [
+    {
+      "id": "coffee-knit-anchor",
+      "query": {
+        "context": "Coffee date",
+        "request": "A relaxed look with earth tones and knit texture. Keep the starting sweater in every look.",
+        "anchorId": "photo-knit",
+        "requireLowUse": true
+      },
+      "status": 200,
+      "totalMs": 23056,
+      "data": {
+        "data": {
+          "outfits": [
+            {
+              "itemIds": [
+                "photo-knit",
+                "photo-denim",
+                "photo-sneakers"
+              ],
+              "title": "Cozy Coffee Date",
+              "explanation": "This outfit combines the comfort of a Forest cable-knit sweater with the relaxed fit of Everyday blue jeans and the practicality of White canvas sneakers.",
+              "stylingTip": "Roll up the sleeves of the Forest cable-knit sweater for a more effortless, casual vibe.",
+              "planId": "P1",
+              "grounding": [
+                {
+                  "itemId": "photo-knit",
+                  "reasons": [
+                    "Matches your brief: coffee, date, knit, sweater, casual",
+                    "Your selected starting piece",
+                    "One recorded wear or less; eligible for rediscovery",
+                    "Keeps a complete outfit available"
+                  ],
+                  "facts": [
+                    "Category: Top",
+                    "Color label: Forest green",
+                    "Pattern: Cable knit",
+                    "Recorded wears: 1"
+                  ]
+                },
+                {
+                  "itemId": "photo-denim",
+                  "reasons": [
+                    "Matches your brief: coffee, date, casual, campus, everyday",
+                    "Keeps a complete outfit available"
+                  ],
+                  "facts": [
+                    "Category: Bottom",
+                    "Color label: Light blue",
+                    "Pattern: Solid",
+                    "Recorded wears: 12"
+                  ]
+                },
+                {
+                  "itemId": "photo-sneakers",
+                  "reasons": [
+                    "Matches your brief: coffee, date, casual, campus",
+                    "Keeps a complete outfit available"
+                  ],
+                  "facts": [
+                    "Category: Shoes",
+                    "Color label: White",
+                    "Pattern: Solid",
+                    "Recorded wears: 15"
+                  ]
+                }
+              ],
+              "guideCitations": [
+                {
+                  "id": "CQ-G01",
+                  "title": "Build a complete outfit"
+                },
+                {
+                  "id": "CQ-G03",
+                  "title": "Easy casual combinations"
+                },
+                {
+                  "id": "CQ-G07",
+                  "title": "Rediscover an underused piece"
+                }
+              ]
+            },
+            {
+              "itemIds": [
+                "photo-knit",
+                "photo-trousers",
+                "photo-sneakers",
+                "photo-blazer",
+                "photo-tote"
+              ],
+              "title": "Presentation Ready Casual",
+              "explanation": "Layer the Forest cable-knit sweater over the Everyday blue jeans for a polished yet relaxed look, complemented by White canvas sneakers and the Navy everyday blazer.",
+              "stylingTip": "Leave the blazer unbuttoned for a more approachable and confident appearance.",
+              "planId": "P2",
+              "grounding": [
+                {
+                  "itemId": "photo-knit",
+                  "reasons": [
+                    "Matches your brief: coffee, date, knit, sweater, casual",
+                    "Your selected starting piece",
+                    "One recorded wear or less; eligible for rediscovery",
+                    "Keeps a complete outfit available"
+                  ],
+                  "facts": [
+                    "Category: Top",
+                    "Color label: Forest green",
+                    "Pattern: Cable knit",
+                    "Recorded wears: 1"
+                  ]
+                },
+                {
+                  "itemId": "photo-trousers",
+                  "reasons": [
+                    "Matches your brief: coffee, date, casual, campus",
+                    "One recorded wear or less; eligible for rediscovery",
+                    "Adds a bottom option"
+                  ],
+                  "facts": [
+                    "Category: Bottom",
+                    "Color label: Sand",
+                    "Pattern: Solid",
+                    "Recorded wears: 0"
+                  ]
+                },
+                {
+                  "itemId": "photo-sneakers",
+                  "reasons": [
+                    "Matches your brief: coffee, date, casual, campus",
+                    "Keeps a complete outfit available"
+                  ],
+                  "facts": [
+                    "Category: Shoes",
+                    "Color label: White",
+                    "Pattern: Solid",
+                    "Recorded wears: 15"
+                  ]
+                },
+                {
+                  "itemId": "photo-blazer",
+                  "reasons": [
+                    "Matches your brief: coffee, date, everyday",
+                    "One recorded wear or less; eligible for rediscovery",
+                    "Adds a outerwear option"
+                  ],
+                  "facts": [
+                    "Category: Outerwear",
+                    "Color label: Navy",
+                    "Pattern: Solid",
+                    "Recorded wears: 0"
+                  ]
+                },
+                {
+                  "itemId": "photo-tote",
+                  "reasons": [
+                    "Matches your brief: coffee, date, casual, campus, everyday",
+                    "One recorded wear or less; eligible for rediscovery",
+                    "Adds a accessory option"
+                  ],
+                  "facts": [
+                    "Category: Accessory",
+                    "Color label: Sand",
+                    "Pattern: Solid",
+                    "Recorded wears: 0"
+                  ]
+                }
+              ],
+              "guideCitations": [
+                {
+                  "id": "CQ-G01",
+                  "title": "Build a complete outfit"
+                },
+                {
+                  "id": "CQ-G03",
+                  "title": "Easy casual combinations"
+                },
+                {
+                  "id": "CQ-G07",
+                  "title": "Rediscover an underused piece"
+                }
+              ]
+            },
+            {
+              "itemIds": [
+                "photo-knit",
+                "photo-denim",
+                "photo-sneakers",
+                "photo-blazer",
+                "photo-tote"
+              ],
+              "title": "Soft Earth Tone Ensemble",
+              "explanation": "This outfit utilizes the Forest cable-knit sweater paired with Everyday blue jeans and White canvas sneakers, creating a harmonious blend of textures and colors.",
+              "stylingTip": "Keep accessories minimal to let the knit texture and denim tones shine.",
+              "planId": "P3",
+              "grounding": [
+                {
+                  "itemId": "photo-knit",
+                  "reasons": [
+                    "Matches your brief: coffee, date, knit, sweater, casual",
+                    "Your selected starting piece",
+                    "One recorded wear or less; eligible for rediscovery",
+                    "Keeps a complete outfit available"
+                  ],
+                  "facts": [
+                    "Category: Top",
+                    "Color label: Forest green",
+                    "Pattern: Cable knit",
+                    "Recorded wears: 1"
+                  ]
+                },
+                {
+                  "itemId": "photo-denim",
+                  "reasons": [
+                    "Matches your brief: coffee, date, casual, campus, everyday",
+                    "Keeps a complete outfit available"
+                  ],
+                  "facts": [
+                    "Category: Bottom",
+                    "Color label: Light blue",
+                    "Pattern: Solid",
+                    "Recorded wears: 12"
+                  ]
+                },
+                {
+                  "itemId": "photo-sneakers",
+                  "reasons": [
+                    "Matches your brief: coffee, date, casual, campus",
+                    "Keeps a complete outfit available"
+                  ],
+                  "facts": [
+                    "Category: Shoes",
+                    "Color label: White",
+                    "Pattern: Solid",
+                    "Recorded wears: 15"
+                  ]
+                },
+                {
+                  "itemId": "photo-blazer",
+                  "reasons": [
+                    "Matches your brief: coffee, date, everyday",
+                    "One recorded wear or less; eligible for rediscovery",
+                    "Adds a outerwear option"
+                  ],
+                  "facts": [
+                    "Category: Outerwear",
+                    "Color label: Navy",
+                    "Pattern: Solid",
+                    "Recorded wears: 0"
+                  ]
+                },
+                {
+                  "itemId": "photo-tote",
+                  "reasons": [
+                    "Matches your brief: coffee, date, casual, campus, everyday",
+                    "One recorded wear or less; eligible for rediscovery",
+                    "Adds a accessory option"
+                  ],
+                  "facts": [
+                    "Category: Accessory",
+                    "Color label: Sand",
+                    "Pattern: Solid",
+                    "Recorded wears: 0"
+                  ]
+                }
+              ],
+              "guideCitations": [
+                {
+                  "id": "CQ-G01",
+                  "title": "Build a complete outfit"
+                },
+                {
+                  "id": "CQ-G03",
+                  "title": "Easy casual combinations"
+                },
+                {
+                  "id": "CQ-G07",
+                  "title": "Rediscover an underused piece"
+                }
+              ]
+            }
+          ],
+          "reason": "The brief requested an earth tone look with a knit texture, and these three plans successfully incorporate the Forest cable-knit sweater while offering varied levels of formality and casualness."
+        },
+        "model": "gemma3:4b",
+        "latencyMs": 22982,
+        "tokens": 234,
+        "retrieval": {
+          "version": "wardrobe-bm25-v1",
+          "method": "BM25 + explicit synonyms + category coverage",
+          "eligibleCount": 7,
+          "retrievedCount": 7,
+          "excludedReviewCount": 0,
+          "items": [
+            {
+              "id": "photo-tee",
+              "score": 0.317,
+              "reasons": [
+                "Matches your brief: coffee, date, casual, campus",
+                "Adds a top option"
+              ]
+            },
+            {
+              "id": "photo-denim",
+              "score": 0.8461,
+              "reasons": [
+                "Matches your brief: coffee, date, casual, campus, everyday",
+                "Keeps a complete outfit available"
+              ]
+            },
+            {
+              "id": "photo-sneakers",
+              "score": 0.317,
+              "reasons": [
+                "Matches your brief: coffee, date, casual, campus",
+                "Keeps a complete outfit available"
+              ]
+            },
+            {
+              "id": "photo-knit",
+              "score": 4.9636,
+              "reasons": [
+                "Matches your brief: coffee, date, knit, sweater, casual",
+                "Your selected starting piece",
+                "One recorded wear or less; eligible for rediscovery",
+                "Keeps a complete outfit available"
+              ]
+            },
+            {
+              "id": "photo-trousers",
+              "score": 0.317,
+              "reasons": [
+                "Matches your brief: coffee, date, casual, campus",
+                "One recorded wear or less; eligible for rediscovery",
+                "Adds a bottom option"
+              ]
+            },
+            {
+              "id": "photo-blazer",
+              "score": 0.6662,
+              "reasons": [
+                "Matches your brief: coffee, date, everyday",
+                "One recorded wear or less; eligible for rediscovery",
+                "Adds a outerwear option"
+              ]
+            },
+            {
+              "id": "photo-tote",
+              "score": 0.8297,
+              "reasons": [
+                "Matches your brief: coffee, date, casual, campus, everyday",
+                "One recorded wear or less; eligible for rediscovery",
+                "Adds a accessory option"
+              ]
+            }
+          ],
+          "guidance": [
+            {
+              "id": "CQ-G01",
+              "title": "Build a complete outfit",
+              "text": "Start with one top and one bottom, or one dress, plus a pair of shoes. Add optional pieces deliberately. Describe only details recorded in the wardrobe; photos and fabric names do not establish comfort, weather protection or fiber content."
+            },
+            {
+              "id": "CQ-G03",
+              "title": "Easy casual combinations",
+              "text": "For a casual mood, pair a simple base with one detail such as texture, color or shape. Existing sneakers or relaxed pieces can be options when their recorded details support the request. Do not infer physical comfort from a photograph."
+            },
+            {
+              "id": "CQ-G07",
+              "title": "Rediscover an underused piece",
+              "text": "Choose at least one piece with zero or one recorded wear when rediscovery is requested. Ground the rest of the outfit around that piece using owned items. Recorded wears describe this app’s history, not an item’s lifetime use or condition."
+            }
+          ],
+          "anchorId": "photo-knit",
+          "timingMs": 1.4,
+          "contextChars": 4425,
+          "contextBytes": 4429,
+          "contextLimitBytes": 6000,
+          "truncatedFields": []
+        },
+        "planning": {
+          "version": "validated-outfit-plans-v1",
+          "method": "Enumerated valid outfits + lexical relevance, base-shape coverage and overlap diversity",
+          "enumeratedCount": 16,
+          "validCombinationCount": 8,
+          "candidateCount": 8,
+          "timingMs": 0.44,
+          "candidates": [
+            {
+              "id": "P1",
+              "itemIds": [
+                "photo-knit",
+                "photo-denim",
+                "photo-sneakers"
+              ],
+              "score": 3.5373
+            },
+            {
+              "id": "P2",
+              "itemIds": [
+                "photo-knit",
+                "photo-trousers",
+                "photo-sneakers",
+                "photo-blazer",
+                "photo-tote"
+              ],
+              "score": 3.1723
+            },
+            {
+              "id": "P3",
+              "itemIds": [
+                "photo-knit",
+                "photo-denim",
+                "photo-sneakers",
+                "photo-blazer",
+                "photo-tote"
+              ],
+              "score": 3.4089
+            },
+            {
+              "id": "P4",
+              "itemIds": [
+                "photo-knit",
+                "photo-trousers",
+                "photo-sneakers"
+              ],
+              "score": 3.2318
+            },
+            {
+              "id": "P5",
+              "itemIds": [
+                "photo-knit",
+                "photo-denim",
+                "photo-sneakers",
+                "photo-tote"
+              ],
+              "score": 3.4782
+            },
+            {
+              "id": "P6",
+              "itemIds": [
+                "photo-knit",
+                "photo-denim",
+                "photo-sneakers",
+                "photo-blazer"
+              ],
+              "score": 3.3964
+            },
+            {
+              "id": "P7",
+              "itemIds": [
+                "photo-knit",
+                "photo-trousers",
+                "photo-sneakers",
+                "photo-tote"
+              ],
+              "score": 3.2136
+            },
+            {
+              "id": "P8",
+              "itemIds": [
+                "photo-knit",
+                "photo-trousers",
+                "photo-sneakers",
+                "photo-blazer"
+              ],
+              "score": 3.1319
+            }
+          ],
+          "selectedPlanIds": [
+            "P1",
+            "P2",
+            "P3"
+          ],
+          "rejectedSelectionCount": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "presentation-blazer-anchor",
+      "query": {
+        "context": "Presentation day",
+        "request": "A polished, simple combination with tailored pieces and a restrained palette.",
+        "anchorId": "photo-blazer"
+      },
+      "status": 200,
+      "totalMs": 1751,
+      "data": {
+        "data": {
+          "outfits": [
+            {
+              "itemIds": [
+                "photo-knit",
+                "photo-trousers",
+                "photo-sneakers",
+                "photo-blazer",
+                "photo-tote"
+              ],
+              "title": "Sophisticated Presentation",
+              "explanation": "This outfit combines the structured Navy blazer with the Forest cable-knit sweater and sand trousers for a polished, professional look suitable for a presentation.",
+              "stylingTip": "Roll up the sleeves of the Forest cable-knit sweater to create a relaxed yet refined silhouette.",
+              "planId": "P1",
+              "grounding": [
+                {
+                  "itemId": "photo-knit",
+                  "reasons": [
+                    "Matches your brief: presentation, day",
+                    "Keeps a complete outfit available"
+                  ],
+                  "facts": [
+                    "Category: Top",
+                    "Color label: Forest green",
+                    "Pattern: Cable knit",
+                    "Recorded wears: 1"
+                  ]
+                },
+                {
+                  "itemId": "photo-trousers",
+                  "reasons": [
+                    "Matches your brief: presentation, day",
+                    "Keeps a complete outfit available"
+                  ],
+                  "facts": [
+                    "Category: Bottom",
+                    "Color label: Sand",
+                    "Pattern: Solid",
+                    "Recorded wears: 0"
+                  ]
+                },
+                {
+                  "itemId": "photo-sneakers",
+                  "reasons": [
+                    "Matches your brief: presentation, day",
+                    "Keeps a complete outfit available"
+                  ],
+                  "facts": [
+                    "Category: Shoes",
+                    "Color label: White",
+                    "Pattern: Solid",
+                    "Recorded wears: 15"
+                  ]
+                },
+                {
+                  "itemId": "photo-blazer",
+                  "reasons": [
+                    "Matches your brief: presentation, day",
+                    "Your selected starting piece",
+                    "Keeps a complete outfit available"
+                  ],
+                  "facts": [
+                    "Category: Outerwear",
+                    "Color label: Navy",
+                    "Pattern: Solid",
+                    "Recorded wears: 0"
+                  ]
+                },
+                {
+                  "itemId": "photo-tote",
+                  "reasons": [
+                    "Matches your brief: presentation, day",
+                    "Adds a accessory option"
+                  ],
+                  "facts": [
+                    "Category: Accessory",
+                    "Color label: Sand",
+                    "Pattern: Solid",
+                    "Recorded wears: 0"
+                  ]
+                }
+              ],
+              "guideCitations": [
+                {
+                  "id": "CQ-G01",
+                  "title": "Build a complete outfit"
+                },
+                {
+                  "id": "CQ-G02",
+                  "title": "A polished everyday look"
+                },
+                {
+                  "id": "CQ-G08",
+                  "title": "Style around a starting piece"
+                }
+              ]
+            }
+          ],
+          "reason": ""
+        },
+        "model": "gemma3:4b",
+        "latencyMs": 1743,
+        "tokens": 76,
+        "retrieval": {
+          "version": "wardrobe-bm25-v1",
+          "method": "BM25 + explicit synonyms + category coverage",
+          "eligibleCount": 7,
+          "retrievedCount": 7,
+          "excludedReviewCount": 0,
+          "items": [
+            {
+              "id": "photo-tee",
+              "score": 0,
+              "reasons": [
+                "Adds a top option"
+              ]
+            },
+            {
+              "id": "photo-denim",
+              "score": 0,
+              "reasons": [
+                "Adds a bottom option"
+              ]
+            },
+            {
+              "id": "photo-sneakers",
+              "score": 0.752,
+              "reasons": [
+                "Matches your brief: presentation, day",
+                "Keeps a complete outfit available"
+              ]
+            },
+            {
+              "id": "photo-knit",
+              "score": 0.6862,
+              "reasons": [
+                "Matches your brief: presentation, day",
+                "Keeps a complete outfit available"
+              ]
+            },
+            {
+              "id": "photo-trousers",
+              "score": 0.752,
+              "reasons": [
+                "Matches your brief: presentation, day",
+                "Keeps a complete outfit available"
+              ]
+            },
+            {
+              "id": "photo-blazer",
+              "score": 0.7898,
+              "reasons": [
+                "Matches your brief: presentation, day",
+                "Your selected starting piece",
+                "Keeps a complete outfit available"
+              ]
+            },
+            {
+              "id": "photo-tote",
+              "score": 0.752,
+              "reasons": [
+                "Matches your brief: presentation, day",
+                "Adds a accessory option"
+              ]
+            }
+          ],
+          "guidance": [
+            {
+              "id": "CQ-G01",
+              "title": "Build a complete outfit",
+              "text": "Start with one top and one bottom, or one dress, plus a pair of shoes. Add optional pieces deliberately. Describe only details recorded in the wardrobe; photos and fabric names do not establish comfort, weather protection or fiber content."
+            },
+            {
+              "id": "CQ-G02",
+              "title": "A polished everyday look",
+              "text": "For a polished mood, consider recorded structured shapes, a simple color relationship and restrained accessories. A blazer can add structure when one is owned; formal dress codes remain the wearer’s decision."
+            },
+            {
+              "id": "CQ-G08",
+              "title": "Style around a starting piece",
+              "text": "Keep the selected starting piece in every outfit. Choose supporting pieces whose recorded colors, shapes and details suit the requested mood. Never substitute a different item for the starting piece."
+            }
+          ],
+          "anchorId": "photo-blazer",
+          "timingMs": 0.69,
+          "contextChars": 4371,
+          "contextBytes": 4373,
+          "contextLimitBytes": 6000,
+          "truncatedFields": []
+        },
+        "planning": {
+          "version": "validated-outfit-plans-v1",
+          "method": "Enumerated valid outfits + lexical relevance, base-shape coverage and overlap diversity",
+          "enumeratedCount": 16,
+          "validCombinationCount": 8,
+          "candidateCount": 8,
+          "timingMs": 1.26,
+          "candidates": [
+            {
+              "id": "P1",
+              "itemIds": [
+                "photo-knit",
+                "photo-trousers",
+                "photo-sneakers",
+                "photo-blazer",
+                "photo-tote"
+              ],
+              "score": 1.669
+            },
+            {
+              "id": "P2",
+              "itemIds": [
+                "photo-tee",
+                "photo-trousers",
+                "photo-sneakers",
+                "photo-blazer",
+                "photo-tote"
+              ],
+              "score": 1.3621
+            },
+            {
+              "id": "P3",
+              "itemIds": [
+                "photo-knit",
+                "photo-trousers",
+                "photo-sneakers",
+                "photo-blazer"
+              ],
+              "score": 1.49
+            },
+            {
+              "id": "P4",
+              "itemIds": [
+                "photo-knit",
+                "photo-denim",
+                "photo-sneakers",
+                "photo-blazer",
+                "photo-tote"
+              ],
+              "score": 1.3327
+            },
+            {
+              "id": "P5",
+              "itemIds": [
+                "photo-tee",
+                "photo-denim",
+                "photo-sneakers",
+                "photo-blazer",
+                "photo-tote"
+              ],
+              "score": 1.0258
+            },
+            {
+              "id": "P6",
+              "itemIds": [
+                "photo-tee",
+                "photo-trousers",
+                "photo-sneakers",
+                "photo-blazer"
+              ],
+              "score": 1.1469
+            },
+            {
+              "id": "P7",
+              "itemIds": [
+                "photo-knit",
+                "photo-denim",
+                "photo-sneakers",
+                "photo-blazer"
+              ],
+              "score": 1.114
+            },
+            {
+              "id": "P8",
+              "itemIds": [
+                "photo-tee",
+                "photo-denim",
+                "photo-sneakers",
+                "photo-blazer"
+              ],
+              "score": 0.7709
+            }
+          ],
+          "selectedPlanIds": [
+            "P1"
+          ],
+          "rejectedSelectionCount": 0
+        }
+      },
+      "passed": true
+    }
+  ],
+  "retrievalChecks": [
+    {
+      "id": "crowded-closet-187",
+      "passed": true,
+      "status": 200,
+      "totalMs": 25,
+      "data": {
+        "retrieval": {
+          "version": "wardrobe-bm25-v1",
+          "method": "BM25 + explicit synonyms + category coverage",
+          "eligibleCount": 187,
+          "retrievedCount": 18,
+          "excludedReviewCount": 0,
+          "items": [
+            {
+              "id": "distractor-0",
+              "score": 0,
+              "reasons": [
+                "Adds a top option"
+              ]
+            },
+            {
+              "id": "distractor-1",
+              "score": 0,
+              "reasons": [
+                "Adds a top option"
+              ]
+            },
+            {
+              "id": "distractor-2",
+              "score": 0,
+              "reasons": [
+                "Adds a top option"
+              ]
+            },
+            {
+              "id": "distractor-3",
+              "score": 0,
+              "reasons": [
+                "Adds a top option"
+              ]
+            },
+            {
+              "id": "distractor-4",
+              "score": 0,
+              "reasons": [
+                "Adds a top option"
+              ]
+            },
+            {
+              "id": "distractor-5",
+              "score": 0,
+              "reasons": [
+                "Adds a top option"
+              ]
+            },
+            {
+              "id": "distractor-6",
+              "score": 0,
+              "reasons": [
+                "Adds a top option"
+              ]
+            },
+            {
+              "id": "distractor-7",
+              "score": 0,
+              "reasons": [
+                "Adds a top option"
+              ]
+            },
+            {
+              "id": "distractor-8",
+              "score": 0,
+              "reasons": [
+                "Adds a top option"
+              ]
+            },
+            {
+              "id": "distractor-9",
+              "score": 0,
+              "reasons": [
+                "Adds a top option"
+              ]
+            },
+            {
+              "id": "distractor-10",
+              "score": 0,
+              "reasons": [
+                "Adds a top option"
+              ]
+            },
+            {
+              "id": "photo-tee",
+              "score": 5.7328,
+              "reasons": [
+                "Matches your brief: coffee, date",
+                "Adds a top option"
+              ]
+            },
+            {
+              "id": "photo-denim",
+              "score": 8.4105,
+              "reasons": [
+                "Matches your brief: coffee, date, bottom",
+                "Adds a bottom option"
+              ]
+            },
+            {
+              "id": "photo-sneakers",
+              "score": 5.7328,
+              "reasons": [
+                "Matches your brief: coffee, date",
+                "Keeps a complete outfit available"
+              ]
+            },
+            {
+              "id": "photo-knit",
+              "score": 34.8388,
+              "reasons": [
+                "Matches your brief: coffee, date, forest, green, cable",
+                "Your selected starting piece",
+                "Keeps a complete outfit available"
+              ]
+            },
+            {
+              "id": "photo-trousers",
+              "score": 20.6923,
+              "reasons": [
+                "Matches your brief: coffee, date, sand, trousers, bottom",
+                "Keeps a complete outfit available"
+              ]
+            },
+            {
+              "id": "photo-blazer",
+              "score": 6.0715,
+              "reasons": [
+                "Matches your brief: coffee, date",
+                "Adds a outerwear option"
+              ]
+            },
+            {
+              "id": "photo-tote",
+              "score": 12.1078,
+              "reasons": [
+                "Matches your brief: coffee, date, sand",
+                "Adds a accessory option"
+              ]
+            }
+          ],
+          "guidance": [
+            {
+              "id": "CQ-G01",
+              "title": "Build a complete outfit",
+              "text": "Start with one top and one bottom, or one dress, plus a pair of shoes. Add optional pieces deliberately. Describe only details recorded in the wardrobe; photos and fabric names do not establish comfort, weather protection or fiber content."
+            },
+            {
+              "id": "CQ-G08",
+              "title": "Style around a starting piece",
+              "text": "Keep the selected starting piece in every outfit. Choose supporting pieces whose recorded colors, shapes and details suit the requested mood. Never substitute a different item for the starting piece."
+            },
+            {
+              "id": "CQ-G03",
+              "title": "Easy casual combinations",
+              "text": "For a casual mood, pair a simple base with one detail such as texture, color or shape. Existing sneakers or relaxed pieces can be options when their recorded details support the request. Do not infer physical comfort from a photograph."
+            }
+          ],
+          "anchorId": "photo-knit",
+          "timingMs": 4.44
+        }
+      }
+    },
+    {
+      "id": "missing-shoes",
+      "passed": true,
+      "status": 400,
+      "totalMs": 11,
+      "data": {
+        "error": "Add reviewed shoes to build a complete outfit.",
+        "code": "NO_COMPLETE_OUTFIT",
+        "retryable": false
+      }
+    }
+  ],
+  "summary": {
+    "styleCasesPassed": 2,
+    "styleCases": 2,
+    "retrievalChecksPassed": 2,
+    "retrievalChecks": 2
+  }
+}

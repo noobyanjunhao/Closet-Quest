@@ -1,0 +1,724 @@
+{
+  "date": "2026-09-22T04:47:57.774Z",
+  "pipelineVersion": "garment-v2.1",
+  "promptSha256": "0666916dbf2e73ed14fd0367cbf4356c95e5eececa98fa7c72fd650469e0f79c",
+  "protocol": "Same seven attributed demo photographs reused to debug the first run. Development regression check, not a held-out test or an accuracy estimate. Schema and prompt refined; same model, no weight training. Expected labels are used only for scoring, never sent to inference. One generated blank-image negative control is reported separately.",
+  "baseline": {
+    "path": "vision/results/photo-collection-smoke.json",
+    "date": "2026-09-22T02:14:06.605Z",
+    "summary": {
+      "completed": 6,
+      "total": 7,
+      "categoryMatches": 4
+    }
+  },
+  "recognition": [
+    {
+      "id": "tee",
+      "source": "https://commons.wikimedia.org/wiki/File:Tshirt-userpage-tobefree-front.jpg",
+      "expectedCategory": "Top",
+      "baselineStatus": "ready",
+      "baselineCategory": "Top",
+      "baselineMatches": true,
+      "inputSha256": "e4f740b470153120571fbf266b91d880bbe8d265b87ac817fa22e7f80d142563",
+      "acceptanceMs": 11,
+      "totalMs": 5000,
+      "status": "ready",
+      "attempt": 1,
+      "observedStages": [
+        {
+          "stage": "queued",
+          "atMs": 11
+        },
+        {
+          "stage": "recognizing",
+          "atMs": 290
+        },
+        {
+          "stage": "ready",
+          "atMs": 5000
+        }
+      ],
+      "data": {
+        "isGarment": true,
+        "name": "White T-shirt",
+        "category": "Top",
+        "itemType": "T-shirt",
+        "color": "#f4f3ef",
+        "colorName": "White",
+        "secondaryColors": [
+          "White",
+          "Gray",
+          "Blue"
+        ],
+        "pattern": "Abstract graphic",
+        "fit": "Regular",
+        "materialAppearance": "Smooth, matte cotton",
+        "styleTags": [
+          "Minimalist",
+          "Graphic",
+          "Casual",
+          "Simple",
+          "Contemporary"
+        ],
+        "occasions": [
+          "Campus casual",
+          "Coffee date",
+          "Presentation day"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [
+          "Color swatch is an approximate palette color, not a measured fabric color.",
+          "Material and occasions are visual suggestions; verify them manually.",
+          "Other items are visible. Confirm the selected target before saving."
+        ],
+        "brandVerified": false,
+        "targetDescription": "White short-sleeved t-shirt with a graphic print. The print is a layered abstract design featuring shades of gray, blue, green, and black.",
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "reviewRequired": true
+      },
+      "model": "gemma3:4b",
+      "latencyMs": 4899,
+      "tokens": 113,
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "0666916dbf2e73ed14fd0367cbf4356c95e5eececa98fa7c72fd650469e0f79c",
+        "inputSha256": "e4f740b470153120571fbf266b91d880bbe8d265b87ac817fa22e7f80d142563",
+        "normalizedSha256": "cb5f04785d6e989713452f420068cc2c0e508f06f944227cf34fbaa649514837",
+        "width": 750,
+        "height": 1000,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 66
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 4833
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette"
+      },
+      "categoryMatches": true
+    },
+    {
+      "id": "denim",
+      "source": "https://commons.wikimedia.org/wiki/File:Jeans.jpg",
+      "expectedCategory": "Bottom",
+      "baselineStatus": "ready",
+      "baselineCategory": "Bottom",
+      "baselineMatches": true,
+      "inputSha256": "25913773a47fa7f10e2e17d7b828a271e027983c91e8bbbc090f9e76de77ffa1",
+      "acceptanceMs": 12,
+      "totalMs": 3871,
+      "status": "ready",
+      "attempt": 1,
+      "observedStages": [
+        {
+          "stage": "queued",
+          "atMs": 12
+        },
+        {
+          "stage": "recognizing",
+          "atMs": 285
+        },
+        {
+          "stage": "ready",
+          "atMs": 3871
+        }
+      ],
+      "data": {
+        "isGarment": true,
+        "name": "Blue Jeans",
+        "category": "Bottom",
+        "itemType": "Jeans",
+        "color": "#537fab",
+        "colorName": "Blue",
+        "secondaryColors": [
+          "Blue",
+          "Unknown"
+        ],
+        "pattern": "Unknown",
+        "fit": "Regular",
+        "materialAppearance": "Light wash denim, slightly worn appearance",
+        "styleTags": [
+          "Casual",
+          "Classic",
+          "Relaxed",
+          "Denim",
+          "Straight leg"
+        ],
+        "occasions": [
+          "Campus casual",
+          "Coffee date",
+          "Presentation day"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [
+          "Color swatch is an approximate palette color, not a measured fabric color.",
+          "Material and occasions are visual suggestions; verify them manually.",
+          "Other items are visible. Confirm the selected target before saving."
+        ],
+        "brandVerified": false,
+        "targetDescription": "Light wash, straight leg jeans with a visible denim texture. The jeans have a classic five-pocket design and a regular fit.",
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "reviewRequired": true
+      },
+      "model": "gemma3:4b",
+      "latencyMs": 3803,
+      "tokens": 108,
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "0666916dbf2e73ed14fd0367cbf4356c95e5eececa98fa7c72fd650469e0f79c",
+        "inputSha256": "25913773a47fa7f10e2e17d7b828a271e027983c91e8bbbc090f9e76de77ffa1",
+        "normalizedSha256": "076bd2557389c2b4603ad95d0c9563a20e58d8d8e13722f01ab44b96d4c32009",
+        "width": 435,
+        "height": 650,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 44
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 3758
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette"
+      },
+      "categoryMatches": true
+    },
+    {
+      "id": "sneakers",
+      "source": "https://commons.wikimedia.org/wiki/File:Converse_Jack_Purcell_sneakers_on_white_canvas.jpg",
+      "expectedCategory": "Shoes",
+      "baselineStatus": "failed",
+      "baselineCategory": null,
+      "baselineMatches": false,
+      "inputSha256": "ec0a7e4d396db5ffec08474bb2cd3dc40569f828a0983f8e3a87c9869b49a0a5",
+      "acceptanceMs": 12,
+      "totalMs": 3879,
+      "status": "ready",
+      "attempt": 1,
+      "observedStages": [
+        {
+          "stage": "queued",
+          "atMs": 12
+        },
+        {
+          "stage": "recognizing",
+          "atMs": 293
+        },
+        {
+          "stage": "ready",
+          "atMs": 3878
+        }
+      ],
+      "data": {
+        "isGarment": true,
+        "name": "White Sneakers",
+        "category": "Shoes",
+        "itemType": "Sneakers",
+        "color": "#f4f3ef",
+        "colorName": "White",
+        "secondaryColors": [
+          "White"
+        ],
+        "pattern": "None",
+        "fit": "Not applicable",
+        "materialAppearance": "Smooth leather",
+        "styleTags": [
+          "Retro",
+          "Chunky",
+          "Statement",
+          "Minimalist",
+          "Classic"
+        ],
+        "occasions": [
+          "Coffee date",
+          "Campus casual",
+          "Presentation day"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [
+          "Color swatch is an approximate palette color, not a measured fabric color.",
+          "Material and occasions are visual suggestions; verify them manually.",
+          "Other items are visible. Confirm the selected target before saving."
+        ],
+        "brandVerified": false,
+        "targetDescription": "White high-heeled sneakers with a stacked block heel and tonal laces. The shoes have a visible rubber sole.",
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "reviewRequired": true
+      },
+      "model": "gemma3:4b",
+      "latencyMs": 3663,
+      "tokens": 98,
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "0666916dbf2e73ed14fd0367cbf4356c95e5eececa98fa7c72fd650469e0f79c",
+        "inputSha256": "ec0a7e4d396db5ffec08474bb2cd3dc40569f828a0983f8e3a87c9869b49a0a5",
+        "normalizedSha256": "0a346f9d5d9f2334cb3750c64f14e8a29db4b8e03f5726498aa2378af9ef242b",
+        "width": 900,
+        "height": 675,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 60
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 3602
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette"
+      },
+      "categoryMatches": true
+    },
+    {
+      "id": "knit",
+      "source": "https://commons.wikimedia.org/wiki/File:Green_Aran_Sweater.JPG",
+      "expectedCategory": "Top",
+      "baselineStatus": "ready",
+      "baselineCategory": "Top",
+      "baselineMatches": true,
+      "inputSha256": "dff5e7646b8ca5d57dda2ac98fc1dcc20dedde406f5782f0338b62a727c91d19",
+      "acceptanceMs": 14,
+      "totalMs": 4125,
+      "status": "ready",
+      "attempt": 1,
+      "observedStages": [
+        {
+          "stage": "queued",
+          "atMs": 14
+        },
+        {
+          "stage": "recognizing",
+          "atMs": 292
+        },
+        {
+          "stage": "ready",
+          "atMs": 4124
+        }
+      ],
+      "data": {
+        "isGarment": true,
+        "name": "Green Sweater",
+        "category": "Top",
+        "itemType": "Sweater",
+        "color": "#426448",
+        "colorName": "Green",
+        "secondaryColors": [
+          "Unknown"
+        ],
+        "pattern": "Cable knit",
+        "fit": "Not applicable",
+        "materialAppearance": "Soft, textured knit",
+        "styleTags": [
+          "Cozy",
+          "Classic",
+          "Warm",
+          "Textured",
+          "Neutral"
+        ],
+        "occasions": [
+          "Coffee date",
+          "Campus casual",
+          "Presentation day"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [
+          "Image quality is low, making pattern details difficult to discern.",
+          "Color swatch is an approximate palette color, not a measured fabric color.",
+          "Material and occasions are visual suggestions; verify them manually.",
+          "Other items are visible. Confirm the selected target before saving."
+        ],
+        "brandVerified": false,
+        "targetDescription": "Dark green cable knit sweater with a round neckline.",
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "reviewRequired": true
+      },
+      "model": "gemma3:4b",
+      "latencyMs": 3873,
+      "tokens": 104,
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "0666916dbf2e73ed14fd0367cbf4356c95e5eececa98fa7c72fd650469e0f79c",
+        "inputSha256": "dff5e7646b8ca5d57dda2ac98fc1dcc20dedde406f5782f0338b62a727c91d19",
+        "normalizedSha256": "5aa5b4c34c659ecd08c93a7b3b28ad3a272969d2ba4133875326bd50657a95bc",
+        "width": 895,
+        "height": 1000,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 80
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 3792
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette"
+      },
+      "categoryMatches": true
+    },
+    {
+      "id": "trousers",
+      "source": "https://commons.wikimedia.org/wiki/File:Trousers-colourisolated.jpg",
+      "expectedCategory": "Bottom",
+      "baselineStatus": "ready",
+      "baselineCategory": "Top",
+      "baselineMatches": false,
+      "inputSha256": "0406eaae6629f391db66c4b682ad58e0f719204217d7054a239259b560253a8b",
+      "acceptanceMs": 13,
+      "totalMs": 3633,
+      "status": "ready",
+      "attempt": 1,
+      "observedStages": [
+        {
+          "stage": "queued",
+          "atMs": 13
+        },
+        {
+          "stage": "recognizing",
+          "atMs": 293
+        },
+        {
+          "stage": "ready",
+          "atMs": 3632
+        }
+      ],
+      "data": {
+        "isGarment": true,
+        "name": "Beige Trousers",
+        "category": "Bottom",
+        "itemType": "Trousers",
+        "color": "#c6b18c",
+        "colorName": "Beige",
+        "secondaryColors": [
+          "Beige",
+          "Cream",
+          "Unknown"
+        ],
+        "pattern": "Pleated",
+        "fit": "Not applicable",
+        "materialAppearance": "Smooth, woven fabric",
+        "styleTags": [
+          "Classic",
+          "Formal",
+          "Relaxed",
+          "Tailored",
+          "Versatile"
+        ],
+        "occasions": [
+          "Coffee date",
+          "Presentation day",
+          "Campus casual"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [
+          "Color swatch is an approximate palette color, not a measured fabric color.",
+          "Material and occasions are visual suggestions; verify them manually.",
+          "Other items are visible. Confirm the selected target before saving."
+        ],
+        "brandVerified": false,
+        "targetDescription": "Light beige, pleated trousers with a wide-leg fit.",
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "reviewRequired": true
+      },
+      "model": "gemma3:4b",
+      "latencyMs": 3389,
+      "tokens": 98,
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "0666916dbf2e73ed14fd0367cbf4356c95e5eececa98fa7c72fd650469e0f79c",
+        "inputSha256": "0406eaae6629f391db66c4b682ad58e0f719204217d7054a239259b560253a8b",
+        "normalizedSha256": "0b66bbe050f22934ca49e72bffe86b7a8cea9ea3b0c8d52bd59f2ddea35f0fff",
+        "width": 805,
+        "height": 1000,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 69
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 3320
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette"
+      },
+      "categoryMatches": true
+    },
+    {
+      "id": "blazer",
+      "source": "https://commons.wikimedia.org/wiki/File:Navy_blazer_jacket.jpg",
+      "expectedCategory": "Outerwear",
+      "baselineStatus": "ready",
+      "baselineCategory": "Outerwear",
+      "baselineMatches": true,
+      "inputSha256": "a95708fcb1174d90ae371afb794fa09ac85478d65db7708382e7a91e84993041",
+      "acceptanceMs": 26,
+      "totalMs": 3333,
+      "status": "ready",
+      "attempt": 1,
+      "observedStages": [
+        {
+          "stage": "queued",
+          "atMs": 26
+        },
+        {
+          "stage": "recognizing",
+          "atMs": 302
+        },
+        {
+          "stage": "ready",
+          "atMs": 3333
+        }
+      ],
+      "data": {
+        "isGarment": true,
+        "name": "Gray Jacket",
+        "category": "Outerwear",
+        "itemType": "Jacket",
+        "color": "#888888",
+        "colorName": "Gray",
+        "secondaryColors": [
+          "Gray"
+        ],
+        "pattern": "Unknown",
+        "fit": "Unknown",
+        "materialAppearance": "Smooth, matte fabric",
+        "styleTags": [
+          "Formal",
+          "Classic",
+          "Tailored",
+          "Minimalist",
+          "Professional"
+        ],
+        "occasions": [
+          "Presentation day",
+          "Coffee date",
+          "Campus casual"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [
+          "Color swatch is an approximate palette color, not a measured fabric color.",
+          "Material and occasions are visual suggestions; verify them manually.",
+          "Other items are visible. Confirm the selected target before saving."
+        ],
+        "brandVerified": false,
+        "targetDescription": "Dark gray, single-breasted jacket with a notched lapel. It has a buttoned front, five jetted buttons, and a fully lined interior.",
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "reviewRequired": true
+      },
+      "model": "gemma3:4b",
+      "latencyMs": 3105,
+      "tokens": 108,
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "0666916dbf2e73ed14fd0367cbf4356c95e5eececa98fa7c72fd650469e0f79c",
+        "inputSha256": "a95708fcb1174d90ae371afb794fa09ac85478d65db7708382e7a91e84993041",
+        "normalizedSha256": "371663cc5695b9b41a523b3095a2340c87fd438f6bd00e59d38b49f62fe0714f",
+        "width": 750,
+        "height": 1000,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 75
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 3029
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette"
+      },
+      "categoryMatches": true
+    },
+    {
+      "id": "tote",
+      "source": "https://commons.wikimedia.org/wiki/File:04-QWSTION-FLAP-TOTE-SMALL-SAND-FRONT.jpg",
+      "expectedCategory": "Accessory",
+      "baselineStatus": "ready",
+      "baselineCategory": "Top",
+      "baselineMatches": false,
+      "inputSha256": "76c3b64011b7b21320a56036639b4e5f31ea0930260b8f179bda35a279428d6d",
+      "acceptanceMs": 11,
+      "totalMs": 3038,
+      "status": "ready",
+      "attempt": 1,
+      "observedStages": [
+        {
+          "stage": "queued",
+          "atMs": 11
+        },
+        {
+          "stage": "recognizing",
+          "atMs": 291
+        },
+        {
+          "stage": "ready",
+          "atMs": 3038
+        }
+      ],
+      "data": {
+        "isGarment": true,
+        "name": "Beige Tote bag",
+        "category": "Accessory",
+        "itemType": "Tote bag",
+        "color": "#c6b18c",
+        "colorName": "Beige",
+        "secondaryColors": [
+          "Cream",
+          "Beige",
+          "Unknown"
+        ],
+        "pattern": "None",
+        "fit": "Not applicable",
+        "materialAppearance": "Smooth canvas",
+        "styleTags": [
+          "Minimalist",
+          "Casual",
+          "Practical",
+          "Neutral",
+          "Versatile"
+        ],
+        "occasions": [
+          "Coffee date",
+          "Campus casual",
+          "Presentation day"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [
+          "Clean studio shot, no visible background details.",
+          "Color swatch is an approximate palette color, not a measured fabric color.",
+          "Material and occasions are visual suggestions; verify them manually.",
+          "Other items are visible. Confirm the selected target before saving."
+        ],
+        "brandVerified": false,
+        "targetDescription": "Light beige canvas tote bag with two handles and a detachable shoulder strap. It features metal buckles at the front.",
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "reviewRequired": true
+      },
+      "model": "gemma3:4b",
+      "latencyMs": 2922,
+      "tokens": 113,
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "0666916dbf2e73ed14fd0367cbf4356c95e5eececa98fa7c72fd650469e0f79c",
+        "inputSha256": "76c3b64011b7b21320a56036639b4e5f31ea0930260b8f179bda35a279428d6d",
+        "normalizedSha256": "bbce0cd36e08374f54748c480845e7e7ce5bf7697329ee902d9f918127e049bb",
+        "width": 900,
+        "height": 900,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 59
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 2862
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette"
+      },
+      "categoryMatches": true
+    }
+  ],
+  "controls": [
+    {
+      "id": "blank-image",
+      "expectedErrorCode": "EMPTY_IMAGE",
+      "synthetic": true,
+      "inputSha256": "9fd395d8d08e267d7a118c76b4a4cc8df63f258d3372f96b416bb60c48b9517f",
+      "acceptanceMs": 2,
+      "totalMs": 271,
+      "status": "failed",
+      "attempt": 1,
+      "observedStages": [
+        {
+          "stage": "queued",
+          "atMs": 2
+        },
+        {
+          "stage": "failed",
+          "atMs": 271
+        }
+      ],
+      "error": "This image is blank or a solid color. Choose a photo with the whole item visible.",
+      "errorCode": "EMPTY_IMAGE"
+    }
+  ],
+  "runtime": {
+    "models": [
+      {
+        "name": "gemma3:4b",
+        "model": "gemma3:4b",
+        "size": 2879714754,
+        "digest": "a2af6cc3eb7fa8be8504abaf9b04e88f17a119ec3f04a3addf55f92841195f5a",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "gemma3",
+          "families": [
+            "gemma3"
+          ],
+          "parameter_size": "4.3B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-09-22T00:58:24.5757979-04:00",
+        "size_vram": 2879714754,
+        "context_length": 8192
+      }
+    ]
+  },
+  "summary": {
+    "completed": 7,
+    "total": 7,
+    "categoryMatches": 7,
+    "negativeControlsPassed": 1,
+    "negativeControlsTotal": 1
+  }
+}

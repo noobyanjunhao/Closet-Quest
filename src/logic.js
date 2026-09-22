@@ -20,10 +20,10 @@ export function recommend(items, context, variation = 0) {
   const { outfits } = rankOutfits(items, context);
   return outfits.length ? outfits[Math.abs(Math.floor(variation)) % outfits.length].items : [];
 }
-export function completeQuest(state, quest, outfit, context) {
+export function completeQuest(state, quest, outfit, context, { stylistSuggested = false } = {}) {
   if (state.completed.includes(quest.id)) throw new Error('You already completed this quest. Try another one!');
   const ownedOutfit = outfit.map(i => state.items.find(owned => owned.id === i.id));
-  if (context !== quest.context || ownedOutfit.some(i => !i) || new Set(outfit.map(i => i.id)).size !== outfit.length || !validShape(ownedOutfit) || !ownedOutfit.every(i => matchesContext(i,context))) throw new Error('Generate a complete outfit with matching style tags for this quest first.');
+  if (context !== quest.context || ownedOutfit.some(i => !i) || new Set(outfit.map(i => i.id)).size !== outfit.length || !validShape(stylistSuggested ? ownedOutfit.filter(i=>i.category!=='Accessory') : ownedOutfit) || (!stylistSuggested && !ownedOutfit.every(i => matchesContext(i,context)))) throw new Error('Generate a complete outfit with matching style tags for this quest first.');
   if (quest.id === 'rediscover' && !outfit.some(i => state.items.find(o => o.id === i.id).wears <= 1)) throw new Error('Include an item worn once or less. Try another outfit.');
   return { ...state, xp: state.xp + quest.xp, completed: [...state.completed, quest.id], submissions: [...state.submissions, { questId: quest.id, itemIds: outfit.map(i => i.id), submittedAt: new Date().toISOString() }] };
 }
