@@ -1,5 +1,9 @@
 import { fileURLToPath } from 'node:url';
-import { recognize, style } from './agents.js';
+import './env.js';
+import { recognize } from './agents.js';
+import { recommend as style, resolveProvider } from './recommendation.js';
+import { openAIStatus } from './openai.js';
+import { createDepopClient, depopStatus } from './depop.js';
 import { createJobQueue } from './jobs.js';
 import { PIPELINE_VERSION } from './recognition.js';
 import { retrieveWardrobeHybrid } from './hybrid-retrieval.js';
@@ -32,10 +36,10 @@ async function readJson(req,maxBytes) {
 export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(new URL('../.local-data/jobs/',import.meta.url)),services={},queueOptions={}}={}) {
   const handlers={recognize,style,retrieveWardrobeHybrid,recordLearningEvent,getLearningStatus,exportLearningData,listModels,...services};
   const queue=createJobQueue(handlers.recognize,{...queueOptions,storageDir});
-  const controllers=new Set();let active=false,closed=false;
+  const controllers=new Set();let active=false,closed=false,remoteActive=0;
   async function middleware(req,res) {
     res.setHeader('Content-Type','application/json');res.setHeader('Cache-Control','no-store');
-    let claimed=false,abortDisconnected,controller;
+    let claimed=false,remoteClaimed=false,abortDisconnected,controller;
     try {
       if(closed)throw Object.assign(new Error('The local API is stopping. Retry after it restarts.'),{status:503,code:'SERVICE_CLOSED'});
       const route=(req.url||'/').split('?')[0];
@@ -46,8 +50,13 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
         try {
           const data=await handlers.listModels();
           const installed=name=>data.models?.some(m=>m.name===name);
-          return res.end(JSON.stringify({model:models.recognition,models,pipelineVersion:PIPELINE_VERSION,ready:installed(models.recognition)&&installed(models.stylist),recognitionReady:installed(models.recognition),stylistReady:installed(models.stylist),embeddingReady:installed(models.embedding),busy:active||queue.busy,durableJobs:true}));
-        }catch{return res.end(JSON.stringify({model:models.recognition,models,pipelineVersion:PIPELINE_VERSION,ready:false,recognitionReady:false,stylistReady:false,embeddingReady:false,busy:active||queue.busy,durableJobs:true}));}
+          return res.end(JSON.stringify({model:models.recognition,models,openai:openAIStatus(),depop:depopStatus(),recommendationReady:true,pipelineVersion:PIPELINE_VERSION,ready:installed(models.recognition)&&installed(models.stylist),recognitionReady:installed(models.recognition),stylistReady:installed(models.stylist),embeddingReady:installed(models.embedding),busy:active||queue.busy,durableJobs:true}));
+        }catch{return res.end(JSON.stringify({model:models.recognition,models,openai:openAIStatus(),depop:depopStatus(),recommendationReady:true,pipelineVersion:PIPELINE_VERSION,ready:false,recognitionReady:false,stylistReady:false,embeddingReady:false,busy:active||queue.busy,durableJobs:true}));}
+      }
+      if(req.method==='GET'&&['/depop/shop','/depop/products'].includes(route)) {
+        controller=new AbortController();controllers.add(controller);abortDisconnected=()=>{if(!res.writableEnded)controller.abort();};res.once('close',abortDisconnected);
+        const client=createDepopClient();
+        return res.end(JSON.stringify(await(route==='/depop/shop'?client.shop(controller.signal):client.products(new URL(req.url,'http://localhost').searchParams.get('cursor')||'',controller.signal))));
       }
       if(req.method==='GET'&&route==='/learning/status')return res.end(JSON.stringify(await handlers.getLearningStatus()));
       if(req.method==='GET'&&route==='/learning/export')return res.end(JSON.stringify(await handlers.exportLearningData()));
@@ -55,17 +64,19 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
       if(jobMatch&&req.method==='GET'){const job=queue.get(jobMatch[1]);res.statusCode=job?200:404;return res.end(JSON.stringify(job||{error:'Analysis expired. Retry this photo.'}));}
       if(jobMatch&&req.method==='DELETE'){res.statusCode=queue.cancel(jobMatch[1])?200:404;return res.end('{}');}
       if(req.method!=='POST'||!['/jobs','/recognize','/style','/retrieve','/learning/events'].includes(route)){res.statusCode=404;return res.end('{}');}
-      const inference=['/jobs','/recognize','/style'].includes(route);
+      const body=await readJson(req,route==='/learning/events'?128000:8500000);
+      const localStyle=route==='/style'&&resolveProvider(body.provider)==='local';
+      const inference=['/jobs','/recognize'].includes(route)||localStyle;
       if(inference&&(active||(route!=='/jobs'&&queue.busy))){res.statusCode=429;return res.end(JSON.stringify({error:'The model is busy. Wait for the current analysis to finish, then retry.'}));}
       if(inference){active=true;claimed=true;}
-      const body=await readJson(req,route==='/learning/events'?128000:8500000);
+      if(route==='/style'&&!localStyle){if(remoteActive>=2)throw Object.assign(new Error('Two styling requests are already running. Try again shortly.'),{status:429,code:'STYLE_BUSY'});remoteActive++;remoteClaimed=true;}
       if(route==='/learning/events'){res.statusCode=201;return res.end(JSON.stringify(await handlers.recordLearningEvent(body)));}
       if(route==='/jobs'){const job=queue.enqueue(body.image,{crop:body.crop});res.statusCode=202;return res.end(JSON.stringify(job));}
       controller=new AbortController();controllers.add(controller);abortDisconnected=()=>{if(!res.writableEnded)controller.abort();};res.once('close',abortDisconnected);
       if(route==='/retrieve'){const {retrieval}=await handlers.retrieveWardrobeHybrid(body.items,{...body,signal:controller.signal});return res.end(JSON.stringify({retrieval}));}
       res.end(JSON.stringify(await(route==='/recognize'?handlers.recognize(body.image,{crop:body.crop,signal:controller.signal}):handlers.style(body,{signal:controller.signal}))));
     }catch(error){if(!res.destroyed){res.statusCode=error.status||503;res.end(JSON.stringify({error:error.message,code:error.code,retryable:error.retryable===true}));}}
-    finally{if(abortDisconnected)res.off('close',abortDisconnected);if(controller)controllers.delete(controller);if(claimed)active=false;}
+    finally{if(abortDisconnected)res.off('close',abortDisconnected);if(controller)controllers.delete(controller);if(claimed)active=false;if(remoteClaimed)remoteActive--;}
   }
   return {middleware,close:()=>{closed=true;for(const controller of controllers)controller.abort();queue.close();},queue};
 }

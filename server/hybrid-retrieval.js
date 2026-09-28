@@ -5,6 +5,8 @@ import {rerankCandidates} from './reranker.js';
 export const HYBRID_RETRIEVAL_VERSION='wardrobe-hybrid-v1.1';
 const RRF_K=60;
 const BRANCH_LIMIT=60;
+// Bounded vectors only; keys include text, model digest, dimensions and schema version.
+const vectorMemory=new Map();
 const round=value=>Number(value.toFixed(6));
 const genericCategoryTerms=new Set(['top','bottom','dress','shoes','footwear','outerwear','accessory','accessories','clothing','clothes','garment','garments','item','items']);
 
@@ -33,7 +35,7 @@ export async function retrieveWardrobeHybrid(inputItems,options={},dependencies=
   if(dependencies.enabled===false)return {...lexical,retrieval:{...lexical.retrieval,version:HYBRID_RETRIEVAL_VERSION,method:'BM25 + explicit synonyms + category coverage (dense disabled)',embedding:{available:false,model:dependencies.model||EMBEDDING_MODEL},fallback:{active:true,code:'EMBEDDING_DISABLED',reason:'Text embeddings are disabled for this request.'},reranker:{active:false,reason:'No dense retrieval was run.'}}};
   let embedded;
   try {
-    const client=dependencies.embeddingClient||createEmbeddingClient(dependencies);
+    const client=dependencies.embeddingClient||createEmbeddingClient({memoryCache:vectorMemory,...dependencies});
     embedded=await client.embed([
       {kind:'query',text:queryEmbeddingText(state.request,state.context)},
       ...state.eligible.map(item=>({kind:'garment',text:garmentEmbeddingText(item)})),

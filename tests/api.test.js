@@ -96,7 +96,8 @@ test('busy inference is serialized while retrieval remains available; cancellati
   const space=workspace(t);let aborted=0,retrieved=0;
   const app=await mount(t,space,{queueOptions:{maxJobs:2},overrides:{recognize:(_,options)=>new Promise((resolve,reject)=>options.signal.addEventListener('abort',()=>{aborted++;reject(options.signal.reason);},{once:true})),retrieveWardrobeHybrid:async()=>{retrieved++;return {retrieval:{items:[]}};}}});
   const first=await (await post(`${app.url}/jobs`,{image})).json(),second=await (await post(`${app.url}/jobs`,{image})).json();
-  assert.equal((await post(`${app.url}/style`,{})).status,429);
+  assert.equal((await post(`${app.url}/style`,{provider:'local'})).status,429);
+  assert.equal((await post(`${app.url}/style`,{provider:'quick'})).status,200,'Quick styling does not wait for camera recognition.');
   assert.equal((await post(`${app.url}/recognize`,{image})).status,429);
   assert.equal((await post(`${app.url}/jobs`,{image})).status,429);
   assert.equal((await post(`${app.url}/retrieve`,{items:[]})).status,200);assert.equal(retrieved,1);

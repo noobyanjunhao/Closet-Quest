@@ -1,0 +1,19 @@
+{
+  "dateLocal": "2026-09-27",
+  "environment": "Codex in-app browser, isolated localhost:5173 QA wardrobe",
+  "desktopViewport": [1003, 792],
+  "mobileViewport": [390, 844],
+  "checks": [
+    {"name": "Add clothes exposes camera, file selection and manual entry", "result": "pass"},
+    {"name": "Camera startup timeout retains device-camera and file alternatives", "result": "pass"},
+    {"name": "Physical camera preview, capture and retake", "result": "not verified; device did not start in this browser"},
+    {"name": "Public tee.jpg import and local recognition", "result": "pass; category Top, editable White T-shirt suggestions"},
+    {"name": "Review prefills suggested metadata and accepts a manual name correction", "result": "pass; saved as Demo photo - graphic tee, with QA learning disabled"},
+    {"name": "Quick recommendation returns three alternatives and correct provider label", "result": "pass"},
+    {"name": "Duplicate saved look prevented; a different second look saves", "result": "pass"},
+    {"name": "Saved looks and resale layout at mobile width", "result": "pass; document scrollWidth 375 <= viewport 390"},
+    {"name": "Depop missing-access message and disabled connection control", "result": "pass; no live credentials"}
+  ],
+  "notes": "The first browser file chooser attempt stalled; a second bounded attempt succeeded. Capture lifecycle, late permission cleanup and protected edits are also covered by unit tests. These checks are development QA, not a user study. Responsive overrides were reset. User data on the separate 127.0.0.1 origin was not modified.",
+  "screenshots": ["output/demo/add-photos.png", "output/demo/camera-recovery.png", "output/demo/review.png", "output/demo/stylist.png", "output/demo/mobile-stylist.png", "output/demo/depop.png"]
+}

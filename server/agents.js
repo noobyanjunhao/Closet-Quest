@@ -32,11 +32,11 @@ export function validateOutfits(value, items, requireLowUse=false, anchorId=null
   });
   return {outfits:outfits.map(({itemIds,title,explanation,stylingTip})=>({itemIds,title,explanation,stylingTip})),reason:outfits.length ? value.reason : 'The stylist could not produce a valid owned outfit. Add more pieces or change your request.'};
 }
-export async function chat(schema, system, content, image, {cpu=false,signal,temperature=0.3,seed,model:requestedModel}={}) {
+export async function chat(schema, system, content, image, {cpu=false,signal,temperature=0.3,seed,model:requestedModel,timeoutMs=180000}={}) {
   const model = requestedModel || modelFor(image?'recognition':'stylist');
   const start = performance.now();
   let response;
-  try { response = await fetch('http://127.0.0.1:11434/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},signal:signal ? AbortSignal.any([signal,AbortSignal.timeout(180000)]) : AbortSignal.timeout(180000),body:JSON.stringify({model,...(model.startsWith('qwen3')?{think:false}:{}),stream:false,format:schema,keep_alive:'10m',options:{temperature,...(seed===undefined?{}:{seed}),num_ctx:8192,num_predict:1400,...(cpu?{num_gpu:0}:{})},messages:[{role:'system',content:system},{role:'user',content,...(image?{images:[image]}:{})}]})}); }
+  try { response = await fetch('http://127.0.0.1:11434/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},signal:signal ? AbortSignal.any([signal,AbortSignal.timeout(timeoutMs)]) : AbortSignal.timeout(timeoutMs),body:JSON.stringify({model,...(model.startsWith('qwen3')?{think:false}:{}),stream:false,format:schema,keep_alive:'10m',options:{temperature,...(seed===undefined?{}:{seed}),num_ctx:8192,num_predict:1400,...(cpu?{num_gpu:0}:{})},messages:[{role:'system',content:system},{role:'user',content,...(image?{images:[image]}:{})}]})}); }
   catch(error) { if(signal?.aborted)throw error; throw new PipelineError(error.name==='TimeoutError'?'The local model timed out. Try a smaller photo.':'Cannot connect to the local model. Start Ollama and retry.',{code:error.name==='TimeoutError'?'MODEL_TIMEOUT':'MODEL_UNAVAILABLE',retryable:error.name!=='TimeoutError',status:503}); }
   if(!response.ok) throw new PipelineError('Local model unavailable. Start Ollama and pull '+model+'.',{code:'MODEL_UNAVAILABLE',retryable:[429,502,503,504].includes(response.status),status:503});
   const result=await response.json();
@@ -89,8 +89,8 @@ function packStyleContext(items, modelItems, modelPlans, retrieval, body, anchor
 }
 
 export async function style(body, options={}) {
-  const {retrievalDependencies,...modelOptions}=options;
-  const {items,retrieval}=await retrieveWardrobeHybrid(body?.items,{...body,signal:modelOptions.signal},retrievalDependencies);
+  const {retrievalDependencies,prepared,generate=chat,...modelOptions}=options;
+  const {items,retrieval}=prepared||await retrieveWardrobeHybrid(body?.items,{...body,signal:modelOptions.signal},retrievalDependencies);
   const modelItems=items.map((item,index)=>({id:'G'+(index+1),category:item.category,wears:item.wears}));
   const aliasFor=id=>modelItems[items.findIndex(item=>item.id===id)]?.id;
   const itemFor=id=>items[modelItems.findIndex(item=>item.id===id)];
@@ -101,7 +101,7 @@ export async function style(body, options={}) {
   const responseSchema=structuredClone(planSelectionSchema);
   responseSchema.properties.outfits.items.properties.planId={type:'string',enum:plans.map(plan=>plan.id)};
   const {content,...contextPacking}=packStyleContext(items,modelItems,modelPlans,retrieval,body,anchorAlias,responseSchema);
-  const result=await chat(responseSchema,styleSystemPrompt,content,undefined,modelOptions);
+  const result=await generate(responseSchema,styleSystemPrompt,content,undefined,modelOptions);
   const selection=validatePlanSelections(result.data,modelPlans);
   const validated=validateOutfits(selection,modelItems,body.requireLowUse===true,anchorAlias);
   const selectedPlanIds=validated.outfits.map(outfit=>selection.outfits.find(selected=>selected.itemIds.join('|')===outfit.itemIds.join('|')).planId);

@@ -43,7 +43,7 @@ export function queryEmbeddingText(request,context='') {
   return `Instruct: Retrieve owned wardrobe items relevant to this styling brief and occasion.\nQuery: ${context ? context+'. ' : ''}${request||'A complete everyday outfit.'}`;
 }
 
-export function createEmbeddingClient({fetchImpl=globalThis.fetch,model=process.env.CLOSET_EMBED_MODEL||EMBEDDING_MODEL,dimensions=512,cacheDir=defaultCacheDirectory,schemaVersion=EMBEDDING_SCHEMA_VERSION,numGpu=0,keepAlive='5m',timeoutMs=45000,batchSize=16,getModelIdentity,embedTexts}={}) {
+export function createEmbeddingClient({fetchImpl=globalThis.fetch,model=process.env.CLOSET_EMBED_MODEL||EMBEDDING_MODEL,dimensions=512,cacheDir=defaultCacheDirectory,schemaVersion=EMBEDDING_SCHEMA_VERSION,numGpu=0,keepAlive='5m',timeoutMs=45000,batchSize=16,getModelIdentity,embedTexts,memoryCache}={}) {
   if(!Number.isInteger(dimensions)||dimensions<1||dimensions>4096||!Number.isInteger(batchSize)||batchSize<1||batchSize>32)throw new Error('Invalid embedding client configuration.');
   async function identity(signal) {
     if(getModelIdentity)return getModelIdentity({model,signal});
@@ -66,7 +66,7 @@ export function createEmbeddingClient({fetchImpl=globalThis.fetch,model=process.
     const started=performance.now();
     const timeout=AbortSignal.timeout(timeoutMs);
     const signal=parentSignal?AbortSignal.any([parentSignal,timeout]):timeout;
-    const stats={requested:records.length,unique:0,hits:0,misses:0,generated:0,readErrors:0,writeErrors:0};
+    const stats={requested:records.length,unique:0,hits:0,memoryHits:0,misses:0,generated:0,readErrors:0,writeErrors:0};
     try {
       const installed=await identity(signal);
       if(typeof installed?.digest!=='string'||!installed.digest||installed.digest.length>256)throw new EmbeddingError('The local embedding model has no valid digest.','EMBEDDING_IDENTITY_INVALID');
@@ -81,7 +81,8 @@ export function createEmbeddingClient({fetchImpl=globalThis.fetch,model=process.
       const missing=[];
       for(const entry of unique.values()) {
         signal.throwIfAborted();
-        if(cacheDir)try {
+        if(memoryCache?.has(entry.key)) {entry.vector=[...memoryCache.get(entry.key)];stats.memoryHits++;}
+        if(!entry.vector&&cacheDir)try {
           const saved=JSON.parse(await readFile(join(cacheDir,entry.key+'.json'),'utf8'));
           if(saved.model===model&&saved.modelDigest===installed.digest&&saved.schemaVersion===schemaVersion&&saved.textHash===entry.textHash&&saved.kind===entry.record.kind&&saved.dimensions===dimensions)entry.vector=normalizeVector(saved.vector,dimensions);
         }catch(error){if(error.code!=='ENOENT')stats.readErrors++;}
@@ -108,6 +109,10 @@ export function createEmbeddingClient({fetchImpl=globalThis.fetch,model=process.
         }
       }
       signal.throwIfAborted();
+      if(memoryCache)for(const entry of unique.values()) {
+        memoryCache.delete(entry.key);memoryCache.set(entry.key,[...entry.vector]);
+        while(memoryCache.size>512)memoryCache.delete(memoryCache.keys().next().value);
+      }
       return {vectors:entries.map(entry=>entry.vector),metadata:{available:true,model,digest:installed.digest,schemaVersion,dimensions,placement:numGpu===0?'cpu':'runtime-configured',cache:stats,timingMs:Number((performance.now()-started).toFixed(2))}};
     }catch(error) {
       if(parentSignal?.aborted)throw parentSignal.reason;

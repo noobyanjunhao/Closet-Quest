@@ -1,0 +1,958 @@
+{
+  "date": "2026-09-28T00:26:27.951Z",
+  "protocol": "Live local HTTP and CPU-embedding measurements on public sample metadata and eight reused authored semantic development cases. No private wardrobe records. Existing disk cache retained; cold and warm conditions reported separately. Not held-out quality or cloud performance evidence.",
+  "retrieval": [
+    {
+      "id": "reading-knit",
+      "bm25Recall": 0,
+      "hybridRecall": 1,
+      "ms": 75.3839,
+      "fallback": {
+        "active": false
+      },
+      "cache": {
+        "requested": 65,
+        "unique": 35,
+        "hits": 35,
+        "memoryHits": 0,
+        "misses": 0,
+        "generated": 0,
+        "readErrors": 0,
+        "writeErrors": 0
+      }
+    },
+    {
+      "id": "interview-blazer",
+      "bm25Recall": 0,
+      "hybridRecall": 1,
+      "ms": 36.858900000000006,
+      "fallback": {
+        "active": false
+      },
+      "cache": {
+        "requested": 65,
+        "unique": 35,
+        "hits": 35,
+        "memoryHits": 3,
+        "misses": 0,
+        "generated": 0,
+        "readErrors": 0,
+        "writeErrors": 0
+      }
+    },
+    {
+      "id": "trekking-boots",
+      "bm25Recall": 0,
+      "hybridRecall": 1,
+      "ms": 43.612300000000005,
+      "fallback": {
+        "active": false
+      },
+      "cache": {
+        "requested": 65,
+        "unique": 35,
+        "hits": 35,
+        "memoryHits": 3,
+        "misses": 0,
+        "generated": 0,
+        "readErrors": 0,
+        "writeErrors": 0
+      }
+    },
+    {
+      "id": "shoulder-straps",
+      "bm25Recall": 0,
+      "hybridRecall": 1,
+      "ms": 34.28960000000001,
+      "fallback": {
+        "active": false
+      },
+      "cache": {
+        "requested": 65,
+        "unique": 35,
+        "hits": 35,
+        "memoryHits": 3,
+        "misses": 0,
+        "generated": 0,
+        "readErrors": 0,
+        "writeErrors": 0
+      }
+    },
+    {
+      "id": "august-coast",
+      "bm25Recall": 0,
+      "hybridRecall": 1,
+      "ms": 43.69440000000003,
+      "fallback": {
+        "active": false
+      },
+      "cache": {
+        "requested": 65,
+        "unique": 35,
+        "hits": 35,
+        "memoryHits": 3,
+        "misses": 0,
+        "generated": 0,
+        "readErrors": 0,
+        "writeErrors": 0
+      }
+    },
+    {
+      "id": "ankle-hem",
+      "bm25Recall": 0,
+      "hybridRecall": 1,
+      "ms": 44.21530000000001,
+      "fallback": {
+        "active": false
+      },
+      "cache": {
+        "requested": 65,
+        "unique": 35,
+        "hits": 35,
+        "memoryHits": 3,
+        "misses": 0,
+        "generated": 0,
+        "readErrors": 0,
+        "writeErrors": 0
+      }
+    },
+    {
+      "id": "five-pockets",
+      "bm25Recall": 1,
+      "hybridRecall": 1,
+      "ms": 27.888599999999997,
+      "fallback": {
+        "active": false
+      },
+      "cache": {
+        "requested": 65,
+        "unique": 35,
+        "hits": 35,
+        "memoryHits": 3,
+        "misses": 0,
+        "generated": 0,
+        "readErrors": 0,
+        "writeErrors": 0
+      }
+    },
+    {
+      "id": "downpour-layer",
+      "bm25Recall": 0,
+      "hybridRecall": 1,
+      "ms": 31.111199999999997,
+      "fallback": {
+        "active": false
+      },
+      "cache": {
+        "requested": 65,
+        "unique": 35,
+        "hits": 35,
+        "memoryHits": 3,
+        "misses": 0,
+        "generated": 0,
+        "readErrors": 0,
+        "writeErrors": 0
+      }
+    }
+  ],
+  "http": [
+    {
+      "provider": "quick",
+      "httpStatus": 200,
+      "wallMs": 9.53589999999997,
+      "model": "deterministic-planner-v1",
+      "pipeline": {
+        "version": "recommendation-v2",
+        "runId": "21cacb48-efca-4a13-906c-dee77635a80f",
+        "requestedProvider": "quick",
+        "provider": "quick",
+        "fallback": null,
+        "retrievalPasses": 1,
+        "stages": [
+          "retrieve",
+          "plan",
+          "select",
+          "validate"
+        ],
+        "timingMs": {
+          "retrieval": 1,
+          "selectionAndValidation": 2,
+          "total": 2
+        }
+      },
+      "outfits": [
+        {
+          "title": "Campus casual · Look 1",
+          "itemIds": [
+            "photo-knit",
+            "photo-trousers",
+            "photo-sneakers",
+            "photo-tote"
+          ]
+        },
+        {
+          "title": "Campus casual · Look 2",
+          "itemIds": [
+            "photo-knit",
+            "photo-denim",
+            "photo-sneakers",
+            "photo-blazer",
+            "photo-tote"
+          ]
+        },
+        {
+          "title": "Campus casual · Look 3",
+          "itemIds": [
+            "photo-knit",
+            "photo-trousers",
+            "photo-sneakers",
+            "photo-blazer",
+            "photo-tote"
+          ]
+        }
+      ],
+      "retrieval": {
+        "method": "BM25 + explicit synonyms + category coverage (dense disabled)",
+        "fallback": {
+          "active": true,
+          "code": "EMBEDDING_DISABLED",
+          "reason": "Text embeddings are disabled for this request."
+        }
+      }
+    },
+    {
+      "provider": "quick",
+      "httpStatus": 200,
+      "wallMs": 4.634499999999889,
+      "model": "deterministic-planner-v1",
+      "pipeline": {
+        "version": "recommendation-v2",
+        "runId": "de93e8b6-f568-4a7f-ad0d-34c07ccca0f6",
+        "requestedProvider": "quick",
+        "provider": "quick",
+        "fallback": null,
+        "retrievalPasses": 1,
+        "stages": [
+          "retrieve",
+          "plan",
+          "select",
+          "validate"
+        ],
+        "timingMs": {
+          "retrieval": 1,
+          "selectionAndValidation": 1,
+          "total": 2
+        }
+      },
+      "outfits": [
+        {
+          "title": "Campus casual · Look 1",
+          "itemIds": [
+            "photo-knit",
+            "photo-trousers",
+            "photo-sneakers",
+            "photo-tote"
+          ]
+        },
+        {
+          "title": "Campus casual · Look 2",
+          "itemIds": [
+            "photo-knit",
+            "photo-denim",
+            "photo-sneakers",
+            "photo-blazer",
+            "photo-tote"
+          ]
+        },
+        {
+          "title": "Campus casual · Look 3",
+          "itemIds": [
+            "photo-knit",
+            "photo-trousers",
+            "photo-sneakers",
+            "photo-blazer",
+            "photo-tote"
+          ]
+        }
+      ],
+      "retrieval": {
+        "method": "BM25 + explicit synonyms + category coverage (dense disabled)",
+        "fallback": {
+          "active": true,
+          "code": "EMBEDDING_DISABLED",
+          "reason": "Text embeddings are disabled for this request."
+        }
+      }
+    },
+    {
+      "provider": "quick",
+      "httpStatus": 200,
+      "wallMs": 15.986800000000017,
+      "model": "deterministic-planner-v1",
+      "pipeline": {
+        "version": "recommendation-v2",
+        "runId": "906430b3-a030-42b1-9aeb-b4c0386d5e97",
+        "requestedProvider": "quick",
+        "provider": "quick",
+        "fallback": null,
+        "retrievalPasses": 1,
+        "stages": [
+          "retrieve",
+          "plan",
+          "select",
+          "validate"
+        ],
+        "timingMs": {
+          "retrieval": 0,
+          "selectionAndValidation": 1,
+          "total": 2
+        }
+      },
+      "outfits": [
+        {
+          "title": "Campus casual · Look 1",
+          "itemIds": [
+            "photo-knit",
+            "photo-trousers",
+            "photo-sneakers",
+            "photo-tote"
+          ]
+        },
+        {
+          "title": "Campus casual · Look 2",
+          "itemIds": [
+            "photo-knit",
+            "photo-denim",
+            "photo-sneakers",
+            "photo-blazer",
+            "photo-tote"
+          ]
+        },
+        {
+          "title": "Campus casual · Look 3",
+          "itemIds": [
+            "photo-knit",
+            "photo-trousers",
+            "photo-sneakers",
+            "photo-blazer",
+            "photo-tote"
+          ]
+        }
+      ],
+      "retrieval": {
+        "method": "BM25 + explicit synonyms + category coverage (dense disabled)",
+        "fallback": {
+          "active": true,
+          "code": "EMBEDDING_DISABLED",
+          "reason": "Text embeddings are disabled for this request."
+        }
+      }
+    },
+    {
+      "provider": "quick",
+      "httpStatus": 200,
+      "wallMs": 15.551900000000046,
+      "model": "deterministic-planner-v1",
+      "pipeline": {
+        "version": "recommendation-v2",
+        "runId": "b2d99ab1-475e-4693-85fe-fce401232551",
+        "requestedProvider": "quick",
+        "provider": "quick",
+        "fallback": null,
+        "retrievalPasses": 1,
+        "stages": [
+          "retrieve",
+          "plan",
+          "select",
+          "validate"
+        ],
+        "timingMs": {
+          "retrieval": 0,
+          "selectionAndValidation": 1,
+          "total": 1
+        }
+      },
+      "outfits": [
+        {
+          "title": "Campus casual · Look 1",
+          "itemIds": [
+            "photo-knit",
+            "photo-trousers",
+            "photo-sneakers",
+            "photo-tote"
+          ]
+        },
+        {
+          "title": "Campus casual · Look 2",
+          "itemIds": [
+            "photo-knit",
+            "photo-denim",
+            "photo-sneakers",
+            "photo-blazer",
+            "photo-tote"
+          ]
+        },
+        {
+          "title": "Campus casual · Look 3",
+          "itemIds": [
+            "photo-knit",
+            "photo-trousers",
+            "photo-sneakers",
+            "photo-blazer",
+            "photo-tote"
+          ]
+        }
+      ],
+      "retrieval": {
+        "method": "BM25 + explicit synonyms + category coverage (dense disabled)",
+        "fallback": {
+          "active": true,
+          "code": "EMBEDDING_DISABLED",
+          "reason": "Text embeddings are disabled for this request."
+        }
+      }
+    },
+    {
+      "provider": "quick",
+      "httpStatus": 200,
+      "wallMs": 16.079399999999964,
+      "model": "deterministic-planner-v1",
+      "pipeline": {
+        "version": "recommendation-v2",
+        "runId": "bd4fa6f5-586f-489a-a124-98e7e443ce58",
+        "requestedProvider": "quick",
+        "provider": "quick",
+        "fallback": null,
+        "retrievalPasses": 1,
+        "stages": [
+          "retrieve",
+          "plan",
+          "select",
+          "validate"
+        ],
+        "timingMs": {
+          "retrieval": 0,
+          "selectionAndValidation": 1,
+          "total": 1
+        }
+      },
+      "outfits": [
+        {
+          "title": "Campus casual · Look 1",
+          "itemIds": [
+            "photo-knit",
+            "photo-trousers",
+            "photo-sneakers",
+            "photo-tote"
+          ]
+        },
+        {
+          "title": "Campus casual · Look 2",
+          "itemIds": [
+            "photo-knit",
+            "photo-denim",
+            "photo-sneakers",
+            "photo-blazer",
+            "photo-tote"
+          ]
+        },
+        {
+          "title": "Campus casual · Look 3",
+          "itemIds": [
+            "photo-knit",
+            "photo-trousers",
+            "photo-sneakers",
+            "photo-blazer",
+            "photo-tote"
+          ]
+        }
+      ],
+      "retrieval": {
+        "method": "BM25 + explicit synonyms + category coverage (dense disabled)",
+        "fallback": {
+          "active": true,
+          "code": "EMBEDDING_DISABLED",
+          "reason": "Text embeddings are disabled for this request."
+        }
+      }
+    },
+    {
+      "provider": "quick",
+      "httpStatus": 200,
+      "wallMs": 14.672300000000064,
+      "model": "deterministic-planner-v1",
+      "pipeline": {
+        "version": "recommendation-v2",
+        "runId": "69e4b3e6-3d3e-4d68-bc96-077052a76580",
+        "requestedProvider": "quick",
+        "provider": "quick",
+        "fallback": null,
+        "retrievalPasses": 1,
+        "stages": [
+          "retrieve",
+          "plan",
+          "select",
+          "validate"
+        ],
+        "timingMs": {
+          "retrieval": 0,
+          "selectionAndValidation": 1,
+          "total": 1
+        }
+      },
+      "outfits": [
+        {
+          "title": "Campus casual · Look 1",
+          "itemIds": [
+            "photo-knit",
+            "photo-trousers",
+            "photo-sneakers",
+            "photo-tote"
+          ]
+        },
+        {
+          "title": "Campus casual · Look 2",
+          "itemIds": [
+            "photo-knit",
+            "photo-denim",
+            "photo-sneakers",
+            "photo-blazer",
+            "photo-tote"
+          ]
+        },
+        {
+          "title": "Campus casual · Look 3",
+          "itemIds": [
+            "photo-knit",
+            "photo-trousers",
+            "photo-sneakers",
+            "photo-blazer",
+            "photo-tote"
+          ]
+        }
+      ],
+      "retrieval": {
+        "method": "BM25 + explicit synonyms + category coverage (dense disabled)",
+        "fallback": {
+          "active": true,
+          "code": "EMBEDDING_DISABLED",
+          "reason": "Text embeddings are disabled for this request."
+        }
+      }
+    },
+    {
+      "provider": "quick",
+      "httpStatus": 200,
+      "wallMs": 15.347699999999918,
+      "model": "deterministic-planner-v1",
+      "pipeline": {
+        "version": "recommendation-v2",
+        "runId": "bb8e4c74-c047-41e7-9df2-2c3ad4303020",
+        "requestedProvider": "quick",
+        "provider": "quick",
+        "fallback": null,
+        "retrievalPasses": 1,
+        "stages": [
+          "retrieve",
+          "plan",
+          "select",
+          "validate"
+        ],
+        "timingMs": {
+          "retrieval": 0,
+          "selectionAndValidation": 1,
+          "total": 2
+        }
+      },
+      "outfits": [
+        {
+          "title": "Campus casual · Look 1",
+          "itemIds": [
+            "photo-knit",
+            "photo-trousers",
+            "photo-sneakers",
+            "photo-tote"
+          ]
+        },
+        {
+          "title": "Campus casual · Look 2",
+          "itemIds": [
+            "photo-knit",
+            "photo-denim",
+            "photo-sneakers",
+            "photo-blazer",
+            "photo-tote"
+          ]
+        },
+        {
+          "title": "Campus casual · Look 3",
+          "itemIds": [
+            "photo-knit",
+            "photo-trousers",
+            "photo-sneakers",
+            "photo-blazer",
+            "photo-tote"
+          ]
+        }
+      ],
+      "retrieval": {
+        "method": "BM25 + explicit synonyms + category coverage (dense disabled)",
+        "fallback": {
+          "active": true,
+          "code": "EMBEDDING_DISABLED",
+          "reason": "Text embeddings are disabled for this request."
+        }
+      }
+    },
+    {
+      "provider": "quick",
+      "httpStatus": 200,
+      "wallMs": 15.121499999999969,
+      "model": "deterministic-planner-v1",
+      "pipeline": {
+        "version": "recommendation-v2",
+        "runId": "1f3a7013-57db-493a-90ba-79a6ed457d14",
+        "requestedProvider": "quick",
+        "provider": "quick",
+        "fallback": null,
+        "retrievalPasses": 1,
+        "stages": [
+          "retrieve",
+          "plan",
+          "select",
+          "validate"
+        ],
+        "timingMs": {
+          "retrieval": 0,
+          "selectionAndValidation": 1,
+          "total": 2
+        }
+      },
+      "outfits": [
+        {
+          "title": "Campus casual · Look 1",
+          "itemIds": [
+            "photo-knit",
+            "photo-trousers",
+            "photo-sneakers",
+            "photo-tote"
+          ]
+        },
+        {
+          "title": "Campus casual · Look 2",
+          "itemIds": [
+            "photo-knit",
+            "photo-denim",
+            "photo-sneakers",
+            "photo-blazer",
+            "photo-tote"
+          ]
+        },
+        {
+          "title": "Campus casual · Look 3",
+          "itemIds": [
+            "photo-knit",
+            "photo-trousers",
+            "photo-sneakers",
+            "photo-blazer",
+            "photo-tote"
+          ]
+        }
+      ],
+      "retrieval": {
+        "method": "BM25 + explicit synonyms + category coverage (dense disabled)",
+        "fallback": {
+          "active": true,
+          "code": "EMBEDDING_DISABLED",
+          "reason": "Text embeddings are disabled for this request."
+        }
+      }
+    },
+    {
+      "provider": "quick",
+      "httpStatus": 200,
+      "wallMs": 16.018699999999967,
+      "model": "deterministic-planner-v1",
+      "pipeline": {
+        "version": "recommendation-v2",
+        "runId": "d72f4b3d-4aa8-47b2-996e-2d556f1ba2cc",
+        "requestedProvider": "quick",
+        "provider": "quick",
+        "fallback": null,
+        "retrievalPasses": 1,
+        "stages": [
+          "retrieve",
+          "plan",
+          "select",
+          "validate"
+        ],
+        "timingMs": {
+          "retrieval": 0,
+          "selectionAndValidation": 1,
+          "total": 2
+        }
+      },
+      "outfits": [
+        {
+          "title": "Campus casual · Look 1",
+          "itemIds": [
+            "photo-knit",
+            "photo-trousers",
+            "photo-sneakers",
+            "photo-tote"
+          ]
+        },
+        {
+          "title": "Campus casual · Look 2",
+          "itemIds": [
+            "photo-knit",
+            "photo-denim",
+            "photo-sneakers",
+            "photo-blazer",
+            "photo-tote"
+          ]
+        },
+        {
+          "title": "Campus casual · Look 3",
+          "itemIds": [
+            "photo-knit",
+            "photo-trousers",
+            "photo-sneakers",
+            "photo-blazer",
+            "photo-tote"
+          ]
+        }
+      ],
+      "retrieval": {
+        "method": "BM25 + explicit synonyms + category coverage (dense disabled)",
+        "fallback": {
+          "active": true,
+          "code": "EMBEDDING_DISABLED",
+          "reason": "Text embeddings are disabled for this request."
+        }
+      }
+    },
+    {
+      "provider": "quick",
+      "httpStatus": 200,
+      "wallMs": 3.3916000000000395,
+      "model": "deterministic-planner-v1",
+      "pipeline": {
+        "version": "recommendation-v2",
+        "runId": "b2eecd2b-8ada-4adf-9efa-88cc0252466e",
+        "requestedProvider": "quick",
+        "provider": "quick",
+        "fallback": null,
+        "retrievalPasses": 1,
+        "stages": [
+          "retrieve",
+          "plan",
+          "select",
+          "validate"
+        ],
+        "timingMs": {
+          "retrieval": 0,
+          "selectionAndValidation": 1,
+          "total": 1
+        }
+      },
+      "outfits": [
+        {
+          "title": "Campus casual · Look 1",
+          "itemIds": [
+            "photo-knit",
+            "photo-trousers",
+            "photo-sneakers",
+            "photo-tote"
+          ]
+        },
+        {
+          "title": "Campus casual · Look 2",
+          "itemIds": [
+            "photo-knit",
+            "photo-denim",
+            "photo-sneakers",
+            "photo-blazer",
+            "photo-tote"
+          ]
+        },
+        {
+          "title": "Campus casual · Look 3",
+          "itemIds": [
+            "photo-knit",
+            "photo-trousers",
+            "photo-sneakers",
+            "photo-blazer",
+            "photo-tote"
+          ]
+        }
+      ],
+      "retrieval": {
+        "method": "BM25 + explicit synonyms + category coverage (dense disabled)",
+        "fallback": {
+          "active": true,
+          "code": "EMBEDDING_DISABLED",
+          "reason": "Text embeddings are disabled for this request."
+        }
+      }
+    }
+  ],
+  "local": [
+    {
+      "provider": "local",
+      "httpStatus": 200,
+      "wallMs": 25828.518,
+      "model": "gemma3:4b",
+      "pipeline": {
+        "version": "recommendation-v2",
+        "runId": "e404cde1-75ee-4b0d-8b0f-44c66b20a7d2",
+        "requestedProvider": "local",
+        "provider": "local",
+        "fallback": null,
+        "retrievalPasses": 1,
+        "stages": [
+          "retrieve",
+          "plan",
+          "select",
+          "validate"
+        ],
+        "timingMs": {
+          "retrieval": 6006,
+          "selectionAndValidation": 19812,
+          "total": 25818
+        }
+      },
+      "outfits": [
+        {
+          "title": "Green Knit Ensemble",
+          "itemIds": [
+            "photo-knit",
+            "photo-trousers",
+            "photo-sneakers",
+            "photo-tote"
+          ]
+        },
+        {
+          "title": "Blue Jeans and Graphic Tee",
+          "itemIds": [
+            "photo-knit",
+            "photo-denim",
+            "photo-sneakers",
+            "photo-blazer",
+            "photo-tote"
+          ]
+        }
+      ],
+      "retrieval": {
+        "method": "BM25 + explicit synonyms + category coverage (dense unavailable)",
+        "fallback": {
+          "active": true,
+          "code": "EMBEDDING_TIMEOUT",
+          "reason": "Local text embeddings timed out."
+        },
+        "cache": {
+          "requested": 8,
+          "unique": 8,
+          "hits": 7,
+          "memoryHits": 0,
+          "misses": 1,
+          "generated": 0,
+          "readErrors": 0,
+          "writeErrors": 0
+        }
+      }
+    },
+    {
+      "provider": "local",
+      "httpStatus": 200,
+      "wallMs": 8237.633699999998,
+      "model": "gemma3:4b",
+      "pipeline": {
+        "version": "recommendation-v2",
+        "runId": "03b0f540-6a16-4e94-a0ca-f2e2eee0073f",
+        "requestedProvider": "local",
+        "provider": "local",
+        "fallback": null,
+        "retrievalPasses": 1,
+        "stages": [
+          "retrieve",
+          "plan",
+          "select",
+          "validate"
+        ],
+        "timingMs": {
+          "retrieval": 3874,
+          "selectionAndValidation": 4360,
+          "total": 8234
+        }
+      },
+      "outfits": [
+        {
+          "title": "Green and Sand Ensemble",
+          "itemIds": [
+            "photo-knit",
+            "photo-trousers",
+            "photo-sneakers",
+            "photo-tote"
+          ]
+        },
+        {
+          "title": "Casual Campus Look",
+          "itemIds": [
+            "photo-tee",
+            "photo-denim",
+            "photo-sneakers",
+            "photo-blazer",
+            "photo-tote"
+          ]
+        }
+      ],
+      "retrieval": {
+        "method": "BM25 + dense cosine + reciprocal rank fusion + category coverage",
+        "fallback": {
+          "active": false
+        },
+        "cache": {
+          "requested": 8,
+          "unique": 8,
+          "hits": 7,
+          "memoryHits": 0,
+          "misses": 1,
+          "generated": 1,
+          "readErrors": 0,
+          "writeErrors": 0
+        }
+      }
+    }
+  ],
+  "openai": {
+    "status": "not_run_no_key"
+  },
+  "retrievalPassExperiment": {
+    "protocol": "10 alternating warm pairs on the same authored 64-item case. Isolates retrieval overhead only; excludes model generation and browser.",
+    "twoPassMs": [
+      18.073800000000006,
+      31.19659999999999,
+      31.782500000000027,
+      30.261799999999994,
+      30.92700000000002,
+      31.12760000000003,
+      10.547700000000077,
+      16.47479999999996,
+      29.96519999999998,
+      25.402799999999957
+    ],
+    "onePassMs": [
+      7.437399999999968,
+      15.464800000000082,
+      14.72040000000004,
+      15.710300000000075,
+      15.457700000000045,
+      4.6025999999999385,
+      4.46530000000007,
+      10.707899999999995,
+      5.479799999999955,
+      14.821699999999964
+    ]
+  }
+}

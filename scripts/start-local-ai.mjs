@@ -15,7 +15,8 @@ else {
   let startError;
   child.on('error',error=>{startError=error;});child.unref();
   let started=false;
-  for(let attempt=0;attempt<15;attempt++) {
+  // Cold Windows startup can take longer than the original 7.5-second window.
+  for(let attempt=0;attempt<60;attempt++) {
     if(startError)throw new Error('Install Ollama from https://ollama.com/download first. '+startError.message);
     if(await ready()){started=true;break;}
     await new Promise(resolve=>setTimeout(resolve,500));

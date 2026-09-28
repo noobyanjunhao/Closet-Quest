@@ -9,6 +9,9 @@ import PhotoEvidence from './PhotoEvidence.jsx';
 import RagEvidence from './RagEvidence.jsx';
 import MLStatus from './MLStatus.jsx';
 import OutfitStudio from './OutfitStudio.jsx';
+import CameraCapture from './CameraCapture.jsx';
+import DepopConnection from './DepopConnection.jsx';
+import { prefillReview } from './camera.js';
 import { ClosetHero } from './Editorial.jsx';
 import photoSources from '../public/photos/sources.json';
 import './style.css';
@@ -16,6 +19,7 @@ import './workspace.css';
 import './editorial.css';
 import './studio.css';
 import './simple-flow.css';
+import './capture-flow.css';
 
 const KEY = 'closet-quest-demo-v1';
 const pending = recognition => ['submitting','queued','processing'].includes(recognition?.status);
@@ -126,17 +130,18 @@ export default function App() {
   }
   async function batchUpload(files) {
     if(!files.length)return;
-    const selectedFiles = [...files].slice(0,8); setBusy(true);let added=0;
+    const selectedFiles = [...files].slice(0,8); setBusy(true);let added=0;const failures=[];
     try {
       for (const file of selectedFiles) {
         try {
           const image = await preparePhoto(file);
           const item = {id:crypto.randomUUID(),photoKey:crypto.randomUUID(),image,name:file.name.replace(/\.[^.]+$/,'').replace(/[-_]/g,' ').slice(0,80),category:'Top',color:'#a0a18f',tags:'Campus casual',wears:0,addedAt:new Date().toISOString(),needsReview:true};
           if(!save(s => ({...s,items:[...s.items,item]})))break;
-          added++; if(ai.ready)await analyze(item);
-        } catch(error) {notify(`${file.name}: ${error.message}`);}
+          if(!added&&!editorRef.current){setReviewQueue(true);setEditor({...item});}
+          added++; if(ai.recognitionReady)await analyze(item);
+        } catch(error) {failures.push(`${file.name}: ${error.message}`);}
       }
-      notify(`${added} photo${added===1?'':'s'} added. ${ai.ready?'Suggestions will appear for review.':'Open each piece to review its name and category.'}${files.length>8?' Add the remaining photos in another batch.':''}`);
+      if(added||failures.length)notify(`${added} photo${added===1?'':'s'} added. ${failures.length?failures[0]:ai.recognitionReady?'Review the suggested details before saving.':'Check the name and category to finish adding each piece.'}${files.length>8?' Add the remaining photos in another batch.':''}`);
     }finally{setBusy(false);if(uploadInput.current)uploadInput.current.value='';}
   }
   function saveEditor(e) {
@@ -157,7 +162,7 @@ export default function App() {
       const nextReview=reviewQueue&&stateRef.current.items.find(i=>i.id!==item.id&&(i.needsReview||i.recognition?.status==='review'));
       if(nextReview){setEditor({...nextReview});notify('Saved. Review the next piece.');}
       else {closeEditor();notify(reviewQueue?'All pieces reviewed. Your closet is ready.':'Garment saved.');}
-      if(item.image && (isNew||changedPhoto) && ai.ready)void analyze(item);
+      if(item.image && (isNew||changedPhoto) && ai.recognitionReady)void analyze(item);
     }
   }
   function removeItem(item) {
@@ -173,7 +178,7 @@ export default function App() {
     styleRun.current++;retrievalRun.current++;setStyling(false);setPreviewing(false);setStyleStage('');setOptions([]);setRetrieval(null);setRetrievalError('');setStyleMessage('');
   }
   function styleBody(nextContext=context, forQuest=questMode, activeQuest=questId) {
-    return {items:stateRef.current.items.map(({image,recognition,...item})=>item),context:nextContext,request:request.trim()||'Create a balanced outfit for my plans.',anchorId:anchorId||undefined,requireLowUse:forQuest&&activeQuest==='rediscover'};
+    return {items:stateRef.current.items.map(({image,recognition,...item})=>item),provider:engine==='agent'?'auto':engine,context:nextContext,request:request.trim()||'Create a balanced outfit for my plans.',anchorId:anchorId||undefined,requireLowUse:forQuest&&activeQuest==='rediscover'};
   }
   async function previewMatches() {
     previewController.current?.abort();const controller=new AbortController();previewController.current=controller;
@@ -190,12 +195,11 @@ export default function App() {
     try {
       let choices,reason;
       if(!items.length)throw new Error('Review at least one complete set of garments before styling.');
-      if(engine==='agent') {
-        const body=styleBody(nextContext,forQuest,activeQuest);setStyleStage('retrieving');
-        const matches=await api('retrieve',body,'POST',{signal:controller.signal,timeoutMs:45000});if(run!==styleRun.current)return;setRetrieval(matches.retrieval);setStyleStage('generating');
-        const result=await api('style',body,'POST',{signal:controller.signal});
+      if(engine!=='baseline') {
+        const body=styleBody(nextContext,forQuest,activeQuest);setStyleStage('generating');
+        const result=await api('style',body,'POST',{signal:controller.signal,timeoutMs:65000});
         if(run!==styleRun.current)return;setRetrieval(result.retrieval);
-        choices=result.data.outfits.map(o=>({...o,engine:'agent',wearId:crypto.randomUUID()}));reason=result.data.reason;
+        choices=result.data.outfits.map(o=>({...o,engine:'agent',provider:result.pipeline?.provider,pipeline:result.pipeline,model:result.model,wearId:crypto.randomUUID()}));reason=result.pipeline?.fallback?.message||result.data.reason;
       }else {
         const result=rankOutfits(items,nextContext,{requireLowUse:forQuest&&activeQuest==='rediscover'});
         choices=result.outfits.map((o,index)=>({itemIds:o.items.map(i=>i.id),title:`${nextContext} · ${index+1}`,explanation:o.explanation,engine:'baseline',wearId:crypto.randomUUID()}));reason=result.reason;
@@ -208,7 +212,6 @@ export default function App() {
   function startQuest(q) {
     if(styling){notify('Let the current styling request finish first.');return;}
     setQuestId(q.id);setContext(q.context);setQuestMode(true);setPage('Outfits');
-    if(engine==='agent'&&!ai.ready){setStyleMessage('Choose the wardrobe rules stylist below, or start local AI, to build this quest outfit.');setOptions([]);return;}
     void generate(q.context,true,q.id);
   }
   function cancelStyling() {
@@ -221,6 +224,9 @@ export default function App() {
   const selectedQuest=quests.find(q=>q.id===questId);
   const visible=state.items.filter(i=>(filter==='All'||filter==='Rediscover'&&i.wears<=1||filter==='Review'&&(i.needsReview||i.recognition?.status==='review')||filter===i.category)&&`${i.name} ${i.tags} ${i.colorName||''} ${i.category}`.toLowerCase().includes(search.toLowerCase())).sort((a,b)=>sort==='wears'?a.wears-b.wears:sort==='name'?a.name.localeCompare(b.name):(b.addedAt||'').localeCompare(a.addedAt||''));
   const editorStored=editor&&state.items.find(i=>i.id===editor.id);
+  useEffect(() => {
+    if(editorStored?.recognition?.status==='review')setEditor(current=>prefillReview(current,editorStored,recognitionPatch(editorStored.recognition.result)));
+  },[editor?.id,editorStored?.recognition?.result]);
   const editorHasChanges=editorStored&&['name','category','color','colorName','tags','pattern','fit','materialAppearance','visibleLabelText','image'].some(key=>editor[key]!==editorStored[key]);
   const editorRecognition=editor?.appliedSuggestions?editor.recognition:editorStored?.photoKey===editor?.photoKey?editorStored?.recognition:editor?.recognition;
   function wear(ids,id,outfitId=null) {if(save(s=>recordWear(s,ids,{id,outfitId})))notify('Wear recorded in your journal.');}
@@ -266,7 +272,7 @@ export default function App() {
         request={request} onRequest={value=>{clearStudio();setRequest(value);}}
         engine={engine} onEngine={value=>{clearStudio();setEngine(value);if(value==='baseline')setAnchorId('');}}
         anchorId={anchorId} onAnchor={value=>{clearStudio();setAnchorId(value);}}
-        aiReady={ai.ready} styling={styling} styleStage={styleStage} previewing={previewing}
+        aiReady={ai.stylistReady} openaiConfigured={ai.openai?.configured} styling={styling} styleStage={styleStage} previewing={previewing}
         retrieval={retrieval} retrievalError={retrievalError} onPreview={previewMatches} onGenerate={()=>generate()}
         onCancel={cancelStyling}
         processingCount={processing.length} quest={questMode?selectedQuest:null}
@@ -286,15 +292,15 @@ export default function App() {
         {state.wearRecords.length?<div className="wear-journal">{[...state.wearRecords].reverse().map(record=><div className="wear-entry" key={record.id}><time dateTime={record.wornAt}>{dateLabel(record.wornAt)}</time><div className="wear-thumbnails">{record.itemIds.map(id=>state.items.find(i=>i.id===id)).filter(Boolean).map(item=><Garment key={item.id} item={item}/>)}</div><span>{record.itemIds.map(id=>state.items.find(i=>i.id===id)?.name).filter(Boolean).join(' + ')}</span></div>)}</div>:<p className="muted">Wear a piece or an outfit to start your journal. Existing demo counts are kept separately.</p>}
       </>}
       {page==='Quests'&&<><section className="progress-panel"><div><p className="eyebrow">YOUR STYLE JOURNEY</p><h2>Level {Math.floor(state.xp/100)+1} · Closet explorer</h2><p>{state.xp} total XP · {100-state.xp%100} XP to the next level</p></div><progress max="100" value={state.xp%100} aria-label="Progress to next level"/></section><div className="quest-grid">{quests.map((q,index)=><section className="quest-card" key={q.id}><div className="quest-top"><span>0{index+1} / STYLE QUEST</span><b>+{q.xp} XP</b></div><div className="quest-symbol">{['✧','☕','↗'][index]}</div><h2>{q.title}</h2><p>{q.subtitle}</p><small>{q.context}</small><button className="primary" disabled={state.completed.includes(q.id)} onClick={()=>startQuest(q)}>{state.completed.includes(q.id)?'✓ Completed':'Start quest ↗'}</button></section>)}</div></>}
-      {page==='Resale'&&<><div className="notice">↻ {lowUse.length} pieces have one recorded wear or less. Try them in a new outfit, or prepare a listing for their next chapter.</div><div className="grid">{lowUse.map(item=><GarmentCard key={item.id} item={item}><button onClick={()=>openListing(item)}>Prepare listing ↗</button></GarmentCard>)}</div>{!lowUse.length&&<div className="empty">Every piece is in rotation. You can prepare a listing from any garment’s details.</div>}</>}
+      {page==='Resale'&&<><DepopConnection status={ai.depop}/><div className="notice">↻ {lowUse.length} pieces have one recorded wear or less. Try them in a new outfit, or prepare a listing for their next chapter.</div><div className="grid">{lowUse.map(item=><GarmentCard key={item.id} item={item}><button onClick={()=>openListing(item)}>Prepare listing ↗</button></GarmentCard>)}</div>{!lowUse.length&&<div className="empty">Every piece is in rotation. You can prepare a listing from any garment’s details.</div>}</>}
       {page==='Lab'&&<><MLStatus status={ai}/><RagEvidence/><PhotoEvidence/><Feasibility/></>}
-      <footer><span>closet quest</span><p><span className={`status-dot ${ai.ready?'ready':''}`}/>{ai.ready?'Local AI connected':'Local AI offline'} · Saved in this browser</p></footer>
+      <footer><span>closet quest</span><p><span className={`status-dot ${ai.ready?'ready':''}`}/>{ai.recognitionReady?'Photo analysis ready':'Manual photo review'} · Saved in this browser</p></footer>
     </main>
     {toast&&<div className="toast" role="status">{toast}<button aria-label="Dismiss notification" onClick={()=>setToast('')}>×</button></div>}
 
     {editor&&<Modal key={editor.id} title={editor.isNew?'Add a piece':reviewQueue?'Review your clothes':'Your piece'} onClose={closeEditor} wide>
       <form onSubmit={saveEditor} className="garment-editor"><div className="editor-photo-column"><div className="editor-photo"><Garment item={editor} loading="eager"/></div><details className="photo-details" open={editor.isNew||undefined}><summary>{editor.image?'Change photo & credits':'Add a photo'}</summary><label className="file-label">{busy?'Preparing photo…':'Choose a photo'}<input type="file" accept="image/jpeg,image/png,image/webp" disabled={busy} onChange={e=>upload(e.target.files[0])}/></label><p className="muted">JPG, PNG or WebP · up to 8 MB. Saved on this device.</p><PhotoCredit item={editor}/></details>{!editor.isNew&&<p className="wear-detail"><strong>{editorStored?.wears||0}</strong> recorded wears{editorStored?.lastWorn&&<small>Last worn {dateLabel(editorStored.lastWorn)}</small>}</p>}{!editor.isNew&&!reviewQueue&&<><button type="button" className="style-piece-button" disabled={busy||editorStored?.needsReview||editorHasChanges} onClick={()=>styleThisPiece(editorStored)}>Style this piece ↗</button>{(editorHasChanges||editorStored?.needsReview)&&<p className="muted">Save your details first to style this piece.</p>}</>}</div>
-      <div className="editor-fields">
+      <div className="editor-fields">{reviewQueue&&<p className="review-progress">PHOTO → REVIEW → READY TO STYLE · {needsReview.length} left</p>}
         {pending(editorRecognition)&&<div className="analysis-panel" role="status"><span className="pulse-dot"/><strong>{{preparing:'Preparing your photo…',recognizing:'Identifying the item and its details…',validating:'Checking the suggestions…',retrying:'Reconnecting to the local model…'}[editorRecognition.stage]||'Photo queued for analysis'}</strong><p>{editorRecognition.error||'You can keep editing or close this panel. Suggestions will be waiting here.'}</p><button type="button" onClick={()=>cancelAnalysis(editor,editorRecognition)} disabled={!editorRecognition.jobId}>Cancel analysis</button></div>}
         {editorRecognition?.status==='review'&&!editor.appliedSuggestions&&<div className="analysis-panel"><strong>✧ Suggestions are ready to review</strong><p>{editorRecognition.result.data.name} · {editorRecognition.result.data.category} · {editorRecognition.result.data.colorName}</p>{editorRecognition.result.data.targetDescription&&<p>Looking at: {editorRecognition.result.data.targetDescription}</p>}<p className="muted">Applying fills the fields below. Review and edit them before saving. Color swatches are approximate; label text stays manual.</p><button type="button" onClick={()=>setEditor({...editor,...recognitionPatch(editorRecognition.result),recognition:editorRecognition,appliedSuggestions:true})}>Apply suggestions to form</button></div>}
         {editor.appliedSuggestions&&<div className="analysis-panel"><strong>Review the suggested details below.</strong><p>Your changes take effect when you save.</p></div>}
@@ -304,14 +310,15 @@ export default function App() {
         <div className="form-row"><label>Category<select value={editor.category} onChange={e=>setEditor({...editor,category:e.target.value})}>{categories.map(c=><option key={c}>{c}</option>)}</select></label><label>Color<input type="color" value={editor.color} onChange={e=>setEditor({...editor,color:e.target.value})}/></label></div>
         <details className="attribute-details" open={editor.appliedSuggestions||undefined}><summary>Style & garment details</summary><label>Style & occasions<input maxLength="500" value={editor.tags} onChange={e=>setEditor({...editor,tags:e.target.value})}/></label>{['colorName','pattern','fit','materialAppearance','visibleLabelText'].map(field=><label key={field}>{{colorName:'Color description',pattern:'Pattern',fit:'Apparent fit',materialAppearance:'Material appearance (unverified)',visibleLabelText:'Visible label text (unverified)'}[field]}<input maxLength="500" value={editor[field]||''} onChange={e=>setEditor({...editor,[field]:e.target.value})}/></label>)}</details>
         {editor.uncertainty?.length>0&&<p className="muted">Review notes: {editor.uncertainty.join(' ')}</p>}
-        {editor.isNew&&<p className="muted">{ai.ready?'Save your piece to start photo analysis in the background.':'Save your photo and label it manually. You can analyze it later when local AI is connected.'}</p>}
+        {editor.isNew&&<p className="muted">{ai.recognitionReady?'Save your piece to start photo analysis in the background.':'Save your photo and label it manually. You can analyze it later when local AI is connected.'}</p>}
         <div className="toolbar garment-save"><button className="primary" disabled={busy} type="submit">{reviewQueue&&needsReview.some(i=>i.id!==editor.id)?'Save & review next':'Save piece'}</button>{reviewQueue&&<span className="muted">{needsReview.length} left to review</span>}</div>
-        {!editor.isNew&&<details className="garment-more-actions" open={editorRecognition?.status==='failed'||editorRecognition?.status==='cancelled'||undefined}><summary>More actions</summary><div className="toolbar"><button type="button" disabled={!ai.ready||!editor.image||pending(editorRecognition)||editor.appliedSuggestions||busy||editorStored?.photoKey!==editor.photoKey} onClick={()=>analyze(editorStored)}>{editorRecognition?.status==='failed'?'Retry photo analysis':'Analyze photo again'}</button><button type="button" onClick={()=>wear([editor.id],crypto.randomUUID())}>Record a wear</button><button type="button" onClick={()=>{openListing(editorStored);closeEditor();}}>Prepare resale draft</button><button type="button" className="danger text-button" onClick={()=>removeItem(editorStored)}>Delete piece</button></div></details>}
+        {!editor.isNew&&<details className="garment-more-actions" open={editorRecognition?.status==='failed'||editorRecognition?.status==='cancelled'||undefined}><summary>More actions</summary><div className="toolbar"><button type="button" disabled={!ai.recognitionReady||!editor.image||pending(editorRecognition)||editor.appliedSuggestions||busy||editorStored?.photoKey!==editor.photoKey} onClick={()=>analyze(editorStored)}>{editorRecognition?.status==='failed'?'Retry photo analysis':'Analyze photo again'}</button><button type="button" onClick={()=>wear([editor.id],crypto.randomUUID())}>Record a wear</button><button type="button" onClick={()=>{openListing(editorStored);closeEditor();}}>Prepare resale draft</button><button type="button" className="danger text-button" onClick={()=>removeItem(editorStored)}>Delete piece</button></div></details>}
       </div></form>
     </Modal>}
-    {modal==='add'&&<Modal title="Add to your closet" onClose={()=>setModal(null)}><div className="add-clothes-flow"><div className="add-clothes-symbol" aria-hidden="true">＋</div><h3>Start with a photo.</h3><p>{ai.ready?'Add up to 8 photos at once. We’ll suggest the details, then you can review each piece.':'Add up to 8 photos at once, then enter the details for each piece. AI suggestions will be available when the local service is connected.'}</p><button className="primary" disabled={busy} onClick={()=>uploadInput.current.click()}>Choose photos</button><p className="muted">JPG, PNG or WebP · up to 8 MB each<br/>Photos stay on this device.</p><button className="text-button" onClick={newGarment}>Add without a photo</button></div></Modal>}
+    {modal==='add'&&<Modal title="Add to your closet" onClose={()=>setModal(null)}><div className="add-clothes-flow"><div className="add-clothes-symbol" aria-hidden="true">＋</div><h3>A photo. A few details. Yours.</h3><p>Take a photo of one piece, or choose up to eight. Review its details and it’s ready for your next look.</p><div className="flow-steps" aria-label="Import steps"><span><b>1</b> Add photo</span><span><b>2</b> Review</span><span><b>3</b> Style it</span></div><div className="add-photo-actions"><button className="primary" disabled={busy} onClick={()=>setModal('camera')}>Take a photo</button><button disabled={busy} onClick={()=>uploadInput.current.click()}>Choose photos</button></div><p className="muted">JPG, PNG or WebP · up to 8 MB each<br/>Photos stay on this device.</p><button className="text-button" onClick={newGarment}>Add without a photo</button></div></Modal>}
+    {modal==='camera'&&<Modal title="Photograph your piece" onClose={()=>setModal(null)}><CameraCapture onUse={file=>{setModal(null);setPage('Closet');void batchUpload([file]);}} onChoose={()=>uploadInput.current.click()}/></Modal>}
     {resale&&<Modal title="A new-home starter kit." onClose={()=>setResale(null)}><p>Edit your draft, then copy the text or export the package with its photo.</p>{state.items.find(i=>i.id===resale.id)?.sampleId&&<div className="notice">This is a sample garment. Use your own photo of the actual item before posting a listing.</div>}<label>Listing draft<textarea rows="12" value={resale.text} onChange={e=>setResale({...resale,text:e.target.value})}/></label><div className="toolbar"><button className="primary" onClick={async()=>{try{await navigator.clipboard.writeText(resale.text);notify('Listing copied.');}catch{notify('Select the text and copy it manually.');}}}>Copy listing</button><button onClick={exportListing}>Export with photo ↓</button></div><p className="muted">Check brand, size, condition and price before posting. Nothing is automatically published.</p></Modal>}
     {modal==='credits'&&<Modal title="The real-photo collection." onClose={()=>setModal(null)} wide><p>Seven real photographs from Wikimedia Commons. Each photo keeps its original license. Sample tags and wear counts are for exploring the app.</p><Credits/></Modal>}
-    {modal==='profile'&&<Modal title="Your little style world." onClose={()=>setModal(null)}><form onSubmit={e=>{e.preventDefault();const data=new FormData(e.currentTarget);if(save(s=>({...s,profile:data.get('name').trim()})))setModal(null);}}><label>Display name<input name="name" maxLength="40" defaultValue={state.profile} placeholder="Your name"/></label><div className="toolbar"><button className="primary">Save name</button><button type="button" onClick={()=>{downloadJson(stateRef.current,'closet-quest-backup.json');notify('Closet backup exported.');}}>Export closet backup ↓</button></div></form><p className="muted">This prototype saves your closet in this browser. It has no sign-in or cross-device sync yet. Uploaded photos are sent only to the local AI service on this device.</p><label className="checkbox-label"><input type="checkbox" checked={state.learningEnabled!==false} onChange={e=>save(s=>({...s,learningEnabled:e.target.checked}))}/>Keep reviewed corrections and explicit style feedback for local learning</label><p className="muted">Learning records exclude photos, garment names, labels and your profile. Disabling stops new records. Sample pieces are tracked separately from personal training data.</p><button onClick={()=>{if(save(addPhotoCollection))notify('All missing sample pieces added.');}}>Add missing sample pieces</button></Modal>}
+    {modal==='profile'&&<Modal title="Your little style world." onClose={()=>setModal(null)}><form onSubmit={e=>{e.preventDefault();const data=new FormData(e.currentTarget);if(save(s=>({...s,profile:data.get('name').trim()})))setModal(null);}}><label>Display name<input name="name" maxLength="40" defaultValue={state.profile} placeholder="Your name"/></label><div className="toolbar"><button className="primary">Save name</button><button type="button" onClick={()=>{downloadJson(stateRef.current,'closet-quest-backup.json');notify('Closet backup exported.');}}>Export closet backup ↓</button></div></form><p className="muted">This prototype saves your closet in this browser. It has no sign-in or cross-device sync yet. Photos are processed on this device. When OpenAI styling is selected (or Auto uses a configured key), reviewed garment descriptions and your styling brief are sent to OpenAI. Photos and your profile are excluded.</p><label className="checkbox-label"><input type="checkbox" checked={state.learningEnabled!==false} onChange={e=>save(s=>({...s,learningEnabled:e.target.checked}))}/>Keep reviewed corrections and explicit style feedback for local learning</label><p className="muted">Learning records exclude photos, garment names, labels and your profile. Disabling stops new records. Sample pieces are tracked separately from personal training data.</p><button onClick={()=>{if(save(addPhotoCollection))notify('All missing sample pieces added.');}}>Add missing sample pieces</button></Modal>}
   </div>;
 }

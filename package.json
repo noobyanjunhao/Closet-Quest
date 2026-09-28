@@ -25,7 +25,9 @@
     "ml:train": "node ml/train-ranker.mjs",
     "ml:test": "node --test ml/checks.test.mjs",
     "ml:prepare": "node ml/prepare-lora.mjs --write",
-    "rag:hybrid": "node vision/evaluate-hybrid-retrieval.mjs"
+    "rag:hybrid": "node vision/evaluate-hybrid-retrieval.mjs",
+    "core:evaluate": "node experiments/evaluate-core.mjs",
+    "core:live": "node experiments/measure-live-core.mjs"
   },
   "dependencies": {
     "react": "^19.1.1",

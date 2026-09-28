@@ -2,6 +2,20 @@
 
 A responsive wardrobe app prototype for the Closet Quest semester project, maintained in `noobyanjunhao/Closet-Quest`.
 
+## Core prototype update - September 27
+
+**Photo → review → style → save.** Add clothes now offers camera preview, capture/retake, native mobile capture and batch photo selection. Review opens immediately, and AI suggestions prefill only untouched fields. Quick and OpenAI recommendations can run while local photos are still analyzing.
+
+The recommendation API retrieves once, builds complete owned outfit plans, selects via OpenAI/local AI/Quick, then validates. Auto uses OpenAI when configured and Quick otherwise. Quick is lexical retrieval and deterministic planning, not an LLM. Six-second embedding, fifteen-second OpenAI and forty-five-second local-generation budgets provide explicit fallback; bounded memory vectors reuse the existing digest-aware disk cache. OpenAI receives descriptions and a brief only, with `store:false`.
+
+Copy `.env.example` to `.env.local`, configure `OPENAI_API_KEY` and/or an approved `DEPOP_API_KEY`, then restart. Keys stay on the server. The official Depop adapter can check your own shop and read paginated listings; access requires Depop partner approval. Draft/export works without access. No listing is automatically published. Live OpenAI and Depop validation was unavailable on September 27 because no keys were configured.
+
+**Submission:** [Concise core evaluation PDF](output/pdf/Closet-Quest-Core-Technology-Report.pdf), [full analysis](docs/core-evaluation.md), [demonstration guide](docs/core-demo.md), and [offline visual walkthrough](output/demo/index.html). Run `npm run core:evaluate` for the frozen baseline comparison and `npm run core:live` for live measurements (two OpenAI calls if configured). Raw results are in `experiments/results/core-v2.json` and `experiments/results/live-core-v2.json`.
+
+The 180-request common structural evaluation returned zero invalid outfits with v2, but exact occasion compatibility was 259/366 versus the Assignment 3 rules' 263/263. Quick HTTP median was 15.12 ms (10 local requests); local AI took 25.83/8.24 seconds in two calls. Eight reused authored semantic probes gave BM25 recall@18 1/8 and hybrid 8/8. These are development results, not held-out fashion quality. 91 app tests, 8 ML checks and 5 Python checks passed.
+
+For the current four-minute presentation and accurate feature labels, use the new demonstration guide above; the sections below retain earlier sprint history.
+
 ## Wardrobe retrieval and styling studio
 
 The main navigation is **Closet → Stylist → Saved looks**. Secondary tools live under **More**. Add clothes through one photo/manual entry point; **Review pieces** walks through imports with **Save & review next**. Saving your own corrections also resolves the pending suggestion for that piece.
@@ -40,7 +54,7 @@ Rediscover clothes you own: organize a digital closet, build outfits, complete s
 
 ## Run locally
 
-Requires Node.js 20.19+ or 22.12+ and npm.
+Requires Node.js 22.12+ and npm (tested with 24.19).
 
 ```sh
 npm ci
