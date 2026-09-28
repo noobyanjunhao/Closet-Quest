@@ -100,21 +100,27 @@ p('Desktop camera startup recovery was checked, but physical capture needs iOS/A
 p('<b>Next evaluation:</b> at least 50 unseen phone photos and 50 unseen briefs, frozen before tuning. Report category macro-F1, per-attribute accuracy, correction time, Recall@18/NDCG, invalid-outfit rate, wearer top-three acceptance, fallback rate and cold/warm P50/P95. Include clutter, dark photos, multiple garments, footwear pairs, incomplete closets and vocabulary shifts.', 'small')
 story.append(PageBreak())
 
-p('Demonstrate the prototype.', 'title')
-p('04 / Reproduction, walkthrough and delivery', 'sub')
-p('<b>Four-minute walkthrough:</b> Add clothes and capture/select a photo; review suggested details; create a look from reviewed pieces; inspect its source facts; save or record a wear; open a resale draft and show the real Depop connection status. The offline walkthrough and detailed script are included in output/demo/ and docs/core-demo.md.')
-image_path=ROOT/'output/demo/stylist.png'
-if image_path.exists():
-    picture=Image(str(image_path));width,height=picture.imageWidth,picture.imageHeight
-    scale=min(504/width,250/height);picture.drawWidth=width*scale;picture.drawHeight=height*scale
-    picture.hAlign='CENTER'
-    story.append(picture);story.append(Spacer(1,6))
-    p('Actual local prototype. Public sample photography; Quick output is labeled separately from generative AI.', 'small')
-p('Run and verify', 'h')
-p('<font name="Courier">npm ci<br/>npm run dev<br/>npm test &amp;&amp; npm run ml:test<br/>npm run core:evaluate</font><br/>For local models: <font name="Courier">npm run ai:start</font> (install models first if missing). With the app running: <font name="Courier">npm run core:live</font>. Python preflight: <font name="Courier">python -m unittest discover -s ml -p test_lora.py</font>. Production: <font name="Courier">npm run build</font>, then <font name="Courier">npm start</font>.')
-p('Copy .env.example to .env.local for server credentials, then restart. The live script makes two OpenAI calls if configured. Keep credentials, model weights and private wardrobes out of the course upload. The submission ZIP contains source, raw evidence, this report and the demonstration. Course submission remains manual.', 'small')
-p('References and source record', 'h')
-p('<link href="https://github.com/noobyanjunhao/Closet-Quest">github.com/noobyanjunhao/Closet-Quest</link><br/>User-supplied Technical Design Document, 17 September 2026, pp. 1-6; retained Sprint 3 report.<br/><link href="https://developers.openai.com/api/docs/guides/structured-outputs">OpenAI Structured Outputs</link> and <link href="https://developers.openai.com/api/docs/models/gpt-4.1-mini">GPT-4.1 mini</link>; <link href="https://partnerapi.depop.com/api-docs/concepts/authentication/">Depop partner authentication</link> and <link href="https://partnerapi.depop.com/api-docs/openapi.yaml">official API specification</link>. Reviewed 27 September 2026.', 'small')
+p('From photo to outfit.', 'title')
+p('04 / Prototype demonstration', 'sub')
+p('The following screens show the working prototype during the evaluation: a sample garment was uploaded, recognized and reviewed, then the closet produced outfit alternatives that could be saved.')
+
+def demo_scene(filename, heading, description, observation):
+    picture=Image(str(ROOT/'output/demo'/filename));width,height=picture.imageWidth,picture.imageHeight
+    scale=min(286/width,226/height);picture.drawWidth=width*scale;picture.drawHeight=height*scale
+    picture.hAlign='LEFT'
+    caption=[Paragraph(heading,styles['h']),Paragraph(description,styles['body']),Paragraph(observation,styles['small'])]
+    panel=Table([[picture,caption]],colWidths=[302,202],hAlign='LEFT')
+    panel.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('LEFTPADDING',(0,0),(-1,-1),0),('RIGHTPADDING',(0,0),(-1,-1),0),('TOPPADDING',(0,0),(-1,-1),0),('BOTTOMPADDING',(0,0),(-1,-1),0)]))
+    story.append(panel);story.append(Spacer(1,14))
+
+demo_scene('review.png','01 / A photo becomes a piece',
+    'A graphic-tee photograph entered the local recognition queue. Qwen3-VL returned <b>White T-shirt</b>, category <b>Top</b>, a white color swatch and an abstract landscape pattern. The review form displayed these suggestions as editable fields.',
+    'The name was changed to "Demo photo - graphic tee" and saved. The piece became available for styling. This was a real sample-file upload and live recognition; training feedback was disabled for the QA record.')
+demo_scene('stylist.png','02 / The closet becomes a look',
+    'For a relaxed campus brief, the stylist returned <b>three alternatives</b>. The displayed look combines the existing forest sweater, blue jeans, white sneakers and sand tote. Each card corresponds to a reviewed wardrobe record.',
+    'This screen shows Quick lexical RAG, explicitly labeled as having no generative model. The first combination was already saved, so the app prevented a duplicate; a different second look saved successfully.')
+p('<b>Observed outcome:</b> the photo-to-review and outfit-to-save paths worked in the local app. The resale screen also exposed a real connection state: Depop remained unconnected because approved credentials were absent. Camera startup recovery was demonstrated; physical capture was not verified.', 'small')
+p('<b>Evidence:</b> actual app screenshots; attributed Wikimedia sample photographs. UI observations: experiments/results/ui-core-v2.json. Source and visual demo: <link href="https://github.com/noobyanjunhao/Closet-Quest">github.com/noobyanjunhao/Closet-Quest</link>.<br/><b>References:</b> supplied Technical Design Document (17 September 2026, pp. 1-6); <link href="https://developers.openai.com/api/docs/guides/structured-outputs">OpenAI Structured Outputs</link> / <link href="https://developers.openai.com/api/docs/models/gpt-4.1-mini">GPT-4.1 mini</link>; <link href="https://partnerapi.depop.com/api-docs/concepts/authentication/">Depop authentication</link> / <link href="https://partnerapi.depop.com/api-docs/openapi.yaml">API specification</link>. Reviewed 27 September 2026.', 'small')
 
 def frame(canvas, doc):
     canvas.setFillColor(colors.HexColor('#fbfcf8'));canvas.rect(0,0,612,792,fill=1,stroke=0)
