@@ -1,0 +1,26 @@
+[
+  {
+    "id": "893ab9ae-a83b-4684-9184-c74b21cf4971",
+    "title": "Build a complete outfit from owned pieces",
+    "source": "Closet Quest project-authored styling guide",
+    "content": "Start with the user's chosen anchor garment and occasion. A complete outfit usually needs a top and bottom, or a dress, plus shoes. Only recommend garments present in the reviewed wardrobe. A bag, belt, or jacket can support a look but does not replace its core pieces. If the wardrobe cannot supply a complete outfit, explain the missing category rather than inventing a garment. Treat saved preferences as soft guidance unless the user explicitly marks a restriction."
+  },
+  {
+    "id": "893ab9ae-a83b-4684-9184-c74b21cf4972",
+    "title": "Comfort, silhouette, and color balance",
+    "source": "Closet Quest project-authored styling guide",
+    "content": "For a comfortable everyday outfit, consider the user's fit preference and preferred footwear. A relaxed top can pair with a more structured bottom, or a fitted top with a relaxed bottom; neither is a requirement. Repeating one color across two owned pieces can make a combination feel coherent. Neutrals can support a stronger color, while a tonal combination uses nearby shades. These are suggestions, not universal rules. Never infer the user's body type, gender, or health from a photo."
+  },
+  {
+    "id": "893ab9ae-a83b-4684-9184-c74b21cf4973",
+    "title": "Occasion and practical layers",
+    "source": "Closet Quest project-authored styling guide",
+    "content": "For a work meeting, interview, or smart dinner, consider owned structured layers, tidy trousers or a dress, and suitable shoes while respecting the user's stated dress code. For casual outings, prioritize their comfort and preferred style. Add a layer when the user supplies cool-weather context; do not claim to know live weather. If no dress code or temperature is supplied, state the assumption or offer an adaptable option. Avoid promising that an outfit is suitable for every workplace or event."
+  },
+  {
+    "id": "893ab9ae-a83b-4684-9184-c74b21cf4974",
+    "title": "Learn from feedback without overclaiming",
+    "source": "Closet Quest project-authored styling guide",
+    "content": "Use an explicit like or dislike on a recommended look as a preference signal. A saved look indicates interest, while a recorded wear indicates use; none proves why the user acted. Keep the user's current request above old behavior. Favor underused owned pieces when they still fit the occasion and preferences. Explain which saved details, explicit preferences, and retrieved notes informed the suggestion. Do not claim that feedback retrains the foundation model or that deterministic scoring is fine-tuning."
+  }
+]

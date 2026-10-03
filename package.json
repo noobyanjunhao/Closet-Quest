@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "engines": { "node": ">=24 <25" },
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
@@ -27,11 +28,13 @@
     "ml:prepare": "node ml/prepare-lora.mjs --write",
     "rag:hybrid": "node vision/evaluate-hybrid-retrieval.mjs",
     "core:evaluate": "node experiments/evaluate-core.mjs",
-    "core:live": "node experiments/measure-live-core.mjs"
+    "core:live": "node experiments/measure-live-core.mjs",
+    "evaluate:advanced": "node scripts/evaluate-advanced.mjs"
   },
   "dependencies": {
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "sharp": "0.35.4"
   },
   "overrides": {
     "sharp": "0.35.4",
@@ -39,7 +42,6 @@
   },
   "devDependencies": {
     "@huggingface/transformers": "^4.2.0",
-    "sharp": "^0.35.4",
     "vite": "^7.1.5"
   }
 }

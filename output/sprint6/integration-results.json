@@ -1,0 +1,189 @@
+{
+  "measuredAt": "2026-10-03T01:09:38.358Z",
+  "environment": "Windows localhost; public sample wardrobe; no cloud credentials",
+  "status": {
+    "model": "qwen3-vl:4b-instruct-q4_K_M",
+    "models": {
+      "recognition": "qwen3-vl:4b-instruct-q4_K_M",
+      "stylist": "gemma3:4b",
+      "embedding": "qwen3-embedding:0.6b"
+    },
+    "openai": {
+      "configured": false,
+      "model": "gpt-4.1-mini-2025-04-14"
+    },
+    "depop": {
+      "configured": false,
+      "environment": "staging",
+      "access": "Approved Depop partner API key required"
+    },
+    "recommendationReady": true,
+    "pipelineVersion": "garment-v2.1",
+    "ready": true,
+    "recognitionReady": true,
+    "stylistReady": true,
+    "embeddingReady": true,
+    "busy": false,
+    "durableJobs": true
+  },
+  "checks": [
+    {
+      "name": "HTTP quick recommendation -> saved look -> wear -> reload -> undo",
+      "kind": "real HTTP + domain integration",
+      "pass": true,
+      "ms": 12,
+      "httpMs": 8.03,
+      "outfitIds": [
+        "photo-knit",
+        "photo-denim",
+        "photo-sneakers",
+        "photo-blazer",
+        "photo-tote"
+      ],
+      "pipeline": {
+        "version": "recommendation-v2",
+        "runId": "bf66da40-551c-4868-b93a-221e16f0fb8d",
+        "requestedProvider": "quick",
+        "provider": "quick",
+        "fallback": null,
+        "retrievalPasses": 1,
+        "stages": [
+          "retrieve",
+          "plan",
+          "select",
+          "validate"
+        ],
+        "timingMs": {
+          "retrieval": 0,
+          "selectionAndValidation": 1,
+          "total": 1
+        }
+      },
+      "questXp": 50
+    },
+    {
+      "name": "empty wardrobe",
+      "kind": "real HTTP",
+      "pass": true,
+      "ms": 10,
+      "httpStatus": 400,
+      "httpMs": 10.17,
+      "error": "Use 1–200 garments and a request under 2,000 characters."
+    },
+    {
+      "name": "missing footwear",
+      "kind": "real HTTP",
+      "pass": true,
+      "ms": 16,
+      "httpStatus": 400,
+      "httpMs": 15.97,
+      "error": "Add reviewed shoes to build a complete outfit."
+    },
+    {
+      "name": "unreviewed anchor",
+      "kind": "real HTTP",
+      "pass": true,
+      "ms": 16,
+      "httpStatus": 400,
+      "httpMs": 15.61,
+      "error": "Review the starting piece’s details before styling it."
+    },
+    {
+      "name": "MODEL_TIMEOUT -> explicit quick fallback",
+      "kind": "injected provider failure; real retrieval/planning/validation",
+      "pass": true,
+      "ms": 4,
+      "pipeline": {
+        "version": "recommendation-v2",
+        "runId": "95abc457-b6dc-47b0-960a-ea925fdc8abe",
+        "requestedProvider": "local",
+        "provider": "quick",
+        "fallback": {
+          "code": "MODEL_TIMEOUT",
+          "message": "The AI stylist could not finish. Showing quick wardrobe matches instead."
+        },
+        "retrievalPasses": 1,
+        "stages": [
+          "retrieve",
+          "plan",
+          "select",
+          "validate"
+        ],
+        "timingMs": {
+          "retrieval": 2,
+          "selectionAndValidation": 2,
+          "total": 4
+        }
+      }
+    },
+    {
+      "name": "MODEL_UNAVAILABLE -> explicit quick fallback",
+      "kind": "injected provider failure; real retrieval/planning/validation",
+      "pass": true,
+      "ms": 2,
+      "pipeline": {
+        "version": "recommendation-v2",
+        "runId": "0002ee16-b1ad-46ed-988a-8310b551b376",
+        "requestedProvider": "local",
+        "provider": "quick",
+        "fallback": {
+          "code": "MODEL_UNAVAILABLE",
+          "message": "The AI stylist could not finish. Showing quick wardrobe matches instead."
+        },
+        "retrievalPasses": 1,
+        "stages": [
+          "retrieve",
+          "plan",
+          "select",
+          "validate"
+        ],
+        "timingMs": {
+          "retrieval": 0,
+          "selectionAndValidation": 1,
+          "total": 2
+        }
+      }
+    },
+    {
+      "name": "corrupt and unsupported image payloads",
+      "kind": "real HTTP job queue",
+      "pass": true,
+      "ms": 45,
+      "results": [
+        {
+          "status": 400,
+          "error": "Provide a valid JPG, PNG or WebP photo under 6 MB."
+        },
+        {
+          "status": "failed",
+          "code": "INVALID_IMAGE"
+        }
+      ]
+    },
+    {
+      "name": "recognition correction survives serialization",
+      "kind": "domain integration",
+      "pass": true,
+      "ms": 0,
+      "correctedTags": "Campus casual"
+    }
+  ],
+  "quickHttp": {
+    "n": 10,
+    "sortedMs": [
+      3.4,
+      3.49,
+      9.2,
+      10.52,
+      14.18,
+      14.37,
+      14.92,
+      15.93,
+      16.03,
+      16.12
+    ],
+    "medianMs": 14.274999999999999,
+    "maxMs": 16.12
+  },
+  "scope": "Small development integration sample; not accuracy, population P95, or human fashion acceptance."
+}

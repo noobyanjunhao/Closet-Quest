@@ -38,3 +38,34 @@ test('cancelling during backoff prevents another attempt and releases the queue'
   let calls=0;const queue=createJobQueue(async()=>{calls++;throw Object.assign(new Error('Unavailable'),{retryable:true});},{retryDelayMs:1000});
   const job=queue.enqueue(image);await tick();assert.equal(queue.get(job.id).stage,'retrying');queue.cancel(job.id);await tick();assert.equal(calls,1);assert.equal(queue.busy,false);assert.equal(queue.get(job.id).status,'cancelled');
 });
+
+test('cloud recognition has two independent slots while local work remains serialized',async t=>{
+  const started=[],releases=new Map();
+  const queue=createJobQueue((_,options)=>new Promise(resolve=>{started.push(options.wardrobeId);releases.set(options.wardrobeId,resolve);}));
+  t.after(()=>queue.close());
+  const enqueue=(wardrobeId,provider='local')=>queue.enqueue(image,{wardrobeId,provider});
+  const local1=enqueue('local-1'),local2=enqueue('local-2'),cloud1=enqueue('cloud-1','openai'),cloud2=enqueue('cloud-2','openai'),cloud3=enqueue('cloud-3','openai');
+  await tick();
+  assert.deepEqual(started,['local-1','cloud-1','cloud-2']);assert.equal(queue.activeLocalCount,1);assert.equal(queue.activeCloudCount,2);
+  assert.equal(queue.get(local2.id).status,'queued');assert.equal(queue.get(cloud3.id).status,'queued');assert.equal(queue.get(local2.id).position,1);assert.equal(queue.get(cloud3.id).position,1);
+  releases.get('cloud-1')({data:{name:'Cloud response'}});await tick();
+  assert.equal(queue.get(cloud1.id).status,'ready');assert.equal(queue.get(cloud3.id).status,'processing');assert.equal(queue.get(local1.id).status,'processing');assert.equal(queue.get(local2.id).status,'queued');assert.equal(queue.activeCloudCount,2);
+  releases.get('cloud-2')({});releases.get('cloud-3')({});await tick();assert.equal(queue.cloudBusy,false);assert.equal(queue.localBusy,true);
+  releases.get('local-1')({});await tick();assert.equal(queue.get(local2.id).status,'processing');assert.equal(queue.activeLocalCount,1);
+  releases.get('local-2')({});await tick();assert.equal(queue.busy,false);assert.equal(queue.get(cloud2.id).status,'ready');
+});
+
+test('cancelled cloud jobs retain capacity until settlement and late results never overwrite cancellation',async t=>{
+  const calls=[];
+  const queue=createJobQueue((_,options)=>new Promise(resolve=>calls.push({resolve,signal:options.signal,scope:options.wardrobeId})));
+  t.after(()=>queue.close());
+  const first=queue.enqueue(image,{provider:'openai',wardrobeId:'one'}),second=queue.enqueue(image,{provider:'openai',wardrobeId:'two'}),third=queue.enqueue(image,{provider:'openai',wardrobeId:'three'});
+  await tick();assert.equal(calls.length,2);
+  queue.cancel(first.id);assert.equal(calls[0].signal.aborted,true);await tick();assert.equal(calls.length,2);assert.equal(queue.get(third.id).status,'queued');assert.equal(queue.activeCloudCount,2);
+  calls[0].resolve({data:{name:'Late'}});await tick();assert.equal(calls.length,3);assert.equal(queue.get(first.id).status,'cancelled');assert.equal(queue.get(first.id).result,undefined);assert.equal(queue.activeCloudCount,2);
+  calls[1].resolve({});calls[2].resolve({});await tick();assert.equal(queue.get(second.id).status,'ready');assert.equal(queue.get(third.id).status,'ready');assert.equal(queue.cloudBusy,false);
+});
+
+test('cloud concurrency configuration cannot exceed the provider limit',()=>{
+  for(const cloudConcurrency of [0,3,-1,1.5,NaN])assert.throws(()=>createJobQueue(async()=>({}),{cloudConcurrency}),/Cloud recognition concurrency/);
+});

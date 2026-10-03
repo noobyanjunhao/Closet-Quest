@@ -1,0 +1,142 @@
+{
+  "measuredAt": "2026-10-03T02:06:41.471Z",
+  "publicInputsOnly": true,
+  "paidRequestCeiling": 2,
+  "requests": 2,
+  "checks": [
+    {
+      "name": "Cold OpenAI wardrobe retrieval",
+      "status": "passed",
+      "elapsedMs": 535.64,
+      "httpRequests": 1,
+      "expectedCache": {
+        "hits": 0,
+        "generated": 8
+      },
+      "embedding": {
+        "available": true,
+        "provider": "openai",
+        "model": "text-embedding-3-small",
+        "digest": "text-embedding-3-small",
+        "schemaVersion": "openai-document-embedding-v1",
+        "dimensions": 512,
+        "placement": "remote",
+        "cache": {
+          "scope": "wardrobe",
+          "requested": 8,
+          "unique": 8,
+          "hits": 0,
+          "memoryHits": 0,
+          "misses": 8,
+          "generated": 8
+        },
+        "timingMs": 530.83,
+        "identityNote": "OpenAI exposes a model identifier, not a weights digest; this cache expires after a bounded TTL."
+      },
+      "fallback": {
+        "active": false
+      },
+      "method": "BM25 + dense cosine + reciprocal rank fusion + category coverage",
+      "retrievedIds": [
+        "photo-tee",
+        "photo-denim",
+        "photo-sneakers",
+        "photo-knit",
+        "photo-trousers",
+        "photo-blazer",
+        "photo-tote"
+      ]
+    },
+    {
+      "name": "Identical request with cached query and garment vectors",
+      "status": "passed",
+      "elapsedMs": 3.47,
+      "httpRequests": 0,
+      "expectedCache": {
+        "hits": 8,
+        "generated": 0
+      },
+      "embedding": {
+        "available": true,
+        "provider": "openai",
+        "model": "text-embedding-3-small",
+        "digest": "text-embedding-3-small",
+        "schemaVersion": "openai-document-embedding-v1",
+        "dimensions": 512,
+        "placement": "remote",
+        "cache": {
+          "scope": "wardrobe",
+          "requested": 8,
+          "unique": 8,
+          "hits": 8,
+          "memoryHits": 8,
+          "misses": 0,
+          "generated": 0
+        },
+        "timingMs": 0.57,
+        "identityNote": "OpenAI exposes a model identifier, not a weights digest; this cache expires after a bounded TTL."
+      },
+      "fallback": {
+        "active": false
+      },
+      "method": "BM25 + dense cosine + reciprocal rank fusion + category coverage",
+      "retrievedIds": [
+        "photo-tee",
+        "photo-denim",
+        "photo-sneakers",
+        "photo-knit",
+        "photo-trousers",
+        "photo-blazer",
+        "photo-tote"
+      ]
+    },
+    {
+      "name": "Changed request with cached garment vectors",
+      "status": "passed",
+      "elapsedMs": 196.3,
+      "httpRequests": 1,
+      "expectedCache": {
+        "hits": 7,
+        "generated": 1
+      },
+      "embedding": {
+        "available": true,
+        "provider": "openai",
+        "model": "text-embedding-3-small",
+        "digest": "text-embedding-3-small",
+        "schemaVersion": "openai-document-embedding-v1",
+        "dimensions": 512,
+        "placement": "remote",
+        "cache": {
+          "scope": "wardrobe",
+          "requested": 8,
+          "unique": 8,
+          "hits": 7,
+          "memoryHits": 7,
+          "misses": 1,
+          "generated": 1
+        },
+        "timingMs": 195.25,
+        "identityNote": "OpenAI exposes a model identifier, not a weights digest; this cache expires after a bounded TTL."
+      },
+      "fallback": {
+        "active": false
+      },
+      "method": "BM25 + dense cosine + reciprocal rank fusion + category coverage",
+      "retrievedIds": [
+        "photo-tee",
+        "photo-denim",
+        "photo-sneakers",
+        "photo-knit",
+        "photo-trousers",
+        "photo-blazer",
+        "photo-tote"
+      ]
+    }
+  ],
+  "caveats": [
+    "Three sequential development samples, not population latency or an accuracy comparison.",
+    "Only the wardrobe retrieval stage is measured; full styling also includes document retrieval and generation.",
+    "Cached replay reuses stored vectors without inference; changing the query embeds only the query."
+  ]
+}

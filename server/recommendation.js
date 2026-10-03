@@ -1,10 +1,12 @@
 import { randomUUID } from 'node:crypto';
 import { style } from './agents.js';
 import { retrieveWardrobeHybrid } from './hybrid-retrieval.js';
-import { createOpenAIChat, openAIStatus } from './openai.js';
+import { createOpenAIChat, openAIStatus, resolveOpenAIModel } from './openai.js';
 import { PipelineError } from './recognition.js';
+import { personalizeRequest, applyPreferenceScores } from './personalization.js';
+import { retrievalDependenciesFor } from './retrieval-provider.js';
 
-export const RECOMMENDATION_VERSION = 'recommendation-v2';
+export const RECOMMENDATION_VERSION = 'recommendation-v3-personal-rag';
 export function resolveProvider(requested = 'auto') {
   if (!['auto', 'openai', 'local', 'quick'].includes(requested)) throw new PipelineError('Choose a supported styling method.', { code: 'INVALID_PROVIDER', status: 400 });
   return requested === 'auto' ? (openAIStatus().configured ? 'openai' : 'quick') : requested;
@@ -22,18 +24,28 @@ export async function quickChat(_schema, _system, content) {
   } };
 }
 
-export async function recommend(body, { signal, retrieve = retrieveWardrobeHybrid, retrievalDependencies = {}, openaiChat, localChat, provider: providerOverride } = {}) {
+export async function recommend(body, { signal, retrieve = retrieveWardrobeHybrid, retrievalDependencies = {}, openaiChat, localChat, provider: providerOverride, knowledgeSearch } = {}) {
   const started = performance.now();
   const provider = providerOverride || resolveProvider(body?.provider);
   signal?.throwIfAborted();
   // Interactive semantic retrieval has a bounded budget; quick mode uses lexical RAG.
-  const prepared = await retrieve(body?.items, { ...body, signal }, { timeoutMs: 6000, ...retrievalDependencies, ...(provider === 'quick' ? { enabled: false } : {}) });
+  const personal=personalizeRequest(body);
+  const retrievalRequest=[personal.request,personal.preferenceSummary].filter(Boolean).join(' ').slice(0,2000);
+  let prepared = await retrieve(personal.items, { ...personal,request:retrievalRequest, signal }, { timeoutMs: 6000, ...retrievalDependenciesFor({provider,embeddingProvider:personal.preferences.embeddingProvider,wardrobeId:body.wardrobeId}), ...retrievalDependencies, ...(provider === 'quick' ? { enabled: false } : {}) });
+  prepared=applyPreferenceScores(prepared,personal);
+  let knowledge={sources:[],metadata:{mode:'not-requested'}};
+  if(knowledgeSearch&&typeof body.wardrobeId==='string') {
+    try {knowledge=await knowledgeSearch(body.wardrobeId,[personal.context,retrievalRequest].join(' ').slice(0,1000),{signal,limit:4,lexicalOnly:provider==='quick',embeddingProvider:personal.preferences.embeddingProvider});}
+    catch(error){if(signal?.aborted)throw signal.reason;knowledge={sources:[],metadata:{mode:'unavailable',reason:'Your knowledge library could not be searched. Styling uses wardrobe facts and saved preferences.'}};}
+  }
+  prepared.retrieval.knowledge=knowledge;
+  body={...body,...personal,request:personal.request};
   const retrievalMs = performance.now() - started;
   let result, fallback = null, actualProvider = provider;
   const generationStart = performance.now();
   try {
     result = await style(body, { signal, prepared, timeoutMs: 45000,
-      generate: provider === 'quick' ? quickChat : provider === 'openai' ? (openaiChat || createOpenAIChat()) : localChat });
+      generate: provider === 'quick' ? quickChat : provider === 'openai' ? (openaiChat || createOpenAIChat({model:resolveOpenAIModel('recommendation',personal.preferences.modelProfile),modelProfile:personal.preferences.modelProfile})) : localChat });
     if (result.planning.rejectedSelectionCount > 0 && !result.data.outfits.length) throw new PipelineError('The model selected invalid outfit plans.', { code: 'INVALID_PLAN_SELECTION' });
   } catch (error) {
     if (signal?.aborted) throw signal.reason;
@@ -50,6 +62,6 @@ export async function recommend(body, { signal, retrieve = retrieveWardrobeHybri
     return {...outfit,title:core.map(item=>item.name||item.category).join(' + ').slice(0,80)};
   });
   return { ...result, pipeline: { version: RECOMMENDATION_VERSION, runId: randomUUID(), requestedProvider: body.provider || 'auto', provider: actualProvider,
-    fallback, retrievalPasses: 1, stages: ['retrieve', 'plan', 'select', 'validate'],
+    fallback, retrievalPasses: 1, stages: ['preferences', 'wardrobe-retrieval', 'document-retrieval', 'plan', 'select', 'validate'], modelProfile:personal.preferences.modelProfile, promptVersion:'stylist-rag-v3', knowledgeMode:knowledge.metadata?.mode,
     timingMs: { retrieval: Math.round(retrievalMs), selectionAndValidation: Math.round(performance.now() - generationStart), total: Math.round(performance.now() - started) } } };
 }

@@ -1,14 +1,18 @@
 import { fileURLToPath } from 'node:url';
 import './env.js';
-import { recognize } from './agents.js';
+import { recognizeWithProvider as recognize } from './recognition-provider.js';
+import { createKnowledgeStore } from './knowledge.js';
 import { recommend as style, resolveProvider } from './recommendation.js';
-import { openAIStatus } from './openai.js';
+import { openAIStatus, createOpenAIEmbeddingClient } from './openai.js';
 import { createDepopClient, depopStatus } from './depop.js';
 import { createJobQueue } from './jobs.js';
 import { PIPELINE_VERSION } from './recognition.js';
 import { retrieveWardrobeHybrid } from './hybrid-retrieval.js';
 import { recordLearningEvent, getLearningStatus, exportLearningData } from './learning.js';
 import { modelFor } from './model-config.js';
+import { analyzeInspiration } from './inspiration.js';
+import { personalizeRequest, applyPreferenceScores } from './personalization.js';
+import { retrievalDependenciesFor } from './retrieval-provider.js';
 
 async function listModels() {
   const response=await fetch('http://127.0.0.1:11434/api/tags',{signal:AbortSignal.timeout(3000)});
@@ -33,9 +37,11 @@ async function readJson(req,maxBytes) {
   return body;
 }
 
-export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(new URL('../.local-data/jobs/',import.meta.url)),services={},queueOptions={}}={}) {
-  const handlers={recognize,style,retrieveWardrobeHybrid,recordLearningEvent,getLearningStatus,exportLearningData,listModels,...services};
+export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(new URL('../.local-data/jobs/',import.meta.url)),services={},queueOptions={},knowledgeStore,knowledgeDir=fileURLToPath(new URL('../.local-data/knowledge/',import.meta.url))}={}) {
+  const handlers={recognize,analyzeInspiration,style,retrieveWardrobeHybrid,recordLearningEvent,getLearningStatus,exportLearningData,listModels,...services};
   const queue=createJobQueue(handlers.recognize,{...queueOptions,storageDir});
+  let knowledge=knowledgeStore;
+  const getKnowledge=()=>knowledge||(knowledge=createKnowledgeStore({storageDir:knowledgeDir,embeddingClients:{openai:createOpenAIEmbeddingClient()}}));
   const controllers=new Set();let active=false,closed=false,remoteActive=0;
   async function middleware(req,res) {
     res.setHeader('Content-Type','application/json');res.setHeader('Cache-Control','no-store');
@@ -50,8 +56,8 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
         try {
           const data=await handlers.listModels();
           const installed=name=>data.models?.some(m=>m.name===name);
-          return res.end(JSON.stringify({model:models.recognition,models,openai:openAIStatus(),depop:depopStatus(),recommendationReady:true,pipelineVersion:PIPELINE_VERSION,ready:installed(models.recognition)&&installed(models.stylist),recognitionReady:installed(models.recognition),stylistReady:installed(models.stylist),embeddingReady:installed(models.embedding),busy:active||queue.busy,durableJobs:true}));
-        }catch{return res.end(JSON.stringify({model:models.recognition,models,openai:openAIStatus(),depop:depopStatus(),recommendationReady:true,pipelineVersion:PIPELINE_VERSION,ready:false,recognitionReady:false,stylistReady:false,embeddingReady:false,busy:active||queue.busy,durableJobs:true}));}
+          return res.end(JSON.stringify({model:models.recognition,models,openai:openAIStatus(),depop:depopStatus(),recommendationReady:true,pipelineVersion:PIPELINE_VERSION,ready:installed(models.recognition)&&installed(models.stylist),localRecognitionReady:installed(models.recognition),recognitionReady:installed(models.recognition)||openAIStatus().configured,stylistReady:installed(models.stylist),embeddingReady:installed(models.embedding),busy:active||queue.busy,durableJobs:true}));
+        }catch{return res.end(JSON.stringify({model:models.recognition,models,openai:openAIStatus(),depop:depopStatus(),recommendationReady:true,pipelineVersion:PIPELINE_VERSION,ready:false,localRecognitionReady:false,recognitionReady:openAIStatus().configured,stylistReady:false,embeddingReady:false,busy:active||queue.busy,durableJobs:true}));}
       }
       if(req.method==='GET'&&['/depop/shop','/depop/products'].includes(route)) {
         controller=new AbortController();controllers.add(controller);abortDisconnected=()=>{if(!res.writableEnded)controller.abort();};res.once('close',abortDisconnected);
@@ -63,20 +69,37 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
       const jobMatch=route.match(/^\/jobs\/([\w-]+)$/);
       if(jobMatch&&req.method==='GET'){const job=queue.get(jobMatch[1]);res.statusCode=job?200:404;return res.end(JSON.stringify(job||{error:'Analysis expired. Retry this photo.'}));}
       if(jobMatch&&req.method==='DELETE'){res.statusCode=queue.cancel(jobMatch[1])?200:404;return res.end('{}');}
-      if(req.method!=='POST'||!['/jobs','/recognize','/style','/retrieve','/learning/events'].includes(route)){res.statusCode=404;return res.end('{}');}
-      const body=await readJson(req,route==='/learning/events'?128000:8500000);
+      if(req.method!=='POST'||!['/jobs','/recognize','/inspiration','/style','/retrieve','/learning/events','/knowledge/list','/knowledge/documents','/knowledge/delete','/knowledge/search','/knowledge/reindex'].includes(route)){res.statusCode=404;return res.end('{}');}
+      const body=await readJson(req,route==='/learning/events'||route.startsWith('/knowledge/')?128000:8500000);
       const localStyle=route==='/style'&&resolveProvider(body.provider)==='local';
-      const inference=['/jobs','/recognize'].includes(route)||localStyle;
-      if(inference&&(active||(route!=='/jobs'&&queue.busy))){res.statusCode=429;return res.end(JSON.stringify({error:'The model is busy. Wait for the current analysis to finish, then retry.'}));}
+      const cloudPhoto=['/jobs','/recognize'].includes(route)&&body.provider==='openai';
+      const inference=(['/jobs','/recognize','/inspiration'].includes(route)&&!cloudPhoto)||localStyle;
+      if(inference&&(active||(route!=='/jobs'&&(queue.localBusy??queue.busy)))){res.statusCode=429;return res.end(JSON.stringify({error:'The model is busy. Wait for the current analysis to finish, then retry.'}));}
       if(inference){active=true;claimed=true;}
-      if(route==='/style'&&!localStyle){if(remoteActive>=2)throw Object.assign(new Error('Two styling requests are already running. Try again shortly.'),{status:429,code:'STYLE_BUSY'});remoteActive++;remoteClaimed=true;}
+      if((route==='/style'&&!localStyle)||(route==='/recognize'&&cloudPhoto)){if(remoteActive>=2)throw Object.assign(new Error('Two direct cloud requests are already running. Try again shortly.'),{status:429,code:'CLOUD_BUSY'});remoteActive++;remoteClaimed=true;}
       if(route==='/learning/events'){res.statusCode=201;return res.end(JSON.stringify(await handlers.recordLearningEvent(body)));}
-      if(route==='/jobs'){const job=queue.enqueue(body.image,{crop:body.crop});res.statusCode=202;return res.end(JSON.stringify(job));}
+      if(route==='/jobs'){const job=queue.enqueue(body.image,{crop:body.crop,provider:body.provider,modelProfile:body.modelProfile,wardrobeId:body.wardrobeId});res.statusCode=202;return res.end(JSON.stringify(job));}
       controller=new AbortController();controllers.add(controller);abortDisconnected=()=>{if(!res.writableEnded)controller.abort();};res.once('close',abortDisconnected);
-      if(route==='/retrieve'){const {retrieval}=await handlers.retrieveWardrobeHybrid(body.items,{...body,signal:controller.signal});return res.end(JSON.stringify({retrieval}));}
-      res.end(JSON.stringify(await(route==='/recognize'?handlers.recognize(body.image,{crop:body.crop,signal:controller.signal}):handlers.style(body,{signal:controller.signal}))));
+      if(route.startsWith('/knowledge/')) {
+        const store=getKnowledge();let result;
+        if(route==='/knowledge/list')result={documents:await store.list(body.wardrobeId)};
+        if(route==='/knowledge/documents')result=await store.upsert(body.wardrobeId,body,{signal:controller.signal,embeddingProvider:body.embeddingProvider||'local'});
+        if(route==='/knowledge/delete')result=await store.remove(body.wardrobeId,body.id);
+        if(route==='/knowledge/reindex')result=await store.reindex(body.wardrobeId,{signal:controller.signal,embeddingProvider:body.embeddingProvider||'local'});
+        if(route==='/knowledge/search')result=await store.search(body.wardrobeId,body.query,{signal:controller.signal,limit:4,lexicalOnly:body.lexicalOnly===true,embeddingProvider:body.embeddingProvider||'local'});
+        return res.end(JSON.stringify(result||{ok:true}));
+      }
+      if(route==='/retrieve'){
+        const personal=personalizeRequest(body);
+        const request=[personal.request,personal.preferenceSummary].filter(Boolean).join(' ').slice(0,2000);
+        const prepared=await handlers.retrieveWardrobeHybrid(personal.items,{...personal,request,signal:controller.signal},{timeoutMs:6000,...retrievalDependenciesFor({provider:body.provider,embeddingProvider:personal.preferences.embeddingProvider,wardrobeId:body.wardrobeId})});
+        const {retrieval}=applyPreferenceScores(prepared,personal);
+        return res.end(JSON.stringify({retrieval}));
+      }
+      if(route==='/inspiration')return res.end(JSON.stringify(await handlers.analyzeInspiration(body.image,{signal:controller.signal})));
+      res.end(JSON.stringify(await(route==='/recognize'?handlers.recognize(body.image,{crop:body.crop,provider:body.provider,modelProfile:body.modelProfile,wardrobeId:body.wardrobeId,signal:controller.signal}):handlers.style(body,{signal:controller.signal,knowledgeSearch:(...args)=>getKnowledge().search(...args)}))));
     }catch(error){if(!res.destroyed){res.statusCode=error.status||503;res.end(JSON.stringify({error:error.message,code:error.code,retryable:error.retryable===true}));}}
     finally{if(abortDisconnected)res.off('close',abortDisconnected);if(controller)controllers.delete(controller);if(claimed)active=false;if(remoteClaimed)remoteActive--;}
   }
-  return {middleware,close:()=>{closed=true;for(const controller of controllers)controller.abort();queue.close();},queue};
+  return {middleware,close:()=>{closed=true;for(const controller of controllers)controller.abort();queue.close();knowledge?.close();},queue};
 }

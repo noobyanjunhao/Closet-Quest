@@ -2,7 +2,9 @@ export async function preparePhoto(file) {
   if (!['image/jpeg', 'image/png', 'image/webp'].includes(file.type) || file.size > 8 * 1024 * 1024) throw new Error('Choose a JPG, PNG or WebP photo under 8 MB.');
   const url = URL.createObjectURL(file);
   try {
-    const image = new Image(); image.src = url; await image.decode();
+    const image = new Image(); image.src = url;
+    try { await image.decode(); }
+    catch { throw new Error('This photo could not be read. Choose a different JPG, PNG or WebP, or add the piece without a photo.'); }
     const canvas = document.createElement('canvas');
     const scale = Math.min(1, 1000 / Math.max(image.width, image.height));
     canvas.width = Math.max(1, Math.round(image.width * scale));
