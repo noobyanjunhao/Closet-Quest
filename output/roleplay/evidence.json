@@ -1,0 +1,48 @@
+{
+  "capturedAt": "2026-09-29",
+  "origin": "http://127.0.0.1:5173/?demo=roleplay",
+  "sampleHistory": true,
+  "personalWardrobeModified": false,
+  "screenshots": [
+    "01-closet.png",
+    "02-rediscover.png",
+    "03-dinner-outfit.png",
+    "04-quest-start.png",
+    "05-quest-complete.png",
+    "06-inspiration-review.png",
+    "07-inspiration-matches.png",
+    "08-resale-draft.png",
+    "09-saved-looks.png",
+    "10-wear-journal.png",
+    "11-camera-upload.png",
+    "12-photo-review.png",
+    "13-background-preview.png"
+  ],
+  "observed": [
+    "blazer reminder 43 days",
+    "sneakers reminder 96 days despite 15 recorded wears",
+    "three different complete saved looks awarded 150 XP",
+    "saved inspiration reopened after reload",
+    "belt unmatched after accessory subtype fix",
+    "resale draft saved and reopened",
+    "keep reminder snoozed and restored",
+    "wear journal recorded and undone",
+    "local garment recognition reviewed",
+    "plain-background preview applied in editor and restored"
+  ],
+  "limitations": [
+    "physical camera capture unverified",
+    "Depop publishing not connected",
+    "inspiration uses reviewed local vision plus category/keyword matching",
+    "background cleanup uses conservative edge colors, not segmentation"
+  ],
+  "tests": {
+    "appPassed": 96,
+    "build": "passed --configLoader runner",
+    "mobileViewport": [
+      390,
+      844
+    ],
+    "mobileDocumentWidth": 375
+  }
+}

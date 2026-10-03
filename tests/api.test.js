@@ -9,6 +9,7 @@ import { setImmediate as tick } from 'node:timers/promises';
 import { createApi } from '../server/api.js';
 import { createLocalServer } from '../server/start.mjs';
 import { modelFor } from '../server/model-config.js';
+import { retrieveWardrobeHybrid } from '../server/hybrid-retrieval.js';
 
 const image='data:image/jpeg;base64,YQ==';
 function services(overrides={}) {
@@ -38,8 +39,8 @@ function workspace(t) {
   });
   return {root,jobs,dist,closers};
 }
-async function mount(t,space,{overrides={},queueOptions={}}={}) {
-  const api=createApi({storageDir:space.jobs,services:services(overrides),queueOptions});
+async function mount(t,space,{overrides={},queueOptions={},knowledgeStore}={}) {
+  const api=createApi({storageDir:space.jobs,services:services(overrides),queueOptions,knowledgeStore});
   const server=http.createServer(api.middleware);
   server.listen(0,'127.0.0.1');await once(server,'listening');
   const close=async()=>{api.close();if(!server.listening)return;const closed=once(server,'close');server.close();server.closeAllConnections();await closed;};
@@ -47,6 +48,15 @@ async function mount(t,space,{overrides={},queueOptions={}}={}) {
   return {api,server,close,url:`http://127.0.0.1:${server.address().port}`};
 }
 const post=(url,body,headers={})=>fetch(url,{method:'POST',headers:{'Content-Type':'application/json',...headers},body:typeof body==='string'?body:JSON.stringify(body)});
+test('inspiration endpoint accepts photos, serializes local inference, and releases after completion',async t=>{
+  const space=workspace(t);let release;const gate=new Promise(resolve=>{release=resolve;});
+  const app=await mount(t,space,{overrides:{analyzeInspiration:async input=>{assert.equal(input,image);await gate;return {data:{summary:'Visible outfit',pieces:[]}};}}});
+  const running=post(`${app.url}/inspiration`,{image});
+  for(let i=0;i<100;i++){if((await(await fetch(`${app.url}/status`)).json()).busy)break;await tick();}
+  assert.equal((await post(`${app.url}/inspiration`,{image})).status,429);
+  release();assert.equal((await running).status,200);
+  assert.equal((await(await fetch(`${app.url}/status`)).json()).busy,false);
+});
 async function chunked(url,path,chunks) {
   return new Promise((resolve,reject)=>{
     const request=http.request(`${url}${path}`,{method:'POST',headers:{'Content-Type':'application/json','Transfer-Encoding':'chunked'}},response=>{const parts=[];response.on('data',chunk=>parts.push(chunk));response.on('end',()=>resolve({status:response.statusCode,body:JSON.parse(Buffer.concat(parts).toString())}));});
@@ -94,13 +104,13 @@ test('HTTP jobs acknowledge durable IDs, resume after server restart, and preser
 
 test('busy inference is serialized while retrieval remains available; cancellation reaches the worker',async t=>{
   const space=workspace(t);let aborted=0,retrieved=0;
-  const app=await mount(t,space,{queueOptions:{maxJobs:2},overrides:{recognize:(_,options)=>new Promise((resolve,reject)=>options.signal.addEventListener('abort',()=>{aborted++;reject(options.signal.reason);},{once:true})),retrieveWardrobeHybrid:async()=>{retrieved++;return {retrieval:{items:[]}};}}});
+  const app=await mount(t,space,{queueOptions:{maxJobs:2},overrides:{recognize:(_,options)=>new Promise((resolve,reject)=>options.signal.addEventListener('abort',()=>{aborted++;reject(options.signal.reason);},{once:true})),retrieveWardrobeHybrid:async()=>{retrieved++;return {items:[],retrieval:{items:[]}};}}});
   const first=await (await post(`${app.url}/jobs`,{image})).json(),second=await (await post(`${app.url}/jobs`,{image})).json();
   assert.equal((await post(`${app.url}/style`,{provider:'local'})).status,429);
   assert.equal((await post(`${app.url}/style`,{provider:'quick'})).status,200,'Quick styling does not wait for camera recognition.');
   assert.equal((await post(`${app.url}/recognize`,{image})).status,429);
   assert.equal((await post(`${app.url}/jobs`,{image})).status,429);
-  assert.equal((await post(`${app.url}/retrieve`,{items:[]})).status,200);assert.equal(retrieved,1);
+  assert.equal((await post(`${app.url}/retrieve`,{items:[{id:'tee',name:'Tee',category:'Top',wears:0}],context:'Campus casual',request:'A campus look'})).status,200);assert.equal(retrieved,1);
   assert.equal((await fetch(`${app.url}/jobs/${first.id}`,{method:'DELETE'})).status,200);
   assert.equal((await fetch(`${app.url}/jobs/${second.id}`,{method:'DELETE'})).status,200);
   assert.ok(aborted>=1);
@@ -132,4 +142,71 @@ test('standalone server serves the built app and API together but cannot serve p
   assert.equal((await post(`${url}/index.html`,{})).status,405);
   await assert.rejects(createLocalServer({distDir:space.dist,apiOptions:{storageDir:space.jobs,services:services()}}),error=>error.code==='JOB_STORE_IN_USE');
   assert.equal((await fetch(`${url}/api/status`)).status,200,'A conflicting owner cannot disrupt the running server.');
+});
+
+test('queued local recognition cannot block OpenAI photo jobs or direct OpenAI recognition',async t=>{
+  const space=workspace(t),calls=[];let markStarted;
+  const started=new Promise(resolve=>{markStarted=resolve;});
+  const app=await mount(t,space,{overrides:{recognize:async(_,options)=>{
+    calls.push({provider:options.provider,modelProfile:options.modelProfile,wardrobeId:options.wardrobeId});
+    if(options.provider==='openai')return {data:{name:'Cloud result'},pipeline:{provider:'openai',cache:{hit:true}}};
+    markStarted();return new Promise((resolve,reject)=>options.signal.addEventListener('abort',()=>reject(options.signal.reason),{once:true}));
+  }}});
+  const local=await(await post(`${app.url}/jobs`,{image,wardrobeId:'local-test'})).json();await started;
+  assert.equal(app.api.queue.localBusy,true);
+  const accepted=await post(`${app.url}/jobs`,{image,provider:'openai',modelProfile:'balanced',wardrobeId:'cloud-job'});assert.equal(accepted.status,202);
+  const cloud=await accepted.json();await tick();
+  const finished=await(await fetch(`${app.url}/jobs/${cloud.id}`)).json();assert.equal(finished.status,'ready');assert.equal(finished.result.pipeline.cache.hit,true);
+  const direct=await post(`${app.url}/recognize`,{image,provider:'openai',modelProfile:'deep',wardrobeId:'cloud-direct'});assert.equal(direct.status,200);assert.equal((await direct.json()).data.name,'Cloud result');
+  assert.equal((await post(`${app.url}/recognize`,{image,provider:'local'})).status,429);
+  assert.deepEqual(calls.filter(call=>call.provider==='openai'),[{provider:'openai',modelProfile:'balanced',wardrobeId:'cloud-job'},{provider:'openai',modelProfile:'deep',wardrobeId:'cloud-direct'}]);
+  assert.equal((await(await fetch(`${app.url}/jobs/${local.id}`)).json()).status,'processing');
+  assert.equal((await fetch(`${app.url}/jobs/${local.id}`,{method:'DELETE'})).status,200);
+});
+
+test('an active direct local request cannot block the OpenAI recognition lane',async t=>{
+  const space=workspace(t);let markStarted,release;
+  const started=new Promise(resolve=>{markStarted=resolve;}),gate=new Promise(resolve=>{release=resolve;});
+  const app=await mount(t,space,{overrides:{analyzeInspiration:async()=>{markStarted();await gate;return {data:{pieces:[]}};},recognize:async(_,options)=>({data:{name:'Cloud photo'},pipeline:{provider:options.provider}})}});
+  const local=post(`${app.url}/inspiration`,{image});await started;
+  assert.equal((await post(`${app.url}/jobs`,{image,provider:'openai'})).status,202);
+  assert.equal((await post(`${app.url}/recognize`,{image,provider:'openai'})).status,200);
+  assert.equal((await post(`${app.url}/recognize`,{image,provider:'local'})).status,429);
+  release();assert.equal((await local).status,200);
+});
+
+test('retrieval preview applies real preference exclusions and reports bounded preference boosts',async t=>{
+  const space=workspace(t),seen=[];
+  const app=await mount(t,space,{overrides:{retrieveWardrobeHybrid:async(items,options)=>{seen.push(items);return retrieveWardrobeHybrid(items,options,{enabled:false});}}});
+  const items=[
+    {id:'blue-top',category:'Top',name:'Blue top',colorName:'Light blue',wears:0},
+    {id:'red-top',category:'Top',name:'Red top',colorName:'Red',fit:'Regular',wears:0},
+    {id:'bottom',category:'Bottom',name:'Trousers',colorName:'Beige',wears:0},
+    {id:'shoes',category:'Shoes',name:'Shoes',colorName:'White',wears:0},
+  ];
+  const body={items,request:'A polished presentation outfit',context:'Presentation day',provider:'quick',preferences:{avoidColors:['Blue'],colors:['Red'],fit:'Regular'}};
+  const response=await post(`${app.url}/retrieve`,body);assert.equal(response.status,200);
+  const {retrieval}=await response.json();assert.equal(seen.length,1);assert.equal(seen[0].some(item=>item.id==='blue-top'),false);assert.equal(retrieval.items.some(item=>item.id==='blue-top'),false);
+  assert.deepEqual(retrieval.personalization.excludedIds,['blue-top']);assert.ok(retrieval.personalization.scoredItems.some(item=>item.itemId==='red-top'&&item.boost>0));
+  const conflict=await post(`${app.url}/retrieve`,{...body,anchorId:'blue-top'});assert.equal(conflict.status,400);assert.equal((await conflict.json()).code,'PREFERENCE_ANCHOR_CONFLICT');assert.equal(seen.length,1,'Hard conflicts stop before any retrieval/model request.');
+});
+
+test('document routes forward the selected provider, namespace, signals and validation failures',async t=>{
+  const space=workspace(t),calls=[];
+  const record=(method,wardrobeId,options)=>{
+    calls.push({method,wardrobeId,provider:options.embeddingProvider,aborted:options.signal.aborted});
+    if(!['local','openai'].includes(options.embeddingProvider))throw Object.assign(new Error('Choose local or OpenAI document embeddings.'),{status:400,code:'INVALID_PROVIDER'});
+  };
+  const knowledgeStore={
+    upsert:async(wardrobeId,body,options)=>{record('upsert',wardrobeId,options);assert.equal(body.title,'Dress code');return {document:{id:'doc'},indexing:{mode:'semantic'}};},
+    reindex:async(wardrobeId,options)=>{record('reindex',wardrobeId,options);return {mode:'semantic',indexedChunks:1};},
+    search:async(wardrobeId,query,options)=>{record('search',wardrobeId,options);assert.equal(query,'Formal clothing');assert.equal(options.limit,4);assert.equal(options.lexicalOnly,false);return {sources:[],metadata:{mode:'hybrid'}};},
+    close() {},
+  };
+  const app=await mount(t,space,{knowledgeStore});
+  const wardrobeId='55de7e4a-7357-4c95-b076-93c5ce4ba763';
+  for(const route of ['documents','reindex','search'])assert.equal((await post(`${app.url}/knowledge/${route}`,{wardrobeId,title:'Dress code',content:'Formal clothing',query:'Formal clothing',embeddingProvider:'openai'})).status,200);
+  assert.deepEqual(calls.map(({method,provider})=>({method,provider})),[{method:'upsert',provider:'openai'},{method:'reindex',provider:'openai'},{method:'search',provider:'openai'}]);assert.ok(calls.every(call=>call.wardrobeId===wardrobeId&&!call.aborted));
+  assert.equal((await post(`${app.url}/knowledge/search`,{wardrobeId,query:'Formal clothing'})).status,200);assert.equal(calls.at(-1).provider,'local');
+  const invalid=await post(`${app.url}/knowledge/search`,{wardrobeId,query:'Formal clothing',embeddingProvider:'untrusted-provider'});assert.equal(invalid.status,400);assert.equal((await invalid.json()).code,'INVALID_PROVIDER');
 });

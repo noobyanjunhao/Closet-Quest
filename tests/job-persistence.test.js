@@ -179,3 +179,29 @@ test('a lock left by a terminated process is recovered on restart', t => {
   assert.equal(replacement.diagnostics.some(entry => entry.code === 'STALE_OWNER_RECOVERED'), true);
   assert.equal(JSON.parse(readFileSync(join(directory, '.queue-owner.lock'), 'utf8')).pid, process.pid);
 });
+
+test('recognition provider, profile and wardrobe scope survive queue restart; invalid choices never persist',async t=>{
+  const directory=workspace(t),seen=[];
+  const original=queue(t,directory,async()=>{throw new Error('Stopped before work');});
+  const options={provider:'openai',modelProfile:'balanced',wardrobeId:'wardrobe-demo'};
+  for(const invalid of [{provider:'remote'},{modelProfile:'client-arbitrary-model'},{wardrobeId:'../other'}])assert.throws(()=>original.enqueue(image,invalid),error=>error.status===400);
+  const pending=original.enqueue(image,options);original.close();await tick();
+  assert.equal(diskRecord(directory,pending.id).provider,'openai');assert.equal(diskRecord(directory,pending.id).modelProfile,'balanced');assert.equal(diskRecord(directory,pending.id).wardrobeId,'wardrobe-demo');
+  const restarted=queue(t,directory,async(_photo,selection)=>{seen.push(selection);return{data:{name:'Restored'},pipeline:{provider:selection.provider,cache:{hit:true,scope:'wardrobe'}}};});await tick();
+  assert.equal(seen.length,1);for(const [key,value] of Object.entries(options))assert.equal(seen[0][key],value);
+  assert.equal(restarted.get(pending.id).result.pipeline.cache.hit,true);assert.equal(restarted.get(pending.id).provider,'openai');
+});
+
+test('both recognition lanes recover pending work after restart without accepting late old results',async t=>{
+  const directory=workspace(t),oldReleases=[],resumed=[];let clock=100;
+  const original=queue(t,directory,(_,options)=>new Promise(resolve=>oldReleases.push({resolve,provider:options.provider})),{now:()=>clock++});
+  const local=original.enqueue(image,{wardrobeId:'local'}),cloud1=original.enqueue(image,{provider:'openai',wardrobeId:'cloud-one'}),cloud2=original.enqueue(image,{provider:'openai',wardrobeId:'cloud-two'}),cloud3=original.enqueue(image,{provider:'openai',wardrobeId:'cloud-three'});
+  await tick();assert.equal(oldReleases.length,3);assert.equal(diskRecord(directory,cloud3.id).status,'queued');original.close();
+  const restarted=queue(t,directory,async(_,options)=>{resumed.push({provider:options.provider,scope:options.wardrobeId});return {data:{name:'Recovered '+options.wardrobeId}};},{now:()=>clock++});
+  await tick();
+  assert.equal(resumed.length,4);assert.equal(resumed.filter(value=>value.provider==='openai').length,3);
+  for(const job of [local,cloud1,cloud2,cloud3])assert.equal(restarted.get(job.id).status,'ready');
+  for(const {resolve} of oldReleases)resolve({data:{name:'Stale result'}});await tick();
+  for(const job of [local,cloud1,cloud2,cloud3])assert.match(diskRecord(directory,job.id).result.data.name,/^Recovered /);
+  assert.equal(readdirSync(directory).some(name=>name.endsWith('.photo')),false);assert.equal(restarted.busy,false);
+});

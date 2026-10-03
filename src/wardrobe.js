@@ -31,24 +31,34 @@ export function addPhotoCollection(state) {
   });
   return { ...state, items: [...state.items, ...added] };
 }
-export function saveLook(state, itemIds, { title, context, explanation, engine }) {
+export function saveLook(state, itemIds, { title, context, explanation, engine, pipeline, model }) {
   const items = itemIds.map(id => state.items.find(i => i.id === id));
-  if (items.some(i => !i) || new Set(itemIds).size !== itemIds.length || !validShape(items.filter(i => i.category !== 'Accessory'))) throw new Error('Save a complete outfit from your closet.');
+  if (items.some(i => !i || i.needsReview) || new Set(itemIds).size !== itemIds.length || !validShape(items.filter(i => i.category !== 'Accessory'))) throw new Error('Save a complete outfit from your reviewed closet.');
   const key = [...itemIds].sort().join('|');
   if (state.savedOutfits.some(o => [...o.itemIds].sort().join('|') === key && o.context === context)) throw new Error('This combination is already in your lookbook.');
-  return { ...state, savedOutfits: [...state.savedOutfits, { id: crypto.randomUUID(), itemIds: [...itemIds], title: title?.trim().slice(0,80) || `${context} look`, context, explanation, engine, createdAt: new Date().toISOString() }] };
+  return { ...state, savedOutfits: [...state.savedOutfits, { id: crypto.randomUUID(), itemIds: [...itemIds], title: title?.trim().slice(0,80) || `${context} look`, context, explanation, engine, runId:pipeline?.runId, model, createdAt: new Date().toISOString() }] };
 }
-export function recordWear(state, itemIds, { id = crypto.randomUUID(), at = new Date().toISOString(), outfitId = null } = {}) {
+export function recordWear(state, itemIds, { id = crypto.randomUUID(), at = new Date().toISOString(), outfitId = null, runId = null } = {}) {
   if (state.wearRecords.some(r => r.id === id)) return state;
   const ids = [...new Set(itemIds)];
   if (!ids.length || ids.some(id => !state.items.some(i => i.id === id))) throw new Error('Choose garments that are still in your closet.');
-  const record = { id, itemIds: ids, wornAt: at, outfitId, previousLastWorn: Object.fromEntries(state.items.filter(i => ids.includes(i.id)).map(i => [i.id, i.lastWorn || null])) };
-  return { ...state, items: state.items.map(i => ids.includes(i.id) ? { ...i, wears: i.wears + 1, lastWorn: at } : i), wearRecords: [...state.wearRecords, record] };
+  const record = { id, itemIds: ids, wornAt: at, outfitId, runId, previousLastWorn: Object.fromEntries(state.items.filter(i => ids.includes(i.id)).map(i => [i.id, i.lastWorn || null])) };
+  return { ...state, items: state.items.map(i => ids.includes(i.id) ? { ...i, wears: i.wears + 1, lastWorn: at } : i), wearRecords: [...state.wearRecords, record], ...(runId?{recommendationHistory:(state.recommendationHistory||[]).map(run=>run.runId===runId?{...run,wornAt:at,chosenItemIds:ids}:run)}:{}) };
 }
 export function undoLastWear(state) {
   const record = state.wearRecords.at(-1);
   if (!record) return state;
-  return { ...state, items: state.items.map(i => record.itemIds.includes(i.id) ? { ...i, wears: Math.max(0, i.wears - 1), lastWorn: record.previousLastWorn[i.id] || undefined } : i), wearRecords: state.wearRecords.slice(0,-1) };
+  const wearRecords=state.wearRecords.slice(0,-1);
+  return { ...state, items: state.items.map(i => record.itemIds.includes(i.id) ? { ...i, wears: Math.max(0, i.wears - 1), lastWorn: record.previousLastWorn[i.id] || undefined } : i), wearRecords, ...(record.runId?{recommendationHistory:(state.recommendationHistory||[]).map(run=>run.runId===record.runId?{...run,wornAt:wearRecords.findLast(wear=>wear.runId===run.runId)?.wornAt}:run)}:{}) };
+}
+const dayKey = date => { const d=new Date(date);return `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`; };
+const combinationKey = ids => JSON.stringify([...new Set(ids)].sort());
+export function wornToday(state, itemIds, at=new Date().toISOString()) {
+  return state.wearRecords.some(record=>dayKey(record.wornAt)===dayKey(at)&&combinationKey(record.itemIds)===combinationKey(itemIds));
+}
+export function recordWearToday(state,itemIds,{at=new Date().toISOString(),outfitId=null,runId=null}={}) {
+  if(wornToday(state,itemIds,at))return state;
+  return recordWear(state,itemIds,{at,outfitId,runId,id:`today-${dayKey(at)}-${combinationKey(itemIds)}`});
 }
 export function deleteGarment(state, id) {
   return { ...state, items: state.items.filter(i => i.id !== id), savedOutfits: state.savedOutfits.filter(o => !o.itemIds.includes(id)), wearRecords: state.wearRecords.map(r => {

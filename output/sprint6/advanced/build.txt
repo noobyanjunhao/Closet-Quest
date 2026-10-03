@@ -1,0 +1,13 @@
+
+> closet-request@0.1.0 build
+> vite build --configLoader runner
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 62 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.43 kB │ gzip:   0.31 kB
+dist/assets/index-BsUz9o42.css   94.27 kB │ gzip:  18.89 kB
+dist/assets/index-CdRR1fuR.js   413.37 kB │ gzip: 111.44 kB
+✓ built in 1.17s
