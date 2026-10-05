@@ -94,12 +94,3 @@ Node 24 is the tested runtime. The built frontend and API share the standalone s
 | 4 - usability | Test physical camera capture, mobile capture/review, keyboard flow, quota recovery and multi-tab writes with peers. Confirm documents and history remain understandable without technical help. |
 | 5 - model improvements | Collect consented corrections and feedback, review data quality and evaluate a trained ranker or eligible fine-tuning against a held-out baseline. Provider profiles and score adjustments alone are not fine-tuning. |
 
-## Assignment and evidence
-
-The current Sprint 6 rubric emphasizes end-to-end integration (50%), must-have functionality/testing (30%) and integration assessment/next steps (20%). The earlier core-technology rubric emphasized implementation (50%), baseline evaluation (30%) and technical analysis (20%). This report supplies a functioning flow, fresh baseline observations and explicit limitations for both discussions; it does not substitute for an independent quality evaluation.
-
-Evidence: output/sprint6/advanced/results.json and retrieval-results.json preserve timings and actual models; tests.txt/build.txt preserve checks; screenshots and browser-evidence.json record the UI journey. Earlier output/sprint6/ evidence remains historical. Reproducible live harnesses require an explicit --live flag. docs/sprint6-demo-guide.md holds rehearsal instructions; this report describes demonstrated behavior.
-
-Sources: the September 17 Closet Quest Technical Design Document; course assignment 1020630 requirements supplied by the authenticated Canvas task; repository implementation and October 2 measurements. OpenAI implementation references: developers.openai.com/api/docs/guides/images-vision, /guides/structured-outputs, /guides/embeddings and /models/compare. Photo provenance: public/photos/sources.json.
-
-Source, report and evidence are prepared together for repository review. This report does not claim that the update is merged into main. No Canvas submission, live Depop access/listing, account rollout, weather service or completed foundation-model fine-tuning is claimed. Submission remains the user's action before the course deadline.
