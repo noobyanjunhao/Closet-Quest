@@ -1,0 +1,51 @@
+{
+  "verifiedAt": "2026-10-03T02:09:34.544Z",
+  "url": "http://127.0.0.1:5173/?demo=sprint6",
+  "sampleDataOnly": true,
+  "observations": {
+    "preferencesSaved": [
+      "Minimal",
+      "Navy",
+      "Simple outfits"
+    ],
+    "photoProvider": "openai",
+    "recommendationProvider": "openai",
+    "embeddingProvider": "openai",
+    "documents": 5,
+    "documentIndex": "Vector index ready",
+    "searchMode": "hybrid",
+    "personalNoteRetrieved": true,
+    "model": "gpt-6-luna",
+    "displayedStylingSeconds": 6.6,
+    "outfit": [
+      "Forest cable-knit sweater",
+      "Pleated sand trousers",
+      "White canvas sneakers",
+      "Navy everyday blazer",
+      "Sand everyday tote"
+    ],
+    "modelContextSources": [
+      "Campus presentation notes",
+      "Occasion and practical layers"
+    ],
+    "saved": true,
+    "worn": true,
+    "feedback": "helpful",
+    "reloadPreservedSavedLookAndWear": true,
+    "undoClearedWearAndHistoryBadge": true,
+    "historySnapshot": "- complementary:\n  - link \"cq closet quest LESS NEW. MORE YOU.\":\n    - /url: \"#\"\n    - generic: cq\n    - text: closet quest\n    - generic: LESS NEW. MORE YOU.\n  - generic: YOUR LITTLE STYLE WORLD\n  - navigation \"Main navigation\":\n    - button \"Closet\":\n      - generic: ▦\n      - text: Closet\n    - button \"Stylist\":\n      - generic: ✧\n      - text: Stylist\n    - button \"Saved looks\":\n      - generic: ▤\n      - text: Saved looks\n    - generic \"More\":\n      - generic: ···\n      - text: More\n  - button \"S Sprint 6 rehearsal On this device · settings\":\n    - generic: S\n    - text: Sprint 6 rehearsal\n    - generic: On this device · settings\n- main:\n  - text: Sprint 6 rehearsal · sample photographs and wear counts · separate from your personal closet.\n  - link \"My closet\":\n    - /url: /\n  - button \"Reset rehearsal\"\n  - generic: YOUR WARDROBE, REIMAGINED\n  - text: ✦ Level 1\n  - generic: 0 XP\n  - paragraph: MAKE MORE OF WHAT YOU OWN\n  - heading \"Your style, remembered.\" [level=1]\n  - paragraph: Choose what you like. Keep useful references. See what worked.\n  - tablist \"Personal style workspace\":\n    - tab \"My style\"\n    - tab \"Knowledge\"\n    - tab \"History\" [active] [selected]\n  - text: +\n  - tabpanel \"History\":\n    - paragraph: YOUR STYLE, OVER TIME\n    - heading \"The looks you tried.\" [level=2]\n    - paragraph: See the source, timing, and your response to each recommendation.\n    - text: \"1\"\n    - generic: sessions\n    - article:\n      - paragraph: Oct 2, 2026 · 6.6 s\n      - heading \"Presentation day\" [level=3]\n      - generic: openai\n      - paragraph: \"Model: gpt-6-luna\"\n      - strong: Forest cable-knit sweater + Pleated sand trousers\n      - paragraph: Forest cable-knit sweater · Pleated sand trousers · White canvas sneakers · Navy everyday blazer · Sand everyday tote\n      - generic: Chosen\n      - generic: Saved\n      - generic \"Recommendation feedback\":\n        - button \"Works for me\" [pressed]\n        - button \"Not my style\"\n    - paragraph: History and feedback stay with this browser’s wardrobe. Feedback can guide future ranking; it does not fine-tune a model.\n    - status\n  - generic: closet quest\n  - paragraph: Photo analysis ready · Saved in this browser"
+  },
+  "physicalCameraVerified": false,
+  "notes": "Browser interactions through UI. Harness request counts exclude these UI requests.",
+  "responsiveCheck": {
+    "requestedViewport": {
+      "width": 390,
+      "height": 844
+    },
+    "observedLayoutViewportWidth": 488,
+    "documentWidth": 469,
+    "horizontalOverflow": false,
+    "overrideReset": true
+  },
+  "consoleErrors": []
+}

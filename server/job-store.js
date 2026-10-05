@@ -12,6 +12,13 @@ const stages = new Set(['queued','processing','preparing','recognizing','validat
 export const isTerminalJob = job => ['ready', 'failed', 'cancelled'].includes(job.status);
 export const validJobImage = image => typeof image === 'string' && image.length <= 8000000 && /^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(image);
 
+export function normalizedRecognitionOptions({provider='local',modelProfile='fast',wardrobeId}={}) {
+  if (!['local','openai'].includes(provider)) throw Object.assign(new Error('Choose Local or OpenAI for photo recognition.'), {status:400,code:'INVALID_PROVIDER'});
+  if (!['fast','balanced','deep'].includes(modelProfile)) throw Object.assign(new Error('Choose Fast, Balanced or Deep for the model profile.'), {status:400,code:'INVALID_MODEL_PROFILE'});
+  if (wardrobeId !== undefined && (typeof wardrobeId !== 'string' || !/^[A-Za-z0-9_-]{1,128}$/.test(wardrobeId))) throw Object.assign(new Error('Invalid wardrobe identifier.'), {status:400,code:'INVALID_WARDROBE_ID'});
+  return {provider,modelProfile,...(wardrobeId===undefined?{}:{wardrobeId})};
+}
+
 export function normalizedCrop(crop) {
   if (crop === undefined || crop === null) return undefined;
   const bad = () => Object.assign(new Error('Choose a crop within the photo, using normalized coordinates between 0 and 1.'), { status:400, code:'INVALID_CROP' });
@@ -99,7 +106,7 @@ export function createJobStore(storageDir, { now = Date.now, onDiagnostic = () =
     }
   }
   function record(job) {
-    return { version:1, id:job.id, status:job.status, stage:job.stage, attempt:job.attempt, createdAt:job.createdAt, updatedAt:job.updatedAt, crop:job.crop, result:publicJobResult(job.result), error:job.error && publicJobError(job.error), errorCode:typeof job.errorCode === 'string' && /^[A-Z0-9_]{1,80}$/.test(job.errorCode) ? job.errorCode : undefined };
+    return { version:1, id:job.id, status:job.status, stage:job.stage, attempt:job.attempt, createdAt:job.createdAt, updatedAt:job.updatedAt, crop:job.crop, ...normalizedRecognitionOptions(job), result:publicJobResult(job.result), error:job.error && publicJobError(job.error), errorCode:typeof job.errorCode === 'string' && /^[A-Z0-9_]{1,80}$/.test(job.errorCode) ? job.errorCode : undefined };
   }
   function save(job) {
     let content;

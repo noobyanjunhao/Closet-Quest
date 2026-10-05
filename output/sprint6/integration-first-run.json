@@ -1,0 +1,161 @@
+{
+  "measuredAt": "2026-10-03T01:09:22.402Z",
+  "environment": "Windows localhost; public sample wardrobe; no cloud credentials",
+  "status": {
+    "model": "qwen3-vl:4b-instruct-q4_K_M",
+    "models": {
+      "recognition": "qwen3-vl:4b-instruct-q4_K_M",
+      "stylist": "gemma3:4b",
+      "embedding": "qwen3-embedding:0.6b"
+    },
+    "openai": {
+      "configured": false,
+      "model": "gpt-4.1-mini-2025-04-14"
+    },
+    "depop": {
+      "configured": false,
+      "environment": "staging",
+      "access": "Approved Depop partner API key required"
+    },
+    "recommendationReady": true,
+    "pipelineVersion": "garment-v2.1",
+    "ready": true,
+    "recognitionReady": true,
+    "stylistReady": true,
+    "embeddingReady": true,
+    "busy": false,
+    "durableJobs": true
+  },
+  "checks": [
+    {
+      "name": "HTTP quick recommendation -> saved look -> wear -> reload -> undo",
+      "kind": "real HTTP + domain integration",
+      "pass": false,
+      "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  [\n    {\n      addedAt: '2026-09-21T00:00:00.000Z',\n      category: 'Bottom',\n      color: '#7694aa',\n...\n      image: 'photos/denim.jpg',\n+     lastWorn: undefined,\n      name: 'Everyday blue jeans',\n      pattern: 'Solid',\n      photoKey: 'sample-denim',\n      sampleId: 'denim',\n      tags: 'Campus casual, Coffee date',\n...\n      image: 'photos/sneakers.jpg',\n+     lastWorn: undefined,\n      name: 'White canvas sneakers',\n      pattern: 'Solid',\n      photoKey: 'sample-sneakers',\n      sampleId: 'sneakers',\n      tags: 'Campus casual, Coffee date, Presentation day',\n...\n      image: 'photos/knit.jpg',\n+     lastWorn: undefined,\n      name: 'Forest cable-knit sweater',\n      pattern: 'Cable knit',\n      photoKey: 'sample-knit',\n      sampleId: 'knit',\n      tags: 'Campus casual, Coffee date, Presentation day',\n...\n      image: 'photos/blazer.jpg',\n+     lastWorn: undefined,\n      name: 'Navy everyday blazer',\n      pattern: 'Solid',\n      photoKey: 'sample-blazer',\n      sampleId: 'blazer',\n      tags: 'Coffee date, Presentation day',\n...\n      image: 'photos/tote.jpg',\n+     lastWorn: undefined,\n      name: 'Sand everyday tote',\n      pattern: 'Solid',\n      photoKey: 'sample-tote',\n      sampleId: 'tote',\n      tags: 'Campus casual, Coffee date, Presentation day',\n"
+    },
+    {
+      "name": "empty wardrobe",
+      "kind": "real HTTP",
+      "pass": true,
+      "ms": 9,
+      "httpStatus": 400,
+      "httpMs": 8.47,
+      "error": "Use 1–200 garments and a request under 2,000 characters."
+    },
+    {
+      "name": "missing footwear",
+      "kind": "real HTTP",
+      "pass": true,
+      "ms": 3,
+      "httpStatus": 400,
+      "httpMs": 3.03,
+      "error": "Add reviewed shoes to build a complete outfit."
+    },
+    {
+      "name": "unreviewed anchor",
+      "kind": "real HTTP",
+      "pass": true,
+      "ms": 12,
+      "httpStatus": 400,
+      "httpMs": 12.14,
+      "error": "Review the starting piece’s details before styling it."
+    },
+    {
+      "name": "MODEL_TIMEOUT -> explicit quick fallback",
+      "kind": "injected provider failure; real retrieval/planning/validation",
+      "pass": true,
+      "ms": 5,
+      "pipeline": {
+        "version": "recommendation-v2",
+        "runId": "e2c6614a-aed5-4196-ad9f-c85d0b1e6a2a",
+        "requestedProvider": "local",
+        "provider": "quick",
+        "fallback": {
+          "code": "MODEL_TIMEOUT",
+          "message": "The AI stylist could not finish. Showing quick wardrobe matches instead."
+        },
+        "retrievalPasses": 1,
+        "stages": [
+          "retrieve",
+          "plan",
+          "select",
+          "validate"
+        ],
+        "timingMs": {
+          "retrieval": 2,
+          "selectionAndValidation": 3,
+          "total": 5
+        }
+      }
+    },
+    {
+      "name": "MODEL_UNAVAILABLE -> explicit quick fallback",
+      "kind": "injected provider failure; real retrieval/planning/validation",
+      "pass": true,
+      "ms": 2,
+      "pipeline": {
+        "version": "recommendation-v2",
+        "runId": "bad56727-f0ff-4182-977b-6de60b46cdb6",
+        "requestedProvider": "local",
+        "provider": "quick",
+        "fallback": {
+          "code": "MODEL_UNAVAILABLE",
+          "message": "The AI stylist could not finish. Showing quick wardrobe matches instead."
+        },
+        "retrievalPasses": 1,
+        "stages": [
+          "retrieve",
+          "plan",
+          "select",
+          "validate"
+        ],
+        "timingMs": {
+          "retrieval": 0,
+          "selectionAndValidation": 1,
+          "total": 2
+        }
+      }
+    },
+    {
+      "name": "corrupt and unsupported image payloads",
+      "kind": "real HTTP job queue",
+      "pass": true,
+      "ms": 148,
+      "results": [
+        {
+          "status": 400,
+          "error": "Provide a valid JPG, PNG or WebP photo under 6 MB."
+        },
+        {
+          "status": "failed",
+          "code": "INVALID_IMAGE"
+        }
+      ]
+    },
+    {
+      "name": "recognition correction survives serialization",
+      "kind": "domain integration",
+      "pass": true,
+      "ms": 0,
+      "correctedTags": "Campus casual"
+    }
+  ],
+  "quickHttp": {
+    "n": 10,
+    "sortedMs": [
+      3.28,
+      11.92,
+      14.53,
+      14.88,
+      14.98,
+      15.34,
+      15.54,
+      15.88,
+      15.9,
+      16.34
+    ],
+    "medianMs": 15.16,
+    "maxMs": 16.34
+  },
+  "scope": "Small development integration sample; not accuracy, population P95, or human fashion acceptance."
+}

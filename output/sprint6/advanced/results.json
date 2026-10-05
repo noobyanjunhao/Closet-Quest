@@ -1,0 +1,1232 @@
+{
+  "measuredAt": "2026-10-03T02:02:11.994Z",
+  "environment": {
+    "node": "v24.19.0",
+    "platform": "win32",
+    "modelConfiguration": {
+      "configured": true,
+      "model": "gpt-6-luna",
+      "recognitionModel": "gpt-6-luna",
+      "profiles": [
+        {
+          "id": "fast",
+          "label": "Fast",
+          "recognitionModel": "gpt-6-luna",
+          "recommendationModel": "gpt-6-luna"
+        },
+        {
+          "id": "balanced",
+          "label": "Balanced",
+          "recognitionModel": "gpt-6.1-sol",
+          "recommendationModel": "gpt-6.1-sol"
+        },
+        {
+          "id": "deep",
+          "label": "Deep",
+          "recognitionModel": "gpt-6-astra",
+          "recommendationModel": "gpt-6-astra"
+        }
+      ]
+    }
+  },
+  "protocol": {
+    "publicInputsOnly": true,
+    "data": [
+      "public/photos/tee.jpg",
+      "src/wardrobe.js photoCollection",
+      "data/styling-knowledge.json",
+      "project-authored example style note"
+    ],
+    "directPipeline": true,
+    "servicePortRequired": false,
+    "overallBudgetMs": 180000,
+    "paidRequestCeiling": {
+      "recognitionRequests": 1,
+      "stylistRequests": 1,
+      "embeddingRequests": 3
+    },
+    "wardrobeId": "0ff3578c-009c-449a-80f5-799a84b8c025",
+    "imageSha256": "e4f740b470153120571fbf266b91d880bbe8d265b87ac817fa22e7f80d142563"
+  },
+  "caveats": [
+    "One public photo and one styling brief are development integration samples, not accuracy, fashion acceptance, population latency percentiles, or a controlled model comparison.",
+    "A recognition cache hit reuses an already validated result and is not a second model inference.",
+    "Quick is deterministic, and local wardrobe retrieval may explicitly fall back to lexical matching.",
+    "Imported documents use a temporary isolated SQLite database; no personal wardrobe or existing knowledge library is read or changed."
+  ],
+  "checks": [
+    {
+      "name": "OpenAI public tee recognition — first inference",
+      "elapsedMs": 3924.61,
+      "status": "passed",
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "latencyMs": 3920,
+      "cache": {
+        "hit": false,
+        "scope": "wardrobe",
+        "version": "recognition-provider-v1"
+      },
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "0666916dbf2e73ed14fd0367cbf4356c95e5eececa98fa7c72fd650469e0f79c",
+        "inputSha256": "e4f740b470153120571fbf266b91d880bbe8d265b87ac817fa22e7f80d142563",
+        "normalizedSha256": "cb5f04785d6e989713452f420068cc2c0e508f06f944227cf34fbaa649514837",
+        "width": 750,
+        "height": 1000,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 74
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 3846
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "observation": {
+        "isGarment": true,
+        "name": "White T-shirt",
+        "category": "Top",
+        "itemType": "T-shirt",
+        "color": "#f4f3ef",
+        "colorName": "White",
+        "secondaryColors": [
+          "Gray",
+          "Black",
+          "Green"
+        ],
+        "pattern": "Solid white with a multicolor rectangular graphic",
+        "fit": "Regular",
+        "materialAppearance": "Smooth, lightweight-looking knit fabric with a soft matte finish.",
+        "styleTags": [
+          "Graphic tee",
+          "Casual",
+          "Crew neck"
+        ],
+        "occasions": [
+          "Campus casual",
+          "Coffee date"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [
+          "Color swatch is an approximate palette color, not a measured fabric color.",
+          "Material and occasions are visual suggestions; verify them manually."
+        ],
+        "brandVerified": false,
+        "targetDescription": "White short-sleeve crew-neck T-shirt with a rectangular abstract landscape graphic across the lower front.",
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "reviewRequired": true
+      },
+      "usage": {
+        "input_tokens": 1373,
+        "input_tokens_details": {
+          "cache_write_tokens": 1370,
+          "cached_tokens": 0
+        },
+        "output_tokens": 119,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1492
+      }
+    },
+    {
+      "name": "OpenAI same-photo recognition — scoped cache hit",
+      "elapsedMs": 1.99,
+      "status": "passed",
+      "additionalModelRequests": 0,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "latencyMs": 1,
+      "cache": {
+        "hit": true,
+        "scope": "wardrobe",
+        "ageMs": 4,
+        "originalLatencyMs": 3920,
+        "version": "recognition-provider-v1"
+      },
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "0666916dbf2e73ed14fd0367cbf4356c95e5eececa98fa7c72fd650469e0f79c",
+        "inputSha256": "e4f740b470153120571fbf266b91d880bbe8d265b87ac817fa22e7f80d142563",
+        "normalizedSha256": "cb5f04785d6e989713452f420068cc2c0e508f06f944227cf34fbaa649514837",
+        "width": 750,
+        "height": 1000,
+        "stages": [],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": true,
+          "scope": "wardrobe",
+          "ageMs": 4,
+          "originalLatencyMs": 3920,
+          "version": "recognition-provider-v1"
+        }
+      },
+      "observation": {
+        "isGarment": true,
+        "name": "White T-shirt",
+        "category": "Top",
+        "itemType": "T-shirt",
+        "color": "#f4f3ef",
+        "colorName": "White",
+        "secondaryColors": [
+          "Gray",
+          "Black",
+          "Green"
+        ],
+        "pattern": "Solid white with a multicolor rectangular graphic",
+        "fit": "Regular",
+        "materialAppearance": "Smooth, lightweight-looking knit fabric with a soft matte finish.",
+        "styleTags": [
+          "Graphic tee",
+          "Casual",
+          "Crew neck"
+        ],
+        "occasions": [
+          "Campus casual",
+          "Coffee date"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [
+          "Color swatch is an approximate palette color, not a measured fabric color.",
+          "Material and occasions are visual suggestions; verify them manually."
+        ],
+        "brandVerified": false,
+        "targetDescription": "White short-sleeve crew-neck T-shirt with a rectangular abstract landscape graphic across the lower front.",
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "reviewRequired": true
+      },
+      "usage": null
+    },
+    {
+      "name": "Document import and OpenAI semantic indexing",
+      "elapsedMs": 1091.03,
+      "status": "passed",
+      "importMode": "lexical",
+      "documentId": "467761da-801d-4114-bd5a-59e79f75e55c",
+      "indexed": {
+        "indexedChunks": 5,
+        "totalChunks": 5,
+        "mode": "semantic",
+        "embedding": {
+          "provider": "openai",
+          "model": "text-embedding-3-small",
+          "digest": "text-embedding-3-small",
+          "schemaVersion": "openai-document-embedding-v1",
+          "dimensions": 512,
+          "documentSchema": "knowledge-v1"
+        },
+        "fallback": null,
+        "timingMs": 1083
+      },
+      "documents": [
+        {
+          "id": "893ab9ae-a83b-4684-9184-c74b21cf4971",
+          "title": "Build a complete outfit from owned pieces",
+          "source": "Closet Quest project-authored styling guide",
+          "origin": "project-authored",
+          "contentLength": 469,
+          "chunkCount": 1,
+          "indexedChunks": 1,
+          "indexing": "semantic",
+          "createdAt": "2026-10-03T02:02:15.961Z",
+          "updatedAt": "2026-10-03T02:02:15.961Z"
+        },
+        {
+          "id": "893ab9ae-a83b-4684-9184-c74b21cf4972",
+          "title": "Comfort, silhouette, and color balance",
+          "source": "Closet Quest project-authored styling guide",
+          "origin": "project-authored",
+          "contentLength": 489,
+          "chunkCount": 1,
+          "indexedChunks": 1,
+          "indexing": "semantic",
+          "createdAt": "2026-10-03T02:02:15.962Z",
+          "updatedAt": "2026-10-03T02:02:15.962Z"
+        },
+        {
+          "id": "893ab9ae-a83b-4684-9184-c74b21cf4973",
+          "title": "Occasion and practical layers",
+          "source": "Closet Quest project-authored styling guide",
+          "origin": "project-authored",
+          "contentLength": 500,
+          "chunkCount": 1,
+          "indexedChunks": 1,
+          "indexing": "semantic",
+          "createdAt": "2026-10-03T02:02:15.962Z",
+          "updatedAt": "2026-10-03T02:02:15.962Z"
+        },
+        {
+          "id": "893ab9ae-a83b-4684-9184-c74b21cf4974",
+          "title": "Learn from feedback without overclaiming",
+          "source": "Closet Quest project-authored styling guide",
+          "origin": "project-authored",
+          "contentLength": 509,
+          "chunkCount": 1,
+          "indexedChunks": 1,
+          "indexing": "semantic",
+          "createdAt": "2026-10-03T02:02:15.962Z",
+          "updatedAt": "2026-10-03T02:02:15.962Z"
+        },
+        {
+          "id": "467761da-801d-4114-bd5a-59e79f75e55c",
+          "title": "Example preference for a campus presentation",
+          "source": "Project-authored benchmark note; fictional preference",
+          "origin": "user",
+          "contentLength": 321,
+          "chunkCount": 1,
+          "indexedChunks": 1,
+          "indexing": "semantic",
+          "createdAt": "2026-10-03T02:02:15.964Z",
+          "updatedAt": "2026-10-03T02:02:15.964Z"
+        }
+      ]
+    },
+    {
+      "name": "OpenAI document query — persisted vectors and cited passages",
+      "elapsedMs": 1754.38,
+      "status": "passed",
+      "sources": [
+        {
+          "id": "893ab9ae-a83b-4684-9184-c74b21cf4973:0",
+          "citationId": "KB:893ab9ae-a83b-4684-9184-c74b21cf4973:0",
+          "documentId": "893ab9ae-a83b-4684-9184-c74b21cf4973",
+          "title": "Occasion and practical layers",
+          "source": "Closet Quest project-authored styling guide",
+          "origin": "project-authored",
+          "excerpt": "For a work meeting, interview, or smart dinner, consider owned structured layers, tidy trousers or a dress, and suitable shoes while respecting the user's stated dress code. For casual outings, prioritize their comfort and preferred style. Add a layer when the user supplies cool-weather context; do not claim to know live weather. If no dress code or temperature is supplied, state the assumption or offer an adaptable option. Avoid promising that an outfit is suitable for every workplace or event.",
+          "trust": "untrusted-context",
+          "score": 0.47,
+          "lexicalScore": 0,
+          "semanticScore": 0.6714
+        },
+        {
+          "id": "467761da-801d-4114-bd5a-59e79f75e55c:0",
+          "citationId": "KB:467761da-801d-4114-bd5a-59e79f75e55c:0",
+          "documentId": "467761da-801d-4114-bd5a-59e79f75e55c",
+          "title": "Example preference for a campus presentation",
+          "source": "Project-authored benchmark note; fictional preference",
+          "origin": "user",
+          "excerpt": "For a classroom talk, I like understated combinations with a structured dark jacket, pale trousers, and my existing white canvas shoes. I prefer navy and white, simple accessories, and one textured piece. My recorded wardrobe and current request take priority. This is a demonstration preference, not a real user profile.",
+          "trust": "untrusted-context",
+          "score": 0.4689,
+          "lexicalScore": 0,
+          "semanticScore": 0.6699
+        },
+        {
+          "id": "893ab9ae-a83b-4684-9184-c74b21cf4972:0",
+          "citationId": "KB:893ab9ae-a83b-4684-9184-c74b21cf4972:0",
+          "documentId": "893ab9ae-a83b-4684-9184-c74b21cf4972",
+          "title": "Comfort, silhouette, and color balance",
+          "source": "Closet Quest project-authored styling guide",
+          "origin": "project-authored",
+          "excerpt": "For a comfortable everyday outfit, consider the user's fit preference and preferred footwear. A relaxed top can pair with a more structured bottom, or a fitted top with a relaxed bottom; neither is a requirement. Repeating one color across two owned pieces can make a combination feel coherent. Neutrals can support a stronger color, while a tonal combination uses nearby shades. These are suggestions, not universal rules. Never infer the user's body type, gender, or health from a photo.",
+          "trust": "untrusted-context",
+          "score": 0.3771,
+          "lexicalScore": 0,
+          "semanticScore": 0.5387
+        },
+        {
+          "id": "893ab9ae-a83b-4684-9184-c74b21cf4971:0",
+          "citationId": "KB:893ab9ae-a83b-4684-9184-c74b21cf4971:0",
+          "documentId": "893ab9ae-a83b-4684-9184-c74b21cf4971",
+          "title": "Build a complete outfit from owned pieces",
+          "source": "Closet Quest project-authored styling guide",
+          "origin": "project-authored",
+          "excerpt": "Start with the user's chosen anchor garment and occasion. A complete outfit usually needs a top and bottom, or a dress, plus shoes. Only recommend garments present in the reviewed wardrobe. A bag, belt, or jacket can support a look but does not replace its core pieces. If the wardrobe cannot supply a complete outfit, explain the missing category rather than inventing a garment. Treat saved preferences as soft guidance unless the user explicitly marks a restriction.",
+          "trust": "untrusted-context",
+          "score": 0.3701,
+          "lexicalScore": 0,
+          "semanticScore": 0.5287
+        }
+      ],
+      "metadata": {
+        "version": "knowledge-v1",
+        "mode": "hybrid",
+        "trust": "untrusted-context",
+        "embedding": {
+          "provider": "openai",
+          "model": "text-embedding-3-small",
+          "digest": "text-embedding-3-small",
+          "schemaVersion": "openai-document-embedding-v1",
+          "dimensions": 512,
+          "documentSchema": "knowledge-v1"
+        },
+        "fallback": null,
+        "totalChunks": 5,
+        "indexedChunks": 5,
+        "compatibleChunks": 5,
+        "staleChunks": 0,
+        "corruptChunks": 0,
+        "lexicalOnly": false,
+        "timingMs": 1753
+      }
+    },
+    {
+      "name": "OpenAI personalized owned-item recommendation with document RAG",
+      "elapsedMs": 10664.39,
+      "status": "passed",
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "pipeline": {
+        "version": "recommendation-v3-personal-rag",
+        "runId": "585f0707-4b50-41b9-b84a-fc77725c0700",
+        "requestedProvider": "openai",
+        "provider": "openai",
+        "fallback": null,
+        "retrievalPasses": 1,
+        "stages": [
+          "preferences",
+          "wardrobe-retrieval",
+          "document-retrieval",
+          "plan",
+          "select",
+          "validate"
+        ],
+        "modelProfile": "fast",
+        "promptVersion": "stylist-rag-v3",
+        "knowledgeMode": "hybrid",
+        "timingMs": {
+          "retrieval": 6202,
+          "selectionAndValidation": 4461,
+          "total": 10663
+        }
+      },
+      "latencyMs": 4457,
+      "usage": {
+        "input_tokens": 1479,
+        "input_tokens_details": {
+          "cache_write_tokens": 1476,
+          "cached_tokens": 0
+        },
+        "output_tokens": 266,
+        "output_tokens_details": {
+          "reasoning_tokens": 129
+        },
+        "total_tokens": 1745
+      },
+      "constraints": {
+        "nonempty": true,
+        "ownedOnly": true,
+        "anchorPreserved": true,
+        "complete": true,
+        "unreviewedExcluded": true
+      },
+      "outfits": [
+        {
+          "itemIds": [
+            "photo-knit",
+            "photo-trousers",
+            "photo-sneakers",
+            "photo-blazer",
+            "photo-tote"
+          ],
+          "title": "Forest cable-knit sweater + Pleated sand trousers",
+          "explanation": "The navy blazer and sand trousers create a restrained, presentation-ready combination, while the forest cable-knit sweater adds a subtle textured element. White canvas sneakers keep the outfit simple, and the sand tote complements the trousers.",
+          "stylingTip": "Keep the sweater as the outfit’s single textured focus and carry the sand tote for a neat finish.",
+          "planId": "P4",
+          "grounding": [
+            {
+              "itemId": "photo-knit",
+              "reasons": [
+                "Matches your brief: presentation, day",
+                "Text embedding similarity rank 5 of 7",
+                "Adds a top option"
+              ],
+              "facts": [
+                "Category: Top",
+                "Color label: Forest green",
+                "Pattern: Cable knit",
+                "Recorded wears: 1"
+              ]
+            },
+            {
+              "itemId": "photo-trousers",
+              "reasons": [
+                "Matches your brief: presentation, day",
+                "Text embedding similarity rank 3 of 7",
+                "Adds a bottom option"
+              ],
+              "facts": [
+                "Category: Bottom",
+                "Color label: Sand",
+                "Pattern: Solid",
+                "Recorded wears: 0"
+              ]
+            },
+            {
+              "itemId": "photo-sneakers",
+              "reasons": [
+                "Matches your brief: presentation, day, white",
+                "Text embedding similarity rank 2 of 7",
+                "Keeps a complete outfit available"
+              ],
+              "facts": [
+                "Category: Shoes",
+                "Color label: White",
+                "Pattern: Solid",
+                "Recorded wears: 15"
+              ]
+            },
+            {
+              "itemId": "photo-blazer",
+              "reasons": [
+                "Matches your brief: presentation, day, navy, blazer",
+                "Text embedding similarity rank 1 of 7",
+                "Your selected starting piece",
+                "Keeps a complete outfit available"
+              ],
+              "facts": [
+                "Category: Outerwear",
+                "Color label: Navy",
+                "Pattern: Solid",
+                "Recorded wears: 0"
+              ]
+            },
+            {
+              "itemId": "photo-tote",
+              "reasons": [
+                "Matches your brief: presentation, day",
+                "Text embedding similarity rank 6 of 7",
+                "Adds an accessory option"
+              ],
+              "facts": [
+                "Category: Accessory",
+                "Color label: Sand",
+                "Pattern: Solid",
+                "Recorded wears: 0"
+              ]
+            }
+          ],
+          "guideCitations": [
+            {
+              "id": "CQ-G01",
+              "title": "Build a complete outfit"
+            },
+            {
+              "id": "CQ-G02",
+              "title": "A polished everyday look"
+            },
+            {
+              "id": "CQ-G06",
+              "title": "Make color feel intentional"
+            }
+          ]
+        }
+      ],
+      "reason": "P4 best matches your request for a simple, polished classroom outfit built around the navy blazer, with pale trousers, white shoes, and one textured piece.",
+      "retrieval": {
+        "method": "BM25 + dense cosine + reciprocal rank fusion + category coverage",
+        "embedding": {
+          "available": true,
+          "model": "qwen3-embedding:0.6b",
+          "digest": "ac6da0dfba84a81fdbfbaf330198c33cd77c4cdfc53e8bc50eb581914a15621d",
+          "schemaVersion": "wardrobe-text-v1",
+          "dimensions": 512,
+          "placement": "cpu",
+          "cache": {
+            "requested": 8,
+            "unique": 8,
+            "hits": 7,
+            "memoryHits": 0,
+            "misses": 1,
+            "generated": 1,
+            "readErrors": 0,
+            "writeErrors": 0
+          },
+          "timingMs": 5928.46
+        },
+        "fallback": {
+          "active": false
+        },
+        "knowledge": {
+          "sources": [
+            {
+              "id": "467761da-801d-4114-bd5a-59e79f75e55c:0",
+              "citationId": "KB:467761da-801d-4114-bd5a-59e79f75e55c:0",
+              "documentId": "467761da-801d-4114-bd5a-59e79f75e55c",
+              "title": "Example preference for a campus presentation",
+              "source": "Project-authored benchmark note; fictional preference",
+              "origin": "user",
+              "excerpt": "For a classroom talk, I like understated combinations with a structured dark jacket, pale trousers, and my existing white canvas shoes. I prefer navy and white, simple accessories, and one textured piece. My recorded wardrobe and current request take priority. This is a demonstration preference, not a real user profile.",
+              "trust": "untrusted-context",
+              "score": 0.6463,
+              "lexicalScore": 0.2823,
+              "semanticScore": 0.8024
+            },
+            {
+              "id": "893ab9ae-a83b-4684-9184-c74b21cf4973:0",
+              "citationId": "KB:893ab9ae-a83b-4684-9184-c74b21cf4973:0",
+              "documentId": "893ab9ae-a83b-4684-9184-c74b21cf4973",
+              "title": "Occasion and practical layers",
+              "source": "Closet Quest project-authored styling guide",
+              "origin": "project-authored",
+              "excerpt": "For a work meeting, interview, or smart dinner, consider owned structured layers, tidy trousers or a dress, and suitable shoes while respecting the user's stated dress code. For casual outings, prioritize their comfort and preferred style. Add a layer when the user supplies cool-weather context; do not claim to know live weather. If no dress code or temperature is supplied, state the assumption or offer an adaptable option. Avoid promising that an outfit is suitable for every workplace or event.",
+              "trust": "untrusted-context",
+              "score": 0.4952,
+              "lexicalScore": 0.0968,
+              "semanticScore": 0.6659
+            },
+            {
+              "id": "893ab9ae-a83b-4684-9184-c74b21cf4972:0",
+              "citationId": "KB:893ab9ae-a83b-4684-9184-c74b21cf4972:0",
+              "documentId": "893ab9ae-a83b-4684-9184-c74b21cf4972",
+              "title": "Comfort, silhouette, and color balance",
+              "source": "Closet Quest project-authored styling guide",
+              "origin": "project-authored",
+              "excerpt": "For a comfortable everyday outfit, consider the user's fit preference and preferred footwear. A relaxed top can pair with a more structured bottom, or a fitted top with a relaxed bottom; neither is a requirement. Repeating one color across two owned pieces can make a combination feel coherent. Neutrals can support a stronger color, while a tonal combination uses nearby shades. These are suggestions, not universal rules. Never infer the user's body type, gender, or health from a photo.",
+              "trust": "untrusted-context",
+              "score": 0.4616,
+              "lexicalScore": 0.121,
+              "semanticScore": 0.6075
+            },
+            {
+              "id": "893ab9ae-a83b-4684-9184-c74b21cf4971:0",
+              "citationId": "KB:893ab9ae-a83b-4684-9184-c74b21cf4971:0",
+              "documentId": "893ab9ae-a83b-4684-9184-c74b21cf4971",
+              "title": "Build a complete outfit from owned pieces",
+              "source": "Closet Quest project-authored styling guide",
+              "origin": "project-authored",
+              "excerpt": "Start with the user's chosen anchor garment and occasion. A complete outfit usually needs a top and bottom, or a dress, plus shoes. Only recommend garments present in the reviewed wardrobe. A bag, belt, or jacket can support a look but does not replace its core pieces. If the wardrobe cannot supply a complete outfit, explain the missing category rather than inventing a garment. Treat saved preferences as soft guidance unless the user explicitly marks a restriction.",
+              "trust": "untrusted-context",
+              "score": 0.4302,
+              "lexicalScore": 0.1129,
+              "semanticScore": 0.5662
+            }
+          ],
+          "metadata": {
+            "version": "knowledge-v1",
+            "mode": "hybrid",
+            "trust": "untrusted-context",
+            "embedding": {
+              "provider": "openai",
+              "model": "text-embedding-3-small",
+              "digest": "text-embedding-3-small",
+              "schemaVersion": "openai-document-embedding-v1",
+              "dimensions": 512,
+              "documentSchema": "knowledge-v1"
+            },
+            "fallback": null,
+            "totalChunks": 5,
+            "indexedChunks": 5,
+            "compatibleChunks": 5,
+            "staleChunks": 0,
+            "corruptChunks": 0,
+            "lexicalOnly": false,
+            "timingMs": 264
+          }
+        },
+        "personalization": {
+          "version": "preferences-v1",
+          "summary": "Preferred styles: Classic, Minimal. Preferred colors: Navy, White. Avoid colors: Pink. Priorities: Versatility, Simple outfits. User preference note: Prefer restrained combinations for a classroom talk.",
+          "excludedIds": [],
+          "feedbackRuns": 1,
+          "scoredItems": [
+            {
+              "itemId": "photo-tee",
+              "boost": 0.25,
+              "reasons": [
+                "Preferred recorded color"
+              ]
+            },
+            {
+              "itemId": "photo-sneakers",
+              "boost": 0.3,
+              "reasons": [
+                "Preferred recorded color",
+                "Previously liked piece"
+              ]
+            },
+            {
+              "itemId": "photo-trousers",
+              "boost": 0.05,
+              "reasons": [
+                "Previously liked piece"
+              ]
+            },
+            {
+              "itemId": "photo-blazer",
+              "boost": 0.25,
+              "reasons": [
+                "Preferred recorded color"
+              ]
+            }
+          ],
+          "method": "Explicit color exclusion; bounded preference and feedback score adjustments, not model training"
+        },
+        "promptSourceIds": [
+          "467761da-801d-4114-bd5a-59e79f75e55c:0",
+          "893ab9ae-a83b-4684-9184-c74b21cf4973:0"
+        ],
+        "contextBytes": 5652,
+        "contextLimitBytes": 6000
+      }
+    },
+    {
+      "name": "Quick deterministic recommendation — 10 direct-pipeline runs",
+      "elapsedMs": 49.73,
+      "status": "passed",
+      "n": 10,
+      "rawMs": [
+        29.04,
+        2.47,
+        2.17,
+        2.88,
+        2.03,
+        1.99,
+        2,
+        2.1,
+        1.72,
+        2.09
+      ],
+      "sortedMs": [
+        1.72,
+        1.99,
+        2,
+        2.03,
+        2.09,
+        2.1,
+        2.17,
+        2.47,
+        2.88,
+        29.04
+      ],
+      "medianMs": 2.0949999999999998,
+      "minMs": 1.72,
+      "maxMs": 29.04,
+      "provider": "quick",
+      "model": "deterministic-planner-v1",
+      "firstOutput": {
+        "provider": "quick",
+        "model": "deterministic-planner-v1",
+        "pipeline": {
+          "version": "recommendation-v3-personal-rag",
+          "runId": "6ea7472f-4464-43ca-bc23-a7686ac84a98",
+          "requestedProvider": "quick",
+          "provider": "quick",
+          "fallback": null,
+          "retrievalPasses": 1,
+          "stages": [
+            "preferences",
+            "wardrobe-retrieval",
+            "document-retrieval",
+            "plan",
+            "select",
+            "validate"
+          ],
+          "modelProfile": "fast",
+          "promptVersion": "stylist-rag-v3",
+          "knowledgeMode": "lexical",
+          "timingMs": {
+            "retrieval": 27,
+            "selectionAndValidation": 2,
+            "total": 29
+          }
+        },
+        "latencyMs": 0,
+        "usage": null,
+        "constraints": {
+          "nonempty": true,
+          "ownedOnly": true,
+          "anchorPreserved": true,
+          "complete": true,
+          "unreviewedExcluded": true
+        },
+        "outfits": [
+          {
+            "itemIds": [
+              "photo-tee",
+              "photo-denim",
+              "photo-sneakers",
+              "photo-blazer"
+            ],
+            "title": "Presentation day · Look 1",
+            "explanation": "A complete combination of reviewed pieces, ranked against your brief and balanced with other options for variety.",
+            "stylingTip": "Try these pieces together and adjust the tuck or layering to your preference.",
+            "planId": "P1",
+            "grounding": [
+              {
+                "itemId": "photo-tee",
+                "reasons": [
+                  "Matches your brief: white",
+                  "Keeps a complete outfit available"
+                ],
+                "facts": [
+                  "Category: Top",
+                  "Color label: Off white",
+                  "Pattern: Landscape graphic",
+                  "Recorded wears: 8"
+                ]
+              },
+              {
+                "itemId": "photo-denim",
+                "reasons": [
+                  "Matches your brief: blue",
+                  "Keeps a complete outfit available"
+                ],
+                "facts": [
+                  "Category: Bottom",
+                  "Color label: Light blue",
+                  "Pattern: Solid",
+                  "Recorded wears: 12"
+                ]
+              },
+              {
+                "itemId": "photo-sneakers",
+                "reasons": [
+                  "Matches your brief: presentation, day, white",
+                  "Keeps a complete outfit available"
+                ],
+                "facts": [
+                  "Category: Shoes",
+                  "Color label: White",
+                  "Pattern: Solid",
+                  "Recorded wears: 15"
+                ]
+              },
+              {
+                "itemId": "photo-blazer",
+                "reasons": [
+                  "Matches your brief: presentation, day, navy, blazer",
+                  "Your selected starting piece",
+                  "Keeps a complete outfit available"
+                ],
+                "facts": [
+                  "Category: Outerwear",
+                  "Color label: Navy",
+                  "Pattern: Solid",
+                  "Recorded wears: 0"
+                ]
+              }
+            ],
+            "guideCitations": [
+              {
+                "id": "CQ-G01",
+                "title": "Build a complete outfit"
+              },
+              {
+                "id": "CQ-G02",
+                "title": "A polished everyday look"
+              },
+              {
+                "id": "CQ-G06",
+                "title": "Make color feel intentional"
+              }
+            ]
+          },
+          {
+            "itemIds": [
+              "photo-knit",
+              "photo-trousers",
+              "photo-sneakers",
+              "photo-blazer"
+            ],
+            "title": "Presentation day · Look 2",
+            "explanation": "A complete combination of reviewed pieces, ranked against your brief and balanced with other options for variety.",
+            "stylingTip": "Try these pieces together and adjust the tuck or layering to your preference.",
+            "planId": "P2",
+            "grounding": [
+              {
+                "itemId": "photo-knit",
+                "reasons": [
+                  "Matches your brief: presentation, day",
+                  "Adds a top option"
+                ],
+                "facts": [
+                  "Category: Top",
+                  "Color label: Forest green",
+                  "Pattern: Cable knit",
+                  "Recorded wears: 1"
+                ]
+              },
+              {
+                "itemId": "photo-trousers",
+                "reasons": [
+                  "Matches your brief: presentation, day",
+                  "Adds a bottom option"
+                ],
+                "facts": [
+                  "Category: Bottom",
+                  "Color label: Sand",
+                  "Pattern: Solid",
+                  "Recorded wears: 0"
+                ]
+              },
+              {
+                "itemId": "photo-sneakers",
+                "reasons": [
+                  "Matches your brief: presentation, day, white",
+                  "Keeps a complete outfit available"
+                ],
+                "facts": [
+                  "Category: Shoes",
+                  "Color label: White",
+                  "Pattern: Solid",
+                  "Recorded wears: 15"
+                ]
+              },
+              {
+                "itemId": "photo-blazer",
+                "reasons": [
+                  "Matches your brief: presentation, day, navy, blazer",
+                  "Your selected starting piece",
+                  "Keeps a complete outfit available"
+                ],
+                "facts": [
+                  "Category: Outerwear",
+                  "Color label: Navy",
+                  "Pattern: Solid",
+                  "Recorded wears: 0"
+                ]
+              }
+            ],
+            "guideCitations": [
+              {
+                "id": "CQ-G01",
+                "title": "Build a complete outfit"
+              },
+              {
+                "id": "CQ-G02",
+                "title": "A polished everyday look"
+              },
+              {
+                "id": "CQ-G06",
+                "title": "Make color feel intentional"
+              }
+            ]
+          },
+          {
+            "itemIds": [
+              "photo-tee",
+              "photo-trousers",
+              "photo-sneakers",
+              "photo-blazer"
+            ],
+            "title": "Presentation day · Look 3",
+            "explanation": "A complete combination of reviewed pieces, ranked against your brief and balanced with other options for variety.",
+            "stylingTip": "Try these pieces together and adjust the tuck or layering to your preference.",
+            "planId": "P3",
+            "grounding": [
+              {
+                "itemId": "photo-tee",
+                "reasons": [
+                  "Matches your brief: white",
+                  "Keeps a complete outfit available"
+                ],
+                "facts": [
+                  "Category: Top",
+                  "Color label: Off white",
+                  "Pattern: Landscape graphic",
+                  "Recorded wears: 8"
+                ]
+              },
+              {
+                "itemId": "photo-trousers",
+                "reasons": [
+                  "Matches your brief: presentation, day",
+                  "Adds a bottom option"
+                ],
+                "facts": [
+                  "Category: Bottom",
+                  "Color label: Sand",
+                  "Pattern: Solid",
+                  "Recorded wears: 0"
+                ]
+              },
+              {
+                "itemId": "photo-sneakers",
+                "reasons": [
+                  "Matches your brief: presentation, day, white",
+                  "Keeps a complete outfit available"
+                ],
+                "facts": [
+                  "Category: Shoes",
+                  "Color label: White",
+                  "Pattern: Solid",
+                  "Recorded wears: 15"
+                ]
+              },
+              {
+                "itemId": "photo-blazer",
+                "reasons": [
+                  "Matches your brief: presentation, day, navy, blazer",
+                  "Your selected starting piece",
+                  "Keeps a complete outfit available"
+                ],
+                "facts": [
+                  "Category: Outerwear",
+                  "Color label: Navy",
+                  "Pattern: Solid",
+                  "Recorded wears: 0"
+                ]
+              }
+            ],
+            "guideCitations": [
+              {
+                "id": "CQ-G01",
+                "title": "Build a complete outfit"
+              },
+              {
+                "id": "CQ-G02",
+                "title": "A polished everyday look"
+              },
+              {
+                "id": "CQ-G06",
+                "title": "Make color feel intentional"
+              }
+            ]
+          }
+        ],
+        "reason": "Quick matches use your saved details and outfit rules. Try OpenAI or the local stylist for more personal styling advice.",
+        "retrieval": {
+          "method": "BM25 + explicit synonyms + category coverage (dense disabled)",
+          "embedding": {
+            "available": false,
+            "model": "qwen3-embedding:0.6b"
+          },
+          "fallback": {
+            "active": true,
+            "code": "EMBEDDING_DISABLED",
+            "reason": "Text embeddings are disabled for this request."
+          },
+          "knowledge": {
+            "sources": [
+              {
+                "id": "467761da-801d-4114-bd5a-59e79f75e55c:0",
+                "citationId": "KB:467761da-801d-4114-bd5a-59e79f75e55c:0",
+                "documentId": "467761da-801d-4114-bd5a-59e79f75e55c",
+                "title": "Example preference for a campus presentation",
+                "source": "Project-authored benchmark note; fictional preference",
+                "origin": "user",
+                "excerpt": "For a classroom talk, I like understated combinations with a structured dark jacket, pale trousers, and my existing white canvas shoes. I prefer navy and white, simple accessories, and one textured piece. My recorded wardrobe and current request take priority. This is a demonstration preference, not a real user profile.",
+                "trust": "untrusted-context",
+                "score": 0.2823,
+                "lexicalScore": 0.2823,
+                "semanticScore": null
+              },
+              {
+                "id": "893ab9ae-a83b-4684-9184-c74b21cf4972:0",
+                "citationId": "KB:893ab9ae-a83b-4684-9184-c74b21cf4972:0",
+                "documentId": "893ab9ae-a83b-4684-9184-c74b21cf4972",
+                "title": "Comfort, silhouette, and color balance",
+                "source": "Closet Quest project-authored styling guide",
+                "origin": "project-authored",
+                "excerpt": "For a comfortable everyday outfit, consider the user's fit preference and preferred footwear. A relaxed top can pair with a more structured bottom, or a fitted top with a relaxed bottom; neither is a requirement. Repeating one color across two owned pieces can make a combination feel coherent. Neutrals can support a stronger color, while a tonal combination uses nearby shades. These are suggestions, not universal rules. Never infer the user's body type, gender, or health from a photo.",
+                "trust": "untrusted-context",
+                "score": 0.121,
+                "lexicalScore": 0.121,
+                "semanticScore": null
+              },
+              {
+                "id": "893ab9ae-a83b-4684-9184-c74b21cf4971:0",
+                "citationId": "KB:893ab9ae-a83b-4684-9184-c74b21cf4971:0",
+                "documentId": "893ab9ae-a83b-4684-9184-c74b21cf4971",
+                "title": "Build a complete outfit from owned pieces",
+                "source": "Closet Quest project-authored styling guide",
+                "origin": "project-authored",
+                "excerpt": "Start with the user's chosen anchor garment and occasion. A complete outfit usually needs a top and bottom, or a dress, plus shoes. Only recommend garments present in the reviewed wardrobe. A bag, belt, or jacket can support a look but does not replace its core pieces. If the wardrobe cannot supply a complete outfit, explain the missing category rather than inventing a garment. Treat saved preferences as soft guidance unless the user explicitly marks a restriction.",
+                "trust": "untrusted-context",
+                "score": 0.1129,
+                "lexicalScore": 0.1129,
+                "semanticScore": null
+              },
+              {
+                "id": "893ab9ae-a83b-4684-9184-c74b21cf4973:0",
+                "citationId": "KB:893ab9ae-a83b-4684-9184-c74b21cf4973:0",
+                "documentId": "893ab9ae-a83b-4684-9184-c74b21cf4973",
+                "title": "Occasion and practical layers",
+                "source": "Closet Quest project-authored styling guide",
+                "origin": "project-authored",
+                "excerpt": "For a work meeting, interview, or smart dinner, consider owned structured layers, tidy trousers or a dress, and suitable shoes while respecting the user's stated dress code. For casual outings, prioritize their comfort and preferred style. Add a layer when the user supplies cool-weather context; do not claim to know live weather. If no dress code or temperature is supplied, state the assumption or offer an adaptable option. Avoid promising that an outfit is suitable for every workplace or event.",
+                "trust": "untrusted-context",
+                "score": 0.0968,
+                "lexicalScore": 0.0968,
+                "semanticScore": null
+              }
+            ],
+            "metadata": {
+              "version": "knowledge-v1",
+              "mode": "lexical",
+              "trust": "untrusted-context",
+              "embedding": null,
+              "fallback": null,
+              "totalChunks": 5,
+              "indexedChunks": 5,
+              "compatibleChunks": 0,
+              "staleChunks": 0,
+              "corruptChunks": 0,
+              "lexicalOnly": true,
+              "timingMs": 25
+            }
+          },
+          "personalization": {
+            "version": "preferences-v1",
+            "summary": "Preferred styles: Classic, Minimal. Preferred colors: Navy, White. Avoid colors: Pink. Priorities: Versatility, Simple outfits. User preference note: Prefer restrained combinations for a classroom talk.",
+            "excludedIds": [],
+            "feedbackRuns": 1,
+            "scoredItems": [
+              {
+                "itemId": "photo-tee",
+                "boost": 0.25,
+                "reasons": [
+                  "Preferred recorded color"
+                ]
+              },
+              {
+                "itemId": "photo-sneakers",
+                "boost": 0.3,
+                "reasons": [
+                  "Preferred recorded color",
+                  "Previously liked piece"
+                ]
+              },
+              {
+                "itemId": "photo-trousers",
+                "boost": 0.05,
+                "reasons": [
+                  "Previously liked piece"
+                ]
+              },
+              {
+                "itemId": "photo-blazer",
+                "boost": 0.25,
+                "reasons": [
+                  "Preferred recorded color"
+                ]
+              }
+            ],
+            "method": "Explicit color exclusion; bounded preference and feedback score adjustments, not model training"
+          },
+          "promptSourceIds": [
+            "467761da-801d-4114-bd5a-59e79f75e55c:0",
+            "893ab9ae-a83b-4684-9184-c74b21cf4972:0"
+          ],
+          "contextBytes": 5661,
+          "contextLimitBytes": 6000
+        }
+      },
+      "scope": "Direct function timings, not browser or HTTP timings."
+    },
+    {
+      "name": "Local public tee recognition — one inference",
+      "elapsedMs": 26726.55,
+      "status": "passed",
+      "provider": "local",
+      "model": "qwen3-vl:4b-instruct-q4_K_M",
+      "latencyMs": 26725,
+      "cache": {
+        "hit": false,
+        "scope": "wardrobe",
+        "version": "recognition-provider-v1"
+      },
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "0666916dbf2e73ed14fd0367cbf4356c95e5eececa98fa7c72fd650469e0f79c",
+        "inputSha256": "e4f740b470153120571fbf266b91d880bbe8d265b87ac817fa22e7f80d142563",
+        "normalizedSha256": "cb5f04785d6e989713452f420068cc2c0e508f06f944227cf34fbaa649514837",
+        "width": 750,
+        "height": 1000,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 56
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 26668
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "local",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "observation": {
+        "isGarment": true,
+        "name": "White T-shirt",
+        "category": "Top",
+        "itemType": "T-shirt",
+        "color": "#f4f3ef",
+        "colorName": "White",
+        "secondaryColors": [
+          "Black",
+          "Green",
+          "Blue"
+        ],
+        "pattern": "Abstract graphic print",
+        "fit": "Regular",
+        "materialAppearance": "Soft, slightly wrinkled fabric with a smooth texture",
+        "styleTags": [
+          "Casual",
+          "Graphic tee",
+          "Modern",
+          "Minimalist",
+          "Streetwear"
+        ],
+        "occasions": [
+          "Campus casual",
+          "Coffee date",
+          "Presentation day"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [
+          "Graphic print is pixelated and partially obscured",
+          "T-shirt hangs on a wooden hanger",
+          "Fabric appears to be cotton or cotton blend",
+          "No visible stitching or seams on front",
+          "Print is centered on the chest area",
+          "No visible brand or logo",
+          "Color swatch is an approximate palette color, not a measured fabric color.",
+          "Material and occasions are visual suggestions; verify them manually."
+        ],
+        "brandVerified": false,
+        "targetDescription": "White T-shirt with a rectangular abstract graphic print on the front",
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "reviewRequired": true
+      },
+      "usage": null
+    }
+  ],
+  "elapsedMs": 44260.09,
+  "requests": {
+    "recognitionRequests": 1,
+    "stylistRequests": 1,
+    "embeddingRequests": 3
+  },
+  "summary": {
+    "passed": 7,
+    "degraded": 0,
+    "failed": 0,
+    "skipped": 0
+  }
+}

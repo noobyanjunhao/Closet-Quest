@@ -1,0 +1,115 @@
+{
+  "date": "2026-10-02 America/New_York",
+  "photo": "public/photos/tee.jpg; uploaded through browser picker and resized client-side",
+  "jobId": "f661b1b8-71d8-4998-b30d-0eb54c8f7043",
+  "status": "ready",
+  "jobElapsedMs": 24919,
+  "recognition": {
+    "data": {
+      "isGarment": true,
+      "name": "White T-shirt",
+      "category": "Top",
+      "itemType": "T-shirt",
+      "color": "#f4f3ef",
+      "colorName": "White",
+      "secondaryColors": [
+        "Black",
+        "Gray",
+        "Blue"
+      ],
+      "pattern": "Abstract landscape graphic",
+      "fit": "Regular",
+      "materialAppearance": "Soft, slightly wrinkled cotton-like fabric",
+      "styleTags": [
+        "Minimalist",
+        "Graphic tee",
+        "Casual",
+        "Modern",
+        "Artistic"
+      ],
+      "occasions": [
+        "Campus casual",
+        "Coffee date",
+        "Presentation day"
+      ],
+      "visibleLabelText": "",
+      "uncertainty": [
+        "Pixelated graphic obscures full detail",
+        "T-shirt hangs on wooden hanger",
+        "Background includes wood and white wall",
+        "Color swatch is an approximate palette color, not a measured fabric color.",
+        "Material and occasions are visual suggestions; verify them manually."
+      ],
+      "brandVerified": false,
+      "targetDescription": "White T-shirt with a pixelated abstract landscape graphic on the front",
+      "labelPolicy": "manual-only",
+      "colorSource": "representative-palette",
+      "reviewRequired": true
+    },
+    "model": "qwen3-vl:4b-instruct-q4_K_M",
+    "latencyMs": 24903,
+    "tokens": 193,
+    "pipeline": {
+      "version": "garment-v2.1",
+      "promptSha256": "0666916dbf2e73ed14fd0367cbf4356c95e5eececa98fa7c72fd650469e0f79c",
+      "inputSha256": "472fea3febf4d710db4999b5675e7d2baeceac97653dd1b87a27fdd61bb1aad8",
+      "normalizedSha256": "48092758d2753c4a2aedc1854d98e9303d548e7a2cfe9750bd231418675b25b2",
+      "width": 750,
+      "height": 1000,
+      "stages": [
+        {
+          "name": "preparing",
+          "durationMs": 85
+        },
+        {
+          "name": "recognizing",
+          "durationMs": 24810
+        },
+        {
+          "name": "validating",
+          "durationMs": 0
+        }
+      ],
+      "labelPolicy": "manual-only",
+      "colorSource": "representative-palette"
+    }
+  },
+  "manualCorrection": {
+    "name": "Rehearsal graphic tee",
+    "tags": "Campus casual, Coffee date, Graphic tee",
+    "reason": "Removed unverified Presentation day occasion"
+  },
+  "browser": {
+    "localStylistDisplayedSeconds": 19.7,
+    "provider": "local AI",
+    "looks": 3,
+    "chosenPieces": [
+      "Rehearsal graphic tee",
+      "Everyday blue jeans",
+      "White canvas sneakers",
+      "Navy everyday blazer",
+      "Sand everyday tote"
+    ],
+    "savedLookPersistedAcrossReload": true,
+    "xpPersisted": 50,
+    "wearPersistedAcrossReload": true,
+    "crossScreenDuplicateWearDisabled": true,
+    "undoRestoredTeeWearCount": 0,
+    "invalidImageAddedPieces": 0,
+    "manualRecoverySaved": "Manual recovery scarf",
+    "resetThenReload": {
+      "pieces": 6,
+      "looks": 0,
+      "xp": 0
+    },
+    "consoleErrorsObserved": 0
+  },
+  "limitations": [
+    "One sample photo and one live stylist run, not an accuracy study",
+    "Browser upload automation waited on file picker; excluded from model latency",
+    "Backup download could not be verified in embedded browser; not a demonstrated recovery path",
+    "Physical camera not tested"
+  ],
+  "remoteMainVerified": "df7bd77ce9ce38568c31ecf3c5522840a39db39f",
+  "localBase": "e66d0c6875a23982caf78239953e17a1986edc75"
+}
