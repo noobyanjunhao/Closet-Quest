@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="504" height="478" preserveAspectRatio="xMinYMin meet" viewBox="0 0 504 478" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="504" height="478"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-478)" style="clip-path: url(#clip)">
+		<g transform="">
+			<text x="0" y="470" style="font-family: Helvetica-Bold; font-size: 8px;fill: rgb(32%,40%,36%); stroke:none;" transform="translate(0,940) scale(1,-1)">INDEXING  /  WHEN DOCUMENTS ARE ADDED OR REINDEXED</text>
+			<rect x="0" y="394" width="108" height="66" rx="7" ry="7" style="stroke: rgb(72%,78%,74%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(96%,94%,87%); fill-rule: evenodd;"/>
+			<text x="10" y="440.9" style="font-family: Helvetica-Bold; font-size: 9.1px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,881) scale(1,-1)">Notes + guides</text>
+			<text x="10" y="426.3" style="font-family: Helvetica; font-size: 8.2px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,852) scale(1,-1)">User text and authored</text>
+			<text x="10" y="415.8" style="font-family: Helvetica; font-size: 8.2px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,831) scale(1,-1)">style references</text>
+			<rect x="126" y="394" width="108" height="66" rx="7" ry="7" style="stroke: rgb(72%,78%,74%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(96%,94%,87%); fill-rule: evenodd;"/>
+			<text x="136" y="440.9" style="font-family: Helvetica-Bold; font-size: 9.1px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,881) scale(1,-1)">Chunk text</text>
+			<text x="136" y="426.3" style="font-family: Helvetica; font-size: 8.2px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,852) scale(1,-1)">900 characters; 120</text>
+			<text x="136" y="415.8" style="font-family: Helvetica; font-size: 8.2px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,831) scale(1,-1)">overlap</text>
+			<rect x="252" y="394" width="108" height="66" rx="7" ry="7" style="stroke: rgb(72%,78%,74%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(96%,94%,87%); fill-rule: evenodd;"/>
+			<text x="262" y="440.9" style="font-family: Helvetica-Bold; font-size: 9.1px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,881) scale(1,-1)">Embed passages</text>
+			<text x="262" y="426.3" style="font-family: Helvetica; font-size: 8.2px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,852) scale(1,-1)">Selected local or</text>
+			<text x="262" y="415.8" style="font-family: Helvetica; font-size: 8.2px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,831) scale(1,-1)">OpenAI adapter</text>
+			<rect x="378" y="394" width="126" height="66" rx="7" ry="7" style="stroke: rgb(72%,78%,74%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(96%,94%,87%); fill-rule: evenodd;"/>
+			<text x="388" y="440.9" style="font-family: Helvetica-Bold; font-size: 9.1px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,881) scale(1,-1)">SQLite library</text>
+			<text x="388" y="426.3" style="font-family: Helvetica; font-size: 8.2px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,852) scale(1,-1)">Chunks, vectors, source +</text>
+			<text x="388" y="415.8" style="font-family: Helvetica; font-size: 8.2px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,831) scale(1,-1)">model IDs</text>
+			<polyline points="108 427, 126 427" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd;"/>
+			<polygon points="126 427, 121.4978 429.1748, 121.4978 424.8252" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 0.3; fill: rgb(32%,40%,36%); fill-rule: evenodd;"/>
+			<polyline points="234 427, 252 427" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd;"/>
+			<polygon points="252 427, 247.4978 429.1748, 247.4978 424.8252" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 0.3; fill: rgb(32%,40%,36%); fill-rule: evenodd;"/>
+			<polyline points="360 427, 378 427" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd;"/>
+			<polygon points="378 427, 373.4978 429.1748, 373.4978 424.8252" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 0.3; fill: rgb(32%,40%,36%); fill-rule: evenodd;"/>
+			<text x="0" y="367" style="font-family: Helvetica-Bold; font-size: 8px;fill: rgb(32%,40%,36%); stroke:none;" transform="translate(0,734) scale(1,-1)">RECOMMENDATION  /  ONE REQUEST, ORDERED STAGES</text>
+			<rect x="0" y="307" width="458" height="49" rx="7" ry="7" style="stroke: rgb(72%,78%,74%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(92%,95%,92%); fill-rule: evenodd;"/>
+			<text x="10" y="336.9" style="font-family: Helvetica-Bold; font-size: 9.1px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,673) scale(1,-1)">1 Prepare the request</text>
+			<text x="10" y="322.3" style="font-family: Helvetica; font-size: 8.2px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,644) scale(1,-1)">Reviewed garments + brief + occasion/anchor + preferences + recent feedback</text>
+			<polyline points="114 307, 114 288" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd;"/>
+			<polygon points="114 288, 116.1748 292.5022, 111.8252 292.5022" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 0.3; fill: rgb(32%,40%,36%); fill-rule: evenodd;"/>
+			<rect x="0" y="201" width="220" height="87" rx="7" ry="7" style="stroke: rgb(72%,78%,74%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(92%,95%,92%); fill-rule: evenodd;"/>
+			<text x="10" y="268.9" style="font-family: Helvetica-Bold; font-size: 9.1px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,537) scale(1,-1)">2 Retrieve owned garments</text>
+			<text x="10" y="254.5" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,509) scale(1,-1)">Hard color exclusions first</text>
+			<text x="10" y="244.0" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,488) scale(1,-1)">BM25 + dense cosine -&gt; rank fusion</text>
+			<text x="10" y="233.5" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,467) scale(1,-1)">Coverage + preference/feedback scores</text>
+			<text x="10" y="223.0" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,446) scale(1,-1)">Keep up to 18 of 200 garments</text>
+			<rect x="238" y="201" width="220" height="87" rx="7" ry="7" style="stroke: rgb(72%,78%,74%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(92%,95%,92%); fill-rule: evenodd;"/>
+			<text x="248" y="268.9" style="font-family: Helvetica-Bold; font-size: 9.1px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,537) scale(1,-1)">3 Retrieve document passages</text>
+			<text x="248" y="254.5" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,509) scale(1,-1)">Same brief + preferences</text>
+			<text x="248" y="244.0" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,488) scale(1,-1)">Cosine 70% + lexical score 30%</text>
+			<text x="248" y="233.5" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,467) scale(1,-1)">Up to 4 passages; source IDs retained</text>
+			<text x="248" y="223.0" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,446) scale(1,-1)">Keyword fallback if vectors fail</text>
+			<polyline points="220 245, 238 245" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd;"/>
+			<polygon points="238 245, 233.4978 247.1748, 233.4978 242.8252" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 0.3; fill: rgb(32%,40%,36%); fill-rule: evenodd;"/>
+			<polyline points="441 394, 489 394, 489 260, 458 260" style="stroke: rgb(60%,47%,22%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd;"/>
+			<polygon points="458 260, 462.5022 257.8252, 462.5022 262.1748" style="stroke: rgb(60%,47%,22%); stroke-linecap: butt; stroke-width: 0.3; fill: rgb(60%,47%,22%); fill-rule: evenodd;"/>
+			<polyline points="348 201, 348 184" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd;"/>
+			<polygon points="348 184, 350.1748 188.5022, 345.8252 188.5022" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 0.3; fill: rgb(32%,40%,36%); fill-rule: evenodd;"/>
+			<rect x="0" y="117" width="458" height="67" rx="7" ry="7" style="stroke: rgb(72%,78%,74%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(92%,95%,92%); fill-rule: evenodd;"/>
+			<text x="10" y="164.9" style="font-family: Helvetica-Bold; font-size: 9.1px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,329) scale(1,-1)">4 Build complete plans and bounded context</text>
+			<text x="10" y="150.4" style="font-family: Helvetica; font-size: 8.1px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,300) scale(1,-1)">Owned-item outfit plans + garment facts + preferences + authored guides</text>
+			<text x="10" y="139.9" style="font-family: Helvetica; font-size: 8.1px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,279) scale(1,-1)">At most 2 document excerpts in the 6,000-byte model prompt</text>
+			<text x="10" y="129.4" style="font-family: Helvetica; font-size: 8.1px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,258) scale(1,-1)">Retrieved documents are reference data, never instructions</text>
+			<polyline points="229 117, 229 102" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd;"/>
+			<polygon points="229 102, 231.1748 106.5022, 226.8252 106.5022" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 0.3; fill: rgb(32%,40%,36%); fill-rule: evenodd;"/>
+			<rect x="0" y="59" width="458" height="43" rx="7" ry="7" style="stroke: rgb(72%,78%,74%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(92%,95%,92%); fill-rule: evenodd;"/>
+			<text x="10" y="82.9" style="font-family: Helvetica-Bold; font-size: 9.1px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,165) scale(1,-1)">5 Select plans with structured output</text>
+			<text x="10" y="68.5" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,137) scale(1,-1)">OpenAI or local stylist chooses plan IDs; Quick supplies deterministic fallback</text>
+			<polyline points="229 59, 229 44" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd;"/>
+			<polygon points="229 44, 231.1748 48.50224, 226.8252 48.50224" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 0.3; fill: rgb(32%,40%,36%); fill-rule: evenodd;"/>
+			<rect x="0" y="1" width="458" height="43" rx="7" ry="7" style="stroke: rgb(72%,78%,74%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(92%,95%,92%); fill-rule: evenodd;"/>
+			<text x="10" y="24.9" style="font-family: Helvetica-Bold; font-size: 9.1px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,49) scale(1,-1)">6 Validate, display and remember</text>
+			<text x="10" y="10.5" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,21) scale(1,-1)">Ownership, completeness + anchor checks -&gt; up to 3 outfits + saved history</text>
+			<polyline points="458 22, 474 22, 474 331, 458 331" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd; stroke-dasharray: 3, 3;"/>
+			<polygon points="458 331, 462.5022 328.8252, 462.5022 333.1748" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 0.3; fill: rgb(32%,40%,36%); fill-rule: evenodd;"/>
+		</g>
+	</g>
+</svg>

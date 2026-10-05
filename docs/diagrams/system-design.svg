@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="504" height="470" preserveAspectRatio="xMinYMin meet" viewBox="0 0 504 470" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="504" height="470"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-470)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="379" width="504" height="91" rx="9" ry="9" style="stroke: rgb(72%,78%,74%); stroke-linecap: butt; stroke-width: 1; fill: rgb(92%,95%,92%); fill-rule: evenodd;"/>
+			<text x="12" y="453" style="font-family: Helvetica-Bold; font-size: 8px;fill: rgb(32%,40%,36%); stroke:none;" transform="translate(0,906) scale(1,-1)">BROWSER  /  REACT 19</text>
+			<rect x="12" y="387" width="278" height="54" rx="7" ry="7" style="stroke: rgb(72%,78%,74%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="22" y="421.9" style="font-family: Helvetica-Bold; font-size: 9.1px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,843) scale(1,-1)">Closet -&gt; Stylist -&gt; Saved looks</text>
+			<text x="22" y="407.5" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,815) scale(1,-1)">Photo/camera input, human review, style + memory</text>
+			<rect x="324" y="387" width="168" height="54" rx="7" ry="7" style="stroke: rgb(72%,78%,74%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="334" y="421.9" style="font-family: Helvetica-Bold; font-size: 9.1px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,843) scale(1,-1)">localStorage</text>
+			<text x="334" y="407.5" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,815) scale(1,-1)">Garments/photos, preferences, looks +</text>
+			<text x="334" y="397.0" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,794) scale(1,-1)">history</text>
+			<polyline points="290 422, 324 422" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd;"/>
+			<polygon points="324 422, 319.4978 424.1748, 319.4978 419.8252" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 0.3; fill: rgb(32%,40%,36%); fill-rule: evenodd;"/>
+			<polyline points="324 408, 290 408" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd;"/>
+			<polygon points="290 408, 294.5022 405.8252, 294.5022 410.1748" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 0.3; fill: rgb(32%,40%,36%); fill-rule: evenodd;"/>
+			<text x="171" y="363" style="font-family: Helvetica; font-size: 8px;fill: rgb(32%,40%,36%); stroke:none;" transform="translate(0,726) scale(1,-1)">Same-origin HTTP; JSON, photos, job polling/cancel</text>
+			<rect x="0" y="137" width="504" height="216" rx="9" ry="9" style="stroke: rgb(72%,78%,74%); stroke-linecap: butt; stroke-width: 1; fill: rgb(92%,95%,92%); fill-rule: evenodd;"/>
+			<rect x="12" y="294" width="480" height="47" rx="7" ry="7" style="stroke: rgb(72%,78%,74%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="22" y="321.9" style="font-family: Helvetica-Bold; font-size: 9.1px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,643) scale(1,-1)">NODE 24 / LOOPBACK API + BUILT FRONTEND</text>
+			<text x="22" y="307.5" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,615) scale(1,-1)">Host/origin checks, request limits, image validation/EXIF removal; server-only API key</text>
+			<polyline points="154 379, 154 341" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd;"/>
+			<polygon points="154 341, 156.1748 345.5022, 151.8252 345.5022" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 0.3; fill: rgb(32%,40%,36%); fill-rule: evenodd;"/>
+			<polyline points="252 294, 252 278, 87 278, 87 263" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd;"/>
+			<polygon points="87 263, 89.17483 267.5022, 84.82517 267.5022" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 0.3; fill: rgb(32%,40%,36%); fill-rule: evenodd;"/>
+			<polyline points="252 294, 252 263" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd;"/>
+			<polygon points="252 263, 254.1748 267.5022, 249.8252 267.5022" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 0.3; fill: rgb(32%,40%,36%); fill-rule: evenodd;"/>
+			<polyline points="252 278, 417 278, 417 263" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd;"/>
+			<polygon points="417 263, 419.1748 267.5022, 414.8252 267.5022" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 0.3; fill: rgb(32%,40%,36%); fill-rule: evenodd;"/>
+			<rect x="12" y="151" width="150" height="112" rx="7" ry="7" style="stroke: rgb(72%,78%,74%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="22" y="243.9" style="font-family: Helvetica-Bold; font-size: 9.1px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,487) scale(1,-1)">Recognition service</text>
+			<text x="22" y="229.5" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,459) scale(1,-1)">Durable photo jobs</text>
+			<text x="22" y="219.0" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,438) scale(1,-1)">1 local + 2 cloud workers</text>
+			<text x="22" y="208.5" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,417) scale(1,-1)">Separate direct API cap</text>
+			<text x="22" y="198.0" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,396) scale(1,-1)">Provider/profile routing</text>
+			<text x="22" y="187.5" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,375) scale(1,-1)">Validated result cache</text>
+			<text x="22" y="177.0" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,354) scale(1,-1)">Editable human review</text>
+			<rect x="177" y="151" width="150" height="112" rx="7" ry="7" style="stroke: rgb(72%,78%,74%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="187" y="243.9" style="font-family: Helvetica-Bold; font-size: 9.1px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,487) scale(1,-1)">Recommendation service</text>
+			<text x="187" y="229.5" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,459) scale(1,-1)">Preferences + feedback</text>
+			<text x="187" y="219.0" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,438) scale(1,-1)">Wardrobe/document RAG</text>
+			<text x="187" y="208.5" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,417) scale(1,-1)">Owned outfit planning</text>
+			<text x="187" y="198.0" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,396) scale(1,-1)">Bounded prompt + validation</text>
+			<text x="187" y="187.5" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,375) scale(1,-1)">Quick fallback + provenance</text>
+			<rect x="342" y="151" width="150" height="112" rx="7" ry="7" style="stroke: rgb(72%,78%,74%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="352" y="243.9" style="font-family: Helvetica-Bold; font-size: 9.1px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,487) scale(1,-1)">Document service</text>
+			<text x="352" y="229.5" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,459) scale(1,-1)">Add/delete/reindex notes</text>
+			<text x="352" y="219.0" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,438) scale(1,-1)">Chunk + embed + search</text>
+			<text x="352" y="208.5" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,417) scale(1,-1)">Wardrobe UUID namespace</text>
+			<text x="352" y="198.0" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,396) scale(1,-1)">Vector identity validation</text>
+			<text x="352" y="187.5" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,375) scale(1,-1)">Keyword fallback</text>
+			<polyline points="122 137, 122 97" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd;"/>
+			<polygon points="122 97, 124.1748 101.5022, 119.8252 101.5022" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 0.3; fill: rgb(32%,40%,36%); fill-rule: evenodd;"/>
+			<text x="132" y="116" style="font-family: Helvetica; font-size: 8px;fill: rgb(32%,40%,36%); stroke:none;" transform="translate(0,232) scale(1,-1)">Read/write + cache</text>
+			<polyline points="382 137, 382 97" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd;"/>
+			<polygon points="382 97, 384.1748 101.5022, 379.8252 101.5022" style="stroke: rgb(32%,40%,36%); stroke-linecap: butt; stroke-width: 0.3; fill: rgb(32%,40%,36%); fill-rule: evenodd;"/>
+			<text x="291" y="116" style="font-family: Helvetica; font-size: 8px;fill: rgb(32%,40%,36%); stroke:none;" transform="translate(0,232) scale(1,-1)">Provider adapters</text>
+			<rect x="0" y="1" width="244" height="96" rx="7" ry="7" style="stroke: rgb(72%,78%,74%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(96%,94%,87%); fill-rule: evenodd;"/>
+			<text x="10" y="77.9" style="font-family: Helvetica-Bold; font-size: 9.1px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,155) scale(1,-1)">LOCAL PERSISTENCE + CACHES</text>
+			<text x="10" y="63.5" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,127) scale(1,-1)">SQLite: documents, chunks, vectors + metadata</text>
+			<text x="10" y="53.0" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,106) scale(1,-1)">Files: durable job JSON, photos, local vector cache</text>
+			<text x="10" y="42.5" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,85) scale(1,-1)">Memory: cloud vectors + recognition results</text>
+			<text x="10" y="32.0" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,64) scale(1,-1)">No cloud wardrobe database in this alpha</text>
+			<rect x="260" y="1" width="244" height="96" rx="7" ry="7" style="stroke: rgb(72%,78%,74%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(96%,94%,87%); fill-rule: evenodd;"/>
+			<text x="270" y="77.9" style="font-family: Helvetica-Bold; font-size: 9.1px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,155) scale(1,-1)">MODEL SERVICES / SELECTABLE</text>
+			<text x="270" y="63.5" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,127) scale(1,-1)">OpenAI API: vision, styling + embeddings</text>
+			<text x="270" y="53.0" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,106) scale(1,-1)">Local Ollama: vision, styling + embeddings</text>
+			<text x="270" y="42.5" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,85) scale(1,-1)">Fast / Balanced / Deep route configured models</text>
+			<text x="270" y="32.0" style="font-family: Helvetica; font-size: 8px;fill: rgb(13%,23%,19%); stroke:none;" transform="translate(0,64) scale(1,-1)">Quick planner executes inside Node</text>
+		</g>
+	</g>
+</svg>

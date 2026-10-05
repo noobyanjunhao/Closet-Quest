@@ -1,7 +1,7 @@
 # Closet Quest
 ## Sprint 6 - Personal RAG Alpha
 
-October 2, 2026 | Advanced AI for Industry and Society (49797)
+October 5, 2026 | Advanced AI for Industry and Society (49797)
 
 **Result.** Closet Quest now connects OpenAI photo recognition, reviewed wardrobe facts, saved style preferences, a persistent document vector library, constrained outfit generation, and recommendation feedback. The main flow remains Closet -> Stylist -> Saved looks; model and retrieval controls are inside My style & memory.
 
@@ -19,6 +19,26 @@ October 2, 2026 | Advanced AI for Industry and Society (49797)
 | Result -> memory | The browser retains up to 100 recommendation sessions with provider, model, timing, selected IDs, feedback and save/wear actions. Last 30 feedback sessions can affect subsequent ranking. Undo restores wear history consistently. |
 
 React and Node 24 were retained because measurement identified model inference and embedding calls as the dominant delays. Separate provider, retrieval, personalization and storage modules allow later model or service replacement. SQLite adds durable document/vector storage without requiring a separate database server for this alpha. A framework rewrite alone would not remove remote or local inference time.
+
+---
+
+## RAG pipeline architecture
+
+The stylist grounds generation in two kinds of evidence: reviewed garments that the user owns, and passages from their document library. Wardrobe retrieval runs first, followed by document retrieval. The diagram reflects the implemented sequence, including the separate document indexing path.
+
+![Figure 1. Implemented RAG pipeline. Gold boxes show document ingestion; green boxes show the recommendation request. The dashed arrow returns saved feedback to a future request.](diagrams/rag-pipeline.svg)
+
+**Grounding and learning.** Server-created plan IDs constrain what the model may select. The response retains retrieved source IDs and identifies which excerpts reached the prompt. History stores up to 100 sessions; the last 30 can adjust later rankings. This feedback loop changes scores, not model weights. Retrieval timeouts use labeled lexical or Quick fallbacks.
+
+---
+
+## System design
+
+The current alpha runs as a local web application with optional cloud inference. The browser owns the wardrobe and interaction history; the Node server validates requests, orchestrates models and stores the document library. The server sends the selected photo or bounded context to the chosen provider.
+
+![Figure 2. Current component and deployment view. Solid arrows show request, storage or provider connections; storage and model boxes summarize dependencies used by the server services.](diagrams/system-design.svg)
+
+**Persistence and trust.** SQLite stores document vectors; durable recognition jobs use files, not SQLite. Browser state and server data are partitioned by wardrobe UUID, which is not authentication. The API key stays on the server. This view describes the working local alpha; authenticated accounts, cloud object storage and a hosted vector database are future work.
 
 ---
 
@@ -93,4 +113,3 @@ Node 24 is the tested runtime. The built frontend and API share the standalone s
 | 3 - account foundation | Add authenticated users, authorization, private object storage, transactional wardrobe state, deletion cascade and verified backup/restore before hosting personal data. |
 | 4 - usability | Test physical camera capture, mobile capture/review, keyboard flow, quota recovery and multi-tab writes with peers. Confirm documents and history remain understandable without technical help. |
 | 5 - model improvements | Collect consented corrections and feedback, review data quality and evaluate a trained ranker or eligible fine-tuning against a held-out baseline. Provider profiles and score adjustments alone are not fine-tuning. |
-

@@ -6,7 +6,9 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, Tabl
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter
+from report_architecture import FIGURES, export_figures
 ROOT=Path(__file__).resolve().parents[1]
+export_figures(ROOT)
 INK=colors.HexColor('#233d32')
 styles={
  'title':ParagraphStyle('title',fontName='Times-Roman',fontSize=31,leading=34,textColor=INK,spaceAfter=12),
@@ -39,6 +41,9 @@ while i<len(lines):
   story.extend([table,Spacer(1,10)]);continue
  if line.startswith('!['):
   match=re.match(r'!\[(.*?)\]\((.*?)\)',line)
+  figure_path=Path(match[2])
+  if figure_path.suffix=='.svg' and figure_path.stem in FIGURES:
+   story.extend([FIGURES[figure_path.stem](),Spacer(1,7),Paragraph(markup(match[1]),styles['caption'])]);continue
   image=Image(str((ROOT/'docs'/match[2]).resolve()))
   factor=min(504/image.imageWidth,260/image.imageHeight)
   image.drawWidth=image.imageWidth*factor;image.drawHeight=image.imageHeight*factor
@@ -46,7 +51,7 @@ while i<len(lines):
  story.append(Paragraph(markup(line),styles['p']))
 def footer(canvas,doc):
  canvas.setFont('Helvetica',8);canvas.setFillColor(INK)
- canvas.drawString(54,29,'CLOSET QUEST  /  SPRINT 6  /  OCTOBER 2, 2026')
+ canvas.drawString(54,29,'CLOSET QUEST  /  SPRINT 6  /  OCTOBER 5, 2026')
  canvas.drawRightString(558,29,str(doc.page))
 target=ROOT/'output/pdf/Closet-Quest-Sprint-6-Integration-Report.pdf'
 SimpleDocTemplate(str(target),pagesize=letter,rightMargin=54,leftMargin=54,topMargin=40,bottomMargin=45,title='Closet Quest - Sprint 6 End-to-End Alpha',author='Closet Quest').build(story,onFirstPage=footer,onLaterPages=footer)
