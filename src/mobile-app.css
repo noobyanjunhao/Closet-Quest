@@ -1,0 +1,64 @@
+/* Account flows and tactile outfit cards; reduced-motion rules remain authoritative. */
+.app.access-screen{min-height:100dvh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:7vw;padding:6vh 8vw;background:#f6f5f0;color:#243c34}
+.app .access-card{max-width:460px;width:100%;padding:42px;border-radius:32px;background:#fffdfa;box-shadow:0 20px 80px #23392d0b;border:1px solid #fff}
+.app .access-card h1,.app .welcome-card h1{font:normal clamp(32px,4vw,48px)/1.05 Georgia,serif;letter-spacing:-1.5px;margin:22px 0 16px}
+.app .access-card>p,.app .welcome-card>p{line-height:1.6;color:#627269}
+.app .access-card .brand-icon{display:flex;align-items:center;justify-content:center;font:italic 25px Georgia;width:48px;height:48px;margin-bottom:24px}
+.app .auth-kicker{font-size:9px;letter-spacing:2px;font-weight:700;color:#698071}
+.app .access-card form{display:grid;gap:18px;margin-top:26px}
+.app .access-card label,.app .welcome-card label{display:grid;gap:9px;font-size:12px;font-weight:600}
+.app .access-card input,.app .welcome-card input{width:100%;min-height:52px;border-radius:14px;border:1px solid #dbe1da;background:#fff;padding:14px;font-size:16px;box-sizing:border-box}
+.app .access-card .primary,.app .welcome-card .primary{min-height:54px;display:flex;align-items:center;justify-content:space-between;width:100%;border-radius:17px;background:#263f35;color:white;padding:16px 20px}
+.app .auth-switch{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:22px}
+.app .auth-switch button{border:0;background:none;font-size:12px;padding:7px;color:#456553}
+.app .auth-privacy{font-size:11px;line-height:1.6;margin-top:28px;color:#778279}
+.app .auth-error,.app .auth-success{padding:14px;border-radius:12px;font-size:13px;margin:0;background:#fae9df;color:#713c26}
+.app .auth-success{background:#e8f1e9;color:#315442}
+.auth-editorial{max-width:540px;justify-self:center;width:100%}.auth-wordmark{font:600 22px Georgia;color:#284735;letter-spacing:-1px}
+.auth-editorial>p{font:normal 36px/1.2 Georgia;letter-spacing:-1px;margin-top:36px}
+.auth-photo-stack{position:relative;height:340px;margin-top:65px}
+.auth-photo-stack img{position:absolute;width:52%;height:285px;object-fit:cover;border:9px solid #fff;border-radius:24px;box-shadow:0 16px 35px #253a2618;transform:rotate(-9deg);left:3%;top:0}
+.auth-photo-stack img+img{left:44%;top:24px;transform:rotate(10deg)}
+.auth-photo-stack>span{position:absolute;right:-4%;bottom:-12px;background:#e3eab4;padding:24px;border-radius:50%;font:italic 24px/1 Georgia;transform:rotate(-9deg)}
+.app .cloud-status{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#728077;font-size:11px;min-height:25px;margin-bottom:12px;flex-wrap:wrap}
+.app .cloud-status>span{display:flex;align-items:center;gap:7px}.cloud-status i{width:5px;height:5px;border-radius:50%;background:#81a28a}
+.app .cloud-status button{font-size:11px;padding:6px 10px;min-height:32px;background:#fff9;border-radius:10px}
+.app .cloud-status.error,.app .cloud-status.conflict{padding:12px 16px;background:#fff0df;border-radius:16px;color:#7b4829}
+.app .backup-import{display:grid;gap:12px;margin-top:22px;padding-top:20px;border-top:1px solid #dce4db}
+.app .account-email{font-size:12px;overflow-wrap:anywhere}
+.app .welcome-screen{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:24px;background:radial-gradient(at 0 0,#e5ead6,transparent 55%),radial-gradient(at 100% 100%,#e5e2ef,transparent 55%),#f7f6f1;overflow:auto}
+.app .welcome-card{max-width:460px;width:100%;padding:40px;background:#fffefa;border:1px solid white;border-radius:32px;box-shadow:0 18px 90px #1f382b12}
+.welcome-progress{display:flex;gap:6px;margin-bottom:34px}.welcome-progress i{height:4px;width:36px;background:#dce4da;border-radius:4px}.welcome-progress .filled{background:#41694b}
+.app .welcome-card .primary{margin-top:30px}.app .welcome-card .text-button{display:block;margin:14px auto;font-size:12px}
+.style-chips{display:flex;gap:9px;flex-wrap:wrap;margin:26px 0}.app .style-chips button{border-radius:30px;padding:13px 19px;border:1px solid #d9dfd6;background:transparent;min-height:46px}.app .style-chips button.chosen{background:#e8eecb;border-color:#8a9d64}
+.app .look-preview{display:flex;width:100%;align-items:center;gap:25px;text-align:left;padding:24px;background:linear-gradient(135deg,#ffffffe8,#eef2e5e8);border:1px solid white;border-radius:28px;box-shadow:0 12px 30px #283b2910;margin-top:24px}
+.look-preview-images{display:flex;width:45%;max-width:310px;gap:6px}.look-preview-images img{width:33%;aspect-ratio:3/4;object-fit:cover;border-radius:14px}
+.look-preview>span{display:grid;gap:12px}.look-preview small{font-size:9px;letter-spacing:2px}.look-preview strong{font:normal 25px/1.2 Georgia}.look-preview>span>span{font-size:12px;color:#526a57}
+.app .modal:has(.outfit-card){width:min(880px,100%);padding:28px;overflow-y:auto;background:#f9faf5;border-radius:32px}
+.app .modal:has(.outfit-card)>.section-heading{margin-bottom:10px}.app .modal:has(.outfit-card)>.section-heading h2{font:normal 28px Georgia}
+.app .card-pagination{display:flex;align-items:center;justify-content:space-between;margin:14px 0 18px}.app .card-pagination button{width:44px;height:44px;padding:0;border:1px solid #dee4d8;border-radius:50%;background:#fff}.card-pagination>span{font-size:10px;letter-spacing:2px;font-weight:600}.card-pagination small{opacity:.45}
+.app .outfit-card .studio-results-heading{margin:0 0 16px}.app .outfit-card .studio-results-heading h2{font-size:20px;letter-spacing:-.4px;max-width:90%;line-height:1.3}.app .outfit-card .studio-look-tabs{display:none}
+.app .outfit-card .studio-look{display:block;border:0;background:transparent;border-radius:0;box-shadow:none;overflow:visible}
+.app .outfit-card .studio-look-photos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:0;background:transparent}
+.app .outfit-card .studio-piece-image{height:155px;aspect-ratio:auto;background:#edece5;border-radius:18px;overflow:hidden}
+.app .outfit-card .studio-piece-image img{height:100%;width:100%;object-fit:contain;mix-blend-mode:multiply}
+.app .outfit-card .studio-look-photos>button{overflow:visible;min-width:0;background:transparent;border:0;padding:0}
+.app .outfit-card .studio-piece-category{font-size:8px;margin-top:9px;letter-spacing:1px}.app .outfit-card .studio-look-photos strong{display:block;font-size:11px;line-height:1.4;padding-top:3px}
+.app .outfit-card .studio-look-story{display:block;padding:22px 0 8px;border:0;background:none}.app .outfit-card .studio-look-story>p{font-size:14px;line-height:1.6;margin-top:10px}.app .outfit-card .studio-tip{margin-top:14px}.app .outfit-card .studio-tip p{font-size:12px;line-height:1.5}.app .outfit-card .studio-palette{margin:15px 0}.app .outfit-card .studio-timing{font-size:10px;margin-bottom:18px}
+.app .outfit-card .studio-grounding{font-size:12px;border-top:1px solid #dee4d9;margin-top:20px}
+.app .outfit-card{touch-action:pan-y}.app .outfit-card .studio-look{animation:outfit-reveal .32s cubic-bezier(.2,.8,.2,1)}
+.app .closet-empty{padding:48px 22px;background:#fff9;border:1px dashed #c9d5c5;border-radius:26px}.closet-empty>span{display:block;font-size:38px;font-weight:200;color:#62775d;margin-bottom:14px}.app .closet-empty .primary{margin-top:18px}
+@keyframes outfit-reveal{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+@media(max-width:760px){
+ .app.access-screen{grid-template-columns:1fr;gap:0;padding:34px 24px;justify-content:center}.auth-editorial{display:none}.app .access-card{max-width:430px;padding:28px 0;background:transparent;border:0;box-shadow:none}.app .access-card h1{font-size:46px;max-width:330px}
+ .app main{padding-inline:20px!important;padding-bottom:120px!important}.app .sidebar{padding-top:max(20px,env(safe-area-inset-top))}.app main>header{display:none}.app .page-heading{margin:22px 0}.app .page-heading h1{font-size:36px!important;letter-spacing:-1.2px}.app .page-heading .eyebrow{display:none}.app .page-heading p{font-size:13px}.app .page-heading .heading-actions .primary{font-size:11px;min-height:44px;padding:10px 13px;border-radius:15px}
+ .app .cloud-status{margin-top:16px;margin-bottom:4px;font-size:10px}.app .editorial-lookbook{border-radius:26px}.app .stats>div{background:transparent;border:0;box-shadow:none;padding:10px 3px}.app .stats strong{font-size:22px}.app .stats span{font-size:10px}.app .wardrobe-heading .wardrobe-tools{display:grid;grid-template-columns:1fr 1fr;width:100%}.app .wardrobe-heading .search{grid-column:1/-1}.app .wardrobe-heading .wardrobe-tools select{font-size:12px;min-height:42px}
+ .app .welcome-screen{padding:22px}.app .welcome-card{padding:28px 22px}.app .welcome-card h1{font-size:40px}
+ .app .look-preview{gap:17px;padding:17px;border-radius:24px}.look-preview-images{width:43%;flex-shrink:0}.look-preview strong{font-size:20px}.look-preview small{font-size:8px;letter-spacing:1px}.look-preview>span>span{font-size:11px}
+ .app .overlay:has(.outfit-card){padding:0;align-items:end;background:#182c2759;backdrop-filter:blur(8px)}.app .modal:has(.outfit-card){border-radius:30px 30px 0 0;max-height:94dvh;padding:22px 20px max(28px,env(safe-area-inset-bottom));width:100%;box-sizing:border-box}.app .modal:has(.outfit-card)::before{content:'';display:block;width:38px;height:4px;background:#cbd3c7;border-radius:10px;margin:-9px auto 18px}.app .modal:has(.outfit-card)>.section-heading h2{font-size:26px}
+ .app .outfit-card .studio-piece-image{height:132px;border-radius:14px}.app .outfit-card .studio-look-photos{gap:9px}.app .outfit-card .studio-look-photos strong{font-size:10px}.app .outfit-card .studio-results-heading h2{font-size:18px}.app .outfit-card .studio-look-story{padding-top:20px}.app .outfit-card .studio-look-story>p{font-size:13px}.app .outfit-card .studio-palette span{width:18px;height:18px}.app .outfit-card .toolbar{gap:8px}.app .outfit-card .toolbar>button{min-height:46px;border-radius:15px;font-size:12px}
+ .app .studio-provider-note{font-size:10px;line-height:1.5}.app .studio-brief .studio-status{font-size:9px}.app .studio-brief-fields{gap:18px}.app .studio-label{font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){.app .outfit-card .studio-look{animation:none}}
+
+.app .access-card label{margin:0}.app .access-card input{margin-top:0}

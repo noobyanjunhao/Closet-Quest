@@ -6,15 +6,15 @@ export const accountNamespace = id => {
   const h=digest(`closet-participant:${id}`).toString('hex');
   return `${h.slice(0,8)}-${h.slice(8,12)}-5${h.slice(13,16)}-a${h.slice(17,20)}-${h.slice(20,32)}`;
 };
-export function createAccess({origin=process.env.CLOSET_PUBLIC_ORIGIN,secret=process.env.CLOSET_SESSION_SECRET,users=process.env.CLOSET_ACCESS_USERS,now=Date.now}={}) {
+export function createAccess({origin=process.env.CLOSET_PUBLIC_ORIGIN,secret=process.env.CLOSET_SESSION_SECRET,users=process.env.CLOSET_ACCESS_USERS,now=Date.now,cloud=false}={}) {
   const hosted=Boolean(origin);
   let accounts=[];
   if(hosted) {
     const url=new URL(origin);
     if(url.protocol!=='https:'||url.origin!==origin)throw new Error('CLOSET_PUBLIC_ORIGIN must be an HTTPS origin without a trailing slash.');
     if(typeof secret!=='string'||secret.length<32)throw new Error('Hosted access requires a random session secret of at least 32 characters.');
-    try {accounts=JSON.parse(users);}catch{throw new Error('Configure CLOSET_ACCESS_USERS before hosting.');}
-    if(!Array.isArray(accounts)||!accounts.length||accounts.length>50||accounts.some(user=>!/^p[0-9]{2,3}$/.test(user.id)||!/^[a-f0-9]{64}$/.test(user.tokenHash))||new Set(accounts.map(u=>u.id)).size!==accounts.length)throw new Error('Configure unique participant IDs and SHA-256 access-code hashes.');
+    if(!cloud){try {accounts=JSON.parse(users);}catch{throw new Error('Configure CLOSET_ACCESS_USERS before hosting.');}
+    if(!Array.isArray(accounts)||!accounts.length||accounts.length>50||accounts.some(user=>!/^p[0-9]{2,3}$/.test(user.id)||!/^[a-f0-9]{64}$/.test(user.tokenHash))||new Set(accounts.map(u=>u.id)).size!==accounts.length)throw new Error('Configure unique participant IDs and SHA-256 access-code hashes.');}
   }
   const attempts=new Map(), usage=new Map();
   const sign=value=>createHmac('sha256',secret).update(value).digest('base64url');

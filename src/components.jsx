@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import {createPortal} from 'react-dom';
 import sources from '../public/photos/sources.json';
 
 export function Garment({ item, loading = 'lazy' }) {
@@ -14,6 +15,8 @@ export function Modal({ title, onClose, children, wide = false }) {
   useEffect(() => {
     const previous = document.activeElement;
     const oldOverflow = document.body.style.overflow;
+    const root=document.getElementById('root'),wasInert=root?.inert;
+    if(root)root.inert=true;
     document.body.style.overflow = 'hidden';
     ref.current.focus();
     function keydown(e) {
@@ -38,9 +41,9 @@ export function Modal({ title, onClose, children, wide = false }) {
       else if (!e.shiftKey && (document.activeElement === last || outsideOrder)) { e.preventDefault(); first.focus(); }
     }
     document.addEventListener('keydown',keydown);
-    return () => { document.body.style.overflow = oldOverflow; document.removeEventListener('keydown',keydown); previous?.focus(); };
+    return () => { document.body.style.overflow = oldOverflow; if(root)root.inert=wasInert; document.removeEventListener('keydown',keydown); if(previous?.isConnected)previous.focus({preventScroll:true}); };
   },[]);
-  return <div className="overlay" onClick={e => { if(e.target===e.currentTarget)onClose(); }}><section ref={ref} tabIndex={-1} className={`modal ${wide?'modal-wide':''}`} role="dialog" aria-modal="true" aria-label={title}><div className="section-heading"><h2>{title}</h2><button aria-label={`Close ${title}`} onClick={onClose}>×</button></div>{children}</section></div>;
+  return createPortal(<div className="app modal-layer" style={{display:'contents'}}><div className="overlay" onClick={e => { if(e.target===e.currentTarget)onClose(); }}><section ref={ref} tabIndex={-1} className={`modal ${wide?'modal-wide':''}`} role="dialog" aria-modal="true" aria-label={title}><div className="section-heading"><h2>{title}</h2><button aria-label={`Close ${title}`} onClick={onClose}>×</button></div>{children}</section></div></div>,document.body);
 }
 export function GarmentCard({ item, onClick, children }) {
   const status = ({review:'Review suggestions',submitting:'Photo queued',queued:'Photo queued',processing:'Analyzing photo',failed:'Analysis needs retry'})[item.recognition?.status] || (item.needsReview ? 'Review details' : item.wears <= 1 ? 'Rediscover' : '');

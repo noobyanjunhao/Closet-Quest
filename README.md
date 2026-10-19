@@ -2,6 +2,12 @@
 
 A responsive wardrobe app prototype for the Closet Quest semester project, maintained in `noobyanjunhao/Closet-Quest`.
 
+## Account and mobile upgrade — October 19
+
+Supabase account mode adds email/password sign-in, recovery, onboarding, private photo storage, durable wardrobe/feedback data, and durable personal RAG notes. Outfit suggestions open as mobile bottom sheets with card navigation, save/wear actions, and garment inspection. Revision checks protect edits made on different devices. See [architecture, setup and verification](docs/accounts-and-mobile.md).
+
+The account integration and mobile UI are implemented; hosted activation requires the migration and Supabase environment settings. Public email registration additionally needs custom SMTP. The Sprint 7 pilot results below describe the earlier participant-code deployment and remain separate from account-mode verification.
+
 ## Sprint 7 validation and hosted pilot — October 19
 
 The current app adds a fluid navigation dock, multi-piece photo review, a paired **More → User study** workspace, and authenticated participant access for the hosted pilot. The research evaluation uses **18 licensed Fashionpedia validation photos**, six fictional wardrobe briefs, and explicitly synthetic GPT-6 Astra feedback. It does not claim real-user acceptance. See [the four-page validation report](output/pdf/Closet-Quest-Sprint-7-Validation-Report.pdf) and [supporting results](output/sprint7/README.md).
