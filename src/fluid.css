@@ -135,7 +135,7 @@ body { margin: 0; }
 .app .memory-chip span { transition: background-color 160ms ease, border-color 160ms ease; }
 .app .memory-chip.selected span { background: #dcebe2; border-color: #7d9d8a; }
 .app .studio-label select, .app .studio-label textarea, .app .editor-fields input, .app .editor-fields select, .app .modal input, .app .modal textarea { border-radius: 15px; border-color: #365a3d26; background: #ffffffe0; }
-.app .studio-look-photos>button { border-radius: 22px; overflow: hidden; }
+.app .studio-look-photos>button { border-radius: 17px; overflow: visible; }
 .app .studio-piece-image, .app .retrieval-thumb { border-radius: 17px; }
 .app .studio-look-tabs { border-radius: 999px; background: #e3ebe5a6; padding: 5px; gap: 4px; }
 .app .studio-look-tabs button { border-radius: 999px; min-height: 40px; }
