@@ -11,7 +11,9 @@
     "scripts/prepare-fashionpedia.py": "6b5e4b8ed23238905a7920a5ae645d62acdc4b8a765532deb723677c6ef9a5a8",
     "scripts/evaluate-sprint7-recognition.mjs": "a8dae5bbaab2892c35ab3471ab812521dfce5b80707e74c04ee1e39b65020aa5",
     "scripts/evaluate-sprint7-stylist.mjs": "1eb8aa25305876011716e5b856866c8bc52a37c1ec17280128ed80aa94e0e0aa",
-    "scripts/summarize-sprint7.mjs": "5a08192e40421357e05724c8ed1aeb2f62ebb73a58e41dbdb3886d1c72252abb"
+    "scripts/summarize-sprint7.mjs": "5a08192e40421357e05724c8ed1aeb2f62ebb73a58e41dbdb3886d1c72252abb",
+    "scripts/evaluate-sprint7-ablation.mjs": "d1fe918ec0f99c7703970728b8e3a95a2e1ffa9f4665d2a9272d457800298415",
+    "scripts/summarize-sprint7-ablation.mjs": "fce1c668c379dee95474a67d6a4d6750d1cdbc5a3b7a4b379c33e55260fcee57"
   },
   "notes": [
     "Initial dataset results retain garment-scene-v1; targeted recheck uses v1.1.",
@@ -19,5 +21,18 @@
     "Rehearsal UI actions are engineering checks, excluded from human and synthetic-judge results.",
     "Final visual deployment fixes rounded outfit-card caption clipping; hosted API smoke results retain their original deployment commit."
   ],
-  "finalVisualDeploymentCommit": "7dbdd5332081aa628a2131437c1abe0c68d30151"
+  "finalVisualDeploymentCommit": "7dbdd5332081aa628a2131437c1abe0c68d30151",
+  "followUpAblation": {
+    "evaluatedAppCommit": "7dbdd5332081aa628a2131437c1abe0c68d30151",
+    "publishedBaseCommit": "ba35f8580afc253ab18c2218578c4594ccf14c2a",
+    "protocolHash": "fb150ffc1fcb589d97e4afdbcc7118148dc62f660e4be1e00327d495c39bc849",
+    "startedAt": "2026-10-19T23:25:02.693Z",
+    "finishedAt": "2026-10-19T23:26:47.554Z",
+    "calls": {
+      "generationCalls": 30,
+      "embeddingCalls": 51
+    },
+    "humanParticipants": 0,
+    "codeMatch": "Relevant application modules match published branch after newline normalization"
+  }
 }

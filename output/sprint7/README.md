@@ -15,6 +15,8 @@ This folder contains measured public-dataset results and **synthetic AI feedback
 - `dependency-audit.json`: final dependency audit after compatible security patches; zero known vulnerabilities at the recorded check. This is not a guarantee that the application has no security defects.
 - `evaluation-provenance.json`: initial pipeline, targeted-fix and deployed commit IDs; script hashes and model identifiers.
 - `screenshots/validation-workspace.png`: real interface showing unmeasured human metrics.
+- `ablation.json`: follow-up 2x2 document/feedback experiment with six new fictional briefs, 24 initial calls and six immediate repeats. Targets, wardrobe and protocol hash were saved before inference. Includes actual prompt passages, candidate plans, provider outputs, failures and embedding-cache counters. Three positive feedback votes encode the preferred trio; this is a controlled diagnostic, not observed user behavior.
+- `ablation-summary.json` and `ablation.csv`: target-trio hit@3 was 1/6 (neither), 3/6 (documents), 3/6 (feedback), 5/6 (both). All 30 attempts completed with 54/54 structurally valid outfits and 0/30 model fallbacks. The critique target was absent from every arm's candidate plans. Lexical and hybrid both ranked the target note first in every query, so no vector-search advantage is established. Cache-cold versus immediate cache-warm full-pipeline medians were 3.139 s and 2.6045 s, with retrieval medians 509 ms and 231 ms. These are local orchestration plus actual provider timings, not Render cold-start or human task times.
 
 ## Reproduction
 
@@ -24,8 +26,10 @@ Use Node 24 and `npm ci`. Download the official Fashionpedia validation image ar
 
 `node scripts/summarize-sprint7.mjs` regenerates aggregate JSON/CSV. `python scripts/build_sprint7_report.py` generates the PDF; render and inspect it before distribution. Machine timings and model outputs may vary. No dataset photos or credentials are published.
 
+`node scripts/evaluate-sprint7-ablation.mjs --live` runs up to 30 new generator calls and 120 embedding HTTP calls, with a fresh per-condition wardrobe cache and prebuilt document indexes. Saved attempts are never silently repeated; a protocol mismatch stops execution. `node scripts/summarize-sprint7-ablation.mjs` validates the 24+6 attempt counts and produces the follow-up aggregates. The five-page report includes both the initial study and this separate experiment. Cache-warm labels should be checked against recorded counters if resuming an interrupted run.
+
 ## Attribution and limits
 
 Fashionpedia Consortium (2020), https://github.com/cvdfoundation/fashionpedia. Annotation subsets and category mapping are adaptations of CC BY 4.0 annotations: https://fashionpedia.github.io/home/data_license.html. Image rights are separate; only CC BY 2.0/public-domain metadata entries were selected. Source URLs and license details are preserved in the manifest. Photographs remain in ignored local storage and are not redistributed here.
 
-The pilot favors known feature-aligned scenarios, has a small enriched sample, uses a judge from the generator's provider family, and does not isolate documents from other personalization. Treat results as a diagnostic research pilot. Follow-up priorities are fresh phone photos, human/expert ratings, correction burden, grounded prose, distinct suggestions, durable storage and physical-camera validation.
+The pilot favors known feature-aligned scenarios, has a small enriched photo sample and uses a same-provider-family judge in the initial study. The follow-up isolates document and feedback toggles but uses exact authored target combinations rather than human ratings; it does not establish population-level value or a vector-search advantage. Treat results as a diagnostic research pilot. Follow-up priorities are candidate-plan coverage, fresh phone photos, human/expert ratings, correction burden, grounded prose, distinct suggestions, durable storage and physical-camera validation.
