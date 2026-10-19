@@ -26,6 +26,12 @@ export async function quickChat(_schema, _system, content) {
 
 export async function recommend(body, { signal, retrieve = retrieveWardrobeHybrid, retrievalDependencies = {}, openaiChat, localChat, provider: providerOverride, knowledgeSearch } = {}) {
   const started = performance.now();
+  if(body?.studyCondition!==undefined&&!['baseline','full','no-memory'].includes(body.studyCondition))throw new PipelineError('Unknown study condition.',{status:400,code:'INVALID_STUDY_CONDITION'});
+  const studyCondition=body?.studyCondition;
+  if(studyCondition==='baseline'||studyCondition==='no-memory') {
+    body={...body,provider:studyCondition==='baseline'?'quick':body.provider,preferences:{modelProfile:body.preferences?.modelProfile,embeddingProvider:body.preferences?.embeddingProvider},recommendationHistory:[]};
+    knowledgeSearch=undefined;
+  }
   const provider = providerOverride || resolveProvider(body?.provider);
   signal?.throwIfAborted();
   // Interactive semantic retrieval has a bounded budget; quick mode uses lexical RAG.
@@ -61,7 +67,7 @@ export async function recommend(body, { signal, retrieve = retrieveWardrobeHybri
     const core=outfit.itemIds.map(id=>prepared.items.find(item=>item.id===id)).filter(item=>['Top','Bottom','Dress'].includes(item.category));
     return {...outfit,title:core.map(item=>item.name||item.category).join(' + ').slice(0,80)};
   });
-  return { ...result, pipeline: { version: RECOMMENDATION_VERSION, runId: randomUUID(), requestedProvider: body.provider || 'auto', provider: actualProvider,
+  return { ...result, pipeline: { version: RECOMMENDATION_VERSION, runId: randomUUID(), studyCondition:studyCondition||null, requestedProvider: body.provider || 'auto', provider: actualProvider,
     fallback, retrievalPasses: 1, stages: ['preferences', 'wardrobe-retrieval', 'document-retrieval', 'plan', 'select', 'validate'], modelProfile:personal.preferences.modelProfile, promptVersion:'stylist-rag-v3', knowledgeMode:knowledge.metadata?.mode,
     timingMs: { retrieval: Math.round(retrievalMs), selectionAndValidation: Math.round(performance.now() - generationStart), total: Math.round(performance.now() - started) } } };
 }

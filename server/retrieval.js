@@ -12,6 +12,7 @@ const synonymGroups = [
   ['tee', 'tshirt', 'shirt', 'top'], ['pants', 'trousers', 'bottom'], ['jeans', 'denim'],
   ['sneakers', 'trainers', 'sneaker'], ['shoes', 'footwear'], ['knit', 'knitted', 'sweater', 'jumper'],
   ['jacket', 'coat', 'outerwear'], ['bag', 'tote', 'handbag'],
+  ['hat', 'cap', 'baseball'], ['hoodie', 'hooded', 'sweatshirt'], ['glasses', 'eyewear', 'spectacles'],
   ['formal', 'polished', 'office', 'presentation', 'business', 'tailored', 'smart'],
   ['casual', 'campus', 'relaxed', 'everyday', 'comfortable'], ['date', 'coffee', 'dinner'],
   ['cold', 'winter', 'warm', 'warmth', 'layer', 'layering'], ['hot', 'summer', 'lightweight', 'breezy'],

@@ -1,5 +1,6 @@
 import { fileURLToPath } from 'node:url';
 import './env.js';
+import { createAccess } from './access.js';
 import { recognizeWithProvider as recognize } from './recognition-provider.js';
 import { createKnowledgeStore } from './knowledge.js';
 import { recommend as style, resolveProvider } from './recommendation.js';
@@ -37,7 +38,7 @@ async function readJson(req,maxBytes) {
   return body;
 }
 
-export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(new URL('../.local-data/jobs/',import.meta.url)),services={},queueOptions={},knowledgeStore,knowledgeDir=fileURLToPath(new URL('../.local-data/knowledge/',import.meta.url))}={}) {
+export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(new URL('../.local-data/jobs/',import.meta.url)),services={},queueOptions={},knowledgeStore,knowledgeDir=fileURLToPath(new URL('../.local-data/knowledge/',import.meta.url)),access=createAccess()}={}) {
   const handlers={recognize,analyzeInspiration,style,retrieveWardrobeHybrid,recordLearningEvent,getLearningStatus,exportLearningData,listModels,...services};
   const queue=createJobQueue(handlers.recognize,{...queueOptions,storageDir});
   let knowledge=knowledgeStore;
@@ -49,8 +50,12 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
     try {
       if(closed)throw Object.assign(new Error('The local API is stopping. Retry after it restarts.'),{status:503,code:'SERVICE_CLOSED'});
       const route=(req.url||'/').split('?')[0];
-      const host=req.headers.host||'';
-      if(!/^(localhost|127\.0\.0\.1):\d+$/.test(host)||(req.headers.origin&&req.headers.origin!==`http://${host}`)){res.statusCode=403;return res.end(JSON.stringify({error:'Local same-origin access only.'}));}
+      access.checkOrigin(req);
+      if(req.method==='GET'&&route==='/session')return res.end(JSON.stringify({hosted:access.hosted,user:access.session(req)&&{id:access.session(req).id,namespace:access.session(req).namespace}}));
+      if(req.method==='POST'&&route==='/session/login'){const input=await readJson(req,2048);return res.end(JSON.stringify(access.login(req,String(input.code||'').slice(0,200),res)));}
+      if(req.method==='POST'&&route==='/session/logout'){access.logout(res);return res.end('{}');}
+      const user=access.require(req);
+      if(access.hosted&&(route.startsWith('/learning/')||route.startsWith('/depop/'))){res.statusCode=403;return res.end(JSON.stringify({error:'This integration is disabled on the participant deployment.'}));}
       if(req.method==='GET'&&route==='/status'){
         const models={recognition:modelFor('recognition'),stylist:modelFor('stylist'),embedding:modelFor('embedding')};
         try {
@@ -67,10 +72,14 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
       if(req.method==='GET'&&route==='/learning/status')return res.end(JSON.stringify(await handlers.getLearningStatus()));
       if(req.method==='GET'&&route==='/learning/export')return res.end(JSON.stringify(await handlers.exportLearningData()));
       const jobMatch=route.match(/^\/jobs\/([\w-]+)$/);
+      if(jobMatch&&user&&!queue.owns(jobMatch[1],user.namespace)){res.statusCode=404;return res.end(JSON.stringify({error:'Analysis unavailable for this account.'}));}
       if(jobMatch&&req.method==='GET'){const job=queue.get(jobMatch[1]);res.statusCode=job?200:404;return res.end(JSON.stringify(job||{error:'Analysis expired. Retry this photo.'}));}
       if(jobMatch&&req.method==='DELETE'){res.statusCode=queue.cancel(jobMatch[1])?200:404;return res.end('{}');}
       if(req.method!=='POST'||!['/jobs','/recognize','/inspiration','/style','/retrieve','/learning/events','/knowledge/list','/knowledge/documents','/knowledge/delete','/knowledge/search','/knowledge/reindex'].includes(route)){res.statusCode=404;return res.end('{}');}
       const body=await readJson(req,route==='/learning/events'||route.startsWith('/knowledge/')?128000:8500000);
+      if(user)body.wardrobeId=user.namespace;
+      if(access.hosted&&['/jobs','/recognize','/style','/retrieve','/inspiration','/knowledge/documents','/knowledge/search','/knowledge/reindex'].includes(route))access.allowInference(user);
+      if(access.hosted&&(body.provider==='local'||route==='/inspiration'))throw Object.assign(new Error('Local inference is unavailable on this cloud deployment. Select OpenAI or Quick matches.'),{status:400});
       const localStyle=route==='/style'&&resolveProvider(body.provider)==='local';
       const cloudPhoto=['/jobs','/recognize'].includes(route)&&body.provider==='openai';
       const inference=(['/jobs','/recognize','/inspiration'].includes(route)&&!cloudPhoto)||localStyle;
@@ -78,7 +87,7 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
       if(inference){active=true;claimed=true;}
       if((route==='/style'&&!localStyle)||(route==='/recognize'&&cloudPhoto)){if(remoteActive>=2)throw Object.assign(new Error('Two direct cloud requests are already running. Try again shortly.'),{status:429,code:'CLOUD_BUSY'});remoteActive++;remoteClaimed=true;}
       if(route==='/learning/events'){res.statusCode=201;return res.end(JSON.stringify(await handlers.recordLearningEvent(body)));}
-      if(route==='/jobs'){const job=queue.enqueue(body.image,{crop:body.crop,provider:body.provider,modelProfile:body.modelProfile,wardrobeId:body.wardrobeId});res.statusCode=202;return res.end(JSON.stringify(job));}
+      if(route==='/jobs'){const job=queue.enqueue(body.image,{crop:body.crop,detectionMode:body.detectionMode,provider:body.provider,modelProfile:body.modelProfile,wardrobeId:body.wardrobeId});res.statusCode=202;return res.end(JSON.stringify(job));}
       controller=new AbortController();controllers.add(controller);abortDisconnected=()=>{if(!res.writableEnded)controller.abort();};res.once('close',abortDisconnected);
       if(route.startsWith('/knowledge/')) {
         const store=getKnowledge();let result;
@@ -97,7 +106,7 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
         return res.end(JSON.stringify({retrieval}));
       }
       if(route==='/inspiration')return res.end(JSON.stringify(await handlers.analyzeInspiration(body.image,{signal:controller.signal})));
-      res.end(JSON.stringify(await(route==='/recognize'?handlers.recognize(body.image,{crop:body.crop,provider:body.provider,modelProfile:body.modelProfile,wardrobeId:body.wardrobeId,signal:controller.signal}):handlers.style(body,{signal:controller.signal,knowledgeSearch:(...args)=>getKnowledge().search(...args)}))));
+      res.end(JSON.stringify(await(route==='/recognize'?handlers.recognize(body.image,{crop:body.crop,detectionMode:body.detectionMode,provider:body.provider,modelProfile:body.modelProfile,wardrobeId:body.wardrobeId,signal:controller.signal}):handlers.style(body,{signal:controller.signal,knowledgeSearch:(...args)=>getKnowledge().search(...args)}))));
     }catch(error){if(!res.destroyed){res.statusCode=error.status||503;res.end(JSON.stringify({error:error.message,code:error.code,retryable:error.retryable===true}));}}
     finally{if(abortDisconnected)res.off('close',abortDisconnected);if(controller)controllers.delete(controller);if(claimed)active=false;if(remoteClaimed)remoteActive--;}
   }

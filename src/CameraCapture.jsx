@@ -30,7 +30,7 @@ export default function CameraCapture({ onUse, onChoose }) {
     setPhoto({ preview: canvas.toDataURL('image/jpeg', .82), file: new File([blob], 'My garment.jpg', { type: 'image/jpeg' }) });
   }
   return <div className="camera-flow">
-    <p>One piece at a time. Keep the whole garment in frame with even lighting.</p>
+    <p>Capture one piece or a whole outfit. Keep hats, clothes and accessories visible in even lighting; you’ll choose which pieces to add.</p>
     <div className="camera-view"><video ref={video} muted playsInline hidden={Boolean(photo)} onLoadedData={() => setReady(true)} aria-label="Live garment camera preview"/>{photo ? <img src={photo.preview} alt="Your captured garment"/> : !error && <div className="camera-frame" aria-hidden="true"/>}
       {!photo && !ready && <span className="camera-placeholder">{error ? 'Choose a photo to continue' : 'Opening camera…'}</span>}
     </div>

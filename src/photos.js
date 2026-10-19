@@ -21,6 +21,17 @@ export async function imageData(image) {
   if (!response.ok) throw new Error('The photo could not be loaded.');
   return preparePhoto(new File([await response.blob()], 'garment.jpg', { type:'image/jpeg' }));
 }
+export async function cropPhoto(imageSource, crop) {
+  const image=new Image();image.src=imageSource;await image.decode();
+  const {x,y,width,height}=crop;
+  if(![x,y,width,height].every(Number.isFinite)||x<0||y<0||width<=0||height<=0||x+width>1.000001||y+height>1.000001)throw new Error('The suggested crop is outside the photo.');
+  const sx=Math.floor(x*image.naturalWidth),sy=Math.floor(y*image.naturalHeight);
+  const sw=Math.min(image.naturalWidth-sx,Math.max(1,Math.round(width*image.naturalWidth))),sh=Math.min(image.naturalHeight-sy,Math.max(1,Math.round(height*image.naturalHeight)));
+  const scale=Math.min(1,800/Math.max(sw,sh)),canvas=document.createElement('canvas');
+  canvas.width=Math.max(1,Math.round(sw*scale));canvas.height=Math.max(1,Math.round(sh*scale));
+  const ctx=canvas.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.drawImage(image,sx,sy,sw,sh,0,0,canvas.width,canvas.height);
+  return canvas.toDataURL('image/jpeg',.88);
+}
 export async function api(path, body, method = 'POST', {signal,timeoutMs=190000} = {}) {
   let response;
   try { response = await fetch(`/api/${path}`, { method, ...(body ? { headers: { 'Content-Type':'application/json' }, body: JSON.stringify(body) } : {}), signal: signal ? AbortSignal.any([signal,AbortSignal.timeout(timeoutMs)]) : AbortSignal.timeout(timeoutMs) }); }

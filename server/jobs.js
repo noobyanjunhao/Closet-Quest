@@ -111,6 +111,7 @@ export function createJobQueue(worker, { maxJobs = 8, maxRetained = 100, ttl = 3
       jobs.set(job.id, job); queueMicrotask(drain); return snapshot(job);
     },
     get(id) { if (!closed) prune(); return snapshot(jobs.get(id)); },
+    owns(id,wardrobeId) { return jobs.get(id)?.wardrobeId===wardrobeId; },
     cancel(id) {
       if (closed) throw Object.assign(new Error('The photo queue is stopping. Retry after the local service restarts.'), { status:503, code:'QUEUE_CLOSED' });
       const job = jobs.get(id); if (!job) return false;
