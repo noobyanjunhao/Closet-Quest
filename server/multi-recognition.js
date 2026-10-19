@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import { normalizePhoto, attributesFromObservation, recognitionSchema, PipelineError } from './recognition.js';
 
-export const MULTI_VERSION = 'garment-scene-v1';
+export const MULTI_VERSION = 'garment-scene-v1.1';
 const coordinate = {type:'number',minimum:0,maximum:1};
 export const sceneSchema = {type:'object',additionalProperties:false,required:['garments','sceneNotes'],properties:{
   garments:{type:'array',maxItems:6,items:{type:'object',additionalProperties:false,required:['observation','boundingBox'],properties:{
@@ -20,13 +20,20 @@ export function validateScene(value, warnings=[]) {
   const invalid=()=>new PipelineError('The model returned incomplete piece details. Retry the photo or add a piece manually.',{code:'INVALID_SCENE_RESPONSE'});
   if(!value||typeof value!=='object'||Array.isArray(value)||Object.keys(value).some(k=>!['garments','sceneNotes'].includes(k))||!Array.isArray(value.garments)||value.garments.length>6||!Array.isArray(value.sceneNotes)||value.sceneNotes.length>3||value.sceneNotes.some(s=>typeof s!=='string'||s.length>160))throw invalid();
   if(!value.garments.length)throw new PipelineError('No clear clothing or accessories were found. Try a closer photo or add a piece manually.',{code:'NOT_FASHION'});
-  const garments=[];
+  const garments=[];let omittedCount=0;
   for(const entry of value.garments){
     if(!entry||Object.keys(entry).some(k=>!['observation','boundingBox'].includes(k)))throw invalid();
     const b=entry.boundingBox;
     if(!b||Object.keys(b).some(k=>!['x','y','width','height'].includes(k))||!['x','y','width','height'].every(k=>Number.isFinite(b[k]))||b.x<0||b.y<0||b.width<.02||b.height<.02||b.x+b.width>1.000001||b.y+b.height>1.000001)throw invalid();
     const boundingBox={x:b.x,y:b.y,width:Math.min(b.width,1-b.x),height:Math.min(b.height,1-b.y)};
-    const attributes=attributesFromObservation(entry.observation,warnings);
+    let attributes;
+    try {attributes=attributesFromObservation(entry.observation,warnings);}
+    catch(error) {
+      // Abstain on an uncertain piece without discarding the clear pieces nearby.
+      // Malformed model output and invalid geometry still fail the whole response.
+      if(!['AMBIGUOUS_ITEM','NOT_FASHION'].includes(error.code))throw error;
+      omittedCount++;continue;
+    }
     // A repeated target should not become duplicate wardrobe records.
     const duplicate=garments.some(g=>{
       const a=g.boundingBox,intersection=Math.max(0,Math.min(a.x+a.width,b.x+b.width)-Math.max(a.x,b.x))*Math.max(0,Math.min(a.y+a.height,b.y+b.height)-Math.max(a.y,b.y));
@@ -34,7 +41,8 @@ export function validateScene(value, warnings=[]) {
     });
     if(!duplicate)garments.push({...attributes,boundingBox,detectionId:`piece-${garments.length+1}`});
   }
-  return {garments,sceneNotes:value.sceneNotes};
+  if(!garments.length)throw new PipelineError('No piece was clear enough to identify. Try a closer photo or add a piece manually.',{code:'AMBIGUOUS_ITEM'});
+  return {garments,omittedCount,sceneNotes:[...value.sceneNotes,...(omittedCount?[`${omittedCount} uncertain piece${omittedCount===1?' was':'s were'} left out. Add a closer photo to include ${omittedCount===1?'it':'them'}.`]:[])]};
 }
 
 export async function runSceneRecognition(image, generate, {signal,onStage=()=>{},crop,...options}={}) {

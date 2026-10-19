@@ -35,6 +35,13 @@ test('invalid/empty scenes and unsafe crops abstain; overlapping duplicate targe
   const duplicate=scene();duplicate.garments.push(structuredClone(duplicate.garments[0]));assert.equal(validateScene(duplicate).garments.length,2);
 });
 
+test('uncertain pieces abstain individually and never erase clear detections',()=>{
+  const mixed=scene();mixed.garments[0].observation.subjectStatus='ambiguous';
+  const result=validateScene(mixed);assert.equal(result.garments.length,1);assert.equal(result.garments[0].itemType,'Hoodie');assert.equal(result.omittedCount,1);assert.match(result.sceneNotes.at(-1),/uncertain piece/);
+  mixed.garments[1].observation.subjectStatus='ambiguous';assert.throws(()=>validateScene(mixed),{code:'AMBIGUOUS_ITEM'});
+  const malformed=scene();malformed.garments[0].observation.colorFamily='Invented';assert.throws(()=>validateScene(malformed));
+});
+
 test('single and scene results use separate caches and scene mode requests high-detail images',async()=>{
   let calls=0;const options=[];
   const provider=createRecognitionProvider({openaiFactory:o=>{options.push(o);return async(schema)=>{calls++;return {data:schema.properties.garments?scene():observation('Hoodie','Gray'),model:'test'};};}});
