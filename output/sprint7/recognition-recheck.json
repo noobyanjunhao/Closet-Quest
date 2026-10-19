@@ -1,0 +1,137 @@
+{
+  "measuredAt": "2026-10-19T23:02:50.309Z",
+  "protocol": "Category-set precision/recall. Errors predict empty sets and remain in recall denominator. Two concurrent workers; first inference, not server cold start. No human labels or training claims.",
+  "targetedRecheck": true,
+  "rows": [
+    {
+      "imageId": 15707,
+      "stratum": "general",
+      "mode": "multiple",
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 11511,
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "Blouse",
+          "boundingBox": {
+            "x": 0.372,
+            "y": 0.216,
+            "width": 0.367,
+            "height": 0.26
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Trousers",
+          "boundingBox": {
+            "x": 0.365,
+            "y": 0.443,
+            "width": 0.312,
+            "height": 0.369
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Handbag",
+          "boundingBox": {
+            "x": 0.476,
+            "y": 0.397,
+            "width": 0.199,
+            "height": 0.089
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Dress shoes",
+          "boundingBox": {
+            "x": 0.32,
+            "y": 0.79,
+            "width": 0.43,
+            "height": 0.18
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 1597,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 1594
+        },
+        "output_tokens": 885,
+        "output_tokens_details": {
+          "reasoning_tokens": 252
+        },
+        "total_tokens": 2482
+      },
+      "pipeline": {
+        "version": "garment-scene-v1.1",
+        "promptSha256": "2edcd182417f58527bfdc3067e4f4b74aaa8ba1296baa695b7d4970c4f71905f",
+        "inputSha256": "adc5d330cedf0111e868d08b6c81523057498f8b80b7348a5d76edd503b0eca5",
+        "normalizedSha256": "91d88ae7803fb52cbb95b08d89e5f9e9e3dd028cc64fc8fc3901fcda66bdbc10",
+        "width": 666,
+        "height": 1000,
+        "detectionMode": "multiple",
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 63
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 11445
+          },
+          {
+            "name": "validating",
+            "durationMs": 1
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "hatDetected": false
+    },
+    {
+      "imageId": 9711,
+      "stratum": "general",
+      "mode": "multiple",
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "status": "failed",
+      "code": "INVALID_SCENE_RESPONSE",
+      "latencyMs": 15377,
+      "predicted": [],
+      "tp": 0,
+      "fp": 0,
+      "fn": 3,
+      "hatDetected": false
+    }
+  ]
+}

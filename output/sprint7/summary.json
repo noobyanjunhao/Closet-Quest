@@ -1,0 +1,359 @@
+{
+  "humanParticipants": 0,
+  "humanAcceptance": null,
+  "humanCorrectionTime": null,
+  "physicalCameraVerified": false,
+  "recognition": {
+    "single": {
+      "all": {
+        "attempts": 18,
+        "completed": 17,
+        "precision": {
+          "numerator": 17,
+          "denominator": 17,
+          "value": 1
+        },
+        "recall": {
+          "numerator": 17,
+          "denominator": 49,
+          "value": 0.3469387755102041
+        },
+        "exactSet": {
+          "numerator": 0,
+          "denominator": 18,
+          "value": 0
+        },
+        "medianLatencyMs": 3808.5,
+        "hatRecall": {
+          "numerator": 0,
+          "denominator": 6,
+          "value": 0
+        },
+        "failures": [
+          {
+            "imageId": 9676,
+            "code": "AMBIGUOUS_ITEM"
+          }
+        ]
+      },
+      "general": {
+        "attempts": 12,
+        "completed": 11,
+        "precision": {
+          "numerator": 11,
+          "denominator": 11,
+          "value": 1
+        },
+        "recall": {
+          "numerator": 11,
+          "denominator": 30,
+          "value": 0.36666666666666664
+        },
+        "exactSet": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0
+        },
+        "medianLatencyMs": 3793,
+        "hatRecall": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "failures": [
+          {
+            "imageId": 9676,
+            "code": "AMBIGUOUS_ITEM"
+          }
+        ]
+      },
+      "hat": {
+        "attempts": 6,
+        "completed": 6,
+        "precision": {
+          "numerator": 6,
+          "denominator": 6,
+          "value": 1
+        },
+        "recall": {
+          "numerator": 6,
+          "denominator": 19,
+          "value": 0.3157894736842105
+        },
+        "exactSet": {
+          "numerator": 0,
+          "denominator": 6,
+          "value": 0
+        },
+        "medianLatencyMs": 3808.5,
+        "hatRecall": {
+          "numerator": 0,
+          "denominator": 6,
+          "value": 0
+        },
+        "failures": []
+      }
+    },
+    "multiple": {
+      "all": {
+        "attempts": 18,
+        "completed": 16,
+        "precision": {
+          "numerator": 41,
+          "denominator": 45,
+          "value": 0.9111111111111111
+        },
+        "recall": {
+          "numerator": 41,
+          "denominator": 49,
+          "value": 0.8367346938775511
+        },
+        "exactSet": {
+          "numerator": 12,
+          "denominator": 18,
+          "value": 0.6666666666666666
+        },
+        "medianLatencyMs": 9436.5,
+        "hatRecall": {
+          "numerator": 6,
+          "denominator": 6,
+          "value": 1
+        },
+        "failures": [
+          {
+            "imageId": 15707,
+            "code": "AMBIGUOUS_ITEM"
+          },
+          {
+            "imageId": 9711,
+            "code": "AMBIGUOUS_ITEM"
+          }
+        ]
+      },
+      "general": {
+        "attempts": 12,
+        "completed": 10,
+        "precision": {
+          "numerator": 22,
+          "denominator": 26,
+          "value": 0.8461538461538461
+        },
+        "recall": {
+          "numerator": 22,
+          "denominator": 30,
+          "value": 0.7333333333333333
+        },
+        "exactSet": {
+          "numerator": 6,
+          "denominator": 12,
+          "value": 0.5
+        },
+        "medianLatencyMs": 9037.5,
+        "hatRecall": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "failures": [
+          {
+            "imageId": 15707,
+            "code": "AMBIGUOUS_ITEM"
+          },
+          {
+            "imageId": 9711,
+            "code": "AMBIGUOUS_ITEM"
+          }
+        ]
+      },
+      "hat": {
+        "attempts": 6,
+        "completed": 6,
+        "precision": {
+          "numerator": 19,
+          "denominator": 19,
+          "value": 1
+        },
+        "recall": {
+          "numerator": 19,
+          "denominator": 19,
+          "value": 1
+        },
+        "exactSet": {
+          "numerator": 6,
+          "denominator": 6,
+          "value": 1
+        },
+        "medianLatencyMs": 9700,
+        "hatRecall": {
+          "numerator": 6,
+          "denominator": 6,
+          "value": 1
+        },
+        "failures": []
+      }
+    }
+  },
+  "stylist": {
+    "baseline": {
+      "attempts": 6,
+      "completed": 6,
+      "structuralValidity": {
+        "numerator": 18,
+        "denominator": 18,
+        "value": 1
+      },
+      "modelFallback": {
+        "numerator": 0,
+        "denominator": 6,
+        "value": 0
+      },
+      "medianLatencyMs": 4,
+      "retrievalModes": [
+        "BM25 + explicit synonyms + category coverage (dense disabled)",
+        "BM25 + explicit synonyms + category coverage (dense disabled)",
+        "BM25 + explicit synonyms + category coverage (dense disabled)",
+        "BM25 + explicit synonyms + category coverage (dense disabled)",
+        "BM25 + explicit synonyms + category coverage (dense disabled)",
+        "BM25 + explicit synonyms + category coverage (dense disabled)"
+      ],
+      "knowledgeModes": [
+        "not-requested",
+        "not-requested",
+        "not-requested",
+        "not-requested",
+        "not-requested",
+        "not-requested"
+      ],
+      "synthetic": {
+        "ratings": 12,
+        "acceptable": {
+          "numerator": 2,
+          "denominator": 12,
+          "value": 0.16666666666666666
+        },
+        "bothOrdersAcceptable": {
+          "numerator": 1,
+          "denominator": 6,
+          "value": 0.16666666666666666
+        },
+        "orderDisagreement": {
+          "numerator": 0,
+          "denominator": 6,
+          "value": 0
+        },
+        "briefFit": 3.6666666666666665,
+        "preferenceFit": 2.5833333333333335,
+        "coherence": 4,
+        "evidenceUseful": 1
+      }
+    },
+    "no-memory": {
+      "attempts": 6,
+      "completed": 6,
+      "structuralValidity": {
+        "numerator": 14,
+        "denominator": 14,
+        "value": 1
+      },
+      "modelFallback": {
+        "numerator": 0,
+        "denominator": 6,
+        "value": 0
+      },
+      "medianLatencyMs": 4493.5,
+      "retrievalModes": [
+        "BM25 + dense cosine + reciprocal rank fusion + category coverage",
+        "BM25 + dense cosine + reciprocal rank fusion + category coverage",
+        "BM25 + dense cosine + reciprocal rank fusion + category coverage",
+        "BM25 + dense cosine + reciprocal rank fusion + category coverage",
+        "BM25 + dense cosine + reciprocal rank fusion + category coverage",
+        "BM25 + dense cosine + reciprocal rank fusion + category coverage"
+      ],
+      "knowledgeModes": [
+        "not-requested",
+        "not-requested",
+        "not-requested",
+        "not-requested",
+        "not-requested",
+        "not-requested"
+      ],
+      "synthetic": {
+        "ratings": 12,
+        "acceptable": {
+          "numerator": 4,
+          "denominator": 12,
+          "value": 0.3333333333333333
+        },
+        "bothOrdersAcceptable": {
+          "numerator": 2,
+          "denominator": 6,
+          "value": 0.3333333333333333
+        },
+        "orderDisagreement": {
+          "numerator": 0,
+          "denominator": 6,
+          "value": 0
+        },
+        "briefFit": 3.75,
+        "preferenceFit": 2.6666666666666665,
+        "coherence": 3.8333333333333335,
+        "evidenceUseful": 1
+      }
+    },
+    "full": {
+      "attempts": 6,
+      "completed": 6,
+      "structuralValidity": {
+        "numerator": 9,
+        "denominator": 9,
+        "value": 1
+      },
+      "modelFallback": {
+        "numerator": 0,
+        "denominator": 6,
+        "value": 0
+      },
+      "medianLatencyMs": 3914.5,
+      "retrievalModes": [
+        "BM25 + dense cosine + reciprocal rank fusion + category coverage",
+        "BM25 + dense cosine + reciprocal rank fusion + category coverage",
+        "BM25 + dense cosine + reciprocal rank fusion + category coverage",
+        "BM25 + dense cosine + reciprocal rank fusion + category coverage",
+        "BM25 + dense cosine + reciprocal rank fusion + category coverage",
+        "BM25 + dense cosine + reciprocal rank fusion + category coverage"
+      ],
+      "knowledgeModes": [
+        "hybrid",
+        "hybrid",
+        "hybrid",
+        "hybrid",
+        "hybrid",
+        "hybrid"
+      ],
+      "synthetic": {
+        "ratings": 12,
+        "acceptable": {
+          "numerator": 12,
+          "denominator": 12,
+          "value": 1
+        },
+        "bothOrdersAcceptable": {
+          "numerator": 6,
+          "denominator": 6,
+          "value": 1
+        },
+        "orderDisagreement": {
+          "numerator": 0,
+          "denominator": 6,
+          "value": 0
+        },
+        "briefFit": 4.916666666666667,
+        "preferenceFit": 4.666666666666667,
+        "coherence": 4.666666666666667,
+        "evidenceUseful": 4.833333333333333
+      }
+    }
+  },
+  "judgeCompleted": 12,
+  "judgeAttempts": 12
+}

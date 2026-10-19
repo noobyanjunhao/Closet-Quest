@@ -1,0 +1,467 @@
+{
+  "dataset": "Fashionpedia validation 2020",
+  "seed": "closet-sprint7-v1",
+  "annotationSha256": "f831f415edad12d52acde8b138fe7ebd1592b57bf0dcd6a3b63ba8cabd208223",
+  "annotationLicense": "CC BY 4.0",
+  "source": "https://github.com/cvdfoundation/fashionpedia",
+  "eligibleImages": 127,
+  "sampling": "12 hash-ranked general images plus up to 6 disjoint hat-enriched images; image licenses CC BY 2.0 or public domain. Category-set task; not instance segmentation. Not model-training holdout.",
+  "categoryMapping": {
+    "0": "Top",
+    "1": "Top",
+    "2": "Top",
+    "3": "Outerwear",
+    "4": "Outerwear",
+    "5": "Outerwear",
+    "6": "Bottom",
+    "7": "Bottom",
+    "8": "Bottom",
+    "9": "Outerwear",
+    "10": "Dress",
+    "11": "Dress",
+    "12": "Outerwear",
+    "13": "Accessory",
+    "14": "Accessory",
+    "15": "Accessory",
+    "16": "Accessory",
+    "17": "Accessory",
+    "18": "Accessory",
+    "19": "Accessory",
+    "20": "Accessory",
+    "21": "Bottom",
+    "22": "Accessory",
+    "23": "Shoes",
+    "24": "Accessory",
+    "25": "Accessory",
+    "26": "Accessory"
+  },
+  "images": [
+    {
+      "id": 16027,
+      "width": 682,
+      "height": 1024,
+      "file_name": "f0ac4ba410f7dd70272184ff5fe4b5ce.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm4.staticflickr.com/3023/2725769246_a1ef088600_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "f0ac4ba410f7dd70272184ff5fe4b5ce",
+      "stratum": "general",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "sha256": "c56eb36234dd90204385b6999e0ed06ed4565444ea8f8fbc05dd307946cbb231",
+      "expected": [
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false
+    },
+    {
+      "id": 9676,
+      "width": 682,
+      "height": 1024,
+      "file_name": "c7ab3258faa14bd182e8cb18d225b6f7.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "https://farm9.staticflickr.com/8480/8225520164_87fe5ec882_o.jpg",
+      "isstatic": 1,
+      "kaggle_id": "c7ab3258faa14bd182e8cb18d225b6f7",
+      "stratum": "general",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "sha256": "513e458dab065cd85b2b365150ae87d61bf7d03a33ab5bce328379513ac56769",
+      "expected": [
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false
+    },
+    {
+      "id": 15707,
+      "width": 682,
+      "height": 1024,
+      "file_name": "4aa6626a5183e3072b74ee07f75e07b6.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm6.staticflickr.com/5140/5461896264_07cf9c115e_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "4aa6626a5183e3072b74ee07f75e07b6",
+      "stratum": "general",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "sha256": "adc5d330cedf0111e868d08b6c81523057498f8b80b7348a5d76edd503b0eca5",
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false
+    },
+    {
+      "id": 8947,
+      "width": 1024,
+      "height": 680,
+      "file_name": "dd8239e8b7b5f3c9b86babc9754cf4a5.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm6.staticflickr.com/5255/5531205821_6b6bc67446_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "dd8239e8b7b5f3c9b86babc9754cf4a5",
+      "stratum": "general",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "sha256": "39c6bbd71c0630c3394f742a2a7145228036be537412f5329a290677b7fd738d",
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false
+    },
+    {
+      "id": 10727,
+      "width": 683,
+      "height": 1024,
+      "file_name": "cdd27e07ef7ddf8d413bb13936241ac4.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm2.staticflickr.com/1184/944645874_118ed8dfed_m.jpg",
+      "isstatic": 1,
+      "kaggle_id": "cdd27e07ef7ddf8d413bb13936241ac4",
+      "stratum": "general",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "sha256": "b0ee1c0db70f0865503a3b689d1f6579af6143ed35517839d2fe30e729a7e107",
+      "expected": [
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false
+    },
+    {
+      "id": 8519,
+      "width": 682,
+      "height": 1024,
+      "file_name": "1c906b2d4f414e1e7ed064abc0606a0a.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm9.staticflickr.com/8035/8048878883_8ca45786c4_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "1c906b2d4f414e1e7ed064abc0606a0a",
+      "stratum": "general",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "sha256": "b47313cc53ce2a923a1c56eced55565958ab6b24e29eb91b70cd57fd1140fc74",
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false
+    },
+    {
+      "id": 9711,
+      "width": 683,
+      "height": 1024,
+      "file_name": "0420c7e0454fbbe11fadd23eb1f40d38.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm1.staticflickr.com/944/40211297790_cda751697a_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "0420c7e0454fbbe11fadd23eb1f40d38",
+      "stratum": "general",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "sha256": "dca18f24b06b38673a3502489607a056fdcd7a56dc622ea1425b1911b922e55a",
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false
+    },
+    {
+      "id": 12831,
+      "width": 682,
+      "height": 1024,
+      "file_name": "3ed12074817fa4dff22b8df5ba0ce3f5.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm4.staticflickr.com/3101/2621108191_2498de5a49_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "3ed12074817fa4dff22b8df5ba0ce3f5",
+      "stratum": "general",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "sha256": "038ca526c7c9c5f444a089457fdd0cb1c1573ce75136549ed8342bd34a1ea6d8",
+      "expected": [
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false
+    },
+    {
+      "id": 11446,
+      "width": 682,
+      "height": 1024,
+      "file_name": "3b0e3da1465e802b7855e4c532638e7e.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "https://farm9.staticflickr.com/8521/8513580063_977f82e72a_o.jpg",
+      "isstatic": 1,
+      "kaggle_id": "3b0e3da1465e802b7855e4c532638e7e",
+      "stratum": "general",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "sha256": "e6351cbafb1a9de9aa79b017539df359cd5469d17bd40d4bfafb4fb947a1036a",
+      "expected": [
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false
+    },
+    {
+      "id": 18108,
+      "width": 1024,
+      "height": 1024,
+      "file_name": "76fd87d84ee7cdffcb33e05d74bb663c.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm3.staticflickr.com/2882/13737212405_092964b06e_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "76fd87d84ee7cdffcb33e05d74bb663c",
+      "stratum": "general",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "sha256": "1604cbb4f25fc474731dc61d84643e3d88e038881706548a5acbfe64ce0fc71a",
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false
+    },
+    {
+      "id": 12007,
+      "width": 682,
+      "height": 1024,
+      "file_name": "c042811268f9d093db4b97a63d2205b2.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm3.staticflickr.com/2565/5748824181_11cdc7c632_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "c042811268f9d093db4b97a63d2205b2",
+      "stratum": "general",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "sha256": "717fecf04c3f429401978f917bd1db3c024c98fdd62903112aef8bf7669d4839",
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false
+    },
+    {
+      "id": 12813,
+      "width": 1024,
+      "height": 682,
+      "file_name": "750ff1f0bb17bd102b4e68e96684a2ee.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm5.staticflickr.com/4361/37148493156_b872f1419a_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "750ff1f0bb17bd102b4e68e96684a2ee",
+      "stratum": "general",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "sha256": "bfe54887ba291c0ae4d86aef6ace54f0d151d2737703f86a788bade4eaca06e4",
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false
+    },
+    {
+      "id": 16222,
+      "width": 1024,
+      "height": 680,
+      "file_name": "6c91cc6e1c07e9336e3c00d1569ac1c5.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm6.staticflickr.com/5055/5532526988_0faf90f755_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "6c91cc6e1c07e9336e3c00d1569ac1c5",
+      "stratum": "hat",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "sha256": "34a304c684193f1570aa8bc80d28a3a332fdb2f338647ee386f30a9ee7dfb4ed",
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": true
+    },
+    {
+      "id": 11073,
+      "width": 1024,
+      "height": 682,
+      "file_name": "5d2a983e1bcdce687150ce6115212283.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "https://farm9.staticflickr.com/8498/8270480092_ecf1db63bc_o.jpg",
+      "isstatic": 1,
+      "kaggle_id": "5d2a983e1bcdce687150ce6115212283",
+      "stratum": "hat",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "sha256": "0e201ca6c5f163aa9271aa25b8a1b5d983283bcc116c8c27ed499d7f54b3dd5b",
+      "expected": [
+        "Accessory",
+        "Dress"
+      ],
+      "annotatedHat": true
+    },
+    {
+      "id": 16212,
+      "width": 768,
+      "height": 1024,
+      "file_name": "09524f427576768e445b55a1975b9d7f.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm5.staticflickr.com/4535/24717822068_dfecef9e26_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "09524f427576768e445b55a1975b9d7f",
+      "stratum": "hat",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "sha256": "8682b54750555f02d30f1fd372a541daba19a7033a5392ae5cd7a580012af28c",
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": true
+    },
+    {
+      "id": 19133,
+      "width": 1024,
+      "height": 683,
+      "file_name": "165fc69c577be6c18128e057487cf489.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "https://farm4.staticflickr.com/3392/3497464007_879f477b21_o.jpg",
+      "isstatic": 1,
+      "kaggle_id": "165fc69c577be6c18128e057487cf489",
+      "stratum": "hat",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "sha256": "aa51d7c9278a91aef721195f615d6f207129eac52e1b982e041d50772e31a670",
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": true
+    },
+    {
+      "id": 11800,
+      "width": 680,
+      "height": 1024,
+      "file_name": "b1a6657a8d2f74010b28d8a9d47be111.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm6.staticflickr.com/5131/5499704573_bb113cd69b_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "b1a6657a8d2f74010b28d8a9d47be111",
+      "stratum": "hat",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "sha256": "1791be4720af53131965e00426a7e25fdba234a13992ec4233bd1557c45a5dd5",
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": true
+    },
+    {
+      "id": 10382,
+      "width": 682,
+      "height": 1024,
+      "file_name": "6beae9033a9244991b99ac04347ba917.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm4.staticflickr.com/3001/2895057983_7b4e64a1a5_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "6beae9033a9244991b99ac04347ba917",
+      "stratum": "hat",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "sha256": "b93cb3ffd8df362a48cf95cce274d26e59d7e24dd9ad802c547e111e044a798a",
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": true
+    }
+  ]
+}

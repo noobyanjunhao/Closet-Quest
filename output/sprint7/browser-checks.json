@@ -1,0 +1,24 @@
+{
+  "verifiedAt": "2026-10-19T23:11:53.837Z",
+  "source": "Agent-operated engineering rehearsal; no human outcome data",
+  "checks": [
+    {
+      "name": "Local paired study",
+      "passed": true,
+      "details": "Two sets generated; labels concealed before all ratings and revealed afterward. Development ratings left real participant metrics unmeasured."
+    },
+    {
+      "name": "Public private-code sign-in",
+      "passed": true
+    },
+    {
+      "name": "Public OpenAI stylist",
+      "passed": true,
+      "displayedSeconds": 12.8,
+      "displayedLooks": 2,
+      "provider": "OpenAI",
+      "details": "Result visibly displayed reviewed sample garments and explanation."
+    }
+  ],
+  "cameraHardware": "not verified"
+}

@@ -1,0 +1,21 @@
+{
+  "recordedAt": "2026-10-19T23:10:29.622Z",
+  "initialPipelineCommit": "e289719d8f554b2abaa0a6b576165424c43d35a9",
+  "partialRecognitionFixCommit": "e10d6017c0a5f6a55666ce3e2226069759829205",
+  "deploymentCodeCommit": "32446fa53d04b792fd21b6e56cfd94f2fe27d580",
+  "recognitionModel": "gpt-6-luna",
+  "stylistModel": "gpt-6-luna",
+  "judgeModel": "gpt-6-astra",
+  "embeddingModel": "text-embedding-3-small",
+  "scriptSha256": {
+    "scripts/prepare-fashionpedia.py": "6b5e4b8ed23238905a7920a5ae645d62acdc4b8a765532deb723677c6ef9a5a8",
+    "scripts/evaluate-sprint7-recognition.mjs": "a8dae5bbaab2892c35ab3471ab812521dfce5b80707e74c04ee1e39b65020aa5",
+    "scripts/evaluate-sprint7-stylist.mjs": "1eb8aa25305876011716e5b856866c8bc52a37c1ec17280128ed80aa94e0e0aa",
+    "scripts/summarize-sprint7.mjs": "5a08192e40421357e05724c8ed1aeb2f62ebb73a58e41dbdb3886d1c72252abb"
+  },
+  "notes": [
+    "Initial dataset results retain garment-scene-v1; targeted recheck uses v1.1.",
+    "Dependency security updates followed evaluation; Sharp was 0.35.4 during the initial benchmark and 0.35.5 at deployment.",
+    "Rehearsal UI actions are engineering checks, excluded from human and synthetic-judge results."
+  ]
+}
