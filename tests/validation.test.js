@@ -2,6 +2,11 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {summarizeValidation,orderFor,measureOutfits,exportValidation} from '../src/validation.js';
 const trial=(id,overrides={})=>({id,pairId:'pair',condition:'full',participant:'p01',source:'participant',status:'ready',elapsedMs:100,outfits:[{itemIds:['top','bottom','shoe'],accepted:null}],checks:[],...overrides});
+test('exported human summary excludes fully rated development rehearsals',()=>{
+  const value=exportValidation([trial('real'),trial('dev',{source:'development',outfits:[{accepted:true}]})],[{source:'development',activeMs:20,hasSuggestion:true,changedFields:['category']}]);
+  assert.equal(value.summary.conditions.full.attempts,1);assert.equal(value.summary.conditions.full.top3Acceptance.denominator,0);assert.equal(value.summary.photoReviews.count,0);
+  assert.equal(value.developmentSummary.conditions.full.top3Acceptance.numerator,1);assert.equal(value.developmentSummary.photoReviews.count,1);
+});
 test('unmeasured human metrics stay null and absent ratings are not rejection',()=>{
   const result=summarizeValidation([trial('1')]);
   assert.equal(result.conditions.full.top3Acceptance.value,null);
