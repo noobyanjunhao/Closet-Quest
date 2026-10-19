@@ -16,6 +16,8 @@
   "notes": [
     "Initial dataset results retain garment-scene-v1; targeted recheck uses v1.1.",
     "Dependency security updates followed evaluation; Sharp was 0.35.4 during the initial benchmark and 0.35.5 at deployment.",
-    "Rehearsal UI actions are engineering checks, excluded from human and synthetic-judge results."
-  ]
+    "Rehearsal UI actions are engineering checks, excluded from human and synthetic-judge results.",
+    "Final visual deployment fixes rounded outfit-card caption clipping; hosted API smoke results retain their original deployment commit."
+  ],
+  "finalVisualDeploymentCommit": "7dbdd5332081aa628a2131437c1abe0c68d30151"
 }

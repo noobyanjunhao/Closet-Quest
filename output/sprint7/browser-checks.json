@@ -18,6 +18,14 @@
       "displayedLooks": 2,
       "provider": "OpenAI",
       "details": "Result visibly displayed reviewed sample garments and explanation."
+    },
+    {
+      "name": "Final hosted caption fix",
+      "passed": true,
+      "commit": "7dbdd5332081aa628a2131437c1abe0c68d30151",
+      "displayedSeconds": 4.2,
+      "displayedLooks": 2,
+      "details": "Fresh OpenAI generation after final deployment; garment captions visibly unclipped. Engineering check, not human evaluation."
     }
   ],
   "cameraHardware": "not verified"
