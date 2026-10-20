@@ -31,12 +31,13 @@ export function addPhotoCollection(state) {
   });
   return { ...state, items: [...state.items, ...added] };
 }
-export function saveLook(state, itemIds, { title, context, explanation, engine, pipeline, model }) {
+export function saveLook(state, itemIds, { title, context, explanation, engine, pipeline, model, lookType, shoppingSuggestions, missingCategories }) {
   const items = itemIds.map(id => state.items.find(i => i.id === id));
-  if (items.some(i => !i || i.needsReview) || new Set(itemIds).size !== itemIds.length || !validShape(items.filter(i => i.category !== 'Accessory'))) throw new Error('Save a complete outfit from your reviewed closet.');
+  const partialValid=lookType==='starting-point'&&items.length>0&&items.every(Boolean)&&['Top','Bottom','Dress','Shoes','Outerwear','Accessory'].every(category=>items.filter(i=>i.category===category).length<=(category==='Accessory'?2:1))&&!(items.some(i=>i.category==='Dress')&&items.some(i=>['Top','Bottom'].includes(i.category)));
+  if (items.some(i => !i || i.needsReview) || new Set(itemIds).size !== itemIds.length || (!partialValid&&!validShape(items.filter(i => i.category !== 'Accessory')))) throw new Error('Save a complete outfit from your reviewed closet.');
   const key = [...itemIds].sort().join('|');
   if (state.savedOutfits.some(o => [...o.itemIds].sort().join('|') === key && o.context === context)) throw new Error('This combination is already in your lookbook.');
-  return { ...state, savedOutfits: [...state.savedOutfits, { id: crypto.randomUUID(), itemIds: [...itemIds], title: title?.trim().slice(0,80) || `${context} look`, context, explanation, engine, runId:pipeline?.runId, model, createdAt: new Date().toISOString() }] };
+  return { ...state, savedOutfits: [...state.savedOutfits, { id: crypto.randomUUID(), itemIds: [...itemIds], title: title?.trim().slice(0,80) || `${context} look`, context, explanation, engine, lookType, shoppingSuggestions, missingCategories, runId:pipeline?.runId, model, createdAt: new Date().toISOString() }] };
 }
 export function recordWear(state, itemIds, { id = crypto.randomUUID(), at = new Date().toISOString(), outfitId = null, runId = null } = {}) {
   if (state.wearRecords.some(r => r.id === id)) return state;

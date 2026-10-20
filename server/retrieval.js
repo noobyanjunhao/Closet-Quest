@@ -13,7 +13,7 @@ const synonymGroups = [
   ['sneakers', 'trainers', 'sneaker'], ['shoes', 'footwear'], ['knit', 'knitted', 'sweater', 'jumper'],
   ['jacket', 'coat', 'outerwear'], ['bag', 'tote', 'handbag'],
   ['hat', 'cap', 'baseball'], ['hoodie', 'hooded', 'sweatshirt'], ['glasses', 'eyewear', 'spectacles'],
-  ['formal', 'polished', 'office', 'presentation', 'business', 'tailored', 'smart'],
+  ['formal', 'formlal', 'wedding', 'gala', 'polished', 'office', 'presentation', 'business', 'tailored', 'smart'],
   ['casual', 'campus', 'relaxed', 'everyday', 'comfortable'], ['date', 'coffee', 'dinner'],
   ['cold', 'winter', 'warm', 'warmth', 'layer', 'layering'], ['hot', 'summer', 'lightweight', 'breezy'],
   ['blue', 'navy', 'indigo'], ['beige', 'cream', 'tan', 'neutral'], ['gray', 'grey'],
@@ -21,8 +21,8 @@ const synonymGroups = [
 ];
 
 export const STYLE_GUIDES = Object.freeze([
-  {id:'CQ-G01', title:'Build a complete outfit', keywords:'outfit balance silhouette proportion complete', text:'Start with one top and one bottom, or one dress, plus a pair of shoes. Add optional pieces deliberately. Describe only details recorded in the wardrobe; photos and fabric names do not establish comfort, weather protection or fiber content.'},
-  {id:'CQ-G02', title:'A polished everyday look', keywords:'polished presentation office formal business tailored smart', text:'For a polished mood, consider recorded structured shapes, a simple color relationship and restrained accessories. A blazer can add structure when one is owned; formal dress codes remain the wearer’s decision.'},
+  {id:'CQ-G01', title:'Build from what is here', keywords:'outfit balance silhouette proportion complete missing small closet', text:'An outfit usually needs a top and bottom, or a dress, plus shoes. If a slot is missing, offer an honest starting point with owned pieces and separate ideas to borrow, rent or find later. Describe only recorded garment details; do not claim unowned suggestions are in the closet.'},
+  {id:'CQ-G02', title:'Dressing up for the occasion', keywords:'polished presentation office formal formlal wedding gala business tailored smart', text:'For a dressier mood, consider recorded structured shapes, simple colors and restrained accessories. Casual pieces are a starting point, not proof of formal suitability. For weddings, check the invitation; suggest borrowing or renting missing dressier pieces. Never claim store availability without a real search.'},
   {id:'CQ-G03', title:'Easy casual combinations', keywords:'casual campus everyday coffee relaxed comfortable sneaker denim', text:'For a casual mood, pair a simple base with one detail such as texture, color or shape. Existing sneakers or relaxed pieces can be options when their recorded details support the request. Do not infer physical comfort from a photograph.'},
   {id:'CQ-G04', title:'Thoughtful layering', keywords:'cold winter warmth layer layering autumn outerwear sweater jacket coat', text:'For a layering request, consider one owned outer layer over the base outfit and describe the visible or recorded proportions. Ask the wearer to judge warmth and weather suitability; appearance alone cannot establish either.'},
   {id:'CQ-G05', title:'Keep warm-weather styling simple', keywords:'hot summer lightweight breezy warmweather', text:'For a warm-weather mood, consider fewer layers and recorded relaxed shapes. Describe a fabric as lightweight or breathable only if the wardrobe explicitly records that property; the wearer should verify practical suitability.'},
@@ -76,7 +76,7 @@ function rankDocuments(documents, query) {
 
 export function validateStyleRequest(body) {
   if (!body || typeof body !== 'object' || Array.isArray(body)) throw invalid('Send a wardrobe and a styling request.');
-  if (!Array.isArray(body.items) || !body.items.length || body.items.length > 200 || typeof body.request !== 'string' || body.request.length > 2000) {
+  if (!Array.isArray(body.items) || (!body.items.length && body.allowPartial !== true) || body.items.length > 200 || typeof body.request !== 'string' || body.request.length > 2000) {
     throw invalid('Use 1–200 garments and a request under 2,000 characters.');
   }
   if (body.context !== undefined && (typeof body.context !== 'string' || body.context.length > 160)) throw invalid('Use a context under 160 characters.');
@@ -105,7 +105,7 @@ export function validateStyleRequest(body) {
   });
   if (body.anchorId && !items.some(item => item.id === body.anchorId)) throw invalid('The starting piece is no longer in your wardrobe. Choose another piece.', 'ANCHOR_NOT_FOUND');
   if (body.anchorId && items.find(item => item.id === body.anchorId).needsReview) throw invalid('Review the starting piece’s details before styling it.', 'ANCHOR_NEEDS_REVIEW');
-  return {items, request:body.request.trim(), context:body.context?.trim() || '', anchorId:body.anchorId || null, requireLowUse:body.requireLowUse === true};
+  return {items, request:body.request.trim(), context:body.context?.trim() || '', anchorId:body.anchorId || null, requireLowUse:body.requireLowUse === true, allowPartial:body.allowPartial === true};
 }
 
 // A small complete witness prevents retrieval from losing slots, the anchor or the only usable low-use piece.
@@ -130,11 +130,11 @@ function completeWitness(ranked, anchorId, requireLowUse) {
 
 export function prepareWardrobeRetrieval(inputItems, options={}) {
   const start = performance.now();
-  const {items, request, context, anchorId, requireLowUse} = validateStyleRequest({...options, items:inputItems});
+  const {items, request, context, anchorId, requireLowUse, allowPartial} = validateStyleRequest({...options, items:inputItems});
   const eligible = items.filter(item => !item.needsReview);
   const query = queryTerms(`${context} ${request}`);
   const ranked = rankDocuments(eligible.map((item, index) => ({item, index, text:itemText(item)})), query);
-  return {start,items,eligible,request,context,anchorId,requireLowUse,ranked};
+  return {start,items,eligible,request,context,anchorId,requireLowUse,allowPartial,ranked};
 }
 
 export function lexicalCandidates(inputItems,options={}) {
@@ -142,8 +142,9 @@ export function lexicalCandidates(inputItems,options={}) {
 }
 
 export function selectWardrobeCandidates(state,ranked=state.ranked,metadata={}) {
-  const {start,items,eligible,request,context,anchorId,requireLowUse}=state;
-  const witness = completeWitness(ranked, anchorId, requireLowUse);
+  const {start,items,eligible,request,context,anchorId,requireLowUse,allowPartial}=state;
+  const complete = completeWitness(ranked, anchorId, requireLowUse);
+  const witness = complete || (allowPartial ? ranked.filter(entry=>entry.item.id===anchorId || requireLowUse&&entry.item.wears<=1).slice(0,3).map(entry=>entry.item) : null);
   if (!witness) {
     const hasBase = eligible.some(item => item.category === 'Dress') || (eligible.some(item => item.category === 'Top') && eligible.some(item => item.category === 'Bottom'));
     const hasShoes = eligible.some(item => item.category === 'Shoes');
@@ -151,7 +152,7 @@ export function selectWardrobeCandidates(state,ranked=state.ranked,metadata={}) 
     throw invalid(missing.length ? `Add ${missing.join(' and ')} to build a complete outfit.` : requireLowUse ? `No complete outfit can include ${anchorId ? 'both the starting piece and ' : ''}a piece with one recorded wear or less. ${anchorId ? 'Change the starting piece or rediscovery request.' : 'Add an underused piece or change the rediscovery request.'}` : 'The starting piece needs matching outfit slots. Add a top and bottom for separates, or use a dress.', 'NO_COMPLETE_OUTFIT');
   }
   const selected = new Set(witness.map(item => item.id));
-  const selections = new Map(witness.map(item => [item.id, 'Keeps a complete outfit available']));
+  const selections = new Map(witness.map(item => [item.id, complete ? 'Keeps a complete outfit available' : 'Keeps your starting piece or rediscovery choice available']));
   // Interleave category rankings so a popular category cannot crowd out shoes or the alternative dress route.
   const buckets = WARDROBE_CATEGORIES.map(category => ranked.filter(entry => entry.item.category === category));
   for (let index = 0; selected.size < Math.min(MAX_RETRIEVED, eligible.length); index += 1) {

@@ -1,0 +1,18 @@
+.shopping-suggestions { margin:24px 0; padding:24px; border:1px solid #e5ded5; border-radius:24px; background:#f7f4ee; }
+.shopping-suggestions h3 { margin:8px 0; font-size:1.35rem; }
+.shopping-suggestions p { color:#655e58; line-height:1.6; }
+.shopping-suggestions > small { display:block; margin-top:16px; color:#716963; line-height:1.5; }
+.shopping-idea-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(175px,1fr)); gap:12px; margin-top:18px; }
+.shopping-idea-grid article { padding:18px; background:#fffdf9; border:1px solid #e8e0d7; border-radius:18px; }
+.shopping-idea-grid h4 { margin:10px 0; font-size:1rem; }
+.shopping-idea-grid p { font-size:.86rem; }
+.shopping-idea-symbol { display:block; font-size:1.7rem; color:#7b3e50; margin-bottom:12px; }
+.shopping-idea-grid small { color:#7b3e50; }
+.shopping-coming-soon { display:inline-block; border-radius:20px; padding:8px 11px; font-size:.75rem; background:#eee6df; color:#5d514c; }
+.studio-progress small { display:block; margin-top:5px; color:#706761; }
+.studio-look-photos:empty { display:none; }
+.studio-look:has(.studio-look-photos:empty) { grid-template-columns:1fr; }
+@media(max-width:600px) {
+  .shopping-suggestions { padding:18px; border-radius:20px; }
+  .shopping-idea-grid { grid-template-columns:1fr; }
+}
