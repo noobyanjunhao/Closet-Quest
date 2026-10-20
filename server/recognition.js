@@ -8,7 +8,7 @@ export const ITEM_CATEGORIES = Object.freeze({
   Dress:'Dress', Jumpsuit:'Dress',
   Jacket:'Outerwear', Coat:'Outerwear', Blazer:'Outerwear', Cardigan:'Outerwear',
   Sneakers:'Shoes', Boots:'Shoes', Sandals:'Shoes', 'Dress shoes':'Shoes', 'Other footwear':'Shoes',
-  'Tote bag':'Accessory', Handbag:'Accessory', Backpack:'Accessory', Hat:'Accessory', Scarf:'Accessory', Belt:'Accessory', Jewelry:'Accessory', 'Other accessory':'Accessory',
+  'Tote bag':'Accessory', Handbag:'Accessory', Backpack:'Accessory', Hat:'Accessory', 'Baseball cap':'Accessory', Glasses:'Accessory', Scarf:'Accessory', Belt:'Accessory', Jewelry:'Accessory', 'Other accessory':'Accessory',
 });
 export const COLORS = Object.freeze({
   White:'#f4f3ef', Cream:'#e9dfc6', Beige:'#c6b18c', Brown:'#79563d', Black:'#272727', Gray:'#888888',

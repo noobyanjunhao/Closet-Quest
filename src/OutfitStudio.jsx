@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Garment } from './components.jsx';
+import { Garment,Modal } from './components.jsx';
 import { contexts } from './logic.js';
+import './stylist-suggestions.css';
 
 function RetrievalPanel({ retrieval, items, onEdit, loading, error }) {
   return <div className="retrieval-panel" aria-label="Wardrobe matches">
@@ -22,31 +23,37 @@ function RetrievalPanel({ retrieval, items, onEdit, loading, error }) {
   </div>;
 }
 
-export default function OutfitStudio({items,context,onContext,request,onRequest,engine,onEngine,anchorId,onAnchor,aiReady,openaiConfigured,styling,styleStage,previewing,retrieval,retrievalError,onPreview,onGenerate,onCancel,processingCount,quest,options,selected,onSelect,message,onEdit,children,allowResultFocus=true}) {
-  const [briefOpen, setBriefOpen] = useState(true);
-  const [matchesOpen, setMatchesOpen] = useState(false);
-  const [evidenceOpen, setEvidenceOpen] = useState(false);
+export default function OutfitStudio({items,context,onContext,request,onRequest,engine,onEngine,anchorId,onAnchor,aiReady,openaiConfigured,styling,styleStage,previewing,retrieval,retrievalError,onPreview,onGenerate,onCancel,processingCount,quest,options,selected,onSelect,message,onEdit,children,allowResultFocus=true,view,onViewChange,scrollPosition}) {
+  const {briefOpen,matchesOpen,evidenceOpen,cardOpen}=view;
+  const setView=(key,value)=>onViewChange(previous=>previous[key]===value?previous:{...previous,[key]:value});
+  const setBriefOpen=value=>setView('briefOpen',value),setMatchesOpen=value=>setView('matchesOpen',value),setEvidenceOpen=value=>setView('evidenceOpen',value),setCardOpen=value=>setView('cardOpen',value);
+  const gesture=useRef(null);
+  const editPiece=item=>{onViewChange(previous=>({...previous,cardOpen:false,returnToCard:true}));onEdit(item);};
   const resultsRef = useRef(null);
   const focusAllowed = useRef(allowResultFocus); focusAllowed.current = allowResultFocus;
   const working = styling || previewing;
   const chosen = options[selected];
   const outfit = chosen?.itemIds.map(id => items.find(i => i.id === id)).filter(Boolean) || [];
-  const hasResults = outfit.length > 0;
+  const hasResults = Boolean(chosen);
+  const [elapsed,setElapsed]=useState(0);
+  useEffect(()=>{if(!working){setElapsed(0);return;}const start=Date.now();const timer=setInterval(()=>setElapsed(Math.floor((Date.now()-start)/1000)),1000);return()=>clearInterval(timer);},[working]);
   const resultKey = options[0]?.wearId || '';
   const anchor = engine !== 'baseline' && items.find(i => i.id === anchorId);
   useEffect(() => {
-    setBriefOpen(!resultKey);
-    setEvidenceOpen(false);
-    setMatchesOpen(false);
+    if(resultKey===view.resultKey)return;
+    scrollPosition.current=0;
+    onViewChange({resultKey,briefOpen:!resultKey,evidenceOpen:false,matchesOpen:false,cardOpen:Boolean(resultKey),returnToCard:false});
     if (resultKey) {
       const frame = requestAnimationFrame(() => {
         if (!focusAllowed.current) return;
         resultsRef.current?.focus({ preventScroll: true });
-        resultsRef.current?.scrollIntoView({ block: 'start', behavior: 'auto' });
       });
       return () => cancelAnimationFrame(frame);
     }
   }, [resultKey]);
+  useEffect(()=>{
+    if(allowResultFocus&&view.returnToCard&&hasResults)onViewChange(previous=>({...previous,cardOpen:true,returnToCard:false}));
+  },[allowResultFocus,view.returnToCard,hasResults]);
 
   function preview() {
     setMatchesOpen(true);
@@ -58,7 +65,8 @@ export default function OutfitStudio({items,context,onContext,request,onRequest,
     <div className="studio-title"><h2>What’s the plan?</h2><span className={`studio-status ${aiReady ? 'connected' : ''}`}><i/>{engine === 'baseline' ? 'Wardrobe rules' : engine === 'local' ? (aiReady ? 'Local AI ready' : 'Local AI offline') : engine === 'openai' || engine === 'agent' && openaiConfigured ? 'OpenAI styling' : 'Quick matches'}</span></div>
     <div className="studio-brief-fields">
       <label className="studio-label studio-occasion">Occasion<select disabled={working} value={context} onChange={e => onContext(e.target.value)}>{contexts.map(c => <option key={c} value={c}>{c}</option>)}</select></label>
-      <label className="studio-label studio-mood">What do you feel like wearing?<textarea maxLength="1800" disabled={working} value={request} onChange={e => onRequest(e.target.value)} rows="2" placeholder="Relaxed layers, earth tones, something comfortable…"/></label>
+      <div className="phone-occasions" role="group" aria-label="Choose your occasion">{contexts.map((c,i)=><button key={c} disabled={working} aria-pressed={context===c} onClick={()=>onContext(c)}><span aria-hidden="true">{['☀','♡','↗'][i]}</span>{['Everyday','Coffee date','Presentation'][i]}</button>)}</div>
+      <label className="studio-label studio-mood">What do you feel like wearing?<textarea maxLength="1800" disabled={working} value={request} onChange={e => onRequest(e.target.value)} rows="2" placeholder="I’m going to a wedding—help me put together something formal…"/></label>
     </div>
     {anchor && <div className="studio-anchor-preview"><Garment item={anchor}/><div><strong>{anchor.name}</strong><span>Included in every suggested look.</span></div><button aria-label="Clear starting piece" disabled={working} onClick={() => onAnchor('')}>×</button></div>}
     <details className="studio-preferences"><summary>Preferences<span>{engine === 'baseline' ? 'Instant styling' : anchor ? 'Starting piece selected' : 'Optional'}</span></summary>
@@ -68,7 +76,7 @@ export default function OutfitStudio({items,context,onContext,request,onRequest,
       </div>
       {engine === 'baseline' ? <p className="studio-help">Uses your saved occasion tags. Choose another method to use your mood description.</p> : <>
         <button className="studio-preview-button" disabled={working || !items.some(i => !i.needsReview)} onClick={preview}>Preview wardrobe matches</button>
-        {!hasResults && (retrieval || retrievalError || previewing) && <details className="studio-matches" open={matchesOpen} onToggle={e => setMatchesOpen(e.currentTarget.open)}><summary>Wardrobe matches</summary><RetrievalPanel retrieval={retrieval} items={items} onEdit={onEdit} loading={previewing} error={retrievalError}/></details>}
+        {!hasResults && (retrieval || retrievalError || previewing) && <details className="studio-matches" open={matchesOpen} onToggle={e => setMatchesOpen(e.currentTarget.open)}><summary>Wardrobe matches</summary><RetrievalPanel retrieval={retrieval} items={items} onEdit={editPiece} loading={previewing} error={retrievalError}/></details>}
       </>}
     </details>
     {engine === 'local' && !aiReady && <p className="studio-help studio-offline">AI is offline. <button className="text-button" disabled={working} onClick={() => onEngine('quick')}>Use quick matches</button></p>}
@@ -80,18 +88,21 @@ export default function OutfitStudio({items,context,onContext,request,onRequest,
 
   return <div className={`studio studio-simple ${hasResults ? 'studio-has-results' : ''}`}>
     <div className="studio-workspace"><details className={`studio-brief-disclosure ${hasResults ? '' : 'studio-brief-initial'}`} open={!hasResults || briefOpen} onToggle={e => setBriefOpen(e.currentTarget.open)}><summary hidden={!hasResults}>Change the brief<span>{context}{anchor ? ` · ${anchor.name}` : ''}</span></summary>{brief}</details></div>
-    {working && <div className="studio-progress" role="status"><span className="pulse-dot"/><div><strong>{previewing || styleStage === 'retrieving' ? 'Finding your pieces…' : 'Creating your looks…'}</strong></div><button onClick={onCancel}>{previewing ? 'Stop preview' : 'Stop styling'}</button></div>}
+    {working && <div className="studio-progress" role="status"><span className="pulse-dot"/><div><strong>{elapsed>=8?'Putting the finishing touches on your look…':previewing || styleStage === 'retrieving' ? 'Finding your pieces…' : 'Creating your looks…'}</strong><small>{elapsed}s · If AI takes too long, we’ll show a quick starting point.</small></div><button onClick={onCancel}>{previewing ? 'Stop preview' : 'Stop styling'}</button></div>}
     {!styling && !hasResults && message && <div className="studio-message" role="status">{message}</div>}
-    {hasResults && <section className="studio-results" aria-label="Suggested outfits">
+    {hasResults&&<button className="look-preview" onClick={()=>setCardOpen(true)}><div className="look-preview-images">{outfit.slice(0,3).map(item=><Garment key={item.id} item={item}/>)}</div><span><small>READY WHEN YOU ARE</small><strong>{options.length} {options.length===1?'styling idea':'styling ideas'}, ready to try.</strong><span>Open your outfit cards ↗</span></span></button>}
+    {hasResults&&cardOpen&&<Modal title="Made for your day." onClose={()=>setCardOpen(false)} scrollPosition={scrollPosition} swipeToClose wide><section className="studio-results outfit-card" aria-label="Suggested outfits" onPointerDown={e=>{gesture.current={x:e.clientX,y:e.clientY};}} onPointerCancel={()=>{gesture.current=null;}} onPointerUp={e=>{const g=gesture.current;gesture.current=null;if(!g)return;const dx=e.clientX-g.x,dy=e.clientY-g.y;if(Math.abs(dx)>65&&Math.abs(dx)>Math.abs(dy)*1.5)onSelect((selected+(dx<0?1:-1)+options.length)%options.length);}}>
+      <div className="card-pagination"><button aria-label="Previous outfit" disabled={options.length<2} onClick={()=>onSelect((selected-1+options.length)%options.length)}>←</button><span>LOOK {String(selected+1).padStart(2,'0')} <small> / {String(options.length).padStart(2,'0')}</small></span><button aria-label="Next outfit" disabled={options.length<2} onClick={()=>onSelect((selected+1)%options.length)}>→</button></div>
       {chosen.pipeline?.fallback&&<p className="studio-result-notice" role="status">{chosen.pipeline.fallback.message}</p>}<div className="studio-results-heading"><h2 ref={resultsRef} tabIndex={-1}>{chosen.title}</h2><div className="studio-look-tabs" aria-label="Choose an outfit">{options.map((look, index) => <button key={look.wearId} aria-pressed={selected === index} className={selected === index ? 'chosen' : ''} onClick={() => onSelect(index)}>Look {index + 1}</button>)}</div></div>
-      <div className="studio-look"><div className="studio-look-photos" style={{'--look-columns':outfit.length<=4?outfit.length:3}}>{outfit.map(item => <button key={item.id} onClick={() => onEdit(item)} aria-label={`View ${item.name}`}><div className="studio-piece-image"><Garment item={item}/>{anchorId === item.id && <span>Your starting piece</span>}</div><span className="studio-piece-category">{item.category}</span><strong>{item.name}</strong></button>)}</div><div className="studio-look-story"><span className="studio-kicker">WHY IT WORKS</span><p>{chosen.explanation}</p>{chosen.stylingTip && <div className="studio-tip"><strong>Try this</strong><p>{chosen.stylingTip}</p></div>}<div className="studio-palette" aria-label="Outfit color palette">{outfit.map(item => <span key={item.id} style={{background:item.color}} title={item.colorName || item.name}/>)}</div><small>{chosen.provider === 'openai' ? 'Styled with OpenAI' : chosen.provider === 'local' ? 'Suggested by local AI' : chosen.provider === 'quick' ? 'Quick wardrobe matches · no generative model' : 'Matched by wardrobe rules'}</small></div></div>
-      {chosen.pipeline&&<p className="studio-timing">Ready in {Math.max(.1,chosen.pipeline.timingMs.total/1000).toFixed(1)}s · Checked against your reviewed closet</p>}{children}
+      <div className="studio-look"><div className="studio-look-photos" style={{'--look-columns':Math.max(1,outfit.length<=4?outfit.length:3)}}>{outfit.map(item => <button key={item.id} onClick={() => editPiece(item)} aria-label={`View ${item.name}`}><div className="studio-piece-image"><Garment item={item}/>{anchorId === item.id && <span>Your starting piece</span>}</div><span className="studio-piece-category">{item.category}</span><strong>{item.name}</strong></button>)}</div><div className="studio-look-story"><span className="studio-kicker">{chosen.lookType==='starting-point'?'LET’S START HERE':'YOUR STYLIST’S TAKE'}</span><p>{chosen.explanation}</p>{chosen.stylingTip && <div className="studio-tip"><strong>Try this</strong><p>{chosen.stylingTip}</p></div>}<div className="studio-palette" aria-label="Outfit color palette">{outfit.map(item => <span key={item.id} style={{background:item.color}} title={item.colorName || item.name}/>)}</div><small>{chosen.provider === 'openai' ? 'Styled with OpenAI' : chosen.provider === 'local' ? 'Suggested by local AI' : chosen.provider === 'quick' ? 'Quick wardrobe matches · no generative model' : 'Matched by wardrobe rules'}</small></div></div>
+      {chosen.shoppingSuggestions?.length>0&&<section className="shopping-suggestions" aria-label="Ideas to complete your look"><div><span className="studio-kicker">FINISH THE LOOK</span><h3>A few ideas to bring it together.</h3><p>These aren’t in this look. Try borrowing, renting, or adding a piece you already have.</p></div><div className="shopping-idea-grid">{chosen.shoppingSuggestions.map((idea,index)=><article key={`${idea.category}-${index}`}><span className="shopping-idea-symbol" aria-hidden="true">＋</span><small>{idea.kind==='missing'?'Missing piece':'Dressier swap'}</small><h4>{idea.title}</h4><p>{idea.note}</p><span className="shopping-coming-soon">Online finds · coming soon</span></article>)}</div><small>Shopping placeholders only—no products, prices, availability, or store results have been searched.</small></section>}
+      {chosen.pipeline&&<p className="studio-timing">Ready in {Math.max(.1,chosen.pipeline.timingMs.total/1000).toFixed(1)}s · Based on your reviewed closet</p>}{children}
       {(chosen.grounding?.length > 0 || engine !== 'baseline' && (retrieval || retrievalError || previewing)) && <details className="studio-grounding" open={evidenceOpen} onToggle={e => setEvidenceOpen(e.currentTarget.open)}><summary>How this look was made</summary>
         {retrieval?.personalization?.summary&&<p><strong>Your preferences:</strong> {retrieval.personalization.summary}</p>}
         {retrieval?.knowledge&&<section aria-label="Retrieved document evidence"><h3>Your knowledge library</h3><p className="muted">{retrieval.knowledge.metadata?.mode} · References guide styling; they do not establish garment facts.</p>{retrieval.knowledge.sources?.map(source=><article key={source.id}><strong>{source.title}</strong><small> · {source.origin==='project-authored'?'Project-authored guide':'Your document'} · {source.citationId||source.id}</small><p>{source.excerpt}</p><p className="muted">{retrieval.promptSourceIds?.includes(source.id)?'Included in the model context':'Retrieved for inspection; omitted from bounded model context'}</p></article>)}</section>}
-        {chosen.grounding?.length > 0 && <><div className="studio-grounding-grid">{chosen.grounding.map(source => {const item = items.find(i => i.id === source.itemId);return item && <article key={source.itemId}><button onClick={() => onEdit(item)}>{item.name} ↗</button><ul>{source.facts.map((fact, index) => <li key={index}>{fact}</li>)}</ul><p>{source.reasons.join(' · ')}</p></article>;})}</div>{chosen.guideCitations?.length > 0 && <p className="studio-citations">Styling notes: {chosen.guideCitations.map(g => g.title).join(' · ')}.</p>}<p className="studio-citations">Based on saved garment details. Styling suggestions can still need a personal adjustment.</p></>}
-        {engine !== 'baseline' && (retrieval || retrievalError || previewing) && <details className="studio-matches" open={matchesOpen} onToggle={e => setMatchesOpen(e.currentTarget.open)}><summary>Wardrobe matches</summary><RetrievalPanel retrieval={retrieval} items={items} onEdit={onEdit} loading={previewing} error={retrievalError}/></details>}
+        {chosen.grounding?.length > 0 && <><div className="studio-grounding-grid">{chosen.grounding.map(source => {const item = items.find(i => i.id === source.itemId);return item && <article key={source.itemId}><button onClick={() => editPiece(item)}>{item.name} ↗</button><ul>{source.facts.map((fact, index) => <li key={index}>{fact}</li>)}</ul><p>{source.reasons.join(' · ')}</p></article>;})}</div>{chosen.guideCitations?.length > 0 && <p className="studio-citations">Styling notes: {chosen.guideCitations.map(g => g.title).join(' · ')}.</p>}<p className="studio-citations">Based on saved garment details. Styling suggestions can still need a personal adjustment.</p></>}
+        {engine !== 'baseline' && (retrieval || retrievalError || previewing) && <details className="studio-matches" open={matchesOpen} onToggle={e => setMatchesOpen(e.currentTarget.open)}><summary>Wardrobe matches</summary><RetrievalPanel retrieval={retrieval} items={items} onEdit={editPiece} loading={previewing} error={retrievalError}/></details>}
       </details>}
-    </section>}
+    </section></Modal>}
   </div>;
 }

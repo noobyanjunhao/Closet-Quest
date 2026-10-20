@@ -40,16 +40,20 @@ export function createOpenAIChat({ apiKey = process.env.OPENAI_API_KEY, task='re
           ...(/^gpt-[56](?:[.-]|$)/.test(model)?{reasoning:{effort:OPENAI_MODEL_PROFILES[modelProfile].reasoningEffort}}:{}),
           text: { format: { type: 'json_schema', name: image?'garment_observation':'wardrobe_plans', strict: true, schema } } }),
       });
-      if (!response.ok) throw new PipelineError(response.status === 401 ? 'OpenAI rejected the API key.' : response.status === 429 ? 'OpenAI is at its request or billing limit.' : 'OpenAI could not complete this request.', { code: `OPENAI_HTTP_${response.status}`, status: 503 });
+      if (!response.ok) throw new PipelineError(response.status === 401 ? 'OpenAI rejected the API key.' : response.status === 429 ? 'OpenAI is at its request or billing limit.' : 'OpenAI could not complete this request.', { code: `OPENAI_HTTP_${response.status}`, status: 503, retryable:response.status>=500 });
       const result = await response.json();
-      const parts = (result.output || []).flatMap(item => item.content || []);
-      if (result.status !== 'completed' || parts.some(part => part.type === 'refusal')) throw new PipelineError('OpenAI did not complete a usable response. Retry or switch models.', { code: 'OPENAI_INCOMPLETE', status: 503 });
-      const data = JSON.parse(parts.filter(part => part.type === 'output_text').map(part => part.text).join(''));
+      const parts = Array.isArray(result.output) ? result.output.flatMap(item => Array.isArray(item?.content)?item.content:[]) : [];
+      if (parts.some(part => part.type === 'refusal')) throw new PipelineError('OpenAI could not analyze this image. Try a clothing-only photo or enter the details manually.', {code:'OPENAI_REFUSAL',status:422});
+      if (result.status !== 'completed') throw new PipelineError(result.incomplete_details?.reason==='max_output_tokens'?'The model ran out of response space. Try a closer photo with fewer pieces or the Fast profile.':'OpenAI did not complete a usable response. Retry or switch models.', { code:result.incomplete_details?.reason==='max_output_tokens'?'OPENAI_OUTPUT_LIMIT':'OPENAI_INCOMPLETE', status:503 });
+      let data;
+      try { data=JSON.parse(parts.filter(part => part.type === 'output_text'&&typeof part.text==='string').map(part => part.text).join('')); }
+      catch { throw new PipelineError('OpenAI returned incomplete garment details. Retry analysis; your photo is saved.',{code:'OPENAI_INVALID_RESPONSE',status:503,retryable:true}); }
       return { data, model, latencyMs: Math.round(performance.now() - started), tokens: result.usage?.output_tokens, usage: result.usage };
     } catch (error) {
       if (signal?.aborted) throw signal.reason;
       if (error instanceof PipelineError) throw error;
-      throw new PipelineError(deadline.aborted ? 'OpenAI took too long to respond.' : 'OpenAI returned an unavailable or unreadable response.', { code: deadline.aborted ? 'OPENAI_TIMEOUT' : 'OPENAI_UNAVAILABLE', status: 503 });
+      if(['EACCES','EPERM'].includes(error.cause?.code))throw new PipelineError('This server cannot reach OpenAI because network access is restricted. Restart it with network access, or choose local analysis.',{code:'OPENAI_NETWORK_PERMISSION',status:503});
+      throw new PipelineError(deadline.aborted ? 'OpenAI took too long to respond. Retry or choose a different model.' : 'Could not connect to OpenAI. Check the connection or choose local analysis; your photo is saved.', { code: deadline.aborted ? 'OPENAI_TIMEOUT' : 'OPENAI_UNAVAILABLE', status: 503, retryable:!deadline.aborted });
     }
   };
 }

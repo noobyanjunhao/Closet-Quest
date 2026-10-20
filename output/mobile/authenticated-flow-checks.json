@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-19",
+  "environment": "https://closet-quest-junhao-s7.onrender.com/",
+  "method": "Agent-operated live browser smoke test; one real account and known public demo fixtures",
+  "emailConfirmation": "receipt and successful confirmation reported by owner",
+  "signIn": "passed",
+  "batchUpload": {"files": 3, "correctCategories": 3, "categories": ["Top", "Bottom", "Shoes"]},
+  "reviewAndRename": "passed",
+  "reloadAndNewTabPersistence": "passed",
+  "recommendations": {"runs": 2, "pipelineReportedSeconds": [3.2, 3.4], "ownedOnly": true, "fallbackNotices": 0},
+  "personalDocument": {"indexed": true, "retrieval": "hybrid", "includedInModelContext": true},
+  "savedLook": "persisted after reauthentication",
+  "wearAndUndo": "passed; zero test wear records remain",
+  "backup": {"embeddedPhotos": 3, "savedOutfits": 1, "recommendationRecords": 2},
+  "signOutAndReauthentication": "passed",
+  "observedViewportWidth": 1280,
+  "notVerified": ["physical phone and camera", "touch gestures", "password reset delivery", "multiple garments in one photo in this run", "independent device conflicts", "human outfit acceptance"],
+  "fixturesRetained": "Three TEST garments, one TEST saved outfit, and one TEST reference document; no synthetic acceptance ratings"
+}

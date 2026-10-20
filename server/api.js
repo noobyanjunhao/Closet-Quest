@@ -1,5 +1,8 @@
 import { fileURLToPath } from 'node:url';
 import './env.js';
+import { createAccess } from './access.js';
+import {createCloud,cloudConfigured} from './cloud.js';
+import {createHash} from 'node:crypto';
 import { recognizeWithProvider as recognize } from './recognition-provider.js';
 import { createKnowledgeStore } from './knowledge.js';
 import { recommend as style, resolveProvider } from './recommendation.js';
@@ -37,11 +40,27 @@ async function readJson(req,maxBytes) {
   return body;
 }
 
-export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(new URL('../.local-data/jobs/',import.meta.url)),services={},queueOptions={},knowledgeStore,knowledgeDir=fileURLToPath(new URL('../.local-data/knowledge/',import.meta.url))}={}) {
+export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(new URL('../.local-data/jobs/',import.meta.url)),services={},queueOptions={},knowledgeStore,knowledgeDir=fileURLToPath(new URL('../.local-data/knowledge/',import.meta.url)),access=createAccess({cloud:cloudConfigured()}),cloud=createCloud()}={}) {
   const handlers={recognize,analyzeInspiration,style,retrieveWardrobeHybrid,recordLearningEvent,getLearningStatus,exportLearningData,listModels,...services};
   const queue=createJobQueue(handlers.recognize,{...queueOptions,storageDir});
   let knowledge=knowledgeStore;
   const getKnowledge=()=>knowledge||(knowledge=createKnowledgeStore({storageDir:knowledgeDir,embeddingClients:{openai:createOpenAIEmbeddingClient()}}));
+  const documentVersions=new Map(),hydrations=new Map();
+  async function hydratedKnowledge(user) {
+    if(!cloud||!user?.cloud)return getKnowledge();
+    const previous=hydrations.get(user.id)||Promise.resolve();
+    const pending=previous.catch(()=>{}).then(async()=>{
+      const docs=await cloud.documents(user),store=getKnowledge(),existing=await store.list(user.namespace),remoteIds=new Set(docs.map(d=>d.id));
+      for(const doc of existing)if(doc.origin==='user'&&!remoteIds.has(doc.id)){await store.remove(user.namespace,doc.id);documentVersions.delete(`${user.id}:${doc.id}`);}
+      // Cloud documents are durable; the local vector index is a rebuildable cache.
+      let indexed=0;
+      for(const doc of docs){const key=`${user.id}:${doc.id}`,version=createHash('sha256').update(JSON.stringify(doc)).digest('hex');
+        if(documentVersions.get(key)!==version){await store.upsert(user.namespace,doc,{embeddingProvider:'openai',lexicalOnly:indexed++>=2});documentVersions.set(key,version);}
+      }
+      return store;
+    });
+    hydrations.set(user.id,pending);try{return await pending;}finally{if(hydrations.get(user.id)===pending)hydrations.delete(user.id);}
+  }
   const controllers=new Set();let active=false,closed=false,remoteActive=0;
   async function middleware(req,res) {
     res.setHeader('Content-Type','application/json');res.setHeader('Cache-Control','no-store');
@@ -49,8 +68,28 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
     try {
       if(closed)throw Object.assign(new Error('The local API is stopping. Retry after it restarts.'),{status:503,code:'SERVICE_CLOSED'});
       const route=(req.url||'/').split('?')[0];
-      const host=req.headers.host||'';
-      if(!/^(localhost|127\.0\.0\.1):\d+$/.test(host)||(req.headers.origin&&req.headers.origin!==`http://${host}`)){res.statusCode=403;return res.end(JSON.stringify({error:'Local same-origin access only.'}));}
+      access.checkOrigin(req);
+      if(cloud&&route.startsWith('/session')){
+        if(req.method==='GET'&&route==='/session'){const user=await cloud.authenticate(req,res);return res.end(JSON.stringify({hosted:true,authMode:'account',user:user?cloud.publicUser(user):null}));}
+        const action=route.split('/')[2];
+        if(req.method==='POST'&&['login','signup','recover','password','exchange','logout'].includes(action))return res.end(JSON.stringify(await cloud.auth(action,await readJson(req,16000),req,res)));
+        throw Object.assign(new Error('Not found.'),{status:404});
+      }
+      if(req.method==='GET'&&route==='/session')return res.end(JSON.stringify({hosted:access.hosted,authMode:'pilot',user:access.session(req)&&{id:access.session(req).id,namespace:access.session(req).namespace}}));
+      if(req.method==='POST'&&route==='/session/login'){const input=await readJson(req,2048);return res.end(JSON.stringify(access.login(req,String(input.code||'').slice(0,200),res)));}
+      if(req.method==='POST'&&route==='/session/logout'){access.logout(res);return res.end('{}');}
+      const user=cloud?await cloud.authenticate(req,res):access.require(req);
+      if(cloud&&!user)throw Object.assign(new Error('Sign in to open your closet.'),{status:401,code:'SIGN_IN_REQUIRED'});
+      if(route.startsWith('/cloud/')){
+        if(!cloud||!user)throw Object.assign(new Error('Cloud accounts are not configured.'),{status:503});
+        if(route==='/cloud/closet'&&req.method==='GET')return res.end(JSON.stringify(await cloud.closet(user)));
+        if(route==='/cloud/closet'&&req.method==='POST')return res.end(JSON.stringify(await cloud.saveCloset(user,await readJson(req,2000000))));
+        if(route==='/cloud/photos'&&req.method==='POST')return res.end(JSON.stringify(await cloud.uploadPhoto(user,(await readJson(req,3000100)).image)));
+        const match=route.match(/^\/cloud\/photos\/([a-f0-9]{64}\.(jpg|png))$/);
+        if(match&&req.method==='GET'){const photo=await cloud.photo(user,match[1]);res.setHeader('Content-Type',match[2]==='png'?'image/png':'image/jpeg');return res.end(Buffer.from(await photo.arrayBuffer()));}
+        throw Object.assign(new Error('Not found.'),{status:404});
+      }
+      if(access.hosted&&(route.startsWith('/learning/')||route.startsWith('/depop/'))){res.statusCode=403;return res.end(JSON.stringify({error:'This integration is disabled on the participant deployment.'}));}
       if(req.method==='GET'&&route==='/status'){
         const models={recognition:modelFor('recognition'),stylist:modelFor('stylist'),embedding:modelFor('embedding')};
         try {
@@ -67,10 +106,14 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
       if(req.method==='GET'&&route==='/learning/status')return res.end(JSON.stringify(await handlers.getLearningStatus()));
       if(req.method==='GET'&&route==='/learning/export')return res.end(JSON.stringify(await handlers.exportLearningData()));
       const jobMatch=route.match(/^\/jobs\/([\w-]+)$/);
+      if(jobMatch&&user&&!queue.owns(jobMatch[1],user.namespace)){res.statusCode=404;return res.end(JSON.stringify({error:'Analysis unavailable for this account.'}));}
       if(jobMatch&&req.method==='GET'){const job=queue.get(jobMatch[1]);res.statusCode=job?200:404;return res.end(JSON.stringify(job||{error:'Analysis expired. Retry this photo.'}));}
       if(jobMatch&&req.method==='DELETE'){res.statusCode=queue.cancel(jobMatch[1])?200:404;return res.end('{}');}
       if(req.method!=='POST'||!['/jobs','/recognize','/inspiration','/style','/retrieve','/learning/events','/knowledge/list','/knowledge/documents','/knowledge/delete','/knowledge/search','/knowledge/reindex'].includes(route)){res.statusCode=404;return res.end('{}');}
       const body=await readJson(req,route==='/learning/events'||route.startsWith('/knowledge/')?128000:8500000);
+      if(user)body.wardrobeId=user.namespace;
+      if(access.hosted&&['/jobs','/recognize','/style','/retrieve','/inspiration','/knowledge/documents','/knowledge/search','/knowledge/reindex'].includes(route))access.allowInference(user);
+      if(access.hosted&&(body.provider==='local'||route==='/inspiration'))throw Object.assign(new Error('Local inference is unavailable on this cloud deployment. Select OpenAI or Quick matches.'),{status:400});
       const localStyle=route==='/style'&&resolveProvider(body.provider)==='local';
       const cloudPhoto=['/jobs','/recognize'].includes(route)&&body.provider==='openai';
       const inference=(['/jobs','/recognize','/inspiration'].includes(route)&&!cloudPhoto)||localStyle;
@@ -78,13 +121,16 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
       if(inference){active=true;claimed=true;}
       if((route==='/style'&&!localStyle)||(route==='/recognize'&&cloudPhoto)){if(remoteActive>=2)throw Object.assign(new Error('Two direct cloud requests are already running. Try again shortly.'),{status:429,code:'CLOUD_BUSY'});remoteActive++;remoteClaimed=true;}
       if(route==='/learning/events'){res.statusCode=201;return res.end(JSON.stringify(await handlers.recordLearningEvent(body)));}
-      if(route==='/jobs'){const job=queue.enqueue(body.image,{crop:body.crop,provider:body.provider,modelProfile:body.modelProfile,wardrobeId:body.wardrobeId});res.statusCode=202;return res.end(JSON.stringify(job));}
+      if(route==='/jobs'){const job=queue.enqueue(body.image,{crop:body.crop,detectionMode:body.detectionMode,provider:body.provider,modelProfile:body.modelProfile,wardrobeId:body.wardrobeId});res.statusCode=202;return res.end(JSON.stringify(job));}
       controller=new AbortController();controllers.add(controller);abortDisconnected=()=>{if(!res.writableEnded)controller.abort();};res.once('close',abortDisconnected);
       if(route.startsWith('/knowledge/')) {
-        const store=getKnowledge();let result;
+        let saved,removed;
+        if(cloud&&user?.cloud&&route==='/knowledge/documents')saved=await cloud.saveDocument(user,body);
+        if(cloud&&user?.cloud&&route==='/knowledge/delete')removed=await cloud.removeDocument(user,body.id);
+        const store=await hydratedKnowledge(user);let result;
         if(route==='/knowledge/list')result={documents:await store.list(body.wardrobeId)};
-        if(route==='/knowledge/documents')result=await store.upsert(body.wardrobeId,body,{signal:controller.signal,embeddingProvider:body.embeddingProvider||'local'});
-        if(route==='/knowledge/delete')result=await store.remove(body.wardrobeId,body.id);
+        if(route==='/knowledge/documents')result=saved?{document:(await store.list(user.namespace)).find(d=>d.id===saved.id),indexing:{mode:'cloud-saved',message:'Saved to your account. Your search index is rebuilt as needed.'}}:await store.upsert(body.wardrobeId,body,{signal:controller.signal,embeddingProvider:body.embeddingProvider||'local'});
+        if(route==='/knowledge/delete')result=removed||await store.remove(body.wardrobeId,body.id);
         if(route==='/knowledge/reindex')result=await store.reindex(body.wardrobeId,{signal:controller.signal,embeddingProvider:body.embeddingProvider||'local'});
         if(route==='/knowledge/search')result=await store.search(body.wardrobeId,body.query,{signal:controller.signal,limit:4,lexicalOnly:body.lexicalOnly===true,embeddingProvider:body.embeddingProvider||'local'});
         return res.end(JSON.stringify(result||{ok:true}));
@@ -97,7 +143,7 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
         return res.end(JSON.stringify({retrieval}));
       }
       if(route==='/inspiration')return res.end(JSON.stringify(await handlers.analyzeInspiration(body.image,{signal:controller.signal})));
-      res.end(JSON.stringify(await(route==='/recognize'?handlers.recognize(body.image,{crop:body.crop,provider:body.provider,modelProfile:body.modelProfile,wardrobeId:body.wardrobeId,signal:controller.signal}):handlers.style(body,{signal:controller.signal,knowledgeSearch:(...args)=>getKnowledge().search(...args)}))));
+      res.end(JSON.stringify(await(route==='/recognize'?handlers.recognize(body.image,{crop:body.crop,detectionMode:body.detectionMode,provider:body.provider,modelProfile:body.modelProfile,wardrobeId:body.wardrobeId,signal:controller.signal}):handlers.style(body,{signal:controller.signal,knowledgeSearch:async(...args)=>(await hydratedKnowledge(user)).search(...args)}))));
     }catch(error){if(!res.destroyed){res.statusCode=error.status||503;res.end(JSON.stringify({error:error.message,code:error.code,retryable:error.retryable===true}));}}
     finally{if(abortDisconnected)res.off('close',abortDisconnected);if(controller)controllers.delete(controller);if(claimed)active=false;if(remoteClaimed)remoteActive--;}
   }

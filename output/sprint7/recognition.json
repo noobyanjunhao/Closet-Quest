@@ -1,0 +1,2914 @@
+{
+  "measuredAt": "2026-10-19T23:00:19.738Z",
+  "protocol": "Category-set precision/recall. Errors predict empty sets and remain in recall denominator. Two concurrent workers; first inference, not server cold start. No human labels or training claims.",
+  "rows": [
+    {
+      "imageId": 16027,
+      "stratum": "general",
+      "mode": "single",
+      "expected": [
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 5759,
+      "predicted": [
+        "Top"
+      ],
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "Blouse"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1368,
+        "input_tokens_details": {
+          "cache_write_tokens": 1365,
+          "cached_tokens": 0
+        },
+        "output_tokens": 187,
+        "output_tokens_details": {
+          "reasoning_tokens": 63
+        },
+        "total_tokens": 1555
+      },
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "6c0378131d9772c367834422e462671e3e53e12ce53074cc6c19bdac40a57b18",
+        "inputSha256": "c56eb36234dd90204385b6999e0ed06ed4565444ea8f8fbc05dd307946cbb231",
+        "normalizedSha256": "a0901e2010a8d52893295dfc346f044f91d77a89abba164dcbb364cebc8d8a8f",
+        "width": 666,
+        "height": 1000,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 72
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 5685
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 1,
+      "fp": 0,
+      "fn": 1,
+      "hatDetected": false
+    },
+    {
+      "imageId": 16027,
+      "stratum": "general",
+      "mode": "multiple",
+      "expected": [
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 9593,
+      "predicted": [
+        "Accessory",
+        "Bottom"
+      ],
+      "pieces": [
+        {
+          "category": "Accessory",
+          "itemType": "Other accessory",
+          "boundingBox": {
+            "x": 0.17,
+            "y": 0.397,
+            "width": 0.51,
+            "height": 0.502
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Shorts",
+          "boundingBox": {
+            "x": 0.38,
+            "y": 0.755,
+            "width": 0.34,
+            "height": 0.202
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 1597,
+        "input_tokens_details": {
+          "cache_write_tokens": 1594,
+          "cached_tokens": 0
+        },
+        "output_tokens": 473,
+        "output_tokens_details": {
+          "reasoning_tokens": 219
+        },
+        "total_tokens": 2070
+      },
+      "pipeline": {
+        "version": "garment-scene-v1",
+        "promptSha256": "2edcd182417f58527bfdc3067e4f4b74aaa8ba1296baa695b7d4970c4f71905f",
+        "inputSha256": "c56eb36234dd90204385b6999e0ed06ed4565444ea8f8fbc05dd307946cbb231",
+        "normalizedSha256": "a0901e2010a8d52893295dfc346f044f91d77a89abba164dcbb364cebc8d8a8f",
+        "width": 666,
+        "height": 1000,
+        "detectionMode": "multiple",
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 105
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 9483
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 1,
+      "fp": 1,
+      "fn": 1,
+      "hatDetected": false
+    },
+    {
+      "imageId": 9676,
+      "stratum": "general",
+      "mode": "multiple",
+      "expected": [
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 8151,
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Top"
+      ],
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "T-shirt",
+          "boundingBox": {
+            "x": 0.26,
+            "y": 0.22,
+            "width": 0.52,
+            "height": 0.43
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Shorts",
+          "boundingBox": {
+            "x": 0.18,
+            "y": 0.55,
+            "width": 0.48,
+            "height": 0.23
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.46,
+            "y": 0.2,
+            "width": 0.17,
+            "height": 0.09
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 1597,
+        "input_tokens_details": {
+          "cache_write_tokens": 1594,
+          "cached_tokens": 0
+        },
+        "output_tokens": 590,
+        "output_tokens_details": {
+          "reasoning_tokens": 185
+        },
+        "total_tokens": 2187
+      },
+      "pipeline": {
+        "version": "garment-scene-v1",
+        "promptSha256": "2edcd182417f58527bfdc3067e4f4b74aaa8ba1296baa695b7d4970c4f71905f",
+        "inputSha256": "513e458dab065cd85b2b365150ae87d61bf7d03a33ab5bce328379513ac56769",
+        "normalizedSha256": "69bd27f9ea0e073365be6146f941ee21050e2acc04cd7de7e4201adfc4f3c4a8",
+        "width": 666,
+        "height": 1000,
+        "detectionMode": "multiple",
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 46
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 8104
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 2,
+      "fp": 1,
+      "fn": 0,
+      "hatDetected": false
+    },
+    {
+      "imageId": 9676,
+      "stratum": "general",
+      "mode": "single",
+      "expected": [
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "status": "failed",
+      "code": "AMBIGUOUS_ITEM",
+      "latencyMs": 5179,
+      "predicted": [],
+      "tp": 0,
+      "fp": 0,
+      "fn": 2,
+      "hatDetected": false
+    },
+    {
+      "imageId": 15707,
+      "stratum": "general",
+      "mode": "single",
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 5391,
+      "predicted": [
+        "Top"
+      ],
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "Blouse"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1368,
+        "input_tokens_details": {
+          "cache_write_tokens": 1365,
+          "cached_tokens": 0
+        },
+        "output_tokens": 252,
+        "output_tokens_details": {
+          "reasoning_tokens": 124
+        },
+        "total_tokens": 1620
+      },
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "6c0378131d9772c367834422e462671e3e53e12ce53074cc6c19bdac40a57b18",
+        "inputSha256": "adc5d330cedf0111e868d08b6c81523057498f8b80b7348a5d76edd503b0eca5",
+        "normalizedSha256": "91d88ae7803fb52cbb95b08d89e5f9e9e3dd028cc64fc8fc3901fcda66bdbc10",
+        "width": 666,
+        "height": 1000,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 47
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 5342
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 1,
+      "fp": 0,
+      "fn": 3,
+      "hatDetected": false
+    },
+    {
+      "imageId": 15707,
+      "stratum": "general",
+      "mode": "multiple",
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "status": "failed",
+      "code": "AMBIGUOUS_ITEM",
+      "latencyMs": 10342,
+      "predicted": [],
+      "tp": 0,
+      "fp": 0,
+      "fn": 4,
+      "hatDetected": false
+    },
+    {
+      "imageId": 8947,
+      "stratum": "general",
+      "mode": "multiple",
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 8608,
+      "predicted": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.31,
+            "y": 0.21,
+            "width": 0.21,
+            "height": 0.57
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Dress shoes",
+          "boundingBox": {
+            "x": 0.386,
+            "y": 0.827,
+            "width": 0.077,
+            "height": 0.11
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.404,
+            "y": 0.166,
+            "width": 0.044,
+            "height": 0.081
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.483,
+            "y": 0.356,
+            "width": 0.03,
+            "height": 0.05
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 1597,
+        "input_tokens_details": {
+          "cache_write_tokens": 1594,
+          "cached_tokens": 0
+        },
+        "output_tokens": 677,
+        "output_tokens_details": {
+          "reasoning_tokens": 174
+        },
+        "total_tokens": 2274
+      },
+      "pipeline": {
+        "version": "garment-scene-v1",
+        "promptSha256": "2edcd182417f58527bfdc3067e4f4b74aaa8ba1296baa695b7d4970c4f71905f",
+        "inputSha256": "39c6bbd71c0630c3394f742a2a7145228036be537412f5329a290677b7fd738d",
+        "normalizedSha256": "e6eb6a720da3ddfbc000085f1ae8dbe24479d9732a2905a58da13f86177996e3",
+        "width": 1000,
+        "height": 664,
+        "detectionMode": "multiple",
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 46
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 8561
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 2,
+      "fp": 1,
+      "fn": 0,
+      "hatDetected": false
+    },
+    {
+      "imageId": 8947,
+      "stratum": "general",
+      "mode": "single",
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 4014,
+      "predicted": [
+        "Dress"
+      ],
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1368,
+        "input_tokens_details": {
+          "cache_write_tokens": 1365,
+          "cached_tokens": 0
+        },
+        "output_tokens": 224,
+        "output_tokens_details": {
+          "reasoning_tokens": 97
+        },
+        "total_tokens": 1592
+      },
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "6c0378131d9772c367834422e462671e3e53e12ce53074cc6c19bdac40a57b18",
+        "inputSha256": "39c6bbd71c0630c3394f742a2a7145228036be537412f5329a290677b7fd738d",
+        "normalizedSha256": "e6eb6a720da3ddfbc000085f1ae8dbe24479d9732a2905a58da13f86177996e3",
+        "width": 1000,
+        "height": 664,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 44
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 3968
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 1,
+      "fp": 0,
+      "fn": 1,
+      "hatDetected": false
+    },
+    {
+      "imageId": 10727,
+      "stratum": "general",
+      "mode": "single",
+      "expected": [
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 4438,
+      "predicted": [
+        "Bottom"
+      ],
+      "pieces": [
+        {
+          "category": "Bottom",
+          "itemType": "Skirt"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1368,
+        "input_tokens_details": {
+          "cache_write_tokens": 1365,
+          "cached_tokens": 0
+        },
+        "output_tokens": 247,
+        "output_tokens_details": {
+          "reasoning_tokens": 119
+        },
+        "total_tokens": 1615
+      },
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "6c0378131d9772c367834422e462671e3e53e12ce53074cc6c19bdac40a57b18",
+        "inputSha256": "b0ee1c0db70f0865503a3b689d1f6579af6143ed35517839d2fe30e729a7e107",
+        "normalizedSha256": "f211f5160594d4c02f7e08cccfee5c2d20609d1b50659cb73cfa19b21e078dc8",
+        "width": 667,
+        "height": 1000,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 39
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 4397
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 1,
+      "fp": 0,
+      "fn": 1,
+      "hatDetected": false
+    },
+    {
+      "imageId": 10727,
+      "stratum": "general",
+      "mode": "multiple",
+      "expected": [
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 9710,
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Top"
+      ],
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "T-shirt",
+          "boundingBox": {
+            "x": 0.18,
+            "y": 0.36,
+            "width": 0.44,
+            "height": 0.39
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Skirt",
+          "boundingBox": {
+            "x": 0.15,
+            "y": 0.64,
+            "width": 0.85,
+            "height": 0.36
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.53,
+            "y": 0.48,
+            "width": 0.07,
+            "height": 0.08
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.38,
+            "y": 0.4,
+            "width": 0.05,
+            "height": 0.04
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 1597,
+        "input_tokens_details": {
+          "cache_write_tokens": 1594,
+          "cached_tokens": 0
+        },
+        "output_tokens": 658,
+        "output_tokens_details": {
+          "reasoning_tokens": 154
+        },
+        "total_tokens": 2255
+      },
+      "pipeline": {
+        "version": "garment-scene-v1",
+        "promptSha256": "2edcd182417f58527bfdc3067e4f4b74aaa8ba1296baa695b7d4970c4f71905f",
+        "inputSha256": "b0ee1c0db70f0865503a3b689d1f6579af6143ed35517839d2fe30e729a7e107",
+        "normalizedSha256": "f211f5160594d4c02f7e08cccfee5c2d20609d1b50659cb73cfa19b21e078dc8",
+        "width": 667,
+        "height": 1000,
+        "detectionMode": "multiple",
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 45
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 9663
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 2,
+      "fp": 1,
+      "fn": 0,
+      "hatDetected": false
+    },
+    {
+      "imageId": 8519,
+      "stratum": "general",
+      "mode": "multiple",
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 9467,
+      "predicted": [
+        "Dress",
+        "Shoes"
+      ],
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.386,
+            "y": 0.212,
+            "width": 0.287,
+            "height": 0.722
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Dress shoes",
+          "boundingBox": {
+            "x": 0.461,
+            "y": 0.929,
+            "width": 0.171,
+            "height": 0.068
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 1597,
+        "input_tokens_details": {
+          "cache_write_tokens": 1594,
+          "cached_tokens": 0
+        },
+        "output_tokens": 519,
+        "output_tokens_details": {
+          "reasoning_tokens": 220
+        },
+        "total_tokens": 2116
+      },
+      "pipeline": {
+        "version": "garment-scene-v1",
+        "promptSha256": "2edcd182417f58527bfdc3067e4f4b74aaa8ba1296baa695b7d4970c4f71905f",
+        "inputSha256": "b47313cc53ce2a923a1c56eced55565958ab6b24e29eb91b70cd57fd1140fc74",
+        "normalizedSha256": "8fb806c3732863482eb32d507bcb7506493acfba9ae18d300c4ee73efea5c433",
+        "width": 666,
+        "height": 1000,
+        "detectionMode": "multiple",
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 52
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 9414
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "hatDetected": false
+    },
+    {
+      "imageId": 8519,
+      "stratum": "general",
+      "mode": "single",
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 3412,
+      "predicted": [
+        "Dress"
+      ],
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1368,
+        "input_tokens_details": {
+          "cache_write_tokens": 1365,
+          "cached_tokens": 0
+        },
+        "output_tokens": 184,
+        "output_tokens_details": {
+          "reasoning_tokens": 45
+        },
+        "total_tokens": 1552
+      },
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "6c0378131d9772c367834422e462671e3e53e12ce53074cc6c19bdac40a57b18",
+        "inputSha256": "b47313cc53ce2a923a1c56eced55565958ab6b24e29eb91b70cd57fd1140fc74",
+        "normalizedSha256": "8fb806c3732863482eb32d507bcb7506493acfba9ae18d300c4ee73efea5c433",
+        "width": 666,
+        "height": 1000,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 54
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 3356
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 1,
+      "fp": 0,
+      "fn": 1,
+      "hatDetected": false
+    },
+    {
+      "imageId": 9711,
+      "stratum": "general",
+      "mode": "single",
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 2482,
+      "predicted": [
+        "Dress"
+      ],
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1368,
+        "input_tokens_details": {
+          "cache_write_tokens": 1365,
+          "cached_tokens": 0
+        },
+        "output_tokens": 137,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1505
+      },
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "6c0378131d9772c367834422e462671e3e53e12ce53074cc6c19bdac40a57b18",
+        "inputSha256": "dca18f24b06b38673a3502489607a056fdcd7a56dc622ea1425b1911b922e55a",
+        "normalizedSha256": "be75d0bca5dc7950af9bb6057d7da29e8d6fc4ed3b20c93ba0d66f22727fdd0e",
+        "width": 667,
+        "height": 1000,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 54
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 2427
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 1,
+      "fp": 0,
+      "fn": 2,
+      "hatDetected": false
+    },
+    {
+      "imageId": 12831,
+      "stratum": "general",
+      "mode": "multiple",
+      "expected": [
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 7085,
+      "predicted": [
+        "Bottom",
+        "Top"
+      ],
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "Shirt",
+          "boundingBox": {
+            "x": 0.06,
+            "y": 0.25,
+            "width": 0.68,
+            "height": 0.6
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Trousers",
+          "boundingBox": {
+            "x": 0.07,
+            "y": 0.81,
+            "width": 0.68,
+            "height": 0.18999999999999995
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 1597,
+        "input_tokens_details": {
+          "cache_write_tokens": 1594,
+          "cached_tokens": 0
+        },
+        "output_tokens": 422,
+        "output_tokens_details": {
+          "reasoning_tokens": 126
+        },
+        "total_tokens": 2019
+      },
+      "pipeline": {
+        "version": "garment-scene-v1",
+        "promptSha256": "2edcd182417f58527bfdc3067e4f4b74aaa8ba1296baa695b7d4970c4f71905f",
+        "inputSha256": "038ca526c7c9c5f444a089457fdd0cb1c1573ce75136549ed8342bd34a1ea6d8",
+        "normalizedSha256": "607ca678e531308ba1240d41f298e6c51de3c498c2d9cd4bbbacd7c2a082e58f",
+        "width": 666,
+        "height": 1000,
+        "detectionMode": "multiple",
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 40
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 7043
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "hatDetected": false
+    },
+    {
+      "imageId": 9711,
+      "stratum": "general",
+      "mode": "multiple",
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "status": "failed",
+      "code": "AMBIGUOUS_ITEM",
+      "latencyMs": 11759,
+      "predicted": [],
+      "tp": 0,
+      "fp": 0,
+      "fn": 3,
+      "hatDetected": false
+    },
+    {
+      "imageId": 12831,
+      "stratum": "general",
+      "mode": "single",
+      "expected": [
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 3420,
+      "predicted": [
+        "Top"
+      ],
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "Shirt"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1368,
+        "input_tokens_details": {
+          "cache_write_tokens": 1365,
+          "cached_tokens": 0
+        },
+        "output_tokens": 144,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1512
+      },
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "6c0378131d9772c367834422e462671e3e53e12ce53074cc6c19bdac40a57b18",
+        "inputSha256": "038ca526c7c9c5f444a089457fdd0cb1c1573ce75136549ed8342bd34a1ea6d8",
+        "normalizedSha256": "607ca678e531308ba1240d41f298e6c51de3c498c2d9cd4bbbacd7c2a082e58f",
+        "width": 666,
+        "height": 1000,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 41
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 3378
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 1,
+      "fp": 0,
+      "fn": 1,
+      "hatDetected": false
+    },
+    {
+      "imageId": 11446,
+      "stratum": "general",
+      "mode": "single",
+      "expected": [
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 3468,
+      "predicted": [
+        "Top"
+      ],
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "T-shirt"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1368,
+        "input_tokens_details": {
+          "cache_write_tokens": 1365,
+          "cached_tokens": 0
+        },
+        "output_tokens": 216,
+        "output_tokens_details": {
+          "reasoning_tokens": 81
+        },
+        "total_tokens": 1584
+      },
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "6c0378131d9772c367834422e462671e3e53e12ce53074cc6c19bdac40a57b18",
+        "inputSha256": "e6351cbafb1a9de9aa79b017539df359cd5469d17bd40d4bfafb4fb947a1036a",
+        "normalizedSha256": "f6b2a4b073dfeee2447be14496a92ccf7416e76421f09e8d7df85dc637700cd4",
+        "width": 666,
+        "height": 1000,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 42
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 3425
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 1,
+      "fp": 0,
+      "fn": 1,
+      "hatDetected": false
+    },
+    {
+      "imageId": 11446,
+      "stratum": "general",
+      "mode": "multiple",
+      "expected": [
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 6220,
+      "predicted": [
+        "Bottom",
+        "Top"
+      ],
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "T-shirt",
+          "boundingBox": {
+            "x": 0.045,
+            "y": 0.27,
+            "width": 0.855,
+            "height": 0.395
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Shorts",
+          "boundingBox": {
+            "x": 0.29,
+            "y": 0.637,
+            "width": 0.5,
+            "height": 0.281
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 1597,
+        "input_tokens_details": {
+          "cache_write_tokens": 1594,
+          "cached_tokens": 0
+        },
+        "output_tokens": 405,
+        "output_tokens_details": {
+          "reasoning_tokens": 122
+        },
+        "total_tokens": 2002
+      },
+      "pipeline": {
+        "version": "garment-scene-v1",
+        "promptSha256": "2edcd182417f58527bfdc3067e4f4b74aaa8ba1296baa695b7d4970c4f71905f",
+        "inputSha256": "e6351cbafb1a9de9aa79b017539df359cd5469d17bd40d4bfafb4fb947a1036a",
+        "normalizedSha256": "f6b2a4b073dfeee2447be14496a92ccf7416e76421f09e8d7df85dc637700cd4",
+        "width": 666,
+        "height": 1000,
+        "detectionMode": "multiple",
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 58
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 6161
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "hatDetected": false
+    },
+    {
+      "imageId": 18108,
+      "stratum": "general",
+      "mode": "single",
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 3572,
+      "predicted": [
+        "Bottom"
+      ],
+      "pieces": [
+        {
+          "category": "Bottom",
+          "itemType": "Trousers"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1464,
+        "input_tokens_details": {
+          "cache_write_tokens": 1461,
+          "cached_tokens": 0
+        },
+        "output_tokens": 209,
+        "output_tokens_details": {
+          "reasoning_tokens": 87
+        },
+        "total_tokens": 1673
+      },
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "6c0378131d9772c367834422e462671e3e53e12ce53074cc6c19bdac40a57b18",
+        "inputSha256": "1604cbb4f25fc474731dc61d84643e3d88e038881706548a5acbfe64ce0fc71a",
+        "normalizedSha256": "ff76249f1bd67053b48211d351cbfade7f67f9ac956215e2108ed1714386eadf",
+        "width": 1000,
+        "height": 1000,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 45
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 3525
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 1,
+      "fp": 0,
+      "fn": 3,
+      "hatDetected": false
+    },
+    {
+      "imageId": 18108,
+      "stratum": "general",
+      "mode": "multiple",
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 11569,
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "pieces": [
+        {
+          "category": "Bottom",
+          "itemType": "Trousers",
+          "boundingBox": {
+            "x": 0.4,
+            "y": 0.19,
+            "width": 0.42,
+            "height": 0.6
+          }
+        },
+        {
+          "category": "Top",
+          "itemType": "T-shirt",
+          "boundingBox": {
+            "x": 0.65,
+            "y": 0.21,
+            "width": 0.18,
+            "height": 0.25
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Other footwear",
+          "boundingBox": {
+            "x": 0.19,
+            "y": 0.37,
+            "width": 0.19,
+            "height": 0.19
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Glasses",
+          "boundingBox": {
+            "x": 0.75,
+            "y": 0.1,
+            "width": 0.09,
+            "height": 0.05
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.68,
+            "y": 0.2,
+            "width": 0.11,
+            "height": 0.06
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.34,
+            "y": 0.34,
+            "width": 0.08,
+            "height": 0.09
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 2019,
+        "input_tokens_details": {
+          "cache_write_tokens": 2016,
+          "cached_tokens": 0
+        },
+        "output_tokens": 937,
+        "output_tokens_details": {
+          "reasoning_tokens": 216
+        },
+        "total_tokens": 2956
+      },
+      "pipeline": {
+        "version": "garment-scene-v1",
+        "promptSha256": "2edcd182417f58527bfdc3067e4f4b74aaa8ba1296baa695b7d4970c4f71905f",
+        "inputSha256": "1604cbb4f25fc474731dc61d84643e3d88e038881706548a5acbfe64ce0fc71a",
+        "normalizedSha256": "ff76249f1bd67053b48211d351cbfade7f67f9ac956215e2108ed1714386eadf",
+        "width": 1000,
+        "height": 1000,
+        "detectionMode": "multiple",
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 43
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 11524
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "hatDetected": false
+    },
+    {
+      "imageId": 12007,
+      "stratum": "general",
+      "mode": "single",
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 5275,
+      "predicted": [
+        "Bottom"
+      ],
+      "pieces": [
+        {
+          "category": "Bottom",
+          "itemType": "Jeans"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1368,
+        "input_tokens_details": {
+          "cache_write_tokens": 1365,
+          "cached_tokens": 0
+        },
+        "output_tokens": 334,
+        "output_tokens_details": {
+          "reasoning_tokens": 204
+        },
+        "total_tokens": 1702
+      },
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "6c0378131d9772c367834422e462671e3e53e12ce53074cc6c19bdac40a57b18",
+        "inputSha256": "717fecf04c3f429401978f917bd1db3c024c98fdd62903112aef8bf7669d4839",
+        "normalizedSha256": "270c2b17eb51fecb4541d4c6a76b6f20081343ecb552b2954d64a890774561f0",
+        "width": 666,
+        "height": 1000,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 49
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 5225
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 1,
+      "fp": 0,
+      "fn": 2,
+      "hatDetected": false
+    },
+    {
+      "imageId": 12007,
+      "stratum": "general",
+      "mode": "multiple",
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 7577,
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Top"
+      ],
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "T-shirt",
+          "boundingBox": {
+            "x": 0.116,
+            "y": 0.238,
+            "width": 0.554,
+            "height": 0.438
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Jeans",
+          "boundingBox": {
+            "x": 0.135,
+            "y": 0.608,
+            "width": 0.554,
+            "height": 0.392
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Belt",
+          "boundingBox": {
+            "x": 0.261,
+            "y": 0.592,
+            "width": 0.362,
+            "height": 0.046
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.668,
+            "y": 0.704,
+            "width": 0.09,
+            "height": 0.047
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 1597,
+        "input_tokens_details": {
+          "cache_write_tokens": 1594,
+          "cached_tokens": 0
+        },
+        "output_tokens": 657,
+        "output_tokens_details": {
+          "reasoning_tokens": 122
+        },
+        "total_tokens": 2254
+      },
+      "pipeline": {
+        "version": "garment-scene-v1",
+        "promptSha256": "2edcd182417f58527bfdc3067e4f4b74aaa8ba1296baa695b7d4970c4f71905f",
+        "inputSha256": "717fecf04c3f429401978f917bd1db3c024c98fdd62903112aef8bf7669d4839",
+        "normalizedSha256": "270c2b17eb51fecb4541d4c6a76b6f20081343ecb552b2954d64a890774561f0",
+        "width": 666,
+        "height": 1000,
+        "detectionMode": "multiple",
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 51
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 7524
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "hatDetected": false
+    },
+    {
+      "imageId": 12813,
+      "stratum": "general",
+      "mode": "multiple",
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 6968,
+      "predicted": [
+        "Dress",
+        "Shoes"
+      ],
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.274,
+            "y": 0.234,
+            "width": 0.173,
+            "height": 0.58
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Sandals",
+          "boundingBox": {
+            "x": 0.332,
+            "y": 0.86,
+            "width": 0.06,
+            "height": 0.112
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 1597,
+        "input_tokens_details": {
+          "cache_write_tokens": 1594,
+          "cached_tokens": 0
+        },
+        "output_tokens": 529,
+        "output_tokens_details": {
+          "reasoning_tokens": 222
+        },
+        "total_tokens": 2126
+      },
+      "pipeline": {
+        "version": "garment-scene-v1",
+        "promptSha256": "2edcd182417f58527bfdc3067e4f4b74aaa8ba1296baa695b7d4970c4f71905f",
+        "inputSha256": "bfe54887ba291c0ae4d86aef6ace54f0d151d2737703f86a788bade4eaca06e4",
+        "normalizedSha256": "82bae6536b64c680a18f8c4e935cd6aceeed61de1daadfc583567557d4cb4d66",
+        "width": 1000,
+        "height": 666,
+        "detectionMode": "multiple",
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 33
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 6935
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "hatDetected": false
+    },
+    {
+      "imageId": 12813,
+      "stratum": "general",
+      "mode": "single",
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 3369,
+      "predicted": [
+        "Dress"
+      ],
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1368,
+        "input_tokens_details": {
+          "cache_write_tokens": 1365,
+          "cached_tokens": 0
+        },
+        "output_tokens": 201,
+        "output_tokens_details": {
+          "reasoning_tokens": 64
+        },
+        "total_tokens": 1569
+      },
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "6c0378131d9772c367834422e462671e3e53e12ce53074cc6c19bdac40a57b18",
+        "inputSha256": "bfe54887ba291c0ae4d86aef6ace54f0d151d2737703f86a788bade4eaca06e4",
+        "normalizedSha256": "82bae6536b64c680a18f8c4e935cd6aceeed61de1daadfc583567557d4cb4d66",
+        "width": 1000,
+        "height": 666,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 33
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 3336
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 1,
+      "fp": 0,
+      "fn": 1,
+      "hatDetected": false
+    },
+    {
+      "imageId": 16222,
+      "stratum": "hat",
+      "mode": "single",
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": true,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 3992,
+      "predicted": [
+        "Dress"
+      ],
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1368,
+        "input_tokens_details": {
+          "cache_write_tokens": 1365,
+          "cached_tokens": 0
+        },
+        "output_tokens": 195,
+        "output_tokens_details": {
+          "reasoning_tokens": 58
+        },
+        "total_tokens": 1563
+      },
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "6c0378131d9772c367834422e462671e3e53e12ce53074cc6c19bdac40a57b18",
+        "inputSha256": "34a304c684193f1570aa8bc80d28a3a332fdb2f338647ee386f30a9ee7dfb4ed",
+        "normalizedSha256": "a8a9852ecd091d343eb9780a8d506f0647633ead70bc1a1e759e5bdea60b192c",
+        "width": 1000,
+        "height": 664,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 32
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 3959
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 1,
+      "fp": 0,
+      "fn": 2,
+      "hatDetected": false
+    },
+    {
+      "imageId": 11073,
+      "stratum": "hat",
+      "mode": "multiple",
+      "expected": [
+        "Accessory",
+        "Dress"
+      ],
+      "annotatedHat": true,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 5867,
+      "predicted": [
+        "Accessory",
+        "Dress"
+      ],
+      "pieces": [
+        {
+          "category": "Accessory",
+          "itemType": "Hat",
+          "boundingBox": {
+            "x": 0.613,
+            "y": 0.113,
+            "width": 0.143,
+            "height": 0.152
+          }
+        },
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.55,
+            "y": 0.26,
+            "width": 0.181,
+            "height": 0.74
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 1597,
+        "input_tokens_details": {
+          "cache_write_tokens": 1594,
+          "cached_tokens": 0
+        },
+        "output_tokens": 382,
+        "output_tokens_details": {
+          "reasoning_tokens": 93
+        },
+        "total_tokens": 1979
+      },
+      "pipeline": {
+        "version": "garment-scene-v1",
+        "promptSha256": "2edcd182417f58527bfdc3067e4f4b74aaa8ba1296baa695b7d4970c4f71905f",
+        "inputSha256": "0e201ca6c5f163aa9271aa25b8a1b5d983283bcc116c8c27ed499d7f54b3dd5b",
+        "normalizedSha256": "5221744cfc81fe50073ae8703b43e19ae2d21e2640da9dfd89dc6bbda9bd3eb7",
+        "width": 1000,
+        "height": 666,
+        "detectionMode": "multiple",
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 33
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 5833
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "hatDetected": true
+    },
+    {
+      "imageId": 16222,
+      "stratum": "hat",
+      "mode": "multiple",
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": true,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 9406,
+      "predicted": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "pieces": [
+        {
+          "category": "Accessory",
+          "itemType": "Baseball cap",
+          "boundingBox": {
+            "x": 0.424,
+            "y": 0.09,
+            "width": 0.058,
+            "height": 0.06
+          }
+        },
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.394,
+            "y": 0.22,
+            "width": 0.127,
+            "height": 0.436
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.43,
+            "y": 0.204,
+            "width": 0.058,
+            "height": 0.073
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.514,
+            "y": 0.458,
+            "width": 0.025,
+            "height": 0.033
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Dress shoes",
+          "boundingBox": {
+            "x": 0.432,
+            "y": 0.812,
+            "width": 0.045,
+            "height": 0.095
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 1597,
+        "input_tokens_details": {
+          "cache_write_tokens": 1594,
+          "cached_tokens": 0
+        },
+        "output_tokens": 754,
+        "output_tokens_details": {
+          "reasoning_tokens": 159
+        },
+        "total_tokens": 2351
+      },
+      "pipeline": {
+        "version": "garment-scene-v1",
+        "promptSha256": "2edcd182417f58527bfdc3067e4f4b74aaa8ba1296baa695b7d4970c4f71905f",
+        "inputSha256": "34a304c684193f1570aa8bc80d28a3a332fdb2f338647ee386f30a9ee7dfb4ed",
+        "normalizedSha256": "a8a9852ecd091d343eb9780a8d506f0647633ead70bc1a1e759e5bdea60b192c",
+        "width": 1000,
+        "height": 664,
+        "detectionMode": "multiple",
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 38
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 9368
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "hatDetected": true
+    },
+    {
+      "imageId": 11073,
+      "stratum": "hat",
+      "mode": "single",
+      "expected": [
+        "Accessory",
+        "Dress"
+      ],
+      "annotatedHat": true,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 4238,
+      "predicted": [
+        "Dress"
+      ],
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1368,
+        "input_tokens_details": {
+          "cache_write_tokens": 1365,
+          "cached_tokens": 0
+        },
+        "output_tokens": 214,
+        "output_tokens_details": {
+          "reasoning_tokens": 79
+        },
+        "total_tokens": 1582
+      },
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "6c0378131d9772c367834422e462671e3e53e12ce53074cc6c19bdac40a57b18",
+        "inputSha256": "0e201ca6c5f163aa9271aa25b8a1b5d983283bcc116c8c27ed499d7f54b3dd5b",
+        "normalizedSha256": "5221744cfc81fe50073ae8703b43e19ae2d21e2640da9dfd89dc6bbda9bd3eb7",
+        "width": 1000,
+        "height": 666,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 33
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 4203
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 1,
+      "fp": 0,
+      "fn": 1,
+      "hatDetected": false
+    },
+    {
+      "imageId": 16212,
+      "stratum": "hat",
+      "mode": "single",
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": true,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 3543,
+      "predicted": [
+        "Bottom"
+      ],
+      "pieces": [
+        {
+          "category": "Bottom",
+          "itemType": "Skirt"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1387,
+        "input_tokens_details": {
+          "cache_write_tokens": 1384,
+          "cached_tokens": 0
+        },
+        "output_tokens": 207,
+        "output_tokens_details": {
+          "reasoning_tokens": 74
+        },
+        "total_tokens": 1594
+      },
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "6c0378131d9772c367834422e462671e3e53e12ce53074cc6c19bdac40a57b18",
+        "inputSha256": "8682b54750555f02d30f1fd372a541daba19a7033a5392ae5cd7a580012af28c",
+        "normalizedSha256": "1e76274c4e23d0bfadaab30cd380ef9624a5dc20d376640d2f60069998a6a2e8",
+        "width": 750,
+        "height": 1000,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 39
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 3504
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 1,
+      "fp": 0,
+      "fn": 3,
+      "hatDetected": false
+    },
+    {
+      "imageId": 16212,
+      "stratum": "hat",
+      "mode": "multiple",
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": true,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 9994,
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "pieces": [
+        {
+          "category": "Accessory",
+          "itemType": "Hat",
+          "boundingBox": {
+            "x": 0.54,
+            "y": 0.094,
+            "width": 0.181,
+            "height": 0.066
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Glasses",
+          "boundingBox": {
+            "x": 0.557,
+            "y": 0.147,
+            "width": 0.055,
+            "height": 0.031
+          }
+        },
+        {
+          "category": "Top",
+          "itemType": "Sweater",
+          "boundingBox": {
+            "x": 0.471,
+            "y": 0.237,
+            "width": 0.24,
+            "height": 0.188
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Scarf",
+          "boundingBox": {
+            "x": 0.503,
+            "y": 0.256,
+            "width": 0.071,
+            "height": 0.071
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Skirt",
+          "boundingBox": {
+            "x": 0.427,
+            "y": 0.405,
+            "width": 0.244,
+            "height": 0.428
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Boots",
+          "boundingBox": {
+            "x": 0.475,
+            "y": 0.811,
+            "width": 0.228,
+            "height": 0.178
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 1712,
+        "input_tokens_details": {
+          "cache_write_tokens": 1709,
+          "cached_tokens": 0
+        },
+        "output_tokens": 935,
+        "output_tokens_details": {
+          "reasoning_tokens": 195
+        },
+        "total_tokens": 2647
+      },
+      "pipeline": {
+        "version": "garment-scene-v1",
+        "promptSha256": "2edcd182417f58527bfdc3067e4f4b74aaa8ba1296baa695b7d4970c4f71905f",
+        "inputSha256": "8682b54750555f02d30f1fd372a541daba19a7033a5392ae5cd7a580012af28c",
+        "normalizedSha256": "1e76274c4e23d0bfadaab30cd380ef9624a5dc20d376640d2f60069998a6a2e8",
+        "width": 750,
+        "height": 1000,
+        "detectionMode": "multiple",
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 54
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 9939
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "hatDetected": true
+    },
+    {
+      "imageId": 19133,
+      "stratum": "hat",
+      "mode": "multiple",
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": true,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 10753,
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Top"
+      ],
+      "pieces": [
+        {
+          "category": "Accessory",
+          "itemType": "Baseball cap",
+          "boundingBox": {
+            "x": 0.26,
+            "y": 0.081,
+            "width": 0.142,
+            "height": 0.134
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Glasses",
+          "boundingBox": {
+            "x": 0.304,
+            "y": 0.16,
+            "width": 0.078,
+            "height": 0.044
+          }
+        },
+        {
+          "category": "Top",
+          "itemType": "T-shirt",
+          "boundingBox": {
+            "x": 0.247,
+            "y": 0.274,
+            "width": 0.118,
+            "height": 0.429
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Jeans",
+          "boundingBox": {
+            "x": 0.222,
+            "y": 0.656,
+            "width": 0.167,
+            "height": 0.344
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.25,
+            "y": 0.713,
+            "width": 0.033,
+            "height": 0.029
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 1597,
+        "input_tokens_details": {
+          "cache_write_tokens": 1594,
+          "cached_tokens": 0
+        },
+        "output_tokens": 1071,
+        "output_tokens_details": {
+          "reasoning_tokens": 170
+        },
+        "total_tokens": 2668
+      },
+      "pipeline": {
+        "version": "garment-scene-v1",
+        "promptSha256": "2edcd182417f58527bfdc3067e4f4b74aaa8ba1296baa695b7d4970c4f71905f",
+        "inputSha256": "aa51d7c9278a91aef721195f615d6f207129eac52e1b982e041d50772e31a670",
+        "normalizedSha256": "1586cbecf4eac02ab1d1223b7e7d1dbc77cdfd165f15d899e78229636b0e18d2",
+        "width": 1000,
+        "height": 667,
+        "detectionMode": "multiple",
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 50
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 10703
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "hatDetected": true
+    },
+    {
+      "imageId": 19133,
+      "stratum": "hat",
+      "mode": "single",
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": true,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 2860,
+      "predicted": [
+        "Top"
+      ],
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "T-shirt"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1368,
+        "input_tokens_details": {
+          "cache_write_tokens": 1365,
+          "cached_tokens": 0
+        },
+        "output_tokens": 111,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1479
+      },
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "6c0378131d9772c367834422e462671e3e53e12ce53074cc6c19bdac40a57b18",
+        "inputSha256": "aa51d7c9278a91aef721195f615d6f207129eac52e1b982e041d50772e31a670",
+        "normalizedSha256": "1586cbecf4eac02ab1d1223b7e7d1dbc77cdfd165f15d899e78229636b0e18d2",
+        "width": 1000,
+        "height": 667,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 30
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 2829
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 1,
+      "fp": 0,
+      "fn": 2,
+      "hatDetected": false
+    },
+    {
+      "imageId": 11800,
+      "stratum": "hat",
+      "mode": "single",
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": true,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 3625,
+      "predicted": [
+        "Dress"
+      ],
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1368,
+        "input_tokens_details": {
+          "cache_write_tokens": 1365,
+          "cached_tokens": 0
+        },
+        "output_tokens": 213,
+        "output_tokens_details": {
+          "reasoning_tokens": 96
+        },
+        "total_tokens": 1581
+      },
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "6c0378131d9772c367834422e462671e3e53e12ce53074cc6c19bdac40a57b18",
+        "inputSha256": "1791be4720af53131965e00426a7e25fdba234a13992ec4233bd1557c45a5dd5",
+        "normalizedSha256": "68c22a90a0b32ac6738ff48f4b814951ea9c5ea0fa0f838abb084728ce6569dc",
+        "width": 664,
+        "height": 1000,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 47
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 3578
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 1,
+      "fp": 0,
+      "fn": 2,
+      "hatDetected": false
+    },
+    {
+      "imageId": 11800,
+      "stratum": "hat",
+      "mode": "multiple",
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": true,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 7420,
+      "predicted": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "pieces": [
+        {
+          "category": "Accessory",
+          "itemType": "Hat",
+          "boundingBox": {
+            "x": 0.105,
+            "y": 0.014,
+            "width": 0.312,
+            "height": 0.123
+          }
+        },
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.152,
+            "y": 0.154,
+            "width": 0.316,
+            "height": 0.386
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Sandals",
+          "boundingBox": {
+            "x": 0.072,
+            "y": 0.879,
+            "width": 0.309,
+            "height": 0.109
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 1597,
+        "input_tokens_details": {
+          "cache_write_tokens": 1594,
+          "cached_tokens": 0
+        },
+        "output_tokens": 605,
+        "output_tokens_details": {
+          "reasoning_tokens": 217
+        },
+        "total_tokens": 2202
+      },
+      "pipeline": {
+        "version": "garment-scene-v1",
+        "promptSha256": "2edcd182417f58527bfdc3067e4f4b74aaa8ba1296baa695b7d4970c4f71905f",
+        "inputSha256": "1791be4720af53131965e00426a7e25fdba234a13992ec4233bd1557c45a5dd5",
+        "normalizedSha256": "68c22a90a0b32ac6738ff48f4b814951ea9c5ea0fa0f838abb084728ce6569dc",
+        "width": 664,
+        "height": 1000,
+        "detectionMode": "multiple",
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 45
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 7374
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "hatDetected": true
+    },
+    {
+      "imageId": 10382,
+      "stratum": "hat",
+      "mode": "single",
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": true,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 5116,
+      "predicted": [
+        "Top"
+      ],
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "Shirt"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1368,
+        "input_tokens_details": {
+          "cache_write_tokens": 1365,
+          "cached_tokens": 0
+        },
+        "output_tokens": 238,
+        "output_tokens_details": {
+          "reasoning_tokens": 118
+        },
+        "total_tokens": 1606
+      },
+      "pipeline": {
+        "version": "garment-v2.1",
+        "promptSha256": "6c0378131d9772c367834422e462671e3e53e12ce53074cc6c19bdac40a57b18",
+        "inputSha256": "b93cb3ffd8df362a48cf95cce274d26e59d7e24dd9ad802c547e111e044a798a",
+        "normalizedSha256": "d011f9e177fcd9416d1ba19dcb389b613d8e14b3b1614e348b3a546f45f76bac",
+        "width": 666,
+        "height": 1000,
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 33
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 5082
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 1,
+      "fp": 0,
+      "fn": 3,
+      "hatDetected": false
+    },
+    {
+      "imageId": 10382,
+      "stratum": "hat",
+      "mode": "multiple",
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": true,
+      "status": "completed",
+      "model": "gpt-6-luna",
+      "latencyMs": 12726,
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "pieces": [
+        {
+          "category": "Accessory",
+          "itemType": "Hat",
+          "boundingBox": {
+            "x": 0.143,
+            "y": 0.008,
+            "width": 0.234,
+            "height": 0.1
+          }
+        },
+        {
+          "category": "Top",
+          "itemType": "Blouse",
+          "boundingBox": {
+            "x": 0.078,
+            "y": 0.143,
+            "width": 0.268,
+            "height": 0.322
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Shorts",
+          "boundingBox": {
+            "x": 0.066,
+            "y": 0.432,
+            "width": 0.27,
+            "height": 0.122
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Dress shoes",
+          "boundingBox": {
+            "x": 0.131,
+            "y": 0.891,
+            "width": 0.264,
+            "height": 0.099
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.06,
+            "y": 0.16,
+            "width": 0.26,
+            "height": 0.3
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 1597,
+        "input_tokens_details": {
+          "cache_write_tokens": 1594,
+          "cached_tokens": 0
+        },
+        "output_tokens": 1005,
+        "output_tokens_details": {
+          "reasoning_tokens": 392
+        },
+        "total_tokens": 2602
+      },
+      "pipeline": {
+        "version": "garment-scene-v1",
+        "promptSha256": "2edcd182417f58527bfdc3067e4f4b74aaa8ba1296baa695b7d4970c4f71905f",
+        "inputSha256": "b93cb3ffd8df362a48cf95cce274d26e59d7e24dd9ad802c547e111e044a798a",
+        "normalizedSha256": "d011f9e177fcd9416d1ba19dcb389b613d8e14b3b1614e348b3a546f45f76bac",
+        "width": 666,
+        "height": 1000,
+        "detectionMode": "multiple",
+        "stages": [
+          {
+            "name": "preparing",
+            "durationMs": 35
+          },
+          {
+            "name": "recognizing",
+            "durationMs": 12690
+          },
+          {
+            "name": "validating",
+            "durationMs": 0
+          }
+        ],
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "provider": "openai",
+        "modelProfile": "fast",
+        "cache": {
+          "hit": false,
+          "scope": "wardrobe",
+          "version": "recognition-provider-v1"
+        }
+      },
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "hatDetected": true
+    }
+  ]
+}

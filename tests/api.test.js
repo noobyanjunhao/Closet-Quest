@@ -12,6 +12,16 @@ import { modelFor } from '../server/model-config.js';
 import { retrieveWardrobeHybrid } from '../server/hybrid-retrieval.js';
 
 const image='data:image/jpeg;base64,YQ==';
+test('both photo routes pass multiple-piece mode through to recognition',async t=>{
+  const space=workspace(t),calls=[];
+  const app=await mount(t,space,{overrides:{recognize:async(_,options)=>{calls.push(options.detectionMode);return{data:{name:'Cap'},garments:[{name:'Cap'},{name:'Top'}]};}}});
+  const response=await post(`${app.url}/jobs`,{image,provider:'openai',detectionMode:'multiple'});assert.equal(response.status,202);
+  const job=await response.json();await tick();
+  assert.equal((await(await fetch(`${app.url}/jobs/${job.id}`)).json()).result.garments.length,2);
+  const direct=await post(`${app.url}/recognize`,{image,provider:'openai',detectionMode:'multiple'});assert.equal(direct.status,200);
+  assert.deepEqual(calls,['multiple','multiple']);
+  assert.equal((await post(`${app.url}/jobs`,{image,detectionMode:'unbounded'})).status,400);
+});
 function services(overrides={}) {
   return {
     recognize:async()=>({data:{name:'Reviewed tee',category:'Top'}}),

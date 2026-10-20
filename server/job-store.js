@@ -12,11 +12,12 @@ const stages = new Set(['queued','processing','preparing','recognizing','validat
 export const isTerminalJob = job => ['ready', 'failed', 'cancelled'].includes(job.status);
 export const validJobImage = image => typeof image === 'string' && image.length <= 8000000 && /^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(image);
 
-export function normalizedRecognitionOptions({provider='local',modelProfile='fast',wardrobeId}={}) {
+export function normalizedRecognitionOptions({provider='local',modelProfile='fast',wardrobeId,detectionMode='single'}={}) {
   if (!['local','openai'].includes(provider)) throw Object.assign(new Error('Choose Local or OpenAI for photo recognition.'), {status:400,code:'INVALID_PROVIDER'});
   if (!['fast','balanced','deep'].includes(modelProfile)) throw Object.assign(new Error('Choose Fast, Balanced or Deep for the model profile.'), {status:400,code:'INVALID_MODEL_PROFILE'});
   if (wardrobeId !== undefined && (typeof wardrobeId !== 'string' || !/^[A-Za-z0-9_-]{1,128}$/.test(wardrobeId))) throw Object.assign(new Error('Invalid wardrobe identifier.'), {status:400,code:'INVALID_WARDROBE_ID'});
-  return {provider,modelProfile,...(wardrobeId===undefined?{}:{wardrobeId})};
+  if (!['single','multiple'].includes(detectionMode)) throw Object.assign(new Error('Choose single-piece or multiple-piece recognition.'), {status:400,code:'INVALID_DETECTION_MODE'});
+  return {provider,modelProfile,detectionMode,...(wardrobeId===undefined?{}:{wardrobeId})};
 }
 
 export function normalizedCrop(crop) {

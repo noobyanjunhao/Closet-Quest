@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: closet-quest
+    runtime: node
+    plan: free
+    buildCommand: npm ci --include=dev && npm run build -- --configLoader runner
+    startCommand: npm start
+    healthCheckPath: /healthz
+    autoDeployTrigger: off
+    envVars:
+      - key: NODE_VERSION
+        value: 24.19.0
+      - key: CLOSET_PUBLIC_ORIGIN
+        sync: false
+      - key: CLOSET_SESSION_SECRET
+        generateValue: true
+      - key: CLOSET_ACCESS_USERS
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false

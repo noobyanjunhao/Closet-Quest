@@ -1,0 +1,352 @@
+{
+  "protocolHash": "fb150ffc1fcb589d97e4afdbcc7118148dc62f660e4be1e00327d495c39bc849",
+  "generatedAt": "2026-10-19T23:26:53.439Z",
+  "humanParticipants": 0,
+  "conditions": {
+    "neither": {
+      "attempts": 6,
+      "completed": 6,
+      "hitAt3": {
+        "numerator": 1,
+        "denominator": 6,
+        "value": 0.16666666666666666
+      },
+      "targetPlanAvailable": {
+        "numerator": 3,
+        "denominator": 6,
+        "value": 0.5
+      },
+      "validOutfits": {
+        "numerator": 17,
+        "denominator": 17,
+        "value": 1
+      },
+      "fallback": {
+        "numerator": 0,
+        "denominator": 6,
+        "value": 0
+      },
+      "denseFallback": {
+        "numerator": 0,
+        "denominator": 6,
+        "value": 0
+      },
+      "medianMs": 3434.5,
+      "medianRetrievalMs": 315.5,
+      "medianGenerationMs": 3157,
+      "promptTarget": {
+        "numerator": 0,
+        "denominator": 6,
+        "value": 0
+      },
+      "cacheHits": 0,
+      "cacheRequests": 72
+    },
+    "documents": {
+      "attempts": 6,
+      "completed": 6,
+      "hitAt3": {
+        "numerator": 3,
+        "denominator": 6,
+        "value": 0.5
+      },
+      "targetPlanAvailable": {
+        "numerator": 3,
+        "denominator": 6,
+        "value": 0.5
+      },
+      "validOutfits": {
+        "numerator": 7,
+        "denominator": 7,
+        "value": 1
+      },
+      "fallback": {
+        "numerator": 0,
+        "denominator": 6,
+        "value": 0
+      },
+      "denseFallback": {
+        "numerator": 0,
+        "denominator": 6,
+        "value": 0
+      },
+      "medianMs": 3516,
+      "medianRetrievalMs": 515,
+      "medianGenerationMs": 2788.5,
+      "promptTarget": {
+        "numerator": 6,
+        "denominator": 6,
+        "value": 1
+      },
+      "cacheHits": 0,
+      "cacheRequests": 72
+    },
+    "feedback": {
+      "attempts": 6,
+      "completed": 6,
+      "hitAt3": {
+        "numerator": 3,
+        "denominator": 6,
+        "value": 0.5
+      },
+      "targetPlanAvailable": {
+        "numerator": 5,
+        "denominator": 6,
+        "value": 0.8333333333333334
+      },
+      "validOutfits": {
+        "numerator": 15,
+        "denominator": 15,
+        "value": 1
+      },
+      "fallback": {
+        "numerator": 0,
+        "denominator": 6,
+        "value": 0
+      },
+      "denseFallback": {
+        "numerator": 0,
+        "denominator": 6,
+        "value": 0
+      },
+      "medianMs": 3882.5,
+      "medianRetrievalMs": 293.5,
+      "medianGenerationMs": 3528,
+      "promptTarget": {
+        "numerator": 0,
+        "denominator": 6,
+        "value": 0
+      },
+      "cacheHits": 0,
+      "cacheRequests": 72
+    },
+    "both": {
+      "attempts": 6,
+      "completed": 6,
+      "hitAt3": {
+        "numerator": 5,
+        "denominator": 6,
+        "value": 0.8333333333333334
+      },
+      "targetPlanAvailable": {
+        "numerator": 5,
+        "denominator": 6,
+        "value": 0.8333333333333334
+      },
+      "validOutfits": {
+        "numerator": 8,
+        "denominator": 8,
+        "value": 1
+      },
+      "fallback": {
+        "numerator": 0,
+        "denominator": 6,
+        "value": 0
+      },
+      "denseFallback": {
+        "numerator": 0,
+        "denominator": 6,
+        "value": 0
+      },
+      "medianMs": 3139,
+      "medianRetrievalMs": 509,
+      "medianGenerationMs": 2608.5,
+      "promptTarget": {
+        "numerator": 6,
+        "denominator": 6,
+        "value": 1
+      },
+      "cacheHits": 0,
+      "cacheRequests": 72
+    }
+  },
+  "all": {
+    "attempts": 30,
+    "completed": 30,
+    "hitAt3": {
+      "numerator": 17,
+      "denominator": 30,
+      "value": 0.5666666666666667
+    },
+    "targetPlanAvailable": {
+      "numerator": 21,
+      "denominator": 30,
+      "value": 0.7
+    },
+    "validOutfits": {
+      "numerator": 54,
+      "denominator": 54,
+      "value": 1
+    },
+    "fallback": {
+      "numerator": 0,
+      "denominator": 30,
+      "value": 0
+    },
+    "denseFallback": {
+      "numerator": 0,
+      "denominator": 30,
+      "value": 0
+    },
+    "medianMs": 3320.5,
+    "medianRetrievalMs": 353.5,
+    "medianGenerationMs": 2828,
+    "promptTarget": {
+      "numerator": 18,
+      "denominator": 30,
+      "value": 0.6
+    },
+    "cacheHits": 72,
+    "cacheRequests": 360
+  },
+  "repeatBoth": {
+    "attempts": 6,
+    "completed": 6,
+    "hitAt3": {
+      "numerator": 5,
+      "denominator": 6,
+      "value": 0.8333333333333334
+    },
+    "targetPlanAvailable": {
+      "numerator": 5,
+      "denominator": 6,
+      "value": 0.8333333333333334
+    },
+    "validOutfits": {
+      "numerator": 7,
+      "denominator": 7,
+      "value": 1
+    },
+    "fallback": {
+      "numerator": 0,
+      "denominator": 6,
+      "value": 0
+    },
+    "denseFallback": {
+      "numerator": 0,
+      "denominator": 6,
+      "value": 0
+    },
+    "medianMs": 2604.5,
+    "medianRetrievalMs": 231,
+    "medianGenerationMs": 2362.5,
+    "promptTarget": {
+      "numerator": 6,
+      "denominator": 6,
+      "value": 1
+    },
+    "cacheHits": 72,
+    "cacheRequests": 72
+  },
+  "latencyPairs": [
+    {
+      "caseId": "a01",
+      "initialMs": 3242,
+      "repeatMs": 2787,
+      "differenceMs": -455,
+      "initialRetrievalMs": 519,
+      "repeatRetrievalMs": 212,
+      "initialHit": true,
+      "repeatHit": true
+    },
+    {
+      "caseId": "a02",
+      "initialMs": 3036,
+      "repeatMs": 3948,
+      "differenceMs": 912,
+      "initialRetrievalMs": 542,
+      "repeatRetrievalMs": 222,
+      "initialHit": true,
+      "repeatHit": true
+    },
+    {
+      "caseId": "a03",
+      "initialMs": 2466,
+      "repeatMs": 1911,
+      "differenceMs": -555,
+      "initialRetrievalMs": 417,
+      "repeatRetrievalMs": 189,
+      "initialHit": true,
+      "repeatHit": true
+    },
+    {
+      "caseId": "a04",
+      "initialMs": 6031,
+      "repeatMs": 2078,
+      "differenceMs": -3953,
+      "initialRetrievalMs": 499,
+      "repeatRetrievalMs": 240,
+      "initialHit": false,
+      "repeatHit": false
+    },
+    {
+      "caseId": "a05",
+      "initialMs": 2820,
+      "repeatMs": 2720,
+      "differenceMs": -100,
+      "initialRetrievalMs": 470,
+      "repeatRetrievalMs": 245,
+      "initialHit": true,
+      "repeatHit": true
+    },
+    {
+      "caseId": "a06",
+      "initialMs": 3837,
+      "repeatMs": 2489,
+      "differenceMs": -1348,
+      "initialRetrievalMs": 699,
+      "repeatRetrievalMs": 240,
+      "initialHit": true,
+      "repeatHit": true
+    }
+  ],
+  "medianPairedDifferenceMs": -505,
+  "repeatFaster": {
+    "numerator": 5,
+    "denominator": 6,
+    "value": 0.8333333333333334
+  },
+  "contrasts": {
+    "documentsWithoutFeedback": {
+      "cases": 6,
+      "improved": 2,
+      "worsened": 0,
+      "tied": 4
+    },
+    "documentsWithFeedback": {
+      "cases": 6,
+      "improved": 2,
+      "worsened": 0,
+      "tied": 4
+    },
+    "feedbackWithoutDocuments": {
+      "cases": 6,
+      "improved": 2,
+      "worsened": 0,
+      "tied": 4
+    },
+    "feedbackWithDocuments": {
+      "cases": 6,
+      "improved": 2,
+      "worsened": 0,
+      "tied": 4
+    }
+  },
+  "retrieval": {
+    "lexicalTop1": {
+      "numerator": 6,
+      "denominator": 6,
+      "value": 1
+    },
+    "lexicalTop2": {
+      "numerator": 6,
+      "denominator": 6,
+      "value": 1
+    },
+    "hybridTop1": {
+      "numerator": 12,
+      "denominator": 12,
+      "value": 1
+    }
+  }
+}

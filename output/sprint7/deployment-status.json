@@ -1,0 +1,11 @@
+{
+  "status": "live",
+  "verifiedAt": "2026-10-19T23:17:23.629Z",
+  "url": "https://closet-quest-junhao-s7.onrender.com",
+  "host": "Render Free",
+  "serviceId": "srv-dbba52navr4c73d3i69g",
+  "deployedCommit": "7dbdd5332081aa628a2131437c1abe0c68d30151",
+  "detail": "The full app is live on Render Free over HTTPS. All nine hosted smoke checks passed, including private sign-in, cross-account isolation, semantic document import, a real photo job and OpenAI RAG styling. The single hosted photo job took 5.52 s after enqueue; one styling request took 11.08 s and returned two valid owned outfits. These are deployment checks, not population latency estimates.",
+  "apiSmokeCommit": "32446fa53d04b792fd21b6e56cfd94f2fe27d580",
+  "finalChange": "CSS-only garment caption clipping fix; backend unchanged from hosted smoke checks."
+}

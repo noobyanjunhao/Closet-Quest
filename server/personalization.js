@@ -10,7 +10,7 @@ export function personalizeRequest(body) {
   const excluded=validated.items.filter(item=>preferences.avoidColors.some(color=>contains(item.colorName,color)));
   if(excluded.some(item=>item.id===validated.anchorId))throw new PipelineError('Your starting piece has a color you chose to avoid. Change My style or choose another piece.',{code:'PREFERENCE_ANCHOR_CONFLICT',status:400});
   const items=validated.items.filter(item=>!excluded.includes(item));
-  if(!items.length)throw new PipelineError('No reviewed wardrobe choices remain after your color exclusions. Update My style or add another piece.',{code:'PREFERENCE_NO_ITEMS',status:400});
+  if(!items.length&&!validated.allowPartial)throw new PipelineError('No reviewed wardrobe choices remain after your color exclusions. Update My style or add another piece.',{code:'PREFERENCE_NO_ITEMS',status:400});
   const owned=new Set(items.map(item=>item.id));
   const history=(Array.isArray(body.recommendationHistory)?body.recommendationHistory:[]).slice(-30).flatMap(run=>{
     if(!run||!['helpful','not-for-me'].includes(run.feedback)||!Array.isArray(run.chosenItemIds))return [];

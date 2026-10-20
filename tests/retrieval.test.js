@@ -5,6 +5,13 @@ import {retrieveWardrobe, STYLE_GUIDES, itemGrounding} from '../server/retrieval
 const garment = (id, category, extra={}) => ({id, category, wears:5, ...extra});
 const base = () => [garment('top','Top',{name:'Cotton tee'}), garment('bottom','Bottom',{name:'Black trousers'}), garment('shoes','Shoes',{name:'White sneakers'})];
 
+test('everyday outfit vocabulary retrieves reviewed cap, hoodie and glasses without dense embeddings',()=>{
+  const wardrobe=[...base(),garment('cap','Accessory',{name:'Navy Baseball cap'}),garment('hoodie','Top',{name:'Gray Hoodie'}),garment('glasses','Accessory',{name:'Black Glasses'}),garment('pending','Accessory',{name:'hat eyewear',needsReview:true})];
+  for(const [request,id] of [['hat','cap'],['sweatshirt','hoodie'],['spectacles','glasses']]){
+    const result=retrieveWardrobe(wardrobe,{request});assert.ok(result.retrieval.items.find(item=>item.id===id).score>0);assert.ok(!result.items.some(item=>item.id==='pending'));
+  }
+});
+
 test('retrieval recalls a relevant piece and essential slots among 180 distracting garments', () => {
   const distractors = Array.from({length:180}, (_, index) => garment(`distractor-${index}`, index < 100 ? 'Top' : 'Accessory', {name:index < 100 ? 'Pink cotton top' : 'Printed scarf', tags:'Campus casual'}));
   const relevant = garment('navy','Top',{name:'Indigo tailored shirt',colorName:'Navy',tags:'Presentation day'});

@@ -26,13 +26,13 @@ test('provider failure and unknown plan IDs fall back using the same retrieved e
     assert.equal(calls,1);assert.equal(result.pipeline.provider,'quick');assert.ok(result.pipeline.fallback);assert.ok(result.data.outfits.length);
   }
 });
-test('valid model abstention is respected; impossible closets and cancellation never invoke a fallback model',async()=>{
+test('model abstention produces quick matches and cancellation never invokes a fallback model',async()=>{
   const result=await recommend({...body,provider:'openai'},{retrieve:lexical,openaiChat:async()=>({data:{outfits:[],reason:'No outfit fits this brief.'}})});
-  assert.equal(result.data.outfits.length,0);assert.equal(result.pipeline.fallback,null);
+  assert.ok(result.data.outfits.length);assert.equal(result.pipeline.fallback.code,'EMPTY_PLAN_SELECTION');
   let calls=0;
-  await assert.rejects(recommend({...body,items:[items[0]],provider:'openai'},{retrieve:lexical,openaiChat:async()=>{calls++;}}));assert.equal(calls,0);
   const controller=new AbortController();controller.abort();await assert.rejects(recommend(body,{signal:controller.signal,retrieve:async()=>{calls++;}}));assert.equal(calls,0);
 });
+
 test('OpenAI Responses uses server bearer auth, strict JSON schema, bounded tokens and no response storage',async()=>{
   let captured;
   const chat=createOpenAIChat({apiKey:'test-only-secret',fetchImpl:async(url,options)=>{captured={url,...options};return response({status:'completed',output:[{type:'message',content:[{type:'output_text',text:'{"outfits":[],"reason":"test"}'}]}],usage:{output_tokens:11}});}});

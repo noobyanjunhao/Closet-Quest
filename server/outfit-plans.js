@@ -1,14 +1,15 @@
 import { PipelineError } from './recognition.js';
+import { missingSlots } from './styling-brief.js';
 
 export const PLANNING_VERSION='validated-outfit-plans-v1';
 const categories=['Top','Bottom','Dress','Shoes','Outerwear','Accessory'];
 const signature=ids=>JSON.stringify([...ids].sort());
 
-function validCombination(items,anchorId,requireLowUse) {
+function validCombination(items,anchorId,requireLowUse,allowPartial=false) {
   if(items.some(item=>item.needsReview)||new Set(items.map(item=>item.id)).size!==items.length)return false;
   const count=category=>items.filter(item=>item.category===category).length;
-  return count('Shoes')===1 && count('Outerwear')<=1 && count('Accessory')<=2
-    && ((count('Top')===1&&count('Bottom')===1&&count('Dress')===0)||(count('Dress')===1&&count('Top')===0&&count('Bottom')===0))
+  return (allowPartial ? count('Shoes')<=1 : count('Shoes')===1) && count('Outerwear')<=1 && count('Accessory')<=2
+    && (allowPartial ? count('Top')<=1&&count('Bottom')<=1&&count('Dress')<=1&&!(count('Dress')&&(count('Top')||count('Bottom'))) : ((count('Top')===1&&count('Bottom')===1&&count('Dress')===0)||(count('Dress')===1&&count('Top')===0&&count('Bottom')===0)))
     && (!anchorId||items.some(item=>item.id===anchorId)) && (!requireLowUse||items.some(item=>item.wears<=1));
 }
 function similarity(left,right) {
@@ -17,7 +18,7 @@ function similarity(left,right) {
   return intersection/(left.itemIds.length+right.itemIds.length-intersection);
 }
 
-export function planOutfits(items,{anchorId=null,requireLowUse=false,scores=[]}={}) {
+export function planOutfits(items,{anchorId=null,requireLowUse=false,scores=[],allowPartial=false}={}) {
   const start=performance.now();
   if(!Array.isArray(items)||items.length>18||items.some(item=>!item||typeof item.id!=='string'||!categories.includes(item.category)||!Number.isFinite(item.wears)||item.wears<0)||new Set(items.map(item=>item.id)).size!==items.length) {
     throw new PipelineError('Outfit planning requires at most 18 unique wardrobe records.',{code:'INVALID_PLAN_INPUT',status:400});
@@ -28,6 +29,11 @@ export function planOutfits(items,{anchorId=null,requireLowUse=false,scores=[]}=
   const bases=[];
   for(const top of groups.Top)for(const bottom of groups.Bottom)for(const shoes of groups.Shoes)bases.push([top,bottom,shoes]);
   for(const dress of groups.Dress)for(const shoes of groups.Shoes)bases.push([dress,shoes]);
+  if(!bases.length&&allowPartial) {
+    const choices=category=>groups[category].length?groups[category]:[null];
+    if(groups.Top.length||groups.Bottom.length||!groups.Dress.length)for(const top of choices('Top'))for(const bottom of choices('Bottom'))for(const shoes of choices('Shoes'))bases.push([top,bottom,shoes].filter(Boolean));
+    for(const dress of groups.Dress)for(const shoes of choices('Shoes'))bases.push([dress,shoes].filter(Boolean));
+  }
   const pool=[];
   const seen=new Set();
   let enumeratedCount=0;
@@ -39,12 +45,13 @@ export function planOutfits(items,{anchorId=null,requireLowUse=false,scores=[]}=
   for(const base of bases)for(const outerwear of [null,...groups.Outerwear])for(const accessories of accessoryChoices) {
     enumeratedCount++;
     const outfit=[...base,outerwear,...accessories].filter(Boolean);
-    if(!validCombination(outfit,anchorId,requireLowUse))continue;
+    if(!validCombination(outfit,anchorId,requireLowUse,allowPartial))continue;
+    if(!outfit.length&&eligible.length)continue;
     const itemIds=outfit.map(item=>item.id);
     const key=signature(itemIds);
     if(seen.has(key))continue;
     seen.add(key);
-    pool.push({itemIds,shape:base[0].category==='Dress'?'dress':'separates',score:outfit.reduce((sum,item)=>sum+(itemScores.get(item.id)||0),0)/Math.sqrt(outfit.length),order:pool.length});
+    pool.push({itemIds,shape:base[0]?.category==='Dress'?'dress':'separates',score:outfit.reduce((sum,item)=>sum+(itemScores.get(item.id)||0),0)/Math.sqrt(Math.max(1,outfit.length)),order:pool.length});
   }
   // With 18 records, one outerwear and only required accessory pairs, enumeration stays small.
   // Use lexical relevance plus an overlap penalty to retain genuinely different combinations.
@@ -64,7 +71,7 @@ export function planOutfits(items,{anchorId=null,requireLowUse=false,scores=[]}=
     selected.push(remaining.splice(bestIndex,1)[0]);
   }
   return {
-    plans:selected.map((plan,index)=>({id:`P${index+1}`,itemIds:plan.itemIds,score:Number(plan.score.toFixed(4))})),
+    plans:selected.map((plan,index)=>({id:`P${index+1}`,itemIds:plan.itemIds,score:Number(plan.score.toFixed(4)),...(allowPartial?{missingCategories:missingSlots(plan.itemIds.map(id=>items.find(item=>item.id===id)))}:{})})),
     planning:{version:PLANNING_VERSION,method:'Enumerated valid outfits + lexical relevance, base-shape coverage and overlap diversity',enumeratedCount,validCombinationCount:pool.length,candidateCount:selected.length,timingMs:Number((performance.now()-start).toFixed(2))},
   };
 }
@@ -74,7 +81,7 @@ export function validatePlanSelections(value,plans) {
   const seen=new Set();
   const selected=[];
   for(const outfit of value.outfits.slice(0,3)) {
-    if(!outfit||typeof outfit.planId!=='string'||seen.has(outfit.planId)||!Object.entries({title:80,explanation:400,stylingTip:220}).every(([key,limit])=>typeof outfit[key]==='string'&&outfit[key].trim().length>0&&outfit[key].length<=limit))continue;
+    if(!outfit||typeof outfit.planId!=='string'||seen.has(outfit.planId)||!Object.entries({title:80,explanation:700,stylingTip:220}).every(([key,limit])=>typeof outfit[key]==='string'&&outfit[key].trim().length>0&&outfit[key].length<=limit))continue;
     const plan=plans.find(candidate=>candidate.id===outfit.planId);
     if(!plan)continue;
     seen.add(plan.id);

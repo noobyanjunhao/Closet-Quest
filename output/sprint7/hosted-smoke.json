@@ -1,0 +1,66 @@
+{
+  "measuredAt": "2026-10-19T23:10:46.229Z",
+  "origin": "https://closet-quest-junhao-s7.onrender.com",
+  "scope": "Hosted smoke test using public sample inputs, not a user study or cold-start benchmark.",
+  "checks": [
+    {
+      "name": "HTTPS health",
+      "passed": true,
+      "status": 200,
+      "ms": 219
+    },
+    {
+      "name": "Unauthenticated API rejected",
+      "passed": true,
+      "status": 401
+    },
+    {
+      "name": "Private participant sign-in",
+      "passed": true,
+      "accounts": 2
+    },
+    {
+      "name": "Authenticated status",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "Document identity overrides forged namespace",
+      "passed": true,
+      "createStatus": 200,
+      "indexMode": "semantic"
+    },
+    {
+      "name": "Cross-account photo job hidden",
+      "passed": true,
+      "status": 404
+    },
+    {
+      "name": "Live public-photo recognition job",
+      "passed": true,
+      "status": "ready",
+      "model": "gpt-6-luna",
+      "categories": [
+        "Top"
+      ],
+      "elapsedMs": 5524
+    },
+    {
+      "name": "Live hosted RAG recommendation",
+      "passed": true,
+      "status": 200,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "outfits": 2,
+      "validOutfits": 2,
+      "modelFallback": null,
+      "knowledgeMode": "hybrid",
+      "elapsedMs": 11084
+    },
+    {
+      "name": "Temporary test note removed",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

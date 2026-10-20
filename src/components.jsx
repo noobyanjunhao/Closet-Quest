@@ -1,21 +1,39 @@
 import React, { useEffect, useRef } from 'react';
+import {createPortal} from 'react-dom';
 import sources from '../public/photos/sources.json';
+import {garmentImage} from './garment-display.js';
+
+function PixelGarment({item}) {
+  const shapes={Top:'M5 3H9V4H15V3H19V5H22V10H18V21H6V10H2V5H5Z',Bottom:'M5 2H19V10H18V22H13V12H11V22H6V10H5Z',Shoes:'M3 10H8V13H11V16H21V18H23V21H2V14H3Z',Outerwear:'M6 2H10V4H14V2H18V5H21V19H17V22H7V19H3V5H6Z',Dress:'M8 2H11V4H13V2H16V8H15V11H17V15H19V19H21V22H3V19H5V15H7V11H9V8H8Z',Accessory:'M7 5H17V7H19V13H22V15H3V13H5V7H7Z'};
+  return <svg className="pixel-garment" viewBox="0 0 24 24" role="img" aria-label={`${item?.name||'Garment'} — simplified ${item?.category||'clothing'} icon`} shapeRendering="crispEdges"><path d={shapes[item?.category]||shapes.Top} fill={/^#[\da-f]{6}$/i.test(item?.color)?item.color:'#b0a695'}/><path d="M8 6H10V8H8ZM8 9H10V16H8Z" fill="white" opacity=".3"/><path d="M7 21H17V22H7Z" fill="#171719" opacity=".15"/></svg>;
+}
 
 export function Garment({ item, loading = 'lazy' }) {
-  if (item?.image) return <img className="garment-photo" src={item.image} alt={item.name} loading={loading} onError={e => { e.currentTarget.style.opacity = '.25'; e.currentTarget.alt = `Photo unavailable: ${item.name}`; }}/>;
-  return <div className="photo-placeholder" role="img" aria-label={`${item?.name || 'Garment'}: no photo`}><span>＋</span><small>{item?.category || 'Add a photo'}</small></div>;
+  const source=garmentImage(item);
+  const [failed,setFailed]=React.useState(null);
+  if (source&&failed!==source) return <img className={`garment-photo ${source===item.cutoutImage?'garment-cutout':''}`} src={source} alt={item.name} loading={loading} onError={()=>setFailed(source)}/>;
+  return <PixelGarment item={item}/>;
 }
 export function PhotoCredit({ item }) {
   const source = sources.find(s => s.id === item.sampleId);
   return source ? <p className="photo-credit">Photo: <a href={source.source} target="_blank" rel="noreferrer">{source.author}</a> · <a href={source.licenseUrl} target="_blank" rel="noreferrer">{source.license}</a>. {source.changes}</p> : null;
 }
-export function Modal({ title, onClose, children, wide = false }) {
+export function Modal({ title, onClose, children, wide = false, scrollPosition, swipeToClose = false }) {
   const ref = useRef(null), close = useRef(onClose); close.current = onClose;
+  const drag=useRef(null);
+  function stopDrag(event,cancelled=false){
+    const start=drag.current;drag.current=null;
+    ref.current.style.removeProperty('translate');
+    if(start&&!cancelled&&event.clientY-start.y>95&&Math.abs(event.clientX-start.x)<(event.clientY-start.y)*.8)close.current();
+  }
   useEffect(() => {
     const previous = document.activeElement;
     const oldOverflow = document.body.style.overflow;
+    const root=document.getElementById('root'),wasInert=root?.inert;
+    if(root)root.inert=true;
     document.body.style.overflow = 'hidden';
     ref.current.focus();
+    if(scrollPosition)ref.current.scrollTop=scrollPosition.current;
     function keydown(e) {
       if (e.key === 'Escape') { e.preventDefault(); close.current(); return; }
       if (e.key !== 'Tab') return;
@@ -38,9 +56,9 @@ export function Modal({ title, onClose, children, wide = false }) {
       else if (!e.shiftKey && (document.activeElement === last || outsideOrder)) { e.preventDefault(); first.focus(); }
     }
     document.addEventListener('keydown',keydown);
-    return () => { document.body.style.overflow = oldOverflow; document.removeEventListener('keydown',keydown); previous?.focus(); };
+    return () => { document.body.style.overflow = oldOverflow; if(root)root.inert=wasInert; document.removeEventListener('keydown',keydown); if(previous?.isConnected)previous.focus({preventScroll:true}); };
   },[]);
-  return <div className="overlay" onClick={e => { if(e.target===e.currentTarget)onClose(); }}><section ref={ref} tabIndex={-1} className={`modal ${wide?'modal-wide':''}`} role="dialog" aria-modal="true" aria-label={title}><div className="section-heading"><h2>{title}</h2><button aria-label={`Close ${title}`} onClick={onClose}>×</button></div>{children}</section></div>;
+  return createPortal(<div className="app modal-layer" style={{display:'contents'}}><div className="overlay" onClick={e => { if(e.target===e.currentTarget)onClose(); }}><section ref={ref} tabIndex={-1} className={`modal ${wide?'modal-wide':''}`} role="dialog" aria-modal="true" aria-label={title} onScroll={e=>{if(scrollPosition)scrollPosition.current=e.currentTarget.scrollTop;}}>{swipeToClose&&<button className="sheet-handle" aria-label={`Dismiss ${title}`} onClick={onClose} onPointerDown={e=>{drag.current={x:e.clientX,y:e.clientY};e.currentTarget.setPointerCapture(e.pointerId);}} onPointerMove={e=>{if(drag.current)ref.current.style.translate=`0 ${Math.min(240,Math.max(0,e.clientY-drag.current.y))}px`;}} onPointerUp={e=>stopDrag(e)} onPointerCancel={e=>stopDrag(e,true)}><span/></button>}<div className="section-heading"><h2>{title}</h2><button aria-label={`Close ${title}`} onClick={onClose}>×</button></div>{children}</section></div></div>,document.body);
 }
 export function GarmentCard({ item, onClick, children }) {
   const status = ({review:'Review suggestions',submitting:'Photo queued',queued:'Photo queued',processing:'Analyzing photo',failed:'Analysis needs retry'})[item.recognition?.status] || (item.needsReview ? 'Review details' : item.wears <= 1 ? 'Rediscover' : '');

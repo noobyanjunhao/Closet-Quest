@@ -2,9 +2,27 @@
 
 A responsive wardrobe app prototype for the Closet Quest semester project, maintained in `noobyanjunhao/Closet-Quest`.
 
+## Account and mobile upgrade — October 19
+
+Supabase account mode adds email/password sign-in, recovery, onboarding, private photo storage, durable wardrobe/feedback data, and durable personal RAG notes. Outfit suggestions open as mobile bottom sheets with card navigation, save/wear actions, and garment inspection. Revision checks protect edits made on different devices. See [architecture, setup and verification](docs/accounts-and-mobile.md).
+
+The account upgrade is deployed on [Render](https://closet-quest-junhao-s7.onrender.com/), with the Supabase migration and private storage policies applied. Actual database isolation checks passed; anonymous wardrobe and photo API requests return 401. Brevo custom SMTP is connected. The owner confirmed email receipt and sign-in; live browser checks passed for three-photo recognition, cloud persistence, grounded recommendations, saved looks, wear/undo, document retrieval, backup, and reauthentication. These are engineering smoke tests, not human acceptance results; password-reset delivery and physical-phone testing remain pending. See `docs/accounts-and-mobile.md`. The Sprint 7 pilot results below describe the earlier participant-code deployment and remain separate from account-mode verification.
+
+## Sprint 7 validation and hosted pilot — October 19
+
+The current app adds a fluid navigation dock, multi-piece photo review, a paired **More → User study** workspace, and authenticated participant access for the hosted pilot. The research evaluation uses **18 licensed Fashionpedia validation photos**, six fictional wardrobe briefs, and explicitly synthetic GPT-6 Astra feedback. It does not claim real-user acceptance. See [the five-page validation report](output/pdf/Closet-Quest-Sprint-7-Validation-Report.pdf) and [supporting results](output/sprint7/README.md).
+
+**Earlier pilot verification:** [Closet Quest on Render](https://closet-quest-junhao-s7.onrender.com/). A private participant code is required. All nine hosted smoke checks passed; an actual public-interface OpenAI recommendation displayed two looks in 12.8 seconds in one engineering rehearsal. The final production build and 169 tests pass, and the dependency audit reports zero known vulnerabilities at this check.
+
+Initial multi-piece category recall was **41/49 (83.7%)**, compared with **17/49 (34.7%)** for the single-piece baseline; latency and failures are reported alongside accuracy. A separately recorded targeted recheck follows an uncertainty-handling fix. The new study export separates human records from development rehearsals, retains failed attempts, and uses explicit denominators.
+
+For the hosted pilot, `render.yaml` defines a free Node web service. `node scripts/create-study-access.mjs 6` generates private access codes and environment configuration under ignored `.local-data/deployment/`; it refuses to overwrite existing files. Configure `CLOSET_PUBLIC_ORIGIN`, `CLOSET_SESSION_SECRET`, `CLOSET_ACCESS_USERS`, and `OPENAI_API_KEY` as server-only Render environment values. The exact public HTTPS origin is required. Signed session identity overrides client wardrobe IDs; private-code access is a pilot mechanism, not a full account system. Local mode remains loopback-only.
+
+**Free-host limits:** Render sleeps on inactivity and its filesystem is ephemeral. Wardrobes remain in that browser; uploaded jobs and SQLite knowledge can be lost on server restart. Back up browser data and keep a copy of imported notes. This release does not provide cross-device cloud synchronization. OpenAI charges are separate from hosting. Physical-camera validation and real-user impact remain unmeasured.
+
 ## Personal RAG and model providers - October 2
 
-The current extension adds **photo provider → reviewed wardrobe → personal preferences + document retrieval → owned outfit plan → model selection → validation → saved/worn history and feedback**. Open **More → My style & memory** for three tabs: **My style**, **Knowledge**, and **History**. The earlier measurements below describe the first local rehearsal; fresh evidence is in `output/sprint6/advanced/`. The current suite passes 143 tests. Live OpenAI recognition took 3.925 s versus 26.727 s locally on one public tee; the optimized browser stylist displayed 6.6 s. These are small development samples, not latency guarantees.
+The current extension adds **photo provider → reviewed wardrobe → personal preferences + document retrieval → owned outfit plan → model selection → validation → saved/worn history and feedback**. Open **More → My style & memory** for three tabs: **My style**, **Knowledge**, and **History**. The earlier measurements below describe the first local rehearsal; fresh evidence is in `output/sprint6/advanced/`. That checkpoint passed 143 tests; Sprint 7 now passes 169 tests. Live OpenAI recognition took 3.925 s versus 26.727 s locally on one public tee; the optimized browser stylist displayed 6.6 s. These are small development samples, not latency guarantees.
 
 - **My style:** choose styles, colors, fit, priorities, color exclusions and a short personal note. The color exclusion uses reviewed color labels; preference and feedback boosts are bounded ranking adjustments. They do not train a model. Photo recognition and outfit recommendations have independent provider selectors. OpenAI profiles are **Fast**, **Balanced**, and **Deep**; the server resolves their model names and optional per-task overrides. Profiles affect OpenAI, while local model names remain server configuration.
 - **Knowledge:** import/paste `.txt` or `.md` notes (up to 20,000 characters), then inspect retrieved excerpts and sources. SQLite stores documents, overlapping passages, vectors and index identity under the wardrobe UUID in `.local-data/knowledge/`. Four project-authored starter guides begin with keyword search. **Semantic search settings → Build semantic index** explicitly indexes them; import also attempts indexing. Up to 24 documents, including the starter guides, are supported. Choose the same local/OpenAI embedding provider for indexing and search; the saved preference also governs styling retrieval. Provider/model/dimension/schema mismatches fall back to keyword search rather than compare incompatible vectors.
@@ -13,13 +31,13 @@ The current extension adds **photo provider → reviewed wardrobe → personal p
 
 Wardrobe retrieval combines lexical matching and optional local embeddings. Document retrieval is a separate store with local or OpenAI embeddings, bounded search, keyword fallback and traceable excerpts. The prompt contains bounded wardrobe facts, preferences, retrieved guidance and server-created outfit plans. Document content is treated as untrusted context. The model selects plans; final validation checks owned/reviewed IDs, completeness and the anchor. **Quick** uses deterministic ranking/planning; **Automatic** selects OpenAI when configured and Quick otherwise. An AI failure can return clearly labeled Quick results.
 
-React and the Node API are retained to keep the existing tested UI and shared schemas. The earlier measured wait was concentrated in model inference; changing frontend language alone has no demonstrated latency benefit. Provider adapters, persistent retrieval, time budgets and cache provenance are the useful separation points now. Authenticated cloud services remain future integration work.
+React and the Node API are retained to keep the existing tested UI and shared schemas. The earlier measured wait was concentrated in model inference; changing frontend language alone has no demonstrated latency benefit. Provider adapters, persistent retrieval, time budgets and cache provenance are the useful separation points now. The Sprint 7 hosted pilot adds participant authentication; durable cloud synchronization remains future work.
 
 ### Configure providers
 
 Use Node.js 24.x (this workspace reports 24.19.0); the document store uses built-in `node:sqlite`. Install with `npm ci`. For local inference, follow [local model setup](docs/local-agents.md), run `npm run ai:start`, and install the configured models in advance. A platform website login does not configure server API access.
 
-If `.env.local` does not exist, copy `.env.example` to it. Edit the server-only, git-ignored file privately; never print, commit, paste into browser fields, or prefix secrets with `VITE_`.
+If `.env.local` does not exist, copy `.env.example` to it. Edit the server-only, git-ignored file privately; never print, commit, or prefix secrets with `VITE_`. For deployment, credentials belong only in the approved host's private server environment settings.
 
 | Setting | Purpose |
 | --- | --- |
@@ -31,7 +49,7 @@ If `.env.local` does not exist, copy `.env.example` to it. Edit the server-only,
 
 Restart the app server after changing configuration. `/api/status` reports configuration/readiness and profile model names without returning the key. `openai.configured: true` means a key is present, not that a paid request has succeeded. OpenAI controls stay disabled when no key is configured.
 
-Photo recognition sends the normalized image to OpenAI only when that provider is selected. OpenAI styling sends reviewed descriptions, preferences, the brief and selected reference excerpts; it does not send garment photos or the display name. OpenAI indexing sends document text; selected OpenAI retrieval sends queries and reviewed garment descriptions. Unchanged garment vectors are cached for ten minutes in a bounded wardrobe-scoped memory cache. Local providers process these inputs on the local service. SQLite wardrobe namespaces are data organization, **not authentication or access control**; do not expose this prototype as a secure multi-user service.
+Photo recognition sends the normalized image to OpenAI only when that provider is selected. OpenAI styling sends reviewed descriptions, preferences, the brief and selected reference excerpts; it does not send garment photos or the display name. OpenAI indexing sends document text; selected OpenAI retrieval sends queries and reviewed garment descriptions. Unchanged garment vectors are cached for ten minutes in a bounded wardrobe-scoped memory cache. Local providers process these inputs on the local service. In local mode, client-supplied SQLite wardrobe namespaces are data organization, not authentication. Hosted pilot mode requires signed participant sessions and replaces those IDs with server-derived namespaces. Private access codes still do not provide a complete account/recovery or cross-device storage system.
 
 ### Current API and checks
 
@@ -188,3 +206,4 @@ Deploying the full application needs a Node runtime with built-in SQLite, durabl
 ### Reproduce current advanced measurements
 
 `npm test` and `npm run build` run without cloud inference. `npm run evaluate:advanced -- --live` intentionally performs a small paid API evaluation with public fixtures and the initial local wardrobe-embedding baseline. `node scripts/evaluate-advanced-retrieval.mjs --live` separately measures the optimized cloud wardrobe cache. Inspect `output/sprint6/advanced/results.json` and `retrieval-results.json` for exact request budgets, real provider labels and caveats. [Screenshot gallery](output/sprint6/advanced/index.html).
+
