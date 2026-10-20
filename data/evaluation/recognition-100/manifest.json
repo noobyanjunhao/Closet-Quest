@@ -1,0 +1,7314 @@
+{
+  "version": "closet-recognition-100-v1",
+  "dataset": "Fashionpedia validation 2020",
+  "source": "https://github.com/cvdfoundation/fashionpedia",
+  "annotationsUrl": "https://s3.amazonaws.com/ifashionist-dataset/annotations/instances_attributes_val2020.json",
+  "imagesArchiveUrl": "https://s3.amazonaws.com/ifashionist-dataset/images/val_test2020.zip",
+  "annotationLicense": "CC BY 4.0",
+  "annotationSha256": "f831f415edad12d52acde8b138fe7ebd1592b57bf0dcd6a3b63ba8cabd208223",
+  "sampling": "Original images with CC BY 2.0 or public-domain metadata; excludes all 18 prior Sprint 7 IDs. Up to 10 available hat images, then hash-ranked general images to reach exactly 100. Frozen before predictions.",
+  "excludedPriorImageIds": [
+    8519,
+    8947,
+    9676,
+    9711,
+    10382,
+    10727,
+    11073,
+    11446,
+    11800,
+    12007,
+    12813,
+    12831,
+    15707,
+    16027,
+    16212,
+    16222,
+    18108,
+    19133
+  ],
+  "eligibleImages": 135,
+  "categoryMapping": {
+    "0": "Top",
+    "1": "Top",
+    "2": "Top",
+    "3": "Outerwear",
+    "4": "Outerwear",
+    "5": "Outerwear",
+    "6": "Bottom",
+    "7": "Bottom",
+    "8": "Bottom",
+    "9": "Outerwear",
+    "10": "Dress",
+    "11": "Dress",
+    "12": "Outerwear",
+    "13": "Accessory",
+    "14": "Accessory",
+    "15": "Accessory",
+    "16": "Accessory",
+    "17": "Accessory",
+    "18": "Accessory",
+    "19": "Accessory",
+    "20": "Accessory",
+    "21": "Bottom",
+    "22": "Accessory",
+    "23": "Shoes",
+    "24": "Accessory",
+    "25": "Accessory",
+    "26": "Accessory"
+  },
+  "limitations": "100 outfit photos, not 100 isolated garment crops. Public data may be in foundation-model training. Images are not independent phone-photo user validation. Broad-category mapping has ambiguities, especially jumpsuits, tights and accessories.",
+  "images": [
+    {
+      "id": 15676,
+      "width": 1024,
+      "height": 679,
+      "file_name": "fcc71ab647c43d3bdae6ba5e9349464d.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "https://farm7.staticflickr.com/6181/6056458060_c02208762e_o.jpg",
+      "isstatic": 1,
+      "kaggle_id": "fcc71ab647c43d3bdae6ba5e9349464d",
+      "stratum": "hat-challenge",
+      "sha256": "7c268e52d04e7141ffe823f46b08a97f84568611d79a4495f1a7d0a7d398e035",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Outerwear",
+        "Top"
+      ],
+      "annotatedHat": true,
+      "instances": [
+        {
+          "annotationId": 507,
+          "datasetCategory": "jacket",
+          "datasetCategoryId": 4,
+          "appCategory": "Outerwear",
+          "bboxXYWH": [
+            401.0,
+            252.0,
+            221.0,
+            250.0
+          ],
+          "area": 21711,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 511,
+          "datasetCategory": "hat",
+          "datasetCategoryId": 14,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            478.0,
+            142.0,
+            85.0,
+            84.0
+          ],
+          "area": 3313,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 512,
+          "datasetCategory": "sweater",
+          "datasetCategoryId": 2,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            439.0,
+            308.0,
+            151.0,
+            178.0
+          ],
+          "area": 16358,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 514,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            435.0,
+            316.0,
+            161.0,
+            193.0
+          ],
+          "area": 4022,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 516,
+          "datasetCategory": "glove",
+          "datasetCategoryId": 17,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            406.0,
+            472.0,
+            40.0,
+            39.0
+          ],
+          "area": 828,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 517,
+          "datasetCategory": "glove",
+          "datasetCategoryId": 17,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            599.0,
+            474.0,
+            15.0,
+            18.0
+          ],
+          "area": 159,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 518,
+          "datasetCategory": "pants",
+          "datasetCategoryId": 6,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            444.0,
+            499.0,
+            152.0,
+            179.0
+          ],
+          "area": 20896,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 20275,
+      "width": 682,
+      "height": 1024,
+      "file_name": "ef9f506c8d4345edbb63f7fb54bb2cf5.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm4.staticflickr.com/3579/3412650746_348210b5b2_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "ef9f506c8d4345edbb63f7fb54bb2cf5",
+      "stratum": "hat-challenge",
+      "sha256": "50ee7f7bf604e80f60b17551ceebff89eebe81f9b1331f2f208f66ce28207e7c",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": true,
+      "instances": [
+        {
+          "annotationId": 4816,
+          "datasetCategory": "hat",
+          "datasetCategoryId": 14,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            216.0,
+            98.0,
+            252.0,
+            156.0
+          ],
+          "area": 17042,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4817,
+          "datasetCategory": "shirt, blouse",
+          "datasetCategoryId": 0,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            173.0,
+            311.0,
+            287.0,
+            383.0
+          ],
+          "area": 65253,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4819,
+          "datasetCategory": "shorts",
+          "datasetCategoryId": 7,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            130.0,
+            646.0,
+            292.0,
+            196.0
+          ],
+          "area": 42880,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 9656,
+      "width": 682,
+      "height": 1024,
+      "file_name": "420f153001eb2e37269ae974b9f7665e.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm5.staticflickr.com/4391/36501437664_e215cc1f3a_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "420f153001eb2e37269ae974b9f7665e",
+      "stratum": "general",
+      "sha256": "b3102351a0317f2d85ca461eedb7ae26c57b4299097e44f28e663c6afd9f67ff",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 5900,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            230.0,
+            157.0,
+            150.0,
+            371.0
+          ],
+          "area": 13368,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 5902,
+          "datasetCategory": "tights, stockings",
+          "datasetCategoryId": 21,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            191.0,
+            580.0,
+            139.0,
+            393.0
+          ],
+          "area": 24103,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 5903,
+          "datasetCategory": "tights, stockings",
+          "datasetCategoryId": 21,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            327.0,
+            595.0,
+            87.0,
+            331.0
+          ],
+          "area": 13185,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 5904,
+          "datasetCategory": "skirt",
+          "datasetCategoryId": 8,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            200.0,
+            314.0,
+            257.0,
+            391.0
+          ],
+          "area": 55235,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 5905,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            371.0,
+            922.0,
+            46.0,
+            30.0
+          ],
+          "area": 964,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 5906,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            169.0,
+            888.0,
+            126.0,
+            98.0
+          ],
+          "area": 2931,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 15771,
+      "width": 1024,
+      "height": 680,
+      "file_name": "06e324f9ef2c3bc1cc2573562e498499.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm6.staticflickr.com/5138/5532553780_52096588ba_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "06e324f9ef2c3bc1cc2573562e498499",
+      "stratum": "general",
+      "sha256": "e508dc4023da356515aaf0b57076553c76de815d707264a03708d25cdab6b1a1",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 625,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            469.0,
+            556.0,
+            55.0,
+            57.0
+          ],
+          "area": 960,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 626,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            416.0,
+            558.0,
+            64.0,
+            57.0
+          ],
+          "area": 1228,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 627,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            363.0,
+            151.0,
+            236.0,
+            317.0
+          ],
+          "area": 36416,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 17091,
+      "width": 683,
+      "height": 1024,
+      "file_name": "b66643e09504500db84e3d75535a8273.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm3.staticflickr.com/2078/1552298423_1854aa8011_m.jpg",
+      "isstatic": 1,
+      "kaggle_id": "b66643e09504500db84e3d75535a8273",
+      "stratum": "general",
+      "sha256": "d2fb31fd00a8d4a6b5a85a3d553351afb9193465796effcfaf0d3e238a8211e6",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 3044,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            269.0,
+            183.0,
+            274.0,
+            334.0
+          ],
+          "area": 54827,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 3045,
+          "datasetCategory": "pants",
+          "datasetCategoryId": 6,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            203.0,
+            367.0,
+            338.0,
+            370.0
+          ],
+          "area": 33991,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 3048,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            491.0,
+            826.0,
+            34.0,
+            9.0
+          ],
+          "area": 198,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 3049,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            114.0,
+            566.0,
+            115.0,
+            74.0
+          ],
+          "area": 1508,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 16343,
+      "width": 580,
+      "height": 1024,
+      "file_name": "deab9c33ce187b69cff3e1b226ddd8ac.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm9.staticflickr.com/8411/8698852029_ca80f4433a_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "deab9c33ce187b69cff3e1b226ddd8ac",
+      "stratum": "general",
+      "sha256": "e5c95ebc1d26854c50af891d08921eca5f22d9b3a1942d0f5806663a21747a29",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 1104,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            165.0,
+            192.0,
+            220.0,
+            727.0
+          ],
+          "area": 112790,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 1106,
+          "datasetCategory": "bag, wallet",
+          "datasetCategoryId": 24,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            314.0,
+            450.0,
+            83.0,
+            66.0
+          ],
+          "area": 3099,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 1107,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            193.0,
+            888.0,
+            98.0,
+            82.0
+          ],
+          "area": 2396,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 1108,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            302.0,
+            886.0,
+            94.0,
+            85.0
+          ],
+          "area": 3226,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 11041,
+      "width": 681,
+      "height": 1024,
+      "file_name": "4c796269b7c4578353de5be59efbb9f9.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm8.staticflickr.com/7176/6821827142_77b0437349_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "4c796269b7c4578353de5be59efbb9f9",
+      "stratum": "general",
+      "sha256": "23f38f3f1a45d181cd1ea74536ceb53b564ae72d1e1dbe0cc7253d8737afc24d",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 7984,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            183.0,
+            768.0,
+            41.0,
+            106.0
+          ],
+          "area": 1155,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7985,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            321.0,
+            808.0,
+            83.0,
+            80.0
+          ],
+          "area": 1354,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7986,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            223.0,
+            288.0,
+            222.0,
+            504.0
+          ],
+          "area": 69147,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7989,
+          "datasetCategory": "belt",
+          "datasetCategoryId": 19,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            287.0,
+            422.0,
+            150.0,
+            158.0
+          ],
+          "area": 7955,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 18904,
+      "width": 1024,
+      "height": 680,
+      "file_name": "443afe5ce1fe775cd6f04c359e122f4b.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm6.staticflickr.com/5218/5532532170_a4d669cfcd_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "443afe5ce1fe775cd6f04c359e122f4b",
+      "stratum": "general",
+      "sha256": "0fe9a893f9598ccc6a981f4c349564184b12d29b318ed4ffc835aa97b8c9c356",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Outerwear",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 3419,
+          "datasetCategory": "pants",
+          "datasetCategoryId": 6,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            420.0,
+            261.0,
+            173.0,
+            355.0
+          ],
+          "area": 36810,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 3420,
+          "datasetCategory": "belt",
+          "datasetCategoryId": 19,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            490.0,
+            232.0,
+            72.0,
+            11.0
+          ],
+          "area": 432,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 3423,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            532.0,
+            607.0,
+            37.0,
+            22.0
+          ],
+          "area": 602,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 3424,
+          "datasetCategory": "jacket",
+          "datasetCategoryId": 4,
+          "appCategory": "Outerwear",
+          "bboxXYWH": [
+            456.0,
+            117.0,
+            189.0,
+            204.0
+          ],
+          "area": 19340,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 3425,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            416.0,
+            603.0,
+            53.0,
+            22.0
+          ],
+          "area": 664,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 10202,
+      "width": 682,
+      "height": 1024,
+      "file_name": "2cf2e1a28edab787da3816136528c1aa.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm6.staticflickr.com/5611/30169173183_60bd2b21f3_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "2cf2e1a28edab787da3816136528c1aa",
+      "stratum": "general",
+      "sha256": "fc2bb6a26e3706ccfb9379303b2c3e5281325cf00a1628a60e11d9ce7e89f5fb",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress",
+        "Outerwear"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 6319,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            316.0,
+            385.0,
+            83.0,
+            477.0
+          ],
+          "area": 8967,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 6320,
+          "datasetCategory": "coat",
+          "datasetCategoryId": 9,
+          "appCategory": "Outerwear",
+          "bboxXYWH": [
+            192.0,
+            251.0,
+            401.0,
+            720.0
+          ],
+          "area": 181211,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 12719,
+      "width": 1024,
+      "height": 791,
+      "file_name": "e778753e5302e8047fdddb88aeed0c37.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "https://farm7.staticflickr.com/6179/6196560183_bec5422893_o.jpg",
+      "isstatic": 1,
+      "kaggle_id": "e778753e5302e8047fdddb88aeed0c37",
+      "stratum": "general",
+      "sha256": "f0b86044309e6897c31566116b62d8e2da49b0b44c9a7dbf638c3684dd0239b6",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 8504,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            386.0,
+            211.0,
+            276.0,
+            534.0
+          ],
+          "area": 75747,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 9914,
+      "width": 683,
+      "height": 1024,
+      "file_name": "46c1433283e5cfba916f741bc681b99b.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm3.staticflickr.com/2347/2507900768_fc326bb98e_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "46c1433283e5cfba916f741bc681b99b",
+      "stratum": "general",
+      "sha256": "9c1177c47cfd751313c6a2e3ce3ede9e3e353637d6e63a0ec7ee39a75350e6d1",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 6168,
+          "datasetCategory": "shirt, blouse",
+          "datasetCategoryId": 0,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            0.0,
+            137.0,
+            667.0,
+            654.0
+          ],
+          "area": 176482,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 10471,
+      "width": 682,
+      "height": 1024,
+      "file_name": "9c09e13e8d3b85d10cbdf08277af395e.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm4.staticflickr.com/3520/3830819860_0da5a260ab_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "9c09e13e8d3b85d10cbdf08277af395e",
+      "stratum": "general",
+      "sha256": "24b00de96ed3779b642726e9001bd54a507057f19ec1b0aa15eae86f3cb66c0e",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 6473,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            203.0,
+            228.0,
+            275.0,
+            539.0
+          ],
+          "area": 71298,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 20180,
+      "width": 768,
+      "height": 1024,
+      "file_name": "c650f80f25497fb2b0f1231d1e487878.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm5.staticflickr.com/4004/4512046312_b70006e42c_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "c650f80f25497fb2b0f1231d1e487878",
+      "stratum": "general",
+      "sha256": "70425ebe8f4195c79b0de32daa32df94a6888da4a790d30c448b527f2089f101",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 4694,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            266.0,
+            162.0,
+            305.0,
+            461.0
+          ],
+          "area": 79448,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4696,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            496.0,
+            866.0,
+            71.0,
+            125.0
+          ],
+          "area": 5309,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4697,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            234.0,
+            908.0,
+            122.0,
+            115.0
+          ],
+          "area": 7934,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 9669,
+      "width": 682,
+      "height": 1024,
+      "file_name": "387a049fc5d151a2c6c2444a44211d5c.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm6.staticflickr.com/5592/15083202680_844f830832_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "387a049fc5d151a2c6c2444a44211d5c",
+      "stratum": "general",
+      "sha256": "5603dbb1ca803a430863d3155836e5bb2ab138868daa2438c675c5e5c86cc340",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Dress"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 5919,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            217.0,
+            309.0,
+            358.0,
+            714.0
+          ],
+          "area": 121745,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 5922,
+          "datasetCategory": "headband, head covering, hair accessory",
+          "datasetCategoryId": 15,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            436.0,
+            77.0,
+            52.0,
+            105.0
+          ],
+          "area": 538,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 9692,
+      "width": 680,
+      "height": 1024,
+      "file_name": "fd567ffad275955ac945eeeacc1fdac5.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm6.staticflickr.com/5178/5420850558_f9fa153f53_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "fd567ffad275955ac945eeeacc1fdac5",
+      "stratum": "general",
+      "sha256": "380905f660a609336983d46bc76c2d357ee18ef9820c890abd7c2c59f92915cc",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 5971,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            195.0,
+            279.0,
+            344.0,
+            487.0
+          ],
+          "area": 87823,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 5972,
+          "datasetCategory": "scarf",
+          "datasetCategoryId": 25,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            5.0,
+            434.0,
+            597.0,
+            436.0
+          ],
+          "area": 55251,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 5973,
+          "datasetCategory": "pants",
+          "datasetCategoryId": 6,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            319.0,
+            760.0,
+            111.0,
+            153.0
+          ],
+          "area": 12413,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 5974,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            308.0,
+            901.0,
+            82.0,
+            68.0
+          ],
+          "area": 2186,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 5975,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            386.0,
+            884.0,
+            49.0,
+            68.0
+          ],
+          "area": 1160,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 12073,
+      "width": 683,
+      "height": 1024,
+      "file_name": "733128db0ce4f09443fc561514458c7f.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm3.staticflickr.com/2401/2075778383_04d8ace19a_m.jpg",
+      "isstatic": 1,
+      "kaggle_id": "733128db0ce4f09443fc561514458c7f",
+      "stratum": "general",
+      "sha256": "07e14f9b394027582c46a441266913af0cd7d4c26f3b9b693ca4f497a1d43e0f",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 7921,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            199.0,
+            235.0,
+            218.0,
+            281.0
+          ],
+          "area": 33736,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7925,
+          "datasetCategory": "pants",
+          "datasetCategoryId": 6,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            199.0,
+            475.0,
+            289.0,
+            392.0
+          ],
+          "area": 43449,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7926,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            220.0,
+            868.0,
+            48.0,
+            51.0
+          ],
+          "area": 928,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7927,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            421.0,
+            840.0,
+            88.0,
+            77.0
+          ],
+          "area": 2132,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 15998,
+      "width": 1024,
+      "height": 682,
+      "file_name": "19b88ca66e3ab754d3b6aa7d5e2f0a83.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm3.staticflickr.com/2923/14718713471_19287eaf84_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "19b88ca66e3ab754d3b6aa7d5e2f0a83",
+      "stratum": "general",
+      "sha256": "23e6b16b3b5000622455f31ed55ee7f8e81fa9bbe18d625c50e4994a03ccdcaa",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 888,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            749.0,
+            505.0,
+            181.0,
+            177.0
+          ],
+          "area": 6232,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 889,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            668.0,
+            541.0,
+            230.0,
+            141.0
+          ],
+          "area": 20563,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 890,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            96.0,
+            215.0,
+            466.0,
+            454.0
+          ],
+          "area": 132685,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 9390,
+      "width": 1024,
+      "height": 683,
+      "file_name": "0b915f1e29a2e2dacf96aacd3cb6a3cc.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm5.staticflickr.com/4208/35748817382_b4b72735bd_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "0b915f1e29a2e2dacf96aacd3cb6a3cc",
+      "stratum": "general",
+      "sha256": "e84ed1c095358ec9b4f899d1ad7369ef20024298e2886f774982f7522dc884a1",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 6614,
+          "datasetCategory": "pants",
+          "datasetCategoryId": 6,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            360.0,
+            519.0,
+            210.0,
+            163.0
+          ],
+          "area": 29434,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 6617,
+          "datasetCategory": "bag, wallet",
+          "datasetCategoryId": 24,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            376.0,
+            238.0,
+            269.0,
+            299.0
+          ],
+          "area": 45133,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 6618,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            367.0,
+            218.0,
+            198.0,
+            320.0
+          ],
+          "area": 19622,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 18328,
+      "width": 682,
+      "height": 1024,
+      "file_name": "0301f50a3cd73f13cd9e1125d8ef38bd.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm8.staticflickr.com/7073/7167281317_e9e7ef0ddb_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "0301f50a3cd73f13cd9e1125d8ef38bd",
+      "stratum": "general",
+      "sha256": "ed0d6d576b9fe372ce25560472c8dd9b966dc53de380e4c7984bac53029e61e9",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 2729,
+          "datasetCategory": "shirt, blouse",
+          "datasetCategoryId": 0,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            299.0,
+            288.0,
+            304.0,
+            374.0
+          ],
+          "area": 78116,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 2731,
+          "datasetCategory": "belt",
+          "datasetCategoryId": 19,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            317.0,
+            638.0,
+            221.0,
+            50.0
+          ],
+          "area": 3635,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 2732,
+          "datasetCategory": "skirt",
+          "datasetCategoryId": 8,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            234.0,
+            641.0,
+            424.0,
+            322.0
+          ],
+          "area": 82910,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 10994,
+      "width": 682,
+      "height": 1024,
+      "file_name": "8248793dfb50ff3c8209cd0e44ddf9bf.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm4.staticflickr.com/3232/2898696433_2decca82ca_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "8248793dfb50ff3c8209cd0e44ddf9bf",
+      "stratum": "general",
+      "sha256": "17f57c98fe599191d0ba4fcee466ace14054a7cee53cf39a10807c2456aedbd4",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 7118,
+          "datasetCategory": "shirt, blouse",
+          "datasetCategoryId": 0,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            285.0,
+            227.0,
+            296.0,
+            365.0
+          ],
+          "area": 57796,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7121,
+          "datasetCategory": "pants",
+          "datasetCategoryId": 6,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            135.0,
+            427.0,
+            449.0,
+            566.0
+          ],
+          "area": 108352,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7122,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            186.0,
+            948.0,
+            138.0,
+            75.0
+          ],
+          "area": 3737,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7123,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            116.0,
+            794.0,
+            128.0,
+            91.0
+          ],
+          "area": 4313,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 11593,
+      "width": 682,
+      "height": 1024,
+      "file_name": "a22769bf38c0acd680854bd5588e8075.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm1.staticflickr.com/628/32574399580_f42c2bda87_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "a22769bf38c0acd680854bd5588e8075",
+      "stratum": "general",
+      "sha256": "0a764d924e7dcda6f2fd9542904a00f8cc900de3fe876e9f837ab0f0691d4199",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 7602,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            246.0,
+            309.0,
+            184.0,
+            384.0
+          ],
+          "area": 41426,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7603,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            352.0,
+            883.0,
+            39.0,
+            78.0
+          ],
+          "area": 628,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7604,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            317.0,
+            879.0,
+            40.0,
+            83.0
+          ],
+          "area": 826,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 12524,
+      "width": 682,
+      "height": 1024,
+      "file_name": "db26dd4ab74b3f12041cc72ff6acb60d.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm6.staticflickr.com/5714/30713183021_8d9e270bbe_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "db26dd4ab74b3f12041cc72ff6acb60d",
+      "stratum": "general",
+      "sha256": "cc0294fa86adb44135bf291d5cee73dd9c45c38b29f47277b204daaee6aa901a",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 8347,
+          "datasetCategory": "pants",
+          "datasetCategoryId": 6,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            296.0,
+            453.0,
+            307.0,
+            456.0
+          ],
+          "area": 64107,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8348,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            295.0,
+            163.0,
+            247.0,
+            348.0
+          ],
+          "area": 44011,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8352,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            563.0,
+            865.0,
+            102.0,
+            131.0
+          ],
+          "area": 6552,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8353,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            352.0,
+            889.0,
+            55.0,
+            112.0
+          ],
+          "area": 4705,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 20106,
+      "width": 682,
+      "height": 1024,
+      "file_name": "43778dff8bac7d13784527fdba344468.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "https://farm9.staticflickr.com/8204/8225520732_afcef06be8_o.jpg",
+      "isstatic": 1,
+      "kaggle_id": "43778dff8bac7d13784527fdba344468",
+      "stratum": "general",
+      "sha256": "0bb7d4f41c990e32e822a0e6a4cae732c92b09f7af4f75dd92f0aa572b96f113",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 4653,
+          "datasetCategory": "pants",
+          "datasetCategoryId": 6,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            222.0,
+            460.0,
+            242.0,
+            352.0
+          ],
+          "area": 38186,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4654,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            268.0,
+            734.0,
+            107.0,
+            164.0
+          ],
+          "area": 5485,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4655,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            346.0,
+            795.0,
+            57.0,
+            123.0
+          ],
+          "area": 4120,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4661,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            305.0,
+            198.0,
+            152.0,
+            283.0
+          ],
+          "area": 23138,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 15368,
+      "width": 682,
+      "height": 1024,
+      "file_name": "8a3628a193ab4f72edae6d793a61e649.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm9.staticflickr.com/8177/8048893914_9772b1dbfb_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "8a3628a193ab4f72edae6d793a61e649",
+      "stratum": "general",
+      "sha256": "04128a1783232cf36b48cf83bbe166d40d1e21d51517a472947e5790e37eff8a",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 277,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            198.0,
+            459.0,
+            312.0,
+            564.0
+          ],
+          "area": 84850,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 13283,
+      "width": 682,
+      "height": 1024,
+      "file_name": "52a6dcf5c19a6f0f6033ebc8dd9f3078.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm9.staticflickr.com/8177/8048898293_6fd07db0bb_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "52a6dcf5c19a6f0f6033ebc8dd9f3078",
+      "stratum": "general",
+      "sha256": "70d1bb36204282146bdd34c00b2c7ae21e5b8fcc10f5ec1bd30f4cbf58685fec",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 8909,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            140.0,
+            334.0,
+            383.0,
+            376.0
+          ],
+          "area": 86179,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8913,
+          "datasetCategory": "skirt",
+          "datasetCategoryId": 8,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            200.0,
+            672.0,
+            295.0,
+            274.0
+          ],
+          "area": 62308,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 20235,
+      "width": 529,
+      "height": 1024,
+      "file_name": "6469f5b56cb9ab713851fcd9116923c1.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm5.staticflickr.com/4112/5055896208_672ec1b7be_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "6469f5b56cb9ab713851fcd9116923c1",
+      "stratum": "general",
+      "sha256": "159b216a46674b5fb4fa3d936616a3cd5322e2d4a7a02ed877e2733bfabc7eb5",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 4730,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            75.0,
+            834.0,
+            69.0,
+            160.0
+          ],
+          "area": 8151,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4731,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            342.0,
+            832.0,
+            64.0,
+            162.0
+          ],
+          "area": 8051,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4732,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            44.0,
+            180.0,
+            408.0,
+            370.0
+          ],
+          "area": 67091,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 19496,
+      "width": 682,
+      "height": 1024,
+      "file_name": "742ca0ded538281bfd2d1f3ea331773e.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm5.staticflickr.com/4059/4360546220_001f484247_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "742ca0ded538281bfd2d1f3ea331773e",
+      "stratum": "general",
+      "sha256": "d6f641ece1f45c22e9d4e222be2a9ecb5150a1b37ffcc9a7ef70b5656c5987ef",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 3946,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            255.0,
+            283.0,
+            225.0,
+            465.0
+          ],
+          "area": 78699,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 3948,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            396.0,
+            886.0,
+            60.0,
+            127.0
+          ],
+          "area": 3055,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 3949,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            247.0,
+            972.0,
+            68.0,
+            51.0
+          ],
+          "area": 1550,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 10160,
+      "width": 768,
+      "height": 1024,
+      "file_name": "68d6747a3e74f059dddb6d75f624f21c.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "https://farm5.staticflickr.com/4124/4832182752_56e0887a5c_o.jpg",
+      "isstatic": 1,
+      "kaggle_id": "68d6747a3e74f059dddb6d75f624f21c",
+      "stratum": "general",
+      "sha256": "e23a9377cec3eca5b46d5ca8514cb75600844f276be72dbc05badd9cd54c4f9c",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 6291,
+          "datasetCategory": "bag, wallet",
+          "datasetCategoryId": 24,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            170.0,
+            447.0,
+            53.0,
+            129.0
+          ],
+          "area": 3241,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 6292,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            239.0,
+            780.0,
+            83.0,
+            95.0
+          ],
+          "area": 3120,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 6293,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            337.0,
+            774.0,
+            76.0,
+            101.0
+          ],
+          "area": 3198,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 6294,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            191.0,
+            221.0,
+            179.0,
+            406.0
+          ],
+          "area": 51321,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 20362,
+      "width": 682,
+      "height": 1024,
+      "file_name": "ceda0fb843f97259cad42ea47d14fe48.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm6.staticflickr.com/5083/5242347783_be57bd76d1_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "ceda0fb843f97259cad42ea47d14fe48",
+      "stratum": "general",
+      "sha256": "0b6a5450d7d65e55844d0bf5b43c8904adec6e7a7829f8e0c90bf1b33a944a9b",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 4895,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            218.0,
+            391.0,
+            316.0,
+            478.0
+          ],
+          "area": 82633,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 16820,
+      "width": 682,
+      "height": 1024,
+      "file_name": "5b119f366a58e6706b6c721fb0c52d9d.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm6.staticflickr.com/5591/14230384282_80e73cc5cb_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "5b119f366a58e6706b6c721fb0c52d9d",
+      "stratum": "general",
+      "sha256": "6832902058eaf04fafeb07d5f57eaab1c2adeba58cdc9c6ce67ba0049110f68b",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 2936,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            186.0,
+            333.0,
+            359.0,
+            650.0
+          ],
+          "area": 143543,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 20009,
+      "width": 682,
+      "height": 1024,
+      "file_name": "8be355cc27de8de90e70100fd6d9c242.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm4.staticflickr.com/3156/3037547045_e9da657daf_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "8be355cc27de8de90e70100fd6d9c242",
+      "stratum": "general",
+      "sha256": "e303cd9c4a497162a90e1792c879232fcfe77779428b64a5e81e01fd8c293d81",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 4556,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            204.0,
+            331.0,
+            239.0,
+            692.0
+          ],
+          "area": 108656,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4557,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            305.0,
+            982.0,
+            13.0,
+            40.0
+          ],
+          "area": 160,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4558,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            312.0,
+            997.0,
+            39.0,
+            26.0
+          ],
+          "area": 458,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 17869,
+      "width": 680,
+      "height": 1024,
+      "file_name": "ebb38e79797679a23f7959ebbe0337a0.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm6.staticflickr.com/5297/5475546303_4ee031fd97_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "ebb38e79797679a23f7959ebbe0337a0",
+      "stratum": "general",
+      "sha256": "fe7a0767cb46c2c705fd75c075ecd538c5e01f150a4358b8762097a34147d6c0",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Outerwear",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 2379,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            301.0,
+            332.0,
+            82.0,
+            134.0
+          ],
+          "area": 5593,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 2385,
+          "datasetCategory": "jacket",
+          "datasetCategoryId": 4,
+          "appCategory": "Outerwear",
+          "bboxXYWH": [
+            108.0,
+            333.0,
+            468.0,
+            508.0
+          ],
+          "area": 61336,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 2386,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            122.0,
+            409.0,
+            344.0,
+            614.0
+          ],
+          "area": 114386,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 2388,
+          "datasetCategory": "headband, head covering, hair accessory",
+          "datasetCategoryId": 15,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            296.0,
+            97.0,
+            160.0,
+            118.0
+          ],
+          "area": 2170,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 17854,
+      "width": 682,
+      "height": 1024,
+      "file_name": "90ffd404d1eb433fc6bb4065d9c96a37.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm4.staticflickr.com/3281/3037543933_ac1c8f41d7_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "90ffd404d1eb433fc6bb4065d9c96a37",
+      "stratum": "general",
+      "sha256": "0c9ea6ed6758713ff2714c1ddb099a4a886b4e119d9b288474f81c1bcaaa602b",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Dress"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 2365,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            58.0,
+            393.0,
+            478.0,
+            630.0
+          ],
+          "area": 208589,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 2367,
+          "datasetCategory": "headband, head covering, hair accessory",
+          "datasetCategoryId": 15,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            131.0,
+            31.0,
+            499.0,
+            992.0
+          ],
+          "area": 101117,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 19219,
+      "width": 1024,
+      "height": 682,
+      "file_name": "e9e415310c10ee05c1ebbf0f013c9269.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm4.staticflickr.com/3333/3635336639_5845dddb13_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "e9e415310c10ee05c1ebbf0f013c9269",
+      "stratum": "general",
+      "sha256": "dedbaa8d65c6bdecfa6a8350575a4054c6b929a9f08f90de7e01f873a5f9b5e5",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 3762,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            197.0,
+            245.0,
+            422.0,
+            180.0
+          ],
+          "area": 35472,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 3763,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            770.0,
+            128.0,
+            139.0,
+            97.0
+          ],
+          "area": 3637,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 3764,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            642.0,
+            311.0,
+            113.0,
+            93.0
+          ],
+          "area": 4015,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 19218,
+      "width": 773,
+      "height": 1024,
+      "file_name": "d680b56c59f41348dcaf98fefe05f7d8.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm7.staticflickr.com/6121/6030919025_f5f90fab36_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "d680b56c59f41348dcaf98fefe05f7d8",
+      "stratum": "general",
+      "sha256": "9ce8d2bd1ba220cc18cc044ca2c12386dab17fd695660f8c4e79b815785ab16a",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 3758,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            190.0,
+            251.0,
+            171.0,
+            281.0
+          ],
+          "area": 31070,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 3760,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            96.0,
+            552.0,
+            116.0,
+            108.0
+          ],
+          "area": 4515,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 3761,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            218.0,
+            832.0,
+            119.0,
+            119.0
+          ],
+          "area": 4908,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 13148,
+      "width": 683,
+      "height": 1024,
+      "file_name": "8c6c8abea5d5a128ca8834600b2aeddc.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm2.staticflickr.com/1201/944809284_f1bd84b22e_m.jpg",
+      "isstatic": 1,
+      "kaggle_id": "8c6c8abea5d5a128ca8834600b2aeddc",
+      "stratum": "general",
+      "sha256": "4ed1d037acefe306e0ac94037553f5799b94e1536f17f2d80370fb8c18b800ad",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 8821,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            134.0,
+            826.0,
+            194.0,
+            151.0
+          ],
+          "area": 9863,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8822,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            289.0,
+            706.0,
+            120.0,
+            131.0
+          ],
+          "area": 6065,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8823,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            316.0,
+            130.0,
+            358.0,
+            443.0
+          ],
+          "area": 86431,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 13530,
+      "width": 682,
+      "height": 1024,
+      "file_name": "99027620fc97d34441847d380ea3b7aa.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm8.staticflickr.com/7598/16853827736_5fedf309d4_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "99027620fc97d34441847d380ea3b7aa",
+      "stratum": "general",
+      "sha256": "2b95dbc8b9ba21b50c1e68a9a3b1a777ad0e536f60c610ca03320c99f1e3ff29",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Bottom",
+        "Outerwear",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 9220,
+          "datasetCategory": "shirt, blouse",
+          "datasetCategoryId": 0,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            249.0,
+            272.0,
+            144.0,
+            417.0
+          ],
+          "area": 10396,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 9222,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            261.0,
+            323.0,
+            132.0,
+            290.0
+          ],
+          "area": 27473,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 9228,
+          "datasetCategory": "coat",
+          "datasetCategoryId": 9,
+          "appCategory": "Outerwear",
+          "bboxXYWH": [
+            104.0,
+            279.0,
+            375.0,
+            612.0
+          ],
+          "area": 120861,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 9229,
+          "datasetCategory": "pants",
+          "datasetCategoryId": 6,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            167.0,
+            672.0,
+            319.0,
+            351.0
+          ],
+          "area": 40078,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 17085,
+      "width": 683,
+      "height": 1024,
+      "file_name": "ac14ee8a27be712ac0123b69d376b0be.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm3.staticflickr.com/2038/1553250846_61a4946be5_m.jpg",
+      "isstatic": 1,
+      "kaggle_id": "ac14ee8a27be712ac0123b69d376b0be",
+      "stratum": "general",
+      "sha256": "cbe438258ec22fae7344ac3ab4fde9f2134ffb91348c6ec235aafdf7b164b04e",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 1672,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            297.0,
+            153.0,
+            190.0,
+            318.0
+          ],
+          "area": 30845,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 1673,
+          "datasetCategory": "skirt",
+          "datasetCategoryId": 8,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            136.0,
+            414.0,
+            390.0,
+            339.0
+          ],
+          "area": 83509,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 17533,
+      "width": 681,
+      "height": 1024,
+      "file_name": "ba230c5008aba14a031f540a7d601c57.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm8.staticflickr.com/7194/6821929190_268fb54183_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "ba230c5008aba14a031f540a7d601c57",
+      "stratum": "general",
+      "sha256": "9290b18bd08bb31a029d34ed7e519c01d38bafb94b50876537c6b73851ad9876",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 2086,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            112.0,
+            242.0,
+            544.0,
+            718.0
+          ],
+          "area": 203641,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 2087,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            139.0,
+            954.0,
+            54.0,
+            10.0
+          ],
+          "area": 256,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 12120,
+      "width": 683,
+      "height": 1024,
+      "file_name": "feea9874319fd9d25200c8127d01933d.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm2.staticflickr.com/1253/944809332_16c6866ba6_m.jpg",
+      "isstatic": 1,
+      "kaggle_id": "feea9874319fd9d25200c8127d01933d",
+      "stratum": "general",
+      "sha256": "7ed32d218bdf68f48c01f4c81c6d9c8544ea0fbf4c8108afba54a7879274c3a6",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 9025,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            205.0,
+            243.0,
+            205.0,
+            302.0
+          ],
+          "area": 36774,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 9027,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            162.0,
+            772.0,
+            60.0,
+            79.0
+          ],
+          "area": 1666,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 9028,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            425.0,
+            769.0,
+            58.0,
+            78.0
+          ],
+          "area": 1733,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 16320,
+      "width": 597,
+      "height": 1024,
+      "file_name": "d2eb58326f2ae516be70ba3132c4fd59.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm9.staticflickr.com/8373/8569308688_56a7d76095_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "d2eb58326f2ae516be70ba3132c4fd59",
+      "stratum": "general",
+      "sha256": "ab627b1cfca67b2735dec8f596fa1adef04518017a5a2390b29e14b4b04e41db",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 1069,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            269.0,
+            913.0,
+            45.0,
+            87.0
+          ],
+          "area": 1600,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 1070,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            312.0,
+            883.0,
+            50.0,
+            99.0
+          ],
+          "area": 1574,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 1071,
+          "datasetCategory": "skirt",
+          "datasetCategoryId": 8,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            205.0,
+            456.0,
+            174.0,
+            183.0
+          ],
+          "area": 25933,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 1072,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            224.0,
+            257.0,
+            183.0,
+            213.0
+          ],
+          "area": 20464,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 19575,
+      "width": 768,
+      "height": 1024,
+      "file_name": "a4f806e6b45ed0ac339db298ee287b44.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "https://farm5.staticflickr.com/4026/4622699078_bee355f675_o.jpg",
+      "isstatic": 1,
+      "kaggle_id": "a4f806e6b45ed0ac339db298ee287b44",
+      "stratum": "general",
+      "sha256": "270c2917cf05a24ea4dc29c4d2aa5c35e552b2282a304633ee81f55dfa1a4915",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 4092,
+          "datasetCategory": "belt",
+          "datasetCategoryId": 19,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            179.0,
+            166.0,
+            149.0,
+            99.0
+          ],
+          "area": 4633,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4093,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            179.0,
+            0.0,
+            350.0,
+            533.0
+          ],
+          "area": 73643,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4094,
+          "datasetCategory": "bag, wallet",
+          "datasetCategoryId": 24,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            352.0,
+            0.0,
+            100.0,
+            372.0
+          ],
+          "area": 19694,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4095,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            289.0,
+            772.0,
+            129.0,
+            116.0
+          ],
+          "area": 6217,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4096,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            348.0,
+            798.0,
+            122.0,
+            103.0
+          ],
+          "area": 6673,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 20702,
+      "width": 682,
+      "height": 1024,
+      "file_name": "00e45dd233e31906f538ba17dd45bf29.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm4.staticflickr.com/3219/2672342293_5643255a91_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "00e45dd233e31906f538ba17dd45bf29",
+      "stratum": "general",
+      "sha256": "e77804570696fe8955533921b05b83562d9c94aea5d2ff1e8725333b721595b7",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Dress"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 5214,
+          "datasetCategory": "belt",
+          "datasetCategoryId": 19,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            183.0,
+            587.0,
+            248.0,
+            379.0
+          ],
+          "area": 18449,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 5215,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            8.0,
+            282.0,
+            490.0,
+            741.0
+          ],
+          "area": 195062,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 18517,
+      "width": 683,
+      "height": 1024,
+      "file_name": "02182c58daf61dc5c5c64bb112b1f826.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm4.staticflickr.com/3410/3507435811_b6e2d5f71d_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "02182c58daf61dc5c5c64bb112b1f826",
+      "stratum": "general",
+      "sha256": "6628d8679227523971de27c564f2a0cae7d3391d981c97923c841abe3b6494fe",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 5193,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            340.0,
+            910.0,
+            92.0,
+            111.0
+          ],
+          "area": 4989,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 5194,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            191.0,
+            894.0,
+            120.0,
+            103.0
+          ],
+          "area": 5135,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 5195,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            225.0,
+            155.0,
+            304.0,
+            454.0
+          ],
+          "area": 69485,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 20155,
+      "width": 683,
+      "height": 1024,
+      "file_name": "0205895cfbb5348d94fda8ce32272fa5.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm3.staticflickr.com/2098/2140112862_11298de4c5_m.jpg",
+      "isstatic": 1,
+      "kaggle_id": "0205895cfbb5348d94fda8ce32272fa5",
+      "stratum": "general",
+      "sha256": "d07ec84a8d15f757cac53b77bbc004b9784f91ced00d42212d5297c87620b2f5",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 4671,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            282.0,
+            217.0,
+            334.0,
+            405.0
+          ],
+          "area": 34904,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4673,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            218.0,
+            874.0,
+            112.0,
+            148.0
+          ],
+          "area": 4006,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4674,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            97.0,
+            633.0,
+            100.0,
+            75.0
+          ],
+          "area": 2554,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 19480,
+      "width": 683,
+      "height": 1024,
+      "file_name": "317eb8142316b0f17e44fbbb5a8f3667.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm1.staticflickr.com/825/42019011501_d7aeb637a7_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "317eb8142316b0f17e44fbbb5a8f3667",
+      "stratum": "general",
+      "sha256": "de96d82c4d763ac1f0b05f4a7ce1f6c31489ba2d296b680797df3839962ff76c",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 3941,
+          "datasetCategory": "pants",
+          "datasetCategoryId": 6,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            194.0,
+            455.0,
+            231.0,
+            367.0
+          ],
+          "area": 36230,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 3942,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            193.0,
+            366.0,
+            135.0,
+            237.0
+          ],
+          "area": 15282,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 3944,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            351.0,
+            785.0,
+            166.0,
+            91.0
+          ],
+          "area": 4984,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 3945,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            380.0,
+            685.0,
+            63.0,
+            48.0
+          ],
+          "area": 1372,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 10905,
+      "width": 768,
+      "height": 1024,
+      "file_name": "6b6582dc900f463d0fc31a95c3fbeb49.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm5.staticflickr.com/4462/38115412676_fbba74551b_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "6b6582dc900f463d0fc31a95c3fbeb49",
+      "stratum": "general",
+      "sha256": "1c08eb3d7bc8d6e7046842c518407de105ba48ae15421644fb24c21e2091d16e",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Outerwear",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 6994,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            460.0,
+            725.0,
+            39.0,
+            106.0
+          ],
+          "area": 1608,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 6995,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            362.0,
+            825.0,
+            71.0,
+            88.0
+          ],
+          "area": 1265,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 6996,
+          "datasetCategory": "pants",
+          "datasetCategoryId": 6,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            312.0,
+            546.0,
+            153.0,
+            298.0
+          ],
+          "area": 24219,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 6997,
+          "datasetCategory": "watch",
+          "datasetCategoryId": 18,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            385.0,
+            474.0,
+            22.0,
+            29.0
+          ],
+          "area": 256,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7002,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            313.0,
+            347.0,
+            108.0,
+            204.0
+          ],
+          "area": 9946,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7004,
+          "datasetCategory": "jacket",
+          "datasetCategoryId": 4,
+          "appCategory": "Outerwear",
+          "bboxXYWH": [
+            277.0,
+            311.0,
+            214.0,
+            271.0
+          ],
+          "area": 26962,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7005,
+          "datasetCategory": "glasses",
+          "datasetCategoryId": 13,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            318.0,
+            282.0,
+            67.0,
+            42.0
+          ],
+          "area": 1001,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7006,
+          "datasetCategory": "bag, wallet",
+          "datasetCategoryId": 24,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            256.0,
+            482.0,
+            89.0,
+            112.0
+          ],
+          "area": 5891,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 13331,
+      "width": 683,
+      "height": 1024,
+      "file_name": "d2f3f13a7a3532cc905fe9f3bad10b8a.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm3.staticflickr.com/2386/2139433139_1efddfd578_m.jpg",
+      "isstatic": 1,
+      "kaggle_id": "d2f3f13a7a3532cc905fe9f3bad10b8a",
+      "stratum": "general",
+      "sha256": "d9372cf9897d48b09c4aa5564b4f3107fb0ca1440037190488d740561fb8a11b",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 8955,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            212.0,
+            422.0,
+            311.0,
+            273.0
+          ],
+          "area": 20998,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8958,
+          "datasetCategory": "pants",
+          "datasetCategoryId": 6,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            210.0,
+            611.0,
+            346.0,
+            345.0
+          ],
+          "area": 40357,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8959,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            436.0,
+            826.0,
+            120.0,
+            78.0
+          ],
+          "area": 3380,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8960,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            264.0,
+            951.0,
+            58.0,
+            71.0
+          ],
+          "area": 2717,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 16489,
+      "width": 682,
+      "height": 1024,
+      "file_name": "3e57b446b927f69e56d46f3e5db68b37.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm6.staticflickr.com/5794/30169270153_0046af70bb_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "3e57b446b927f69e56d46f3e5db68b37",
+      "stratum": "general",
+      "sha256": "09c415f2786e290a31d752b055d37219b930134c3fc65eef63bb1f0cdfec6d64",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 1174,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            137.0,
+            283.0,
+            360.0,
+            467.0
+          ],
+          "area": 78797,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 1177,
+          "datasetCategory": "shorts",
+          "datasetCategoryId": 7,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            128.0,
+            728.0,
+            131.0,
+            137.0
+          ],
+          "area": 5289,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 19669,
+      "width": 1024,
+      "height": 683,
+      "file_name": "f6199582b266562fc8fb77d7ed18c068.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm1.staticflickr.com/140/399254364_986c3674e9_m.jpg",
+      "isstatic": 1,
+      "kaggle_id": "f6199582b266562fc8fb77d7ed18c068",
+      "stratum": "general",
+      "sha256": "894f7414497f7fd19f68a9a50fafd65b4dd5d85156cbb389b10ae25b0887cf2d",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 4221,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            161.0,
+            53.0,
+            320.0,
+            490.0
+          ],
+          "area": 71162,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4225,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            209.0,
+            242.0,
+            108.0,
+            102.0
+          ],
+          "area": 5517,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 15851,
+      "width": 682,
+      "height": 1024,
+      "file_name": "708b614476f051e6a165f1f124a269a8.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm3.staticflickr.com/2860/9778424543_cbac630cfc_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "708b614476f051e6a165f1f124a269a8",
+      "stratum": "general",
+      "sha256": "0dc702710972659f72b27df4d859cf4aaec54e9908a02e21f65e6f9ed8203b75",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 684,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            80.0,
+            862.0,
+            110.0,
+            96.0
+          ],
+          "area": 3990,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 685,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            176.0,
+            853.0,
+            109.0,
+            84.0
+          ],
+          "area": 2575,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 686,
+          "datasetCategory": "watch",
+          "datasetCategoryId": 18,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            413.0,
+            681.0,
+            29.0,
+            40.0
+          ],
+          "area": 636,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 687,
+          "datasetCategory": "belt",
+          "datasetCategoryId": 19,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            364.0,
+            650.0,
+            143.0,
+            20.0
+          ],
+          "area": 1012,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 690,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            290.0,
+            467.0,
+            248.0,
+            374.0
+          ],
+          "area": 34771,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 10216,
+      "width": 1024,
+      "height": 683,
+      "file_name": "a4f8de55929c1ccdfa38c3091f9ea800.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm2.staticflickr.com/1487/24710418442_ed269bc2b4_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "a4f8de55929c1ccdfa38c3091f9ea800",
+      "stratum": "general",
+      "sha256": "43e8d91b902670a2a7a120eea6582e3757544222da4e4b8e5bfe6b73066d3ad4",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 6349,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            840.0,
+            551.0,
+            50.0,
+            88.0
+          ],
+          "area": 3088,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 6352,
+          "datasetCategory": "bag, wallet",
+          "datasetCategoryId": 24,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            802.0,
+            300.0,
+            51.0,
+            89.0
+          ],
+          "area": 1456,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 6353,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            683.0,
+            208.0,
+            238.0,
+            192.0
+          ],
+          "area": 16665,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 6354,
+          "datasetCategory": "pants",
+          "datasetCategoryId": 6,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            732.0,
+            227.0,
+            181.0,
+            334.0
+          ],
+          "area": 19664,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 6355,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            846.0,
+            346.0,
+            78.0,
+            58.0
+          ],
+          "area": 3010,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 11859,
+      "width": 1024,
+      "height": 773,
+      "file_name": "31bbe8edffb11d49563d77dd3fa29610.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm7.staticflickr.com/6147/6004503660_b7c559a9ef_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "31bbe8edffb11d49563d77dd3fa29610",
+      "stratum": "general",
+      "sha256": "98abb1f6d145ba8ab3be776f1e2646279d87637f286f980983761fb5220860ae",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 7778,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            253.0,
+            318.0,
+            232.0,
+            283.0
+          ],
+          "area": 39106,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 18008,
+      "width": 682,
+      "height": 1024,
+      "file_name": "c87fb99e4cbb5a408e8fa1f4d86f9204.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm8.staticflickr.com/7246/7603877996_7dd700997a_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "c87fb99e4cbb5a408e8fa1f4d86f9204",
+      "stratum": "general",
+      "sha256": "82d1a32c9575b4eabd4aba824386688341caddc35199a924478ac513b3d15253",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Outerwear",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 2477,
+          "datasetCategory": "jacket",
+          "datasetCategoryId": 4,
+          "appCategory": "Outerwear",
+          "bboxXYWH": [
+            197.0,
+            199.0,
+            295.0,
+            347.0
+          ],
+          "area": 46892,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 2478,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            260.0,
+            237.0,
+            178.0,
+            332.0
+          ],
+          "area": 15835,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 2484,
+          "datasetCategory": "shorts",
+          "datasetCategoryId": 7,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            240.0,
+            543.0,
+            188.0,
+            157.0
+          ],
+          "area": 20498,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 2485,
+          "datasetCategory": "bag, wallet",
+          "datasetCategoryId": 24,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            217.0,
+            235.0,
+            73.0,
+            370.0
+          ],
+          "area": 8778,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 2486,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            342.0,
+            856.0,
+            54.0,
+            98.0
+          ],
+          "area": 3756,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 2487,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            225.0,
+            854.0,
+            65.0,
+            93.0
+          ],
+          "area": 3638,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 2488,
+          "datasetCategory": "glasses",
+          "datasetCategoryId": 13,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            318.0,
+            134.0,
+            78.0,
+            25.0
+          ],
+          "area": 1268,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 12526,
+      "width": 682,
+      "height": 1024,
+      "file_name": "2ede08066feaa38aa9127fccf570a4a9.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm6.staticflickr.com/5452/9349126419_fa8fee8ce3_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "2ede08066feaa38aa9127fccf570a4a9",
+      "stratum": "general",
+      "sha256": "158f580676c76280f790d991f8b5cc1619fa15ace16c16cc2328893b95178c94",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 8358,
+          "datasetCategory": "bag, wallet",
+          "datasetCategoryId": 24,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            220.0,
+            295.0,
+            191.0,
+            264.0
+          ],
+          "area": 23788,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8362,
+          "datasetCategory": "glasses",
+          "datasetCategoryId": 13,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            247.0,
+            240.0,
+            23.0,
+            24.0
+          ],
+          "area": 185,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8363,
+          "datasetCategory": "headband, head covering, hair accessory",
+          "datasetCategoryId": 15,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            312.0,
+            220.0,
+            10.0,
+            12.0
+          ],
+          "area": 60,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8364,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            173.0,
+            295.0,
+            361.0,
+            633.0
+          ],
+          "area": 102149,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8365,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            376.0,
+            893.0,
+            60.0,
+            54.0
+          ],
+          "area": 1677,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8366,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            165.0,
+            884.0,
+            64.0,
+            40.0
+          ],
+          "area": 1107,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 19973,
+      "width": 682,
+      "height": 1024,
+      "file_name": "8dfb0daa689c59460fc5a65f27a66ff1.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm4.staticflickr.com/3840/15107651647_5ffe87bc0e_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "8dfb0daa689c59460fc5a65f27a66ff1",
+      "stratum": "general",
+      "sha256": "8e571fb7e9d575c51f23b039b98ab76555135e4f86a9daf2a4355f9701e8c174",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 4545,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            257.0,
+            273.0,
+            329.0,
+            712.0
+          ],
+          "area": 158802,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 13397,
+      "width": 682,
+      "height": 1024,
+      "file_name": "4cf0603ca0e51e4ea465b2b9d5eea307.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm3.staticflickr.com/2338/2145713830_7a7a48ee0a_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "4cf0603ca0e51e4ea465b2b9d5eea307",
+      "stratum": "general",
+      "sha256": "df67c330ca7f94316b8ad4a136bf3c1d0897ac201ff6d58be2c2a7d75cb4024e",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 9075,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            130.0,
+            856.0,
+            55.0,
+            65.0
+          ],
+          "area": 1016,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 9076,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            320.0,
+            861.0,
+            108.0,
+            71.0
+          ],
+          "area": 1954,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 9080,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            126.0,
+            259.0,
+            236.0,
+            395.0
+          ],
+          "area": 55113,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 8554,
+      "width": 1024,
+      "height": 680,
+      "file_name": "3628ba3d48dfc3c26103dd2056f47bc6.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm6.staticflickr.com/5252/5532520712_0c13a15017_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "3628ba3d48dfc3c26103dd2056f47bc6",
+      "stratum": "general",
+      "sha256": "e9b496fc815a476418237a0c7efdd9ba744e909fb9b2da4eb8e42b4d5830ad50",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 7101,
+          "datasetCategory": "headband, head covering, hair accessory",
+          "datasetCategoryId": 15,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            501.0,
+            34.0,
+            78.0,
+            63.0
+          ],
+          "area": 2853,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7104,
+          "datasetCategory": "shirt, blouse",
+          "datasetCategoryId": 0,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            496.0,
+            130.0,
+            124.0,
+            114.0
+          ],
+          "area": 7702,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7105,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            553.0,
+            644.0,
+            31.0,
+            13.0
+          ],
+          "area": 257,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7106,
+          "datasetCategory": "glove",
+          "datasetCategoryId": 17,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            498.0,
+            253.0,
+            20.0,
+            30.0
+          ],
+          "area": 253,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7107,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            442.0,
+            638.0,
+            48.0,
+            17.0
+          ],
+          "area": 453,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7108,
+          "datasetCategory": "glove",
+          "datasetCategoryId": 17,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            539.0,
+            232.0,
+            51.0,
+            38.0
+          ],
+          "area": 608,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7109,
+          "datasetCategory": "pants",
+          "datasetCategoryId": 6,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            452.0,
+            235.0,
+            156.0,
+            415.0
+          ],
+          "area": 46220,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 12525,
+      "width": 682,
+      "height": 1024,
+      "file_name": "589d99e66e07d67bc0382fba2b95e426.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm4.staticflickr.com/3151/2539416510_8bd5063195_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "589d99e66e07d67bc0382fba2b95e426",
+      "stratum": "general",
+      "sha256": "852c561fd8fe178cd242c354ca554bdee7adbbe9fe31c0932b1a1a952a9c0a52",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 8355,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            175.0,
+            267.0,
+            313.0,
+            419.0
+          ],
+          "area": 82305,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8356,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            349.0,
+            753.0,
+            17.0,
+            21.0
+          ],
+          "area": 111,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8357,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            315.0,
+            789.0,
+            58.0,
+            84.0
+          ],
+          "area": 1126,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 20167,
+      "width": 683,
+      "height": 1024,
+      "file_name": "2064125f44bafe6b58a8b62750c96e5e.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm8.staticflickr.com/7174/6736892033_3542f0f108_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "2064125f44bafe6b58a8b62750c96e5e",
+      "stratum": "general",
+      "sha256": "f53419f88018196b02e2a44db066008323466e228a27d6bc6ad64015dfb99fda",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Dress"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 4687,
+          "datasetCategory": "bag, wallet",
+          "datasetCategoryId": 24,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            392.0,
+            772.0,
+            84.0,
+            88.0
+          ],
+          "area": 3775,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4690,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            177.0,
+            299.0,
+            480.0,
+            541.0
+          ],
+          "area": 127663,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4691,
+          "datasetCategory": "belt",
+          "datasetCategoryId": 19,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            216.0,
+            512.0,
+            183.0,
+            177.0
+          ],
+          "area": 4476,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 9104,
+      "width": 682,
+      "height": 1024,
+      "file_name": "09675496409c85adc6deba11277050e8.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm1.staticflickr.com/971/28304579848_cffb82b752_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "09675496409c85adc6deba11277050e8",
+      "stratum": "general",
+      "sha256": "b82f9bbbf942609ee3cece5e40875c792f55afcc0879098f0c07476bc8809a6d",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Outerwear",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 5414,
+          "datasetCategory": "coat",
+          "datasetCategoryId": 9,
+          "appCategory": "Outerwear",
+          "bboxXYWH": [
+            144.0,
+            390.0,
+            230.0,
+            458.0
+          ],
+          "area": 75451,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 5417,
+          "datasetCategory": "belt",
+          "datasetCategoryId": 19,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            153.0,
+            497.0,
+            207.0,
+            270.0
+          ],
+          "area": 7012,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 5418,
+          "datasetCategory": "bag, wallet",
+          "datasetCategoryId": 24,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            126.0,
+            601.0,
+            101.0,
+            244.0
+          ],
+          "area": 9558,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 5419,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            241.0,
+            853.0,
+            39.0,
+            51.0
+          ],
+          "area": 1456,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 5420,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            196.0,
+            838.0,
+            41.0,
+            47.0
+          ],
+          "area": 1239,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 5421,
+          "datasetCategory": "watch",
+          "datasetCategoryId": 18,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            344.0,
+            562.0,
+            24.0,
+            15.0
+          ],
+          "area": 202,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 9971,
+      "width": 744,
+      "height": 1024,
+      "file_name": "c7a789f6eaa33502f0d3d17a69c07732.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm4.staticflickr.com/3758/9349117595_d89e1c4520_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "c7a789f6eaa33502f0d3d17a69c07732",
+      "stratum": "general",
+      "sha256": "2e5c0b469d2d0f92cd2b50475aac72d7250748fd52fa179549959c2222a4b804",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 6184,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            421.0,
+            868.0,
+            76.0,
+            113.0
+          ],
+          "area": 1848,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 6185,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            266.0,
+            941.0,
+            117.0,
+            54.0
+          ],
+          "area": 2001,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 6186,
+          "datasetCategory": "belt",
+          "datasetCategoryId": 19,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            387.0,
+            462.0,
+            21.0,
+            5.0
+          ],
+          "area": 77,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 6188,
+          "datasetCategory": "bag, wallet",
+          "datasetCategoryId": 24,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            411.0,
+            348.0,
+            33.0,
+            221.0
+          ],
+          "area": 818,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 6189,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            268.0,
+            318.0,
+            232.0,
+            645.0
+          ],
+          "area": 77318,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 6190,
+          "datasetCategory": "watch",
+          "datasetCategoryId": 18,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            279.0,
+            564.0,
+            30.0,
+            21.0
+          ],
+          "area": 409,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 9425,
+      "width": 683,
+      "height": 1024,
+      "file_name": "2c0c4094e2c3988fd3be0146f2c2488f.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm1.staticflickr.com/633/21055830846_7a6cc8241e_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "2c0c4094e2c3988fd3be0146f2c2488f",
+      "stratum": "general",
+      "sha256": "5650233266502722921f6d0ca68ebbdc0d92315fc777d1ec5efe88d1ae00b16a",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 5675,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            365.0,
+            269.0,
+            238.0,
+            190.0
+          ],
+          "area": 25202,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 5677,
+          "datasetCategory": "headband, head covering, hair accessory",
+          "datasetCategoryId": 15,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            362.0,
+            104.0,
+            47.0,
+            96.0
+          ],
+          "area": 2776,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 5678,
+          "datasetCategory": "belt",
+          "datasetCategoryId": 19,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            380.0,
+            442.0,
+            201.0,
+            87.0
+          ],
+          "area": 8552,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 5680,
+          "datasetCategory": "skirt",
+          "datasetCategoryId": 8,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            290.0,
+            442.0,
+            390.0,
+            581.0
+          ],
+          "area": 146311,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 18405,
+      "width": 678,
+      "height": 1024,
+      "file_name": "ebe5e781a398df8c599047d5bf319c2e.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm8.staticflickr.com/7440/9365702912_9409eb8d83_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "ebe5e781a398df8c599047d5bf319c2e",
+      "stratum": "general",
+      "sha256": "25b33da4edc421af2b2d07bf0b9502edb06b5210f55e98a93c9bfe5b84aa5b8b",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 2799,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            129.0,
+            222.0,
+            503.0,
+            690.0
+          ],
+          "area": 119407,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 17333,
+      "width": 679,
+      "height": 1024,
+      "file_name": "7e99694263e60924945921f8ea6b3671.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm5.staticflickr.com/4152/5071495492_3f7670b941_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "7e99694263e60924945921f8ea6b3671",
+      "stratum": "general",
+      "sha256": "e9c46f65b66e2c27fcf195fc5a8f6f32111253efefb4b62c4567eb37e9b53555",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 1937,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            157.0,
+            224.0,
+            397.0,
+            451.0
+          ],
+          "area": 94408,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 1938,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            294.0,
+            913.0,
+            75.0,
+            70.0
+          ],
+          "area": 1780,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 1939,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            331.0,
+            918.0,
+            88.0,
+            95.0
+          ],
+          "area": 2177,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 13049,
+      "width": 1024,
+      "height": 1024,
+      "file_name": "af8be1edbef6e48a88325ebf63cb48f1.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm9.staticflickr.com/8502/8297310282_152277de4c_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "af8be1edbef6e48a88325ebf63cb48f1",
+      "stratum": "general",
+      "sha256": "c12ef9df87e0413fd6d9f62da262f7da7fa666d675480c677e73a83fa7bcd4e3",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 8763,
+          "datasetCategory": "skirt",
+          "datasetCategoryId": 8,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            235.0,
+            483.0,
+            329.0,
+            271.0
+          ],
+          "area": 40627,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8765,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            206.0,
+            287.0,
+            422.0,
+            373.0
+          ],
+          "area": 80195,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8766,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            576.0,
+            791.0,
+            171.0,
+            155.0
+          ],
+          "area": 9073,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8767,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            278.0,
+            744.0,
+            138.0,
+            139.0
+          ],
+          "area": 6824,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 16056,
+      "width": 682,
+      "height": 1024,
+      "file_name": "e772cd6c7cfa25d259f5979012dcf71d.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm3.staticflickr.com/2392/32913338436_fcff44b01b_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "e772cd6c7cfa25d259f5979012dcf71d",
+      "stratum": "general",
+      "sha256": "7a04bd69c88ce362f296f9fdbbe546be750d99f514e4d4a4987ff4fe7a2374fe",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 924,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            334.0,
+            830.0,
+            49.0,
+            126.0
+          ],
+          "area": 1479,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 925,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            294.0,
+            872.0,
+            53.0,
+            117.0
+          ],
+          "area": 1668,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 926,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            266.0,
+            301.0,
+            177.0,
+            387.0
+          ],
+          "area": 54167,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 10898,
+      "width": 1011,
+      "height": 1024,
+      "file_name": "aa2b2c6923621af9d2ba884f02006cd6.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm9.staticflickr.com/8043/8346159231_aa0fc1ace3_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "aa2b2c6923621af9d2ba884f02006cd6",
+      "stratum": "general",
+      "sha256": "84e3048106fbf4be3781a11c8c0aad60f72c0f399819dfc5e298de82b85afad2",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Outerwear",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 6968,
+          "datasetCategory": "scarf",
+          "datasetCategoryId": 25,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            709.0,
+            384.0,
+            127.0,
+            208.0
+          ],
+          "area": 9171,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 6969,
+          "datasetCategory": "headband, head covering, hair accessory",
+          "datasetCategoryId": 15,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            763.0,
+            363.0,
+            9.0,
+            9.0
+          ],
+          "area": 48,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 6970,
+          "datasetCategory": "jacket",
+          "datasetCategoryId": 4,
+          "appCategory": "Outerwear",
+          "bboxXYWH": [
+            725.0,
+            426.0,
+            250.0,
+            343.0
+          ],
+          "area": 38708,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 6978,
+          "datasetCategory": "pants",
+          "datasetCategoryId": 6,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            602.0,
+            580.0,
+            161.0,
+            233.0
+          ],
+          "area": 18723,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 6979,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            621.0,
+            794.0,
+            130.0,
+            114.0
+          ],
+          "area": 7691,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 6980,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            486.0,
+            698.0,
+            158.0,
+            110.0
+          ],
+          "area": 9400,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 6981,
+          "datasetCategory": "bag, wallet",
+          "datasetCategoryId": 24,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            782.0,
+            477.0,
+            152.0,
+            256.0
+          ],
+          "area": 11377,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 9112,
+      "width": 682,
+      "height": 1024,
+      "file_name": "5b1d263a42d5c7967665b08cd0eb7234.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm5.staticflickr.com/4445/37124408663_0393db52e4_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "5b1d263a42d5c7967665b08cd0eb7234",
+      "stratum": "general",
+      "sha256": "c3e3e8bb08bf7127ba81b4cf95306410c78849a857f4530ef386c56cd48736e3",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 5422,
+          "datasetCategory": "jumpsuit",
+          "datasetCategoryId": 11,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            83.0,
+            346.0,
+            552.0,
+            677.0
+          ],
+          "area": 210761,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 13339,
+      "width": 682,
+      "height": 1024,
+      "file_name": "9eb8652e63ac33c79a9277fe0e115440.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm4.staticflickr.com/3820/13251521873_6e68330a39_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "9eb8652e63ac33c79a9277fe0e115440",
+      "stratum": "general",
+      "sha256": "e6c30030bf868edd7217fab716718f7f35fb986b63756c50a9479eb44078b04a",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 8961,
+          "datasetCategory": "bag, wallet",
+          "datasetCategoryId": 24,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            436.0,
+            268.0,
+            160.0,
+            401.0
+          ],
+          "area": 13010,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8962,
+          "datasetCategory": "skirt",
+          "datasetCategoryId": 8,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            176.0,
+            517.0,
+            373.0,
+            417.0
+          ],
+          "area": 129521,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8964,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            201.0,
+            293.0,
+            265.0,
+            240.0
+          ],
+          "area": 49564,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 12903,
+      "width": 682,
+      "height": 1024,
+      "file_name": "ad1a3b0fb188342ec29f22275b434f04.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm1.staticflickr.com/907/42177189251_3299b96ce1_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "ad1a3b0fb188342ec29f22275b434f04",
+      "stratum": "general",
+      "sha256": "b18db7144fec8264b01e41af998fed3916ae5db6e77403efaea32beec33f504f",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Outerwear",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 8670,
+          "datasetCategory": "glasses",
+          "datasetCategoryId": 13,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            341.0,
+            229.0,
+            69.0,
+            26.0
+          ],
+          "area": 1192,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8671,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            335.0,
+            342.0,
+            127.0,
+            434.0
+          ],
+          "area": 38171,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8672,
+          "datasetCategory": "coat",
+          "datasetCategoryId": 9,
+          "appCategory": "Outerwear",
+          "bboxXYWH": [
+            278.0,
+            288.0,
+            358.0,
+            499.0
+          ],
+          "area": 60377,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8673,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            325.0,
+            821.0,
+            66.0,
+            71.0
+          ],
+          "area": 1310,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8674,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            376.0,
+            813.0,
+            74.0,
+            63.0
+          ],
+          "area": 1367,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8678,
+          "datasetCategory": "watch",
+          "datasetCategoryId": 18,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            293.0,
+            516.0,
+            18.0,
+            14.0
+          ],
+          "area": 162,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8679,
+          "datasetCategory": "bag, wallet",
+          "datasetCategoryId": 24,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            285.0,
+            583.0,
+            70.0,
+            268.0
+          ],
+          "area": 7008,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 15687,
+      "width": 682,
+      "height": 1024,
+      "file_name": "466e69961de78100fddae84c64fbf542.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm9.staticflickr.com/8326/8080171234_55b726b684_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "466e69961de78100fddae84c64fbf542",
+      "stratum": "general",
+      "sha256": "a652ebd38dd031433d5fdd14aedbf3d907c9526fca8620517d25e9c43d873ae5",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 529,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            310.0,
+            154.0,
+            240.0,
+            288.0
+          ],
+          "area": 36181,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 534,
+          "datasetCategory": "belt",
+          "datasetCategoryId": 19,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            359.0,
+            339.0,
+            142.0,
+            23.0
+          ],
+          "area": 1760,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 537,
+          "datasetCategory": "bag, wallet",
+          "datasetCategoryId": 24,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            295.0,
+            506.0,
+            220.0,
+            272.0
+          ],
+          "area": 35287,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 538,
+          "datasetCategory": "skirt",
+          "datasetCategoryId": 8,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            306.0,
+            424.0,
+            208.0,
+            194.0
+          ],
+          "area": 24376,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 539,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            501.0,
+            884.0,
+            84.0,
+            113.0
+          ],
+          "area": 3015,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 540,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            328.0,
+            890.0,
+            50.0,
+            108.0
+          ],
+          "area": 2761,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 12344,
+      "width": 682,
+      "height": 1024,
+      "file_name": "124dc5471306edcadc0d89bfc7353939.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm6.staticflickr.com/5745/30172193984_cc00b1715d_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "124dc5471306edcadc0d89bfc7353939",
+      "stratum": "general",
+      "sha256": "b5e55d427e378a8b69d5ecf5ceef563d0307677d92b8b199da026495b43aca0c",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Bottom",
+        "Outerwear",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 8245,
+          "datasetCategory": "shorts",
+          "datasetCategoryId": 7,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            164.0,
+            756.0,
+            359.0,
+            229.0
+          ],
+          "area": 58023,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8251,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            308.0,
+            368.0,
+            68.0,
+            406.0
+          ],
+          "area": 14436,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8253,
+          "datasetCategory": "jacket",
+          "datasetCategoryId": 4,
+          "appCategory": "Outerwear",
+          "bboxXYWH": [
+            123.0,
+            306.0,
+            504.0,
+            505.0
+          ],
+          "area": 156133,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 11803,
+      "width": 682,
+      "height": 1024,
+      "file_name": "c9946804239bdb74aa23c4a56445b9a8.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm8.staticflickr.com/7654/16864625326_7844c757f6_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "c9946804239bdb74aa23c4a56445b9a8",
+      "stratum": "general",
+      "sha256": "849305e139016320260c1c7be3eae09cf8a1a55474c7cf857bbdbe457776fd7e",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 7755,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            161.0,
+            218.0,
+            374.0,
+            326.0
+          ],
+          "area": 86989,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7756,
+          "datasetCategory": "skirt",
+          "datasetCategoryId": 8,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            191.0,
+            517.0,
+            264.0,
+            318.0
+          ],
+          "area": 72744,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 16629,
+      "width": 702,
+      "height": 1024,
+      "file_name": "05ac586e0bd29fdf12a9506bf05b280b.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm6.staticflickr.com/5489/14045723909_b65510a3fb_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "05ac586e0bd29fdf12a9506bf05b280b",
+      "stratum": "general",
+      "sha256": "421dfea8d2fb4faaa8b4ec0d1b3c4d5c4c252c3b5e6985904fe5a9d66701d7dd",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 4946,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            169.0,
+            421.0,
+            417.0,
+            602.0
+          ],
+          "area": 157515,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 10613,
+      "width": 682,
+      "height": 1024,
+      "file_name": "de200aec795d128d7f09ac8e80368058.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm6.staticflickr.com/5089/5242928636_d2ced9ac6f_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "de200aec795d128d7f09ac8e80368058",
+      "stratum": "general",
+      "sha256": "8cc97b4225f143db06e95d9474afb150b596000500f6246dcd0333a954398fa2",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 6577,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            371.0,
+            426.0,
+            291.0,
+            362.0
+          ],
+          "area": 60574,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 17968,
+      "width": 682,
+      "height": 1024,
+      "file_name": "dcbbdfd8befcde17f00c35877fb20277.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm3.staticflickr.com/2533/32110993014_15be2f6524_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "dcbbdfd8befcde17f00c35877fb20277",
+      "stratum": "general",
+      "sha256": "0c3e09dbd33f2eaf138733765baa375b99701d2e353bb899e1ffec6aaf0676e0",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 2440,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            109.0,
+            382.0,
+            444.0,
+            641.0
+          ],
+          "area": 179301,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 14794,
+      "width": 682,
+      "height": 1024,
+      "file_name": "60b18000fbe38a3e0efc55e8ab5656da.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm8.staticflickr.com/7158/6400562303_01b8bae60c_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "60b18000fbe38a3e0efc55e8ab5656da",
+      "stratum": "general",
+      "sha256": "9312f334bbdc9c99813a14533dfd6e499b5f3ed7f33e06141876c965306062a2",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 786,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            325.0,
+            314.0,
+            241.0,
+            307.0
+          ],
+          "area": 29944,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 787,
+          "datasetCategory": "skirt",
+          "datasetCategoryId": 8,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            272.0,
+            586.0,
+            290.0,
+            256.0
+          ],
+          "area": 44586,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 11303,
+      "width": 682,
+      "height": 1024,
+      "file_name": "e4432c751c332f2f5829e6a1ebb7301d.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm6.staticflickr.com/5173/5461288269_227c2126fe_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "e4432c751c332f2f5829e6a1ebb7301d",
+      "stratum": "general",
+      "sha256": "243542d79db6b56c2b127f2405c1c85938723bf78981eafdc2fd6990f7da1325",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 7370,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            180.0,
+            322.0,
+            501.0,
+            543.0
+          ],
+          "area": 205835,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 16824,
+      "width": 682,
+      "height": 1024,
+      "file_name": "9cfc91967c94eeb7e8a6db3e59f28d7f.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm6.staticflickr.com/5010/5357079751_2dae70067e_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "9cfc91967c94eeb7e8a6db3e59f28d7f",
+      "stratum": "general",
+      "sha256": "4494f26ab9b22cc9af76aeb5bbabacd016cb32e860e39f21e9a1ade45a38bc17",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 2940,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            158.0,
+            339.0,
+            451.0,
+            684.0
+          ],
+          "area": 179508,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 20458,
+      "width": 768,
+      "height": 1024,
+      "file_name": "08680e1257c83a5a603ae3ef67ef3dde.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm3.staticflickr.com/2837/9451036527_8953577b47_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "08680e1257c83a5a603ae3ef67ef3dde",
+      "stratum": "general",
+      "sha256": "ebf15fa899d3baa131fa81411cf729d9803f1da3f897924e776a6e7703a29f03",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 4939,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            402.0,
+            882.0,
+            62.0,
+            61.0
+          ],
+          "area": 2059,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4940,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            291.0,
+            853.0,
+            74.0,
+            51.0
+          ],
+          "area": 2176,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4941,
+          "datasetCategory": "pants",
+          "datasetCategoryId": 6,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            303.0,
+            532.0,
+            168.0,
+            355.0
+          ],
+          "area": 37765,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4942,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            302.0,
+            329.0,
+            145.0,
+            230.0
+          ],
+          "area": 24380,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4944,
+          "datasetCategory": "glasses",
+          "datasetCategoryId": 13,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            344.0,
+            261.0,
+            67.0,
+            25.0
+          ],
+          "area": 1273,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4945,
+          "datasetCategory": "headband, head covering, hair accessory",
+          "datasetCategoryId": 15,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            343.0,
+            218.0,
+            71.0,
+            48.0
+          ],
+          "area": 1388,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 19375,
+      "width": 682,
+      "height": 1024,
+      "file_name": "009b107156c1ee41b03c5b35a82e7232.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm9.staticflickr.com/8455/8048896915_b0fd4973f7_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "009b107156c1ee41b03c5b35a82e7232",
+      "stratum": "general",
+      "sha256": "5e7cebcb88d570061c35829f6fd2aa455e66be98208ab58a1ae7645533c78361",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 3855,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            536.0,
+            849.0,
+            91.0,
+            132.0
+          ],
+          "area": 4203,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 3856,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            22.0,
+            832.0,
+            62.0,
+            128.0
+          ],
+          "area": 3993,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 3857,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            244.0,
+            320.0,
+            230.0,
+            242.0
+          ],
+          "area": 25066,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 3861,
+          "datasetCategory": "headband, head covering, hair accessory",
+          "datasetCategoryId": 15,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            401.0,
+            209.0,
+            19.0,
+            46.0
+          ],
+          "area": 538,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 15813,
+      "width": 683,
+      "height": 1024,
+      "file_name": "c67f567b2bcd6a7204842d1019a0287d.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm3.staticflickr.com/2221/2260704815_9ff001e696_m.jpg",
+      "isstatic": 1,
+      "kaggle_id": "c67f567b2bcd6a7204842d1019a0287d",
+      "stratum": "general",
+      "sha256": "29d8e7d88587b0ac86319ceb7f19e22dfd7cb3a88aa862a0248b471360227d0b",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 1608,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            207.0,
+            250.0,
+            179.0,
+            344.0
+          ],
+          "area": 38926,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 1612,
+          "datasetCategory": "pants",
+          "datasetCategoryId": 6,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            167.0,
+            529.0,
+            210.0,
+            386.0
+          ],
+          "area": 42198,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 1613,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            261.0,
+            860.0,
+            65.0,
+            100.0
+          ],
+          "area": 2060,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 1614,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            166.0,
+            908.0,
+            55.0,
+            81.0
+          ],
+          "area": 1477,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 19063,
+      "width": 682,
+      "height": 1024,
+      "file_name": "4d64871e6fe3f3050fe1717551c3cedd.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm6.staticflickr.com/5455/30797422865_fe5056e428_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "4d64871e6fe3f3050fe1717551c3cedd",
+      "stratum": "general",
+      "sha256": "72d2609eb56c98aa11f21a0a7d4670fb54d2eea02f21fc49de0392a9cd003e24",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Dress"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 3565,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            207.0,
+            225.0,
+            230.0,
+            658.0
+          ],
+          "area": 86519,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 3567,
+          "datasetCategory": "watch",
+          "datasetCategoryId": 18,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            405.0,
+            597.0,
+            48.0,
+            38.0
+          ],
+          "area": 1085,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 10071,
+      "width": 1024,
+      "height": 682,
+      "file_name": "15910ed48cbfceeff0e0b808694b732c.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm1.staticflickr.com/972/42189816271_ed9626afe1_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "15910ed48cbfceeff0e0b808694b732c",
+      "stratum": "general",
+      "sha256": "0f360a584f5d52b1b4990b1b48fd22ea004c8b738fe172cdbe56450241c884c4",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Outerwear",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 7960,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            572.0,
+            240.0,
+            285.0,
+            441.0
+          ],
+          "area": 67147,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7962,
+          "datasetCategory": "jacket",
+          "datasetCategoryId": 4,
+          "appCategory": "Outerwear",
+          "bboxXYWH": [
+            520.0,
+            222.0,
+            411.0,
+            412.0
+          ],
+          "area": 67911,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 18358,
+      "width": 1024,
+      "height": 681,
+      "file_name": "dd4525a10b6110df29f0a6b19e6b924b.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm8.staticflickr.com/7056/6820087780_698415d657_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "dd4525a10b6110df29f0a6b19e6b924b",
+      "stratum": "general",
+      "sha256": "61fe69dc195f9e07a8b45a3f8eee9cc5f146dca40fe7e6cb700874fe29163342",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 2757,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            521.0,
+            125.0,
+            231.0,
+            520.0
+          ],
+          "area": 69127,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 2759,
+          "datasetCategory": "belt",
+          "datasetCategoryId": 19,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            606.0,
+            240.0,
+            100.0,
+            13.0
+          ],
+          "area": 995,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 2761,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            690.0,
+            573.0,
+            40.0,
+            87.0
+          ],
+          "area": 1138,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 2762,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            511.0,
+            624.0,
+            40.0,
+            39.0
+          ],
+          "area": 594,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 16221,
+      "width": 514,
+      "height": 1024,
+      "file_name": "e9276aedf39f09ebe6ded9e203982fea.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm6.staticflickr.com/5735/21082063715_46a144cc1b_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "e9276aedf39f09ebe6ded9e203982fea",
+      "stratum": "general",
+      "sha256": "9e10c4c582e352d554cec2e071a160396ab5614723d00c1a0edd1bb0531dd6f0",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 1022,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            144.0,
+            888.0,
+            99.0,
+            115.0
+          ],
+          "area": 7403,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 1023,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            176.0,
+            899.0,
+            98.0,
+            103.0
+          ],
+          "area": 2510,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 1024,
+          "datasetCategory": "skirt",
+          "datasetCategoryId": 8,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            86.0,
+            404.0,
+            265.0,
+            282.0
+          ],
+          "area": 57567,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 1026,
+          "datasetCategory": "belt",
+          "datasetCategoryId": 19,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            254.0,
+            424.0,
+            50.0,
+            135.0
+          ],
+          "area": 1063,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 1027,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            147.0,
+            212.0,
+            172.0,
+            207.0
+          ],
+          "area": 21704,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 1029,
+          "datasetCategory": "headband, head covering, hair accessory",
+          "datasetCategoryId": 15,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            153.0,
+            47.0,
+            86.0,
+            54.0
+          ],
+          "area": 2009,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 11972,
+      "width": 1024,
+      "height": 912,
+      "file_name": "78c76bd3d70e760b4b59fde91b1cc03f.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm5.staticflickr.com/4561/37460724154_d89c79874e_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "78c76bd3d70e760b4b59fde91b1cc03f",
+      "stratum": "general",
+      "sha256": "18581dfe257dbd94ed36f78a860065c391a7f9d4b09a3d5c7c12687e90d9d2fd",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 7856,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            565.0,
+            799.0,
+            91.0,
+            97.0
+          ],
+          "area": 3387,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7857,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            714.0,
+            846.0,
+            59.0,
+            65.0
+          ],
+          "area": 2447,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7858,
+          "datasetCategory": "glasses",
+          "datasetCategoryId": 13,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            573.0,
+            75.0,
+            83.0,
+            34.0
+          ],
+          "area": 1721,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7859,
+          "datasetCategory": "bag, wallet",
+          "datasetCategoryId": 24,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            657.0,
+            314.0,
+            151.0,
+            268.0
+          ],
+          "area": 15668,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 7861,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            524.0,
+            154.0,
+            239.0,
+            464.0
+          ],
+          "area": 68768,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 16439,
+      "width": 682,
+      "height": 1024,
+      "file_name": "552700b156b4012a7367ff18ec79cf65.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm3.staticflickr.com/2216/5706176597_26f1112545_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "552700b156b4012a7367ff18ec79cf65",
+      "stratum": "general",
+      "sha256": "081db94411322663fc35a701c82fb163f74358cdd99481f2cd5b045ca963c136",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 2903,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            282.0,
+            886.0,
+            65.0,
+            99.0
+          ],
+          "area": 4361,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 2904,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            224.0,
+            168.0,
+            231.0,
+            542.0
+          ],
+          "area": 84803,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 2905,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            282.0,
+            777.0,
+            40.0,
+            113.0
+          ],
+          "area": 2067,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 9613,
+      "width": 682,
+      "height": 1024,
+      "file_name": "ef2f8ecfc123b4abde4e1441129384c2.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "https://farm9.staticflickr.com/8534/8675351371_cc9763893a_o.jpg",
+      "isstatic": 1,
+      "kaggle_id": "ef2f8ecfc123b4abde4e1441129384c2",
+      "stratum": "general",
+      "sha256": "bac4e3f2dfcbd36849a622e5c8d8a44ffadf1d5f31b417aecb2c901ce06d1220",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 5858,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            0.0,
+            301.0,
+            427.0,
+            722.0
+          ],
+          "area": 210828,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 15840,
+      "width": 683,
+      "height": 1024,
+      "file_name": "eb920929bad2610918b0ca9e8236d058.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm8.staticflickr.com/7008/6736931023_3a3958d101_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "eb920929bad2610918b0ca9e8236d058",
+      "stratum": "general",
+      "sha256": "aa02408f137f9f23becad04b88e2b8b844dfabd3e76f1d7ff2329c893a574863",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 669,
+          "datasetCategory": "pants",
+          "datasetCategoryId": 6,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            238.0,
+            406.0,
+            179.0,
+            506.0
+          ],
+          "area": 58938,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 671,
+          "datasetCategory": "shirt, blouse",
+          "datasetCategoryId": 0,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            196.0,
+            225.0,
+            256.0,
+            314.0
+          ],
+          "area": 39967,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 674,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            358.0,
+            862.0,
+            50.0,
+            93.0
+          ],
+          "area": 1870,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 675,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            310.0,
+            917.0,
+            49.0,
+            61.0
+          ],
+          "area": 1489,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 13317,
+      "width": 680,
+      "height": 1024,
+      "file_name": "d1e9977c8d5b658292c8be4aa054af35.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm6.staticflickr.com/5091/5476141386_72f74fe33d_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "d1e9977c8d5b658292c8be4aa054af35",
+      "stratum": "general",
+      "sha256": "3e47ab7c0e7a6bd986d11f914fe1b3acc66fedebcc97eeeb92a10cad60969f02",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 8939,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            223.0,
+            279.0,
+            316.0,
+            427.0
+          ],
+          "area": 66661,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8943,
+          "datasetCategory": "skirt",
+          "datasetCategoryId": 8,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            162.0,
+            532.0,
+            282.0,
+            491.0
+          ],
+          "area": 105613,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 18821,
+      "width": 1024,
+      "height": 682,
+      "file_name": "50ebf72d1294ac64c8ff95ba81d05be7.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm2.staticflickr.com/1514/24192061031_3aa45f92f2_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "50ebf72d1294ac64c8ff95ba81d05be7",
+      "stratum": "general",
+      "sha256": "583c95549c1c609ca3ad1202c331bf137642973f11caccd7e2c137743978b2c6",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 4974,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            731.0,
+            430.0,
+            177.0,
+            136.0
+          ],
+          "area": 6123,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4975,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            899.0,
+            460.0,
+            124.0,
+            97.0
+          ],
+          "area": 2404,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4976,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            222.0,
+            235.0,
+            211.0,
+            341.0
+          ],
+          "area": 44257,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 13260,
+      "width": 682,
+      "height": 1024,
+      "file_name": "abe7f00720ada9f255b8d1355579dc0e.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm1.staticflickr.com/964/40914176875_5bf32c2e80_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "abe7f00720ada9f255b8d1355579dc0e",
+      "stratum": "general",
+      "sha256": "36ec95313761a48cdc46ea026d9067397320a69938644dac5f50b3517552a887",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 8901,
+          "datasetCategory": "watch",
+          "datasetCategoryId": 18,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            380.0,
+            523.0,
+            28.0,
+            22.0
+          ],
+          "area": 209,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8902,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            174.0,
+            251.0,
+            225.0,
+            442.0
+          ],
+          "area": 65386,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8903,
+          "datasetCategory": "belt",
+          "datasetCategoryId": 19,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            222.0,
+            416.0,
+            144.0,
+            67.0
+          ],
+          "area": 6088,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8904,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            315.0,
+            844.0,
+            92.0,
+            73.0
+          ],
+          "area": 1694,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 8905,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            239.0,
+            873.0,
+            44.0,
+            79.0
+          ],
+          "area": 1326,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 9246,
+      "width": 682,
+      "height": 1024,
+      "file_name": "81bff1603220ce6e7c218913df9cb8f9.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm1.staticflickr.com/716/23337452360_265fc400ea_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "81bff1603220ce6e7c218913df9cb8f9",
+      "stratum": "general",
+      "sha256": "2bd826ef2cd611d5be43586d42c6781db8bb641b5c1e97cfe21f78959251b80e",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Bottom",
+        "Dress"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 5544,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            63.0,
+            322.0,
+            534.0,
+            701.0
+          ],
+          "area": 251179,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 5548,
+          "datasetCategory": "tights, stockings",
+          "datasetCategoryId": 21,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            180.0,
+            907.0,
+            125.0,
+            116.0
+          ],
+          "area": 8602,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 5549,
+          "datasetCategory": "tights, stockings",
+          "datasetCategoryId": 21,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            335.0,
+            1010.0,
+            32.0,
+            13.0
+          ],
+          "area": 207,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 19825,
+      "width": 682,
+      "height": 1024,
+      "file_name": "838933e4c25036538e2051f23155eb4d.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm9.staticflickr.com/8154/7167277595_ed13790266_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "838933e4c25036538e2051f23155eb4d",
+      "stratum": "general",
+      "sha256": "04161cc39de1c721022d4798478193394f70a06f6eba2f1d572f42cd2a2a7d72",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 4424,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            91.0,
+            212.0,
+            436.0,
+            579.0
+          ],
+          "area": 131231,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4428,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            310.0,
+            877.0,
+            93.0,
+            146.0
+          ],
+          "area": 4251,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4429,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            452.0,
+            868.0,
+            62.0,
+            74.0
+          ],
+          "area": 1410,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 4430,
+          "datasetCategory": "belt",
+          "datasetCategoryId": 19,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            379.0,
+            484.0,
+            104.0,
+            135.0
+          ],
+          "area": 4813,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 9031,
+      "width": 1024,
+      "height": 823,
+      "file_name": "23791581c54542f3e761b0ff28c38e00.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm7.staticflickr.com/6145/6016931284_5d3b1d9d19_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "23791581c54542f3e761b0ff28c38e00",
+      "stratum": "general",
+      "sha256": "24a6b45a90f9b06d14a8b2a821b55705f08ea88f1c0c033bd1000b9136a34481",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 5326,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            544.0,
+            712.0,
+            113.0,
+            68.0
+          ],
+          "area": 4635,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 5327,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            437.0,
+            513.0,
+            102.0,
+            93.0
+          ],
+          "area": 4528,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 5329,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            681.0,
+            353.0,
+            172.0,
+            270.0
+          ],
+          "area": 17458,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 5330,
+          "datasetCategory": "headband, head covering, hair accessory",
+          "datasetCategoryId": 15,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            733.0,
+            266.0,
+            18.0,
+            20.0
+          ],
+          "area": 214,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 17312,
+      "width": 680,
+      "height": 1024,
+      "file_name": "563f37df673fa80cfc369fbcf4a9869a.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm6.staticflickr.com/5098/5475545985_0daf3ee7e0_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "563f37df673fa80cfc369fbcf4a9869a",
+      "stratum": "general",
+      "sha256": "ec20cecfdeda9cd0ef20dfdb1dfd49cbccd379232410c89cf6342d3e08ab3e5f",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Dress",
+        "Outerwear"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 1909,
+          "datasetCategory": "cardigan",
+          "datasetCategoryId": 3,
+          "appCategory": "Outerwear",
+          "bboxXYWH": [
+            43.0,
+            563.0,
+            489.0,
+            460.0
+          ],
+          "area": 57037,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 1910,
+          "datasetCategory": "dress",
+          "datasetCategoryId": 10,
+          "appCategory": "Dress",
+          "bboxXYWH": [
+            111.0,
+            308.0,
+            367.0,
+            715.0
+          ],
+          "area": 172887,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 15737,
+      "width": 1024,
+      "height": 682,
+      "file_name": "324c81a1ee14142e21e1377e1680a5f7.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm7.staticflickr.com/6150/5998737348_d95959fe45_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "324c81a1ee14142e21e1377e1680a5f7",
+      "stratum": "general",
+      "sha256": "60c21ae241659a3d4625a2bb53ad5945b7688d02da8f65990db99f1f74992aed",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 589,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            210.0,
+            550.0,
+            33.0,
+            58.0
+          ],
+          "area": 1363,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 590,
+          "datasetCategory": "shoe",
+          "datasetCategoryId": 23,
+          "appCategory": "Shoes",
+          "bboxXYWH": [
+            275.0,
+            570.0,
+            34.0,
+            74.0
+          ],
+          "area": 1825,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 591,
+          "datasetCategory": "shorts",
+          "datasetCategoryId": 7,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            185.0,
+            261.0,
+            144.0,
+            122.0
+          ],
+          "area": 12762,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 593,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            194.0,
+            148.0,
+            109.0,
+            123.0
+          ],
+          "area": 8620,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 594,
+          "datasetCategory": "bag, wallet",
+          "datasetCategoryId": 24,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            279.0,
+            143.0,
+            90.0,
+            208.0
+          ],
+          "area": 6939,
+          "iscrowd": 0
+        }
+      ]
+    },
+    {
+      "id": 14983,
+      "width": 682,
+      "height": 1024,
+      "file_name": "c2d80480b743d45143725a5c223c16d9.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm9.staticflickr.com/8499/8370547760_0b6fd111cc_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "c2d80480b743d45143725a5c223c16d9",
+      "stratum": "general",
+      "sha256": "fde91a7ee655cf9d33a1a1ac79072b02cd8a530906a53f7579682bc7b02e2f66",
+      "licenseDetails": {
+        "url": "https://creativecommons.org/licenses/by/2.0/",
+        "id": 0,
+        "name": "Attribution License"
+      },
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Top"
+      ],
+      "annotatedHat": false,
+      "instances": [
+        {
+          "annotationId": 32,
+          "datasetCategory": "skirt",
+          "datasetCategoryId": 8,
+          "appCategory": "Bottom",
+          "bboxXYWH": [
+            93.0,
+            389.0,
+            473.0,
+            631.0
+          ],
+          "area": 166327,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 35,
+          "datasetCategory": "top, t-shirt, sweatshirt",
+          "datasetCategoryId": 1,
+          "appCategory": "Top",
+          "bboxXYWH": [
+            224.0,
+            213.0,
+            457.0,
+            319.0
+          ],
+          "area": 55935,
+          "iscrowd": 0
+        },
+        {
+          "annotationId": 36,
+          "datasetCategory": "headband, head covering, hair accessory",
+          "datasetCategoryId": 15,
+          "appCategory": "Accessory",
+          "bboxXYWH": [
+            224.0,
+            23.0,
+            428.0,
+            435.0
+          ],
+          "area": 74985,
+          "iscrowd": 0
+        }
+      ]
+    }
+  ]
+}

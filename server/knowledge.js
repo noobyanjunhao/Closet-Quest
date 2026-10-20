@@ -3,7 +3,8 @@ import { mkdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DatabaseSync } from 'node:sqlite';
-import { createEmbeddingClient, cosineSimilarity, normalizeVector } from './embeddings.js';
+import { createEmbeddingClient, normalizeVector } from './embeddings.js';
+import {createExactSearchIndex,searchTokens,preparedLexicalScore,normalizedDot} from './exact-search-index.js';
 
 export const KNOWLEDGE_VERSION = 'knowledge-v1';
 export const KNOWLEDGE_LIMITS = Object.freeze({ documents: 24, documentChars: 20000, chunks: 256, chunkChars: 900, overlapChars: 120, queryChars: 1000 });
@@ -51,22 +52,14 @@ function embeddingIdentity(metadata = {}, provider) {
   return identity;
 }
 
-function sameIdentity(left, right) { return JSON.stringify(left) === JSON.stringify(right); }
 function docRecord(row) {
   return { id: row.id, title: row.title, source: row.source, origin: row.origin, contentLength: row.content.length, chunkCount: Number(row.chunk_count), indexedChunks: Number(row.indexed_chunks), indexing: row.indexed_chunks === row.chunk_count ? 'semantic' : row.indexed_chunks ? 'partial' : 'lexical', createdAt: row.created_at, updatedAt: row.updated_at };
 }
 
-const stopWords = new Set(['the', 'and', 'with', 'for', 'that', 'this', 'from', 'your', 'what', 'wear', 'outfit', 'look', 'please', 'would', 'have', 'are', 'can', 'want']);
-function tokens(text) { return [...new Set((text.toLowerCase().match(/[\p{L}\p{N}]+/gu) || []).filter(token => token.length > 1 && !stopWords.has(token)))]; }
-function lexicalScore(queryTokens, chunk) {
-  if (!queryTokens.length) return 0;
-  const textTokens = new Set(tokens(chunk.text)), titleTokens = new Set(tokens(chunk.title));
-  return queryTokens.reduce((sum, token) => sum + (titleTokens.has(token) ? 1 : textTokens.has(token) ? 0.75 : 0), 0) / queryTokens.length;
-}
-
 /** SQLite is a local persistence layer, not authentication or a cloud vector service. */
-export function createKnowledgeStore({ storageDir = defaultDirectory, embeddingClient, embeddingClients = {}, embeddingProvider = 'local', indexTimeoutMs = 6000, searchTimeoutMs = 2000, seedDocuments = BUILTIN_STYLE_DOCUMENTS } = {}) {
+export function createKnowledgeStore({ storageDir = defaultDirectory, embeddingClient, embeddingClients = {}, embeddingProvider = 'local', indexTimeoutMs = 6000, searchTimeoutMs = 2000, seedDocuments = BUILTIN_STYLE_DOCUMENTS, searchCacheEntries=1024 } = {}) {
   if (typeof storageDir !== 'string' || !storageDir) throw new KnowledgeError('A knowledge storage directory is required.');
+  const searchIndex=createExactSearchIndex({maxEntries:searchCacheEntries});
   mkdirSync(storageDir, { recursive: true });
   const database = new DatabaseSync(join(storageDir, 'knowledge.sqlite'));
   database.exec(`PRAGMA foreign_keys = ON; PRAGMA journal_mode = WAL; PRAGMA busy_timeout = 3000;
@@ -88,6 +81,7 @@ export function createKnowledgeStore({ storageDir = defaultDirectory, embeddingC
     FROM documents d LEFT JOIN chunks c ON c.namespace=d.namespace AND c.document_id=d.id
     WHERE d.namespace=? GROUP BY d.id ORDER BY d.created_at,d.id`);
   const rowsFor = database.prepare(`SELECT c.*,d.title,d.source,d.origin,d.content_hash FROM chunks c JOIN documents d ON d.namespace=c.namespace AND d.id=c.document_id WHERE c.namespace=? ORDER BY d.created_at,c.document_id,c.ordinal`);
+  const hasVectors=database.prepare('SELECT 1 FROM chunks WHERE namespace=? AND vector IS NOT NULL LIMIT 1');
   const insertChunk = database.prepare('INSERT INTO chunks(namespace,document_id,ordinal,text,text_hash,vector,identity) VALUES(?,?,?,?,?,?,?)');
   function transaction(action) {
     database.exec('BEGIN IMMEDIATE');
@@ -100,6 +94,7 @@ export function createKnowledgeStore({ storageDir = defaultDirectory, embeddingC
       ON CONFLICT(namespace,id) DO UPDATE SET title=excluded.title,content=excluded.content,content_hash=excluded.content_hash,source=excluded.source,origin=excluded.origin,updated_at=excluded.updated_at`).run(namespace, doc.id, doc.title, doc.content, hash(doc.content), doc.source, origin, now, now);
     database.prepare('DELETE FROM chunks WHERE namespace=? AND document_id=?').run(namespace, doc.id);
     chunks.forEach((chunk, index) => insertChunk.run(namespace, doc.id, chunk.ordinal, chunk.text, chunk.textHash, vectors ? JSON.stringify(vectors[index]) : null, identity ? JSON.stringify(identity) : null));
+    searchIndex.invalidate(namespace,doc.id);
   }
   function ensureNamespace(value) {
     assertOpen();
@@ -168,6 +163,7 @@ export function createKnowledgeStore({ storageDir = defaultDirectory, embeddingC
   }
   async function remove(wardrobeId, id) {
     const namespace = ensureNamespace(wardrobeId), documentId = validateId(id, 'Document ID');
+    searchIndex.invalidate(namespace,documentId);
     return { removed: Number(database.prepare('DELETE FROM documents WHERE namespace=? AND id=?').run(namespace, documentId).changes) > 0 };
   }
   async function reindex(wardrobeId, { signal, embeddingProvider: provider } = {}) {
@@ -189,6 +185,7 @@ export function createKnowledgeStore({ storageDir = defaultDirectory, embeddingC
           AND EXISTS(SELECT 1 FROM documents WHERE namespace=? AND id=? AND title=? AND content_hash=?)`).run(JSON.stringify(result.vectors[index]), JSON.stringify(result.identity), namespace, row.document_id, row.ordinal, row.text_hash, namespace, row.document_id, row.title, row.content_hash);
         indexedChunks += Number(updated.changes);
       }));
+      searchIndex.invalidate(namespace);
     }
     return { indexedChunks, totalChunks: rows.length, mode: failure ? indexedChunks ? 'partial' : 'lexical' : 'semantic', embedding: lastIdentity, fallback: failure, timingMs: Math.round(performance.now() - started) };
   }
@@ -198,21 +195,24 @@ export function createKnowledgeStore({ storageDir = defaultDirectory, embeddingC
     if (!Number.isInteger(limit) || limit < 1 || limit > 8) throw new KnowledgeError('Choose between 1 and 8 retrieved passages.');
     chooseClient(provider);
     const started = performance.now();
-    let rows = rowsFor.all(namespace), queryEmbedding = null, failure = null;
-    if (!lexicalOnly && rows.some(row => row.vector)) try {
+    let queryEmbedding = null, failure = null;
+    if (!lexicalOnly && hasVectors.get(namespace)) try {
       queryEmbedding = await embed([{ kind: 'query', text: `Instruct: Retrieve style guidance relevant to this user's wardrobe request.\nQuery: ${text}` }], { signal, embeddingProvider: provider, budget: searchTimeoutMs, wardrobeId:namespace });
     } catch (error) { if (signal?.aborted) throw signal.reason; failure = safeCode(error); }
     signal?.throwIfAborted(); assertOpen();
     // Re-read after inference so removed or edited notes cannot leak from an earlier snapshot.
-    rows = rowsFor.all(namespace);
+    const rows = rowsFor.all(namespace);
     let compatibleChunks = 0, staleChunks = 0, corruptChunks = 0;
-    const queryTokens = tokens(text);
-    const ranked = rows.map(row => {
-      const lexical = lexicalScore(queryTokens, row);
+    const scoringStarted=performance.now();
+    const queryTokens = searchTokens(text),queryIdentity=queryEmbedding?JSON.stringify(queryEmbedding.identity):null;
+    const {records,stats:searchCache}=searchIndex.prepare(rows,namespace);
+    const ranked = records.map(({row,prepared}) => {
+      const lexical = preparedLexicalScore(queryTokens, prepared);
       let semantic = null;
       if (queryEmbedding && row.vector) try {
-        if (sameIdentity(JSON.parse(row.identity), queryEmbedding.identity)) {
-          semantic = Math.max(0, cosineSimilarity(queryEmbedding.vectors[0], normalizeVector(JSON.parse(row.vector), queryEmbedding.identity.dimensions)));
+        if(prepared.corrupt)throw new Error('Invalid stored vector.');
+        if (prepared.identityKey===queryIdentity) {
+          semantic = Math.max(0, normalizedDot(queryEmbedding.vectors[0], prepared.vector));
           compatibleChunks++;
         } else staleChunks++;
       } catch { corruptChunks++; }
@@ -226,8 +226,8 @@ export function createKnowledgeStore({ storageDir = defaultDirectory, embeddingC
       if (sources.length === limit) break;
     }
     const mode = compatibleChunks ? 'hybrid' : failure || staleChunks || corruptChunks ? 'lexical-fallback' : 'lexical';
-    return { sources, metadata: { version: KNOWLEDGE_VERSION, mode, trust: 'untrusted-context', embedding: queryEmbedding?.identity || null, queryEmbeddingCache:queryEmbedding?.metadata?.cache || null, fallback: failure || (staleChunks ? 'EMBEDDING_INDEX_STALE' : corruptChunks ? 'INVALID_STORED_EMBEDDING' : null), totalChunks: rows.length, indexedChunks: rows.filter(row => row.vector).length, compatibleChunks, staleChunks, corruptChunks, lexicalOnly, timingMs: Math.round(performance.now() - started) } };
+    return { sources, metadata: { version: KNOWLEDGE_VERSION, mode, trust: 'untrusted-context', embedding: queryEmbedding?.identity || null, queryEmbeddingCache:queryEmbedding?.metadata?.cache || null, exactSearch:{method:'normalized-dot-product',approximate:false,cache:searchCache,scoringMs:Number((performance.now()-scoringStarted).toFixed(3))}, fallback: failure || (staleChunks ? 'EMBEDDING_INDEX_STALE' : corruptChunks ? 'INVALID_STORED_EMBEDDING' : null), totalChunks: rows.length, indexedChunks: rows.filter(row => row.vector).length, compatibleChunks, staleChunks, corruptChunks, lexicalOnly, timingMs: Math.round(performance.now() - started) } };
   }
-  function close() { if (!closed) { database.close(); closed = true; } }
+  function close() { if (!closed) { searchIndex.clear(); database.close(); closed = true; } }
   return { list, upsert, remove, reindex, search, close };
 }

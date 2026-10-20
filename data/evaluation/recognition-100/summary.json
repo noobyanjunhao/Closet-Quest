@@ -1,0 +1,15 @@
+{
+  "images": 100,
+  "annotatedGarmentInstances": 336,
+  "hatImages": 2,
+  "imageCategoryCounts": {
+    "Accessory": 39,
+    "Bottom": 39,
+    "Outerwear": 13,
+    "Top": 43,
+    "Shoes": 58,
+    "Dress": 55
+  },
+  "priorEvaluationOverlap": 0,
+  "manifestSha256": "989fdeee4fc2bedaccb27774b2c8881c6a9f1237cc8617fb726d4a7e199abb8c"
+}
