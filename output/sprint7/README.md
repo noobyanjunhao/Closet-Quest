@@ -1,5 +1,7 @@
 # Closet Quest research validation — October 19, 2026
 
+> The current report replaces the initial 18-photo recognition headline with the separate [100-photo / 200-attempt evaluation](../../docs/recognition-100.md) completed October 20. This folder preserves the October 19 research records; its styling studies remain in the report. No historical recognition attempts are pooled into the new run.
+
 This folder contains measured public-dataset results and **synthetic AI feedback**, not a human user study. Human participant count is zero. No human acceptance, correction time, purchase reduction or environmental impact is claimed.
 
 ## Results

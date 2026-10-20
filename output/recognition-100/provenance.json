@@ -1,0 +1,53 @@
+{
+  "evaluatedAppCommit": "f022f9515f989db8bb6e81a4ad7a540fd2cd4807",
+  "sha256": {
+    "server/recognition-provider.js": "2db0f4beddbd7dbda03f35de9eeb02a48d6a80514bd16065b0225f072651a4d2",
+    "server/recognition.js": "87d805abf7b1909a8c7af95c2b30ddfea1bf5858f98e0cd32b979cb744484482",
+    "server/multi-recognition.js": "142a389b0aa56655035c60aa1a4e9e6515dae2191f0db471109773b5f73ad42e",
+    "server/openai.js": "f9ff47ccd8eec5727534f48bbbf49f424d64d38361bf1e531d0c66c67357c3b2",
+    "scripts/evaluate-recognition-100.mjs": "9814001f56ce19c478b21d13ff82abfa3c6fd42e121c96d27b4d7c6f4abed566",
+    "scripts/recognition-metrics.mjs": "d4cd6b2f89351e09589581e03f16ae2d8b450b75276c73efe8e7fc5a3d559572",
+    "data/evaluation/recognition-100/manifest.json": "989fdeee4fc2bedaccb27774b2c8881c6a9f1237cc8617fb726d4a7e199abb8c"
+  },
+  "sourceMatchesPublished": {
+    "server/recognition-provider.js": true,
+    "server/recognition.js": true,
+    "server/multi-recognition.js": true,
+    "server/openai.js": true
+  },
+  "protocol": {
+    "images": 100,
+    "pipelineRequests": 200,
+    "concurrency": 1,
+    "model": "gpt-6-luna",
+    "profile": "fast",
+    "recognitionCache": "disabled",
+    "order": "single/multiple on even image indices, multiple/single on odd indices",
+    "single": {
+      "imageDetail": "low",
+      "maxOutputTokens": 1200,
+      "timeoutMs": 30000
+    },
+    "multiple": {
+      "imageDetail": "high",
+      "maxOutputTokens": 4096,
+      "timeoutMs": 45000,
+      "maximumDetections": 6
+    },
+    "retryPolicy": "No automatic retry; errors retained as empty predictions.",
+    "priorCanary": "One selected image (15676) had been used in a two-mode runner canary before this complete run; dataset selection was already frozen and prompts were not tuned afterward.",
+    "imagePreprocessing": "Fit within 1000 x 1000 without enlargement; JPEG quality 85; EXIF removed."
+  },
+  "humanParticipants": 0,
+  "limitations": [
+    "Photo category-set metrics, not per-instance/category/color accuracy.",
+    "Public photos may be in foundation-model training.",
+    "Local pipeline plus live API time, not hosted upload/render/cold-start timing."
+  ],
+  "completedAt": "2026-10-20T19:32:46.338Z",
+  "completedAttempts": 200,
+  "resultSha256": "9fb818a0f29a1dc90080350713e90ccc30aa7ea68b0a481ece402e90915062f7",
+  "analysisScriptSha256": "79e6c712772fc2daeb2c93983f5da34c0ea6e7c60c2d2d75ac698c1d3615f0d3",
+  "analysisSha256": "a708dfc3c760738d33da1b38fbcd2730183d7eb08b81304de378cd9c998b937d",
+  "sourceHashesUnchangedDuringRun": true
+}

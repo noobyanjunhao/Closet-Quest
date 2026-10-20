@@ -1,0 +1,2894 @@
+{
+  "measuredAt": "2026-10-20T19:32:46.338Z",
+  "resultSha256": "9fb818a0f29a1dc90080350713e90ccc30aa7ea68b0a481ece402e90915062f7",
+  "manifestSha256": "989fdeee4fc2bedaccb27774b2c8881c6a9f1237cc8617fb726d4a7e199abb8c",
+  "model": "gpt-6-luna",
+  "images": 100,
+  "attempts": 200,
+  "annotatedGarmentInstances": 336,
+  "annotatedCategoryOccurrences": 247,
+  "humanParticipants": 0,
+  "summary": {
+    "single": {
+      "attempts": 100,
+      "completion": {
+        "numerator": 98,
+        "denominator": 100,
+        "value": 0.98
+      },
+      "failureRate": {
+        "numerator": 2,
+        "denominator": 100,
+        "value": 0.02
+      },
+      "precision": {
+        "numerator": 91,
+        "denominator": 98,
+        "value": 0.9285714285714286
+      },
+      "recall": {
+        "numerator": 91,
+        "denominator": 247,
+        "value": 0.3684210526315789
+      },
+      "microF1": 0.527536231884058,
+      "exactSet": {
+        "numerator": 15,
+        "denominator": 100,
+        "value": 0.15
+      },
+      "within20s": {
+        "numerator": 98,
+        "denominator": 100,
+        "value": 0.98
+      },
+      "hatRecall": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": 0.5
+      },
+      "medianLatencyMs": 3161.5,
+      "p95LatencyMs": 4841,
+      "completedMedianLatencyMs": 3145.0,
+      "failureCodes": {
+        "AMBIGUOUS_ITEM": 2
+      },
+      "missedByCategory": {
+        "Accessory": 36,
+        "Bottom": 25,
+        "Top": 28,
+        "Shoes": 58,
+        "Outerwear": 4,
+        "Dress": 5
+      },
+      "extraByCategory": {
+        "Dress": 4,
+        "Bottom": 2,
+        "Top": 1
+      },
+      "missingFromFailedRequests": 6,
+      "extraAccessoryWithOnlyJewelryPredicted": 0,
+      "missingTopWithExtraDress": 4,
+      "missingDressWithExtraTop": 1,
+      "responsesAtSixPieceCap": 0,
+      "missingFromCompletedRequests": 150,
+      "perCategory": {
+        "Top": {
+          "precision": {
+            "numerator": 15,
+            "denominator": 16,
+            "value": 0.9375
+          },
+          "recall": {
+            "numerator": 15,
+            "denominator": 43,
+            "value": 0.3488372093023256
+          },
+          "falsePositives": 1,
+          "falseNegatives": 28
+        },
+        "Bottom": {
+          "precision": {
+            "numerator": 14,
+            "denominator": 16,
+            "value": 0.875
+          },
+          "recall": {
+            "numerator": 14,
+            "denominator": 39,
+            "value": 0.358974358974359
+          },
+          "falsePositives": 2,
+          "falseNegatives": 25
+        },
+        "Shoes": {
+          "precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "recall": {
+            "numerator": 0,
+            "denominator": 58,
+            "value": 0.0
+          },
+          "falsePositives": 0,
+          "falseNegatives": 58
+        },
+        "Dress": {
+          "precision": {
+            "numerator": 50,
+            "denominator": 54,
+            "value": 0.9259259259259259
+          },
+          "recall": {
+            "numerator": 50,
+            "denominator": 55,
+            "value": 0.9090909090909091
+          },
+          "falsePositives": 4,
+          "falseNegatives": 5
+        },
+        "Outerwear": {
+          "precision": {
+            "numerator": 9,
+            "denominator": 9,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 9,
+            "denominator": 13,
+            "value": 0.6923076923076923
+          },
+          "falsePositives": 0,
+          "falseNegatives": 4
+        },
+        "Accessory": {
+          "precision": {
+            "numerator": 3,
+            "denominator": 3,
+            "value": 1.0
+          },
+          "recall": {
+            "numerator": 3,
+            "denominator": 39,
+            "value": 0.07692307692307693
+          },
+          "falsePositives": 0,
+          "falseNegatives": 36
+        }
+      }
+    },
+    "multiple": {
+      "attempts": 100,
+      "completion": {
+        "numerator": 93,
+        "denominator": 100,
+        "value": 0.93
+      },
+      "failureRate": {
+        "numerator": 7,
+        "denominator": 100,
+        "value": 0.07
+      },
+      "precision": {
+        "numerator": 223,
+        "denominator": 270,
+        "value": 0.825925925925926
+      },
+      "recall": {
+        "numerator": 223,
+        "denominator": 247,
+        "value": 0.902834008097166
+      },
+      "microF1": 0.8626692456479691,
+      "exactSet": {
+        "numerator": 52,
+        "denominator": 100,
+        "value": 0.52
+      },
+      "within20s": {
+        "numerator": 93,
+        "denominator": 100,
+        "value": 0.93
+      },
+      "hatRecall": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "medianLatencyMs": 7697.0,
+      "p95LatencyMs": 14317,
+      "completedMedianLatencyMs": 7709,
+      "failureCodes": {
+        "INVALID_SCENE_RESPONSE": 7
+      },
+      "missedByCategory": {
+        "Top": 6,
+        "Dress": 5,
+        "Shoes": 4,
+        "Accessory": 4,
+        "Bottom": 5
+      },
+      "extraByCategory": {
+        "Dress": 4,
+        "Accessory": 27,
+        "Bottom": 10,
+        "Top": 3,
+        "Outerwear": 2,
+        "Shoes": 1
+      },
+      "missingFromFailedRequests": 16,
+      "extraAccessoryWithOnlyJewelryPredicted": 24,
+      "missingTopWithExtraDress": 4,
+      "missingDressWithExtraTop": 0,
+      "responsesAtSixPieceCap": 10,
+      "missingFromCompletedRequests": 8,
+      "perCategory": {
+        "Top": {
+          "precision": {
+            "numerator": 37,
+            "denominator": 40,
+            "value": 0.925
+          },
+          "recall": {
+            "numerator": 37,
+            "denominator": 43,
+            "value": 0.8604651162790697
+          },
+          "falsePositives": 3,
+          "falseNegatives": 6
+        },
+        "Bottom": {
+          "precision": {
+            "numerator": 34,
+            "denominator": 44,
+            "value": 0.7727272727272727
+          },
+          "recall": {
+            "numerator": 34,
+            "denominator": 39,
+            "value": 0.8717948717948718
+          },
+          "falsePositives": 10,
+          "falseNegatives": 5
+        },
+        "Shoes": {
+          "precision": {
+            "numerator": 54,
+            "denominator": 55,
+            "value": 0.9818181818181818
+          },
+          "recall": {
+            "numerator": 54,
+            "denominator": 58,
+            "value": 0.9310344827586207
+          },
+          "falsePositives": 1,
+          "falseNegatives": 4
+        },
+        "Dress": {
+          "precision": {
+            "numerator": 50,
+            "denominator": 54,
+            "value": 0.9259259259259259
+          },
+          "recall": {
+            "numerator": 50,
+            "denominator": 55,
+            "value": 0.9090909090909091
+          },
+          "falsePositives": 4,
+          "falseNegatives": 5
+        },
+        "Outerwear": {
+          "precision": {
+            "numerator": 13,
+            "denominator": 15,
+            "value": 0.8666666666666667
+          },
+          "recall": {
+            "numerator": 13,
+            "denominator": 13,
+            "value": 1.0
+          },
+          "falsePositives": 2,
+          "falseNegatives": 0
+        },
+        "Accessory": {
+          "precision": {
+            "numerator": 35,
+            "denominator": 62,
+            "value": 0.5645161290322581
+          },
+          "recall": {
+            "numerator": 35,
+            "denominator": 39,
+            "value": 0.8974358974358975
+          },
+          "falsePositives": 27,
+          "falseNegatives": 4
+        }
+      }
+    }
+  },
+  "paired": {
+    "multi_more_categories": 78,
+    "multiple_only_exact": 45,
+    "neither_exact": 40,
+    "same_category_coverage": 16,
+    "both_exact": 7,
+    "single_only_exact": 8,
+    "single_more_categories": 6
+  },
+  "pairedBootstrap": {
+    "replicates": 10000,
+    "seed": 20261020,
+    "unit": "image; both modes resampled together",
+    "recallGain95CI": [
+      0.46835443037974683,
+      0.592885375494071
+    ],
+    "microF1Gain95CI": [
+      0.2780454312712378,
+      0.3885640821573969
+    ]
+  },
+  "postHocSensitivity": {
+    "rule": "Exclude predictions whose itemType is Jewelry, which has no Fashionpedia main category. This was chosen after inspecting mismatches and is not the primary score; original labels and predictions remain unchanged.",
+    "summary": {
+      "single": {
+        "precision": {
+          "numerator": 91,
+          "denominator": 98,
+          "value": 0.9285714285714286
+        },
+        "recall": {
+          "numerator": 91,
+          "denominator": 247,
+          "value": 0.3684210526315789
+        },
+        "microF1": 0.527536231884058,
+        "exactSet": {
+          "numerator": 15,
+          "denominator": 100,
+          "value": 0.15
+        }
+      },
+      "multiple": {
+        "precision": {
+          "numerator": 215,
+          "denominator": 238,
+          "value": 0.9033613445378151
+        },
+        "recall": {
+          "numerator": 215,
+          "denominator": 247,
+          "value": 0.8704453441295547
+        },
+        "microF1": 0.8865979381443299,
+        "exactSet": {
+          "numerator": 66,
+          "denominator": 100,
+          "value": 0.66
+        }
+      }
+    }
+  },
+  "failures": [
+    {
+      "imageId": 18904,
+      "mode": "single",
+      "code": "AMBIGUOUS_ITEM",
+      "latencyMs": 4174,
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Outerwear",
+        "Shoes"
+      ],
+      "stratum": "general"
+    },
+    {
+      "imageId": 13283,
+      "mode": "single",
+      "code": "AMBIGUOUS_ITEM",
+      "latencyMs": 4062,
+      "expected": [
+        "Bottom",
+        "Top"
+      ],
+      "stratum": "general"
+    },
+    {
+      "imageId": 20009,
+      "mode": "multiple",
+      "code": "INVALID_SCENE_RESPONSE",
+      "latencyMs": 6661,
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "stratum": "general"
+    },
+    {
+      "imageId": 17533,
+      "mode": "multiple",
+      "code": "INVALID_SCENE_RESPONSE",
+      "latencyMs": 8089,
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "stratum": "general"
+    },
+    {
+      "imageId": 11859,
+      "mode": "multiple",
+      "code": "INVALID_SCENE_RESPONSE",
+      "latencyMs": 7010,
+      "expected": [
+        "Dress"
+      ],
+      "stratum": "general"
+    },
+    {
+      "imageId": 9112,
+      "mode": "multiple",
+      "code": "INVALID_SCENE_RESPONSE",
+      "latencyMs": 5583,
+      "expected": [
+        "Dress"
+      ],
+      "stratum": "general"
+    },
+    {
+      "imageId": 13339,
+      "mode": "multiple",
+      "code": "INVALID_SCENE_RESPONSE",
+      "latencyMs": 5773,
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Top"
+      ],
+      "stratum": "general"
+    },
+    {
+      "imageId": 16221,
+      "mode": "multiple",
+      "code": "INVALID_SCENE_RESPONSE",
+      "latencyMs": 14193,
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "stratum": "general"
+    },
+    {
+      "imageId": 13260,
+      "mode": "multiple",
+      "code": "INVALID_SCENE_RESPONSE",
+      "latencyMs": 6762,
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "stratum": "general"
+    }
+  ],
+  "completedErrorCases": [
+    {
+      "imageId": 9425,
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Top"
+      ],
+      "predicted": [
+        "Accessory",
+        "Dress"
+      ],
+      "missing": [
+        "Bottom",
+        "Top"
+      ],
+      "extra": [
+        "Dress"
+      ],
+      "latencyMs": 4845,
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.43,
+            "y": 0.27,
+            "width": 0.57,
+            "height": 0.73
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Other accessory",
+          "boundingBox": {
+            "x": 0.54,
+            "y": 0.1,
+            "width": 0.08,
+            "height": 0.09
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 13317,
+      "expected": [
+        "Bottom",
+        "Top"
+      ],
+      "predicted": [
+        "Dress"
+      ],
+      "missing": [
+        "Bottom",
+        "Top"
+      ],
+      "extra": [
+        "Dress"
+      ],
+      "latencyMs": 4456,
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.18,
+            "y": 0.27,
+            "width": 0.61,
+            "height": 0.73
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 9656,
+      "expected": [
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "predicted": [
+        "Bottom",
+        "Dress",
+        "Shoes"
+      ],
+      "missing": [
+        "Top"
+      ],
+      "extra": [
+        "Dress"
+      ],
+      "latencyMs": 18583,
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.3,
+            "y": 0.15,
+            "width": 0.37,
+            "height": 0.58
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Leggings",
+          "boundingBox": {
+            "x": 0.27,
+            "y": 0.59,
+            "width": 0.31,
+            "height": 0.38
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Dress shoes",
+          "boundingBox": {
+            "x": 0.25,
+            "y": 0.91,
+            "width": 0.37,
+            "height": 0.08
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 9914,
+      "expected": [
+        "Top"
+      ],
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Top"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory",
+        "Bottom"
+      ],
+      "latencyMs": 7720,
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "Shirt",
+          "boundingBox": {
+            "x": 0.02,
+            "y": 0.14,
+            "width": 0.95,
+            "height": 0.64
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Jeans",
+          "boundingBox": {
+            "x": 0.15,
+            "y": 0.68,
+            "width": 0.53,
+            "height": 0.31999999999999995
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.45,
+            "y": 0.31,
+            "width": 0.16,
+            "height": 0.04
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 10160,
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Dress",
+        "Shoes",
+        "Top"
+      ],
+      "missing": [],
+      "extra": [
+        "Bottom",
+        "Top"
+      ],
+      "latencyMs": 14317,
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.253,
+            "y": 0.216,
+            "width": 0.235,
+            "height": 0.393
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Tote bag",
+          "boundingBox": {
+            "x": 0.221,
+            "y": 0.438,
+            "width": 0.076,
+            "height": 0.13
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Sandals",
+          "boundingBox": {
+            "x": 0.312,
+            "y": 0.763,
+            "width": 0.227,
+            "height": 0.088
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Hat",
+          "boundingBox": {
+            "x": 0.035,
+            "y": 0.061,
+            "width": 0.036,
+            "height": 0.027
+          }
+        },
+        {
+          "category": "Top",
+          "itemType": "T-shirt",
+          "boundingBox": {
+            "x": 0.601,
+            "y": 0.105,
+            "width": 0.08,
+            "height": 0.094
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Shorts",
+          "boundingBox": {
+            "x": 0.704,
+            "y": 0.142,
+            "width": 0.073,
+            "height": 0.063
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 10216,
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "predicted": [
+        "Bottom",
+        "Outerwear",
+        "Shoes",
+        "Top"
+      ],
+      "missing": [
+        "Accessory"
+      ],
+      "extra": [
+        "Outerwear"
+      ],
+      "latencyMs": 8361,
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "Sweater",
+          "boundingBox": {
+            "x": 0.666,
+            "y": 0.322,
+            "width": 0.091,
+            "height": 0.281
+          }
+        },
+        {
+          "category": "Outerwear",
+          "itemType": "Jacket",
+          "boundingBox": {
+            "x": 0.689,
+            "y": 0.286,
+            "width": 0.153,
+            "height": 0.271
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Jeans",
+          "boundingBox": {
+            "x": 0.716,
+            "y": 0.322,
+            "width": 0.183,
+            "height": 0.547
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Boots",
+          "boundingBox": {
+            "x": 0.813,
+            "y": 0.503,
+            "width": 0.071,
+            "height": 0.438
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 11303,
+      "expected": [
+        "Top"
+      ],
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Top"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory",
+        "Bottom"
+      ],
+      "latencyMs": 7549,
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "Sweater",
+          "boundingBox": {
+            "x": 0.267,
+            "y": 0.325,
+            "width": 0.733,
+            "height": 0.522
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Leggings",
+          "boundingBox": {
+            "x": 0.34,
+            "y": 0.806,
+            "width": 0.586,
+            "height": 0.19399999999999995
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.45,
+            "y": 0.243,
+            "width": 0.039,
+            "height": 0.058
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.329,
+            "y": 0.645,
+            "width": 0.049,
+            "height": 0.067
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 16439,
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "predicted": [
+        "Bottom",
+        "Dress",
+        "Shoes",
+        "Top"
+      ],
+      "missing": [],
+      "extra": [
+        "Bottom",
+        "Top"
+      ],
+      "latencyMs": 9186,
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.33,
+            "y": 0.17,
+            "width": 0.33,
+            "height": 0.46
+          }
+        },
+        {
+          "category": "Top",
+          "itemType": "Blouse",
+          "boundingBox": {
+            "x": 0.44,
+            "y": 0.24,
+            "width": 0.13,
+            "height": 0.06
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Shorts",
+          "boundingBox": {
+            "x": 0.38,
+            "y": 0.62,
+            "width": 0.24,
+            "height": 0.08
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Boots",
+          "boundingBox": {
+            "x": 0.41,
+            "y": 0.77,
+            "width": 0.13,
+            "height": 0.2
+          }
+        },
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.67,
+            "y": 0.08,
+            "width": 0.26,
+            "height": 0.25
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Boots",
+          "boundingBox": {
+            "x": 0.71,
+            "y": 0.47,
+            "width": 0.08,
+            "height": 0.06
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 17091,
+      "expected": [
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "predicted": [
+        "Bottom",
+        "Dress",
+        "Shoes"
+      ],
+      "missing": [
+        "Top"
+      ],
+      "extra": [
+        "Dress"
+      ],
+      "latencyMs": 8071,
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.39,
+            "y": 0.18,
+            "width": 0.41,
+            "height": 0.324
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Trousers",
+          "boundingBox": {
+            "x": 0.294,
+            "y": 0.359,
+            "width": 0.499,
+            "height": 0.362
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Sandals",
+          "boundingBox": {
+            "x": 0.171,
+            "y": 0.579,
+            "width": 0.17,
+            "height": 0.044
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 18821,
+      "expected": [
+        "Shoes",
+        "Top"
+      ],
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory",
+        "Bottom"
+      ],
+      "latencyMs": 7706,
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "Blouse",
+          "boundingBox": {
+            "x": 0.185,
+            "y": 0.3,
+            "width": 0.24,
+            "height": 0.54
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Shorts",
+          "boundingBox": {
+            "x": 0.27,
+            "y": 0.68,
+            "width": 0.155,
+            "height": 0.16
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Sandals",
+          "boundingBox": {
+            "x": 0.708,
+            "y": 0.633,
+            "width": 0.292,
+            "height": 0.205
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.245,
+            "y": 0.296,
+            "width": 0.135,
+            "height": 0.164
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 19218,
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "predicted": [
+        "Bottom",
+        "Dress",
+        "Shoes",
+        "Top"
+      ],
+      "missing": [],
+      "extra": [
+        "Bottom",
+        "Top"
+      ],
+      "latencyMs": 11353,
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.24,
+            "y": 0.24,
+            "width": 0.22,
+            "height": 0.28
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Dress shoes",
+          "boundingBox": {
+            "x": 0.12,
+            "y": 0.53,
+            "width": 0.33,
+            "height": 0.39
+          }
+        },
+        {
+          "category": "Top",
+          "itemType": "Shirt",
+          "boundingBox": {
+            "x": 0.85,
+            "y": 0.49,
+            "width": 0.11,
+            "height": 0.11
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Trousers",
+          "boundingBox": {
+            "x": 0.86,
+            "y": 0.59,
+            "width": 0.1,
+            "height": 0.2
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 19669,
+      "expected": [
+        "Top"
+      ],
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Top"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory",
+        "Bottom"
+      ],
+      "latencyMs": 6209,
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "Hoodie",
+          "boundingBox": {
+            "x": 0.151,
+            "y": 0.078,
+            "width": 0.32,
+            "height": 0.721
+          }
+        },
+        {
+          "category": "Top",
+          "itemType": "T-shirt",
+          "boundingBox": {
+            "x": 0.204,
+            "y": 0.359,
+            "width": 0.099,
+            "height": 0.153
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Jeans",
+          "boundingBox": {
+            "x": 0.167,
+            "y": 0.779,
+            "width": 0.27,
+            "height": 0.22099999999999997
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.169,
+            "y": 0.422,
+            "width": 0.219,
+            "height": 0.139
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 9104,
+      "expected": [
+        "Accessory",
+        "Outerwear",
+        "Shoes"
+      ],
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Outerwear",
+        "Shoes"
+      ],
+      "missing": [],
+      "extra": [
+        "Bottom"
+      ],
+      "latencyMs": 8038,
+      "pieces": [
+        {
+          "category": "Outerwear",
+          "itemType": "Coat",
+          "boundingBox": {
+            "x": 0.206,
+            "y": 0.35,
+            "width": 0.35,
+            "height": 0.48
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Handbag",
+          "boundingBox": {
+            "x": 0.183,
+            "y": 0.586,
+            "width": 0.15,
+            "height": 0.239
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Dress shoes",
+          "boundingBox": {
+            "x": 0.288,
+            "y": 0.819,
+            "width": 0.124,
+            "height": 0.066
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Trousers",
+          "boundingBox": {
+            "x": 0.33,
+            "y": 0.66,
+            "width": 0.06,
+            "height": 0.16
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.508,
+            "y": 0.525,
+            "width": 0.032,
+            "height": 0.026
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 9246,
+      "expected": [
+        "Bottom",
+        "Dress"
+      ],
+      "predicted": [
+        "Dress"
+      ],
+      "missing": [
+        "Bottom"
+      ],
+      "extra": [],
+      "latencyMs": 3038,
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.09,
+            "y": 0.32,
+            "width": 0.79,
+            "height": 0.6799999999999999
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 10071,
+      "expected": [
+        "Outerwear",
+        "Top"
+      ],
+      "predicted": [
+        "Accessory",
+        "Outerwear",
+        "Top"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory"
+      ],
+      "latencyMs": 5703,
+      "pieces": [
+        {
+          "category": "Outerwear",
+          "itemType": "Jacket",
+          "boundingBox": {
+            "x": 0.51,
+            "y": 0.32,
+            "width": 0.4,
+            "height": 0.6799999999999999
+          }
+        },
+        {
+          "category": "Top",
+          "itemType": "T-shirt",
+          "boundingBox": {
+            "x": 0.56,
+            "y": 0.36,
+            "width": 0.29,
+            "height": 0.64
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.69,
+            "y": 0.9,
+            "width": 0.02,
+            "height": 0.03
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 10471,
+      "expected": [
+        "Top"
+      ],
+      "predicted": [
+        "Bottom",
+        "Top"
+      ],
+      "missing": [],
+      "extra": [
+        "Bottom"
+      ],
+      "latencyMs": 6904,
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "Blouse",
+          "boundingBox": {
+            "x": 0.297,
+            "y": 0.227,
+            "width": 0.403,
+            "height": 0.522
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Shorts",
+          "boundingBox": {
+            "x": 0.38,
+            "y": 0.704,
+            "width": 0.21,
+            "height": 0.086
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 10994,
+      "expected": [
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory"
+      ],
+      "latencyMs": 13996,
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "Blouse",
+          "boundingBox": {
+            "x": 0.414,
+            "y": 0.226,
+            "width": 0.38,
+            "height": 0.269
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Belt",
+          "boundingBox": {
+            "x": 0.508,
+            "y": 0.431,
+            "width": 0.347,
+            "height": 0.148
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Jeans",
+          "boundingBox": {
+            "x": 0.204,
+            "y": 0.42,
+            "width": 0.658,
+            "height": 0.549
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Dress shoes",
+          "boundingBox": {
+            "x": 0.174,
+            "y": 0.807,
+            "width": 0.346,
+            "height": 0.19299999999999995
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.55,
+            "y": 0.198,
+            "width": 0.027,
+            "height": 0.06
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.395,
+            "y": 0.239,
+            "width": 0.051,
+            "height": 0.044
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 12073,
+      "expected": [
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory"
+      ],
+      "latencyMs": 9642,
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "Blouse",
+          "boundingBox": {
+            "x": 0.29,
+            "y": 0.23,
+            "width": 0.33,
+            "height": 0.29
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Jeans",
+          "boundingBox": {
+            "x": 0.3,
+            "y": 0.49,
+            "width": 0.42,
+            "height": 0.36
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Dress shoes",
+          "boundingBox": {
+            "x": 0.32,
+            "y": 0.82,
+            "width": 0.43,
+            "height": 0.08
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.4,
+            "y": 0.23,
+            "width": 0.07,
+            "height": 0.1
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.55,
+            "y": 0.48,
+            "width": 0.05,
+            "height": 0.04
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 12120,
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "predicted": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory"
+      ],
+      "latencyMs": 15045,
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.3276,
+            "y": 0.237,
+            "width": 0.2924,
+            "height": 0.296
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Sandals",
+          "boundingBox": {
+            "x": 0.24,
+            "y": 0.755,
+            "width": 0.479,
+            "height": 0.078
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.429,
+            "y": 0.246,
+            "width": 0.084,
+            "height": 0.127
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.211,
+            "y": 0.274,
+            "width": 0.564,
+            "height": 0.087
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 12344,
+      "expected": [
+        "Bottom",
+        "Outerwear",
+        "Top"
+      ],
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Outerwear",
+        "Top"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory"
+      ],
+      "latencyMs": 11290,
+      "pieces": [
+        {
+          "category": "Outerwear",
+          "itemType": "Jacket",
+          "boundingBox": {
+            "x": 0.18,
+            "y": 0.3,
+            "width": 0.74,
+            "height": 0.49
+          }
+        },
+        {
+          "category": "Top",
+          "itemType": "T-shirt",
+          "boundingBox": {
+            "x": 0.44,
+            "y": 0.35,
+            "width": 0.13,
+            "height": 0.41
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Shorts",
+          "boundingBox": {
+            "x": 0.24,
+            "y": 0.74,
+            "width": 0.53,
+            "height": 0.21
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.57,
+            "y": 0.52,
+            "width": 0.03,
+            "height": 0.07
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 12524,
+      "expected": [
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory"
+      ],
+      "latencyMs": 8700,
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "Blouse",
+          "boundingBox": {
+            "x": 0.43,
+            "y": 0.176,
+            "width": 0.35,
+            "height": 0.302
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Leggings",
+          "boundingBox": {
+            "x": 0.435,
+            "y": 0.444,
+            "width": 0.47,
+            "height": 0.458
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Boots",
+          "boundingBox": {
+            "x": 0.52,
+            "y": 0.843,
+            "width": 0.445,
+            "height": 0.139
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.625,
+            "y": 0.19,
+            "width": 0.083,
+            "height": 0.067
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.671,
+            "y": 0.437,
+            "width": 0.081,
+            "height": 0.051
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 12525,
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "predicted": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory"
+      ],
+      "latencyMs": 7228,
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.26,
+            "y": 0.26,
+            "width": 0.46,
+            "height": 0.42
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.608,
+            "y": 0.359,
+            "width": 0.031,
+            "height": 0.024
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Sandals",
+          "boundingBox": {
+            "x": 0.466,
+            "y": 0.744,
+            "width": 0.093,
+            "height": 0.109
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 13148,
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "predicted": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory"
+      ],
+      "latencyMs": 11135,
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.468,
+            "y": 0.129,
+            "width": 0.519,
+            "height": 0.432
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Dress shoes",
+          "boundingBox": {
+            "x": 0.198,
+            "y": 0.691,
+            "width": 0.402,
+            "height": 0.265
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.144,
+            "y": 0.455,
+            "width": 0.09,
+            "height": 0.066
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.432,
+            "y": 0.117,
+            "width": 0.029,
+            "height": 0.025
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.105,
+            "y": 0.533,
+            "width": 0.02,
+            "height": 0.023
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 13283,
+      "expected": [
+        "Bottom",
+        "Top"
+      ],
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Top"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory"
+      ],
+      "latencyMs": 9779,
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "Blouse",
+          "boundingBox": {
+            "x": 0.21,
+            "y": 0.32,
+            "width": 0.56,
+            "height": 0.39
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Skirt",
+          "boundingBox": {
+            "x": 0.3,
+            "y": 0.69,
+            "width": 0.42,
+            "height": 0.24
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.36,
+            "y": 0.33,
+            "width": 0.21,
+            "height": 0.18
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.1,
+            "y": 0.74,
+            "width": 0.13,
+            "height": 0.06
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.57,
+            "y": 0.28,
+            "width": 0.03,
+            "height": 0.04
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 13331,
+      "expected": [
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory"
+      ],
+      "latencyMs": 11288,
+      "pieces": [
+        {
+          "category": "Accessory",
+          "itemType": "Other accessory",
+          "boundingBox": {
+            "x": 0.53,
+            "y": 0.466,
+            "width": 0.091,
+            "height": 0.178
+          }
+        },
+        {
+          "category": "Top",
+          "itemType": "Blouse",
+          "boundingBox": {
+            "x": 0.321,
+            "y": 0.411,
+            "width": 0.444,
+            "height": 0.257
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Jeans",
+          "boundingBox": {
+            "x": 0.311,
+            "y": 0.602,
+            "width": 0.503,
+            "height": 0.333
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Sandals",
+          "boundingBox": {
+            "x": 0.388,
+            "y": 0.804,
+            "width": 0.418,
+            "height": 0.194
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.671,
+            "y": 0.584,
+            "width": 0.05,
+            "height": 0.034
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 13397,
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "predicted": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory"
+      ],
+      "latencyMs": 5554,
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.17,
+            "y": 0.25,
+            "width": 0.38,
+            "height": 0.38
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Sandals",
+          "boundingBox": {
+            "x": 0.19,
+            "y": 0.836,
+            "width": 0.44,
+            "height": 0.08
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.395,
+            "y": 0.19,
+            "width": 0.025,
+            "height": 0.04
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 15368,
+      "expected": [
+        "Dress"
+      ],
+      "predicted": [
+        "Accessory",
+        "Dress"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory"
+      ],
+      "latencyMs": 7326,
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.27,
+            "y": 0.42,
+            "width": 0.48,
+            "height": 0.58
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.25,
+            "y": 0.33,
+            "width": 0.07,
+            "height": 0.26
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 15737,
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Outerwear",
+        "Shoes",
+        "Top"
+      ],
+      "missing": [],
+      "extra": [
+        "Outerwear"
+      ],
+      "latencyMs": 8913,
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "T-shirt",
+          "boundingBox": {
+            "x": 0.17,
+            "y": 0.22,
+            "width": 0.14,
+            "height": 0.19
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Shorts",
+          "boundingBox": {
+            "x": 0.18,
+            "y": 0.39,
+            "width": 0.14,
+            "height": 0.17
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Handbag",
+          "boundingBox": {
+            "x": 0.26,
+            "y": 0.26,
+            "width": 0.11,
+            "height": 0.25
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Sandals",
+          "boundingBox": {
+            "x": 0.207,
+            "y": 0.806,
+            "width": 0.1,
+            "height": 0.135
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Hat",
+          "boundingBox": {
+            "x": 0.701,
+            "y": 0.069,
+            "width": 0.032,
+            "height": 0.039
+          }
+        },
+        {
+          "category": "Outerwear",
+          "itemType": "Jacket",
+          "boundingBox": {
+            "x": 0.671,
+            "y": 0.107,
+            "width": 0.052,
+            "height": 0.115
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 15813,
+      "expected": [
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory"
+      ],
+      "latencyMs": 6703,
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "T-shirt",
+          "boundingBox": {
+            "x": 0.31,
+            "y": 0.244,
+            "width": 0.26,
+            "height": 0.334
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Jeans",
+          "boundingBox": {
+            "x": 0.246,
+            "y": 0.519,
+            "width": 0.31,
+            "height": 0.379
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Sandals",
+          "boundingBox": {
+            "x": 0.243,
+            "y": 0.891,
+            "width": 0.252,
+            "height": 0.075
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.476,
+            "y": 0.225,
+            "width": 0.046,
+            "height": 0.04
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 15840,
+      "expected": [
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory"
+      ],
+      "latencyMs": 5699,
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "Blouse",
+          "boundingBox": {
+            "x": 0.289,
+            "y": 0.221,
+            "width": 0.371,
+            "height": 0.308
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.401,
+            "y": 0.246,
+            "width": 0.119,
+            "height": 0.048
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Trousers",
+          "boundingBox": {
+            "x": 0.353,
+            "y": 0.397,
+            "width": 0.262,
+            "height": 0.499
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Dress shoes",
+          "boundingBox": {
+            "x": 0.455,
+            "y": 0.862,
+            "width": 0.144,
+            "height": 0.097
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 16320,
+      "expected": [
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory"
+      ],
+      "latencyMs": 8415,
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "Blouse",
+          "boundingBox": {
+            "x": 0.378,
+            "y": 0.296,
+            "width": 0.302,
+            "height": 0.162
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Skirt",
+          "boundingBox": {
+            "x": 0.357,
+            "y": 0.445,
+            "width": 0.325,
+            "height": 0.173
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.466,
+            "y": 0.268,
+            "width": 0.114,
+            "height": 0.064
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Sandals",
+          "boundingBox": {
+            "x": 0.45,
+            "y": 0.904,
+            "width": 0.164,
+            "height": 0.075
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 16824,
+      "expected": [
+        "Dress"
+      ],
+      "predicted": [
+        "Accessory",
+        "Dress"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory"
+      ],
+      "latencyMs": 5338,
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.234,
+            "y": 0.333,
+            "width": 0.659,
+            "height": 0.666
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.38,
+            "y": 0.735,
+            "width": 0.025,
+            "height": 0.02
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 18405,
+      "expected": [
+        "Dress"
+      ],
+      "predicted": [
+        "Accessory",
+        "Dress"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory"
+      ],
+      "latencyMs": 5222,
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.22,
+            "y": 0.22,
+            "width": 0.32,
+            "height": 0.38
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Other accessory",
+          "boundingBox": {
+            "x": 0.19,
+            "y": 0.38,
+            "width": 0.73,
+            "height": 0.5
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 18517,
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "predicted": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory"
+      ],
+      "latencyMs": 13077,
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.32,
+            "y": 0.16,
+            "width": 0.46,
+            "height": 0.44
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Dress shoes",
+          "boundingBox": {
+            "x": 0.28,
+            "y": 0.87,
+            "width": 0.37,
+            "height": 0.13
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.38,
+            "y": 0.88,
+            "width": 0.05,
+            "height": 0.02
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 19219,
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "predicted": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory"
+      ],
+      "latencyMs": 11399,
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.2,
+            "y": 0.36,
+            "width": 0.42,
+            "height": 0.26
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Dress shoes",
+          "boundingBox": {
+            "x": 0.63,
+            "y": 0.19,
+            "width": 0.27,
+            "height": 0.41
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.2,
+            "y": 0.51,
+            "width": 0.1,
+            "height": 0.1
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.1,
+            "y": 0.33,
+            "width": 0.04,
+            "height": 0.05
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 19375,
+      "expected": [
+        "Accessory",
+        "Shoes",
+        "Top"
+      ],
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "missing": [],
+      "extra": [
+        "Bottom"
+      ],
+      "latencyMs": 9179,
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "Blouse",
+          "boundingBox": {
+            "x": 0.359,
+            "y": 0.316,
+            "width": 0.362,
+            "height": 0.264
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Shorts",
+          "boundingBox": {
+            "x": 0.434,
+            "y": 0.558,
+            "width": 0.168,
+            "height": 0.078
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Sandals",
+          "boundingBox": {
+            "x": 0.036,
+            "y": 0.851,
+            "width": 0.88,
+            "height": 0.107
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.437,
+            "y": 0.335,
+            "width": 0.117,
+            "height": 0.122
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.586,
+            "y": 0.211,
+            "width": 0.034,
+            "height": 0.044
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.464,
+            "y": 0.601,
+            "width": 0.075,
+            "height": 0.036
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 19480,
+      "expected": [
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory"
+      ],
+      "latencyMs": 6355,
+      "pieces": [
+        {
+          "category": "Top",
+          "itemType": "T-shirt",
+          "boundingBox": {
+            "x": 0.32,
+            "y": 0.33,
+            "width": 0.17,
+            "height": 0.22
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Leggings",
+          "boundingBox": {
+            "x": 0.33,
+            "y": 0.445,
+            "width": 0.29,
+            "height": 0.39
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Sandals",
+          "boundingBox": {
+            "x": 0.51,
+            "y": 0.667,
+            "width": 0.26,
+            "height": 0.19
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.375,
+            "y": 0.36,
+            "width": 0.08,
+            "height": 0.04
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 20155,
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "predicted": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory"
+      ],
+      "latencyMs": 9886,
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.44,
+            "y": 0.21,
+            "width": 0.42,
+            "height": 0.39
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Sandals",
+          "boundingBox": {
+            "x": 0.13,
+            "y": 0.64,
+            "width": 0.36,
+            "height": 0.36
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.7,
+            "y": 0.22,
+            "width": 0.08,
+            "height": 0.07
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.68,
+            "y": 0.16,
+            "width": 0.04,
+            "height": 0.05
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.59,
+            "y": 0.46,
+            "width": 0.07,
+            "height": 0.05
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 20167,
+      "expected": [
+        "Accessory",
+        "Dress"
+      ],
+      "predicted": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "missing": [],
+      "extra": [
+        "Shoes"
+      ],
+      "latencyMs": 7448,
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.26,
+            "y": 0.29,
+            "width": 0.7,
+            "height": 0.53
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.54,
+            "y": 0.22,
+            "width": 0.05,
+            "height": 0.09
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.46,
+            "y": 0.49,
+            "width": 0.06,
+            "height": 0.04
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Other footwear",
+          "boundingBox": {
+            "x": 0.58,
+            "y": 0.75,
+            "width": 0.15,
+            "height": 0.08
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 20180,
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "predicted": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory"
+      ],
+      "latencyMs": 7674,
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.345,
+            "y": 0.157,
+            "width": 0.401,
+            "height": 0.446
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Sandals",
+          "boundingBox": {
+            "x": 0.299,
+            "y": 0.857,
+            "width": 0.449,
+            "height": 0.143
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.624,
+            "y": 0.364,
+            "width": 0.048,
+            "height": 0.026
+          }
+        }
+      ]
+    },
+    {
+      "imageId": 20235,
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "predicted": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "missing": [],
+      "extra": [
+        "Accessory"
+      ],
+      "latencyMs": 9126,
+      "pieces": [
+        {
+          "category": "Dress",
+          "itemType": "Dress",
+          "boundingBox": {
+            "x": 0.08,
+            "y": 0.18,
+            "width": 0.78,
+            "height": 0.36
+          }
+        },
+        {
+          "category": "Shoes",
+          "itemType": "Boots",
+          "boundingBox": {
+            "x": 0.15,
+            "y": 0.81,
+            "width": 0.62,
+            "height": 0.16
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.46,
+            "y": 0.18,
+            "width": 0.08,
+            "height": 0.08
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.23,
+            "y": 0.37,
+            "width": 0.55,
+            "height": 0.07
+          }
+        },
+        {
+          "category": "Accessory",
+          "itemType": "Jewelry",
+          "boundingBox": {
+            "x": 0.4,
+            "y": 0.13,
+            "width": 0.19,
+            "height": 0.06
+          }
+        }
+      ]
+    }
+  ],
+  "interpretationLimits": [
+    "Single mode is designed for one item; this is a workflow comparison, not a fair contest between equal-capacity detectors.",
+    "Multiple uses high image detail, 4096 output tokens and a six-detection cap; single uses low detail and 1200 tokens.",
+    "No manual ground-truth corrections were made after predictions.",
+    "Failure codes identify pipeline rejection classes, not necessarily a unique root cause; failed raw outputs were not retained.",
+    "Category-set recall is not per-garment detection accuracy or user acceptance.",
+    "Public data may have been seen during model training; only two hat images.",
+    "Jewelry is supported by the app but absent from the dataset main-category ontology; visible unlabeled bottoms were also found during diagnostic review. Extra labels are disagreements with annotations, not necessarily hallucinations."
+  ]
+}

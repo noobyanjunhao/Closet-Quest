@@ -46,4 +46,41 @@ node scripts/evaluate-recognition-100.mjs --live --mode both
 
 This makes up to 200 recognition pipeline requests. Requests run serially with recognition caching disabled, alternate baseline/current order, and checkpoint after each request. The runner resumes completed attempts, including failures, and refuses to mix a different manifest or model into an existing run. Results go to `output/recognition-100/both-100.json`. A partial canary can use `--limit 1`; it is not a 100-image result.
 
-The full evaluation has not been run as part of dataset preparation. Do not present the dataset counts as recognition accuracy.
+## Completed live evaluation: October 20, 2026
+
+All 100 photos were processed in both modes: **200 first attempts**, using `gpt-6-luna` (Fast). Failed requests remain in the results; no automatic retries were used. The previous one-photo canary is separate and not pooled into these scores.
+
+| Metric | Single-piece baseline | Multi-piece workflow |
+| --- | --- | --- |
+| Category precision | 91/98 (92.9%) | 223/270 (82.6%) |
+| Category recall | 91/247 (36.8%) | 223/247 (90.3%) |
+| Exact category-set match | 15/100 (15.0%) | 52/100 (52.0%) |
+| Completion | 98/100 (98.0%) | 93/100 (93.0%) |
+| Successful within 20 seconds | 98/100 (98.0%) | 93/100 (93.0%) |
+| Hat recall | 1/2 (50.0%) | 2/2 (100.0%) |
+| Micro F1 | 0.528 | 0.863 |
+| Median / p95 latency | 3.16 / 4.84 s | 7.70 / 14.32 s |
+
+Multi-piece recall improved by 53.4 percentage points; the paired-image bootstrap 95% interval is 46.8 to 59.3 points. This is uncertainty within the selected sample, not evidence of population-level user benefit.
+
+Failures: single-piece `{'AMBIGUOUS_ITEM': 2}`; multi-piece `{'INVALID_SCENE_RESPONSE': 7}`. The saved codes identify rejection classes but do not reveal each failed response's exact defect. Diagnostic review also found long-top/dress ambiguity, visible unannotated bottoms, and Jewelry predictions outside Fashionpedia's main-category ontology. The original labels and headline scores are unchanged. A post-hoc Jewelry-exclusion sensitivity analysis is clearly separated from the primary result.
+
+Single mode uses low image detail and 1,200 output tokens; multi mode uses high detail, 4,096 tokens and up to six pieces. Both resize the source photo to fit 1,000 x 1,000 pixels without enlargement and encode JPEG at quality 85. The comparison measures complete app workflows, not the isolated effect of a prompt or an equal-capacity detector contest.
+
+Timings include local preprocessing plus the live API call. They exclude phone upload, Render cold starts and interface rendering. The analysis uses the arithmetic median of the two middle observations; the raw runner p50 uses the lower nearest-rank observation. Both use nearest-rank p95.
+
+- [All 200 outcomes](../output/recognition-100/both-100.json)
+- [Audited analysis and paired intervals](../output/recognition-100/analysis.json)
+- [Per-attempt CSV](../output/recognition-100/results.csv)
+- [Failure analysis and improvement priorities](../output/recognition-100/failure-analysis.md)
+- [Evaluated source and protocol](../output/recognition-100/provenance.json)
+- [Updated five-page validation report](../output/pdf/Closet-Quest-Sprint-7-Validation-Report.pdf)
+
+Rebuild the analysis, report and supporting archive from the completed checkpoint:
+
+```powershell
+python scripts/analyze-recognition-100.py
+python scripts/build_sprint7_report.py
+python scripts/package_sprint7_validation.py
+```
+

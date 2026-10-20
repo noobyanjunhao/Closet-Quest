@@ -1,0 +1,30 @@
+{
+  "reviewMethod": "Assistant visual inspection of original photos alongside frozen dataset annotations and first-run model outputs. Diagnostic observations only, not independent expert labels.",
+  "labelsChanged": false,
+  "examples": [
+    {
+      "imageId": 9656,
+      "file": "420f153001eb2e37269ae974b9f7665e.jpg",
+      "observation": "The matching light-colored upper and lower garment visually form one continuous silhouette. The dataset labels a top and skirt separately; the model calls the main garment Dress and also returns leggings and shoes.",
+      "interpretation": "A top-versus-dress/garment-boundary disagreement; this cannot be resolved as model error from category-set scoring alone."
+    },
+    {
+      "imageId": 17091,
+      "file": "b66643e09504500db84e3d75535a8273.jpg",
+      "observation": "A long red upper garment is worn over cropped trousers. The dataset labels Top; the model returns Dress, trousers and sandals.",
+      "interpretation": "Long-top versus dress ambiguity. Preserve the published score and request expert adjudication for a future labeled test."
+    },
+    {
+      "imageId": 9914,
+      "file": "46c1433283e5cfba916f741bc681b99b.jpg",
+      "observation": "The original photo visibly includes a white shirt, blue jeans and a thin necklace. The supplied annotation list includes only a shirt. The model returns Shirt, Jeans and Jewelry.",
+      "interpretation": "The extra Bottom is consistent with visible unannotated clothing. Jewelry is outside Fashionpedia's 27 main-category ontology. Do not call these extra labels confirmed hallucinations."
+    },
+    {
+      "imageId": 10471,
+      "file": "9c09e13e8d3b85d10cbdf08277af395e.jpg",
+      "observation": "White shorts are visible beneath a long patterned top. The supplied annotation list includes only Top, while the model returns Blouse and Shorts.",
+      "interpretation": "An apparent annotation omission penalizes a visually supported Bottom prediction under the frozen scoring rules."
+    }
+  ]
+}
