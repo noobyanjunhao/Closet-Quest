@@ -17,7 +17,7 @@
 .sheet-handle{display:none}
 .app .nav-indicator{transition:transform var(--fashion-motion) var(--fashion-ease),width var(--fashion-motion) var(--fashion-ease),height var(--fashion-motion) var(--fashion-ease)}
 .app .modal{animation-duration:300ms}
-.phone-edit,.phone-account,.phone-categories,.phone-occasions{display:none}
+.phone-edit,.phone-account,.phone-categories,.phone-occasions,.remix-description{display:none}
 @media(max-width:760px){
  :root{color-scheme:light;scrollbar-width:none}
  .app{background:var(--fashion-bg);color:var(--fashion-ink)}
@@ -74,3 +74,119 @@
  .app .welcome-screen{background:var(--fashion-bg)}.app .welcome-card{background:#fff}.app .style-chips button.chosen{background:#f0e4e8;border-color:#b97688}
 }
 @media(prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}.app .nav-indicator,.app .nav svg,.app .modal{transition:none;animation:none}}
+
+/* One material and color system across every destination and screen size. */
+:root{--ink:var(--fashion-ink);--forest:var(--fashion-accent);--muted:var(--fashion-muted);--line:var(--fashion-line);--paper:var(--fashion-bg);background:var(--fashion-bg);color:var(--fashion-ink)}
+.app .studio{--studio-ink:var(--fashion-ink);--studio-muted:var(--fashion-muted);--studio-border:var(--fashion-line)}
+.app input,.app select,.app textarea{color:var(--fashion-ink);border-color:var(--fashion-line)}
+.app .panel,.app .memory-card,.app .quest-card,.app .saved-look,.app .retrieval-panel{border-radius:26px;border-color:var(--fashion-line);box-shadow:0 8px 28px #19191906}
+.app .progress-panel,.app .retrieval-panel,.app .processing-strip,.app .collection-banner,.app .studio-progress{background:#eee6dc;border-color:var(--fashion-line)}
+.app .progress-panel progress,.app input[type=checkbox]{accent-color:var(--fashion-accent)}
+.app .text-button,.app .studio-kicker,.app .studio-tip strong,.app .photo-details summary,.app .garment-more-actions summary,.app .look-name-details summary{color:var(--fashion-accent)}
+.app .nav-more-menu{background:#fffdf9;border-radius:20px;border-color:#fff;box-shadow:0 16px 36px #1919191a}
+.app .nav-more-menu>button{border-radius:12px;color:var(--fashion-ink)}
+.app .nav-more-menu>button:hover,.app .nav-more-menu>button[aria-current=page]{background:#eee6dc}
+.app .modal{background:var(--fashion-bg);border:1px solid #fff;box-shadow:0 24px 90px #19191926}
+.app .modal .section-heading h2{font-family:Georgia,serif;font-weight:400}
+.app .modal .section-heading>button{width:44px;height:44px;border-radius:50%;background:#eee9e1;flex-shrink:0}
+.app .overlay{background:#17171970;backdrop-filter:blur(10px)}
+.app .add-clothes-symbol{background:#eee6dc;border-color:#c8b7a0;color:var(--fashion-accent);border-radius:26px}
+.app .flow-steps b{background:#eee6dc;color:var(--fashion-accent)}
+.app.access-screen,.app .welcome-screen{background:var(--fashion-bg);color:var(--fashion-ink)}
+.app .access-card .primary,.app .welcome-card .primary{background:var(--fashion-accent)}
+.app .auth-kicker,.app .auth-wordmark,.app .auth-switch button{color:var(--fashion-accent)}
+.app .auth-photo-stack>span{background:var(--fashion-champagne);color:var(--fashion-ink)}
+.app .style-chips button.chosen{background:#f0e4e8;border-color:#b97688}
+.app .welcome-progress .filled{background:var(--fashion-accent)}
+.app .look-preview{background:#eee6dc;border-color:#fff}.app .look-preview>span>span{color:var(--fashion-accent)}
+.app .toast{background:var(--fashion-dark)}
+.app .style-memory{--memory-ink:var(--fashion-ink);--memory-muted:var(--fashion-muted);--memory-border:var(--fashion-line)}
+.app .memory-tabs,.app .memory-models,.app .memory-empty,.app .memory-provider{background:#eee6dc;border-color:var(--fashion-line)}
+.app .memory-tabs>button[aria-selected=true]{color:var(--fashion-accent)}
+.app .memory-chip span{background:var(--fashion-bg);border-color:var(--fashion-line)}
+.app .memory-chip.selected span,.app .memory-feedback button[aria-pressed=true]{background:#f0e4e8;border-color:#b97688;color:var(--fashion-accent)}
+.app .memory-history-card,.app .memory-search{border-radius:24px;border-color:var(--fashion-line)}
+.app .memory-history-looks>div{background:var(--fashion-bg);border-color:var(--fashion-line);border-radius:16px}
+.app .nav-more[open]>summary,.app .fluid-navigation .nav:hover{background:#eee6dc80;color:var(--fashion-accent)}
+
+@media(min-width:761px){
+ .app:not(.access-screen){display:block}
+ .app .sidebar{inset:16px auto auto 50%;transform:translateX(-50%);width:calc(100% - 48px);max-width:1240px;height:80px;padding:12px 20px;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:24px;border-radius:28px;background:#fffdf9e8;border:1px solid #fff;box-shadow:0 8px 40px #1919190b;backdrop-filter:blur(28px) saturate(1.4);z-index:15}
+ .app .sidebar .nav-label,.app .sidebar>.profile{display:none}
+ .app .brand{font-size:18px;gap:10px;padding:0}.app .brand-icon{display:grid;place-items:center;padding:0;width:40px;height:40px;font:italic 27px Georgia;background:var(--fashion-dark);border-radius:14px}
+ .app .phone-account{display:grid;place-items:center;order:3;position:relative;flex-shrink:0;width:46px;height:46px;padding:0;border:3px solid #fff;border-radius:50%;background:#e9dfd0;color:#504238;box-shadow:0 4px 14px #1919190e}
+ .app .phone-account>span{position:absolute;right:0;bottom:0;width:10px;height:10px;background:var(--fashion-accent);border:2px solid #fff;border-radius:50%}
+ .app .sidebar .fluid-navigation{display:flex;align-items:center;gap:5px;margin:0;padding:4px;position:relative;inset:auto;background:#f3eee780;border-radius:23px;flex-shrink:0}
+ .app .fluid-navigation .nav{width:auto;min-height:48px;height:48px;margin:0;padding:12px 17px;gap:9px;font-size:12px;border-radius:19px;white-space:nowrap}
+ .app .fluid-navigation .nav-caption{font-weight:600}.app .fluid-navigation .nav.active,.app .fluid-navigation .nav.active>.nav-caption{color:var(--fashion-accent)}
+ .app .nav-indicator{background:#eee3d6;border:1px solid #fff;border-radius:19px}
+ .app .nav-more-menu{position:absolute;top:calc(100% + 18px);right:0;bottom:auto;width:236px;margin:0;padding:8px;max-height:65dvh}
+ .app main{margin:0 auto;width:100%;max-width:1288px;padding:126px 24px 36px}
+ .app main>header{display:none}
+ .app .cloud-status{justify-content:flex-end;margin:0 0 8px;color:var(--fashion-muted);font-size:11px}
+ .app .cloud-status.error,.app .cloud-status.conflict{justify-content:space-between}
+ .app .page-heading{margin:18px 0 28px;gap:24px}.app .page-heading .eyebrow{display:none}
+ .app .page-heading h1{font-size:clamp(34px,3.2vw,46px);line-height:1.12;letter-spacing:-1.7px;color:var(--fashion-ink);margin-bottom:10px}
+ .app .page-heading>div>p:last-child{font-size:14px;color:var(--fashion-muted)}
+ .app .heading-actions>.primary{border-radius:24px;min-height:50px;background:var(--fashion-dark);padding:14px 22px}
+ .app .editorial-lookbook{display:none}
+ .app .phone-edit{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);grid-template-rows:auto auto 1fr auto;column-gap:36px;position:relative;isolation:isolate;overflow:hidden;padding:38px 42px;min-height:365px;border-radius:34px;background:var(--fashion-dark);color:#fff;box-shadow:0 16px 35px #17171917}
+ .phone-edit::before{content:'';position:absolute;z-index:-1;inset:0;background:radial-gradient(ellipse at 90% 20%,#d5bfa12b,transparent 62%)}
+ .phone-edit-top{display:flex;justify-content:space-between;align-items:center;grid-column:1;grid-row:1;font-size:10px;font-weight:600;letter-spacing:2px;color:var(--fashion-champagne)}
+ .phone-spark{position:absolute;right:31px;top:26px;font-size:36px;font-weight:400;line-height:1}
+ .app .phone-edit h2{grid-column:1;grid-row:2;font:400 clamp(40px,4.4vw,62px)/1.04 Georgia,serif;letter-spacing:-2px;text-wrap:initial;color:#fff;margin:23px 0 18px}
+ .app .phone-edit h2 em{font-style:italic;color:var(--fashion-champagne)}
+ .app .remix-description{display:block;grid-column:1;grid-row:3;color:#d2c8bd;font-size:13px;line-height:1.8;margin:0 0 24px}
+ .phone-piece-stack{grid-column:2;grid-row:1/5;display:flex;align-items:center;justify-content:center;min-width:0;gap:0;padding:26px 10px}
+ .phone-piece-stack>div{width:33%;height:238px;min-width:0;overflow:hidden;border:7px solid #f9f7f0;border-radius:24px;background:#f0eee7;box-shadow:0 14px 30px #0003;transform:rotate(-9deg) translateY(8px)}
+ .phone-piece-stack>div:nth-child(2){height:274px;z-index:2;transform:rotate(3deg)}
+ .phone-piece-stack>div:nth-child(3){transform:rotate(11deg) translateY(10px)}
+ .phone-piece-stack img{width:100%;height:100%;object-fit:contain}.app .phone-piece-stack>p{color:#eee7dd;font:26px/1.4 Georgia,serif;text-align:center}
+ .phone-edit-bottom{grid-column:1;grid-row:4;display:flex;align-items:center;justify-content:space-between;gap:18px}
+ .phone-edit-bottom>span{font-size:11px;line-height:1.7;color:#d9d0c3}
+ .app .phone-edit-bottom button{border:0;background:var(--fashion-champagne);color:var(--fashion-ink);border-radius:25px;padding:14px 22px;min-height:50px;font-size:13px;white-space:nowrap}
+ .phone-edit-bottom button span{margin-left:18px;font-size:19px}.app .phone-edit-bottom button:hover{background:#e4d3ba;transform:translateY(-2px)}
+ .app .stats{gap:0;margin:22px 0 32px;padding:0;border:1px solid #fff;background:#ffffffa8;border-radius:26px;overflow:hidden}
+ .app .stats>div,.app .stats>div:first-child{display:flex;justify-content:center;align-items:center;padding:23px;gap:14px;border:0;border-radius:0;background:none;box-shadow:none}
+ .app .stats>div+div{border-left:1px solid var(--fashion-line)}.app .stats strong{color:var(--fashion-ink);font-size:30px}.app .stats span{color:var(--fashion-muted);font-size:12px}
+ .app .wardrobe-heading{flex-direction:row;align-items:center;margin:30px 0 16px;border:0;padding:0;gap:20px}.app .wardrobe-heading h2{font-size:25px;font-weight:600}
+ .app .wardrobe-heading .wardrobe-tools{width:auto;display:flex;gap:10px;margin-left:auto;flex-wrap:nowrap}.app .wardrobe-heading .search{width:260px;flex:none;background:#fff;border:1px solid var(--fashion-line);border-radius:17px;padding:2px 12px}
+ .app .wardrobe-heading .search input{font-size:13px;min-height:44px}.app .wardrobe-heading .wardrobe-tools select{background:#fff;border:1px solid var(--fashion-line);border-radius:17px;width:145px;min-height:48px;font-size:12px}
+ .app .wardrobe-heading select[aria-label='Filter wardrobe']{display:none}
+ .app .phone-categories{display:flex;gap:9px;overflow-x:auto;scrollbar-width:thin;padding:4px 2px 12px;margin-bottom:14px}
+ .app .phone-categories button{white-space:nowrap;min-height:44px;padding:10px 20px;font-size:12px;font-weight:550;border:1px solid var(--fashion-line);border-radius:25px;background:#fff8;color:var(--fashion-muted)}
+ .app .phone-categories button[aria-pressed=true]{background:var(--fashion-accent);border-color:var(--fashion-accent);color:#fff}
+ .app .wardrobe-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}.app .wardrobe-grid .item-card{padding:8px;border:1px solid #fff;border-radius:26px;background:#ffffffb8;box-shadow:0 8px 24px #19191906;transition:transform var(--fashion-motion) var(--fashion-ease),box-shadow var(--fashion-motion) ease}
+ .app .wardrobe-grid .item-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px #19191910}.app .wardrobe-grid .item-visual{height:auto;aspect-ratio:4/5;background:#eeebe5;border-radius:20px}
+ .app .wardrobe-grid .item-info{padding:15px 9px 12px}.app .wardrobe-grid .item-info h3{font-size:13px;line-height:1.45}.app .wardrobe-grid .item-info p{font-size:11px;flex-wrap:wrap}
+ .app .wardrobe-grid .item-tag,.app .wardrobe-grid .item-status{border-radius:12px;background:#fffdf2eb}.app .wardrobe-grid .edit-hint{display:none}
+ .app .studio-simple{max-width:860px;margin:0 auto}.app .studio-workspace{grid-template-columns:minmax(0,1fr)}
+ .app .studio-brief{padding:34px;border-radius:30px;background:#ffffffbf;border:1px solid #fff;box-shadow:0 10px 35px #19191908}
+ .app .studio-title{margin-bottom:26px}.app .studio-title h2{font:400 32px Georgia,serif;letter-spacing:-.8px;margin:0}
+ .app .studio-status{background:#eee7df;color:var(--fashion-muted);border-radius:20px;padding:9px 12px;font-size:10px}
+ .app .studio-brief-fields{display:grid;grid-template-columns:minmax(0,1fr);gap:24px}.app .studio-occasion{display:none}
+ .app .phone-occasions{display:flex;gap:12px}.app .phone-occasions button{display:flex;flex:1;min-width:0;align-items:center;justify-content:center;gap:12px;padding:20px 16px;border:1px solid var(--fashion-line);border-radius:22px;background:var(--fashion-bg);font-size:13px;color:var(--fashion-muted)}
+ .phone-occasions button>span{font-size:25px}.app .phone-occasions button[aria-pressed=true]{background:#f0e4e8;border-color:#b97688;color:var(--fashion-accent)}
+ .app .studio-label textarea{min-height:135px;padding:18px;font-size:16px;border-radius:20px;background:var(--fashion-bg);border-color:var(--fashion-line)}
+ .app .studio-preferences{margin-top:22px}.app .studio-preferences>summary{min-height:44px;padding:12px 0;color:var(--fashion-muted)}
+ .app .studio-provider-note{font-size:11px;line-height:1.7;color:var(--fashion-muted);margin-top:20px}.app .studio-buttons>.primary{border-radius:21px;min-height:56px;font-size:14px;padding:16px 22px}
+ .app .look-preview{padding:28px;border-radius:30px}.app .look-preview strong{font:400 30px/1.2 Georgia,serif}
+ .app .modal{border-radius:30px;padding:30px;scrollbar-width:thin;scrollbar-color:#c8b7a0 transparent}
+ .app .modal:has(.outfit-card){width:min(1000px,100%);padding:30px;background:var(--fashion-bg)}
+ .app .outfit-card .studio-look{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px;align-items:center}
+ .app .outfit-card .studio-look-photos{padding:18px 12px;background:#ece6dc;border:1px solid #fff;border-radius:26px;gap:9px;grid-template-columns:repeat(3,minmax(0,1fr))}
+ .app .outfit-card .studio-piece-image{height:195px;background:#faf8f3;border:5px solid #fff;border-radius:18px;box-shadow:0 6px 14px #19191910}
+ .app .outfit-card .studio-look-photos>button:nth-child(3n+1) .studio-piece-image{transform:rotate(-3deg)}.app .outfit-card .studio-look-photos>button:nth-child(3n+3) .studio-piece-image{transform:rotate(3deg)}
+ .app .outfit-card .studio-look-photos strong{color:var(--fashion-ink)}.app .outfit-card .studio-look-story{padding:8px 0}.app .outfit-card .studio-look-story>p{color:var(--fashion-muted);font-size:14px;line-height:1.8}
+ .app .outfit-card .studio-tip{background:#efe5e1;border:0;border-radius:20px;padding:16px}.app .outfit-card .studio-save{background:transparent;border:0;padding:0;box-shadow:none}
+ .app .outfit-card .studio-save>.toolbar:first-child{padding:18px 0;border-top:1px solid var(--fashion-line)}.app .outfit-card .studio-save .primary{min-width:190px}
+ .app .saved-look{overflow:hidden;background:#fffdf9}.app .saved-look-content{padding:28px}.app .saved-look-content h2{font:400 29px/1.2 Georgia,serif;color:var(--fashion-ink)}
+ .app .memory-card h2,.app .quest-card h2{font-family:Georgia,serif;font-weight:400}.app footer{border-color:var(--fashion-line);color:var(--fashion-muted)}
+}
+@media(min-width:761px) and (max-width:1000px){
+ .app .sidebar{gap:12px;padding-inline:16px}.app .brand{font-size:16px}.app .fluid-navigation .nav{padding:12px;gap:7px;font-size:11px}
+ .app .phone-edit{padding:30px;column-gap:24px;min-height:340px}.app .phone-edit h2{font-size:42px}.phone-piece-stack>div{height:180px;border-width:5px}.phone-piece-stack>div:nth-child(2){height:218px}
+ .phone-edit-bottom{align-items:flex-start;flex-direction:column;gap:14px}.app .remix-description{font-size:12px}.app .wardrobe-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+ .app .wardrobe-heading .search{width:210px}.app .stats>div{padding:20px 12px}.app .stats span{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){.app .wardrobe-grid .item-card,.app .phone-edit-bottom button{transition:none}.app .wardrobe-grid .item-card:hover,.app .phone-edit-bottom button:hover{transform:none}}

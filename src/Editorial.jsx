@@ -21,6 +21,7 @@ export function ClosetHero({ items = [], onStyle, reviewCount = 0 }) {
   return <><section className="phone-edit" aria-labelledby="phone-edit-title">
     <div className="phone-edit-top"><span>YOUR DAILY REMIX</span><span className="phone-spark" aria-hidden="true">✧</span></div>
     <h2 id="phone-edit-title">Same closet.<br/><em>New possibilities.</em></h2>
+    <p className="remix-description">A fresh perspective on the pieces you already love.<br/>Find a combination that feels like you.</p>
     <div className="phone-piece-stack">{pieces.map(item=><div key={item.id}><Garment item={item} loading="eager"/></div>)}{!pieces.length&&<p>Your next favorite outfit<br/>starts with your own pieces.</p>}</div>
     <div className="phone-edit-bottom"><span>{ready} pieces ready<br/>{reviewSummary || 'Made from what you own'}</span><button onClick={onStyle}>Style my day <span aria-hidden="true">↗</span></button></div>
   </section><section className="closet-editorial editorial-lookbook" aria-labelledby="closet-editorial-title">
