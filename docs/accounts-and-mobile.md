@@ -35,3 +35,10 @@ Dialogs render outside animated page containers, isolate background controls, tr
 `tests/cloud.test.js` checks session refresh, cookie flags, scoped photos, configuration, stale writes, rapid edits, and failed uploads. `tests/cloud-api.test.js` tests the HTTP authentication/origin boundaries and verified ownership. These use controlled provider responses, not a claim of successful live email delivery.
 
 `supabase/tests/owner-isolation.sql` exercises actual database permissions with transaction-scoped synthetic users, owner reads/writes, stale revisions, cross-owner data/photo isolation, and anonymous denial; successful execution rolls back all fixtures. Live signup, email delivery, camera hardware, and a two-device user session must be reported separately from automated checks.
+
+
+## Hosted verification — October 19, 2026
+
+Render successfully deployed commit `273e8ca632f7e4eba3af697dc1439379b5f38855`. The Supabase migration completed, and the Site URL and exact redirect URL are the deployed HTTPS origin. The transactional database isolation script passed all assertions and rolled back its synthetic fixtures. Direct unauthenticated Supabase REST reads of both tables returned 401. The hosted health check returned 200, `/api/session` reported account mode with no user, and private wardrobe/photo endpoints returned 401 without a session. Supporting machine-readable checks are in `output/mobile/`.
+
+The live sign-in interface was inspected. This verifies deployment and access boundaries, not a completed signup or authenticated cross-device user journey. Brevo Free was selected for custom SMTP; provider account setup, sender verification, and end-to-end confirmation/reset email delivery remain pending. No email confirmation protections were disabled.
