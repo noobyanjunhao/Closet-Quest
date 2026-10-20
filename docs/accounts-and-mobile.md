@@ -41,4 +41,20 @@ Dialogs render outside animated page containers, isolate background controls, tr
 
 Render successfully deployed commit `273e8ca632f7e4eba3af697dc1439379b5f38855`. The Supabase migration completed, and the Site URL and exact redirect URL are the deployed HTTPS origin. The transactional database isolation script passed all assertions and rolled back its synthetic fixtures. Direct unauthenticated Supabase REST reads of both tables returned 401. The hosted health check returned 200, `/api/session` reported account mode with no user, and private wardrobe/photo endpoints returned 401 without a session. Supporting machine-readable checks are in `output/mobile/`.
 
-The live sign-in interface was inspected. This verifies deployment and access boundaries, not a completed signup or authenticated cross-device user journey. Brevo Free account setup and sender verification are complete. Custom SMTP was saved in Supabase using the verified Closet Quest sender, `smtp-relay.brevo.com`, and port 587. A dashboard reload confirmed that SMTP remained enabled and the password was stored and hidden. Credentials are held by Supabase and are not committed to the repository. End-to-end confirmation/reset email delivery remains pending a real account test. No email confirmation protections were disabled.
+Brevo Free account setup and sender verification are complete. Custom SMTP was saved in Supabase using the verified Closet Quest sender, `smtp-relay.brevo.com`, and port 587. A dashboard reload confirmed that SMTP remained enabled and the password was stored and hidden. Credentials are held by Supabase and are not committed to the repository. The owner subsequently confirmed receiving the confirmation email and signing in. Password-reset delivery remains unverified. No email confirmation protections were disabled.
+
+### Authenticated browser smoke test
+
+The deployed account flow was exercised with three existing public demonstration photos, labeled `TEST` in the wardrobe. This is one account and known fixtures, not an unseen-photo accuracy study or human acceptance evaluation.
+
+- All three files uploaded together; recognition returned Top, Bottom, and Shoes correctly. Human-review controls applied the suggestions, accepted edited names, and advanced through all three pieces.
+- Private images and reviewed metadata survived reload, a fresh tab, and sign-out/sign-in. The existing profile and style selection were preserved.
+- Two real OpenAI styling requests returned only owned reviewed pieces. The interface reported 3.2 and 3.4 seconds respectively; these are pipeline-reported durations, not independently instrumented cold/warm end-to-end latency. No fallback notice appeared in either result (0/2 observed).
+- A labeled personal note was saved and reported a ready vector index. Hybrid search returned the note; a subsequent outfit's evidence panel showed it was included in model context.
+- One renamed outfit persisted in Saved looks. Wear recorded once, disabled the repeat action, and appeared in the journal. Undo restored all three garment counts to zero; the restored state survived reauthentication.
+- Export produced a JSON backup containing three embedded photos, one saved outfit, two recommendation records, and zero remaining test wear records.
+- Opening a garment from an outfit card replaced the card with the garment editor rather than stacking two dialogs.
+
+Two copy issues were corrected: the initial session check no longer implies browser-only pilot storage, and the style preference screen no longer says all preferences are stored only on the device. The production build passed after these text changes.
+
+Limitations: the browser viewport override did not take effect (observed width 1280), so this run verifies desktop flow, not phone layout, touch gestures, or physical camera capture. Multi-piece detection in a single photo, password reset, multi-device conflicts, and human outfit acceptance remain separate tests. No acceptance feedback was fabricated. The three test pieces, one saved look, and one clearly labeled reference remain available for review; the test wear was undone.

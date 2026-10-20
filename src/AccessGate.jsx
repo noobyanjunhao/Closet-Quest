@@ -44,5 +44,5 @@ export default function AccessGate(){
  </form>}
  {accounts&&!callback&&mode!=='password'&&<div className="auth-switch"><button onClick={()=>{setMode(mode==='signup'?'login':'signup');setError('');setMessage('');}}>{mode==='signup'?'Already have an account? Sign in':'New here? Create an account'}</button>{mode==='login'?<button onClick={()=>{setMode('recover');setError('');}}>Forgot password?</button>:mode==='recover'&&<button onClick={()=>setMode('login')}>Back to sign in</button>}</div>}
  {!session&&error&&<p role="alert">{error}<button onClick={check}>Retry connection</button></p>}
- <p className="auth-privacy">{accounts?'Private by default. Your photos and wardrobe are saved in your account. AI analysis uses the provider you choose.':'Your pilot wardrobe stays in this browser. Export a backup before changing devices.'}</p></section></div>;
+ <p className="auth-privacy">{!session?'Securely checking your session…':accounts?'Private by default. Your photos and wardrobe are saved in your account. AI analysis uses the provider you choose.':'Your pilot wardrobe stays in this browser. Export a backup before changing devices.'}</p></section></div>;
 }
