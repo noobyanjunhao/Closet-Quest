@@ -4,7 +4,7 @@ import { retrieveWardrobeHybrid } from './hybrid-retrieval.js';
 import { createOpenAIChat, openAIStatus, resolveOpenAIModel } from './openai.js';
 import { PipelineError } from './recognition.js';
 import { personalizeRequest, applyPreferenceScores } from './personalization.js';
-import { retrievalDependenciesFor } from './retrieval-provider.js';
+import { retrievalDependenciesFor, interactiveRetrievalOptions } from './retrieval-provider.js';
 import { retrieveWardrobe } from './retrieval.js';
 import { stylingOccasion, shoppingSuggestions, quickStylingNote } from './styling-brief.js';
 
@@ -58,7 +58,8 @@ export async function recommend(body, { signal, retrieve = retrieveWardrobeHybri
   const personal=personalizeRequest(body);
   const retrievalRequest=[personal.request,personal.preferenceSummary].filter(Boolean).join(' ').slice(0,2000);
   const retrievalBudget=budgets.retrievalMs??4000;
-  const wardrobeWork=withinBudget(stageSignal=>retrieve(personal.items, { ...personal,request:retrievalRequest, signal:stageSignal }, { timeoutMs: retrievalBudget, ...retrievalDependenciesFor({provider,embeddingProvider:personal.preferences.embeddingProvider,wardrobeId:body.wardrobeId}), ...retrievalDependencies, ...(provider === 'quick' || !personal.items.some(i=>!i.needsReview) ? { enabled: false } : {}) }),retrievalBudget,signal,'RETRIEVAL_TIMEOUT').catch(error=>{
+  const fastOptions=interactiveRetrievalOptions({...personal,provider,studyCondition});
+  const wardrobeWork=withinBudget(stageSignal=>retrieve(personal.items, { ...personal,request:retrievalRequest, signal:stageSignal }, { timeoutMs: retrievalBudget, ...retrievalDependenciesFor({provider,embeddingProvider:personal.preferences.embeddingProvider,wardrobeId:body.wardrobeId}), ...fastOptions, ...retrievalDependencies, ...(provider === 'quick' || !personal.items.some(i=>!i.needsReview) ? { enabled: false } : {}) }),retrievalBudget,signal,'RETRIEVAL_TIMEOUT').catch(error=>{
     if(signal?.aborted)throw signal.reason;
     if(error.status===400)throw error;
     const lexical=retrieveWardrobe(personal.items,{...personal,request:retrievalRequest});
@@ -66,7 +67,7 @@ export async function recommend(body, { signal, retrieve = retrieveWardrobeHybri
   });
   const knowledgeWork=(async()=>{
     if(!knowledgeSearch||typeof body.wardrobeId!=='string')return {sources:[],metadata:{mode:'not-requested'}};
-    try {return await withinBudget(stageSignal=>knowledgeSearch(body.wardrobeId,[personal.context,retrievalRequest].join(' ').slice(0,1000),{signal:stageSignal,limit:4,lexicalOnly:provider==='quick',embeddingProvider:personal.preferences.embeddingProvider}),budgets.knowledgeMs??4000,signal,'KNOWLEDGE_TIMEOUT');}
+    try {return await withinBudget(stageSignal=>knowledgeSearch(body.wardrobeId,[personal.context,retrievalRequest].join(' ').slice(0,1000),{signal:stageSignal,limit:4,lexicalOnly:provider==='quick',indexOnRead:provider!=='quick'&&(personal.preferences.modelProfile!=='fast'||Boolean(studyCondition)),embeddingProvider:personal.preferences.embeddingProvider}),budgets.knowledgeMs??4000,signal,'KNOWLEDGE_TIMEOUT');}
     catch(error){if(signal?.aborted)throw signal.reason;return {sources:[],metadata:{mode:'unavailable',reason:'Personal notes were unavailable in time. Using wardrobe facts and preferences.'}};}
   })();
   let [prepared,knowledge]=await Promise.all([wardrobeWork,knowledgeWork]);

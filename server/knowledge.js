@@ -122,7 +122,7 @@ export function createKnowledgeStore({ storageDir = defaultDirectory, embeddingC
     if (typeof selected !== 'string' || !['local', 'openai'].includes(selected)) throw new KnowledgeError('Choose local or OpenAI document embeddings.', 'INVALID_PROVIDER');
     return { provider: selected, client: clients[selected] };
   }
-  async function embed(records, { signal: parentSignal, embeddingProvider: provider, budget }) {
+  async function embed(records, { signal: parentSignal, embeddingProvider: provider, budget, wardrobeId }) {
     const selected = chooseClient(provider);
     if (!selected.client?.embed) throw new KnowledgeError('The selected embedding service is not configured.', 'EMBEDDING_UNAVAILABLE', 503);
     const timeout = AbortSignal.timeout(budget);
@@ -131,7 +131,7 @@ export function createKnowledgeStore({ storageDir = defaultDirectory, embeddingC
     // Race the signal as well as passing it to adapters, so a broken adapter cannot stall a request.
     let onAbort;
     try {
-      const result = await Promise.race([selected.client.embed(records, { signal }), new Promise((_, reject) => { onAbort = () => reject(signal.reason); signal.addEventListener('abort', onAbort, { once: true }); })]);
+      const result = await Promise.race([selected.client.embed(records, { signal, wardrobeId }), new Promise((_, reject) => { onAbort = () => reject(signal.reason); signal.addEventListener('abort', onAbort, { once: true }); })]);
       signal.throwIfAborted();
       const identity = embeddingIdentity(result?.metadata, selected.provider);
       if (!Array.isArray(result.vectors) || result.vectors.length !== records.length) throw new KnowledgeError('Embedding count is invalid.', 'INVALID_EMBEDDING', 502);
@@ -157,7 +157,7 @@ export function createKnowledgeStore({ storageDir = defaultDirectory, embeddingC
     // Reject full libraries before any potentially billable embedding request.
     checkCapacity();
     let indexed = null, failure = null;
-    if (!lexicalOnly) try { indexed = await embed(chunks.map(chunk => documentEmbeddingRecord(doc.title, chunk.text)), { signal, embeddingProvider: provider, budget: indexTimeoutMs }); }
+    if (!lexicalOnly) try { indexed = await embed(chunks.map(chunk => documentEmbeddingRecord(doc.title, chunk.text)), { signal, embeddingProvider: provider, budget: indexTimeoutMs, wardrobeId:namespace }); }
     catch (error) { if (signal?.aborted) throw signal.reason; failure = safeCode(error); }
     signal?.throwIfAborted(); assertOpen();
     transaction(() => {
@@ -180,7 +180,7 @@ export function createKnowledgeStore({ storageDir = defaultDirectory, embeddingC
       const batch = rows.slice(offset, offset + 32), remaining = Math.floor(indexTimeoutMs - (performance.now() - started));
       if (remaining <= 0) { failure = 'EMBEDDING_TIMEOUT'; break; }
       let result;
-      try { result = await embed(batch.map(row => documentEmbeddingRecord(row.title, row.text)), { signal, embeddingProvider: provider, budget: remaining }); }
+      try { result = await embed(batch.map(row => documentEmbeddingRecord(row.title, row.text)), { signal, embeddingProvider: provider, budget: remaining, wardrobeId:namespace }); }
       catch (error) { if (signal?.aborted) throw signal.reason; failure = safeCode(error); break; }
       signal?.throwIfAborted(); assertOpen(); lastIdentity = result.identity;
       // Text hash plus title protects against concurrent edits while a model request was running.
@@ -200,7 +200,7 @@ export function createKnowledgeStore({ storageDir = defaultDirectory, embeddingC
     const started = performance.now();
     let rows = rowsFor.all(namespace), queryEmbedding = null, failure = null;
     if (!lexicalOnly && rows.some(row => row.vector)) try {
-      queryEmbedding = await embed([{ kind: 'query', text: `Instruct: Retrieve style guidance relevant to this user's wardrobe request.\nQuery: ${text}` }], { signal, embeddingProvider: provider, budget: searchTimeoutMs });
+      queryEmbedding = await embed([{ kind: 'query', text: `Instruct: Retrieve style guidance relevant to this user's wardrobe request.\nQuery: ${text}` }], { signal, embeddingProvider: provider, budget: searchTimeoutMs, wardrobeId:namespace });
     } catch (error) { if (signal?.aborted) throw signal.reason; failure = safeCode(error); }
     signal?.throwIfAborted(); assertOpen();
     // Re-read after inference so removed or edited notes cannot leak from an earlier snapshot.
@@ -226,7 +226,7 @@ export function createKnowledgeStore({ storageDir = defaultDirectory, embeddingC
       if (sources.length === limit) break;
     }
     const mode = compatibleChunks ? 'hybrid' : failure || staleChunks || corruptChunks ? 'lexical-fallback' : 'lexical';
-    return { sources, metadata: { version: KNOWLEDGE_VERSION, mode, trust: 'untrusted-context', embedding: queryEmbedding?.identity || null, fallback: failure || (staleChunks ? 'EMBEDDING_INDEX_STALE' : corruptChunks ? 'INVALID_STORED_EMBEDDING' : null), totalChunks: rows.length, indexedChunks: rows.filter(row => row.vector).length, compatibleChunks, staleChunks, corruptChunks, lexicalOnly, timingMs: Math.round(performance.now() - started) } };
+    return { sources, metadata: { version: KNOWLEDGE_VERSION, mode, trust: 'untrusted-context', embedding: queryEmbedding?.identity || null, queryEmbeddingCache:queryEmbedding?.metadata?.cache || null, fallback: failure || (staleChunks ? 'EMBEDDING_INDEX_STALE' : corruptChunks ? 'INVALID_STORED_EMBEDDING' : null), totalChunks: rows.length, indexedChunks: rows.filter(row => row.vector).length, compatibleChunks, staleChunks, corruptChunks, lexicalOnly, timingMs: Math.round(performance.now() - started) } };
   }
   function close() { if (!closed) { database.close(); closed = true; } }
   return { list, upsert, remove, reindex, search, close };

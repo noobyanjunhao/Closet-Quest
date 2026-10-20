@@ -2,11 +2,11 @@ import { fileURLToPath } from 'node:url';
 import './env.js';
 import { createAccess } from './access.js';
 import {createCloud,cloudConfigured} from './cloud.js';
-import {createHash} from 'node:crypto';
+import {createCloudKnowledgeHydrator} from './cloud-knowledge.js';
 import { recognizeWithProvider as recognize } from './recognition-provider.js';
 import { createKnowledgeStore } from './knowledge.js';
 import { recommend as style, resolveProvider } from './recommendation.js';
-import { openAIStatus, createOpenAIEmbeddingClient } from './openai.js';
+import { openAIStatus } from './openai.js';
 import { createDepopClient, depopStatus } from './depop.js';
 import { createJobQueue } from './jobs.js';
 import { PIPELINE_VERSION } from './recognition.js';
@@ -15,7 +15,7 @@ import { recordLearningEvent, getLearningStatus, exportLearningData } from './le
 import { modelFor } from './model-config.js';
 import { analyzeInspiration } from './inspiration.js';
 import { personalizeRequest, applyPreferenceScores } from './personalization.js';
-import { retrievalDependenciesFor } from './retrieval-provider.js';
+import { retrievalDependenciesFor, interactiveRetrievalOptions, createScopedDocumentEmbeddings } from './retrieval-provider.js';
 
 async function listModels() {
   const response=await fetch('http://127.0.0.1:11434/api/tags',{signal:AbortSignal.timeout(3000)});
@@ -44,23 +44,8 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
   const handlers={recognize,analyzeInspiration,style,retrieveWardrobeHybrid,recordLearningEvent,getLearningStatus,exportLearningData,listModels,...services};
   const queue=createJobQueue(handlers.recognize,{...queueOptions,storageDir});
   let knowledge=knowledgeStore;
-  const getKnowledge=()=>knowledge||(knowledge=createKnowledgeStore({storageDir:knowledgeDir,embeddingClients:{openai:createOpenAIEmbeddingClient()}}));
-  const documentVersions=new Map(),hydrations=new Map();
-  async function hydratedKnowledge(user) {
-    if(!cloud||!user?.cloud)return getKnowledge();
-    const previous=hydrations.get(user.id)||Promise.resolve();
-    const pending=previous.catch(()=>{}).then(async()=>{
-      const docs=await cloud.documents(user),store=getKnowledge(),existing=await store.list(user.namespace),remoteIds=new Set(docs.map(d=>d.id));
-      for(const doc of existing)if(doc.origin==='user'&&!remoteIds.has(doc.id)){await store.remove(user.namespace,doc.id);documentVersions.delete(`${user.id}:${doc.id}`);}
-      // Cloud documents are durable; the local vector index is a rebuildable cache.
-      let indexed=0;
-      for(const doc of docs){const key=`${user.id}:${doc.id}`,version=createHash('sha256').update(JSON.stringify(doc)).digest('hex');
-        if(documentVersions.get(key)!==version){await store.upsert(user.namespace,doc,{embeddingProvider:'openai',lexicalOnly:indexed++>=2});documentVersions.set(key,version);}
-      }
-      return store;
-    });
-    hydrations.set(user.id,pending);try{return await pending;}finally{if(hydrations.get(user.id)===pending)hydrations.delete(user.id);}
-  }
+  const getKnowledge=()=>knowledge||(knowledge=createKnowledgeStore({storageDir:knowledgeDir,embeddingClients:{openai:createScopedDocumentEmbeddings()}}));
+  const hydratedKnowledge=createCloudKnowledgeHydrator({cloud,getStore:getKnowledge});
   const controllers=new Set();let active=false,closed=false,remoteActive=0;
   async function middleware(req,res) {
     res.setHeader('Content-Type','application/json');res.setHeader('Cache-Control','no-store');
@@ -127,7 +112,7 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
         let saved,removed;
         if(cloud&&user?.cloud&&route==='/knowledge/documents')saved=await cloud.saveDocument(user,body);
         if(cloud&&user?.cloud&&route==='/knowledge/delete')removed=await cloud.removeDocument(user,body.id);
-        const store=await hydratedKnowledge(user);let result;
+        const store=await hydratedKnowledge(user,{signal:controller.signal});let result;
         if(route==='/knowledge/list')result={documents:await store.list(body.wardrobeId)};
         if(route==='/knowledge/documents')result=saved?{document:(await store.list(user.namespace)).find(d=>d.id===saved.id),indexing:{mode:'cloud-saved',message:'Saved to your account. Your search index is rebuilt as needed.'}}:await store.upsert(body.wardrobeId,body,{signal:controller.signal,embeddingProvider:body.embeddingProvider||'local'});
         if(route==='/knowledge/delete')result=removed||await store.remove(body.wardrobeId,body.id);
@@ -138,12 +123,12 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
       if(route==='/retrieve'){
         const personal=personalizeRequest(body);
         const request=[personal.request,personal.preferenceSummary].filter(Boolean).join(' ').slice(0,2000);
-        const prepared=await handlers.retrieveWardrobeHybrid(personal.items,{...personal,request,signal:controller.signal},{timeoutMs:6000,...retrievalDependenciesFor({provider:body.provider,embeddingProvider:personal.preferences.embeddingProvider,wardrobeId:body.wardrobeId})});
+        const prepared=await handlers.retrieveWardrobeHybrid(personal.items,{...personal,request,signal:controller.signal},{timeoutMs:6000,...retrievalDependenciesFor({provider:body.provider,embeddingProvider:personal.preferences.embeddingProvider,wardrobeId:body.wardrobeId}),...interactiveRetrievalOptions({...personal,provider:body.provider,studyCondition:body.studyCondition})});
         const {retrieval}=applyPreferenceScores(prepared,personal);
         return res.end(JSON.stringify({retrieval}));
       }
       if(route==='/inspiration')return res.end(JSON.stringify(await handlers.analyzeInspiration(body.image,{signal:controller.signal})));
-      res.end(JSON.stringify(await(route==='/recognize'?handlers.recognize(body.image,{crop:body.crop,detectionMode:body.detectionMode,provider:body.provider,modelProfile:body.modelProfile,wardrobeId:body.wardrobeId,signal:controller.signal}):handlers.style(body,{signal:controller.signal,knowledgeSearch:async(...args)=>(await hydratedKnowledge(user)).search(...args)}))));
+      res.end(JSON.stringify(await(route==='/recognize'?handlers.recognize(body.image,{crop:body.crop,detectionMode:body.detectionMode,provider:body.provider,modelProfile:body.modelProfile,wardrobeId:body.wardrobeId,signal:controller.signal}):handlers.style(body,{signal:controller.signal,knowledgeSearch:async(wardrobeId,query,options)=>(await hydratedKnowledge(user,options)).search(wardrobeId,query,options)}))));
     }catch(error){if(!res.destroyed){res.statusCode=error.status||503;res.end(JSON.stringify({error:error.message,code:error.code,retryable:error.retryable===true}));}}
     finally{if(abortDisconnected)res.off('close',abortDisconnected);if(controller)controllers.delete(controller);if(claimed)active=false;if(remoteClaimed)remoteActive--;}
   }

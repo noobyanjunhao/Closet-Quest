@@ -88,3 +88,19 @@ export function createRetrievalProvider({ openaiFactory = createOpenAIEmbeddingC
 }
 
 export const retrievalDependenciesFor = createRetrievalProvider();
+
+// All eligible records fit in the existing 18-item prompt shortlist. Embeddings
+// cannot add another candidate, so Fast ranks locally; other profiles keep hybrid.
+export function interactiveRetrievalOptions({items,preferences,provider,studyCondition}) {
+  return provider !== 'quick' && !studyCondition && preferences?.modelProfile === 'fast'
+    && items.filter(item=>!item.needsReview).length <= 18
+    ? {enabled:false,smallCloset:true} : {};
+}
+
+// The same bounded, account-scoped vector cache can serve document queries/chunks.
+// Never cache a search result: documents are re-read after inference on every search.
+export function createScopedDocumentEmbeddings(provider = retrievalDependenciesFor) {
+  return {embed(records,{signal,wardrobeId}={}) {
+    return provider({provider:'openai',embeddingProvider:'openai',wardrobeId}).embeddingClient.embed(records,{signal});
+  }};
+}

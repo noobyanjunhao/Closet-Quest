@@ -28,8 +28,8 @@ export function createCloud({url=process.env.SUPABASE_URL,key=process.env.SUPABA
  const refreshes=new Map(),attempts=new Map();
  const publicUser=u=>({id:u.id,namespace:u.id,email:u.email,cloud:true});
  const cookie=(req,name)=>(req.headers.cookie||'').split(';').map(x=>x.trim()).find(x=>x.startsWith(name+'='))?.slice(name.length+1);
- async function request(path,{token,method='GET',body,headers={},raw=false}={}){
-  let r;try{r=await fetchImpl(url+path,{method,redirect:'error',signal:AbortSignal.timeout(15000),headers:{apikey:key,...(token?{Authorization:`Bearer ${token}`}:{}) ,...(body!==undefined?{'Content-Type':'application/json'}:{}),...headers},body:body===undefined?undefined:typeof body==='string'||Buffer.isBuffer(body)?body:JSON.stringify(body)});}catch{throw error('Cloud connection interrupted. Your local changes are safe.');}
+ async function request(path,{token,method='GET',body,headers={},raw=false,signal}={}){
+  let r;try{r=await fetchImpl(url+path,{method,redirect:'error',signal:signal?AbortSignal.any([signal,AbortSignal.timeout(15000)]):AbortSignal.timeout(15000),headers:{apikey:key,...(token?{Authorization:`Bearer ${token}`}:{}) ,...(body!==undefined?{'Content-Type':'application/json'}:{}),...headers},body:body===undefined?undefined:typeof body==='string'||Buffer.isBuffer(body)?body:JSON.stringify(body)});}catch{if(signal?.aborted)throw signal.reason;throw error('Cloud connection interrupted. Your local changes are safe.');}
   if(!r.ok){let data;try{data=await r.json();}catch{}const conflict=r.status===409;
    throw error(r.status===401||r.status===403?'Your session expired. Please sign in again.':r.status===429?'Too many attempts. Please wait before trying again.':conflict?'This record changed on another device.':r.status===400||r.status===422?'Check your details and email confirmation, then try again.':'Cloud service unavailable. Please try again.',r.status, data?.code==='email_not_confirmed'?'EMAIL_NOT_CONFIRMED':conflict?'CLOUD_CONFLICT':'CLOUD_REQUEST_FAILED');
   }
@@ -92,7 +92,7 @@ export function createCloud({url=process.env.SUPABASE_URL,key=process.env.SUPABA
   await request(`/storage/v1/object/closet-photos/${user.id}/${id}`,{method:'POST',token:user.token,body:normalized,headers:{'Content-Type':transparent?'image/png':'image/jpeg','x-upsert':'true'}});return {image:`/api/cloud/photos/${id}`};
  }
  async function photo(user,id){if(!/^[a-f0-9]{64}\.(jpg|png)$/.test(id))throw error('Photo not found.',404);return request(`/storage/v1/object/authenticated/closet-photos/${user.id}/${id}`,{token:user.token,raw:true});}
- async function documents(user){return request(`/rest/v1/style_documents?user_id=eq.${user.id}&select=id,title,content,source,updated_at`,{token:user.token});}
+ async function documents(user,{signal}={}){return request(`/rest/v1/style_documents?user_id=eq.${user.id}&select=id,title,content,source,updated_at`,{token:user.token,signal});}
  async function saveDocument(user,doc){
   const all=await documents(user),id=doc.id||randomUUID();
   if(!uuid.test(id)||typeof doc.title!=='string'||!doc.title.trim()||doc.title.length>160||typeof doc.content!=='string'||!doc.content.trim()||doc.content.length>20000||String(doc.source||'').length>300)throw error('Provide a title and a note under 20,000 characters.',400);

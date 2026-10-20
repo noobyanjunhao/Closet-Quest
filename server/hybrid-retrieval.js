@@ -32,6 +32,7 @@ export async function retrieveWardrobeHybrid(inputItems,options={},dependencies=
   // Fail impossible/invalid requests before model discovery or any embedding work.
   const lexical=selectWardrobeCandidates(state);
   options.signal?.throwIfAborted();
+  if(dependencies.smallCloset&&dependencies.enabled===false&&state.eligible.length<=18)return {...lexical,retrieval:{...lexical.retrieval,version:HYBRID_RETRIEVAL_VERSION,method:'All eligible pieces + local keyword ranking (Fast small closet)',acceleration:{mode:'small-closet',allEligibleIncluded:true,remoteEmbeddingCalls:0},embedding:{available:false,skipped:true,reason:'Every eligible piece fits in the shortlist; Fast skips the embedding round trip.'},fallback:{active:false},reranker:{active:false,reason:'Small closet uses local ranking.'}}};
   if(dependencies.enabled===false)return {...lexical,retrieval:{...lexical.retrieval,version:HYBRID_RETRIEVAL_VERSION,method:'BM25 + explicit synonyms + category coverage (dense disabled)',embedding:{available:false,model:dependencies.model||EMBEDDING_MODEL},fallback:{active:true,code:'EMBEDDING_DISABLED',reason:'Text embeddings are disabled for this request.'},reranker:{active:false,reason:'No dense retrieval was run.'}}};
   let embedded;
   try {
