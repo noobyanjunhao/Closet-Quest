@@ -1,10 +1,18 @@
 import React, { useEffect, useRef } from 'react';
 import {createPortal} from 'react-dom';
 import sources from '../public/photos/sources.json';
+import {garmentImage} from './garment-display.js';
+
+function PixelGarment({item}) {
+  const shapes={Top:'M5 3H9V4H15V3H19V5H22V10H18V21H6V10H2V5H5Z',Bottom:'M5 2H19V10H18V22H13V12H11V22H6V10H5Z',Shoes:'M3 10H8V13H11V16H21V18H23V21H2V14H3Z',Outerwear:'M6 2H10V4H14V2H18V5H21V19H17V22H7V19H3V5H6Z',Dress:'M8 2H11V4H13V2H16V8H15V11H17V15H19V19H21V22H3V19H5V15H7V11H9V8H8Z',Accessory:'M7 5H17V7H19V13H22V15H3V13H5V7H7Z'};
+  return <svg className="pixel-garment" viewBox="0 0 24 24" role="img" aria-label={`${item?.name||'Garment'} — simplified ${item?.category||'clothing'} icon`} shapeRendering="crispEdges"><path d={shapes[item?.category]||shapes.Top} fill={/^#[\da-f]{6}$/i.test(item?.color)?item.color:'#b0a695'}/><path d="M8 6H10V8H8ZM8 9H10V16H8Z" fill="white" opacity=".3"/><path d="M7 21H17V22H7Z" fill="#171719" opacity=".15"/></svg>;
+}
 
 export function Garment({ item, loading = 'lazy' }) {
-  if (item?.image) return <img className="garment-photo" src={item.image} alt={item.name} loading={loading} onError={e => { e.currentTarget.style.opacity = '.25'; e.currentTarget.alt = `Photo unavailable: ${item.name}`; }}/>;
-  return <div className="photo-placeholder" role="img" aria-label={`${item?.name || 'Garment'}: no photo`}><span>＋</span><small>{item?.category || 'Add a photo'}</small></div>;
+  const source=garmentImage(item);
+  const [failed,setFailed]=React.useState(null);
+  if (source&&failed!==source) return <img className={`garment-photo ${source===item.cutoutImage?'garment-cutout':''}`} src={source} alt={item.name} loading={loading} onError={()=>setFailed(source)}/>;
+  return <PixelGarment item={item}/>;
 }
 export function PhotoCredit({ item }) {
   const source = sources.find(s => s.id === item.sampleId);

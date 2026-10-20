@@ -27,7 +27,8 @@ import './simple-flow.css';
 import './capture-flow.css';
 import './journey.css';
 import { ClosetCheck, FavoriteQuest, Inspiration } from './Journey.jsx';
-import { cleanBackdrop } from './background.js';
+import GarmentDisplay from './GarmentDisplay.jsx';
+import WardrobeRail from './WardrobeRail.jsx';
 import { roleplayState } from './roleplay.js';
 import { alphaDemoState } from './alpha-demo.js';
 import StyleMemory from './PersonalStyle.jsx';
@@ -40,6 +41,7 @@ import {createSyncQueue,prepareCloudSnapshot} from './cloud-sync.js';
 import WelcomeFlow from './WelcomeFlow.jsx';
 import './mobile-app.css';
 import './phone-experience.css';
+import './wardrobe-display.css';
 
 const ROLEPLAY = new URLSearchParams(location.search).get('demo') === 'roleplay';
 const ALPHA = new URLSearchParams(location.search).get('demo') === 'sprint6';
@@ -76,7 +78,7 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
   const [returningPage,setReturningPage]=useState(false),routeMemory=useRef(null);
   if(!routeMemory.current)routeMemory.current=createNavigationMemory();
   const [studioView,setStudioView]=useState({resultKey:'',briefOpen:true,matchesOpen:false,evidenceOpen:false,cardOpen:false,returnToCard:false});
-  const outfitScroll=useRef(0),categoryScroll=useRef(0);
+  const outfitScroll=useRef(0),categoryScroll=useRef(0),savedRailScroll=useRef(0);
   const navigate = useRef(null);
   if (!navigate.current) navigate.current = createPageNavigator({
     commit: destination => {
@@ -96,8 +98,8 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
   const [context,setContext] = useState(contexts[0]), [request,setRequest] = useState('Something relaxed and put together. Find a fresh combination of colors and textures.');
   const [options,setOptions] = useState([]), [selected,setSelected] = useState(0), [styleMessage,setStyleMessage] = useState(''), [questId,setQuestId] = useState('rediscover'), [questMode,setQuestMode] = useState(false);
   const [lookName,setLookName] = useState('');
-  const [backgroundPreview,setBackgroundPreview]=useState(null), [cleaning,setCleaning]=useState(false);
-  useEffect(()=>{setBackgroundPreview(null);},[editor?.id,editor?.image]);
+
+
   const [feedback,setFeedback] = useState({});
   const [moreOpen,setMoreOpen] = useState(false), [reviewQueue,setReviewQueue] = useState(false);
   const [anchorId,setAnchorId] = useState(''), [retrieval,setRetrieval] = useState(null), [retrievalError,setRetrievalError] = useState(''), [previewing,setPreviewing] = useState(false), [styleStage,setStyleStage] = useState('');
@@ -113,7 +115,7 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
     const backup=structuredClone(stateRef.current);
     try{
       notify('Preparing your backup with photos…');
-      for(const item of backup.items)for(const field of ['image','originalImage'])if(item[field]?.startsWith('/api/cloud/photos/'))item[field]=await imageData(item[field]);
+      for(const item of backup.items)for(const field of ['image','originalImage','cutoutImage'])if(item[field]?.startsWith('/api/cloud/photos/'))item[field]=await imageData(item[field],{preserve:true});
       downloadJson(backup,'closet-quest-backup.json');notify('Closet and photos exported. Keep this file private.');
     }catch{downloadJson(stateRef.current,'closet-quest-backup.json');notify('Details exported. Cloud photos could not be downloaded; this backup keeps their account links.');}
   }
@@ -214,7 +216,7 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
     const id=editorRef.current?.id; setBusy(true);
     try {
       const image=await preparePhoto(file);
-      setEditor(e => e?.id===id ? {...e,image,originalImage:undefined,backgroundCleaned:false,photoKey:crypto.randomUUID(),sampleId:undefined,recognition:undefined,name:e.name||file.name.replace(/\.[^.]+$/,'').replace(/[-_]/g,' ').slice(0,80)} : e);
+      setEditor(e => e?.id===id ? {...e,image,originalImage:undefined,cutoutImage:undefined,cutoutMethod:undefined,displayMode:'photo',backgroundCleaned:false,photoKey:crypto.randomUUID(),sampleId:undefined,recognition:undefined,name:e.name||file.name.replace(/\.[^.]+$/,'').replace(/[-_]/g,' ').slice(0,80)} : e);
     }catch(error){notify(error.message);}finally{setBusy(false);}
   }
   async function batchUpload(files) {
@@ -268,7 +270,7 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
     styleRun.current++;retrievalRun.current++;setStyling(false);setPreviewing(false);setStyleStage('');setOptions([]);setRetrieval(null);setRetrievalError('');setStyleMessage('');
   }
   function styleBody(nextContext=context, forQuest=questMode, activeQuest=questId) {
-    return {wardrobeId:stateRef.current.wardrobeId,preferences:stateRef.current.preferences,recommendationHistory:(stateRef.current.recommendationHistory||[]).slice(-30).map(({feedback,chosenItemIds})=>({feedback,chosenItemIds})),items:stateRef.current.items.map(({image,originalImage,recognition,...item})=>item),provider:engine==='agent'?'auto':engine,context:nextContext,request:request.trim()||'Create a balanced outfit for my plans.',anchorId:anchorId||undefined,requireLowUse:forQuest&&activeQuest==='rediscover'};
+    return {wardrobeId:stateRef.current.wardrobeId,preferences:stateRef.current.preferences,recommendationHistory:(stateRef.current.recommendationHistory||[]).slice(-30).map(({feedback,chosenItemIds})=>({feedback,chosenItemIds})),items:stateRef.current.items.map(({image,originalImage,cutoutImage,recognition,...item})=>item),provider:engine==='agent'?'auto':engine,context:nextContext,request:request.trim()||'Create a balanced outfit for my plans.',anchorId:anchorId||undefined,requireLowUse:forQuest&&activeQuest==='rediscover'};
   }
   async function previewMatches() {
     previewController.current?.abort();const controller=new AbortController();previewController.current=controller;
@@ -318,7 +320,7 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
   useEffect(() => {
     if(editorStored?.recognition?.status==='review'&&!(editorStored.recognition.result?.garments?.length>1))setEditor(current=>prefillReview(current,editorStored,recognitionPatch(editorStored.recognition.result)));
   },[editor?.id,editorStored?.recognition?.result]);
-  const editorHasChanges=editorStored&&['name','category','color','colorName','tags','pattern','fit','materialAppearance','visibleLabelText','image'].some(key=>editor[key]!==editorStored[key]);
+  const editorHasChanges=editorStored&&['name','category','color','colorName','tags','pattern','fit','materialAppearance','visibleLabelText','image','cutoutImage','displayMode'].some(key=>editor[key]!==editorStored[key]);
   const editorRecognition=editor?.appliedSuggestions?editor.recognition:editorStored?.photoKey===editor?.photoKey?editorStored?.recognition:editor?.recognition;
   const editorDetections=editorRecognition?.status==='review'&&editorRecognition.result?.garments?.length>1&&!editorRecognition.importedDetections;
   function trackRecommendation(look,patch) {
@@ -365,8 +367,9 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
         {!account?.cloud&&!state.items.some(i=>i.sampleId)&&<div className="collection-banner"><div><strong>Meet the real-photo collection.</strong><p>Seven photographed pieces to explore alongside your existing closet.</p></div><button onClick={()=>{if(save(addPhotoCollection))notify('Seven sample pieces added. Your existing closet is preserved.');}}>Add photo collection ↗</button></div>}
         <div className="section-heading wardrobe-heading"><h2>Your pieces <small>{visible.length}</small></h2><div className="wardrobe-tools"><label className="search"><span aria-hidden="true">⌕</span><input aria-label="Search wardrobe" placeholder="Search your clothes" value={search} onChange={e=>setSearch(e.target.value)}/></label><select aria-label="Filter wardrobe" value={filter} onChange={e=>setFilter(e.target.value)}>{['All',...categories,'Rediscover',...(needsReview.length?['Review']:[])].map(c=><option key={c} value={c}>{c==='All'?'All pieces':c}</option>)}</select><select aria-label="Sort wardrobe" value={sort} onChange={e=>setSort(e.target.value)}><option value="added">Newest first</option><option value="wears">Least worn</option><option value="name">Name A–Z</option></select></div></div>
         <div className="phone-categories" aria-label="Clothing categories" ref={element=>{if(element)element.scrollLeft=categoryScroll.current;}} onScroll={e=>{categoryScroll.current=e.currentTarget.scrollLeft;}}>{['All',...categories,'Rediscover',...(needsReview.length?['Review']:[])].map(c=><button key={c} aria-pressed={filter===c} onClick={()=>setFilter(c)}>{c==='All'?'All pieces':c}</button>)}</div>
-        <div className="grid wardrobe-grid">{visible.map(item=><GarmentCard key={item.id} item={item} onClick={()=>setEditor({...item})}/>)}</div>
+        <div className="wardrobe-with-looks"><div className="wardrobe-piece-area"><div className="grid wardrobe-grid">{visible.map(item=><GarmentCard key={item.id} item={item} onClick={()=>setEditor({...item})}/>)}</div>
         {!visible.length&&<div className="empty closet-empty"><span aria-hidden="true">＋</span><h2>{state.items.length?'No pieces here yet.':'Your next favorite look starts here.'}</h2><p>{state.items.length?'Try another search or filter.':'Add a top, a bottom and shoes. One outfit photo can capture all three.'}</p>{state.items.length?<button onClick={()=>{setSearch('');setFilter('All');}}>Clear filters</button>:<button className="primary" onClick={()=>setModal('add')}>Add my first pieces</button>}</div>}
+        </div><WardrobeRail state={state} scrollPosition={savedRailScroll} onStyle={()=>setPage('Outfits')} onEdit={item=>setEditor({...item})} onWear={look=>{if(save(s=>recordWearToday(s,look.itemIds,{outfitId:look.id,runId:look.runId})))notify('Wear recorded in your journal.');}}/></div>
         {state.items.some(i=>i.sampleId)&&<p className="collection-note">Sample photographs and demonstration wear counts. Photo credits are under More.</p>}
       </>}
 
@@ -407,7 +410,7 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
     {toast&&<div className="toast" role="status">{toast}<button aria-label="Dismiss notification" onClick={()=>setToast('')}>×</button></div>}
 
     {editor&&<Modal key={editor.id} title={editor.isNew?'Add a piece':reviewQueue?'Review your clothes':'Your piece'} onClose={closeEditor} wide>
-      <form onSubmit={saveEditor} className="garment-editor"><div className="editor-photo-column"><div className="editor-photo"><Garment item={editor} loading="eager"/></div><details className="photo-details" open={editor.isNew||undefined}><summary>{editor.image?'Change photo & credits':'Add a photo'}</summary><label className="file-label">{busy?'Preparing photo…':'Choose a photo'}<input type="file" accept="image/jpeg,image/png,image/webp" disabled={busy} onChange={e=>upload(e.target.files[0])}/></label><p className="muted">JPG, PNG or WebP · up to 8 MB. {account?.cloud?'Saved privately in your account.':'Saved on this device.'}</p><PhotoCredit item={editor}/></details>{editor.image&&<details className="background-tools"><summary>Photo background</summary><p className="muted">Optional cleanup for a plain backdrop. Preview carefully; similar garment colors can be removed.</p><button type="button" disabled={cleaning||busy} onClick={async()=>{const id=editor.id, image=editor.image;setCleaning(true);try{const result=await cleanBackdrop(image);if(editorRef.current?.id===id&&editorRef.current?.image===image)setBackgroundPreview(result);}catch(e){notify(e.message);}finally{setCleaning(false);}}}>{cleaning?'Preparing preview…':'Preview background cleanup'}</button>{backgroundPreview&&<><img className="background-preview" src={backgroundPreview} alt="Background cleanup preview"/><div className="toolbar"><button type="button" onClick={()=>{setEditor(e=>({...e,originalImage:e.originalImage||e.image,image:backgroundPreview,photoKey:crypto.randomUUID(),backgroundCleaned:true,recognition:undefined}));setBackgroundPreview(null);}}>Use cleaned photo</button><button type="button" onClick={()=>setBackgroundPreview(null)}>Keep original</button></div></>}{editor.originalImage&&<button type="button" onClick={()=>setEditor(e=>({...e,image:e.originalImage,originalImage:undefined,backgroundCleaned:false,photoKey:crypto.randomUUID(),recognition:undefined}))}>Restore original photo</button>}</details>}{!editor.isNew&&<p className="wear-detail"><strong>{editorStored?.wears||0}</strong> recorded wears{editorStored?.lastWorn&&<small>Last worn {dateLabel(editorStored.lastWorn)}</small>}</p>}{!editor.isNew&&!reviewQueue&&<><button type="button" className="style-piece-button" disabled={busy||editorStored?.needsReview||editorHasChanges} onClick={()=>styleThisPiece(editorStored)}>Style this piece ↗</button>{(editorHasChanges||editorStored?.needsReview)&&<p className="muted">Save your details first to style this piece.</p>}</>}</div>
+      <form onSubmit={saveEditor} className="garment-editor"><div className="editor-photo-column"><div className="editor-photo"><Garment item={editor} loading="eager"/></div><details className="photo-details" open={editor.isNew||undefined}><summary>{editor.image?'Change photo & credits':'Add a photo'}</summary><label className="file-label">{busy?'Preparing photo…':'Choose a photo'}<input type="file" accept="image/jpeg,image/png,image/webp" disabled={busy} onChange={e=>upload(e.target.files[0])}/></label><p className="muted">JPG, PNG or WebP · up to 8 MB. {account?.cloud?'Saved privately in your account.':'Saved on this device.'}</p><PhotoCredit item={editor}/></details>{editor.image&&<GarmentDisplay key={`${editor.id}-${editor.photoKey}`} item={editor} onChange={setEditor}/>}{!editor.isNew&&<p className="wear-detail"><strong>{editorStored?.wears||0}</strong> recorded wears{editorStored?.lastWorn&&<small>Last worn {dateLabel(editorStored.lastWorn)}</small>}</p>}{!editor.isNew&&!reviewQueue&&<><button type="button" className="style-piece-button" disabled={busy||editorStored?.needsReview||editorHasChanges} onClick={()=>styleThisPiece(editorStored)}>Style this piece ↗</button>{(editorHasChanges||editorStored?.needsReview)&&<p className="muted">Save your details first to style this piece.</p>}</>}</div>
       <div className="editor-fields">{reviewQueue&&<p className="review-progress">PHOTO → REVIEW → READY TO STYLE · {needsReview.length} left</p>}
         {pending(editorRecognition)&&<div className="analysis-panel" role="status"><span className="pulse-dot"/><strong>{{preparing:'Preparing your photo…',recognizing:'Finding clothing and accessories…',validating:'Checking the suggestions…',retrying:'Retrying photo analysis…'}[editorRecognition.stage]||'Photo queued for analysis'}</strong><p>{editorRecognition.error||'You can keep editing or close this panel. Suggestions will be waiting here.'}</p><button type="button" onClick={()=>cancelAnalysis(editor,editorRecognition)} disabled={!editorRecognition.jobId}>Cancel analysis</button></div>}
         {editorRecognition?.status==='review'&&!editor.appliedSuggestions&&!editorDetections&&<div className="analysis-panel"><strong>✧ Suggestions are ready to review</strong><p>{editorRecognition.result.data.name} · {editorRecognition.result.data.category} · {editorRecognition.result.data.colorName}</p>{editorRecognition.result.data.targetDescription&&<p>Looking at: {editorRecognition.result.data.targetDescription}</p>}<p className="muted">Applying fills the fields below. Review and edit them before saving. Color swatches are approximate; label text stays manual.</p><button type="button" onClick={()=>setEditor({...editor,...recognitionPatch(editorRecognition.result),recognition:editorRecognition,appliedSuggestions:true})}>Apply suggestions to form</button></div>}

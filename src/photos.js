@@ -15,11 +15,13 @@ export async function preparePhoto(file) {
     return canvas.toDataURL('image/jpeg', .82);
   } finally { URL.revokeObjectURL(url); }
 }
-export async function imageData(image) {
+export async function imageData(image,{preserve=false}={}) {
   if (image.startsWith('data:')) return image;
   const response = await fetch(image);
   if (!response.ok) throw new Error('The photo could not be loaded.');
-  return preparePhoto(new File([await response.blob()], 'garment.jpg', { type:'image/jpeg' }));
+  const blob=await response.blob();
+  if(preserve)return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=()=>reject(new Error('The photo could not be read.'));reader.readAsDataURL(blob);});
+  return preparePhoto(new File([blob], 'garment.jpg', { type:'image/jpeg' }));
 }
 export async function cropPhoto(imageSource, crop) {
   const image=new Image();image.src=imageSource;await image.decode();

@@ -16,7 +16,7 @@ export function createSyncQueue({revision=0,prepare=async x=>x,write,persist,onS
 }
 export async function prepareCloudSnapshot(state,upload,cache=new Map()) {
  const next=structuredClone(state);
- for(const item of next.items)for(const field of ['image','originalImage'])if(item[field]?.startsWith('data:')){
+ for(const item of next.items)for(const field of ['image','originalImage','cutoutImage'])if(item[field]?.startsWith('data:')){
   const original=item[field];
   if(!cache.has(original)){const result=await upload(original);if(cache.size>=40)cache.delete(cache.keys().next().value);cache.set(original,result.image);}
   item[field]=cache.get(original);

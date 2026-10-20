@@ -66,6 +66,7 @@ test('selected pieces become independent review drafts atomically; repeat/stale 
   const drafts=detectionDrafts(source,result,[0,1],['cap-crop','top-crop'],()=>`id-${counter++}`);
   assert.deepEqual(drafts.map(d=>[d.name,d.category,d.image]),[['Navy Baseball cap','Accessory','cap-crop'],['Gray Hoodie','Top','top-crop']]);
   assert.ok(drafts.every(d=>d.needsReview&&!d.recognition.result.garments));assert.equal(new Set(drafts.map(d=>d.id)).size,2);
+  assert.ok(drafts.every(draft=>draft.originalImage===source.image));
   const state={items:[source,{id:'existing'}],savedOutfits:[{id:'saved'}]},next=insertDetectionDrafts(state,source,'job-a',drafts);
   assert.equal(next.items.length,3);assert.equal(next.items[0].id,drafts[0].id);assert.equal(next.savedOutfits,state.savedOutfits);
   assert.throws(()=>insertDetectionDrafts(next,source,'job-a',drafts));

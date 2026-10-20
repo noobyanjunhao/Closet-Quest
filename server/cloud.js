@@ -12,7 +12,7 @@ export function validateCloudState(value,userId) {
  for(const item of clean.items){
   if(!item||typeof item.id!=='string'||item.id.length>100||ids.has(item.id)||typeof item.name!=='string'||item.name.length>500)throw error('Some wardrobe pieces are not valid.',400,'INVALID_CLOSET');
   ids.add(item.id);
-  for(const image of [item.image,item.originalImage])if(image&&!/^photos\/[\w-]+\.(jpg|png|webp)$/.test(image)&&!/^\/api\/cloud\/photos\/[a-f0-9]{64}\.jpg$/.test(image))throw error('Upload photos before syncing your closet.',400,'UNSAVED_PHOTO');
+  for(const image of [item.image,item.originalImage,item.cutoutImage])if(image&&!/^photos\/[\w-]+\.(jpg|png|webp)$/.test(image)&&!/^\/api\/cloud\/photos\/[a-f0-9]{64}\.(jpg|png)$/.test(image))throw error('Upload photos before syncing your closet.',400,'UNSAVED_PHOTO');
  }
  if(Buffer.byteLength(JSON.stringify(clean))>1900000)throw error('Your wardrobe history is too large to sync. Export a backup first.',413,'CLOSET_TOO_LARGE');
  return clean;
@@ -86,11 +86,12 @@ export function createCloud({url=process.env.SUPABASE_URL,key=process.env.SUPABA
  async function uploadPhoto(user,image){
   if(typeof image!=='string'||image.length>3000000||!/^data:image\/(jpeg|png|webp);base64,/.test(image))throw error('Choose a JPEG, PNG or WebP photo under 2 MB.',400,'INVALID_PHOTO');
   const bytes=Buffer.from(image.split(',')[1],'base64');if(bytes.length>2097152)throw error('Photo too large.',413);
-  let normalized;try{normalized=await sharp(bytes,{limitInputPixels:16000000}).rotate().resize({width:1200,height:1200,fit:'inside',withoutEnlargement:true}).jpeg({quality:85}).toBuffer();}catch{throw error('This photo could not be read.',400,'INVALID_PHOTO');}
-  const id=createHash('sha256').update(normalized).digest('hex')+'.jpg';
-  await request(`/storage/v1/object/closet-photos/${user.id}/${id}`,{method:'POST',token:user.token,body:normalized,headers:{'Content-Type':'image/jpeg','x-upsert':'true'}});return {image:`/api/cloud/photos/${id}`};
+  let normalized,transparent;try{const input=sharp(bytes,{limitInputPixels:16000000});transparent=(await input.metadata()).hasAlpha;const resized=input.rotate().resize({width:transparent?700:1200,height:transparent?700:1200,fit:'inside',withoutEnlargement:true});normalized=await (transparent?resized.png():resized.jpeg({quality:85})).toBuffer();}catch{throw error('This photo could not be read.',400,'INVALID_PHOTO');}
+  if(normalized.length>2097152)throw error('The cutout is too large to save. Use a smaller photo.',413);
+  const id=createHash('sha256').update(normalized).digest('hex')+(transparent?'.png':'.jpg');
+  await request(`/storage/v1/object/closet-photos/${user.id}/${id}`,{method:'POST',token:user.token,body:normalized,headers:{'Content-Type':transparent?'image/png':'image/jpeg','x-upsert':'true'}});return {image:`/api/cloud/photos/${id}`};
  }
- async function photo(user,id){if(!/^[a-f0-9]{64}\.jpg$/.test(id))throw error('Photo not found.',404);return request(`/storage/v1/object/authenticated/closet-photos/${user.id}/${id}`,{token:user.token,raw:true});}
+ async function photo(user,id){if(!/^[a-f0-9]{64}\.(jpg|png)$/.test(id))throw error('Photo not found.',404);return request(`/storage/v1/object/authenticated/closet-photos/${user.id}/${id}`,{token:user.token,raw:true});}
  async function documents(user){return request(`/rest/v1/style_documents?user_id=eq.${user.id}&select=id,title,content,source,updated_at`,{token:user.token});}
  async function saveDocument(user,doc){
   const all=await documents(user),id=doc.id||randomUUID();

@@ -12,7 +12,7 @@ export function detectionDrafts(source, result, selections, croppedImages, makeI
   return selections.map((index,order)=>{
     const attributes=result.garments[index], singleResult={...result,data:attributes};
     delete singleResult.garments;delete singleResult.sceneNotes;
-    return {id:makeId(),photoKey:makeId(),image:croppedImages[order],sampleId:source.sampleId,
+    return {id:makeId(),photoKey:makeId(),image:croppedImages[order],originalImage:source.originalImage||source.image,sampleId:source.sampleId,
       ...recognitionPatch(singleResult),wears:0,needsReview:true,addedAt:new Date().toISOString(),
       sourcePhotoKey:source.photoKey,detectedCrop:detectionCrop(result,attributes),
       recognition:{status:'review',stage:'ready',result:singleResult,detectionMode:'single',startedAt:Date.now()},

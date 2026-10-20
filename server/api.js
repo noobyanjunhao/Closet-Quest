@@ -85,8 +85,8 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
         if(route==='/cloud/closet'&&req.method==='GET')return res.end(JSON.stringify(await cloud.closet(user)));
         if(route==='/cloud/closet'&&req.method==='POST')return res.end(JSON.stringify(await cloud.saveCloset(user,await readJson(req,2000000))));
         if(route==='/cloud/photos'&&req.method==='POST')return res.end(JSON.stringify(await cloud.uploadPhoto(user,(await readJson(req,3000100)).image)));
-        const match=route.match(/^\/cloud\/photos\/([a-f0-9]{64}\.jpg)$/);
-        if(match&&req.method==='GET'){const photo=await cloud.photo(user,match[1]);res.setHeader('Content-Type','image/jpeg');return res.end(Buffer.from(await photo.arrayBuffer()));}
+        const match=route.match(/^\/cloud\/photos\/([a-f0-9]{64}\.(jpg|png))$/);
+        if(match&&req.method==='GET'){const photo=await cloud.photo(user,match[1]);res.setHeader('Content-Type',match[2]==='png'?'image/png':'image/jpeg');return res.end(Buffer.from(await photo.arrayBuffer()));}
         throw Object.assign(new Error('Not found.'),{status:404});
       }
       if(access.hosted&&(route.startsWith('/learning/')||route.startsWith('/depop/'))){res.statusCode=403;return res.end(JSON.stringify({error:'This integration is disabled on the participant deployment.'}));}

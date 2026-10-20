@@ -5,7 +5,7 @@ import {fileURLToPath} from 'node:url';
 import {createApi} from './api.js';
 
 const defaultRoot=fileURLToPath(new URL('../dist/',import.meta.url));
-const types={'.html':'text/html; charset=utf-8','.js':'application/javascript','.css':'text/css','.json':'application/json','.jpg':'image/jpeg','.jpeg':'image/jpeg','.png':'image/png','.svg':'image/svg+xml','.webp':'image/webp','.ico':'image/x-icon'};
+const types={'.html':'text/html; charset=utf-8','.js':'application/javascript','.css':'text/css','.json':'application/json','.jpg':'image/jpeg','.jpeg':'image/jpeg','.png':'image/png','.svg':'image/svg+xml','.webp':'image/webp','.ico':'image/x-icon','.wasm':'application/wasm'};
 const inside=(root,target)=>{const relative=path.relative(root,target);return relative!== '..'&&!relative.startsWith(`..${path.sep}`)&&!path.isAbsolute(relative);};
 
 export async function createLocalServer({distDir=defaultRoot,apiOptions={}}={}) {
