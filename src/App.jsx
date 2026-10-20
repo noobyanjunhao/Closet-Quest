@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { flushSync } from 'react-dom';
 import { createPageNavigator } from './page-motion.js';
+import { createNavigationMemory } from './navigation-memory.js';
 import { categories, contexts, quests, completeQuest, listing } from './logic.js';
 import { rankOutfits } from './recommender.js';
 import { addPhotoCollection, deleteGarment, migrateState, newPhotoState, recognitionPatch, recordWear, recordWearToday, wornToday, saveLook, undoLastWear } from './wardrobe.js';
@@ -38,6 +39,7 @@ import './fluid.css';
 import {createSyncQueue,prepareCloudSnapshot} from './cloud-sync.js';
 import WelcomeFlow from './WelcomeFlow.jsx';
 import './mobile-app.css';
+import './phone-experience.css';
 
 const ROLEPLAY = new URLSearchParams(location.search).get('demo') === 'roleplay';
 const ALPHA = new URLSearchParams(location.search).get('demo') === 'sprint6';
@@ -71,9 +73,18 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
   async function signOut(){try{if(sync.current?.pending)await sync.current.flush();await onSignOut();}catch(e){notify('Your changes are not synced yet. Retry sync or export a backup before signing out.');}}
   const preferences=normalizePreferences(state.preferences);
   const [page,setPageState] = useState('Closet'), [filter,setFilter] = useState('All'), [search,setSearch] = useState(''), [sort,setSort] = useState('added');
+  const [returningPage,setReturningPage]=useState(false),routeMemory=useRef(null);
+  if(!routeMemory.current)routeMemory.current=createNavigationMemory();
+  const [studioView,setStudioView]=useState({resultKey:'',briefOpen:true,matchesOpen:false,evidenceOpen:false,cardOpen:false,returnToCard:false});
+  const outfitScroll=useRef(0),categoryScroll=useRef(0);
   const navigate = useRef(null);
   if (!navigate.current) navigate.current = createPageNavigator({
-    commit: destination => flushSync(() => setPageState(destination)),
+    commit: destination => {
+      const next=routeMemory.current.move(destination,{x:window.scrollX,y:window.scrollY});
+      if(!next.changed)return;
+      flushSync(()=>{setReturningPage(next.returning);setPageState(destination);});
+      window.scrollTo({left:next.position.x,top:next.position.y,behavior:'instant'});
+    },
     startTransition: document.startViewTransition?.bind(document),
     reducedMotion: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
   });
@@ -96,7 +107,7 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
   const moreTrigger = useRef(null);
   const styleRun = useRef(0), uploadInput = useRef(null), editorRef = useRef(editor); editorRef.current = editor;
   useEffect(()=>{setEngine(preferences.recommendationProvider==='auto'?'agent':preferences.recommendationProvider);clearStudio();},[JSON.stringify(state.preferences)]);
-  useEffect(() => { window.scrollTo({top:0,behavior:'instant'}); setMoreOpen(false); },[page]);
+  useEffect(() => { setMoreOpen(false); },[page]);
   function notify(message) { setToast(message); }
   async function exportBackup(){
     const backup=structuredClone(stateRef.current);
@@ -332,6 +343,7 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
   return <div className="app">
     <aside className="sidebar">
       <a className="brand" href="#" onClick={e=>{e.preventDefault();setPage('Closet');}}><span className="brand-icon">cq</span><span>closet quest<span className="brand-sub">LESS NEW. MORE YOU.</span></span></a>
+      <button className="phone-account" aria-label="Open account and settings" onClick={()=>setModal('profile')}>{(state.profile||'Y')[0].toUpperCase()}<span aria-hidden="true"/></button>
       <div className="nav-label">YOUR LITTLE STYLE WORLD</div>
       <FluidNavigation page={page} onNavigate={name=>{setPage(name);setMoreOpen(false);}} moreOpen={moreOpen} onMore={setMoreOpen} moreTrigger={moreTrigger} closeMore={closeMore} onModal={setModal}/>
       <button className="profile" onClick={()=>setModal('profile')}><span className="avatar">{(state.profile||'Y')[0].toUpperCase()}</span><span>{state.profile||'Your closet'}<small>{account?.cloud?'Your account · settings':'On this device · settings'}</small></span></button>
@@ -341,8 +353,8 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
       {ALPHA&&<div className="demo-banner">Sprint 6 rehearsal · sample photographs and wear counts · separate from your personal closet.<a href="/">My closet</a><button onClick={()=>setModal('reset-alpha')}>Reset rehearsal</button></div>}
       {ROLEPLAY&&<div className="demo-banner">Role-play wardrobe · sample photos and simulated wear dates. Your personal closet is separate.<a href="/">Return to my closet</a></div>}
       <header><span>YOUR WARDROBE, REIMAGINED</span><div className="level">✦ Level {Math.floor(state.xp/100)+1}<b>{state.xp} XP</b></div></header>
-      <div className="page-scene" key={page}>
-      <div className="page-heading"><div><p className="eyebrow">MAKE MORE OF WHAT YOU OWN</p><h1>{{Validation:'Make it meaningful.',Memory:'Your style, remembered.',Closet:'Your closet.',Outfits:'Your personal stylist.',Lookbook:'Saved looks.',Quests:'A little challenge. A fresh look.',Resale:'Ready for a second chapter.',Inspiration:'A look you love. Made yours.',Lab:'Evidence behind the experience.'}[page]}</h1><p>{{Validation:'Real wardrobes. Clear comparisons. Measured outcomes.',Memory:'Choose what you like. Keep useful references. See what worked.',Closet:'Everything you own. More ways to wear it.',Outfits:'Tell us about your day. We’ll start with your closet.',Lookbook:'Good combinations, ready to wear again.',Quests:'Rediscover your wardrobe, one quest at a time.',Resale:'Give the pieces you reach for less a new beginning.',Inspiration:'Recreate the feeling with pieces you already own.',Lab:'Inspect the baseline and the working prototype.'}[page]}</p></div>{page==='Closet'&&<div className="heading-actions"><button className="primary" disabled={busy} onClick={()=>setModal('add')}>＋ Add clothes</button></div>}</div>
+      <div className={`page-scene page-${page.toLowerCase()}`} data-returning={returningPage} key={page}>
+      <div className="page-heading"><div><p className="eyebrow">MAKE MORE OF WHAT YOU OWN</p><h1>{{Validation:'Make it meaningful.',Memory:'Your style, remembered.',Closet:'Your closet.',Outfits:'Your personal stylist.',Lookbook:'Saved looks.',Quests:'A little challenge. A fresh look.',Resale:'Ready for a second chapter.',Inspiration:'A look you love. Made yours.',Lab:'Evidence behind the experience.'}[page]}</h1><p>{{Validation:'Real wardrobes. Clear comparisons. Measured outcomes.',Memory:'Choose what you like. Keep useful references. See what worked.',Closet:'Everything you own. More ways to wear it.',Outfits:'Tell us about your day. We’ll start with your closet.',Lookbook:'Good combinations, ready to wear again.',Quests:'Rediscover your wardrobe, one quest at a time.',Resale:'Give the pieces you reach for less a new beginning.',Inspiration:'Recreate the feeling with pieces you already own.',Lab:'Inspect the baseline and the working prototype.'}[page]}</p></div>{page==='Closet'&&<div className="heading-actions"><button className="primary" aria-label="Add clothes" disabled={busy} onClick={()=>setModal('add')}>＋ Add clothes</button></div>}</div>
       <input ref={uploadInput} hidden type="file" multiple accept="image/jpeg,image/png,image/webp" aria-label="Import garment photos" onChange={e=>{if(e.target.files.length){setModal(null);setPage('Closet');void batchUpload(e.target.files);}}}/>
       {page==='Validation'&&<ValidationStudy state={state} save={save} account={account}/>}
 
@@ -352,6 +364,7 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
         {(processing.length>0||needsReview.length>0||busy)&&<div className="processing-strip" role="status"><span className={processing.length||busy?'pulse-dot':'status-dot'}/><span>{busy?'Preparing your photos…':`${processing.length?`${processing.length} photo${processing.length===1?'':'s'} analyzing · `:''}${needsReview.length} piece${needsReview.length===1?'':'s'} to review`}</span>{needsReview.length>0&&<button className="text-button" onClick={reviewImports}>Review pieces →</button>}</div>}
         {!account?.cloud&&!state.items.some(i=>i.sampleId)&&<div className="collection-banner"><div><strong>Meet the real-photo collection.</strong><p>Seven photographed pieces to explore alongside your existing closet.</p></div><button onClick={()=>{if(save(addPhotoCollection))notify('Seven sample pieces added. Your existing closet is preserved.');}}>Add photo collection ↗</button></div>}
         <div className="section-heading wardrobe-heading"><h2>Your pieces <small>{visible.length}</small></h2><div className="wardrobe-tools"><label className="search"><span aria-hidden="true">⌕</span><input aria-label="Search wardrobe" placeholder="Search your clothes" value={search} onChange={e=>setSearch(e.target.value)}/></label><select aria-label="Filter wardrobe" value={filter} onChange={e=>setFilter(e.target.value)}>{['All',...categories,'Rediscover',...(needsReview.length?['Review']:[])].map(c=><option key={c} value={c}>{c==='All'?'All pieces':c}</option>)}</select><select aria-label="Sort wardrobe" value={sort} onChange={e=>setSort(e.target.value)}><option value="added">Newest first</option><option value="wears">Least worn</option><option value="name">Name A–Z</option></select></div></div>
+        <div className="phone-categories" aria-label="Clothing categories" ref={element=>{if(element)element.scrollLeft=categoryScroll.current;}} onScroll={e=>{categoryScroll.current=e.currentTarget.scrollLeft;}}>{['All',...categories,'Rediscover',...(needsReview.length?['Review']:[])].map(c=><button key={c} aria-pressed={filter===c} onClick={()=>setFilter(c)}>{c==='All'?'All pieces':c}</button>)}</div>
         <div className="grid wardrobe-grid">{visible.map(item=><GarmentCard key={item.id} item={item} onClick={()=>setEditor({...item})}/>)}</div>
         {!visible.length&&<div className="empty closet-empty"><span aria-hidden="true">＋</span><h2>{state.items.length?'No pieces here yet.':'Your next favorite look starts here.'}</h2><p>{state.items.length?'Try another search or filter.':'Add a top, a bottom and shoes. One outfit photo can capture all three.'}</p>{state.items.length?<button onClick={()=>{setSearch('');setFilter('All');}}>Clear filters</button>:<button className="primary" onClick={()=>setModal('add')}>Add my first pieces</button>}</div>}
         {state.items.some(i=>i.sampleId)&&<p className="collection-note">Sample photographs and demonstration wear counts. Photo credits are under More.</p>}
@@ -359,6 +372,7 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
 
       {page==='Memory'&&<StyleMemory state={state} onSave={save} ai={ai} notify={notify}/>}
       {page==='Outfits'&&<OutfitStudio
+        view={studioView} onViewChange={setStudioView} scrollPosition={outfitScroll}
         items={state.items} context={context} onContext={value=>{clearStudio();setContext(value);setQuestMode(false);}}
         request={request} onRequest={value=>{clearStudio();setRequest(value);}}
         engine={engine} onEngine={value=>{clearStudio();setEngine(value);if(value==='baseline')setAnchorId('');}}

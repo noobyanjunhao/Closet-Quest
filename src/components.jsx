@@ -10,8 +10,14 @@ export function PhotoCredit({ item }) {
   const source = sources.find(s => s.id === item.sampleId);
   return source ? <p className="photo-credit">Photo: <a href={source.source} target="_blank" rel="noreferrer">{source.author}</a> · <a href={source.licenseUrl} target="_blank" rel="noreferrer">{source.license}</a>. {source.changes}</p> : null;
 }
-export function Modal({ title, onClose, children, wide = false }) {
+export function Modal({ title, onClose, children, wide = false, scrollPosition, swipeToClose = false }) {
   const ref = useRef(null), close = useRef(onClose); close.current = onClose;
+  const drag=useRef(null);
+  function stopDrag(event,cancelled=false){
+    const start=drag.current;drag.current=null;
+    ref.current.style.removeProperty('translate');
+    if(start&&!cancelled&&event.clientY-start.y>95&&Math.abs(event.clientX-start.x)<(event.clientY-start.y)*.8)close.current();
+  }
   useEffect(() => {
     const previous = document.activeElement;
     const oldOverflow = document.body.style.overflow;
@@ -19,6 +25,7 @@ export function Modal({ title, onClose, children, wide = false }) {
     if(root)root.inert=true;
     document.body.style.overflow = 'hidden';
     ref.current.focus();
+    if(scrollPosition)ref.current.scrollTop=scrollPosition.current;
     function keydown(e) {
       if (e.key === 'Escape') { e.preventDefault(); close.current(); return; }
       if (e.key !== 'Tab') return;
@@ -43,7 +50,7 @@ export function Modal({ title, onClose, children, wide = false }) {
     document.addEventListener('keydown',keydown);
     return () => { document.body.style.overflow = oldOverflow; if(root)root.inert=wasInert; document.removeEventListener('keydown',keydown); if(previous?.isConnected)previous.focus({preventScroll:true}); };
   },[]);
-  return createPortal(<div className="app modal-layer" style={{display:'contents'}}><div className="overlay" onClick={e => { if(e.target===e.currentTarget)onClose(); }}><section ref={ref} tabIndex={-1} className={`modal ${wide?'modal-wide':''}`} role="dialog" aria-modal="true" aria-label={title}><div className="section-heading"><h2>{title}</h2><button aria-label={`Close ${title}`} onClick={onClose}>×</button></div>{children}</section></div></div>,document.body);
+  return createPortal(<div className="app modal-layer" style={{display:'contents'}}><div className="overlay" onClick={e => { if(e.target===e.currentTarget)onClose(); }}><section ref={ref} tabIndex={-1} className={`modal ${wide?'modal-wide':''}`} role="dialog" aria-modal="true" aria-label={title} onScroll={e=>{if(scrollPosition)scrollPosition.current=e.currentTarget.scrollTop;}}>{swipeToClose&&<button className="sheet-handle" aria-label={`Dismiss ${title}`} onClick={onClose} onPointerDown={e=>{drag.current={x:e.clientX,y:e.clientY};e.currentTarget.setPointerCapture(e.pointerId);}} onPointerMove={e=>{if(drag.current)ref.current.style.translate=`0 ${Math.min(240,Math.max(0,e.clientY-drag.current.y))}px`;}} onPointerUp={e=>stopDrag(e)} onPointerCancel={e=>stopDrag(e,true)}><span/></button>}<div className="section-heading"><h2>{title}</h2><button aria-label={`Close ${title}`} onClick={onClose}>×</button></div>{children}</section></div></div>,document.body);
 }
 export function GarmentCard({ item, onClick, children }) {
   const status = ({review:'Review suggestions',submitting:'Photo queued',queued:'Photo queued',processing:'Analyzing photo',failed:'Analysis needs retry'})[item.recognition?.status] || (item.needsReview ? 'Review details' : item.wears <= 1 ? 'Rediscover' : '');

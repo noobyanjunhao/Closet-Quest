@@ -18,7 +18,12 @@ export function ClosetHero({ items = [], onStyle, reviewCount = 0 }) {
   const reviewSummary = requiredReview > 0 ? `${requiredReview} awaiting details` : reviewCount > 0 ? `${reviewCount} suggestion${reviewCount === 1 ? '' : 's'} to review` : '';
   const photographed = items.filter(item => item.image).length;
   const palette = pieces.filter(item => /^#[\da-f]{6}$/i.test(item.color || '')).filter((item, index, colors) => colors.findIndex(other => other.color.toLowerCase() === item.color.toLowerCase()) === index);
-  return <section className="closet-editorial editorial-lookbook" aria-labelledby="closet-editorial-title">
+  return <><section className="phone-edit" aria-labelledby="phone-edit-title">
+    <div className="phone-edit-top"><span>YOUR DAILY REMIX</span><span className="phone-spark" aria-hidden="true">✧</span></div>
+    <h2 id="phone-edit-title">Same closet.<br/><em>New possibilities.</em></h2>
+    <div className="phone-piece-stack">{pieces.map(item=><div key={item.id}><Garment item={item} loading="eager"/></div>)}{!pieces.length&&<p>Your next favorite outfit<br/>starts with your own pieces.</p>}</div>
+    <div className="phone-edit-bottom"><span>{ready} pieces ready<br/>{reviewSummary || 'Made from what you own'}</span><button onClick={onStyle}>Style my day <span aria-hidden="true">↗</span></button></div>
+  </section><section className="closet-editorial editorial-lookbook" aria-labelledby="closet-editorial-title">
     <div className="editorial-copy">
       <p className="editorial-kicker">THE EVERYDAY EDIT</p>
       <h2 id="closet-editorial-title">A fresh eye.<br/><em>Your wardrobe.</em></h2>
@@ -34,5 +39,5 @@ export function ClosetHero({ items = [], onStyle, reviewCount = 0 }) {
       </figure>)}</div> : <div className="editorial-photo-empty"><span aria-hidden="true">＋</span><h3>Your personal collection<br/>starts with a photo.</h3><p>Add the pieces you reach for.<br/>Discover the ones you’ve forgotten.</p></div>}
       <div className="editorial-gallery-footer"><span>{palette.length ? 'COLORS FROM YOUR CLOSET' : 'MAKE MORE OF WHAT YOU OWN'}</span>{palette.length > 0 && <div className="editorial-color-story" role="list" aria-label="Saved colors in this selection">{palette.map(item => <span key={item.id} role="listitem" style={{backgroundColor:item.color}} aria-label={item.colorName || item.name} title={item.colorName || item.name}/>)}</div>}</div>
     </div>
-  </section>;
+  </section></>;
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Garment,Modal } from './components.jsx';
 import { contexts } from './logic.js';
 
@@ -22,12 +22,12 @@ function RetrievalPanel({ retrieval, items, onEdit, loading, error }) {
   </div>;
 }
 
-export default function OutfitStudio({items,context,onContext,request,onRequest,engine,onEngine,anchorId,onAnchor,aiReady,openaiConfigured,styling,styleStage,previewing,retrieval,retrievalError,onPreview,onGenerate,onCancel,processingCount,quest,options,selected,onSelect,message,onEdit,children,allowResultFocus=true}) {
-  const [briefOpen, setBriefOpen] = useState(true);
-  const [matchesOpen, setMatchesOpen] = useState(false);
-  const [evidenceOpen, setEvidenceOpen] = useState(false);
-  const [cardOpen,setCardOpen]=useState(false),gesture=useRef(null);
-  const editPiece=item=>{setCardOpen(false);onEdit(item);};
+export default function OutfitStudio({items,context,onContext,request,onRequest,engine,onEngine,anchorId,onAnchor,aiReady,openaiConfigured,styling,styleStage,previewing,retrieval,retrievalError,onPreview,onGenerate,onCancel,processingCount,quest,options,selected,onSelect,message,onEdit,children,allowResultFocus=true,view,onViewChange,scrollPosition}) {
+  const {briefOpen,matchesOpen,evidenceOpen,cardOpen}=view;
+  const setView=(key,value)=>onViewChange(previous=>previous[key]===value?previous:{...previous,[key]:value});
+  const setBriefOpen=value=>setView('briefOpen',value),setMatchesOpen=value=>setView('matchesOpen',value),setEvidenceOpen=value=>setView('evidenceOpen',value),setCardOpen=value=>setView('cardOpen',value);
+  const gesture=useRef(null);
+  const editPiece=item=>{onViewChange(previous=>({...previous,cardOpen:false,returnToCard:true}));onEdit(item);};
   const resultsRef = useRef(null);
   const focusAllowed = useRef(allowResultFocus); focusAllowed.current = allowResultFocus;
   const working = styling || previewing;
@@ -37,11 +37,10 @@ export default function OutfitStudio({items,context,onContext,request,onRequest,
   const resultKey = options[0]?.wearId || '';
   const anchor = engine !== 'baseline' && items.find(i => i.id === anchorId);
   useEffect(() => {
-    setBriefOpen(!resultKey);
-    setEvidenceOpen(false);
-    setMatchesOpen(false);
+    if(resultKey===view.resultKey)return;
+    scrollPosition.current=0;
+    onViewChange({resultKey,briefOpen:!resultKey,evidenceOpen:false,matchesOpen:false,cardOpen:Boolean(resultKey),returnToCard:false});
     if (resultKey) {
-      setCardOpen(true);
       const frame = requestAnimationFrame(() => {
         if (!focusAllowed.current) return;
         resultsRef.current?.focus({ preventScroll: true });
@@ -49,6 +48,9 @@ export default function OutfitStudio({items,context,onContext,request,onRequest,
       return () => cancelAnimationFrame(frame);
     }
   }, [resultKey]);
+  useEffect(()=>{
+    if(allowResultFocus&&view.returnToCard&&hasResults)onViewChange(previous=>({...previous,cardOpen:true,returnToCard:false}));
+  },[allowResultFocus,view.returnToCard,hasResults]);
 
   function preview() {
     setMatchesOpen(true);
@@ -60,6 +62,7 @@ export default function OutfitStudio({items,context,onContext,request,onRequest,
     <div className="studio-title"><h2>What’s the plan?</h2><span className={`studio-status ${aiReady ? 'connected' : ''}`}><i/>{engine === 'baseline' ? 'Wardrobe rules' : engine === 'local' ? (aiReady ? 'Local AI ready' : 'Local AI offline') : engine === 'openai' || engine === 'agent' && openaiConfigured ? 'OpenAI styling' : 'Quick matches'}</span></div>
     <div className="studio-brief-fields">
       <label className="studio-label studio-occasion">Occasion<select disabled={working} value={context} onChange={e => onContext(e.target.value)}>{contexts.map(c => <option key={c} value={c}>{c}</option>)}</select></label>
+      <div className="phone-occasions" role="group" aria-label="Choose your occasion">{contexts.map((c,i)=><button key={c} disabled={working} aria-pressed={context===c} onClick={()=>onContext(c)}><span aria-hidden="true">{['☀','♡','↗'][i]}</span>{['Everyday','Coffee date','Presentation'][i]}</button>)}</div>
       <label className="studio-label studio-mood">What do you feel like wearing?<textarea maxLength="1800" disabled={working} value={request} onChange={e => onRequest(e.target.value)} rows="2" placeholder="Relaxed layers, earth tones, something comfortable…"/></label>
     </div>
     {anchor && <div className="studio-anchor-preview"><Garment item={anchor}/><div><strong>{anchor.name}</strong><span>Included in every suggested look.</span></div><button aria-label="Clear starting piece" disabled={working} onClick={() => onAnchor('')}>×</button></div>}
@@ -85,7 +88,7 @@ export default function OutfitStudio({items,context,onContext,request,onRequest,
     {working && <div className="studio-progress" role="status"><span className="pulse-dot"/><div><strong>{previewing || styleStage === 'retrieving' ? 'Finding your pieces…' : 'Creating your looks…'}</strong></div><button onClick={onCancel}>{previewing ? 'Stop preview' : 'Stop styling'}</button></div>}
     {!styling && !hasResults && message && <div className="studio-message" role="status">{message}</div>}
     {hasResults&&<button className="look-preview" onClick={()=>setCardOpen(true)}><div className="look-preview-images">{outfit.slice(0,3).map(item=><Garment key={item.id} item={item}/>)}</div><span><small>READY WHEN YOU ARE</small><strong>{options.length} {options.length===1?'look':'looks'}, made from your closet.</strong><span>Open your outfit cards ↗</span></span></button>}
-    {hasResults&&cardOpen&&<Modal title="Made for your day." onClose={()=>setCardOpen(false)} wide><section className="studio-results outfit-card" aria-label="Suggested outfits" onPointerDown={e=>{gesture.current={x:e.clientX,y:e.clientY};}} onPointerUp={e=>{const g=gesture.current;gesture.current=null;if(!g)return;const dx=e.clientX-g.x,dy=e.clientY-g.y;if(Math.abs(dx)>65&&Math.abs(dx)>Math.abs(dy)*1.5)onSelect((selected+(dx<0?1:-1)+options.length)%options.length);}}>
+    {hasResults&&cardOpen&&<Modal title="Made for your day." onClose={()=>setCardOpen(false)} scrollPosition={scrollPosition} swipeToClose wide><section className="studio-results outfit-card" aria-label="Suggested outfits" onPointerDown={e=>{gesture.current={x:e.clientX,y:e.clientY};}} onPointerCancel={()=>{gesture.current=null;}} onPointerUp={e=>{const g=gesture.current;gesture.current=null;if(!g)return;const dx=e.clientX-g.x,dy=e.clientY-g.y;if(Math.abs(dx)>65&&Math.abs(dx)>Math.abs(dy)*1.5)onSelect((selected+(dx<0?1:-1)+options.length)%options.length);}}>
       <div className="card-pagination"><button aria-label="Previous outfit" disabled={options.length<2} onClick={()=>onSelect((selected-1+options.length)%options.length)}>←</button><span>LOOK {String(selected+1).padStart(2,'0')} <small> / {String(options.length).padStart(2,'0')}</small></span><button aria-label="Next outfit" disabled={options.length<2} onClick={()=>onSelect((selected+1)%options.length)}>→</button></div>
       {chosen.pipeline?.fallback&&<p className="studio-result-notice" role="status">{chosen.pipeline.fallback.message}</p>}<div className="studio-results-heading"><h2 ref={resultsRef} tabIndex={-1}>{chosen.title}</h2><div className="studio-look-tabs" aria-label="Choose an outfit">{options.map((look, index) => <button key={look.wearId} aria-pressed={selected === index} className={selected === index ? 'chosen' : ''} onClick={() => onSelect(index)}>Look {index + 1}</button>)}</div></div>
       <div className="studio-look"><div className="studio-look-photos" style={{'--look-columns':outfit.length<=4?outfit.length:3}}>{outfit.map(item => <button key={item.id} onClick={() => editPiece(item)} aria-label={`View ${item.name}`}><div className="studio-piece-image"><Garment item={item}/>{anchorId === item.id && <span>Your starting piece</span>}</div><span className="studio-piece-category">{item.category}</span><strong>{item.name}</strong></button>)}</div><div className="studio-look-story"><span className="studio-kicker">WHY IT WORKS</span><p>{chosen.explanation}</p>{chosen.stylingTip && <div className="studio-tip"><strong>Try this</strong><p>{chosen.stylingTip}</p></div>}<div className="studio-palette" aria-label="Outfit color palette">{outfit.map(item => <span key={item.id} style={{background:item.color}} title={item.colorName || item.name}/>)}</div><small>{chosen.provider === 'openai' ? 'Styled with OpenAI' : chosen.provider === 'local' ? 'Suggested by local AI' : chosen.provider === 'quick' ? 'Quick wardrobe matches · no generative model' : 'Matched by wardrobe rules'}</small></div></div>
