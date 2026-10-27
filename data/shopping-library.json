@@ -1,0 +1,143 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "query": {
+        "category": "Top",
+        "occasion": "formal",
+        "presentation": "menswear",
+        "maxPrice": 300
+      },
+      "products": [
+        {
+          "title": "Bowery performance stretch dress shirt with spread collar",
+          "url": "https://www.jcrew.com/p/BX291",
+          "price": 98,
+          "currency": "USD",
+          "retailer": "jcrew.com",
+          "image": "https://www.jcrew.com/s7-img-facade/BX291_WT0002?$crop1254$",
+          "images": [
+            "https://www.jcrew.com/s7-img-facade/BX291_WT0002?$crop1254$"
+          ],
+          "tier": "Mid-range",
+          "owned": false,
+          "priceStatus": "Search-reported price; confirm at retailer",
+          "reason": "An external shirt or blouse option for your dressier look."
+        }
+      ],
+      "searchedAt": "2026-10-27T06:59:28.654Z",
+      "notice": "External finds, not owned clothes. Prices come from search and can change. Check size, stock, shipping and dress code at the retailer. Limited retailer selection. No affiliate ranking."
+    },
+    {
+      "query": {
+        "category": "Top",
+        "occasion": "formal",
+        "presentation": "womenswear",
+        "maxPrice": 300
+      },
+      "products": [
+        {
+          "title": "Jules classic-fit tie-neck shirt",
+          "url": "https://www.jcrew.com/p/womens/categories/clothing/shirts-and-tops/CW781?colorCode=NA6524&colorProductCode=CW781&display=all&fit=Women",
+          "price": 39.99,
+          "currency": "USD",
+          "retailer": "jcrew.com",
+          "image": "https://www.jcrew.com/s7-img-facade/CW781_WT0002?$crop1254$",
+          "images": [
+            "https://www.jcrew.com/s7-img-facade/CW781_WT0002?$crop1254$"
+          ],
+          "tier": "Budget",
+          "owned": false,
+          "priceStatus": "Search-reported price; confirm at retailer",
+          "reason": "An external shirt or blouse option for your dressier look."
+        },
+        {
+          "title": "Jules sleeveless tuxedo top",
+          "url": "https://www.jcrew.com/p/womens/categories/clothing/shirts-and-tops/CQ191?colorCode=BK0001&colorProductCode=CQ191&display=all&fit=Women",
+          "price": 59.99,
+          "currency": "USD",
+          "retailer": "jcrew.com",
+          "image": "https://www.jcrew.com/s7-img-facade/CQ191_BK0001?$crop1254$",
+          "images": [
+            "https://www.jcrew.com/s7-img-facade/CQ191_BK0001?$crop1254$"
+          ],
+          "tier": "Budget",
+          "owned": false,
+          "priceStatus": "Search-reported price; confirm at retailer",
+          "reason": "An external shirt or blouse option for your dressier look."
+        }
+      ],
+      "searchedAt": "2026-10-27T06:59:38.031Z",
+      "notice": "External finds, not owned clothes. Prices come from search and can change. Check size, stock, shipping and dress code at the retailer. Limited retailer selection. No affiliate ranking."
+    },
+    {
+      "query": {
+        "category": "Bottom",
+        "occasion": "everyday",
+        "presentation": "any",
+        "maxPrice": 150
+      },
+      "products": [
+        {
+          "title": "Lizzie wide-leg pant",
+          "url": "https://factory.jcrew.com/m/womens/categories/clothing/pants/lizzie/lizzie-wide-leg-pant/MF524?colorProductCode=BW803&color_name=vintage-lavender&display=standard&fit=Classic",
+          "price": 59.5,
+          "currency": "USD",
+          "retailer": "factory.jcrew.com",
+          "image": "https://www.jcrew.com/s7-img-facade/BW803_NA6445?$crop1254$",
+          "images": [
+            "https://www.jcrew.com/s7-img-facade/BW803_NA6445?$crop1254$"
+          ],
+          "tier": "Budget",
+          "owned": false,
+          "priceStatus": "Search-reported price; confirm at retailer",
+          "reason": "An external trousers or skirt option for your everyday look."
+        }
+      ],
+      "searchedAt": "2026-10-27T18:49:06.243Z",
+      "notice": "External finds, not owned clothes. Prices come from search and can change. Check size, stock, shipping and dress code at the retailer. Photo-focused selection from J.Crew, J.Crew Factory and Everlane; not the whole market. No affiliate ranking."
+    },
+    {
+      "query": {
+        "category": "Shoes",
+        "occasion": "formal",
+        "presentation": "any",
+        "maxPrice": 300
+      },
+      "products": [
+        {
+          "title": "Toe-ring kitten-heel sandals in leather",
+          "url": "https://www.jcrew.com/p/womens/categories/shoes/heels/CU531?colorProductCode=CU531&color_name=other&display=all&fit=Classic",
+          "price": 49.99,
+          "currency": "USD",
+          "retailer": "jcrew.com",
+          "image": "https://www.jcrew.com/s7-img-facade/CU531_RD0229?$crop1254$",
+          "images": [
+            "https://www.jcrew.com/s7-img-facade/CU531_RD0229?$crop1254$"
+          ],
+          "tier": "Budget",
+          "owned": false,
+          "priceStatus": "Search-reported price; confirm at retailer",
+          "reason": "An external shoes option for your dressier look."
+        },
+        {
+          "title": "Slingback pointed-toe Mary Jane heels",
+          "url": "https://factory.jcrew.com/p/womens/categories/shoes/slingback-pointed-toe-mary-jane-heels/CV570?colorProductCode=CV570&color_name=sienna&display=standard&fit=Classic",
+          "price": 64.5,
+          "currency": "USD",
+          "retailer": "factory.jcrew.com",
+          "image": "https://www.jcrew.com/s7-img-facade/CV570_BR8763?$crop1254$",
+          "images": [
+            "https://www.jcrew.com/s7-img-facade/CV570_BR8763?$crop1254$"
+          ],
+          "tier": "Mid-range",
+          "owned": false,
+          "priceStatus": "Search-reported price; confirm at retailer",
+          "reason": "An external shoes option for your dressier look."
+        }
+      ],
+      "searchedAt": "2026-10-27T18:49:06.254Z",
+      "notice": "External finds, not owned clothes. Prices come from search and can change. Check size, stock, shipping and dress code at the retailer. Photo-focused selection from J.Crew, J.Crew Factory and Everlane; not the whole market. No affiliate ranking."
+    }
+  ]
+}

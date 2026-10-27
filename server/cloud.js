@@ -103,5 +103,10 @@ export function createCloud({url=process.env.SUPABASE_URL,key=process.env.SUPABA
   await request('/rest/v1/style_documents?on_conflict=user_id,id',{method:'POST',token:user.token,headers:{Prefer:'resolution=merge-duplicates'},body:{user_id:user.id,id,title:doc.title.trim(),content:doc.content,source:doc.source||'Personal style note',updated_at:new Date().toISOString()}});return {...doc,id};
  }
  async function removeDocument(user,id){if(!uuid.test(id))throw error('Invalid document.',400);await request(`/rest/v1/style_documents?user_id=eq.${user.id}&id=eq.${id}`,{method:'DELETE',token:user.token});return {removed:true};}
- return {authenticate,publicUser,auth,closet,saveCloset,uploadPhoto,photo,documents,saveDocument,removeDocument};
+ async function shoppingLibrary(user){return request(`/rest/v1/shopping_library?user_id=eq.${user.id}&select=result&order=updated_at.desc&limit=120`,{token:user.token,signal:AbortSignal.timeout(4000)});}
+ async function saveShoppingResult(user,queryKey,result){
+  if(!/^[a-f0-9]{64}$/.test(queryKey))throw error('Invalid library key.',400);
+  await request('/rest/v1/shopping_library?on_conflict=user_id,query_key',{method:'POST',token:user.token,signal:AbortSignal.timeout(4000),headers:{Prefer:'resolution=merge-duplicates'},body:{user_id:user.id,query_key:queryKey,result,updated_at:new Date().toISOString()}});
+ }
+ return {authenticate,publicUser,auth,closet,saveCloset,uploadPhoto,photo,documents,saveDocument,removeDocument,shoppingLibrary,saveShoppingResult};
 }

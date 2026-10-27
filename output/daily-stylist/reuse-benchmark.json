@@ -1,0 +1,13 @@
+{
+  "measuredAt": "2026-10-27T18:55:47.883Z",
+  "scope": "Real local HTTP; deterministic 120ms fake provider, not paid production timing or pricing.",
+  "concurrentRequests": 12,
+  "providerCalls": 1,
+  "allSucceeded": true,
+  "dailyRequests": 30,
+  "dailyProviderCalls": 0,
+  "dailyP50Ms": 15.3356,
+  "dailyP95Ms": 16.527000000000044,
+  "repeatSource": "library",
+  "repeatMs": 14.860299999999938
+}

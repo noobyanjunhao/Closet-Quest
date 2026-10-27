@@ -3,6 +3,8 @@ import { Garment,Modal } from './components.jsx';
 import { contexts } from './logic.js';
 import './stylist-suggestions.css';
 import ShoppingFinds from './ShoppingFinds.jsx';
+import StylistCompanion from './StylistCompanion.jsx';
+import DailyFinds from './DailyFinds.jsx';
 
 function RetrievalPanel({ retrieval, items, onEdit, loading, error }) {
   return <div className="retrieval-panel" aria-label="Wardrobe matches">
@@ -88,6 +90,7 @@ export default function OutfitStudio({items,context,onContext,request,onRequest,
   </section>;
 
   return <div className={`studio studio-simple ${hasResults ? 'studio-has-results' : ''}`}>
+    <StylistCompanion working={working} onPrompt={value=>{onRequest(value);setBriefOpen(true);}}/>
     <div className="studio-workspace"><details className={`studio-brief-disclosure ${hasResults ? '' : 'studio-brief-initial'}`} open={!hasResults || briefOpen} onToggle={e => setBriefOpen(e.currentTarget.open)}><summary hidden={!hasResults}>Change the brief<span>{context}{anchor ? ` · ${anchor.name}` : ''}</span></summary>{brief}</details></div>
     {working && <div className="studio-progress" role="status"><span className="pulse-dot"/><div><strong>{elapsed>=8?'Putting the finishing touches on your look…':previewing || styleStage === 'retrieving' ? 'Finding your pieces…' : 'Creating your looks…'}</strong><small>{elapsed}s · If AI takes too long, we’ll show a quick starting point.</small></div><button onClick={onCancel}>{previewing ? 'Stop preview' : 'Stop styling'}</button></div>}
     {!styling && !hasResults && message && <div className="studio-message" role="status">{message}</div>}
@@ -105,5 +108,6 @@ export default function OutfitStudio({items,context,onContext,request,onRequest,
         {engine !== 'baseline' && (retrieval || retrievalError || previewing) && <details className="studio-matches" open={matchesOpen} onToggle={e => setMatchesOpen(e.currentTarget.open)}><summary>Wardrobe matches</summary><RetrievalPanel retrieval={retrieval} items={items} onEdit={editPiece} loading={previewing} error={retrievalError}/></details>}
       </details>}
     </section></Modal>}
+    <DailyFinds store={shoppingStore} occasion={context+' '+request}/>
   </div>;
 }

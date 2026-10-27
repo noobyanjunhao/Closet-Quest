@@ -1,0 +1,1 @@
+{"table":"shopping_library","rlsEnabled":true,"anonymousSelect":false,"authenticatedSelect":true,"ownerPredicate":"auth.uid() = user_id","migrationApplied":true,"scope":"Observed SQL success and policy inspection in Supabase; not a broad penetration test"}
