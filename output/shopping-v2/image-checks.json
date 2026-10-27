@@ -1,0 +1,20 @@
+[
+  {
+    "url": "https://www.jcrew.com/p/BX291",
+    "image": "https://www.jcrew.com/s7-img-facade/BX291_WT0002?$crop1254$",
+    "status": 200,
+    "contentType": "image/jpeg"
+  },
+  {
+    "url": "https://www.jcrew.com/p/womens/categories/clothing/shirts-and-tops/CW781?colorCode=NA6524&colorProductCode=CW781&display=all&fit=Women",
+    "image": "https://www.jcrew.com/s7-img-facade/CW781_WT0002?$crop1254$",
+    "status": 200,
+    "contentType": "image/jpeg"
+  },
+  {
+    "url": "https://www.jcrew.com/p/womens/categories/clothing/shirts-and-tops/CQ191?colorCode=BK0001&colorProductCode=CQ191&display=all&fit=Women",
+    "image": "https://www.jcrew.com/s7-img-facade/CQ191_BK0001?$crop1254$",
+    "status": 200,
+    "contentType": "image/jpeg"
+  }
+]

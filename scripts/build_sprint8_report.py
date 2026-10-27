@@ -11,7 +11,7 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'output/sprint8'
 data=json.loads((OUT/'model-results.json').read_text(encoding='utf-8'))
 stress=json.loads((OUT/'robustness-results.json').read_text(encoding='utf-8'))
-shopping=json.loads((OUT/'shopping-preview-improvement.json').read_text(encoding='utf-8'))
+shopping=json.loads((ROOT/'output/shopping-v2/visual-sources-results.json').read_text(encoding='utf-8'))
 pdf=ROOT/'output/pdf/Closet-Quest-Sprint-8-Robustness-Report.pdf'
 pdf.parent.mkdir(parents=True,exist_ok=True)
 c=canvas.Canvas(str(pdf),pagesize=(612,792))
@@ -42,6 +42,7 @@ def screenshot(path,x,top,w,h):
  im=ImageReader(str(path));iw,ih=im.getSize();scale=min(w/iw,h/ih);c.drawImage(im,x,top-ih*scale,width=iw*scale,height=ih*scale,mask='auto')
 
 page(1,'Evidence-driven improvement','A closet that keeps working.')
+para('<b><link href="https://closet-quest-junhao-s7.onrender.com/" color="#78394c">TRY CLOSET QUEST: closet-quest-junhao-s7.onrender.com</link></b><br/>Please try the app: add a few clothes, ask for an outfit, and explore the shopping finds. We would love to hear what feels useful and where you get stuck.','small',gap=10)
 para('This iteration focuses on a simple promise: a difficult photo or an incomplete wardrobe should not stop someone from putting an outfit together. The strongest measured improvement is in recovery from partially invalid recognition output. The new closet and shopping flow make that recovery more useful, but their effect on people has not yet been measured.')
 section('What the earlier evidence changed')
 para('The previous 100-photo study completed 93/100 multi-item requests; failed responses accounted for 16 of its 24 missed category occurrences. That made whole-response rejection a higher priority than switching models. Project feedback also asked for a closet that feels browsable and real products when owned clothes are insufficient.')
@@ -49,16 +50,16 @@ table([
  ['Problem / baseline','Implemented change','Evidence this iteration'],
  ['One malformed piece could discard the whole scene.','Keep individually validated pieces; omit invalid entries and show a review warning.','Same 67 model responses: 61 accepted before, 67 after. Six recovered responses retained 15 pieces.'],
  ['Static wardrobe grid; missing-piece cards were placeholders.','Circular photo/cutout rail, thumbnail selection and an optional retailer search.','Browser flow exercised at 390 x 844 and 1440 x 900 CSS pixels; real search results and prices recorded.'],
- ['Build audit flagged one high-severity affected dependency.','Patch Vite 7.3.6 to 7.3.7 without changing the app framework.','Known vulnerable dependencies: 1 to 0; production build and all 210 tests pass.'],
+ ['Build audit flagged one high-severity affected dependency.','Patch Vite 7.3.6 to 7.3.7 without changing the app framework.','Known vulnerable dependencies: 1 to 0; production build and all 213 tests pass.'],
  ],[151,186,187])
 section('The updated experience')
 top=y
-screenshot(OUT/'closet-mobile.png',44,top,132,245)
+screenshot(OUT/'closet-mobile.png',44,top,120,205)
 old=y;y=top
 para('The rail uses the user\'s existing cutout, original photo, or chosen pixel icon. A garment moves into the center as the user selects it; arrows, swipe gestures and the thumbnail strip provide equivalent controls. The grid remains available.','p',x=194,w=374)
 para('In the browser check, a sample blazer was extracted locally, reviewed, saved and displayed on the rail. Opening Saved looks and returning preserved the selected piece. Styling from the rail carried that piece into the outfit brief. These are functional checks on sample data, not usability-study results.','p',x=194,w=374)
 para('Phone capture: actual local build, using a public sample garment. The cutout is a processed photograph, not a generated clothing image.','small',x=194,w=374)
-y=min(y,top-245)-8
+y=min(y,top-205)-8
 para('<b>Interpretation:</b> recovery improved. We have not established faster dressing, less shopping, greater outfit acceptance or reduced environmental impact. No human participants were recruited for this iteration.','small',gap=0)
 
 page(2,'Live model validation','What the model gets right.')
@@ -90,17 +91,18 @@ section('Shopping: useful, but coverage remains uneven')
 before=json.loads((OUT/'shopping-final-live.json').read_text(encoding='utf-8'))
 bproducts=sum(len(r['products']) for r in before);bphotos=sum(bool(p['image']) for r in before for p in r['products'])
 aproducts=sum(len(r['products']) for r in shopping);aphotos=sum(bool(p['image']) for r in shopping for p in r['products'])
-para(f'Two initial formal-top queries (menswear and womenswear; maximum $300) returned {bproducts} candidates with {bphotos} photo preview. Inspection caught a retailer category-list URL, which the validator now rejects. We also changed retrieval to include a relevant J.Crew product when sourced, because its pages support previews. Repeating the two briefs returned {aproducts} products with {aphotos} previews. These are sequential smoke checks with changing web results, not a controlled estimate of shopping quality.')
-table([['Final query','Products / previews','Cold search / cached repeat'],*[ [r['query']['presentation'].capitalize(),f"{len(r['products'])} / {sum(bool(p['image']) for p in r['products'])}",f"{r['latencyMs']/1000:.2f} s / {r['warmMs']:.2f} ms"] for r in shopping]],[168,146,210])
-para('Products are sorted by observed USD price and marked as external, never as owned garments. A direct retailer URL must occur in retrieved sources, and its price must occur in evidence for that same page. Photo URLs come from source-linked image results or retailer page metadata. Unavailable previews remain visibly unavailable. A separate image-only lookup returned no usable photos and was removed.','small')
-para('The 15-minute cache is scoped by account and query. Four synthetic cache requests made three provider calls, confirming reuse, account separation and expiry. The cached times above measure the in-process function, excluding browser/network latency. Stock, sizing, shipping, discounts and price freshness still require confirmation at the store.','small',gap=0)
+para(f'The earlier two formal-top searches returned five products with one photo preview. A follow-up now searches photo-accessible stores, reads product structured data and alternate image metadata, and removes repeated titles. The same two briefs returned {aproducts} products with {aphotos} previews; all three image URLs returned HTTP 200 and image/jpeg. This improves observed coverage but narrows retailer choice. Sequential smoke checks with changing results do not establish a general quality gain.')
+
+table([['Final query','Products / previews','Follow-up cold search'],*[ [r['query']['presentation'].capitalize(),f"{len(r['products'])} / {sum(bool(p['image']) for p in r['products'])}",f"{r['latencyMs']/1000:.2f} s"] for r in shopping]],[168,146,210])
+para('Products are sorted by observed USD price and marked as external, never as owned garments. A direct retailer URL must occur in retrieved sources, and its price must occur in evidence for that same page. Photos come from source-linked results or retailer product metadata; the client tries alternate images on failure. Cards keep prices low to high and offer a photo filter. Color/size variants still require store confirmation. A broad-source follow-up returned five pictureless shirt variants and then timed out; the smaller source set avoids those blocked previews.','small')
+para('The 15-minute cache is account-scoped. Four synthetic requests made three provider calls, confirming reuse, isolation and expiry. Earlier cached repeats took about 0.1 ms in-process; this excludes network latency. Confirm stock, size, shipping and current price at the store.','small',gap=0)
 
 page(4,'Responsible deployment and next priorities','Keep the boundaries visible.')
 table([
  ['Risk','Implemented control','Remaining limitation'],
  ['Privacy and account separation','Existing Supabase identity, owner-scoped storage and authenticated API routes. Shopping receives only category, occasion, presentation and budget; store:false on OpenAI requests.','Recognition still sends photos to OpenAI. Retailer image loads disclose a network request. Deletion, retention and cross-device behavior need broader independent auditing.'],
  ['Invented clothes or misleading shopping','Owned outfit IDs remain constrained. Invalid pieces are omitted with warnings. Retailer/source/price checks and explicit external labels separate shopping from wardrobe truth.','Source prices may be stale or describe another variant. Title and price co-occurrence is not a complete product-catalog guarantee. No purchase or inventory API is connected.'],
- ['Bias and pressure to spend','User chooses menswear, womenswear or all styles. Budget control and price sorting; borrowing/renting remain visible alternatives. No affiliate ranking.','Nine US retailer domains, USD only; J.Crew preview preference introduces selection bias. Size inclusion, culture, body diversity and affordability are not validated.'],
+ ['Bias and pressure to spend','User chooses menswear, womenswear or all styles. Budget control and price sorting; borrowing/renting remain visible alternatives. No affiliate ranking.','Photo search focuses on J.Crew, J.Crew Factory and Everlane, USD only; this introduces selection bias. Size inclusion, culture, body diversity and affordability are not validated.'],
  ['Accessibility and motion','Arrow keys, Home/End, focus indicators, live selection text, explicit controls and reduced-motion CSS; grid alternative. No automatic spinning.','Keyboard and phone-layout checks are not a screen-reader or WCAG conformance audit. Physical-device gesture and assistive-technology testing remain open.'],
  ['Availability, misuse and dependencies','Bounded requests, two concurrent shopping searches, 25-second deadline, cancel/retry states, source allowlist and redirects checked before retailer fetches. Vite patched; audit now zero known issues.','Per-process limits are not distributed capacity controls. Free Render can sleep; model calls still cost money. A clean dependency audit is not a penetration test.'],
  ],[112,211,201])

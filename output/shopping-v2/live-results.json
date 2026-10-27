@@ -1,0 +1,90 @@
+[
+  {
+    "products": [
+      {
+        "title": "Super Non-Iron Slim Shirt | Regular Collar",
+        "url": "https://www.uniqlo.com/us/en/products/E456590-000/00?colorDisplayCode=09&nodeeplink=true&sizeDisplayCode=004",
+        "price": 49.9,
+        "currency": "USD",
+        "retailer": "uniqlo.com",
+        "image": null,
+        "images": [],
+        "tier": "Budget",
+        "owned": false,
+        "priceStatus": "Search-reported price; confirm at retailer",
+        "reason": "An external shirt or blouse option for your dressier look."
+      },
+      {
+        "title": "Super Non-Iron Slim Shirt | Button Down Collar",
+        "url": "https://www.uniqlo.com/us/en/products/E456588-000/00?colorDisplayCode=00&nodeeplink=1&sizeDisplayCode=005",
+        "price": 49.9,
+        "currency": "USD",
+        "retailer": "uniqlo.com",
+        "image": null,
+        "images": [],
+        "tier": "Budget",
+        "owned": false,
+        "priceStatus": "Search-reported price; confirm at retailer",
+        "reason": "An external shirt or blouse option for your dressier look."
+      },
+      {
+        "title": "Super Non-Iron Slim Shirt | Spread Collar",
+        "url": "https://www.uniqlo.com/us/en/products/E456592-000/00?asset_group_id=%7Basset_group_id%7D&colorDisplayCode=00&device=c&location=%7Blocation%7D&network=x&sizeDisplayCode=005",
+        "price": 49.9,
+        "currency": "USD",
+        "retailer": "uniqlo.com",
+        "image": null,
+        "images": [],
+        "tier": "Budget",
+        "owned": false,
+        "priceStatus": "Search-reported price; confirm at retailer",
+        "reason": "An external shirt or blouse option for your dressier look."
+      },
+      {
+        "title": "Super Non-Iron Slim Shirt | Spread Collar | Checked",
+        "url": "https://www.uniqlo.com/us/en/products/E473297-000/00?colorDisplayCode=64&sizeDisplayCode=004",
+        "price": 49.9,
+        "currency": "USD",
+        "retailer": "uniqlo.com",
+        "image": null,
+        "images": [],
+        "tier": "Budget",
+        "owned": false,
+        "priceStatus": "Search-reported price; confirm at retailer",
+        "reason": "An external shirt or blouse option for your dressier look."
+      },
+      {
+        "title": "Super Non-Iron Jersey Slim Shirt | Regular Collar",
+        "url": "https://www.uniqlo.com/us/en/products/E473535-000/00?colorDisplayCode=64&pldDisplayCode=000&sizeDisplayCode=003",
+        "price": 49.9,
+        "currency": "USD",
+        "retailer": "uniqlo.com",
+        "image": null,
+        "images": [],
+        "tier": "Budget",
+        "owned": false,
+        "priceStatus": "Search-reported price; confirm at retailer",
+        "reason": "An external shirt or blouse option for your dressier look."
+      }
+    ],
+    "query": {
+      "category": "Top",
+      "occasion": "formal",
+      "presentation": "menswear",
+      "maxPrice": 300
+    },
+    "searchedAt": "2026-10-27T06:58:24.788Z",
+    "latencyMs": 13885,
+    "cached": false,
+    "notice": "External finds, not owned clothes. Prices come from search and can change. Check size, stock, shipping and dress code at the retailer. Limited retailer selection. No affiliate ranking."
+  },
+  {
+    "query": {
+      "category": "Top",
+      "occasion": "formal",
+      "presentation": "womenswear",
+      "maxPrice": 300
+    },
+    "error": "Online search took too long. Your outfit is still ready; try shops again."
+  }
+]
