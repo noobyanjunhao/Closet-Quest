@@ -1,6 +1,6 @@
 # Closet Quest: robustness and responsible deployment
 
-Measured October 27, 2026. The four-page illustrated PDF and screenshot bundle are local submission artifacts; their publication is pending approval. The results and generation scripts are included here. App: https://closet-quest-junhao-s7.onrender.com/
+Measured October 27, 2026. Report: [four-page PDF](../output/pdf/Closet-Quest-Sprint-8-Robustness-Report.pdf). App: https://closet-quest-junhao-s7.onrender.com/
 
 ## Improvements and evidence
 
