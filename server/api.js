@@ -8,6 +8,7 @@ import { createKnowledgeStore } from './knowledge.js';
 import { recommend as style, resolveProvider } from './recommendation.js';
 import { openAIStatus } from './openai.js';
 import { createDepopClient, depopStatus } from './depop.js';
+import {searchShopping} from './shopping.js';
 import { createJobQueue } from './jobs.js';
 import { PIPELINE_VERSION } from './recognition.js';
 import { retrieveWardrobeHybrid } from './hybrid-retrieval.js';
@@ -41,7 +42,7 @@ async function readJson(req,maxBytes) {
 }
 
 export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(new URL('../.local-data/jobs/',import.meta.url)),services={},queueOptions={},knowledgeStore,knowledgeDir=fileURLToPath(new URL('../.local-data/knowledge/',import.meta.url)),access=createAccess({cloud:cloudConfigured()}),cloud=createCloud()}={}) {
-  const handlers={recognize,analyzeInspiration,style,retrieveWardrobeHybrid,recordLearningEvent,getLearningStatus,exportLearningData,listModels,...services};
+  const handlers={recognize,analyzeInspiration,style,retrieveWardrobeHybrid,recordLearningEvent,getLearningStatus,exportLearningData,listModels,searchShopping,...services};
   const queue=createJobQueue(handlers.recognize,{...queueOptions,storageDir});
   let knowledge=knowledgeStore;
   const getKnowledge=()=>knowledge||(knowledge=createKnowledgeStore({storageDir:knowledgeDir,embeddingClients:{openai:createScopedDocumentEmbeddings()}}));
@@ -94,10 +95,10 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
       if(jobMatch&&user&&!queue.owns(jobMatch[1],user.namespace)){res.statusCode=404;return res.end(JSON.stringify({error:'Analysis unavailable for this account.'}));}
       if(jobMatch&&req.method==='GET'){const job=queue.get(jobMatch[1]);res.statusCode=job?200:404;return res.end(JSON.stringify(job||{error:'Analysis expired. Retry this photo.'}));}
       if(jobMatch&&req.method==='DELETE'){res.statusCode=queue.cancel(jobMatch[1])?200:404;return res.end('{}');}
-      if(req.method!=='POST'||!['/jobs','/recognize','/inspiration','/style','/retrieve','/learning/events','/knowledge/list','/knowledge/documents','/knowledge/delete','/knowledge/search','/knowledge/reindex'].includes(route)){res.statusCode=404;return res.end('{}');}
-      const body=await readJson(req,route==='/learning/events'||route.startsWith('/knowledge/')?128000:8500000);
+      if(req.method!=='POST'||!['/shopping','/jobs','/recognize','/inspiration','/style','/retrieve','/learning/events','/knowledge/list','/knowledge/documents','/knowledge/delete','/knowledge/search','/knowledge/reindex'].includes(route)){res.statusCode=404;return res.end('{}');}
+      const body=await readJson(req,route==='/shopping'?4096:route==='/learning/events'||route.startsWith('/knowledge/')?128000:8500000);
       if(user)body.wardrobeId=user.namespace;
-      if(access.hosted&&['/jobs','/recognize','/style','/retrieve','/inspiration','/knowledge/documents','/knowledge/search','/knowledge/reindex'].includes(route))access.allowInference(user);
+      if(access.hosted&&['/shopping','/jobs','/recognize','/style','/retrieve','/inspiration','/knowledge/documents','/knowledge/search','/knowledge/reindex'].includes(route))access.allowInference(user);
       if(access.hosted&&(body.provider==='local'||route==='/inspiration'))throw Object.assign(new Error('Local inference is unavailable on this cloud deployment. Select OpenAI or Quick matches.'),{status:400});
       const localStyle=route==='/style'&&resolveProvider(body.provider)==='local';
       const cloudPhoto=['/jobs','/recognize'].includes(route)&&body.provider==='openai';
@@ -108,6 +109,7 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
       if(route==='/learning/events'){res.statusCode=201;return res.end(JSON.stringify(await handlers.recordLearningEvent(body)));}
       if(route==='/jobs'){const job=queue.enqueue(body.image,{crop:body.crop,detectionMode:body.detectionMode,provider:body.provider,modelProfile:body.modelProfile,wardrobeId:body.wardrobeId});res.statusCode=202;return res.end(JSON.stringify(job));}
       controller=new AbortController();controllers.add(controller);abortDisconnected=()=>{if(!res.writableEnded)controller.abort();};res.once('close',abortDisconnected);
+      if(route==='/shopping')return res.end(JSON.stringify(await handlers.searchShopping(body,{signal:controller.signal,scope:user?.namespace||'local'})));
       if(route.startsWith('/knowledge/')) {
         let saved,removed;
         if(cloud&&user?.cloud&&route==='/knowledge/documents')saved=await cloud.saveDocument(user,body);

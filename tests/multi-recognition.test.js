@@ -30,7 +30,7 @@ test('outfit recognition preserves cap and clothing as separate validated, revie
 test('invalid/empty scenes and unsafe crops abstain; overlapping duplicate targets are deduplicated',()=>{
   for(const value of [null,{}, {...scene(),garments:[]}, {...scene(),garments:Array(7).fill(scene().garments[0])}])assert.throws(()=>validateScene(value));
   for(const box of [{x:-.1,y:0,width:.5,height:.5},{x:.8,y:0,width:.5,height:.5},{x:0,y:0,width:NaN,height:.5},{x:0,y:0,width:.5,height:0}]){
-    const value=scene();value.garments[0].boundingBox=box;assert.throws(()=>validateScene(value));
+    const value=scene();value.garments[0].boundingBox=box;const recovered=validateScene(value);assert.equal(recovered.garments.length,1);assert.equal(recovered.diagnostics[0].code,'INVALID_BOX');assert.equal(recovered.garments[0].itemType,'Hoodie');value.garments[1].boundingBox=box;assert.throws(()=>validateScene(value));
   }
   const duplicate=scene();duplicate.garments.push(structuredClone(duplicate.garments[0]));assert.equal(validateScene(duplicate).garments.length,2);
 });
@@ -39,7 +39,7 @@ test('uncertain pieces abstain individually and never erase clear detections',()
   const mixed=scene();mixed.garments[0].observation.subjectStatus='ambiguous';
   const result=validateScene(mixed);assert.equal(result.garments.length,1);assert.equal(result.garments[0].itemType,'Hoodie');assert.equal(result.omittedCount,1);assert.match(result.sceneNotes.at(-1),/uncertain piece/);
   mixed.garments[1].observation.subjectStatus='ambiguous';assert.throws(()=>validateScene(mixed),{code:'AMBIGUOUS_ITEM'});
-  const malformed=scene();malformed.garments[0].observation.colorFamily='Invented';assert.throws(()=>validateScene(malformed));
+  const malformed=scene();malformed.garments[0].observation.colorFamily='Invented';assert.equal(validateScene(malformed).garments.length,1);assert.equal(validateScene(malformed).diagnostics[0].code,'INVALID_OBSERVATION');
 });
 
 test('single and scene results use separate caches and scene mode requests high-detail images',async()=>{

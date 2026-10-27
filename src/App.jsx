@@ -29,6 +29,7 @@ import './journey.css';
 import { ClosetCheck, FavoriteQuest, Inspiration } from './Journey.jsx';
 import GarmentDisplay from './GarmentDisplay.jsx';
 import WardrobeRail from './WardrobeRail.jsx';
+import ClosetCarousel from './ClosetCarousel.jsx';
 import { roleplayState } from './roleplay.js';
 import { alphaDemoState } from './alpha-demo.js';
 import StyleMemory from './PersonalStyle.jsx';
@@ -76,9 +77,10 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
   const preferences=normalizePreferences(state.preferences);
   const [page,setPageState] = useState('Closet'), [filter,setFilter] = useState('All'), [search,setSearch] = useState(''), [sort,setSort] = useState('added');
   const [returningPage,setReturningPage]=useState(false),routeMemory=useRef(null);
+  const [closetView,setClosetView]=useState('rail'),[closetSelected,setClosetSelected]=useState(null);
   if(!routeMemory.current)routeMemory.current=createNavigationMemory();
   const [studioView,setStudioView]=useState({resultKey:'',briefOpen:true,matchesOpen:false,evidenceOpen:false,cardOpen:false,returnToCard:false});
-  const outfitScroll=useRef(0),categoryScroll=useRef(0),savedRailScroll=useRef(0);
+  const outfitScroll=useRef(0),categoryScroll=useRef(0),savedRailScroll=useRef(0),shoppingStore=useRef({results:new Map()});
   const navigate = useRef(null);
   if (!navigate.current) navigate.current = createPageNavigator({
     commit: destination => {
@@ -360,13 +362,14 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
       {page==='Validation'&&<ValidationStudy state={state} save={save} account={account}/>}
 
       {page==='Closet'&&<>
-        <ClosetHero items={state.items} reviewCount={needsReview.length} onStyle={()=>setPage('Outfits')}/>
+        {closetView==='grid'&&<ClosetHero items={state.items} reviewCount={needsReview.length} onStyle={()=>setPage('Outfits')}/>}
         <section className="stats"><div><strong>{state.items.length}</strong><span>pieces in your closet</span></div><div><strong>{state.savedOutfits.length}</strong><span>looks worth repeating</span></div><div><strong>{lowUse.length}</strong><span>waiting to be rediscovered</span></div></section>
         {(processing.length>0||needsReview.length>0||busy)&&<div className="processing-strip" role="status"><span className={processing.length||busy?'pulse-dot':'status-dot'}/><span>{busy?'Preparing your photos…':`${processing.length?`${processing.length} photo${processing.length===1?'':'s'} analyzing · `:''}${needsReview.length} piece${needsReview.length===1?'':'s'} to review`}</span>{needsReview.length>0&&<button className="text-button" onClick={reviewImports}>Review pieces →</button>}</div>}
         {!account?.cloud&&!state.items.some(i=>i.sampleId)&&<div className="collection-banner"><div><strong>Meet the real-photo collection.</strong><p>Seven photographed pieces to explore alongside your existing closet.</p></div><button onClick={()=>{if(save(addPhotoCollection))notify('Seven sample pieces added. Your existing closet is preserved.');}}>Add photo collection ↗</button></div>}
         <div className="section-heading wardrobe-heading"><h2>Your pieces <small>{visible.length}</small></h2><div className="wardrobe-tools"><label className="search"><span aria-hidden="true">⌕</span><input aria-label="Search wardrobe" placeholder="Search your clothes" value={search} onChange={e=>setSearch(e.target.value)}/></label><select aria-label="Filter wardrobe" value={filter} onChange={e=>setFilter(e.target.value)}>{['All',...categories,'Rediscover',...(needsReview.length?['Review']:[])].map(c=><option key={c} value={c}>{c==='All'?'All pieces':c}</option>)}</select><select aria-label="Sort wardrobe" value={sort} onChange={e=>setSort(e.target.value)}><option value="added">Newest first</option><option value="wears">Least worn</option><option value="name">Name A–Z</option></select></div></div>
         <div className="phone-categories" aria-label="Clothing categories" ref={element=>{if(element)element.scrollLeft=categoryScroll.current;}} onScroll={e=>{categoryScroll.current=e.currentTarget.scrollLeft;}}>{['All',...categories,'Rediscover',...(needsReview.length?['Review']:[])].map(c=><button key={c} aria-pressed={filter===c} onClick={()=>setFilter(c)}>{c==='All'?'All pieces':c}</button>)}</div>
-        <div className="wardrobe-with-looks"><div className="wardrobe-piece-area"><div className="grid wardrobe-grid">{visible.map(item=><GarmentCard key={item.id} item={item} onClick={()=>setEditor({...item})}/>)}</div>
+        <div className="closet-view-switch" role="group" aria-label="Closet display"><button aria-pressed={closetView==='rail'} onClick={()=>setClosetView('rail')}>Clothes rail</button><button aria-pressed={closetView==='grid'} onClick={()=>setClosetView('grid')}>All pieces</button></div>
+        <div className={`wardrobe-with-looks ${closetView==='rail'?'is-carousel':''}`}><div className="wardrobe-piece-area">{closetView==='rail'?<ClosetCarousel items={visible} selectedId={closetSelected} onSelect={setClosetSelected} onEdit={item=>setEditor({...item})} onStyle={styleThisPiece}/>:<div className="grid wardrobe-grid">{visible.map(item=><GarmentCard key={item.id} item={item} onClick={()=>setEditor({...item})}/>)}</div>}
         {!visible.length&&<div className="empty closet-empty"><span aria-hidden="true">＋</span><h2>{state.items.length?'No pieces here yet.':'Your next favorite look starts here.'}</h2><p>{state.items.length?'Try another search or filter.':'Add a top, a bottom and shoes. One outfit photo can capture all three.'}</p>{state.items.length?<button onClick={()=>{setSearch('');setFilter('All');}}>Clear filters</button>:<button className="primary" onClick={()=>setModal('add')}>Add my first pieces</button>}</div>}
         </div><WardrobeRail state={state} scrollPosition={savedRailScroll} onStyle={()=>setPage('Outfits')} onEdit={item=>setEditor({...item})} onWear={look=>{if(save(s=>recordWearToday(s,look.itemIds,{outfitId:look.id,runId:look.runId})))notify('Wear recorded in your journal.');}}/></div>
         {state.items.some(i=>i.sampleId)&&<p className="collection-note">Sample photographs and demonstration wear counts. Photo credits are under More.</p>}
@@ -374,7 +377,7 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
 
       {page==='Memory'&&<StyleMemory state={state} onSave={save} ai={ai} notify={notify}/>}
       {page==='Outfits'&&<OutfitStudio
-        view={studioView} onViewChange={setStudioView} scrollPosition={outfitScroll}
+        shoppingStore={shoppingStore} view={studioView} onViewChange={setStudioView} scrollPosition={outfitScroll}
         items={state.items} context={context} onContext={value=>{clearStudio();setContext(value);setQuestMode(false);}}
         request={request} onRequest={value=>{clearStudio();setRequest(value);}}
         engine={engine} onEngine={value=>{clearStudio();setEngine(value);if(value==='baseline')setAnchorId('');}}
