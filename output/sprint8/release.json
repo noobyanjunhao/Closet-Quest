@@ -1,34 +1,14 @@
 {
-  "measuredAt": "2026-10-27T06:43:06.177Z",
-  "origin": "https://closet-quest-junhao-s7.onrender.com",
-  "appCommit": "586f1156aaec57cacd448675638a5314bb5566e2",
+  "appCommit": "614434261bc313d37b648c4691b77872f17d3aeb",
+  "checkedAt": "2026-10-27T07:06:00.599Z",
+  "health": 200,
+  "asset": "/assets/index-C1VqU0PG.js",
+  "newShoppingCards": true,
+  "photoFilter": true,
+  "visualRetailerCopy": true,
   "renderStatus": "Deploy succeeded | Live (observed in dashboard)",
-  "checks": [
-    {
-      "path": "/healthz",
-      "status": 200,
-      "expected": 200
-    },
-    {
-      "path": "/api/status",
-      "status": 401,
-      "expected": 401
-    },
-    {
-      "path": "/api/shopping",
-      "status": 401,
-      "expected": 401
-    },
-    {
-      "name": "Published client includes rail and shopping UI",
-      "asset": "/assets/index-DItW5cml.js",
-      "passed": true
-    },
-    {
-      "name": "Signed-in deployed cloud closet renders new rail and next-button selection",
-      "passed": true,
-      "scope": "Read-only browser verification; private screenshot excluded from public evidence"
-    }
-  ],
-  "passed": true
+  "previousAppCommit": "586f1156aaec57cacd448675638a5314bb5566e2",
+  "origin": "https://closet-quest-junhao-s7.onrender.com",
+  "signedInCloudClosetLoaded": true,
+  "scope": "Hosted health/client verification and read-only signed-in closet check; shopping cards exercised locally with recorded live retailer results."
 }
