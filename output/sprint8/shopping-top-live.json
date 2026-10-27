@@ -1,0 +1,38 @@
+{
+  "products": [
+    {
+      "title": "Jules classic-fit tie-neck shirt",
+      "url": "https://www.jcrew.com/p/womens/categories/clothing/shirts-and-tops/CW781?colorCode=WT0002&colorProductCode=CW781&display=all&fit=Women",
+      "price": 39.99,
+      "currency": "USD",
+      "retailer": "jcrew.com",
+      "image": "https://www.jcrew.com/s7-img-facade/CW781_WT0002?$crop1254$",
+      "tier": "Budget",
+      "owned": false,
+      "priceStatus": "Search-reported price; confirm at retailer",
+      "reason": "An external shirt or blouse option for your dressier look."
+    },
+    {
+      "title": "Jules ruffle-collar button-up shirt in crepe de chine",
+      "url": "https://www.jcrew.com/m/womens/categories/clothing/shirts-and-tops/MQ305?colorCode=NA6434&colorProductCode=CP659&display=all&fit=Women",
+      "price": 158,
+      "currency": "USD",
+      "retailer": "jcrew.com",
+      "image": "https://www.jcrew.com/s7-img-facade/CP659_NA6434?$crop1254$",
+      "tier": "Investment",
+      "owned": false,
+      "priceStatus": "Search-reported price; confirm at retailer",
+      "reason": "An external shirt or blouse option for your dressier look."
+    }
+  ],
+  "query": {
+    "category": "Top",
+    "occasion": "formal",
+    "presentation": "any",
+    "maxPrice": null
+  },
+  "searchedAt": "2026-10-27T06:14:43.136Z",
+  "latencyMs": 9692,
+  "cached": false,
+  "notice": "External finds, not owned clothes. Prices come from search and can change. Check size, stock, shipping and dress code at the retailer. No affiliate ranking."
+}

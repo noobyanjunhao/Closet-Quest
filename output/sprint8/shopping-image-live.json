@@ -1,0 +1,15 @@
+{
+  "products": [],
+  "query": {
+    "category": "Shoes",
+    "occasion": "formal",
+    "presentation": "menswear",
+    "maxPrice": 300
+  },
+  "searchedAt": "2026-10-27T06:31:13.775Z",
+  "latencyMs": 9523,
+  "cached": false,
+  "notice": "External finds, not owned clothes. Prices come from search and can change. Check size, stock, shipping and dress code at the retailer. No affiliate ranking.",
+  "warmMs": 12270.849799999998,
+  "warmCached": false
+}

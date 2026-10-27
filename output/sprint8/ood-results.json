@@ -1,0 +1,25 @@
+{
+  "measuredAt": "2026-10-27T06:27:00.212Z",
+  "model": "gpt-6-luna",
+  "scope": "Three synthetic no-clothing images sent to the live model; not a broad adversarial or OOD benchmark.",
+  "rows": [
+    {
+      "name": "blank",
+      "rejected": false,
+      "code": "EMPTY_IMAGE",
+      "latencyMs": 30
+    },
+    {
+      "name": "geometric-house",
+      "rejected": true,
+      "code": "NOT_FASHION",
+      "latencyMs": 1572
+    },
+    {
+      "name": "image-text-injection",
+      "rejected": true,
+      "code": "NOT_FASHION",
+      "latencyMs": 1559
+    }
+  ]
+}

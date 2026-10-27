@@ -1,0 +1,94 @@
+[
+  {
+    "products": [
+      {
+        "title": "Super Non-Iron Slim Shirt | Button Down Collar",
+        "url": "https://www.uniqlo.com/us/en/products/E456588-000/00?colorDisplayCode=00&nodeeplink=1&sizeDisplayCode=005",
+        "price": 49.9,
+        "currency": "USD",
+        "retailer": "uniqlo.com",
+        "image": null,
+        "tier": "Budget",
+        "owned": false,
+        "priceStatus": "Search-reported price; confirm at retailer",
+        "reason": "An external shirt or blouse option for your dressier look."
+      },
+      {
+        "title": "Slim-Fit Pima Cotton Tuxedo Shirt",
+        "url": "https://www2.hm.com/en_us/productpage.1368508001.html",
+        "price": 49.99,
+        "currency": "USD",
+        "retailer": "www2.hm.com",
+        "image": null,
+        "tier": "Budget",
+        "owned": false,
+        "priceStatus": "Search-reported price; confirm at retailer",
+        "reason": "An external shirt or blouse option for your dressier look."
+      }
+    ],
+    "query": {
+      "category": "Top",
+      "occasion": "formal",
+      "presentation": "menswear",
+      "maxPrice": 300
+    },
+    "searchedAt": "2026-10-27T06:37:18.409Z",
+    "latencyMs": 10836,
+    "cached": false,
+    "notice": "External finds, not owned clothes. Prices come from search and can change. Check size, stock, shipping and dress code at the retailer. Limited retailer selection. No affiliate ranking.",
+    "warmMs": 0.11299999999937427,
+    "warmCached": true
+  },
+  {
+    "products": [
+      {
+        "title": "Tie-Detail Satin Blouse",
+        "url": "https://www2.hm.com/en_us/productpage.1352639001.html",
+        "price": 29.99,
+        "currency": "USD",
+        "retailer": "www2.hm.com",
+        "image": null,
+        "tier": "Budget",
+        "owned": false,
+        "priceStatus": "Search-reported price; confirm at retailer",
+        "reason": "An external shirt or blouse option for your dressier look."
+      },
+      {
+        "title": "Jules ruffle-collar button-up shirt in crepe de chine",
+        "url": "https://www.jcrew.com/p/womens/categories/clothing/shirts-and-tops/CP659?colorProductCode=CP659&color_name=natural&display=all&fit=Classic",
+        "price": 109.5,
+        "currency": "USD",
+        "retailer": "jcrew.com",
+        "image": "https://www.jcrew.com/s7-img-facade/CP659_NA6434?$crop1254$",
+        "tier": "Mid-range",
+        "owned": false,
+        "priceStatus": "Search-reported price; confirm at retailer",
+        "reason": "An external shirt or blouse option for your dressier look."
+      },
+      {
+        "title": "REISS Women's Dina Cowl Neck Long-Sleeve Satin Blouse",
+        "url": "https://www.macys.com/shop/product/reiss-womens-dina-cowl-neck-long-sleeve-satin-blouse?ID=27214364",
+        "price": 298,
+        "currency": "USD",
+        "retailer": "macys.com",
+        "image": null,
+        "tier": "Investment",
+        "owned": false,
+        "priceStatus": "Search-reported price; confirm at retailer",
+        "reason": "An external shirt or blouse option for your dressier look."
+      }
+    ],
+    "query": {
+      "category": "Top",
+      "occasion": "formal",
+      "presentation": "womenswear",
+      "maxPrice": 300
+    },
+    "searchedAt": "2026-10-27T06:37:34.393Z",
+    "latencyMs": 15980,
+    "cached": false,
+    "notice": "External finds, not owned clothes. Prices come from search and can change. Check size, stock, shipping and dress code at the retailer. Limited retailer selection. No affiliate ranking.",
+    "warmMs": 0.09830000000147265,
+    "warmCached": true
+  }
+]

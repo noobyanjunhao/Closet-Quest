@@ -1,0 +1,537 @@
+{
+  "seed": "sprint8-v1",
+  "images": [
+    {
+      "id": 15619,
+      "width": 1024,
+      "height": 681,
+      "file_name": "8f691c0c5426690c44b91691db150c9c.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm5.staticflickr.com/4554/37705198755_37e03c6234_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "8f691c0c5426690c44b91691db150c9c",
+      "sha256": "91dd0e84e84fb580f1d39b8e194b6c1ea2d8cdf64d038909422ae72fe75a3c70",
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Top"
+      ],
+      "instanceCount": 4
+    },
+    {
+      "id": 9564,
+      "width": 682,
+      "height": 1024,
+      "file_name": "78f6d9e1d5339d5215b73d37a52c2837.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm9.staticflickr.com/8069/8194486681_265cfe08ab_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "78f6d9e1d5339d5215b73d37a52c2837",
+      "sha256": "9b9ea1db588bf4a374969166fe9dbbc0e08bb2ffe1ec4af8c737f084910dceb9",
+      "expected": [
+        "Dress"
+      ],
+      "instanceCount": 1
+    },
+    {
+      "id": 19845,
+      "width": 1024,
+      "height": 683,
+      "file_name": "d5c1ce96e0780de7d0255958db531baf.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm5.staticflickr.com/4235/35786464631_a715a4ac00_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "d5c1ce96e0780de7d0255958db531baf",
+      "sha256": "007ebe0824078bd1244f5b2558514bbcc656d6d285769e6e0808fb05a3aa74d3",
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Top"
+      ],
+      "instanceCount": 4
+    },
+    {
+      "id": 19905,
+      "width": 682,
+      "height": 1024,
+      "file_name": "04f6e414deea516f05612aa595c7a65e.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm3.staticflickr.com/2499/32954119155_a334334f67_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "04f6e414deea516f05612aa595c7a65e",
+      "sha256": "7accff2fb2fa701c653b0e70418589ed44f36f611d062bfda1728dc02ce79610",
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "instanceCount": 4
+    },
+    {
+      "id": 15743,
+      "width": 683,
+      "height": 1024,
+      "file_name": "c1df3b91dde14c0937a259345d5c7ca7.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm3.staticflickr.com/2276/1552317435_bc4e3274b3_m.jpg",
+      "isstatic": 1,
+      "kaggle_id": "c1df3b91dde14c0937a259345d5c7ca7",
+      "sha256": "573480e385286745ea67827e04d40bd68d7a941f854732b4aae6bf303377a044",
+      "expected": [
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "instanceCount": 4
+    },
+    {
+      "id": 17448,
+      "width": 682,
+      "height": 1024,
+      "file_name": "fa8cbbf127e163a2f512399049509d90.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm1.staticflickr.com/886/41667969584_2521efea4f_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "fa8cbbf127e163a2f512399049509d90",
+      "sha256": "4fd50eea0e8a9c74c379b0a1daaf3baf046bbb0fd9a282bbc827c6bed48f240f",
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Outerwear",
+        "Shoes"
+      ],
+      "instanceCount": 8
+    },
+    {
+      "id": 14432,
+      "width": 682,
+      "height": 1024,
+      "file_name": "0ebe6d8449aed07be683fd778a4092d1.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm9.staticflickr.com/8860/17134406638_11ffed0912_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "0ebe6d8449aed07be683fd778a4092d1",
+      "sha256": "18094b3e8edb1dd65d2fe52a98afe2c04302bd13ae5eb91475c9b577b40556bf",
+      "expected": [
+        "Dress"
+      ],
+      "instanceCount": 1
+    },
+    {
+      "id": 10533,
+      "width": 682,
+      "height": 1024,
+      "file_name": "cd49344a73f9e61527b4ef120e1ddfd0.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm4.staticflickr.com/3037/2680961359_35c558d8d4_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "cd49344a73f9e61527b4ef120e1ddfd0",
+      "sha256": "158752bbfb21cebf911247d49fe26958f7fe82fd13a0fdca646ca37587a316c8",
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "instanceCount": 3
+    },
+    {
+      "id": 9014,
+      "width": 682,
+      "height": 1024,
+      "file_name": "06cbcf9a70a67f6f02990ab060e3bf16.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "https://farm9.staticflickr.com/8498/8288757900_f5ec25261b_o.jpg",
+      "isstatic": 1,
+      "kaggle_id": "06cbcf9a70a67f6f02990ab060e3bf16",
+      "sha256": "91cfc5a2c4928aab1d9346693e00bb286d737c2f0223715db81e70414fe74f42",
+      "expected": [
+        "Bottom",
+        "Top"
+      ],
+      "instanceCount": 2
+    },
+    {
+      "id": 12729,
+      "width": 682,
+      "height": 1024,
+      "file_name": "89144779b3e40421facdb2eb70309356.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm4.staticflickr.com/3558/3587706284_6ccef50865_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "89144779b3e40421facdb2eb70309356",
+      "sha256": "f2cfb45495139081cf86430588c2584f81ae8f9b106e17aee3fcf506ad3dc81c",
+      "expected": [
+        "Dress",
+        "Shoes"
+      ],
+      "instanceCount": 3
+    },
+    {
+      "id": 20583,
+      "width": 682,
+      "height": 1024,
+      "file_name": "f17fd9050a7d16a084f93c11b8506bb5.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm4.staticflickr.com/3123/2502895735_018d2041ba_m.jpg",
+      "isstatic": 1,
+      "kaggle_id": "f17fd9050a7d16a084f93c11b8506bb5",
+      "sha256": "c782e44464dc2d5e064a63f693c46e01f8ce7b69f7790f80615b0ef5f0ad870e",
+      "expected": [
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "instanceCount": 4
+    },
+    {
+      "id": 10282,
+      "width": 683,
+      "height": 1024,
+      "file_name": "f831ad98a4c687240c49c94830b92837.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm4.staticflickr.com/3014/3102831464_5485051c85_m.jpg",
+      "isstatic": 1,
+      "kaggle_id": "f831ad98a4c687240c49c94830b92837",
+      "sha256": "1a6dabcef468862a069748a923e13f1ae63b7f44852a3de7b328cd8ff6f38c31",
+      "expected": [
+        "Dress"
+      ],
+      "instanceCount": 1
+    },
+    {
+      "id": 19616,
+      "width": 682,
+      "height": 1024,
+      "file_name": "8d7d73888f69989aa8f72013f945ff50.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm4.staticflickr.com/3633/3487033340_804e6879c6_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "8d7d73888f69989aa8f72013f945ff50",
+      "sha256": "a41f738cf7327c6713c02e6859942c45606c07bfd2751ee9da713dd02b67002c",
+      "expected": [
+        "Accessory",
+        "Dress"
+      ],
+      "instanceCount": 2
+    },
+    {
+      "id": 9481,
+      "width": 683,
+      "height": 1024,
+      "file_name": "4d3fd642c9d08290f6262759a51d252f.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm8.staticflickr.com/7669/17283840341_b0172a5fe7_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "4d3fd642c9d08290f6262759a51d252f",
+      "sha256": "96becf2f6764eaa72c3a37003d4bc5f84e244842413c8efe1f095bdaa6b03379",
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Outerwear",
+        "Shoes",
+        "Top"
+      ],
+      "instanceCount": 12
+    },
+    {
+      "id": 10776,
+      "width": 1024,
+      "height": 682,
+      "file_name": "219e070fdf1a306f0f229db82cd46c5c.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm5.staticflickr.com/4573/38313948242_acd1809e72_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "219e070fdf1a306f0f229db82cd46c5c",
+      "sha256": "fa83ce0d296c61e81e464e7d3c5fb790217f68bb2e52789f170c3012fe3dd368",
+      "expected": [
+        "Accessory",
+        "Dress",
+        "Shoes"
+      ],
+      "instanceCount": 4
+    },
+    {
+      "id": 9835,
+      "width": 682,
+      "height": 1024,
+      "file_name": "c658c6a2698fc988c5e25000814cb2b0.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "https://farm4.staticflickr.com/3539/3481202957_e09d8f3c81_o.jpg",
+      "isstatic": 1,
+      "kaggle_id": "c658c6a2698fc988c5e25000814cb2b0",
+      "sha256": "9b20f9d94e92b9e5230423f85b96a0b62a9acb3984ab5642eb3ca2d8fa8731d7",
+      "expected": [
+        "Shoes",
+        "Top"
+      ],
+      "instanceCount": 3
+    },
+    {
+      "id": 16065,
+      "width": 682,
+      "height": 1024,
+      "file_name": "ca2e0ac1b45a396c7040b135deff7d66.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm8.staticflickr.com/7084/7183563021_055c3fc5a4_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "ca2e0ac1b45a396c7040b135deff7d66",
+      "sha256": "fbd14de40c0b69e54b6498fbb76265fd7fbd6dafd645e0db0cb2461abdcb63d1",
+      "expected": [
+        "Accessory",
+        "Dress"
+      ],
+      "instanceCount": 3
+    },
+    {
+      "id": 17775,
+      "width": 1024,
+      "height": 682,
+      "file_name": "cb49b883e995b9102d831e4640c0d195.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm5.staticflickr.com/4345/37148507936_de9a65255b_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "cb49b883e995b9102d831e4640c0d195",
+      "sha256": "6e178f55e43ee64ddc8c1813f36a73517cd234a1a4f385660df8b3ba7c8e6af8",
+      "expected": [
+        "Bottom",
+        "Shoes",
+        "Top"
+      ],
+      "instanceCount": 4
+    },
+    {
+      "id": 17714,
+      "width": 683,
+      "height": 1024,
+      "file_name": "17ee456175e872cf0dea3dee46e06568.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm2.staticflickr.com/1303/1281818085_b81ecaad14_m.jpg",
+      "isstatic": 1,
+      "kaggle_id": "17ee456175e872cf0dea3dee46e06568",
+      "sha256": "f3ba2dfa333ab9e8c55bf363b6cbb822f399790cf52e8c70ff0f72323d910fd7",
+      "expected": [
+        "Dress"
+      ],
+      "instanceCount": 1
+    },
+    {
+      "id": 10180,
+      "width": 1024,
+      "height": 682,
+      "file_name": "ae214103040109df9e86f748c287472e.jpg",
+      "license": 0,
+      "time_captured": "March-August, 2018",
+      "original_url": "http://farm6.staticflickr.com/5512/30600620386_f778b818be_n.jpg",
+      "isstatic": 1,
+      "kaggle_id": "ae214103040109df9e86f748c287472e",
+      "sha256": "bb1f7fb20c6a97d436ba07d264f1f274be2529ab7a63db2d276331817ee0c6e9",
+      "expected": [
+        "Dress"
+      ],
+      "instanceCount": 1
+    }
+  ],
+  "eligibleCount": 35,
+  "excludedIds": [
+    8519,
+    8554,
+    8947,
+    9031,
+    9104,
+    9112,
+    9246,
+    9390,
+    9425,
+    9613,
+    9656,
+    9669,
+    9676,
+    9692,
+    9711,
+    9914,
+    9971,
+    10071,
+    10160,
+    10202,
+    10216,
+    10382,
+    10471,
+    10613,
+    10727,
+    10898,
+    10905,
+    10994,
+    11041,
+    11073,
+    11303,
+    11446,
+    11593,
+    11800,
+    11803,
+    11859,
+    11972,
+    12007,
+    12073,
+    12120,
+    12344,
+    12524,
+    12525,
+    12526,
+    12719,
+    12813,
+    12831,
+    12903,
+    13049,
+    13148,
+    13260,
+    13283,
+    13317,
+    13331,
+    13339,
+    13397,
+    13530,
+    14794,
+    14983,
+    15368,
+    15676,
+    15687,
+    15707,
+    15737,
+    15771,
+    15813,
+    15840,
+    15851,
+    15998,
+    16027,
+    16056,
+    16212,
+    16221,
+    16222,
+    16320,
+    16343,
+    16439,
+    16489,
+    16629,
+    16820,
+    16824,
+    17085,
+    17091,
+    17312,
+    17333,
+    17533,
+    17854,
+    17869,
+    17968,
+    18008,
+    18108,
+    18328,
+    18358,
+    18405,
+    18517,
+    18821,
+    18904,
+    19063,
+    19133,
+    19218,
+    19219,
+    19375,
+    19480,
+    19496,
+    19575,
+    19669,
+    19825,
+    19973,
+    20009,
+    20106,
+    20155,
+    20167,
+    20180,
+    20235,
+    20275,
+    20362,
+    20458,
+    20702
+  ],
+  "licenses": [
+    {
+      "url": "https://creativecommons.org/licenses/by/2.0/",
+      "id": 0,
+      "name": "Attribution License"
+    },
+    {
+      "url": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "id": 1,
+      "name": "Attribution-ShareAlike License"
+    },
+    {
+      "url": "https://creativecommons.org/licenses/by-nd/2.0/",
+      "id": 2,
+      "name": "Attribution-NoDerivatives License"
+    },
+    {
+      "url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
+      "id": 3,
+      "name": "Attribution-NonCommercial-ShareAlike License"
+    },
+    {
+      "url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
+      "id": 4,
+      "name": "Attribution-NonCommercial-NoDerivatives License"
+    },
+    {
+      "url": "https://creativecommons.org/licenses/by-nc/2.0/",
+      "id": 5,
+      "name": "Attribution-NonCommercial License"
+    },
+    {
+      "url": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "id": 6,
+      "name": "Public Domain Dedication"
+    },
+    {
+      "url": "https://unsplash.com/license",
+      "id": 7,
+      "name": "unsplash"
+    },
+    {
+      "url": "https://www.pexels.com/photo-license",
+      "id": 8,
+      "name": "pexels"
+    },
+    {
+      "url": "https://freestocks.org/terms-of-use",
+      "id": 9,
+      "name": "freestocks"
+    },
+    {
+      "url": "https://burst.shopify.com/legal/terms",
+      "id": 10,
+      "name": "burst"
+    },
+    {
+      "url": "",
+      "id": 11,
+      "name": "all rights reserved/not found"
+    }
+  ],
+  "protocol": "All remaining eligible CC BY/Public Domain photos up to 20, hash ordered; each tested original, low light (brightness 0.35), and small/blurred (160px, Gaussian sigma 1.2). Same raw model response replayed through before/after validators. Separate seven previously failed scenes are diagnostic rechecks, not held-out data. No retries.",
+  "humanParticipants": 0
+}

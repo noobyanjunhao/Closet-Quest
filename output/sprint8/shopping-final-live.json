@@ -1,0 +1,106 @@
+[
+  {
+    "products": [
+      {
+        "title": "Slim Fit Easy-iron Shirt",
+        "url": "https://www2.hm.com/en_us/men/products/shirts/dressed.html",
+        "price": 19.99,
+        "currency": "USD",
+        "retailer": "www2.hm.com",
+        "image": null,
+        "tier": "Budget",
+        "owned": false,
+        "priceStatus": "Search-reported price; confirm at retailer",
+        "reason": "An external shirt or blouse option for your dressier look."
+      },
+      {
+        "title": "Alfani Men's Formal Solid Regular Fit Dress Shirt",
+        "url": "https://www.macys.com/shop/product/alfani-mens-formal-solid-dress-shirt-macys-exclusive?ID=23709468",
+        "price": 29.99,
+        "currency": "USD",
+        "retailer": "macys.com",
+        "image": null,
+        "tier": "Budget",
+        "owned": false,
+        "priceStatus": "Search-reported price; confirm at retailer",
+        "reason": "An external shirt or blouse option for your dressier look."
+      },
+      {
+        "title": "Super Non-Iron Slim Shirt | Button Down Collar",
+        "url": "https://www.uniqlo.com/us/en/products/E456588-000/00?colorDisplayCode=00&nodeeplink=1&sizeDisplayCode=005",
+        "price": 49.9,
+        "currency": "USD",
+        "retailer": "uniqlo.com",
+        "image": null,
+        "tier": "Budget",
+        "owned": false,
+        "priceStatus": "Search-reported price; confirm at retailer",
+        "reason": "An external shirt or blouse option for your dressier look."
+      }
+    ],
+    "query": {
+      "category": "Top",
+      "occasion": "formal",
+      "presentation": "menswear",
+      "maxPrice": 300
+    },
+    "searchedAt": "2026-10-27T06:25:31.421Z",
+    "latencyMs": 14585,
+    "cached": false,
+    "notice": "External finds, not owned clothes. Prices come from search and can change. Check size, stock, shipping and dress code at the retailer. No affiliate ranking.",
+    "warmMs": 0.12110000000029686,
+    "warmCached": true
+  },
+  {
+    "products": [
+      {
+        "title": "Foil Lurex Shirt",
+        "url": "https://www.nordstrom.com/s/foil-lurex-shirt/8610965",
+        "price": 87.2,
+        "currency": "USD",
+        "retailer": "nordstrom.com",
+        "image": null,
+        "tier": "Mid-range",
+        "owned": false,
+        "priceStatus": "Search-reported price; confirm at retailer",
+        "reason": "An external shirt or blouse option for your dressier look."
+      },
+      {
+        "title": "Jules ruffle-collar button-up shirt in striped crepe de chine",
+        "url": "https://www.jcrew.com/m/womens/categories/clothing/shirts-and-tops/MQ305?colorCode=WZ8683&colorProductCode=CX492&display=all&fit=Women",
+        "price": 109.5,
+        "currency": "USD",
+        "retailer": "jcrew.com",
+        "image": "https://www.jcrew.com/s7-img-facade/CX492_WZ8683?$crop1254$",
+        "tier": "Mid-range",
+        "owned": false,
+        "priceStatus": "Search-reported price; confirm at retailer",
+        "reason": "An external shirt or blouse option for your dressier look."
+      },
+      {
+        "title": "Shirred Chiffon Shirt",
+        "url": "https://www.nordstrom.com/s/nordstrom-shirred-chiffon-bttn-up/8979927",
+        "price": 129,
+        "currency": "USD",
+        "retailer": "nordstrom.com",
+        "image": null,
+        "tier": "Mid-range",
+        "owned": false,
+        "priceStatus": "Search-reported price; confirm at retailer",
+        "reason": "An external shirt or blouse option for your dressier look."
+      }
+    ],
+    "query": {
+      "category": "Top",
+      "occasion": "formal",
+      "presentation": "womenswear",
+      "maxPrice": 300
+    },
+    "searchedAt": "2026-10-27T06:25:44.042Z",
+    "latencyMs": 12617,
+    "cached": false,
+    "notice": "External finds, not owned clothes. Prices come from search and can change. Check size, stock, shipping and dress code at the retailer. No affiliate ranking.",
+    "warmMs": 0.08450000000084401,
+    "warmCached": true
+  }
+]

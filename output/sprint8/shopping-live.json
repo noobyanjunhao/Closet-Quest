@@ -1,0 +1,62 @@
+{
+  "products": [
+    {
+      "title": "PATENT EFFECT HEELED SHOES",
+      "url": "https://www.zara.com/us/en/patent-effect-heeled-shoes-p12234810.html",
+      "price": 59.9,
+      "currency": "USD",
+      "retailer": "zara.com",
+      "image": null,
+      "tier": "Budget",
+      "owned": false,
+      "priceStatus": "Search-reported price; confirm at retailer",
+      "reason": "An external shoes option for your dressier look."
+    },
+    {
+      "title": "PATENT EFFECT SLINGBACK SHOES",
+      "url": "https://www.zara.com/us/en/patent-effect-slingback-shoes-p11264810.html",
+      "price": 75.9,
+      "currency": "USD",
+      "retailer": "zara.com",
+      "image": null,
+      "tier": "Mid-range",
+      "owned": false,
+      "priceStatus": "Search-reported price; confirm at retailer",
+      "reason": "An external shoes option for your dressier look."
+    },
+    {
+      "title": "DRESS SHOES",
+      "url": "https://www.zara.com/us/en/dress-shoes-p12452820.html",
+      "price": 79.9,
+      "currency": "USD",
+      "retailer": "zara.com",
+      "image": null,
+      "tier": "Mid-range",
+      "owned": false,
+      "priceStatus": "Search-reported price; confirm at retailer",
+      "reason": "An external shoes option for your dressier look."
+    },
+    {
+      "title": "DRESS SHOES",
+      "url": "https://www.zara.com/us/en/dress-shoes-p12400720.html",
+      "price": 79.9,
+      "currency": "USD",
+      "retailer": "zara.com",
+      "image": null,
+      "tier": "Mid-range",
+      "owned": false,
+      "priceStatus": "Search-reported price; confirm at retailer",
+      "reason": "An external shoes option for your dressier look."
+    }
+  ],
+  "query": {
+    "category": "Shoes",
+    "occasion": "formal",
+    "presentation": "any",
+    "maxPrice": null
+  },
+  "searchedAt": "2026-10-27T06:14:18.351Z",
+  "latencyMs": 8107,
+  "cached": false,
+  "notice": "External finds, not owned clothes. Prices come from search and can change. Check size, stock, shipping and dress code at the retailer. No affiliate ranking."
+}

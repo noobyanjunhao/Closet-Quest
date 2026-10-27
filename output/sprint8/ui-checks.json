@@ -1,0 +1,27 @@
+{
+  "measuredAt": "2026-10-27",
+  "environment": "Local final client in IAB; sample rehearsal data, not personal wardrobe or a human usability study",
+  "passed": [
+    "Next arrow changes centered garment",
+    "Right-arrow key changes centered garment",
+    "Selected sweater survives Saved looks navigation and return",
+    "AI cutout generated in browser, reviewed and saved for sample blazer",
+    "Saved cutout appears in rail with YOUR CUTOUT label",
+    "Style this piece carries blazer into the brief",
+    "Live wedding brief returns owned garments and explicitly warns casual pieces are not formal-ready",
+    "External results open direct retailer links with observed prices and missing-photo state",
+    "390 x 844 CSS viewport has 390px document width",
+    "1440 x 900 CSS desktop layout retains side outfit rail"
+  ],
+  "notVerified": [
+    "physical touch gestures",
+    "screen-reader usability",
+    "human fashion acceptance",
+    "physical camera capture",
+    "reduced-motion OS preference execution"
+  ],
+  "stylistDisplayedSeconds": [
+    2.7,
+    4.6
+  ]
+}

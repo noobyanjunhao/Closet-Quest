@@ -1,0 +1,111 @@
+{
+  "measuredAt": "2026-10-27T06:30:10.918Z",
+  "scope": "Fault injection and local HTTP load, not observed production failures or human testing.",
+  "checks": [
+    {
+      "name": "One invalid box preserves other valid pieces",
+      "passed": true,
+      "attempts": 17,
+      "beforeCompleted": 0,
+      "afterCompleted": 17
+    },
+    {
+      "name": "Malformed whole scenes and all-invalid pieces fail closed",
+      "passed": true,
+      "attempts": 5,
+      "rejected": 5
+    },
+    {
+      "name": "provider 429",
+      "passed": true,
+      "status": 503,
+      "code": "SEARCH_HTTP_429"
+    },
+    {
+      "name": "provider 500",
+      "passed": true,
+      "status": 503,
+      "code": "SEARCH_HTTP_500"
+    },
+    {
+      "name": "malformed JSON",
+      "passed": true,
+      "status": 503,
+      "code": "SEARCH_UNAVAILABLE"
+    },
+    {
+      "name": "network loss",
+      "passed": true,
+      "status": 503,
+      "code": "SEARCH_UNAVAILABLE"
+    },
+    {
+      "name": "deadline",
+      "passed": true,
+      "status": 503,
+      "code": "SEARCH_TIMEOUT"
+    },
+    {
+      "name": "All injected provider failures return explicit failure",
+      "passed": true,
+      "attempts": 5,
+      "failedSafely": 5
+    },
+    {
+      "name": "Cache reuses results, separates accounts and expires",
+      "passed": true,
+      "requests": 4,
+      "providerCalls": 3,
+      "coldMs": 1.7396999999999707,
+      "warmMs": 0.07980000000003429,
+      "syntheticProvider": true
+    },
+    {
+      "name": "Unauthenticated shopping blocked",
+      "passed": true
+    },
+    {
+      "name": "Foreign origin blocked",
+      "passed": true
+    },
+    {
+      "name": "Oversized shopping request blocked",
+      "passed": true
+    },
+    {
+      "name": "Unusual category rejected",
+      "passed": true
+    },
+    {
+      "name": "40-request burst bounds paid concurrency",
+      "passed": true,
+      "attempts": 40,
+      "accepted": 2,
+      "busy": 38,
+      "peakProviderCalls": 2,
+      "p95Ms": 46.528399999999976
+    },
+    {
+      "name": "Service recovers after burst",
+      "passed": true
+    },
+    {
+      "name": "Observed retail results survive strict price grounding",
+      "passed": true,
+      "products": [
+        {
+          "title": "Jules classic-fit tie-neck shirt",
+          "url": "https://www.jcrew.com/p/womens/categories/clothing/shirts-and-tops/CW781?colorCode=WT0002&colorProductCode=CW781&display=all&fit=Women",
+          "price": 39.99
+        },
+        {
+          "title": "Jules ruffle-collar button-up shirt in crepe de chine",
+          "url": "https://www.jcrew.com/m/womens/categories/clothing/shirts-and-tops/MQ305?colorCode=NA6434&colorProductCode=CP659&display=all&fit=Women",
+          "price": 158
+        }
+      ],
+      "scope": "Replay of real search output; photo availability tested separately."
+    }
+  ],
+  "passed": true
+}
