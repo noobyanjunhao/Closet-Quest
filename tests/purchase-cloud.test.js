@@ -1,0 +1,52 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {PGlite} from '@electric-sql/pglite';
+import {createCloud} from '../server/cloud.js';
+import {createPurchaseCloudStore} from '../server/purchase-cloud-store.js';
+
+const owner='11111111-1111-4111-a111-111111111111',other='22222222-2222-4222-a222-222222222222';
+const id='33333333-3333-4333-a333-333333333333',itemId='44444444-4444-4444-a444-444444444444';
+test('PostgreSQL migration: owner RLS, atomic wardrobe append, uniqueness, rollback, CAS and source purge',async t=>{
+ const pg=new PGlite();t.after(()=>pg.close());
+ await pg.exec(`create role anon;create role authenticated;create schema auth;create table auth.users(id uuid primary key);create function auth.uid() returns uuid language sql stable as $$select nullif(current_setting('request.jwt.claim.sub',true),'')::uuid$$;grant usage on schema auth to authenticated,anon;grant execute on function auth.uid() to authenticated,anon;insert into auth.users values('${owner}'),('${other}');`);
+ const accounts=readFileSync(new URL('../supabase/migrations/001_accounts.sql',import.meta.url),'utf8');
+ await pg.exec(accounts.slice(0,accounts.indexOf('create table if not exists public.style_documents')));
+ await pg.exec(readFileSync(new URL('../supabase/migrations/003_purchase_imports.sql',import.meta.url),'utf8'));
+ await pg.exec(`set role authenticated;set request.jwt.claim.sub='${owner}';`);
+ const reviewed={description:'Cotton tee',category:'Top',quantity:2,color:null,brand:null,size:null};
+ const old={id,owner,createKey:'fixture-create',revision:3,status:'review_required',source:{hash:'hash',text:'Cotton tee, quantity 2',lines:[{id:'L1',text:'Cotton tee, quantity 2'}]},items:[{id:itemId,reviewed,selected:true,reviewedAt:'2026-10-30T12:00:00Z'}],audit:[]};
+ await pg.query('insert into public.purchase_imports values($1,$2,$3,$4,$5)',[id,owner,old.createKey,3,old]);
+ await pg.exec(`set request.jwt.claim.sub='${other}';`);assert.equal((await pg.query('select * from public.purchase_imports')).rows.length,0);
+ await assert.rejects(pg.query('insert into public.purchase_imports values($1,$2,$3,$4,$5)',[crypto.randomUUID(),owner,'foreign-key',0,{}]),/row-level security/);
+ assert.equal((await pg.query('delete from public.purchase_imports where id=$1 returning id',[id])).rows.length,0);
+ await assert.rejects(pg.query('insert into public.purchase_import_commits values($1,$2,$3,$4,$5)',[other,'foreign-child',id,'bad',{}]),/foreign key/);
+ await assert.rejects(pg.query('select public.save_purchase_import($1,3,$2,null)',[id,{...old,revision:4}]),/revision conflict/);
+ await pg.exec(`set request.jwt.claim.sub='${owner}';`);
+ const g=unit=>({id:crypto.randomUUID(),name:'Cotton tee',category:'Top',color:null,colorName:'Unknown',wears:0,needsReview:false,purchaseImport:{id,itemId,unit}});
+ const garments=[g(0),g(1)],next={...old,status:'committed',revision:4,audit:[{revision:4,event:'committed'}]};
+ const commit={key:'fixture-commit',hash:'request-hash',garments,result:{garments,garmentIds:garments.map(x=>x.id)}};
+ const broken=structuredClone(commit);broken.garments[1].id=broken.garments[0].id;
+ await assert.rejects(pg.query('select public.save_purchase_import($1,3,$2,$3)',[id,next,broken]),/duplicate key/);
+ assert.equal((await pg.query('select * from public.purchase_import_garments')).rows.length,0);
+ assert.equal((await pg.query('select * from public.closets')).rows.length,0);
+ assert.equal((await pg.query('select revision from public.purchase_imports')).rows[0].revision,3);
+ await pg.query('select public.save_purchase_import($1,3,$2,$3)',[id,next,commit]);
+ assert.equal((await pg.query('select jsonb_array_length(state->\'items\') as n from public.closets')).rows[0].n,2);
+ assert.equal((await pg.query('select * from public.purchase_import_garments')).rows.length,2);
+ assert.equal((await pg.query('select * from public.purchase_import_commits')).rows.length,1);
+ await assert.rejects(pg.query('select public.save_purchase_import($1,3,$2,$3)',[id,next,commit]),/revision conflict/);
+ await pg.query('select public.purge_purchase_source($1)',[id]);
+ assert.equal((await pg.query('select payload from public.purchase_imports')).rows[0].payload.source.text,'');
+ assert.equal((await pg.query('select * from public.purchase_import_commits')).rows.length,1);
+ await pg.exec('reset role;set role anon;');await assert.rejects(pg.query('select * from public.purchase_imports'),/permission denied/);
+ await assert.rejects(pg.query('select public.save_purchase_import($1,3,$2,$3)',[id,next,commit]),/permission denied/);
+});
+
+test('cloud store carries verified user JWT, scopes all reads and uses one commit RPC',async()=>{
+ const calls=[],user={id:owner,namespace:owner,cloud:true,token:'test-token'};
+ const cloud=createCloud({url:'https://example.supabase.co',key:'sb_publishable_test_key_long_enough',fetchImpl:async(url,options)=>{calls.push({url,options});if(url.includes('/rpc/'))return new Response(options.body?JSON.stringify(JSON.parse(options.body).next_draft):'{}');return new Response('[]');}});
+ const store=createPurchaseCloudStore(cloud);await store.get(owner,id,user);await store.save({id,owner,revision:1},0,{user,commit:{key:'commit-key'}});
+ assert.match(calls[0].url,new RegExp(`user_id=eq.${owner}`));assert.equal(calls[0].options.headers.Authorization,'Bearer test-token');assert.match(calls[1].url,/rpc\/save_purchase_import$/);assert.equal(JSON.parse(calls[1].options.body).commit_data.key,'commit-key');
+ await assert.rejects(cloud.purchaseRequest(user,'rpc/arbitrary',{method:'POST'}),{status:403});
+});

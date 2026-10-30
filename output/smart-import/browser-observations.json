@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-30",
+  "kind": "manual browser engineering observations",
+  "data": "synthetic purchase and six-piece sample wardrobe; no private production wardrobe",
+  "fixture": {
+    "url": "http://127.0.0.1:4180/?demo=sprint6",
+    "flow": ["paste synthetic example", "review evidence", "correct name", "save review", "confirm ownership", "commit"],
+    "garmentsBefore": 6,
+    "garmentsAfter": 7,
+    "correctedName": "Reviewed navy trousers",
+    "immediateClosetUpdate": true
+  },
+  "localModel": {
+    "url": "http://127.0.0.1:4181/?demo=sprint6",
+    "model": "qwen3-vl:4b-instruct-q4_K_M",
+    "flow": ["paste synthetic example", "actual local extraction", "reload and resume draft", "correct name", "save review", "confirm ownership", "commit"],
+    "garmentsBefore": 6,
+    "garmentsAfter": 7,
+    "correctedName": "Local AI navy trousers",
+    "immediateClosetUpdate": true
+  },
+  "limits": ["Not a human acceptance study", "No browser latency measurement", "No physical-phone or screen-reader validation", "Cloud commit tested separately in local PostgreSQL, not this browser run"]
+}

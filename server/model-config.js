@@ -3,5 +3,6 @@ export function modelFor(role) {
   if(role==='recognition')return process.env.CLOSET_RECOGNITION_MODEL||process.env.CLOSET_MODEL||MODEL_DEFAULTS.recognition;
   if(role==='stylist')return process.env.CLOSET_STYLIST_MODEL||process.env.CLOSET_MODEL||MODEL_DEFAULTS.stylist;
   if(role==='embedding')return process.env.CLOSET_EMBED_MODEL||MODEL_DEFAULTS.embedding;
+  if(role==='purchase')return process.env.CLOSET_IMPORT_MODEL||MODEL_DEFAULTS.recognition;
   throw new Error('Unknown model role.');
 }

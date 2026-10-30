@@ -12,7 +12,7 @@ export function createSyncQueue({revision=0,prepare=async x=>x,write,persist,onS
    }
   })().finally(()=>{running=null;});return running;
  }
- return {enqueue(state){if(closed)return;latest=state;persist({state,revision});onStatus(blocked?{phase:blocked.status===409?'conflict':'error',message:blocked.message}:{phase:'pending'});},flush,retry(){blocked=null;return flush();},get pending(){return Boolean(latest);},close(){closed=true;}};
+ return {enqueue(state){if(closed)return;latest=state;persist({state,revision});onStatus(blocked?{phase:blocked.status===409?'conflict':'error',message:blocked.message}:{phase:'pending'});},flush,retry(){blocked=null;return flush();},adopt(nextRevision){if(latest||running||blocked)throw Error('Sync pending changes before loading an imported closet.');revision=nextRevision;persist(null);onStatus({phase:'saved'});},get pending(){return Boolean(latest);},close(){closed=true;}};
 }
 export async function prepareCloudSnapshot(state,upload,cache=new Map()) {
  const next=structuredClone(state);

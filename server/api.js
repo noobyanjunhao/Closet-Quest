@@ -12,6 +12,9 @@ import {searchShopping} from './shopping.js';
 import {createShoppingLibrary} from './shopping-library.js';
 import {join} from 'node:path';
 import { createJobQueue } from './jobs.js';
+import {createPurchaseStore} from './purchase-store.js';
+import {createPurchaseCloudStore} from './purchase-cloud-store.js';
+import {createPurchaseImports} from './purchase-imports.js';
 import { PIPELINE_VERSION } from './recognition.js';
 import { retrieveWardrobeHybrid } from './hybrid-retrieval.js';
 import { recordLearningEvent, getLearningStatus, exportLearningData } from './learning.js';
@@ -43,7 +46,7 @@ async function readJson(req,maxBytes) {
   return body;
 }
 
-export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(new URL('../.local-data/jobs/',import.meta.url)),services={},queueOptions={},shoppingLibrary,knowledgeStore,knowledgeDir=fileURLToPath(new URL('../.local-data/knowledge/',import.meta.url)),access=createAccess({cloud:cloudConfigured()}),cloud=createCloud()}={}) {
+export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(new URL('../.local-data/jobs/',import.meta.url)),services={},queueOptions={},shoppingLibrary,knowledgeStore,knowledgeDir=fileURLToPath(new URL('../.local-data/knowledge/',import.meta.url)),access=createAccess({cloud:cloudConfigured()}),cloud=createCloud(),purchaseOptions={}}={}) {
   const handlers={recognize,analyzeInspiration,style,retrieveWardrobeHybrid,recordLearningEvent,getLearningStatus,exportLearningData,listModels,searchShopping,...services};
   const shop=shoppingLibrary||createShoppingLibrary({search:handlers.searchShopping,cloud,storageDir:join(storageDir,'shopping-library')});
   const queue=createJobQueue(handlers.recognize,{...queueOptions,storageDir});
@@ -51,6 +54,9 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
   const getKnowledge=()=>knowledge||(knowledge=createKnowledgeStore({storageDir:knowledgeDir,embeddingClients:{openai:createScopedDocumentEmbeddings()}}));
   const hydratedKnowledge=createCloudKnowledgeHydrator({cloud,getStore:getKnowledge});
   const controllers=new Set();let active=false,closed=false,remoteActive=0;
+  const purchaseEnabled=purchaseOptions.enabled??process.env.CLOSET_PURCHASE_IMPORTS==='1';
+  const purchaseStore=purchaseEnabled?(purchaseOptions.store||(cloud?createPurchaseCloudStore(cloud):createPurchaseStore(join(storageDir,'purchase-imports.sqlite')))):null;
+  const purchases=purchaseEnabled?createPurchaseImports({store:purchaseStore,mode:process.env.CLOSET_IMPORT_PROVIDER||'local',canStart:()=>!active&&!queue.localBusy,...purchaseOptions}):null;
   async function middleware(req,res) {
     res.setHeader('Content-Type','application/json');res.setHeader('Cache-Control','no-store');
     let claimed=false,remoteClaimed=false,abortDisconnected,controller;
@@ -69,6 +75,24 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
       if(req.method==='POST'&&route==='/session/logout'){access.logout(res);return res.end('{}');}
       const user=cloud?await cloud.authenticate(req,res):access.require(req);
       if(cloud&&!user)throw Object.assign(new Error('Sign in to open your closet.'),{status:401,code:'SIGN_IN_REQUIRED'});
+      if(route==='/imports/config'&&req.method==='GET')return res.end(JSON.stringify(purchases?.info()||{enabled:false}));
+      if(route==='/imports'||route.startsWith('/imports/')){
+        if(!purchases)throw Object.assign(new Error('Purchase imports are not enabled on this server.'),{status:404,code:'IMPORT_DISABLED'});
+        if(route==='/imports/readiness'&&req.method==='GET'){
+          const info=purchases.info(),model=info.provider==='local'?modelFor('purchase'):'deterministic-fixtures';let installed=info.provider==='fixture';
+          if(!installed)try{installed=(await handlers.listModels()).models?.some(m=>m.name===model)===true;}catch{}
+          res.statusCode=installed?200:503;return res.end(JSON.stringify({...info,model,ready:installed,code:installed?'MODEL_DISCOVERED':'MODEL_NOT_READY',note:'Discovery readiness does not guarantee a future generation will succeed.'}));
+        }
+        const match=route.match(/^\/imports\/([a-f\d-]{36})(?:\/(items|commit|cancel|retry))?$/i);
+        let result;
+        if(route==='/imports'&&req.method==='GET')result={imports:await purchases.list(user)};
+        else if(route==='/imports'&&req.method==='POST'){result=await purchases.create(user,await readJson(req,52000));res.statusCode=202;}
+        else if(match&&req.method==='GET'&&!match[2])result=await purchases.get(user,match[1]);
+        else if(match&&req.method==='DELETE'&&!match[2])result=await purchases.remove(user,match[1]);
+        else if(match&&((match[2]==='items'&&req.method==='PATCH')||(['commit','cancel','retry'].includes(match[2])&&req.method==='POST')))result=await purchases[match[2]==='items'?'edit':match[2]](user,match[1],await readJson(req,50000));
+        else throw Object.assign(new Error('Import route not found.'),{status:404});
+        return res.end(JSON.stringify(result));
+      }
       if(route.startsWith('/cloud/')){
         if(!cloud||!user)throw Object.assign(new Error('Cloud accounts are not configured.'),{status:503});
         if(route==='/cloud/closet'&&req.method==='GET')return res.end(JSON.stringify(await cloud.closet(user)));
@@ -106,7 +130,7 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
       const localStyle=route==='/style'&&resolveProvider(body.provider)==='local';
       const cloudPhoto=['/jobs','/recognize'].includes(route)&&body.provider==='openai';
       const inference=(['/jobs','/recognize','/inspiration'].includes(route)&&!cloudPhoto)||localStyle;
-      if(inference&&(active||(route!=='/jobs'&&(queue.localBusy??queue.busy)))){res.statusCode=429;return res.end(JSON.stringify({error:'The model is busy. Wait for the current analysis to finish, then retry.'}));}
+      if(inference&&(active||purchases?.busy||(route!=='/jobs'&&(queue.localBusy??queue.busy)))){res.statusCode=429;return res.end(JSON.stringify({error:'The model is busy. Wait for the current analysis to finish, then retry.'}));}
       if(inference){active=true;claimed=true;}
       if((route==='/style'&&!localStyle)||(route==='/recognize'&&cloudPhoto)){if(remoteActive>=2)throw Object.assign(new Error('Two direct cloud requests are already running. Try again shortly.'),{status:429,code:'CLOUD_BUSY'});remoteActive++;remoteClaimed=true;}
       if(route==='/learning/events'){res.statusCode=201;return res.end(JSON.stringify(await handlers.recordLearningEvent(body)));}
@@ -138,5 +162,5 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
     }catch(error){if(!res.destroyed){res.statusCode=error.status||503;res.end(JSON.stringify({error:error.message,code:error.code,retryable:error.retryable===true}));}}
     finally{if(abortDisconnected)res.off('close',abortDisconnected);if(controller)controllers.delete(controller);if(claimed)active=false;if(remoteClaimed)remoteActive--;}
   }
-  return {middleware,close:()=>{closed=true;for(const controller of controllers)controller.abort();queue.close();knowledge?.close();},queue};
+  return {middleware,close:()=>{closed=true;for(const controller of controllers)controller.abort();queue.close();knowledge?.close();void purchases?.close();},queue};
 }

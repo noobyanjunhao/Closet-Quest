@@ -31,7 +31,11 @@
     "rag:hybrid": "node vision/evaluate-hybrid-retrieval.mjs",
     "core:evaluate": "node experiments/evaluate-core.mjs",
     "core:live": "node experiments/measure-live-core.mjs",
-    "evaluate:advanced": "node scripts/evaluate-advanced.mjs"
+    "evaluate:advanced": "node scripts/evaluate-advanced.mjs",
+    "imports:demo": "node scripts/purchase-demo.mjs",
+    "imports:local": "node scripts/purchase-demo.mjs --local",
+    "imports:smoke": "node scripts/purchase-smoke.mjs",
+    "imports:test": "node --test tests/purchase-*.test.js"
   },
   "dependencies": {
     "react": "^19.1.1",
@@ -43,6 +47,7 @@
     "adm-zip": "0.6.1"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.3.14",
     "@huggingface/transformers": "^4.2.0",
     "vite": "^7.1.5"
   }

@@ -1,5 +1,15 @@
 # Closet Quest
 
+**Live app:** [Try Closet Quest](https://closet-quest-junhao-s7.onrender.com/).
+
+## Smart Wardrobe Import — October 30 review checkpoint
+
+M0–M1 adds pasted purchase text → local extraction → source-linked review → explicit ownership confirmation → duplicate-safe wardrobe insertion. **240 automated tests and the production build pass.** Both fixture and real local Qwen browser flows were exercised. This new feature is disabled by default and is **not enabled on the hosted app**; the cloud migration is tested locally but has not been applied to production.
+
+Start with the [reviewer handoff and actual results](docs/smart-import-review.md), [run the local demo](docs/smart-import.md), or follow the [cloud-service learning lab](docs/cloud-service-lab.md). The [model audit](docs/local-model-baseline.md) records failures as well as successful probes. Fine-tuning and a held-out evaluation remain the next review-gated milestones.
+
+The dated sections below preserve earlier implementation history; their test counts and local-only limitations describe those checkpoints.
+
 A responsive wardrobe app prototype for the Closet Quest semester project, maintained in `noobyanjunhao/Closet-Quest`.
 
 ## Account and mobile upgrade — October 19

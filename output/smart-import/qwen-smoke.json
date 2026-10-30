@@ -1,0 +1,79 @@
+{
+  "status": "passed",
+  "elapsedMs": 17410.8611,
+  "data": {
+    "schema_version": "1",
+    "items": [
+      {
+        "source_line_ids": [
+          "L2"
+        ],
+        "description": "Navy linen trousers, size M, quantity 1",
+        "category": "Bottom",
+        "color": "Navy",
+        "size": "M",
+        "brand": null,
+        "quantity": 1,
+        "review_reasons": [
+          "Human review required for clothing purchase",
+          "Confirm category mapping"
+        ],
+        "evidence": [
+          {
+            "field": "description",
+            "line_id": "L2",
+            "quote": "Navy linen trousers, size M, quantity 1"
+          },
+          {
+            "field": "category",
+            "line_id": "L2",
+            "quote": "trousers"
+          },
+          {
+            "field": "color",
+            "line_id": "L2",
+            "quote": "Navy"
+          },
+          {
+            "field": "size",
+            "line_id": "L2",
+            "quote": "M"
+          },
+          {
+            "field": "quantity",
+            "line_id": "L2",
+            "quote": "1"
+          }
+        ]
+      }
+    ],
+    "excluded_lines": [
+      {
+        "line_id": "L1",
+        "reason": "header"
+      },
+      {
+        "line_id": "L3",
+        "reason": "shipping"
+      },
+      {
+        "line_id": "L4",
+        "reason": "discount"
+      }
+    ],
+    "warnings": [
+      "Human review required for clothing purchase"
+    ]
+  },
+  "metadata": {
+    "provider": "local",
+    "model": "qwen3-vl:4b-instruct-q4_K_M",
+    "modelDigest": "ee4b975b58c17ce268cd19d40db35d5edc64603035d2ffc1fee1968eb0947f7b",
+    "quantization": "Q4_K_M",
+    "promptVersion": "purchase-v1",
+    "schemaVersion": "1",
+    "latencyMs": 17356,
+    "tokens": 346,
+    "training": false
+  }
+}

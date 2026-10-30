@@ -1,0 +1,99 @@
+{
+  "task": "extract_purchase_items",
+  "synthetic": true,
+  "sourceHash": "d7312bd19b4ab9162bb813377eb91de65845a85fccd75d550f76eb6a9c81b739",
+  "schemaHash": "33ef8c600dc0c5b87539804cbb74577445fe89a100ecc77c63f967ed533f6e49",
+  "localCheckoutRevision": "e66d0c6875a23982caf78239953e17a1986edc75",
+  "note": "Checkout may contain uncommitted changes; review the GitHub publication commit separately.",
+  "runtime": {
+    "node": "v24.19.0",
+    "platform": "win32",
+    "cpu": "AMD Ryzen 9 8945HS w/ Radeon 780M Graphics",
+    "ramBytes": 16413151232
+  },
+  "selectedModel": "qwen3-vl:4b-instruct-q4_K_M",
+  "seed": 17,
+  "temperature": 0,
+  "timeoutMs": 120000,
+  "cache": "No extraction cache; model residency not controlled",
+  "dependencyHash": "11df53668baa89cc0b4ffa15d61d06cbbd28ea762d074ed2aee4ed2b47854193",
+  "result": {
+    "data": {
+      "schema_version": "1",
+      "items": [
+        {
+          "source_line_ids": [
+            "L2"
+          ],
+          "description": "Navy linen trousers, size M, quantity 1",
+          "category": "Bottom",
+          "color": "Navy",
+          "size": "M",
+          "brand": null,
+          "quantity": 1,
+          "review_reasons": [
+            "Human review required for clothing purchase",
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Navy linen trousers, size M, quantity 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "trousers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Navy"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "M"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Human review required for clothing purchase"
+      ]
+    },
+    "metadata": {
+      "provider": "local",
+      "model": "qwen3-vl:4b-instruct-q4_K_M",
+      "modelDigest": "ee4b975b58c17ce268cd19d40db35d5edc64603035d2ffc1fee1968eb0947f7b",
+      "quantization": "Q4_K_M",
+      "promptVersion": "purchase-v1",
+      "schemaVersion": "1",
+      "latencyMs": 6786,
+      "tokens": 346,
+      "training": false
+    }
+  },
+  "status": "passed",
+  "elapsedMs": 6916.9275
+}

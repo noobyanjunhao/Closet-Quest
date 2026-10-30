@@ -1,0 +1,37 @@
+{
+  "data": {
+    "schema_version": "1",
+    "items": [
+      {
+        "source_line_ids": [
+          "L2"
+        ],
+        "description": "Navy linen trousers",
+        "category": "Bottom",
+        "color": null,
+        "size": "M",
+        "brand": null,
+        "quantity": 1,
+        "review_reasons": [
+          "Shipping fee",
+          "Discount"
+        ],
+        "evidence": [
+          {
+            "field": "category",
+            "line_id": "L2",
+            "quote": "trousers"
+          }
+        ]
+      }
+    ],
+    "excluded_lines": [],
+    "warnings": [
+      "Shipping fee",
+      "Discount"
+    ]
+  },
+  "model": "gemma3:4b",
+  "latencyMs": 4038,
+  "tokens": 117
+}

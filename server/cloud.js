@@ -108,5 +108,9 @@ export function createCloud({url=process.env.SUPABASE_URL,key=process.env.SUPABA
   if(!/^[a-f0-9]{64}$/.test(queryKey))throw error('Invalid library key.',400);
   await request('/rest/v1/shopping_library?on_conflict=user_id,query_key',{method:'POST',token:user.token,signal:AbortSignal.timeout(4000),headers:{Prefer:'resolution=merge-duplicates'},body:{user_id:user.id,query_key:queryKey,result,updated_at:new Date().toISOString()}});
  }
- return {authenticate,publicUser,auth,closet,saveCloset,uploadPhoto,photo,documents,saveDocument,removeDocument,shoppingLibrary,saveShoppingResult};
+ async function purchaseRequest(user,path,options={}){
+  if(!user?.cloud||!uuid.test(user.id)||!/^((purchase_imports|purchase_import_commits)\?|purchase_imports$|rpc\/(save_purchase_import|purge_purchase_source)$)/.test(path))throw error('Import request not allowed.',403);
+  return request('/rest/v1/'+path,{...options,token:user.token});
+ }
+ return {authenticate,publicUser,auth,closet,saveCloset,uploadPhoto,photo,documents,saveDocument,removeDocument,shoppingLibrary,saveShoppingResult,purchaseRequest};
 }

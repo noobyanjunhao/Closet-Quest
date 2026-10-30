@@ -1,0 +1,6 @@
+{
+  "status": "failed",
+  "elapsedMs": 19682.127800000002,
+  "code": "EXTRACTION_INVALID_OUTPUT",
+  "message": "An evidence quote is absent from its source line."
+}
