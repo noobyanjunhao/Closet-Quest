@@ -1,0 +1,144 @@
+{
+  "status": "stopped_on_cuda_out_of_memory",
+  "plannedSteps": 120,
+  "lastProgressStep": 71,
+  "selectedSavedCheckpointStep": 40,
+  "selection": "Only completed validation checkpoint; no test feedback used",
+  "validationLoss": 0.002279247622936964,
+  "epochAtCheckpoint": 0.5333333333333333,
+  "history": [
+    {
+      "entropy": 1.337826520204544,
+      "epoch": 0.06666666666666667,
+      "grad_norm": 2.61812162399292,
+      "learning_rate": 0.00013333333333333334,
+      "loss": 0.3464,
+      "mean_token_accuracy": 0.9262334495782852,
+      "num_tokens": 19282.0,
+      "step": 5
+    },
+    {
+      "entropy": 1.3998585402965547,
+      "epoch": 0.13333333333333333,
+      "grad_norm": 0.9601048231124878,
+      "learning_rate": 0.000199658449300667,
+      "loss": 0.1289,
+      "mean_token_accuracy": 0.9733495682477951,
+      "num_tokens": 38647.0,
+      "step": 10
+    },
+    {
+      "entropy": 1.1177289932966232,
+      "epoch": 0.2,
+      "grad_norm": 0.9011945724487305,
+      "learning_rate": 0.00019757963826274357,
+      "loss": 0.0411,
+      "mean_token_accuracy": 0.9904574692249298,
+      "num_tokens": 57898.0,
+      "step": 15
+    },
+    {
+      "entropy": 1.01501407623291,
+      "epoch": 0.26666666666666666,
+      "grad_norm": 0.46487152576446533,
+      "learning_rate": 0.0001936511241197055,
+      "loss": 0.017,
+      "mean_token_accuracy": 0.9963180541992187,
+      "num_tokens": 77141.0,
+      "step": 20
+    },
+    {
+      "entropy": 1.0583227455615998,
+      "epoch": 0.3333333333333333,
+      "grad_norm": 0.33677244186401367,
+      "learning_rate": 0.0001879473751206489,
+      "loss": 0.0181,
+      "mean_token_accuracy": 0.9961608558893204,
+      "num_tokens": 96595.0,
+      "step": 25
+    },
+    {
+      "entropy": 1.0816326439380646,
+      "epoch": 0.4,
+      "grad_norm": 0.24995695054531097,
+      "learning_rate": 0.00018057651056609784,
+      "loss": 0.0104,
+      "mean_token_accuracy": 0.996587011218071,
+      "num_tokens": 115883.0,
+      "step": 30
+    },
+    {
+      "entropy": 1.074978056550026,
+      "epoch": 0.4666666666666667,
+      "grad_norm": 0.1635558158159256,
+      "learning_rate": 0.00017167825131684513,
+      "loss": 0.0051,
+      "mean_token_accuracy": 0.9972685605287552,
+      "num_tokens": 135488.0,
+      "step": 35
+    },
+    {
+      "entropy": 1.0702066987752914,
+      "epoch": 0.5333333333333333,
+      "grad_norm": 0.2945198118686676,
+      "learning_rate": 0.0001614212712689668,
+      "loss": 0.0027,
+      "mean_token_accuracy": 0.9997487425804138,
+      "num_tokens": 154732.0,
+      "step": 40
+    },
+    {
+      "epoch": 0.5333333333333333,
+      "eval_entropy": 1.0361331969499588,
+      "eval_loss": 0.002279247622936964,
+      "eval_mean_token_accuracy": 0.9995166401068369,
+      "eval_model_preparation_time": 0.012,
+      "eval_num_tokens": 154732.0,
+      "eval_runtime": 11.8589,
+      "eval_samples_per_second": 5.059,
+      "eval_steps_per_second": 5.059,
+      "step": 40
+    }
+  ],
+  "base": {
+    "repo": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "license": "Apache-2.0",
+    "files": {
+      "config.json": "18e18afcaccafade98daf13a54092927904649e1dd4eba8299ab717d5d94ff45",
+      "generation_config.json": "e558847a8b4402616f1273797b015104dc266fe4b520056fca88823ba8f8ebe6",
+      "LICENSE": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+      "merges.txt": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3",
+      "model.safetensors": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+      "README.md": "b19c806a904db6dc878a0462e70b551f6b7ac78dfbb88c2eb966ca2b9109ae15",
+      "tokenizer.json": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+      "tokenizer_config.json": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+      "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    },
+    "path": ".model-cache/purchase-base",
+    "trust_remote_code": false
+  },
+  "datasetManifestSha256": "bbe31676abbf05f5864128ffa45e179e866109c1272ddbf65af898e90ce031ea",
+  "promptSha256": "e3fcb69a291f9d68da1b7eb85dbb5b4c4bff7d9c9af8b905f771def205e1bcec",
+  "adapterSha256": "6817041bfab2a1ea0b16840813b6414078b57d96a91eb023e1690b773d23933a",
+  "adapterBytes": 35237104,
+  "trainableParameters": 8798208,
+  "configuration": {
+    "seed": 17,
+    "rank": 16,
+    "alpha": 32,
+    "dropout": 0.05,
+    "learningRate": 0.0002,
+    "batchSize": 1,
+    "gradientAccumulation": 4,
+    "maxLength": 3072,
+    "completionOnlyLoss": true,
+    "gradientCheckpointing": true,
+    "precision": "bfloat16"
+  },
+  "gpu": "RTX 4060 Laptop 8188 MiB",
+  "observedNvidiaSmiMemoryMiB": 7939,
+  "memoryNote": "One observed total device-memory sample, not measured peak allocated memory; process failed before final statistics",
+  "recovery": "Finite safetensors copied from checkpoint-40; optimizer/RNG pickle files are not loaded for inference",
+  "automaticallyPromoted": false
+}

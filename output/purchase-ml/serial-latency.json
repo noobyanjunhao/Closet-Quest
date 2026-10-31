@@ -1,0 +1,75 @@
+{
+  "synthetic": true,
+  "split": "validation",
+  "examples": 5,
+  "order": [
+    "base",
+    "adapter"
+  ],
+  "concurrentInference": false,
+  "notes": "Fixed-order serial laptop run, first five validation cases. No other model inference was running; Ollama was unloaded. First generation includes kernel warmup, model load is separate. Four remaining generations are warm. Small sample, no p95 or general latency claim.",
+  "models": {
+    "base": {
+      "ids": [
+        "validation-10-000",
+        "validation-10-001",
+        "validation-10-002",
+        "validation-10-003",
+        "validation-10-004"
+      ],
+      "loadMs": 1799.2625999904703,
+      "firstGenerationMs": 28063.64060001215,
+      "medianMs": 26256.417900003726,
+      "warmMedianMs": 26106.61305001122,
+      "generatedTokens": [
+        676,
+        641,
+        624,
+        757,
+        489
+      ],
+      "generationErrors": 0,
+      "contractValid": 0,
+      "exactGarmentDocuments": 0,
+      "clothingLines": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 5,
+        "precision": 0,
+        "recall": 0
+      },
+      "emptyResults": 0
+    },
+    "adapter": {
+      "ids": [
+        "validation-10-000",
+        "validation-10-001",
+        "validation-10-002",
+        "validation-10-003",
+        "validation-10-004"
+      ],
+      "loadMs": 2316.647200001171,
+      "firstGenerationMs": 2905.923799989978,
+      "medianMs": 2524.024999991525,
+      "warmMedianMs": 2523.8134499959415,
+      "generatedTokens": [
+        68,
+        71,
+        324,
+        84,
+        68
+      ],
+      "generationErrors": 0,
+      "contractValid": 4,
+      "exactGarmentDocuments": 2,
+      "clothingLines": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 3,
+        "precision": 1,
+        "recall": 0.4
+      },
+      "emptyResults": 4
+    }
+  }
+}

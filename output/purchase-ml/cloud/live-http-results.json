@@ -1,0 +1,40 @@
+{
+  "environment": "live Supabase HTTPS/PostgREST",
+  "synthetic": true,
+  "modelInference": false,
+  "provider": "fixture for transport/queue experiment only",
+  "checks": [
+    {
+      "name": "invalid worker credential denied",
+      "passed": true,
+      "elapsedMs": 409.9731
+    },
+    {
+      "name": "anonymous draft read denied",
+      "passed": true,
+      "elapsedMs": 318.6492999999999
+    },
+    {
+      "name": "three simultaneous claims grant one lease",
+      "passed": true,
+      "elapsedMs": 390.554
+    },
+    {
+      "name": "wrong lease cannot complete",
+      "passed": true,
+      "elapsedMs": 140.18989999999985
+    },
+    {
+      "name": "validated result completes draft",
+      "passed": true,
+      "elapsedMs": 155.06770000000006
+    },
+    {
+      "name": "lost-response replay acknowledges same completion",
+      "passed": true,
+      "elapsedMs": 124.65069999999992
+    }
+  ],
+  "passed": 6,
+  "total": 6
+}

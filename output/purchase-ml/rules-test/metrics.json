@@ -1,0 +1,673 @@
+{
+  "documents": 60,
+  "jsonObjects": 60,
+  "contractValid": 60,
+  "exactGarmentDocuments": 6,
+  "clothingLines": {
+    "tp": 60,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+  },
+  "fieldExact": {
+    "correct": 300,
+    "total": 360,
+    "rate": 0.8333333333333334
+  },
+  "categoryMacroF1": 1.0,
+  "perCategory": {
+    "Top": {
+      "tp": 10,
+      "fp": 0,
+      "fn": 0,
+      "f1": 1.0
+    },
+    "Bottom": {
+      "tp": 11,
+      "fp": 0,
+      "fn": 0,
+      "f1": 1.0
+    },
+    "Dress": {
+      "tp": 11,
+      "fp": 0,
+      "fn": 0,
+      "f1": 1.0
+    },
+    "Shoes": {
+      "tp": 10,
+      "fp": 0,
+      "fn": 0,
+      "f1": 1.0
+    },
+    "Outerwear": {
+      "tp": 9,
+      "fp": 0,
+      "fn": 0,
+      "f1": 1.0
+    },
+    "Accessory": {
+      "tp": 9,
+      "fp": 0,
+      "fn": 0,
+      "f1": 1.0
+    }
+  },
+  "unknownPreservation": {
+    "correct": 48,
+    "total": 48
+  },
+  "unsupportedFieldRate": {
+    "unsupported": 0,
+    "nonNullPredictedFieldsOnMatchedLines": 252
+  },
+  "evidenceQuotes": {
+    "validSubstring": 312,
+    "total": 312
+  },
+  "returnWarnings": {
+    "correct": 6,
+    "total": 6
+  },
+  "latencyMs": {
+    "median": 0.08510000770911574,
+    "p95": 0.20059998496435583,
+    "total": 5.852900038007647
+  },
+  "byCase": {
+    "complete": {
+      "n": 6,
+      "contractValid": 6,
+      "exact": 0
+    },
+    "unknown": {
+      "n": 6,
+      "contractValid": 6,
+      "exact": 0
+    },
+    "multiple": {
+      "n": 6,
+      "contractValid": 6,
+      "exact": 0
+    },
+    "fees_only": {
+      "n": 6,
+      "contractValid": 6,
+      "exact": 6
+    },
+    "returned": {
+      "n": 6,
+      "contractValid": 6,
+      "exact": 0
+    },
+    "injection": {
+      "n": 6,
+      "contractValid": 6,
+      "exact": 0
+    },
+    "missing_quantity": {
+      "n": 6,
+      "contractValid": 6,
+      "exact": 0
+    },
+    "mixed": {
+      "n": 6,
+      "contractValid": 6,
+      "exact": 0
+    },
+    "unicode": {
+      "n": 6,
+      "contractValid": 6,
+      "exact": 0
+    },
+    "quantity_two": {
+      "n": 6,
+      "contractValid": 6,
+      "exact": 0
+    }
+  },
+  "failures": [
+    {
+      "id": "test-13-000",
+      "case": "complete",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-13-001",
+      "case": "unknown",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-13-002",
+      "case": "multiple",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 10,
+      "expectedFields": 12,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-13-004",
+      "case": "returned",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-13-005",
+      "case": "injection",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-13-006",
+      "case": "missing_quantity",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-13-007",
+      "case": "mixed",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-13-008",
+      "case": "unicode",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-13-009",
+      "case": "quantity_two",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-13-010",
+      "case": "complete",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-13-011",
+      "case": "unknown",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-13-012",
+      "case": "multiple",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 10,
+      "expectedFields": 12,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-13-014",
+      "case": "returned",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-13-015",
+      "case": "injection",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-13-016",
+      "case": "missing_quantity",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-13-017",
+      "case": "mixed",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-13-018",
+      "case": "unicode",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-13-019",
+      "case": "quantity_two",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-14-000",
+      "case": "complete",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-14-001",
+      "case": "unknown",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-14-002",
+      "case": "multiple",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 10,
+      "expectedFields": 12,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-14-004",
+      "case": "returned",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-14-005",
+      "case": "injection",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-14-006",
+      "case": "missing_quantity",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-14-007",
+      "case": "mixed",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-14-008",
+      "case": "unicode",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-14-009",
+      "case": "quantity_two",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-14-010",
+      "case": "complete",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-14-011",
+      "case": "unknown",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-14-012",
+      "case": "multiple",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 10,
+      "expectedFields": 12,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-14-014",
+      "case": "returned",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-14-015",
+      "case": "injection",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-14-016",
+      "case": "missing_quantity",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-14-017",
+      "case": "mixed",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-14-018",
+      "case": "unicode",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-14-019",
+      "case": "quantity_two",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-15-000",
+      "case": "complete",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-15-001",
+      "case": "unknown",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-15-002",
+      "case": "multiple",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 10,
+      "expectedFields": 12,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-15-004",
+      "case": "returned",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-15-005",
+      "case": "injection",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-15-006",
+      "case": "missing_quantity",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-15-007",
+      "case": "mixed",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-15-008",
+      "case": "unicode",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-15-009",
+      "case": "quantity_two",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-15-010",
+      "case": "complete",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-15-011",
+      "case": "unknown",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-15-012",
+      "case": "multiple",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 10,
+      "expectedFields": 12,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-15-014",
+      "case": "returned",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-15-015",
+      "case": "injection",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-15-016",
+      "case": "missing_quantity",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-15-017",
+      "case": "mixed",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-15-018",
+      "case": "unicode",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "test-15-019",
+      "case": "quantity_two",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    }
+  ],
+  "metricNotes": "Invalid contract results count as empty for usable-item/field metrics. Quote substring validity is not semantic evidence correctness. Unsupported fields denominator excludes category and unmatched/invalid items; inspect failures too."
+}

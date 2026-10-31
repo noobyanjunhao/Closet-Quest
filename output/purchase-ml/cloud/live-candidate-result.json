@@ -1,0 +1,45 @@
+{
+  "environment": "Live Supabase HTTPS + local saved LoRA adapter",
+  "synthetic": true,
+  "modelInference": true,
+  "accepted": true,
+  "status": "review_required",
+  "elapsedMs": 3715.2111000000004,
+  "model": {
+    "provider": "tuned-local",
+    "model": "Qwen2.5-0.5B-Instruct + purchase-lora-v1",
+    "baseRevision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "adapterSha256": "6817041bfab2a1ea0b16840813b6414078b57d96a91eb023e1690b773d23933a",
+    "promptVersion": "purchase-v1",
+    "schemaVersion": "1",
+    "training": false,
+    "latencyMs": 2813,
+    "tokens": 58
+  },
+  "prediction": {
+    "schema_version": "1",
+    "items": [],
+    "excluded_lines": [
+      {
+        "line_id": "L1",
+        "reason": "header"
+      },
+      {
+        "line_id": "L2",
+        "reason": "shipping"
+      },
+      {
+        "line_id": "L3",
+        "reason": "discount"
+      },
+      {
+        "line_id": "L4",
+        "reason": "discount"
+      }
+    ],
+    "warnings": []
+  },
+  "error": null,
+  "wardrobeWrites": 0,
+  "concurrentBaseEvaluation": true
+}

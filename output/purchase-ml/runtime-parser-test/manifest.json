@@ -1,0 +1,12 @@
+{
+  "mode": "records",
+  "split": "test",
+  "count": 60,
+  "datasetSha256": "1e5bd2eea82b8f7a8fdd855491100f615c39f578c8d9070e7fda0891cbea4dd0",
+  "promptSha256": "e3fcb69a291f9d68da1b7eb85dbb5b4c4bff7d9c9af8b905f771def205e1bcec",
+  "generation": null,
+  "coldWarm": "First request includes initial GPU kernels; model load timed separately; no result cache",
+  "synthetic": true,
+  "recordsSha256": "09500721a8845abaa5505c6eff10538356b44cf0ddd31a67155020095c04e568",
+  "protocol": "External records; inspect provider metadata and execution-context.json. This scorer does not generate predictions."
+}

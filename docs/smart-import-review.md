@@ -1,5 +1,7 @@
 # Smart Wardrobe Import: implementation and review handoff
 
+**Historical checkpoint.** The next-stage [fine-tuning and cloud validation report](purchase-ml-cloud-report.md) supersedes this page's deployment and training status. The text below preserves the original M0–M1 evidence.
+
 October 30, 2026 · M0–M1 / T00–T06 checkpoint
 
 **Existing deployed app:** [Try Closet Quest](https://closet-quest-junhao-s7.onrender.com/). The new import feature is working locally and remains disabled on production. Its Supabase migration has not been applied to the live project. This report is for reviewing the implementation before cloud enablement or model training.

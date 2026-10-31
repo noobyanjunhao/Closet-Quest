@@ -1,0 +1,24 @@
+{
+  "service": "https://closet-quest-junhao-s7.onrender.com/",
+  "renderPlan": "existing Free web service",
+  "supabasePlan": "existing Free project",
+  "implementationCommit": "c3b45558d97aa24d07cc57cd4b6d272d9b0ae0ec",
+  "renderDeploy": "dep-dbij5vg473hc73d9635g",
+  "renderStatus": "Deploy succeeded | Live",
+  "liveAt": "2026-10-30T20:16:06-04:00",
+  "healthHttpStatus": 200,
+  "githubCI": "https://github.com/noobyanjunhao/Closet-Quest/actions/runs/41149105845",
+  "githubCIConclusion": "success",
+  "flags": {
+    "CLOSET_PURCHASE_IMPORTS": "1",
+    "CLOSET_IMPORT_PROVIDER": "worker"
+  },
+  "migrationsApplied": [
+    "003_purchase_imports.sql",
+    "004_purchase_workers.sql",
+    "005_purchase_queue_terminal.sql"
+  ],
+  "paidGpuOrInferenceAdded": false,
+  "availability": "Render sleeps when idle; AI needs the existing laptop worker and its seven-day credential. New drafts use a labeled parser when the worker is offline.",
+  "deployDurationSeconds": 72
+}

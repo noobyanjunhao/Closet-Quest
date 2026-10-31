@@ -1,0 +1,4208 @@
+[
+  {
+    "id": "validation-10-000",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Description=Rain jacket; attributes {color: Grey",
+          "category": "Outerwear",
+          "color": "Grey",
+          "size": "XS",
+          "brand": "Juniper",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Description=Rain jacket; attributes {color: Grey"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "jacket"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Grey"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "XS"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Juniper"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.4712000081781298
+  },
+  {
+    "id": "validation-10-001",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Description=Silk scarf; attributes {}",
+          "category": "Accessory",
+          "color": null,
+          "size": null,
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Description=Silk scarf; attributes {}"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "scarf"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.1120000088121742
+  },
+  {
+    "id": "validation-10-002",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Description=Cotton tee; attributes {color: Olive",
+          "category": "Top",
+          "color": "Olive",
+          "size": "L",
+          "brand": "Grove",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Description=Cotton tee; attributes {color: Olive"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "tee"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Olive"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "L"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Grove"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        },
+        {
+          "description": "Description=Canvas sneakers; attributes {color: Black",
+          "category": "Shoes",
+          "color": "Black",
+          "size": "38",
+          "brand": "Juniper",
+          "quantity": 1,
+          "source_line_ids": [
+            "L3"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L3",
+              "quote": "Description=Canvas sneakers; attributes {color: Black"
+            },
+            {
+              "field": "category",
+              "line_id": "L3",
+              "quote": "sneakers"
+            },
+            {
+              "field": "color",
+              "line_id": "L3",
+              "quote": "Black"
+            },
+            {
+              "field": "size",
+              "line_id": "L3",
+              "quote": "38"
+            },
+            {
+              "field": "brand",
+              "line_id": "L3",
+              "quote": "Juniper"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L3",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L4",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L5",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L6",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.1029000268317759
+  },
+  {
+    "id": "validation-10-003",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.018300022929906845
+  },
+  {
+    "id": "validation-10-004",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Returned (confirm ownership): Description=Wrap dress; attributes {quantity: 1",
+          "category": "Dress",
+          "color": "Olive",
+          "size": "XS",
+          "brand": "Harbor",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm return ownership"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Returned (confirm ownership): Description=Wrap dress; attributes {quantity: 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Olive"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "XS"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Harbor"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.07979999645613134
+  },
+  {
+    "id": "validation-10-005",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Description=Canvas sneakers; attributes {size: 40",
+          "category": "Shoes",
+          "color": "Grey",
+          "size": "40",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Description=Canvas sneakers; attributes {size: 40"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "sneakers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Grey"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "40"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "instruction"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.05649999366141856
+  },
+  {
+    "id": "validation-10-006",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Description=Wool coat; attributes {color: Tan",
+          "category": "Outerwear",
+          "color": "Tan",
+          "size": null,
+          "brand": "Juniper",
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Description=Wool coat; attributes {color: Tan"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "coat"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Tan"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Juniper"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.05150001379661262
+  },
+  {
+    "id": "validation-10-007",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Description=Baseball cap; attributes {size: L",
+          "category": "Accessory",
+          "color": "Navy",
+          "size": "L",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Description=Baseball cap; attributes {size: L"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "cap"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Navy"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "L"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L7",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.05699999746866524
+  },
+  {
+    "id": "validation-10-008",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Description=Knit cardigan; attributes {size: XL",
+          "category": "Top",
+          "color": "Navy",
+          "size": "XL",
+          "brand": "Cedar",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Description=Knit cardigan; attributes {size: XL"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "cardigan"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Navy"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "XL"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Cedar"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.047600013203918934
+  },
+  {
+    "id": "validation-10-009",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Description=Denim skirt; attributes {quantity: 2",
+          "category": "Bottom",
+          "color": "Grey",
+          "size": "M",
+          "brand": "Cedar",
+          "quantity": 2,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Description=Denim skirt; attributes {quantity: 2"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "skirt"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Grey"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "M"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Cedar"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "2"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.04779998562298715
+  },
+  {
+    "id": "validation-10-010",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Description=Midi dress; attributes {color: Olive",
+          "category": "Dress",
+          "color": "Olive",
+          "size": "S",
+          "brand": "Cedar",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Description=Midi dress; attributes {color: Olive"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Olive"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "S"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Cedar"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.051000009989365935
+  },
+  {
+    "id": "validation-10-011",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Description=Leather loafers; attributes {}",
+          "category": "Shoes",
+          "color": null,
+          "size": null,
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Description=Leather loafers; attributes {}"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "loafers"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.03940000897273421
+  },
+  {
+    "id": "validation-10-012",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Description=Rain jacket; attributes {quantity: 1",
+          "category": "Outerwear",
+          "color": "Red",
+          "size": "XL",
+          "brand": "Harbor",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Description=Rain jacket; attributes {quantity: 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "jacket"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Red"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "XL"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Harbor"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        },
+        {
+          "description": "Description=Linen trousers; attributes {quantity: 1",
+          "category": "Bottom",
+          "color": "Red",
+          "size": "38",
+          "brand": "Grove",
+          "quantity": 1,
+          "source_line_ids": [
+            "L3"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L3",
+              "quote": "Description=Linen trousers; attributes {quantity: 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L3",
+              "quote": "trousers"
+            },
+            {
+              "field": "color",
+              "line_id": "L3",
+              "quote": "Red"
+            },
+            {
+              "field": "size",
+              "line_id": "L3",
+              "quote": "38"
+            },
+            {
+              "field": "brand",
+              "line_id": "L3",
+              "quote": "Grove"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L3",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L4",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L5",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L6",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.07819998427294195
+  },
+  {
+    "id": "validation-10-013",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.015400000847876072
+  },
+  {
+    "id": "validation-10-014",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Returned (confirm ownership): Description=Cotton tee; attributes {size: S",
+          "category": "Top",
+          "color": "Olive",
+          "size": "S",
+          "brand": "Cedar",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm return ownership"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Returned (confirm ownership): Description=Cotton tee; attributes {size: S"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "tee"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Olive"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "S"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Cedar"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.04499999340623617
+  },
+  {
+    "id": "validation-10-015",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Description=Linen trousers; attributes {quantity: 1",
+          "category": "Bottom",
+          "color": "Blue",
+          "size": "S",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Description=Linen trousers; attributes {quantity: 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "trousers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Blue"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "S"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "instruction"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.06769999163225293
+  },
+  {
+    "id": "validation-10-016",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Description=Wrap dress; attributes {color: Black",
+          "category": "Dress",
+          "color": "Black",
+          "size": null,
+          "brand": "Harbor",
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Description=Wrap dress; attributes {color: Black"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Black"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Harbor"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.052799994591623545
+  },
+  {
+    "id": "validation-10-017",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Description=Canvas sneakers; attributes {color: Blue",
+          "category": "Shoes",
+          "color": "Blue",
+          "size": "S",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Description=Canvas sneakers; attributes {color: Blue"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "sneakers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Blue"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "S"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L7",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.06550000398419797
+  },
+  {
+    "id": "validation-10-018",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Description=Wool coat; attributes {quantity: 1",
+          "category": "Outerwear",
+          "color": "Olive",
+          "size": "40",
+          "brand": "Harbor",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Description=Wool coat; attributes {quantity: 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "coat"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Olive"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "40"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Harbor"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.06350001785904169
+  },
+  {
+    "id": "validation-10-019",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Description=Baseball cap; attributes {brand: Juniper",
+          "category": "Accessory",
+          "color": "Red",
+          "size": "38",
+          "brand": "Juniper",
+          "quantity": 2,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Description=Baseball cap; attributes {brand: Juniper"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "cap"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Red"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "38"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Juniper"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "2"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.07680000271648169
+  },
+  {
+    "id": "validation-11-000",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Basket includes Silk scarf; brand: Elm / color: Navy / quantity: 1 / size: 42",
+          "category": "Accessory",
+          "color": "Navy",
+          "size": "42",
+          "brand": "Elm",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Basket includes Silk scarf; brand: Elm / color: Navy / quantity: 1 / size: 42"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "scarf"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Navy"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "42"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Elm"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.08950001210905612
+  },
+  {
+    "id": "validation-11-001",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Basket includes Cotton tee",
+          "category": "Top",
+          "color": null,
+          "size": null,
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Basket includes Cotton tee"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "tee"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.040300015825778246
+  },
+  {
+    "id": "validation-11-002",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Basket includes Linen trousers; quantity: 1 / color: Red / size: XL / brand: Harbor",
+          "category": "Bottom",
+          "color": "Red",
+          "size": "XL",
+          "brand": "Harbor",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Basket includes Linen trousers; quantity: 1 / color: Red / size: XL / brand: Harbor"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "trousers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Red"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "XL"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Harbor"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        },
+        {
+          "description": "Basket includes Wool coat; brand: Cedar / size: L / color: Navy / quantity: 1",
+          "category": "Outerwear",
+          "color": "Navy",
+          "size": "L",
+          "brand": "Cedar",
+          "quantity": 1,
+          "source_line_ids": [
+            "L3"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L3",
+              "quote": "Basket includes Wool coat; brand: Cedar / size: L / color: Navy / quantity: 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L3",
+              "quote": "coat"
+            },
+            {
+              "field": "color",
+              "line_id": "L3",
+              "quote": "Navy"
+            },
+            {
+              "field": "size",
+              "line_id": "L3",
+              "quote": "L"
+            },
+            {
+              "field": "brand",
+              "line_id": "L3",
+              "quote": "Cedar"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L3",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L4",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L5",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L6",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.0805000017862767
+  },
+  {
+    "id": "validation-11-003",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.015300000086426735
+  },
+  {
+    "id": "validation-11-004",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Returned (confirm ownership): Basket includes Canvas sneakers; brand: Harbor / color: Black / quantity: 1 / size: 42",
+          "category": "Shoes",
+          "color": "Black",
+          "size": "42",
+          "brand": "Harbor",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm return ownership"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Returned (confirm ownership): Basket includes Canvas sneakers; brand: Harbor / color: Black / quantity: 1 / size: 42"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "sneakers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Black"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "42"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Harbor"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.06580000626854599
+  },
+  {
+    "id": "validation-11-005",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Basket includes Wool coat; quantity: 1 / color: Blue / size: 38",
+          "category": "Outerwear",
+          "color": "Blue",
+          "size": "38",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Basket includes Wool coat; quantity: 1 / color: Blue / size: 38"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "coat"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Blue"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "38"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "instruction"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.0585000088904053
+  },
+  {
+    "id": "validation-11-006",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Basket includes Baseball cap; brand: Elm / color: Olive",
+          "category": "Accessory",
+          "color": "Olive",
+          "size": null,
+          "brand": "Elm",
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Basket includes Baseball cap; brand: Elm / color: Olive"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "cap"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Olive"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Elm"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.05840000812895596
+  },
+  {
+    "id": "validation-11-007",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Basket includes Knit cardigan; color: Tan / size: XL / quantity: 1",
+          "category": "Top",
+          "color": "Tan",
+          "size": "XL",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Basket includes Knit cardigan; color: Tan / size: XL / quantity: 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "cardigan"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Tan"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "XL"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L7",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.04450001870281994
+  },
+  {
+    "id": "validation-11-008",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Basket includes Denim skirt; color: Black / quantity: 1 / brand: Cedar / size: XL",
+          "category": "Bottom",
+          "color": "Black",
+          "size": "XL",
+          "brand": "Cedar",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Basket includes Denim skirt; color: Black / quantity: 1 / brand: Cedar / size: XL"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "skirt"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Black"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "XL"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Cedar"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.05310002597980201
+  },
+  {
+    "id": "validation-11-009",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Basket includes Midi dress; color: Blue / brand: Elm / size: M / quantity: 2",
+          "category": "Dress",
+          "color": "Blue",
+          "size": "M",
+          "brand": "Elm",
+          "quantity": 2,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Basket includes Midi dress; color: Blue / brand: Elm / size: M / quantity: 2"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Blue"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "M"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Elm"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "2"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.05569998756982386
+  },
+  {
+    "id": "validation-11-010",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Basket includes Leather loafers; quantity: 1 / size: L / brand: Harbor / color: Blue",
+          "category": "Shoes",
+          "color": "Blue",
+          "size": "L",
+          "brand": "Harbor",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Basket includes Leather loafers; quantity: 1 / size: L / brand: Harbor / color: Blue"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "loafers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Blue"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "L"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Harbor"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.052799994591623545
+  },
+  {
+    "id": "validation-11-011",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Basket includes Rain jacket",
+          "category": "Outerwear",
+          "color": null,
+          "size": null,
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Basket includes Rain jacket"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "jacket"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.04379998426884413
+  },
+  {
+    "id": "validation-11-012",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Basket includes Silk scarf; color: Cream / size: 38 / brand: Juniper / quantity: 1",
+          "category": "Accessory",
+          "color": "Cream",
+          "size": "38",
+          "brand": "Juniper",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Basket includes Silk scarf; color: Cream / size: 38 / brand: Juniper / quantity: 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "scarf"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Cream"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "38"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Juniper"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        },
+        {
+          "description": "Basket includes Wrap dress; brand: Grove / quantity: 1 / color: Tan / size: XS",
+          "category": "Dress",
+          "color": "Tan",
+          "size": "XS",
+          "brand": "Grove",
+          "quantity": 1,
+          "source_line_ids": [
+            "L3"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L3",
+              "quote": "Basket includes Wrap dress; brand: Grove / quantity: 1 / color: Tan / size: XS"
+            },
+            {
+              "field": "category",
+              "line_id": "L3",
+              "quote": "dress"
+            },
+            {
+              "field": "color",
+              "line_id": "L3",
+              "quote": "Tan"
+            },
+            {
+              "field": "size",
+              "line_id": "L3",
+              "quote": "XS"
+            },
+            {
+              "field": "brand",
+              "line_id": "L3",
+              "quote": "Grove"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L3",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L4",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L5",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L6",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.086499989265576
+  },
+  {
+    "id": "validation-11-013",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.01680001150816679
+  },
+  {
+    "id": "validation-11-014",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Returned (confirm ownership): Basket includes Linen trousers; brand: Field / color: Cream / size: 38 / quantity: 1",
+          "category": "Bottom",
+          "color": "Cream",
+          "size": "38",
+          "brand": "Field",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm return ownership"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Returned (confirm ownership): Basket includes Linen trousers; brand: Field / color: Cream / size: 38 / quantity: 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "trousers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Cream"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "38"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Field"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.0633999879937619
+  },
+  {
+    "id": "validation-11-015",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Basket includes Wrap dress; quantity: 1 / color: Grey / size: 42",
+          "category": "Dress",
+          "color": "Grey",
+          "size": "42",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Basket includes Wrap dress; quantity: 1 / color: Grey / size: 42"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Grey"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "42"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "instruction"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.054800009820610285
+  },
+  {
+    "id": "validation-11-016",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Basket includes Canvas sneakers; color: Cream / brand: Field",
+          "category": "Shoes",
+          "color": "Cream",
+          "size": null,
+          "brand": "Field",
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Basket includes Canvas sneakers; color: Cream / brand: Field"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "sneakers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Cream"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Field"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.0475000124424696
+  },
+  {
+    "id": "validation-11-017",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Basket includes Wool coat; size: L / color: Blue / quantity: 1",
+          "category": "Outerwear",
+          "color": "Blue",
+          "size": "L",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Basket includes Wool coat; size: L / color: Blue / quantity: 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "coat"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Blue"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "L"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L7",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.053499999921768904
+  },
+  {
+    "id": "validation-11-018",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Basket includes Baseball cap; color: Tan / quantity: 1 / size: L / brand: Grove",
+          "category": "Accessory",
+          "color": "Tan",
+          "size": "L",
+          "brand": "Grove",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Basket includes Baseball cap; color: Tan / quantity: 1 / size: L / brand: Grove"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "cap"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Tan"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "L"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Grove"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.06589997792616487
+  },
+  {
+    "id": "validation-11-019",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Basket includes Knit cardigan; quantity: 2 / color: Cream / brand: Grove / size: M",
+          "category": "Top",
+          "color": "Cream",
+          "size": "M",
+          "brand": "Grove",
+          "quantity": 2,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Basket includes Knit cardigan; quantity: 2 / color: Cream / brand: Grove / size: M"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "cardigan"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Cream"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "M"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Grove"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "2"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.05609999061562121
+  },
+  {
+    "id": "validation-12-000",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Cotton tee — selected options: size: 38; color: Red; quantity: 1; brand: Field",
+          "category": "Top",
+          "color": "Red",
+          "size": "38",
+          "brand": "Field",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Cotton tee — selected options: size: 38; color: Red; quantity: 1; brand: Field"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "tee"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Red"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "38"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Field"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.0543000060133636
+  },
+  {
+    "id": "validation-12-001",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Linen trousers — selected options:",
+          "category": "Bottom",
+          "color": null,
+          "size": null,
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Linen trousers — selected options:"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "trousers"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.049299997044727206
+  },
+  {
+    "id": "validation-12-002",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Wrap dress — selected options: brand: Juniper; size: 38; quantity: 1; color: Cream",
+          "category": "Dress",
+          "color": "Cream",
+          "size": "38",
+          "brand": "Juniper",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Wrap dress — selected options: brand: Juniper; size: 38; quantity: 1; color: Cream"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Cream"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "38"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Juniper"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        },
+        {
+          "description": "Baseball cap — selected options: brand: Harbor; quantity: 1; size: XS; color: Blue",
+          "category": "Accessory",
+          "color": "Blue",
+          "size": "XS",
+          "brand": "Harbor",
+          "quantity": 1,
+          "source_line_ids": [
+            "L3"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L3",
+              "quote": "Baseball cap — selected options: brand: Harbor; quantity: 1; size: XS; color: Blue"
+            },
+            {
+              "field": "category",
+              "line_id": "L3",
+              "quote": "cap"
+            },
+            {
+              "field": "color",
+              "line_id": "L3",
+              "quote": "Blue"
+            },
+            {
+              "field": "size",
+              "line_id": "L3",
+              "quote": "XS"
+            },
+            {
+              "field": "brand",
+              "line_id": "L3",
+              "quote": "Harbor"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L3",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L4",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L5",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L6",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.11119997361674905
+  },
+  {
+    "id": "validation-12-003",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.01889999839477241
+  },
+  {
+    "id": "validation-12-004",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Returned (confirm ownership): Wool coat — selected options: size: XS; brand: Harbor; color: Black; quantity: 1",
+          "category": "Outerwear",
+          "color": "Black",
+          "size": "XS",
+          "brand": "Harbor",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm return ownership"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Returned (confirm ownership): Wool coat — selected options: size: XS; brand: Harbor; color: Black; quantity: 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "coat"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Black"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "XS"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Harbor"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.08170001092366874
+  },
+  {
+    "id": "validation-12-005",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Baseball cap — selected options: size: XL; color: Olive; quantity: 1",
+          "category": "Accessory",
+          "color": "Olive",
+          "size": "XL",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Baseball cap — selected options: size: XL; color: Olive; quantity: 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "cap"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Olive"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "XL"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "instruction"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.07860001642256975
+  },
+  {
+    "id": "validation-12-006",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Knit cardigan — selected options: color: Navy; brand: Juniper",
+          "category": "Top",
+          "color": "Navy",
+          "size": null,
+          "brand": "Juniper",
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Knit cardigan — selected options: color: Navy; brand: Juniper"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "cardigan"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Navy"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Juniper"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.05830000736750662
+  },
+  {
+    "id": "validation-12-007",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Denim skirt — selected options: size: L; quantity: 1; color: Red",
+          "category": "Bottom",
+          "color": "Red",
+          "size": "L",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Denim skirt — selected options: size: L; quantity: 1; color: Red"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "skirt"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Red"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "L"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L7",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.08269998943433166
+  },
+  {
+    "id": "validation-12-008",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Midi dress — selected options: size: XS; color: Cream; brand: Grove; quantity: 1",
+          "category": "Dress",
+          "color": "Cream",
+          "size": "XS",
+          "brand": "Grove",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Midi dress — selected options: size: XS; color: Cream; brand: Grove; quantity: 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Cream"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "XS"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Grove"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.07149999146349728
+  },
+  {
+    "id": "validation-12-009",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Leather loafers — selected options: brand: Grove; color: Tan; quantity: 2; size: L",
+          "category": "Shoes",
+          "color": "Tan",
+          "size": "L",
+          "brand": "Grove",
+          "quantity": 2,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Leather loafers — selected options: brand: Grove; color: Tan; quantity: 2; size: L"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "loafers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Tan"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "L"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Grove"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "2"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.07899999036453664
+  },
+  {
+    "id": "validation-12-010",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Rain jacket — selected options: brand: Cedar; color: Blue; quantity: 1; size: S",
+          "category": "Outerwear",
+          "color": "Blue",
+          "size": "S",
+          "brand": "Cedar",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Rain jacket — selected options: brand: Cedar; color: Blue; quantity: 1; size: S"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "jacket"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Blue"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "S"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Cedar"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.0850000069476664
+  },
+  {
+    "id": "validation-12-011",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Silk scarf — selected options:",
+          "category": "Accessory",
+          "color": null,
+          "size": null,
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Silk scarf — selected options:"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "scarf"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.0667999847792089
+  },
+  {
+    "id": "validation-12-012",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Cotton tee — selected options: color: Grey; brand: Grove; quantity: 1; size: M",
+          "category": "Top",
+          "color": "Grey",
+          "size": "M",
+          "brand": "Grove",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Cotton tee — selected options: color: Grey; brand: Grove; quantity: 1; size: M"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "tee"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Grey"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "M"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Grove"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        },
+        {
+          "description": "Canvas sneakers — selected options: size: XS; quantity: 1; color: Olive; brand: Harbor",
+          "category": "Shoes",
+          "color": "Olive",
+          "size": "XS",
+          "brand": "Harbor",
+          "quantity": 1,
+          "source_line_ids": [
+            "L3"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L3",
+              "quote": "Canvas sneakers — selected options: size: XS; quantity: 1; color: Olive; brand: Harbor"
+            },
+            {
+              "field": "category",
+              "line_id": "L3",
+              "quote": "sneakers"
+            },
+            {
+              "field": "color",
+              "line_id": "L3",
+              "quote": "Olive"
+            },
+            {
+              "field": "size",
+              "line_id": "L3",
+              "quote": "XS"
+            },
+            {
+              "field": "brand",
+              "line_id": "L3",
+              "quote": "Harbor"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L3",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L4",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L5",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L6",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.12959999730810523
+  },
+  {
+    "id": "validation-12-013",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.021100015146657825
+  },
+  {
+    "id": "validation-12-014",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Returned (confirm ownership): Wrap dress — selected options: quantity: 1; size: XL; color: Blue; brand: Elm",
+          "category": "Dress",
+          "color": "Blue",
+          "size": "XL",
+          "brand": "Elm",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm return ownership"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Returned (confirm ownership): Wrap dress — selected options: quantity: 1; size: XL; color: Blue; brand: Elm"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Blue"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "XL"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Elm"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.07890001870691776
+  },
+  {
+    "id": "validation-12-015",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Canvas sneakers — selected options: quantity: 1; color: Grey; size: L",
+          "category": "Shoes",
+          "color": "Grey",
+          "size": "L",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Canvas sneakers — selected options: quantity: 1; color: Grey; size: L"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "sneakers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Grey"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "L"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "instruction"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.07219999679364264
+  },
+  {
+    "id": "validation-12-016",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Wool coat — selected options: color: Grey; brand: Field",
+          "category": "Outerwear",
+          "color": "Grey",
+          "size": null,
+          "brand": "Field",
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Wool coat — selected options: color: Grey; brand: Field"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "coat"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Grey"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Field"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.06920000305399299
+  },
+  {
+    "id": "validation-12-017",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Baseball cap — selected options: size: XL; color: Grey; quantity: 1",
+          "category": "Accessory",
+          "color": "Grey",
+          "size": "XL",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Baseball cap — selected options: size: XL; color: Grey; quantity: 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "cap"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Grey"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "XL"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L7",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.08630001684650779
+  },
+  {
+    "id": "validation-12-018",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Knit cardigan — selected options: quantity: 1; brand: Harbor; color: Olive; size: XS",
+          "category": "Top",
+          "color": "Olive",
+          "size": "XS",
+          "brand": "Harbor",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Knit cardigan — selected options: quantity: 1; brand: Harbor; color: Olive; size: XS"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "cardigan"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Olive"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "XS"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Harbor"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.06940000457689166
+  },
+  {
+    "id": "validation-12-019",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Denim skirt — selected options: size: 38; brand: Grove; color: Black; quantity: 2",
+          "category": "Bottom",
+          "color": "Black",
+          "size": "38",
+          "brand": "Grove",
+          "quantity": 2,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Denim skirt — selected options: size: 38; brand: Grove; color: Black; quantity: 2"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "skirt"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Black"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "38"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Grove"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "2"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "elapsedMs": 0.07559999357908964
+  }
+]

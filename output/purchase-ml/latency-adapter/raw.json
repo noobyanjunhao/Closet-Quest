@@ -1,0 +1,256 @@
+[
+  {
+    "id": "validation-10-000",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "attribute"
+        },
+        {
+          "line_id": "L3",
+          "reason": "quantity"
+        },
+        {
+          "line_id": "L4",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 68,
+    "raw": "{\"schema_version\":\"1\",\"items\":[],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L2\",\"reason\":\"attribute\"},{\"line_id\":\"L3\",\"reason\":\"quantity\"},{\"line_id\":\"L4\",\"reason\":\"shipping\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 2905.923799989978
+  },
+  {
+    "id": "validation-10-001",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 71,
+    "raw": "{\"schema_version\":\"1\",\"items\":[],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L2\",\"reason\":\"shipping\"},{\"line_id\":\"L3\",\"reason\":\"tax\"},{\"line_id\":\"L4\",\"reason\":\"discount\"},{\"line_id\":\"L5\",\"reason\":\"non_clothing\"}],\"warnings\":[]}",
+    "elapsedMs": 2524.024999991525
+  },
+  {
+    "id": "validation-10-002",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Cotton tee",
+          "category": "Top",
+          "color": "Olive",
+          "size": "L",
+          "brand": "Grove",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Cotton tee"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "tee"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Olive"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "L"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Grove"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        },
+        {
+          "description": "Canvas sneakers",
+          "category": "Shoes",
+          "color": "Black",
+          "size": "38",
+          "brand": "Juniper",
+          "quantity": 1,
+          "source_line_ids": [
+            "L3"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L3",
+              "quote": "Canvas sneakers"
+            },
+            {
+              "field": "category",
+              "line_id": "L3",
+              "quote": "sneakers"
+            },
+            {
+              "field": "color",
+              "line_id": "L3",
+              "quote": "Black"
+            },
+            {
+              "field": "size",
+              "line_id": "L3",
+              "quote": "38"
+            },
+            {
+              "field": "brand",
+              "line_id": "L3",
+              "quote": "Juniper"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L3",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L4",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L5",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L6",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 324,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Cotton tee\",\"category\":\"Top\",\"color\":\"Olive\",\"size\":\"L\",\"brand\":\"Grove\",\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Cotton tee\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"tee\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Olive\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"L\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Grove\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]},{\"description\":\"Canvas sneakers\",\"category\":\"Shoes\",\"color\":\"Black\",\"size\":\"38\",\"brand\":\"Juniper\",\"quantity\":1,\"source_line_ids\":[\"L3\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L3\",\"quote\":\"Canvas sneakers\"},{\"field\":\"category\",\"line_id\":\"L3\",\"quote\":\"sneakers\"},{\"field\":\"color\",\"line_id\":\"L3\",\"quote\":\"Black\"},{\"field\":\"size\",\"line_id\":\"L3\",\"quote\":\"38\"},{\"field\":\"brand\",\"line_id\":\"L3\",\"quote\":\"Juniper\"},{\"field\":\"quantity\",\"line_id\":\"L3\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L4\",\"reason\":\"shipping\"},{\"line_id\":\"L5\",\"reason\":\"tax\"},{\"line_id\":\"L6\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 10717.8829999757
+  },
+  {
+    "id": "validation-10-003",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 84,
+    "raw": "{\"schema_version\":\"1\",\"items\":[],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L2\",\"reason\":\"shipping\"},{\"line_id\":\"L3\",\"reason\":\"tax\"},{\"line_id\":\"L4\",\"reason\":\"discount\"},{\"line_id\":\"L5\",\"reason\":\"non_clothing\"},{\"line_id\":\"L6\",\"reason\":\"non_clothing\"}],\"warnings\":[]}",
+    "elapsedMs": 2523.601900000358
+  },
+  {
+    "id": "validation-10-004",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "instruction"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 68,
+    "raw": "{\"schema_version\":\"1\",\"items\":[],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L2\",\"reason\":\"instruction\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 2180.8428000076674
+  }
+]

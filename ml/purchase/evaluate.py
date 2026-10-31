@@ -86,7 +86,11 @@ def main():
         model=AutoModelForCausalLM.from_pretrained(base,torch_dtype=torch.bfloat16,local_files_only=True,trust_remote_code=False,attn_implementation='sdpa').to('cuda')
         if a.mode=='adapter':model=PeftModel.from_pretrained(model,ROOT/a.adapter,local_files_only=True).merge_and_unload();manifest['adapterSha256']=sha(ROOT/a.adapter/'adapter_model.safetensors')
         model.eval();model.config.use_cache=True;manifest['loadMs']=(time.perf_counter()-start)*1000;manifest['gpu']=torch.cuda.get_device_name();manifest['base']=json.loads((ROOT/'ml/purchase/base-manifest.json').read_text());torch.cuda.reset_peak_memory_stats()
-    if a.mode=='records':records=json.loads(Path(a.records).read_text(encoding='utf8'))
+    if a.mode=='records':
+        records=json.loads(Path(a.records).read_text(encoding='utf8'))
+        manifest['generation']=None
+        manifest['recordsSha256']=sha(Path(a.records))
+        manifest['protocol']='External records; inspect provider metadata and execution-context.json. This scorer does not generate predictions.'
     else:
         for row in data:
             start=time.perf_counter();record={'id':row['id'],'prediction':None}

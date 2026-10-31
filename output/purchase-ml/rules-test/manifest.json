@@ -1,0 +1,15 @@
+{
+  "mode": "rules",
+  "split": "test",
+  "count": 60,
+  "datasetSha256": "1e5bd2eea82b8f7a8fdd855491100f615c39f578c8d9070e7fda0891cbea4dd0",
+  "promptSha256": "e3fcb69a291f9d68da1b7eb85dbb5b4c4bff7d9c9af8b905f771def205e1bcec",
+  "generation": {
+    "do_sample": false,
+    "max_new_tokens": 1400,
+    "seed": 17,
+    "grammarConstrained": false
+  },
+  "coldWarm": "First request includes initial GPU kernels; model load timed separately; no result cache",
+  "synthetic": true
+}

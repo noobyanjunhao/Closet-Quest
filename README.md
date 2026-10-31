@@ -2,11 +2,13 @@
 
 **Live app:** [Try Closet Quest](https://closet-quest-junhao-s7.onrender.com/).
 
-## Smart Wardrobe Import — October 30 review checkpoint
+## Purchase ML and cloud deployment — October 30
 
-M0–M1 adds pasted purchase text → local extraction → source-linked review → explicit ownership confirmation → duplicate-safe wardrobe insertion. **240 automated tests and the production build pass.** Both fixture and real local Qwen browser flows were exercised. This new feature is disabled by default and is **not enabled on the hosted app**; the cloud migration is tested locally but has not been applied to production.
+Purchase-text import is enabled on the hosted app: **Add clothes → Import purchases**. Drafts and jobs persist in Supabase, with owner access controls, an outbound laptop worker and an explicitly labeled fast-parser fallback when the worker is offline. Every proposed garment still requires review and ownership confirmation. This uses the existing free services; it does not provide an always-on cloud GPU.
 
-Start with the [reviewer handoff and actual results](docs/smart-import-review.md), [run the local demo](docs/smart-import.md), or follow the [cloud-service learning lab](docs/cloud-service-lab.md). The [model audit](docs/local-model-baseline.md) records failures as well as successful probes. Fine-tuning and a held-out evaluation remain the next review-gated milestones.
+The next stage includes an actual LoRA training attempt, a frozen 300/60/60 synthetic dataset, held-out model comparisons and live cloud experiments. The 120-step training attempt hit CUDA OOM at step 71; its saved checkpoint 40 is evaluated and remains experimental. Live SQL checks passed 8/8, HTTPS worker checks passed 6/6, and 244 Node tests, 3 Python tests and the production build pass. Linux GitHub CI and the Render deployment also passed.
+
+Read the [current results and reviewer handoff](docs/purchase-ml-cloud-report.md), [supporting evidence](output/purchase-ml/README.md), [reproduction notes](ml/purchase/README.md) and [implemented cloud service](docs/cloud-service-lab.md). The [M0–M1 report](docs/smart-import-review.md) is preserved as historical evidence. No real-user acceptance or completed 120-step training run is claimed.
 
 The dated sections below preserve earlier implementation history; their test counts and local-only limitations describe those checkpoints.
 

@@ -1,0 +1,3809 @@
+[
+  {
+    "id": "test-13-000",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Linen trousers",
+          "category": "Bottom",
+          "color": "Olive",
+          "size": "40",
+          "brand": "Juniper",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Linen trousers"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "trousers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Olive"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "40"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Juniper"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 194,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Linen trousers\",\"category\":\"Bottom\",\"color\":\"Olive\",\"size\":\"40\",\"brand\":\"Juniper\",\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Linen trousers\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"trousers\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Olive\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"40\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Juniper\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 9460.084799997276
+  },
+  {
+    "id": "test-13-001",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Wrap dress",
+          "category": "Dress",
+          "color": null,
+          "size": null,
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Wrap dress"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 129,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Wrap dress\",\"category\":\"Dress\",\"color\":null,\"size\":null,\"brand\":null,\"quantity\":null,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Wrap dress\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"dress\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 5030.209599994123
+  },
+  {
+    "id": "test-13-002",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Canvas sneakers",
+          "category": "Shoes",
+          "color": "Blue",
+          "size": "L",
+          "brand": "Cedar",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Canvas sneakers"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "sneakers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Blue"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "L"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Cedar"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        },
+        {
+          "description": "Knit cardigan",
+          "category": "Top",
+          "color": "Grey",
+          "size": "S",
+          "brand": "Elm",
+          "quantity": 1,
+          "source_line_ids": [
+            "L3"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L3",
+              "quote": "Knit cardigan"
+            },
+            {
+              "field": "category",
+              "line_id": "L3",
+              "quote": "cardigan"
+            },
+            {
+              "field": "color",
+              "line_id": "L3",
+              "quote": "Grey"
+            },
+            {
+              "field": "size",
+              "line_id": "L3",
+              "quote": "S"
+            },
+            {
+              "field": "brand",
+              "line_id": "L3",
+              "quote": "Elm"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L3",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L4",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L5",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L6",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 323,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Canvas sneakers\",\"category\":\"Shoes\",\"color\":\"Blue\",\"size\":\"L\",\"brand\":\"Cedar\",\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Canvas sneakers\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"sneakers\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Blue\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"L\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Cedar\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]},{\"description\":\"Knit cardigan\",\"category\":\"Top\",\"color\":\"Grey\",\"size\":\"S\",\"brand\":\"Elm\",\"quantity\":1,\"source_line_ids\":[\"L3\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L3\",\"quote\":\"Knit cardigan\"},{\"field\":\"category\",\"line_id\":\"L3\",\"quote\":\"cardigan\"},{\"field\":\"color\",\"line_id\":\"L3\",\"quote\":\"Grey\"},{\"field\":\"size\",\"line_id\":\"L3\",\"quote\":\"S\"},{\"field\":\"brand\",\"line_id\":\"L3\",\"quote\":\"Elm\"},{\"field\":\"quantity\",\"line_id\":\"L3\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L4\",\"reason\":\"shipping\"},{\"line_id\":\"L5\",\"reason\":\"tax\"},{\"line_id\":\"L6\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 12580.449600005522
+  },
+  {
+    "id": "test-13-003",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 84,
+    "raw": "{\"schema_version\":\"1\",\"items\":[],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L2\",\"reason\":\"shipping\"},{\"line_id\":\"L3\",\"reason\":\"tax\"},{\"line_id\":\"L4\",\"reason\":\"discount\"},{\"line_id\":\"L5\",\"reason\":\"non_clothing\"},{\"line_id\":\"L6\",\"reason\":\"non_clothing\"}],\"warnings\":[]}",
+    "elapsedMs": 3835.3368999960367
+  },
+  {
+    "id": "test-13-004",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 71,
+    "raw": "{\"schema_version\":\"1\",\"items\":[],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L2\",\"reason\":\"shipping\"},{\"line_id\":\"L3\",\"reason\":\"tax\"},{\"line_id\":\"L4\",\"reason\":\"discount\"},{\"line_id\":\"L5\",\"reason\":\"non_clothing\"}],\"warnings\":[]}",
+    "elapsedMs": 3210.4079999844544
+  },
+  {
+    "id": "test-13-005",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Knit cardigan",
+          "category": "Top",
+          "color": "Tan",
+          "size": "L",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Knit cardigan"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "cardigan"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Tan"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "L"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "instruction"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 185,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Knit cardigan\",\"category\":\"Top\",\"color\":\"Tan\",\"size\":\"L\",\"brand\":null,\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Knit cardigan\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"cardigan\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Tan\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"L\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"},{\"line_id\":\"L6\",\"reason\":\"instruction\"}],\"warnings\":[]}",
+    "elapsedMs": 7080.3369999921415
+  },
+  {
+    "id": "test-13-006",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Denim skirt",
+          "category": "Bottom",
+          "color": "Grey",
+          "size": null,
+          "brand": "Juniper",
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Denim skirt"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "skirt"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Grey"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Juniper"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 161,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Denim skirt\",\"category\":\"Bottom\",\"color\":\"Grey\",\"size\":null,\"brand\":\"Juniper\",\"quantity\":null,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Denim skirt\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"skirt\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Grey\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Juniper\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 6343.567700008862
+  },
+  {
+    "id": "test-13-007",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Midi dress",
+          "category": "Dress",
+          "color": "Black",
+          "size": "XL",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Midi dress"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Black"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "XL"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L7",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 199,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Midi dress\",\"category\":\"Dress\",\"color\":\"Black\",\"size\":\"XL\",\"brand\":null,\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Midi dress\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"dress\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Black\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"XL\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"},{\"line_id\":\"L6\",\"reason\":\"non_clothing\"},{\"line_id\":\"L7\",\"reason\":\"non_clothing\"}],\"warnings\":[]}",
+    "elapsedMs": 7302.020699979039
+  },
+  {
+    "id": "test-13-008",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Leather loafers",
+          "category": "Shoes",
+          "color": "Navy",
+          "size": "S",
+          "brand": "Elm",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Leather loafers"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "loafers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Navy"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "S"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Elm"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 195,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Leather loafers\",\"category\":\"Shoes\",\"color\":\"Navy\",\"size\":\"S\",\"brand\":\"Elm\",\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Leather loafers\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"loafers\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Navy\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"S\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Elm\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 7908.655999985058
+  },
+  {
+    "id": "test-13-009",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Rain jacket",
+          "category": "Outerwear",
+          "color": "Blue",
+          "size": "40",
+          "brand": "Harbor",
+          "quantity": 2,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Rain jacket"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "jacket"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Blue"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "40"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Harbor"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "2"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 190,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Rain jacket\",\"category\":\"Outerwear\",\"color\":\"Blue\",\"size\":\"40\",\"brand\":\"Harbor\",\"quantity\":2,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Rain jacket\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"jacket\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Blue\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"40\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Harbor\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"2\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 7921.620200009784
+  },
+  {
+    "id": "test-13-010",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Silk scarf",
+          "category": "Accessory",
+          "color": "Cream",
+          "size": "XS",
+          "brand": "Elm",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Silk scarf"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "scarf"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Cream"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "XS"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Elm"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 189,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Silk scarf\",\"category\":\"Accessory\",\"color\":\"Cream\",\"size\":\"XS\",\"brand\":\"Elm\",\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Silk scarf\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"scarf\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Cream\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"XS\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Elm\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 6791.717200016137
+  },
+  {
+    "id": "test-13-011",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Cotton tee",
+          "category": "Top",
+          "color": null,
+          "size": null,
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Cotton tee"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "tee"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 130,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Cotton tee\",\"category\":\"Top\",\"color\":null,\"size\":null,\"brand\":null,\"quantity\":null,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Cotton tee\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"tee\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 4446.5529000153765
+  },
+  {
+    "id": "test-13-012",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Linen trousers",
+          "category": "Bottom",
+          "color": "Blue",
+          "size": "38",
+          "brand": "Grove",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Linen trousers"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "trousers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Blue"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "38"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Grove"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        },
+        {
+          "description": "Wool coat",
+          "category": "Outerwear",
+          "color": "Tan",
+          "size": "M",
+          "brand": "Harbor",
+          "quantity": 1,
+          "source_line_ids": [
+            "L3"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L3",
+              "quote": "Wool coat"
+            },
+            {
+              "field": "category",
+              "line_id": "L3",
+              "quote": "coat"
+            },
+            {
+              "field": "color",
+              "line_id": "L3",
+              "quote": "Tan"
+            },
+            {
+              "field": "size",
+              "line_id": "L3",
+              "quote": "M"
+            },
+            {
+              "field": "brand",
+              "line_id": "L3",
+              "quote": "Harbor"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L3",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L4",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L5",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L6",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 324,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Linen trousers\",\"category\":\"Bottom\",\"color\":\"Blue\",\"size\":\"38\",\"brand\":\"Grove\",\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Linen trousers\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"trousers\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Blue\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"38\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Grove\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]},{\"description\":\"Wool coat\",\"category\":\"Outerwear\",\"color\":\"Tan\",\"size\":\"M\",\"brand\":\"Harbor\",\"quantity\":1,\"source_line_ids\":[\"L3\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L3\",\"quote\":\"Wool coat\"},{\"field\":\"category\",\"line_id\":\"L3\",\"quote\":\"coat\"},{\"field\":\"color\",\"line_id\":\"L3\",\"quote\":\"Tan\"},{\"field\":\"size\",\"line_id\":\"L3\",\"quote\":\"M\"},{\"field\":\"brand\",\"line_id\":\"L3\",\"quote\":\"Harbor\"},{\"field\":\"quantity\",\"line_id\":\"L3\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L4\",\"reason\":\"shipping\"},{\"line_id\":\"L5\",\"reason\":\"tax\"},{\"line_id\":\"L6\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 14161.258699983591
+  },
+  {
+    "id": "test-13-013",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 84,
+    "raw": "{\"schema_version\":\"1\",\"items\":[],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L2\",\"reason\":\"shipping\"},{\"line_id\":\"L3\",\"reason\":\"tax\"},{\"line_id\":\"L4\",\"reason\":\"discount\"},{\"line_id\":\"L5\",\"reason\":\"non_clothing\"},{\"line_id\":\"L6\",\"reason\":\"non_clothing\"}],\"warnings\":[]}",
+    "elapsedMs": 3525.928999995813
+  },
+  {
+    "id": "test-13-014",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Canvas sneakers",
+          "category": "Shoes",
+          "color": "Red",
+          "size": "38",
+          "brand": "Elm",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Returned item: confirm ownership"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Canvas sneakers"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "sneakers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Red"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "38"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Elm"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 196,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Canvas sneakers\",\"category\":\"Shoes\",\"color\":\"Red\",\"size\":\"38\",\"brand\":\"Elm\",\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[\"Returned item: confirm ownership\"],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Canvas sneakers\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"sneakers\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Red\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"38\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Elm\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 11344.319600000745
+  },
+  {
+    "id": "test-13-015",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Wool coat",
+          "category": "Outerwear",
+          "color": "Cream",
+          "size": "S",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Wool coat"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "coat"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Cream"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "S"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "instruction"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 183,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Wool coat\",\"category\":\"Outerwear\",\"color\":\"Cream\",\"size\":\"S\",\"brand\":null,\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Wool coat\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"coat\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Cream\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"S\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"},{\"line_id\":\"L6\",\"reason\":\"instruction\"}],\"warnings\":[]}",
+    "elapsedMs": 5868.32469998626
+  },
+  {
+    "id": "test-13-016",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Baseball cap",
+          "category": "Accessory",
+          "color": "Cream",
+          "size": null,
+          "brand": "Harbor",
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Baseball cap"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "cap"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Cream"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Harbor"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 160,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Baseball cap\",\"category\":\"Accessory\",\"color\":\"Cream\",\"size\":null,\"brand\":\"Harbor\",\"quantity\":null,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Baseball cap\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"cap\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Cream\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Harbor\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 5710.8845000038855
+  },
+  {
+    "id": "test-13-017",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Knit cardigan",
+          "category": "Top",
+          "color": "Tan",
+          "size": "S",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Knit cardigan"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "cardigan"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Tan"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "S"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L7",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 201,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Knit cardigan\",\"category\":\"Top\",\"color\":\"Tan\",\"size\":\"S\",\"brand\":null,\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Knit cardigan\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"cardigan\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Tan\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"S\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"},{\"line_id\":\"L6\",\"reason\":\"non_clothing\"},{\"line_id\":\"L7\",\"reason\":\"non_clothing\"}],\"warnings\":[]}",
+    "elapsedMs": 7326.527099998202
+  },
+  {
+    "id": "test-13-018",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Denim skirt",
+          "category": "Bottom",
+          "color": "Black",
+          "size": "M",
+          "brand": "Cedar",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Denim skirt"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "skirt"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Black"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "M"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Cedar"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 189,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Denim skirt\",\"category\":\"Bottom\",\"color\":\"Black\",\"size\":\"M\",\"brand\":\"Cedar\",\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Denim skirt\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"skirt\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Black\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"M\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Cedar\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 7321.786200016504
+  },
+  {
+    "id": "test-13-019",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Midi dress",
+          "category": "Dress",
+          "color": "Blue",
+          "size": "38",
+          "brand": "Grove",
+          "quantity": 2,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Midi dress"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Blue"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "38"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Grove"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "2"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 191,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Midi dress\",\"category\":\"Dress\",\"color\":\"Blue\",\"size\":\"38\",\"brand\":\"Grove\",\"quantity\":2,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Midi dress\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"dress\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Blue\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"38\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Grove\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"2\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 6167.191700020339
+  },
+  {
+    "id": "test-14-000",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Wrap dress",
+          "category": "Dress",
+          "color": "Black",
+          "size": "L",
+          "brand": "Grove",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Wrap dress"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Black"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "L"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Grove"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 187,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Wrap dress\",\"category\":\"Dress\",\"color\":\"Black\",\"size\":\"L\",\"brand\":\"Grove\",\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Wrap dress\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"dress\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Black\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"L\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Grove\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 6796.49999999674
+  },
+  {
+    "id": "test-14-001",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "specifications"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 69,
+    "raw": "{\"schema_version\":\"1\",\"items\":[],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L2\",\"reason\":\"specifications\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 3409.254800004419
+  },
+  {
+    "id": "test-14-002",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "quantity"
+        },
+        {
+          "line_id": "L4",
+          "reason": "category"
+        },
+        {
+          "line_id": "L5",
+          "reason": "category"
+        },
+        {
+          "line_id": "L6",
+          "reason": "category"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 78,
+    "raw": "{\"schema_version\":\"1\",\"items\":[],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L2\",\"reason\":\"shipping\"},{\"line_id\":\"L3\",\"reason\":\"quantity\"},{\"line_id\":\"L4\",\"reason\":\"category\"},{\"line_id\":\"L5\",\"reason\":\"category\"},{\"line_id\":\"L6\",\"reason\":\"category\"}],\"warnings\":[]}",
+    "elapsedMs": 3691.431899991585
+  },
+  {
+    "id": "test-14-003",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 84,
+    "raw": "{\"schema_version\":\"1\",\"items\":[],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L2\",\"reason\":\"shipping\"},{\"line_id\":\"L3\",\"reason\":\"tax\"},{\"line_id\":\"L4\",\"reason\":\"discount\"},{\"line_id\":\"L5\",\"reason\":\"non_clothing\"},{\"line_id\":\"L6\",\"reason\":\"non_clothing\"}],\"warnings\":[]}",
+    "elapsedMs": 4087.9054999968503
+  },
+  {
+    "id": "test-14-004",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 71,
+    "raw": "{\"schema_version\":\"1\",\"items\":[],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L2\",\"reason\":\"shipping\"},{\"line_id\":\"L3\",\"reason\":\"tax\"},{\"line_id\":\"L4\",\"reason\":\"discount\"},{\"line_id\":\"L5\",\"reason\":\"non_clothing\"}],\"warnings\":[]}",
+    "elapsedMs": 3389.122299995506
+  },
+  {
+    "id": "test-14-005",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Denim skirt",
+          "category": "Bottom",
+          "color": "Navy",
+          "size": "S",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Denim skirt"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "skirt"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Navy"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "S"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "instruction"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 185,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Denim skirt\",\"category\":\"Bottom\",\"color\":\"Navy\",\"size\":\"S\",\"brand\":null,\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Denim skirt\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"skirt\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Navy\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"S\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"},{\"line_id\":\"L6\",\"reason\":\"instruction\"}],\"warnings\":[]}",
+    "elapsedMs": 7279.472599999281
+  },
+  {
+    "id": "test-14-006",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "description"
+        },
+        {
+          "line_id": "L3",
+          "reason": "field"
+        },
+        {
+          "line_id": "L4",
+          "reason": "field"
+        },
+        {
+          "line_id": "L5",
+          "reason": "field"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 68,
+    "raw": "{\"schema_version\":\"1\",\"items\":[],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L2\",\"reason\":\"description\"},{\"line_id\":\"L3\",\"reason\":\"field\"},{\"line_id\":\"L4\",\"reason\":\"field\"},{\"line_id\":\"L5\",\"reason\":\"field\"}],\"warnings\":[]}",
+    "elapsedMs": 2334.010299993679
+  },
+  {
+    "id": "test-14-007",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Leather loafers",
+          "category": "Shoes",
+          "color": "Red",
+          "size": "M",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Leather loafers"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "loafers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Red"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "M"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L7",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 203,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Leather loafers\",\"category\":\"Shoes\",\"color\":\"Red\",\"size\":\"M\",\"brand\":null,\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Leather loafers\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"loafers\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Red\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"M\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"},{\"line_id\":\"L6\",\"reason\":\"non_clothing\"},{\"line_id\":\"L7\",\"reason\":\"non_clothing\"}],\"warnings\":[]}",
+    "elapsedMs": 7471.745600021677
+  },
+  {
+    "id": "test-14-008",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Rain jacket",
+          "category": "Outerwear",
+          "color": "Red",
+          "size": "40",
+          "brand": "Harbor",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Rain jacket"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "jacket"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Red"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "40"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Harbor"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 190,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Rain jacket\",\"category\":\"Outerwear\",\"color\":\"Red\",\"size\":\"40\",\"brand\":\"Harbor\",\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Rain jacket\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"jacket\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Red\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"40\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Harbor\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 7923.509100015508
+  },
+  {
+    "id": "test-14-009",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 71,
+    "raw": "{\"schema_version\":\"1\",\"items\":[],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L2\",\"reason\":\"shipping\"},{\"line_id\":\"L3\",\"reason\":\"tax\"},{\"line_id\":\"L4\",\"reason\":\"discount\"},{\"line_id\":\"L5\",\"reason\":\"non_clothing\"}],\"warnings\":[]}",
+    "elapsedMs": 2571.4889999944717
+  },
+  {
+    "id": "test-14-010",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Cotton tee",
+          "category": "Top",
+          "color": "Blue",
+          "size": "42",
+          "brand": "Cedar",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Cotton tee"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "tee"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Blue"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "42"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Cedar"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 190,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Cotton tee\",\"category\":\"Top\",\"color\":\"Blue\",\"size\":\"42\",\"brand\":\"Cedar\",\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Cotton tee\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"tee\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Blue\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"42\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Cedar\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 6313.610400015023
+  },
+  {
+    "id": "test-14-011",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "description"
+        },
+        {
+          "line_id": "L3",
+          "reason": "quantity"
+        },
+        {
+          "line_id": "L4",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 68,
+    "raw": "{\"schema_version\":\"1\",\"items\":[],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L2\",\"reason\":\"description\"},{\"line_id\":\"L3\",\"reason\":\"quantity\"},{\"line_id\":\"L4\",\"reason\":\"shipping\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 2275.2535000036005
+  },
+  {
+    "id": "test-14-012",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Wrap dress",
+          "category": "Dress",
+          "color": "Cream",
+          "size": "L",
+          "brand": "Elm",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Wrap dress"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Cream"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "L"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Elm"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        },
+        {
+          "description": "Baseball cap",
+          "category": "Accessory",
+          "color": "Grey",
+          "size": "L",
+          "brand": "Juniper",
+          "quantity": 1,
+          "source_line_ids": [
+            "L3"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L3",
+              "quote": "Baseball cap"
+            },
+            {
+              "field": "category",
+              "line_id": "L3",
+              "quote": "cap"
+            },
+            {
+              "field": "color",
+              "line_id": "L3",
+              "quote": "Grey"
+            },
+            {
+              "field": "size",
+              "line_id": "L3",
+              "quote": "L"
+            },
+            {
+              "field": "brand",
+              "line_id": "L3",
+              "quote": "Juniper"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L3",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L4",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L5",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L6",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 318,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Wrap dress\",\"category\":\"Dress\",\"color\":\"Cream\",\"size\":\"L\",\"brand\":\"Elm\",\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Wrap dress\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"dress\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Cream\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"L\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Elm\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]},{\"description\":\"Baseball cap\",\"category\":\"Accessory\",\"color\":\"Grey\",\"size\":\"L\",\"brand\":\"Juniper\",\"quantity\":1,\"source_line_ids\":[\"L3\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L3\",\"quote\":\"Baseball cap\"},{\"field\":\"category\",\"line_id\":\"L3\",\"quote\":\"cap\"},{\"field\":\"color\",\"line_id\":\"L3\",\"quote\":\"Grey\"},{\"field\":\"size\",\"line_id\":\"L3\",\"quote\":\"L\"},{\"field\":\"brand\",\"line_id\":\"L3\",\"quote\":\"Juniper\"},{\"field\":\"quantity\",\"line_id\":\"L3\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L4\",\"reason\":\"shipping\"},{\"line_id\":\"L5\",\"reason\":\"tax\"},{\"line_id\":\"L6\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 10417.950100003509
+  },
+  {
+    "id": "test-14-013",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 84,
+    "raw": "{\"schema_version\":\"1\",\"items\":[],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L2\",\"reason\":\"shipping\"},{\"line_id\":\"L3\",\"reason\":\"tax\"},{\"line_id\":\"L4\",\"reason\":\"discount\"},{\"line_id\":\"L5\",\"reason\":\"non_clothing\"},{\"line_id\":\"L6\",\"reason\":\"non_clothing\"}],\"warnings\":[]}",
+    "elapsedMs": 3159.5333000004757
+  },
+  {
+    "id": "test-14-014",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 71,
+    "raw": "{\"schema_version\":\"1\",\"items\":[],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L2\",\"reason\":\"shipping\"},{\"line_id\":\"L3\",\"reason\":\"tax\"},{\"line_id\":\"L4\",\"reason\":\"discount\"},{\"line_id\":\"L5\",\"reason\":\"non_clothing\"}],\"warnings\":[]}",
+    "elapsedMs": 3093.8817000132985
+  },
+  {
+    "id": "test-14-015",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Baseball cap",
+          "category": "Accessory",
+          "color": "Red",
+          "size": "40",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Baseball cap"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "cap"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Red"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "40"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "instruction"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 184,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Baseball cap\",\"category\":\"Accessory\",\"color\":\"Red\",\"size\":\"40\",\"brand\":null,\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Baseball cap\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"cap\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Red\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"40\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"},{\"line_id\":\"L6\",\"reason\":\"instruction\"}],\"warnings\":[]}",
+    "elapsedMs": 6562.484499998391
+  },
+  {
+    "id": "test-14-016",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "description"
+        },
+        {
+          "line_id": "L3",
+          "reason": "field"
+        },
+        {
+          "line_id": "L4",
+          "reason": "field"
+        },
+        {
+          "line_id": "L5",
+          "reason": "field"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 68,
+    "raw": "{\"schema_version\":\"1\",\"items\":[],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L2\",\"reason\":\"description\"},{\"line_id\":\"L3\",\"reason\":\"field\"},{\"line_id\":\"L4\",\"reason\":\"field\"},{\"line_id\":\"L5\",\"reason\":\"field\"}],\"warnings\":[]}",
+    "elapsedMs": 2768.604699987918
+  },
+  {
+    "id": "test-14-017",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L7",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 97,
+    "raw": "{\"schema_version\":\"1\",\"items\":[],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L2\",\"reason\":\"shipping\"},{\"line_id\":\"L3\",\"reason\":\"tax\"},{\"line_id\":\"L4\",\"reason\":\"discount\"},{\"line_id\":\"L5\",\"reason\":\"non_clothing\"},{\"line_id\":\"L6\",\"reason\":\"non_clothing\"},{\"line_id\":\"L7\",\"reason\":\"non_clothing\"}],\"warnings\":[]}",
+    "elapsedMs": 3670.8875999902375
+  },
+  {
+    "id": "test-14-018",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Midi dress",
+          "category": "Dress",
+          "color": "Grey",
+          "size": "42",
+          "brand": "Harbor",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Midi dress"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Grey"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "42"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Harbor"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 191,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Midi dress\",\"category\":\"Dress\",\"color\":\"Grey\",\"size\":\"42\",\"brand\":\"Harbor\",\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Midi dress\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"dress\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Grey\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"42\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Harbor\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 8068.057500000577
+  },
+  {
+    "id": "test-14-019",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Leather loafers",
+          "category": "Shoes",
+          "color": "Navy",
+          "size": "XS",
+          "brand": "Juniper",
+          "quantity": 2,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Leather loafers"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "loafers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Navy"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "XS"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Juniper"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "2"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 195,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Leather loafers\",\"category\":\"Shoes\",\"color\":\"Navy\",\"size\":\"XS\",\"brand\":\"Juniper\",\"quantity\":2,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Leather loafers\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"loafers\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Navy\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"XS\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Juniper\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"2\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 7273.516599991126
+  },
+  {
+    "id": "test-15-000",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Canvas sneakers",
+          "category": "Shoes",
+          "color": "Navy",
+          "size": "38",
+          "brand": "Cedar",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Canvas sneakers"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "sneakers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Navy"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "38"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Cedar"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 193,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Canvas sneakers\",\"category\":\"Shoes\",\"color\":\"Navy\",\"size\":\"38\",\"brand\":\"Cedar\",\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Canvas sneakers\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"sneakers\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Navy\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"38\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Cedar\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 6625.741399999242
+  },
+  {
+    "id": "test-15-001",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 71,
+    "raw": "{\"schema_version\":\"1\",\"items\":[],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L2\",\"reason\":\"shipping\"},{\"line_id\":\"L3\",\"reason\":\"tax\"},{\"line_id\":\"L4\",\"reason\":\"discount\"},{\"line_id\":\"L5\",\"reason\":\"non_clothing\"}],\"warnings\":[]}",
+    "elapsedMs": 2402.4134000064805
+  },
+  {
+    "id": "test-15-002",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Baseball cap",
+          "category": "Accessory",
+          "color": "Navy",
+          "size": "M",
+          "brand": "Field",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Baseball cap"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "cap"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Navy"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "M"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Field"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        },
+        {
+          "description": "Midi dress",
+          "category": "Dress",
+          "color": "Navy",
+          "size": "M",
+          "brand": "Elm",
+          "quantity": 1,
+          "source_line_ids": [
+            "L3"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L3",
+              "quote": "Midi dress"
+            },
+            {
+              "field": "category",
+              "line_id": "L3",
+              "quote": "dress"
+            },
+            {
+              "field": "color",
+              "line_id": "L3",
+              "quote": "Navy"
+            },
+            {
+              "field": "size",
+              "line_id": "L3",
+              "quote": "M"
+            },
+            {
+              "field": "brand",
+              "line_id": "L3",
+              "quote": "Elm"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L3",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L4",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L5",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L6",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 322,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Baseball cap\",\"category\":\"Accessory\",\"color\":\"Navy\",\"size\":\"M\",\"brand\":\"Field\",\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Baseball cap\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"cap\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Navy\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"M\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Field\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]},{\"description\":\"Midi dress\",\"category\":\"Dress\",\"color\":\"Navy\",\"size\":\"M\",\"brand\":\"Elm\",\"quantity\":1,\"source_line_ids\":[\"L3\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L3\",\"quote\":\"Midi dress\"},{\"field\":\"category\",\"line_id\":\"L3\",\"quote\":\"dress\"},{\"field\":\"color\",\"line_id\":\"L3\",\"quote\":\"Navy\"},{\"field\":\"size\",\"line_id\":\"L3\",\"quote\":\"M\"},{\"field\":\"brand\",\"line_id\":\"L3\",\"quote\":\"Elm\"},{\"field\":\"quantity\",\"line_id\":\"L3\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L4\",\"reason\":\"shipping\"},{\"line_id\":\"L5\",\"reason\":\"tax\"},{\"line_id\":\"L6\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 11257.094000000507
+  },
+  {
+    "id": "test-15-003",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 84,
+    "raw": "{\"schema_version\":\"1\",\"items\":[],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L2\",\"reason\":\"shipping\"},{\"line_id\":\"L3\",\"reason\":\"tax\"},{\"line_id\":\"L4\",\"reason\":\"discount\"},{\"line_id\":\"L5\",\"reason\":\"non_clothing\"},{\"line_id\":\"L6\",\"reason\":\"non_clothing\"}],\"warnings\":[]}",
+    "elapsedMs": 2741.459200013196
+  },
+  {
+    "id": "test-15-004",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "instruction"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 68,
+    "raw": "{\"schema_version\":\"1\",\"items\":[],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L2\",\"reason\":\"instruction\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 2589.8566999821924
+  },
+  {
+    "id": "test-15-005",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Midi dress",
+          "category": "Dress",
+          "color": "Red",
+          "size": "42",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Midi dress"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Red"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "42"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "instruction"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 185,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Midi dress\",\"category\":\"Dress\",\"color\":\"Red\",\"size\":\"42\",\"brand\":null,\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Midi dress\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"dress\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Red\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"42\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"},{\"line_id\":\"L6\",\"reason\":\"instruction\"}],\"warnings\":[]}",
+    "elapsedMs": 6075.984700000845
+  },
+  {
+    "id": "test-15-006",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Leather loafers",
+          "category": "Shoes",
+          "color": "Red",
+          "size": null,
+          "brand": "Grove",
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Leather loafers"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "loafers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Red"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Grove"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 165,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Leather loafers\",\"category\":\"Shoes\",\"color\":\"Red\",\"size\":null,\"brand\":\"Grove\",\"quantity\":null,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Leather loafers\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"loafers\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Red\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Grove\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 5312.0532000029925
+  },
+  {
+    "id": "test-15-007",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Rain jacket",
+          "category": "Outerwear",
+          "color": "Tan",
+          "size": "42",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Rain jacket"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "jacket"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Tan"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "42"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L7",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 200,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Rain jacket\",\"category\":\"Outerwear\",\"color\":\"Tan\",\"size\":\"42\",\"brand\":null,\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Rain jacket\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"jacket\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Tan\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"42\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"},{\"line_id\":\"L6\",\"reason\":\"non_clothing\"},{\"line_id\":\"L7\",\"reason\":\"non_clothing\"}],\"warnings\":[]}",
+    "elapsedMs": 6432.273199985502
+  },
+  {
+    "id": "test-15-008",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Silk scarf",
+          "category": "Accessory",
+          "color": "Navy",
+          "size": "XS",
+          "brand": "Harbor",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Silk scarf"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "scarf"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Navy"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "XS"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Harbor"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 191,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Silk scarf\",\"category\":\"Accessory\",\"color\":\"Navy\",\"size\":\"XS\",\"brand\":\"Harbor\",\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Silk scarf\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"scarf\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Navy\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"XS\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Harbor\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 5993.5688999830745
+  },
+  {
+    "id": "test-15-009",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Cotton tee",
+          "category": "Top",
+          "color": "Olive",
+          "size": "XL",
+          "brand": "Grove",
+          "quantity": 2,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Cotton tee"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "tee"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Olive"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "XL"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Grove"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "2"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 190,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Cotton tee\",\"category\":\"Top\",\"color\":\"Olive\",\"size\":\"XL\",\"brand\":\"Grove\",\"quantity\":2,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Cotton tee\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"tee\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Olive\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"XL\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Grove\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"2\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 5993.977800011635
+  },
+  {
+    "id": "test-15-010",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Linen trousers",
+          "category": "Bottom",
+          "color": "Red",
+          "size": "40",
+          "brand": "Juniper",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Linen trousers"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "trousers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Red"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "40"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Juniper"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 192,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Linen trousers\",\"category\":\"Bottom\",\"color\":\"Red\",\"size\":\"40\",\"brand\":\"Juniper\",\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Linen trousers\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"trousers\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Red\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"40\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Juniper\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 6329.797400016105
+  },
+  {
+    "id": "test-15-011",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 71,
+    "raw": "{\"schema_version\":\"1\",\"items\":[],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L2\",\"reason\":\"shipping\"},{\"line_id\":\"L3\",\"reason\":\"tax\"},{\"line_id\":\"L4\",\"reason\":\"discount\"},{\"line_id\":\"L5\",\"reason\":\"non_clothing\"}],\"warnings\":[]}",
+    "elapsedMs": 2559.093900024891
+  },
+  {
+    "id": "test-15-012",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Canvas sneakers",
+          "category": "Shoes",
+          "color": "Olive",
+          "size": "40",
+          "brand": "Grove",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Canvas sneakers"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "sneakers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Olive"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "40"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Grove"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        },
+        {
+          "description": "Knit cardigan",
+          "category": "Top",
+          "color": "Olive",
+          "size": "S",
+          "brand": "Harbor",
+          "quantity": 1,
+          "source_line_ids": [
+            "L3"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L3",
+              "quote": "Knit cardigan"
+            },
+            {
+              "field": "category",
+              "line_id": "L3",
+              "quote": "cardigan"
+            },
+            {
+              "field": "color",
+              "line_id": "L3",
+              "quote": "Olive"
+            },
+            {
+              "field": "size",
+              "line_id": "L3",
+              "quote": "S"
+            },
+            {
+              "field": "brand",
+              "line_id": "L3",
+              "quote": "Harbor"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L3",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L4",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L5",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L6",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 329,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Canvas sneakers\",\"category\":\"Shoes\",\"color\":\"Olive\",\"size\":\"40\",\"brand\":\"Grove\",\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Canvas sneakers\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"sneakers\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Olive\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"40\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Grove\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]},{\"description\":\"Knit cardigan\",\"category\":\"Top\",\"color\":\"Olive\",\"size\":\"S\",\"brand\":\"Harbor\",\"quantity\":1,\"source_line_ids\":[\"L3\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L3\",\"quote\":\"Knit cardigan\"},{\"field\":\"category\",\"line_id\":\"L3\",\"quote\":\"cardigan\"},{\"field\":\"color\",\"line_id\":\"L3\",\"quote\":\"Olive\"},{\"field\":\"size\",\"line_id\":\"L3\",\"quote\":\"S\"},{\"field\":\"brand\",\"line_id\":\"L3\",\"quote\":\"Harbor\"},{\"field\":\"quantity\",\"line_id\":\"L3\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L4\",\"reason\":\"shipping\"},{\"line_id\":\"L5\",\"reason\":\"tax\"},{\"line_id\":\"L6\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 10710.125500016147
+  },
+  {
+    "id": "test-15-013",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 84,
+    "raw": "{\"schema_version\":\"1\",\"items\":[],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L2\",\"reason\":\"shipping\"},{\"line_id\":\"L3\",\"reason\":\"tax\"},{\"line_id\":\"L4\",\"reason\":\"discount\"},{\"line_id\":\"L5\",\"reason\":\"non_clothing\"},{\"line_id\":\"L6\",\"reason\":\"non_clothing\"}],\"warnings\":[]}",
+    "elapsedMs": 2770.911600004183
+  },
+  {
+    "id": "test-15-014",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "instruction"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 68,
+    "raw": "{\"schema_version\":\"1\",\"items\":[],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L2\",\"reason\":\"instruction\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 2323.4093000064604
+  },
+  {
+    "id": "test-15-015",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Knit cardigan",
+          "category": "Top",
+          "color": "Olive",
+          "size": "38",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Knit cardigan"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "cardigan"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Olive"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "38"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "instruction"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 189,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Knit cardigan\",\"category\":\"Top\",\"color\":\"Olive\",\"size\":\"38\",\"brand\":null,\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Knit cardigan\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"cardigan\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Olive\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"38\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"},{\"line_id\":\"L6\",\"reason\":\"instruction\"}],\"warnings\":[]}",
+    "elapsedMs": 6738.489999988815
+  },
+  {
+    "id": "test-15-016",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Denim skirt",
+          "category": "Bottom",
+          "color": "Grey",
+          "size": null,
+          "brand": "Harbor",
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Denim skirt"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "skirt"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Grey"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Harbor"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 161,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Denim skirt\",\"category\":\"Bottom\",\"color\":\"Grey\",\"size\":null,\"brand\":\"Harbor\",\"quantity\":null,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Denim skirt\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"skirt\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Grey\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Harbor\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 5642.507400014438
+  },
+  {
+    "id": "test-15-017",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Midi dress",
+          "category": "Dress",
+          "color": "Grey",
+          "size": "S",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Midi dress"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Grey"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "S"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L7",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 199,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Midi dress\",\"category\":\"Dress\",\"color\":\"Grey\",\"size\":\"S\",\"brand\":null,\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Midi dress\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"dress\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Grey\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"S\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"},{\"line_id\":\"L6\",\"reason\":\"non_clothing\"},{\"line_id\":\"L7\",\"reason\":\"non_clothing\"}],\"warnings\":[]}",
+    "elapsedMs": 7863.314999995055
+  },
+  {
+    "id": "test-15-018",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Leather loafers",
+          "category": "Shoes",
+          "color": "Olive",
+          "size": "L",
+          "brand": "Cedar",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Leather loafers"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "loafers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Olive"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "L"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Cedar"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 195,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Leather loafers\",\"category\":\"Shoes\",\"color\":\"Olive\",\"size\":\"L\",\"brand\":\"Cedar\",\"quantity\":1,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Leather loafers\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"loafers\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Olive\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"L\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Cedar\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"1\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 6533.910500002094
+  },
+  {
+    "id": "test-15-019",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Rain jacket",
+          "category": "Outerwear",
+          "color": "Blue",
+          "size": "XL",
+          "brand": "Harbor",
+          "quantity": 2,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Rain jacket"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "jacket"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Blue"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "XL"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Harbor"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "2"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": []
+    },
+    "generatedTokens": 188,
+    "raw": "{\"schema_version\":\"1\",\"items\":[{\"description\":\"Rain jacket\",\"category\":\"Outerwear\",\"color\":\"Blue\",\"size\":\"XL\",\"brand\":\"Harbor\",\"quantity\":2,\"source_line_ids\":[\"L2\"],\"review_reasons\":[],\"evidence\":[{\"field\":\"description\",\"line_id\":\"L2\",\"quote\":\"Rain jacket\"},{\"field\":\"category\",\"line_id\":\"L2\",\"quote\":\"jacket\"},{\"field\":\"color\",\"line_id\":\"L2\",\"quote\":\"Blue\"},{\"field\":\"size\",\"line_id\":\"L2\",\"quote\":\"XL\"},{\"field\":\"brand\",\"line_id\":\"L2\",\"quote\":\"Harbor\"},{\"field\":\"quantity\",\"line_id\":\"L2\",\"quote\":\"2\"}]}],\"excluded_lines\":[{\"line_id\":\"L1\",\"reason\":\"header\"},{\"line_id\":\"L3\",\"reason\":\"shipping\"},{\"line_id\":\"L4\",\"reason\":\"tax\"},{\"line_id\":\"L5\",\"reason\":\"discount\"}],\"warnings\":[]}",
+    "elapsedMs": 6047.612299997127
+  }
+]

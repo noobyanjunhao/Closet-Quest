@@ -1,0 +1,16 @@
+{
+  "environment": "live Supabase HTTPS/PostgREST",
+  "synthetic": true,
+  "modelInference": false,
+  "provider": "fixture for transport/queue experiment only",
+  "checks": [
+    {
+      "name": "invalid worker credential denied",
+      "passed": false,
+      "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  Comparison {\n+   status: 401\n-   status: 403\n  }\n",
+      "elapsedMs": 1115.5021000000002
+    }
+  ],
+  "passed": 0,
+  "total": 1
+}

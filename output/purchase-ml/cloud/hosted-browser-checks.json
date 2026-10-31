@@ -1,0 +1,19 @@
+{
+  "environment": "Signed-in deployed Render app using live Supabase",
+  "synthetic": true,
+  "date": "2026-10-30",
+  "checks": [
+    {"name": "Import purchases is available from Add clothes", "passed": true},
+    {"name": "Configured worker mode is visible", "passed": true},
+    {"name": "Offline worker produces a labeled fast-parser draft", "passed": true},
+    {"name": "Synthetic tee fields are copied correctly and non-clothing lines excluded", "passed": true},
+    {"name": "Review save enables ownership confirmation; insertion stays disabled without it", "passed": true},
+    {"name": "Draft and saved review survive full reload and reopening", "passed": true},
+    {"name": "Cancellation reaches visible cancelled state", "passed": true}
+  ],
+  "wardrobeUnchanged": true,
+  "commitClicked": false,
+  "limitations": "One signed-in browser. Atomic commit and foreign-owner checks were exercised separately in the live SQL transaction experiment, not through two independent browser sessions.",
+  "screenshot": "hosted-parser-review.png",
+  "screenshotScope": "Cropped to synthetic import content; excludes the private wardrobe background."
+}

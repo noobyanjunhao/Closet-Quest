@@ -1,0 +1,39 @@
+{
+  "checks": [
+    {
+      "check": "foreign-owner read",
+      "passed": true
+    },
+    {
+      "check": "foreign-owner child insert",
+      "passed": true
+    },
+    {
+      "check": "anonymous read denied",
+      "passed": true
+    },
+    {
+      "check": "second-unit failure atomic rollback",
+      "passed": true
+    },
+    {
+      "check": "two-unit transactional commit",
+      "passed": true
+    },
+    {
+      "check": "stale revision rejected",
+      "passed": true
+    },
+    {
+      "check": "unique unit mappings",
+      "passed": true
+    },
+    {
+      "check": "experiment rollback preserved live data",
+      "passed": true
+    }
+  ],
+  "passed": 8,
+  "synthetic": true,
+  "environment": "live Supabase PostgreSQL"
+}

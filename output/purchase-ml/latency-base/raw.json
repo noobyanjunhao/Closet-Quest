@@ -1,0 +1,724 @@
+[
+  {
+    "id": "validation-10-000",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        [
+          [
+            [
+              "L1",
+              {
+                "source_line_ids": [
+                  "L1"
+                ],
+                "description": "Fictional merchant 10 / purchase validation-10-000",
+                "category": "Dress",
+                "color": "Grey",
+                "size": "XS",
+                "brand": "Juniper",
+                "quantity": 1,
+                "review_reasons": [],
+                "evidence": []
+              }
+            ]
+          ],
+          [
+            [
+              "L2",
+              {
+                "source_line_ids": [
+                  "L2"
+                ],
+                "description": "Description=Rain jacket; attributes {color: Grey | quantity: 1 | brand: Juniper | size: XS}",
+                "category": "Dress",
+                "color": "Grey",
+                "size": "XS",
+                "brand": "Juniper",
+                "quantity": 1,
+                "review_reasons": [],
+                "evidence": []
+              }
+            ]
+          ],
+          [
+            [
+              "L3",
+              {
+                "source_line_ids": [
+                  "L3"
+                ],
+                "description": "Shipping 5.00",
+                "category": "None",
+                "color": null,
+                "size": null,
+                "brand": null,
+                "quantity": 1,
+                "review_reasons": [],
+                "evidence": []
+              }
+            ]
+          ],
+          [
+            [
+              "L4",
+              {
+                "source_line_ids": [
+                  "L4"
+                ],
+                "description": "Tax 2.00",
+                "category": "None",
+                "color": null,
+                "size": null,
+                "brand": null,
+                "quantity": 1,
+                "review_reasons": [],
+                "evidence": []
+              }
+            ]
+          ],
+          [
+            [
+              "L5",
+              {
+                "source_line_ids": [
+                  "L5"
+                ],
+                "description": "Discount -3.00",
+                "category": "None",
+                "color": null,
+                "size": null,
+                "brand": null,
+                "quantity": 1,
+                "review_reasons": [],
+                "evidence": []
+              }
+            ]
+          ]
+        ]
+      ],
+      "excluded_lines": [
+        [
+          [
+            "L1",
+            {
+              "line_id": "L1",
+              "reason": "header"
+            }
+          ]
+        ],
+        [
+          [
+            "L2",
+            {
+              "line_id": "L2",
+              "reason": "shipping"
+            }
+          ]
+        ],
+        [
+          [
+            "L3",
+            {
+              "line_id": "L3",
+              "reason": "tax"
+            }
+          ]
+        ],
+        [
+          [
+            "L4",
+            {
+              "line_id": "L4",
+              "reason": "discount"
+            }
+          ]
+        ],
+        [
+          [
+            "L5",
+            {
+              "line_id": "L5",
+              "reason": "return"
+            }
+          ]
+        ]
+      ],
+      "warnings": [
+        "Return line 'return' in header"
+      ]
+    },
+    "generatedTokens": 676,
+    "raw": "```json\n{\n  \"schema_version\": \"1\",\n  \"items\": [\n    [\n      [\n        [\n          \"L1\",\n          {\n            \"source_line_ids\": [\"L1\"],\n            \"description\": \"Fictional merchant 10 / purchase validation-10-000\",\n            \"category\": \"Dress\",\n            \"color\": \"Grey\",\n            \"size\": \"XS\",\n            \"brand\": \"Juniper\",\n            \"quantity\": 1,\n            \"review_reasons\": [],\n            \"evidence\": []\n          }\n        ]\n      ],\n      [\n        [\n          \"L2\",\n          {\n            \"source_line_ids\": [\"L2\"],\n            \"description\": \"Description=Rain jacket; attributes {color: Grey | quantity: 1 | brand: Juniper | size: XS}\",\n            \"category\": \"Dress\",\n            \"color\": \"Grey\",\n            \"size\": \"XS\",\n            \"brand\": \"Juniper\",\n            \"quantity\": 1,\n            \"review_reasons\": [],\n            \"evidence\": []\n          }\n        ]\n      ],\n      [\n        [\n          \"L3\",\n          {\n            \"source_line_ids\": [\"L3\"],\n            \"description\": \"Shipping 5.00\",\n            \"category\": \"None\",\n            \"color\": null,\n            \"size\": null,\n            \"brand\": null,\n            \"quantity\": 1,\n            \"review_reasons\": [],\n            \"evidence\": []\n          }\n        ]\n      ],\n      [\n        [\n          \"L4\",\n          {\n            \"source_line_ids\": [\"L4\"],\n            \"description\": \"Tax 2.00\",\n            \"category\": \"None\",\n            \"color\": null,\n            \"size\": null,\n            \"brand\": null,\n            \"quantity\": 1,\n            \"review_reasons\": [],\n            \"evidence\": []\n          }\n        ]\n      ],\n      [\n        [\n          \"L5\",\n          {\n            \"source_line_ids\": [\"L5\"],\n            \"description\": \"Discount -3.00\",\n            \"category\": \"None\",\n            \"color\": null,\n            \"size\": null,\n            \"brand\": null,\n            \"quantity\": 1,\n            \"review_reasons\": [],\n            \"evidence\": []\n          }\n        ]\n      ]\n    ]\n  ],\n  \"excluded_lines\": [\n    [\n      [\n        \"L1\",\n        {\n          \"line_id\": \"L1\",\n          \"reason\": \"header\"\n        }\n      ]\n    ],\n    [\n      [\n        \"L2\",\n        {\n          \"line_id\": \"L2\",\n          \"reason\": \"shipping\"\n        }\n      ]\n    ],\n    [\n      [\n        \"L3\",\n        {\n          \"line_id\": \"L3\",\n          \"reason\": \"tax\"\n        }\n      ]\n    ],\n    [\n      [\n        \"L4\",\n        {\n          \"line_id\": \"L4\",\n          \"reason\": \"discount\"\n        }\n      ]\n    ],\n    [\n      [\n        \"L5\",\n        {\n          \"line_id\": \"L5\",\n          \"reason\": \"return\"\n        }\n      ]\n    ]\n  ],\n  \"warnings\": [\n    \"Return line 'return' in header\"\n  ]\n}\n```",
+    "elapsedMs": 28063.64060001215
+  },
+  {
+    "id": "validation-10-001",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        [
+          [
+            [
+              "L1",
+              {
+                "source_line_ids": [
+                  "L1"
+                ],
+                "description": "Fictional merchant 10 / purchase validation-10-001",
+                "category": "None",
+                "color": "",
+                "size": "",
+                "brand": "",
+                "quantity": 1,
+                "review_reasons": [],
+                "evidence": []
+              }
+            ]
+          ],
+          [
+            [
+              "L2",
+              {
+                "source_line_ids": [
+                  "L2"
+                ],
+                "description": "Description=Silk scarf; attributes {}",
+                "category": "None",
+                "color": "",
+                "size": "",
+                "brand": "",
+                "quantity": 1,
+                "review_reasons": [],
+                "evidence": []
+              }
+            ]
+          ],
+          [
+            [
+              "L3",
+              {
+                "source_line_ids": [
+                  "L3"
+                ],
+                "description": "Shipping 5.00",
+                "category": "None",
+                "color": "",
+                "size": "",
+                "brand": "",
+                "quantity": 1,
+                "review_reasons": [],
+                "evidence": []
+              }
+            ]
+          ],
+          [
+            [
+              "L4",
+              {
+                "source_line_ids": [
+                  "L4"
+                ],
+                "description": "Tax 2.00",
+                "category": "None",
+                "color": "",
+                "size": "",
+                "brand": "",
+                "quantity": 1,
+                "review_reasons": [],
+                "evidence": []
+              }
+            ]
+          ],
+          [
+            [
+              "L5",
+              {
+                "source_line_ids": [
+                  "L5"
+                ],
+                "description": "Discount -3.00",
+                "category": "None",
+                "color": "",
+                "size": "",
+                "brand": "",
+                "quantity": 1,
+                "review_reasons": [],
+                "evidence": []
+              }
+            ]
+          ]
+        ]
+      ],
+      "excluded_lines": [
+        [
+          [
+            "L1",
+            {
+              "line_id": "L1",
+              "reason": "header"
+            }
+          ]
+        ],
+        [
+          [
+            "L2",
+            {
+              "line_id": "L2",
+              "reason": "shipping"
+            }
+          ]
+        ],
+        [
+          [
+            "L3",
+            {
+              "line_id": "L3",
+              "reason": "tax"
+            }
+          ]
+        ],
+        [
+          [
+            "L4",
+            {
+              "line_id": "L4",
+              "reason": "discount"
+            }
+          ]
+        ],
+        [
+          [
+            "L5",
+            {
+              "line_id": "L5",
+              "reason": "ambiguous"
+            }
+          ]
+        ]
+      ],
+      "warnings": [
+        "The description contains 'purchase validation' which may indicate a promotional offer."
+      ]
+    },
+    "generatedTokens": 641,
+    "raw": "```json\n{\n  \"schema_version\": \"1\",\n  \"items\": [\n    [\n      [\n        [\n          \"L1\",\n          {\n            \"source_line_ids\": [\"L1\"],\n            \"description\": \"Fictional merchant 10 / purchase validation-10-001\",\n            \"category\": \"None\",\n            \"color\": \"\",\n            \"size\": \"\",\n            \"brand\": \"\",\n            \"quantity\": 1,\n            \"review_reasons\": [],\n            \"evidence\": []\n          }\n        ]\n      ],\n      [\n        [\n          \"L2\",\n          {\n            \"source_line_ids\": [\"L2\"],\n            \"description\": \"Description=Silk scarf; attributes {}\",\n            \"category\": \"None\",\n            \"color\": \"\",\n            \"size\": \"\",\n            \"brand\": \"\",\n            \"quantity\": 1,\n            \"review_reasons\": [],\n            \"evidence\": []\n          }\n        ]\n      ],\n      [\n        [\n          \"L3\",\n          {\n            \"source_line_ids\": [\"L3\"],\n            \"description\": \"Shipping 5.00\",\n            \"category\": \"None\",\n            \"color\": \"\",\n            \"size\": \"\",\n            \"brand\": \"\",\n            \"quantity\": 1,\n            \"review_reasons\": [],\n            \"evidence\": []\n          }\n        ]\n      ],\n      [\n        [\n          \"L4\",\n          {\n            \"source_line_ids\": [\"L4\"],\n            \"description\": \"Tax 2.00\",\n            \"category\": \"None\",\n            \"color\": \"\",\n            \"size\": \"\",\n            \"brand\": \"\",\n            \"quantity\": 1,\n            \"review_reasons\": [],\n            \"evidence\": []\n          }\n        ]\n      ],\n      [\n        [\n          \"L5\",\n          {\n            \"source_line_ids\": [\"L5\"],\n            \"description\": \"Discount -3.00\",\n            \"category\": \"None\",\n            \"color\": \"\",\n            \"size\": \"\",\n            \"brand\": \"\",\n            \"quantity\": 1,\n            \"review_reasons\": [],\n            \"evidence\": []\n          }\n        ]\n      ]\n    ]\n  ],\n  \"excluded_lines\": [\n    [\n      [\n        \"L1\",\n        {\n          \"line_id\": \"L1\",\n          \"reason\": \"header\"\n        }\n      ]\n    ],\n    [\n      [\n        \"L2\",\n        {\n          \"line_id\": \"L2\",\n          \"reason\": \"shipping\"\n        }\n      ]\n    ],\n    [\n      [\n        \"L3\",\n        {\n          \"line_id\": \"L3\",\n          \"reason\": \"tax\"\n        }\n      ]\n    ],\n    [\n      [\n        \"L4\",\n        {\n          \"line_id\": \"L4\",\n          \"reason\": \"discount\"\n        }\n      ]\n    ],\n    [\n      [\n        \"L5\",\n        {\n          \"line_id\": \"L5\",\n          \"reason\": \"ambiguous\"\n        }\n      ]\n    ]\n  ],\n  \"warnings\": [\n    \"The description contains 'purchase validation' which may indicate a promotional offer.\"\n  ]\n}\n```",
+    "elapsedMs": 25956.808200018713
+  },
+  {
+    "id": "validation-10-002",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        [
+          [
+            [
+              "L1",
+              {
+                "source_line_ids": [
+                  "L1"
+                ],
+                "description": "Fictional merchant 10 / purchase validation-10-002",
+                "category": "Top",
+                "color": "Olive",
+                "size": "L",
+                "brand": "Grove",
+                "quantity": 1,
+                "review_reasons": [],
+                "evidence": []
+              }
+            ],
+            "Top"
+          ],
+          [
+            [
+              "L2",
+              {
+                "source_line_ids": [
+                  "L2"
+                ],
+                "description": "Description=Cotton tee; attributes {color: Olive | size: L | quantity: 1 | brand: Grove}",
+                "category": "Bottom",
+                "color": "Olive",
+                "size": "L",
+                "brand": "Grove",
+                "quantity": 1,
+                "review_reasons": [],
+                "evidence": []
+              }
+            ],
+            "Bottom"
+          ],
+          [
+            [
+              "L3",
+              {
+                "source_line_ids": [
+                  "L3"
+                ],
+                "description": "Description=Canvas sneakers; attributes {color: Black | brand: Juniper | quantity: 1 | size: 38}",
+                "category": "Dress",
+                "color": "Black",
+                "size": "38",
+                "brand": "Juniper",
+                "quantity": 1,
+                "review_reasons": [],
+                "evidence": []
+              }
+            ],
+            "Dress"
+          ],
+          [
+            [
+              "L4",
+              {
+                "source_line_ids": [
+                  "L4"
+                ],
+                "description": "Shipping 5.00",
+                "category": "Accessories",
+                "color": "",
+                "size": "",
+                "brand": "",
+                "quantity": 1,
+                "review_reasons": [],
+                "evidence": []
+              }
+            ],
+            "Accessories"
+          ],
+          [
+            [
+              "L5",
+              {
+                "source_line_ids": [
+                  "L5"
+                ],
+                "description": "Tax 2.00",
+                "category": "Non-Clothing",
+                "color": "",
+                "size": "",
+                "brand": "",
+                "quantity": 1,
+                "review_reasons": [],
+                "evidence": []
+              }
+            ],
+            "Non-Clothing"
+          ],
+          [
+            [
+              "L6",
+              {
+                "source_line_ids": [
+                  "L6"
+                ],
+                "description": "Discount -3.00",
+                "category": "Non-Clothing",
+                "color": "",
+                "size": "",
+                "brand": "",
+                "quantity": 1,
+                "review_reasons": [],
+                "evidence": []
+              }
+            ],
+            "Non-Clothing"
+          ]
+        ]
+      ]
+    },
+    "generatedTokens": 624,
+    "raw": "```json\n{\n  \"schema_version\": \"1\",\n  \"items\": [\n    [\n      [\n        [\n          \"L1\",\n          {\n            \"source_line_ids\": [\"L1\"],\n            \"description\": \"Fictional merchant 10 / purchase validation-10-002\",\n            \"category\": \"Top\",\n            \"color\": \"Olive\",\n            \"size\": \"L\",\n            \"brand\": \"Grove\",\n            \"quantity\": 1,\n            \"review_reasons\": [],\n            \"evidence\": []\n          }\n        ],\n        \"Top\"\n      ],\n      [\n        [\n          \"L2\",\n          {\n            \"source_line_ids\": [\"L2\"],\n            \"description\": \"Description=Cotton tee; attributes {color: Olive | size: L | quantity: 1 | brand: Grove}\",\n            \"category\": \"Bottom\",\n            \"color\": \"Olive\",\n            \"size\": \"L\",\n            \"brand\": \"Grove\",\n            \"quantity\": 1,\n            \"review_reasons\": [],\n            \"evidence\": []\n          }\n        ],\n        \"Bottom\"\n      ],\n      [\n        [\n          \"L3\",\n          {\n            \"source_line_ids\": [\"L3\"],\n            \"description\": \"Description=Canvas sneakers; attributes {color: Black | brand: Juniper | quantity: 1 | size: 38}\",\n            \"category\": \"Dress\",\n            \"color\": \"Black\",\n            \"size\": \"38\",\n            \"brand\": \"Juniper\",\n            \"quantity\": 1,\n            \"review_reasons\": [],\n            \"evidence\": []\n          }\n        ],\n        \"Dress\"\n      ],\n      [\n        [\n          \"L4\",\n          {\n            \"source_line_ids\": [\"L4\"],\n            \"description\": \"Shipping 5.00\",\n            \"category\": \"Accessories\",\n            \"color\": \"\",\n            \"size\": \"\",\n            \"brand\": \"\",\n            \"quantity\": 1,\n            \"review_reasons\": [],\n            \"evidence\": []\n          }\n        ],\n        \"Accessories\"\n      ],\n      [\n        [\n          \"L5\",\n          {\n            \"source_line_ids\": [\"L5\"],\n            \"description\": \"Tax 2.00\",\n            \"category\": \"Non-Clothing\",\n            \"color\": \"\",\n            \"size\": \"\",\n            \"brand\": \"\",\n            \"quantity\": 1,\n            \"review_reasons\": [],\n            \"evidence\": []\n          }\n        ],\n        \"Non-Clothing\"\n      ],\n      [\n        [\n          \"L6\",\n          {\n            \"source_line_ids\": [\"L6\"],\n            \"description\": \"Discount -3.00\",\n            \"category\": \"Non-Clothing\",\n            \"color\": \"\",\n            \"size\": \"\",\n            \"brand\": \"\",\n            \"quantity\": 1,\n            \"review_reasons\": [],\n            \"evidence\": []\n          }\n        ],\n        \"Non-Clothing\"\n      ]\n    ]\n  ]\n}\n```",
+    "elapsedMs": 26256.417900003726
+  },
+  {
+    "id": "validation-10-003",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        [
+          [
+            [
+              "L1",
+              {
+                "source_line_ids": [
+                  "L1"
+                ],
+                "description": "Purchase validation",
+                "category": "Top",
+                "color": "",
+                "size": "",
+                "brand": "",
+                "quantity": 1,
+                "review_reasons": [],
+                "evidence": []
+              }
+            ],
+            "Shipping 5.00"
+          ],
+          [
+            [
+              "L2",
+              {
+                "source_line_ids": [
+                  "L2"
+                ],
+                "description": "Shipping",
+                "category": "Bottom",
+                "color": "",
+                "size": "",
+                "brand": "",
+                "quantity": 0,
+                "review_reasons": [],
+                "evidence": []
+              }
+            ],
+            "Tax 2.00"
+          ],
+          [
+            [
+              "L3",
+              {
+                "source_line_ids": [
+                  "L3"
+                ],
+                "description": "Tax",
+                "category": "Dress",
+                "color": "",
+                "size": "",
+                "brand": "",
+                "quantity": 0,
+                "review_reasons": [],
+                "evidence": []
+              }
+            ],
+            "Discount -3.00"
+          ],
+          [
+            [
+              "L4",
+              {
+                "source_line_ids": [
+                  "L4"
+                ],
+                "description": "Discount",
+                "category": "Accessories",
+                "color": "",
+                "size": "",
+                "brand": "",
+                "quantity": 1,
+                "review_reasons": [],
+                "evidence": []
+              }
+            ],
+            "Ceramic mug, quantity: 1"
+          ],
+          [
+            [
+              "L5",
+              {
+                "source_line_ids": [
+                  "L5"
+                ],
+                "description": "Gift card",
+                "category": "Accessory",
+                "color": "",
+                "size": "",
+                "brand": "",
+                "quantity": 25,
+                "review_reasons": [],
+                "evidence": []
+              }
+            ],
+            "Gift card 25.00"
+          ]
+        ]
+      ],
+      "excluded_lines": [
+        [
+          [
+            "L1",
+            {
+              "line_id": "L1",
+              "reason": "header"
+            }
+          ],
+          [
+            "L2",
+            {
+              "line_id": "L2",
+              "reason": "shipping"
+            },
+            [
+              "L2",
+              {
+                "line_id": "L2",
+                "reason": "shipping"
+              }
+            ]
+          ],
+          [
+            "L3",
+            {
+              "line_id": "L3",
+              "reason": "tax"
+            },
+            [
+              "L3",
+              {
+                "line_id": "L3",
+                "reason": "tax"
+              }
+            ]
+          ],
+          [
+            "L4",
+            {
+              "line_id": "L4",
+              "reason": "discount"
+            },
+            [
+              "L4",
+              {
+                "line_id": "L4",
+                "reason": "discount"
+              }
+            ]
+          ],
+          [
+            "L5",
+            {
+              "line_id": "L5",
+              "reason": "gift card"
+            },
+            [
+              "L5",
+              {
+                "line_id": "L5",
+                "reason": "gift card"
+              }
+            ]
+          ]
+        ]
+      ],
+      "warnings": [
+        "The provided clothing information does not match any known sources."
+      ]
+    },
+    "generatedTokens": 757,
+    "raw": "```json\n{\n  \"schema_version\": \"1\",\n  \"items\": [\n    [\n      [\n        [\n          \"L1\",\n          {\n            \"source_line_ids\": [\"L1\"],\n            \"description\": \"Purchase validation\",\n            \"category\": \"Top\",\n            \"color\": \"\",\n            \"size\": \"\",\n            \"brand\": \"\",\n            \"quantity\": 1,\n            \"review_reasons\": [],\n            \"evidence\": []\n          }\n        ],\n        \"Shipping 5.00\"\n      ],\n      [\n        [\n          \"L2\",\n          {\n            \"source_line_ids\": [\"L2\"],\n            \"description\": \"Shipping\",\n            \"category\": \"Bottom\",\n            \"color\": \"\",\n            \"size\": \"\",\n            \"brand\": \"\",\n            \"quantity\": 0,\n            \"review_reasons\": [],\n            \"evidence\": []\n          }\n        ],\n        \"Tax 2.00\"\n      ],\n      [\n        [\n          \"L3\",\n          {\n            \"source_line_ids\": [\"L3\"],\n            \"description\": \"Tax\",\n            \"category\": \"Dress\",\n            \"color\": \"\",\n            \"size\": \"\",\n            \"brand\": \"\",\n            \"quantity\": 0,\n            \"review_reasons\": [],\n            \"evidence\": []\n          }\n        ],\n        \"Discount -3.00\"\n      ],\n      [\n        [\n          \"L4\",\n          {\n            \"source_line_ids\": [\"L4\"],\n            \"description\": \"Discount\",\n            \"category\": \"Accessories\",\n            \"color\": \"\",\n            \"size\": \"\",\n            \"brand\": \"\",\n            \"quantity\": 1,\n            \"review_reasons\": [],\n            \"evidence\": []\n          }\n        ],\n        \"Ceramic mug, quantity: 1\"\n      ],\n      [\n        [\n          \"L5\",\n          {\n            \"source_line_ids\": [\"L5\"],\n            \"description\": \"Gift card\",\n            \"category\": \"Accessory\",\n            \"color\": \"\",\n            \"size\": \"\",\n            \"brand\": \"\",\n            \"quantity\": 25,\n            \"review_reasons\": [],\n            \"evidence\": []\n          }\n        ],\n        \"Gift card 25.00\"\n      ]\n    ]\n  ],\n  \"excluded_lines\": [\n    [\n      [\n        \"L1\",\n        {\n          \"line_id\": \"L1\",\n          \"reason\": \"header\"\n        }\n      ],\n      [\n        \"L2\",\n        {\n          \"line_id\": \"L2\",\n          \"reason\": \"shipping\"\n        },\n        [\n          \"L2\",\n          {\n            \"line_id\": \"L2\",\n            \"reason\": \"shipping\"\n          }\n        ]\n      ],\n      [\n        \"L3\",\n        {\n          \"line_id\": \"L3\",\n          \"reason\": \"tax\"\n        },\n        [\n          \"L3\",\n          {\n            \"line_id\": \"L3\",\n            \"reason\": \"tax\"\n          }\n        ]\n      ],\n      [\n        \"L4\",\n        {\n          \"line_id\": \"L4\",\n          \"reason\": \"discount\"\n        },\n        [\n          \"L4\",\n          {\n            \"line_id\": \"L4\",\n            \"reason\": \"discount\"\n          }\n        ]\n      ],\n      [\n        \"L5\",\n        {\n          \"line_id\": \"L5\",\n          \"reason\": \"gift card\"\n        },\n        [\n          \"L5\",\n          {\n            \"line_id\": \"L5\",\n            \"reason\": \"gift card\"\n          }\n        ]\n      ]\n    ]\n  ],\n  \"warnings\": [\n    \"The provided clothing information does not match any known sources.\"\n  ]\n}\n```",
+    "elapsedMs": 30089.17069999734
+  },
+  {
+    "id": "validation-10-004",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        [
+          [
+            [
+              "L1",
+              {
+                "source_line_ids": [
+                  "L1"
+                ],
+                "description": "Wrap dress; attributes {quantity: 1 | color: Olive | brand: Harbor | size: XS}",
+                "category": "Dress",
+                "color": "Olive",
+                "size": "XS",
+                "brand": "Harbor",
+                "quantity": 1,
+                "review_reasons": [],
+                "evidence": []
+              }
+            ]
+          ],
+          [
+            [
+              "L2",
+              {
+                "source_line_ids": [
+                  "L2"
+                ],
+                "description": "Returned (confirm ownership)",
+                "category": "Top",
+                "color": "",
+                "size": "",
+                "brand": "",
+                "quantity": 0,
+                "review_reasons": [
+                  "Review reason 1"
+                ],
+                "evidence": []
+              }
+            ]
+          ],
+          [
+            [
+              "L3",
+              {
+                "source_line_ids": [
+                  "L3"
+                ],
+                "description": "Shipping 5.00",
+                "category": "None",
+                "color": "",
+                "size": "",
+                "brand": "",
+                "quantity": 0,
+                "review_reasons": [
+                  "Review reason 2"
+                ],
+                "evidence": []
+              }
+            ]
+          ],
+          [
+            [
+              "L4",
+              {
+                "source_line_ids": [
+                  "L4"
+                ],
+                "description": "Tax 2.00",
+                "category": "None",
+                "color": "",
+                "size": "",
+                "brand": "",
+                "quantity": 0,
+                "review_reasons": [
+                  "Review reason 3"
+                ],
+                "evidence": []
+              }
+            ]
+          ],
+          [
+            [
+              "L5",
+              {
+                "source_line_ids": [
+                  "L5"
+                ],
+                "description": "Discount -3.00",
+                "category": "None",
+                "color": "",
+                "size": "",
+                "brand": "",
+                "quantity": 0,
+                "review_reasons": [
+                  "Review reason 4"
+                ],
+                "evidence": []
+              }
+            ]
+          ]
+        ]
+      ]
+    },
+    "generatedTokens": 489,
+    "raw": "```json\n{\n  \"schema_version\": \"1\",\n  \"items\": [\n    [\n      [\n        [\n          \"L1\",\n          {\n            \"source_line_ids\": [\"L1\"],\n            \"description\": \"Wrap dress; attributes {quantity: 1 | color: Olive | brand: Harbor | size: XS}\",\n            \"category\": \"Dress\",\n            \"color\": \"Olive\",\n            \"size\": \"XS\",\n            \"brand\": \"Harbor\",\n            \"quantity\": 1,\n            \"review_reasons\": [],\n            \"evidence\": []\n          }\n        ]\n      ],\n      [\n        [\n          \"L2\",\n          {\n            \"source_line_ids\": [\"L2\"],\n            \"description\": \"Returned (confirm ownership)\",\n            \"category\": \"Top\",\n            \"color\": \"\",\n            \"size\": \"\",\n            \"brand\": \"\",\n            \"quantity\": 0,\n            \"review_reasons\": [\n              \"Review reason 1\"\n            ],\n            \"evidence\": []\n          }\n        ]\n      ],\n      [\n        [\n          \"L3\",\n          {\n            \"source_line_ids\": [\"L3\"],\n            \"description\": \"Shipping 5.00\",\n            \"category\": \"None\",\n            \"color\": \"\",\n            \"size\": \"\",\n            \"brand\": \"\",\n            \"quantity\": 0,\n            \"review_reasons\": [\n              \"Review reason 2\"\n            ],\n            \"evidence\": []\n          }\n        ]\n      ],\n      [\n        [\n          \"L4\",\n          {\n            \"source_line_ids\": [\"L4\"],\n            \"description\": \"Tax 2.00\",\n            \"category\": \"None\",\n            \"color\": \"\",\n            \"size\": \"\",\n            \"brand\": \"\",\n            \"quantity\": 0,\n            \"review_reasons\": [\n              \"Review reason 3\"\n            ],\n            \"evidence\": []\n          }\n        ]\n      ],\n      [\n        [\n          \"L5\",\n          {\n            \"source_line_ids\": [\"L5\"],\n            \"description\": \"Discount -3.00\",\n            \"category\": \"None\",\n            \"color\": \"\",\n            \"size\": \"\",\n            \"brand\": \"\",\n            \"quantity\": 0,\n            \"review_reasons\": [\n              \"Review reason 4\"\n            ],\n            \"evidence\": []\n          }\n        ]\n      ]\n    ]\n  ]\n}\n```",
+    "elapsedMs": 20276.56779999961
+  }
+]

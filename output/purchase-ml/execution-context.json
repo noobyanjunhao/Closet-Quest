@@ -1,0 +1,7 @@
+{
+  "qualityRuns": "All use the same frozen 60-example synthetic test split. No test-driven retraining was performed.",
+  "overlap": "Base Transformers evaluation overlapped the adapter evaluation, one candidate serving experiment, and later the existing Ollama baseline. Latencies from these runs are descriptive under shared laptop load, not a controlled speedup estimate.",
+  "protocolDifference": "Base/adapter use identical unconstrained greedy Transformers generation with 1400 new tokens. The application Ollama baseline uses its existing JSON-schema generation with 2048 tokens. This is an application comparison, not an architecture-isolated model comparison.",
+  "cost": "No rented GPU or paid inference API was used for these experiments. Existing laptop electricity, bandwidth and free-tier service quotas still apply.",
+  "trainingFailure": "The 120-step LoRA run stopped on CUDA OOM at step 71. Only the saved validation checkpoint at step 40 is evaluated."
+}
