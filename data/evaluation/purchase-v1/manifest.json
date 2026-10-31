@@ -1,0 +1,49 @@
+{
+  "version": "purchase-v1",
+  "seed": 20261030,
+  "source": "Project-authored synthetic generator; no private purchases; labels deterministic, not independent human annotations",
+  "splitPolicy": "All variants of each merchant/template family stay in one split; exact source hashes unique",
+  "files": {
+    "train": {
+      "rows": 300,
+      "families": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "sha256": "c3591177e7db0695681e296dc547d642e7cdde215fffac1f343709cf0ecb58a8"
+    },
+    "validation": {
+      "rows": 60,
+      "families": [
+        10,
+        11,
+        12
+      ],
+      "sha256": "be42b427bf74429d3665fe57cf76d39a08bf14e1b6ad7734ad0f0ad1d4a785e6"
+    },
+    "test": {
+      "rows": 60,
+      "families": [
+        13,
+        14,
+        15
+      ],
+      "sha256": "1e5bd2eea82b8f7a8fdd855491100f615c39f578c8d9070e7fda0891cbea4dd0"
+    }
+  },
+  "schemaSha256": "6c8a890c2f15ff76945fee51416080036586c4b9130c4af5d1de4ed8906d97fd",
+  "limitations": [
+    "Only English apparel labels and synthetic structured text",
+    "Shared garment vocabulary across splits",
+    "Final test families are unseen, not real merchants",
+    "No population-level acceptance or time-saving claim"
+  ]
+}

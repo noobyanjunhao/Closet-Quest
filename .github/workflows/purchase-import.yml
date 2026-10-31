@@ -18,5 +18,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s ml/purchase -p test_evaluation.py
       - run: npm run build
       # Real Ollama tests are deliberately separate: CI needs no model or API key.

@@ -17,15 +17,17 @@ export default function PurchaseImportPanel({account,onBeforeCommit,onCommitted,
  return <div className="purchase-panel">
   <p className="eyebrow">PURCHASE TEXT → REVIEW → YOUR CLOSET</p>
   <p>Turn a purchase into pieces you can style. You choose what you actually own.</p>
-  <div className="purchase-notice">{config?.provider==='fixture'?'Demo mode: only the synthetic examples work. No AI inference.':'Local AI on the app server. Text is never sent to OpenAI.'} {account?.cloud?'Drafts and source text are stored in your private cloud account.':'Drafts and source text are stored on this computer.'} Remove names, addresses and payment details before pasting. No training uses these records.</div>
+  <div className="purchase-notice">{config?.provider==='fixture'?'Demo mode: only the synthetic examples work. No AI inference.':config?.provider==='worker'?'A private worker processes your purchase text. Text is never sent to OpenAI.':'Local AI on the app server. Text is never sent to OpenAI.'} {account?.cloud?'Drafts and source text are stored in your private cloud account.':'Drafts and source text are stored on this computer.'} Remove names, addresses and payment details before pasting. No training uses these records.</div>
   {!draft&&<>
    <label>Paste clothing purchase text<textarea aria-label="Purchase text" rows={7} maxLength={12000} value={source} onChange={e=>{setSource(e.target.value);createKey.current=crypto.randomUUID();}} placeholder={'Cotton tee, size M, quantity 2\nShipping 5.00'}/></label>
    <div className="purchase-actions"><button disabled={busy} onClick={()=>{setSource(sample);createKey.current=crypto.randomUUID();}}>Use synthetic example</button><button className="primary" disabled={busy||!source.trim()} onClick={()=>run(async()=>show(await api('imports',{source_type:'text',text:source,idempotency_key:createKey.current},'POST',{timeoutMs:15000})))}>Review purchases</button></div>
    {!!recent.length&&<details><summary>Resume an import ({recent.length})</summary>{recent.map(d=><button className="purchase-resume" key={d.id} disabled={busy} onClick={()=>run(()=>load(d.id))}>{new Date(d.createdAt).toLocaleString()} · {d.status.replaceAll('_',' ')}</button>)}</details>}
   </>}
   {draft&&<>
-   <p role="status"><strong>{({queued:'Waiting for local AI…',extracting:'Finding your clothing…',review_required:'Your review makes it yours.',failed:'Extraction needs another try.',cancelled:'Import cancelled.',committed:'Pieces added. Ready to style.'})[draft.status]}</strong></p>
+   <p role="status"><strong>{({queued:config?.provider==='worker'?'Saved securely. Waiting for the private worker…':'Waiting to extract your pieces…',extracting:'Finding your clothing…',review_required:'Your review makes it yours.',failed:'Extraction needs another try.',cancelled:'Import cancelled.',committed:'Pieces added. Ready to style.'})[draft.status]}</strong></p>
+   {draft.status==='queued'&&config?.provider==='worker'&&<p>You can close this screen and return later. If the worker is offline, your draft stays saved.</p>}
    {draft.error&&<p role="alert">{draft.error.message}</p>}
+   {draft.model?.provider==='rules'&&<p className="purchase-notice">Fast parser · the private AI worker is offline. This draft uses text rules, so double-check the details before adding it.</p>}
    {draft.status==='review_required'&&<>
     {!rows.length&&<p>No clothing was extracted. Fees and non-clothing lines stay out of your closet.</p>}
     {rows.map((item,index)=><section key={item.id} className="purchase-review-row">
@@ -44,7 +46,7 @@ export default function PurchaseImportPanel({account,onBeforeCommit,onCommitted,
     <label className="purchase-select"><input type="checkbox" checked={owned} disabled={dirty||rows.some(i=>i.selected&&!i.reviewedAt)} onChange={e=>setOwned(e.target.checked)}/> I own the selected pieces and want to add each unit to my closet.</label>
     <button className="primary" disabled={busy||dirty||!owned||!rows.some(i=>i.selected)} onClick={()=>run(async()=>{await onBeforeCommit();const result=await api(`imports/${draft.id}/commit`,{expected_revision:draft.revision,selected_item_ids:rows.filter(i=>i.selected).map(i=>i.id),confirm_owned:true,idempotency_key:`commit-${draft.id}-${draft.revision}`});await onCommitted(result);localStorage.removeItem(storageKey);onClose();})}>Add selected pieces</button></>}
    </>}
-   {draft.status==='failed'&&<button disabled={busy} onClick={()=>run(async()=>show(await api(`imports/${draft.id}/retry`,{expected_revision:draft.revision})))}>Retry local extraction</button>}
+   {draft.status==='failed'&&<button disabled={busy} onClick={()=>run(async()=>show(await api(`imports/${draft.id}/retry`,{expected_revision:draft.revision})))}>Retry extraction</button>}
    {draft.status==='committed'&&<button className="primary" disabled={busy} onClick={()=>run(async()=>{await onBeforeCommit();await onCommitted(draft.commitResult);onClose();})}>Open imported pieces in my closet</button>}
    {!['committed','cancelled'].includes(draft.status)&&<button disabled={busy} onClick={()=>run(async()=>show(await api(`imports/${draft.id}/cancel`,{expected_revision:draft.revision})))}>Cancel import</button>}
    {!isProcessing&&<div className="purchase-actions"><button disabled={busy} onClick={()=>{setDraft(null);setSource('');createKey.current=crypto.randomUUID();localStorage.removeItem(storageKey);}}>Another purchase</button><button disabled={busy} onClick={()=>run(async()=>{await api(`imports/${draft.id}`,null,'DELETE');setDraft(null);localStorage.removeItem(storageKey);setRecent(r=>r.filter(x=>x.id!==draft.id));})}>{draft.status==='committed'?'Remove source text (keep clothes)':'Delete draft & source'}</button></div>}

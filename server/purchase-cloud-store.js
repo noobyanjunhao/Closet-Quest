@@ -6,6 +6,7 @@ export function createPurchaseCloudStore(cloud){
  const request=(user,path,options)=>cloud.purchaseRequest(user,path,options);
  const safeId=id=>{if(!/^[a-f\d-]{36}$/i.test(id))throw fail('Import not found.','IMPORT_NOT_FOUND',404);return id;};
  return {
+  health(user){return request(user,'rpc/purchase_worker_health',{method:'POST',body:{}});},
   recover(){/* Per-draft leases reconcile interrupted remote workers on read. */},
   async get(owner,id,user){return (await request(user,`purchase_imports?id=eq.${safeId(id)}&user_id=eq.${owner}&select=payload`))[0]?.payload||null;},
   async list(owner,user){return (await request(user,`purchase_imports?user_id=eq.${owner}&select=payload&limit=100&order=id.desc`)).map(r=>r.payload);},

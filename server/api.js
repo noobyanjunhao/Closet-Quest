@@ -55,6 +55,7 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
   const hydratedKnowledge=createCloudKnowledgeHydrator({cloud,getStore:getKnowledge});
   const controllers=new Set();let active=false,closed=false,remoteActive=0;
   const purchaseEnabled=purchaseOptions.enabled??process.env.CLOSET_PURCHASE_IMPORTS==='1';
+  if(purchaseEnabled&&(purchaseOptions.mode||process.env.CLOSET_IMPORT_PROVIDER)==='worker'&&!cloud)throw Error('Worker imports require Supabase account mode.');
   const purchaseStore=purchaseEnabled?(purchaseOptions.store||(cloud?createPurchaseCloudStore(cloud):createPurchaseStore(join(storageDir,'purchase-imports.sqlite')))):null;
   const purchases=purchaseEnabled?createPurchaseImports({store:purchaseStore,mode:process.env.CLOSET_IMPORT_PROVIDER||'local',canStart:()=>!active&&!queue.localBusy,...purchaseOptions}):null;
   async function middleware(req,res) {
@@ -79,6 +80,7 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
       if(route==='/imports'||route.startsWith('/imports/')){
         if(!purchases)throw Object.assign(new Error('Purchase imports are not enabled on this server.'),{status:404,code:'IMPORT_DISABLED'});
         if(route==='/imports/readiness'&&req.method==='GET'){
+          if(purchases.info().provider==='worker'){const health=await cloud.purchaseRequest(user,'rpc/purchase_worker_health',{method:'POST',body:{}});res.statusCode=health.ready?200:503;return res.end(JSON.stringify({...purchases.info(),...health,note:'A worker heartbeat does not guarantee successful extraction.'}));}
           const info=purchases.info(),model=info.provider==='local'?modelFor('purchase'):'deterministic-fixtures';let installed=info.provider==='fixture';
           if(!installed)try{installed=(await handlers.listModels()).models?.some(m=>m.name===model)===true;}catch{}
           res.statusCode=installed?200:503;return res.end(JSON.stringify({...info,model,ready:installed,code:installed?'MODEL_DISCOVERED':'MODEL_NOT_READY',note:'Discovery readiness does not guarantee a future generation will succeed.'}));

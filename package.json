@@ -35,7 +35,9 @@
     "imports:demo": "node scripts/purchase-demo.mjs",
     "imports:local": "node scripts/purchase-demo.mjs --local",
     "imports:smoke": "node scripts/purchase-smoke.mjs",
-    "imports:test": "node --test tests/purchase-*.test.js"
+    "imports:test": "node --test tests/purchase-*.test.js",
+    "imports:worker": "node scripts/purchase-worker.mjs",
+    "imports:cloud-test": "node scripts/experiment-purchase-cloud.mjs"
   },
   "dependencies": {
     "react": "^19.1.1",
