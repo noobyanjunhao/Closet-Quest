@@ -75,8 +75,17 @@ def score(data,records,checks):
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--mode',choices=['rules','base','adapter','records'],required=True);ap.add_argument('--split',choices=['validation','test'],default='test');ap.add_argument('--adapter',default='ml/checkpoints/purchase-lora-v1/adapter');ap.add_argument('--records');ap.add_argument('--out',required=True);ap.add_argument('--limit',type=int);a=ap.parse_args()
-    data=rows(a.split);data=data[:a.limit] if a.limit else data;out=ROOT/a.out;out.mkdir(parents=True,exist_ok=True);records=[]
+    # A separate driver may request the frozen v2 holdout for a paired v1 comparison.
+    import os
+    dataset=os.environ.get('PURCHASE_EVAL_DATASET','purchase-v1')
+    if dataset not in ['purchase-v1','purchase-v2']:raise ValueError('Unknown evaluation dataset')
+    if dataset=='purchase-v2':
+        from v2_infer import load_data
+        data=load_data(a.split)
+    else:data=rows(a.split)
+    data=data[:a.limit] if a.limit else data;out=ROOT/a.out;out.mkdir(parents=True,exist_ok=True);records=[]
     manifest={'mode':a.mode,'split':a.split,'count':len(data),'datasetSha256':sha(ROOT/f'data/evaluation/purchase-v1/{a.split}.jsonl'),'promptSha256':sha(ROOT/'ml/purchase/prompt.json'),'generation':{'do_sample':False,'max_new_tokens':1400,'seed':17,'grammarConstrained':False},'coldWarm':'First request includes initial GPU kernels; model load timed separately; no result cache','synthetic':True}
+    manifest['datasetSha256']=sha(ROOT/f'data/evaluation/{dataset}/{a.split}.jsonl');manifest['dataset']=dataset
     if a.mode in ['base','adapter']:
         import torch
         from transformers import AutoTokenizer,AutoModelForCausalLM,set_seed

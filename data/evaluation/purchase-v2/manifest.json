@@ -1,0 +1,54 @@
+{
+  "version": "purchase-v2",
+  "frozenBeforeTraining": true,
+  "seed": 301026,
+  "selection": "Validation only; old v1 test is regression, v2 test evaluated only after selection.",
+  "limitations": [
+    "Synthetic English structured text; shared garment vocabulary across splits; no independent human labels",
+    "One garment per line; a single line with several products is not supported",
+    "No photo recognition or real-user accuracy claim"
+  ],
+  "files": {
+    "train": {
+      "rows": 600,
+      "sha256": "cbad5f2c4541aa6f23a94e3f4220ab202d88ae7b138428a5787d85ef2f9e35df",
+      "families": [
+        "merchant-template-00",
+        "merchant-template-01",
+        "merchant-template-02",
+        "merchant-template-03",
+        "merchant-template-04",
+        "merchant-template-05",
+        "merchant-template-06",
+        "merchant-template-07",
+        "merchant-template-08",
+        "merchant-template-09",
+        "v2-template-0",
+        "v2-template-1",
+        "v2-template-2",
+        "v2-template-3",
+        "v2-template-4"
+      ]
+    },
+    "validation": {
+      "rows": 100,
+      "sha256": "ab249274212bb4e17e31e6e1b4d226ec295f849419df1a90c31b123fdaa283aa",
+      "families": [
+        "merchant-template-10",
+        "merchant-template-11",
+        "merchant-template-12",
+        "v2-template-5"
+      ]
+    },
+    "test": {
+      "rows": 100,
+      "sha256": "5ae2501d16946bebbed30256155330d78777468a6aa3072ddc186a3cf84c8d22",
+      "families": [
+        "v2-template-6",
+        "v2-template-7",
+        "v2-template-8",
+        "v2-template-9"
+      ]
+    }
+  }
+}
