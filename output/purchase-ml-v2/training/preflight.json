@@ -1,0 +1,47 @@
+{
+  "seed": 29,
+  "stepsPlanned": 300,
+  "gradientAccumulation": 8,
+  "batchSize": 1,
+  "maxSequenceTokens": 768,
+  "selection": "Max validation clothing recall, then precision, then field accuracy, then exact documents; no test access",
+  "parity": {
+    "denseLoss": 3.01193904876709,
+    "chunkedLoss": 3.01193904876709,
+    "gradientMaxAbsoluteErrors": [
+      7.450580596923828e-09,
+      2.9802322387695312e-08
+    ]
+  },
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "torch": "2.6.0+cu124",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "datasetManifestSha256": "0d6368f1dd39edddfe7f7de99950ad90bc28b434f443ed91ec29a808fd50a8f9",
+  "protocolSha256": "6b67bb3cfaeafc07cb9f6f1024169b594271f59b5d4fa5bb050b32550f7f4ba9",
+  "history": [],
+  "examples": {
+    "positive": 630,
+    "negative": 2700,
+    "sampling": "50% positive / 50% negative with replacement",
+    "maxTokens": 233
+  },
+  "trainableParameters": 8798208,
+  "sameBatchMemoryComparison": [
+    {
+      "mode": "dense",
+      "tokens": 221,
+      "loss": 0.3149012327194214,
+      "peakAllocatedBytes": 1897475584,
+      "peakReservedBytes": 2036334592,
+      "seconds": 0.8555953000031877
+    },
+    {
+      "mode": "chunked",
+      "tokens": 221,
+      "loss": 0.3185729682445526,
+      "peakAllocatedBytes": 1658860032,
+      "peakReservedBytes": 1778384896,
+      "seconds": 0.3205978999903891
+    }
+  ]
+}

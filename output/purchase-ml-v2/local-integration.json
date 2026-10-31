@@ -1,0 +1,229 @@
+{
+  "environment": "Loopback HTTP + real saved adapter + canonical Node worker validator",
+  "synthetic": true,
+  "cloudWrites": 0,
+  "wardrobeWrites": 0,
+  "health": {
+    "ready": true,
+    "metadata": {
+      "provider": "tuned-local",
+      "model": "Qwen2.5-0.5B-Instruct + purchase-lora-v2",
+      "adapterSha256": "d22418a62dc277bada015dddcb43314f2f72e9959127d98a49d106d071ecb5eb",
+      "promptVersion": "purchase-line-v2",
+      "schemaVersion": "1",
+      "training": false,
+      "candidate": true
+    }
+  },
+  "passed": 5,
+  "total": 6,
+  "tests": [
+    {
+      "name": "previous omitted trousers",
+      "passed": false,
+      "elapsedMs": 1574.0994999999998,
+      "data": {
+        "schema_version": "1",
+        "items": [
+          {
+            "description": "Harbor Demo",
+            "category": "Dress",
+            "color": null,
+            "size": null,
+            "brand": null,
+            "quantity": null,
+            "source_line_ids": [
+              "L1"
+            ],
+            "review_reasons": [
+              "Confirm category mapping"
+            ],
+            "evidence": [
+              {
+                "field": "description",
+                "line_id": "L1",
+                "quote": "Harbor Demo"
+              },
+              {
+                "field": "category",
+                "line_id": "L1",
+                "quote": "Harbor Demo"
+              }
+            ]
+          },
+          {
+            "description": "Navy linen trousers",
+            "category": "Bottom",
+            "color": null,
+            "size": null,
+            "brand": null,
+            "quantity": null,
+            "source_line_ids": [
+              "L2"
+            ],
+            "review_reasons": [
+              "Confirm category mapping"
+            ],
+            "evidence": [
+              {
+                "field": "description",
+                "line_id": "L2",
+                "quote": "Navy linen trousers"
+              },
+              {
+                "field": "category",
+                "line_id": "L2",
+                "quote": "Navy linen trousers"
+              }
+            ]
+          }
+        ],
+        "excluded_lines": [
+          {
+            "line_id": "L3",
+            "reason": "shipping"
+          },
+          {
+            "line_id": "L4",
+            "reason": "discount"
+          }
+        ],
+        "warnings": []
+      },
+      "metadata": {
+        "provider": "tuned-local",
+        "model": "Qwen2.5-0.5B-Instruct + purchase-lora-v2",
+        "adapterSha256": "d22418a62dc277bada015dddcb43314f2f72e9959127d98a49d106d071ecb5eb",
+        "promptVersion": "purchase-line-v2",
+        "schemaVersion": "1",
+        "training": false,
+        "candidate": true,
+        "latencyMs": 1574,
+        "sourceLines": 4
+      }
+    },
+    {
+      "name": "two garments",
+      "passed": true,
+      "elapsedMs": 918.8299,
+      "data": {
+        "schema_version": "1",
+        "items": [
+          {
+            "description": "Baseball cap",
+            "category": "Accessory",
+            "color": "Navy",
+            "size": null,
+            "brand": null,
+            "quantity": 1,
+            "source_line_ids": [
+              "L1"
+            ],
+            "review_reasons": [
+              "Confirm category mapping"
+            ],
+            "evidence": [
+              {
+                "field": "description",
+                "line_id": "L1",
+                "quote": "Baseball cap"
+              },
+              {
+                "field": "color",
+                "line_id": "L1",
+                "quote": "Navy"
+              },
+              {
+                "field": "quantity",
+                "line_id": "L1",
+                "quote": "1"
+              },
+              {
+                "field": "category",
+                "line_id": "L1",
+                "quote": "Baseball cap"
+              }
+            ]
+          },
+          {
+            "description": "Zip hoodie",
+            "category": "Top",
+            "color": "Grey",
+            "size": "L",
+            "brand": null,
+            "quantity": 1,
+            "source_line_ids": [
+              "L2"
+            ],
+            "review_reasons": [
+              "Confirm category mapping"
+            ],
+            "evidence": [
+              {
+                "field": "description",
+                "line_id": "L2",
+                "quote": "Zip hoodie"
+              },
+              {
+                "field": "color",
+                "line_id": "L2",
+                "quote": "Grey"
+              },
+              {
+                "field": "size",
+                "line_id": "L2",
+                "quote": "L"
+              },
+              {
+                "field": "quantity",
+                "line_id": "L2",
+                "quote": "1"
+              },
+              {
+                "field": "category",
+                "line_id": "L2",
+                "quote": "Zip hoodie"
+              }
+            ]
+          }
+        ],
+        "excluded_lines": [],
+        "warnings": []
+      },
+      "metadata": {
+        "provider": "tuned-local",
+        "model": "Qwen2.5-0.5B-Instruct + purchase-lora-v2",
+        "adapterSha256": "d22418a62dc277bada015dddcb43314f2f72e9959127d98a49d106d071ecb5eb",
+        "promptVersion": "purchase-line-v2",
+        "schemaVersion": "1",
+        "training": false,
+        "candidate": true,
+        "latencyMs": 919,
+        "sourceLines": 2
+      }
+    },
+    {
+      "name": "browser-origin denied",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "invalid input rejected",
+      "passed": true,
+      "status": 422
+    },
+    {
+      "name": "concurrent GPU work refused",
+      "passed": true,
+      "statuses": [
+        200,
+        429
+      ]
+    },
+    {
+      "name": "request after busy response recovers",
+      "passed": true,
+      "status": 200
+    }
+  ]
+}

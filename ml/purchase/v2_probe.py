@@ -14,6 +14,9 @@ CASES=[
  {'id':'punctuation-and-case','source':'BASEBALL CAP | size: M | quantity: 1\nRain jacket — color: Blue — quantity: 2','expectedCategories':['Accessory','Outerwear']},
  {'id':'non-english','source':'Camisa de lino, talla M, cantidad 1','expectedCategories':['Top']},
  {'id':'two-on-one-line','source':'Cotton tee, quantity 1; Wool coat, quantity 1','expectedCategories':['Top','Outerwear']},
+ {'id':'ocr-noise','source':'C0tton t33, size M, quantity 1\nW00l c0at, quantity 1','expectedCategories':['Top','Outerwear']},
+ {'id':'cross-line-attributes','source':'Cotton tee\ncolor: Navy; size: M; quantity: 1','expectedCategories':['Top'],'expectedFields':{'color':'Navy','size':'M','quantity':1}},
+ {'id':'unseen-valid-quantity','source':'Cotton tee, quantity 3','expectedCategories':['Top'],'expectedFields':{'quantity':3}},
  {'id':'invalid-quantity','source':'Cotton tee, quantity 999','expectedRejection':True},
  {'id':'too-long-line','source':'Clothing detail '+('long description '*400),'expectedRejection':True},
 ]
@@ -31,6 +34,7 @@ def main():
         record['contractValid']=check['valid'];items=(record['prediction'] or {}).get('items',[])
         record['passed']=bool(record.get('error')) if record.get('expectedRejection') else check['valid'] and sorted(i['category'] for i in items)==sorted(record['expectedCategories'])
         if record.get('returnWarning'):record['passed'] &= all(any('return' in x.lower() for x in i['review_reasons']) for i in items)
+        if record.get('expectedFields'):record['passed'] &= len(items)==1 and all(items[0].get(k)==v for k,v in record['expectedFields'].items())
     summary={'passed':sum(r['passed'] for r in records),'total':len(records),'adapterSha256':sha(ROOT/adapter/'adapter_model.safetensors'),'notes':'Hand-authored diagnostic probes, not an independent user study. Category/count checks plus rejection expectations; not full field accuracy. No retraining or selection on these cases.','records':records}
     (out/'result.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False),encoding='utf8');print(json.dumps({'passed':summary['passed'],'total':summary['total'],'failures':[r['id'] for r in records if not r['passed']]},indent=2))
 if __name__=='__main__':main()

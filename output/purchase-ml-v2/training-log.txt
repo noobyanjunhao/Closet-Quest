@@ -1,0 +1,662 @@
+Loading local training libraries
+Training libraries loaded
+`torch_dtype` is deprecated! Use `dtype` instead!
+{"step": 10, "loss": 0.03198427089955658, "lr": 0.00013333333333333334, "seconds": 28.370273699983954, "peakAllocatedBytes": 1223155200, "peakReservedBytes": 1325400064}
+{"step": 20, "loss": 0.04035869991639629, "lr": 0.00019986333647899847, "seconds": 593.5444123999914, "peakAllocatedBytes": 1223195648, "peakReservedBytes": 1325400064}
+{"step": 30, "loss": 0.0024984065676108003, "lr": 0.00019877251730624501, "seconds": 632.8710947999789, "peakAllocatedBytes": 1223394304, "peakReservedBytes": 1325400064}
+{"step": 40, "loss": 0.0011100568390247645, "lr": 0.00019660412002783253, "seconds": 668.6605908999918, "peakAllocatedBytes": 1223394304, "peakReservedBytes": 1325400064}
+{"step": 50, "loss": 0.0005492579639394535, "lr": 0.00019338446604933216, "seconds": 701.890221699985, "peakAllocatedBytes": 1223394304, "peakReservedBytes": 1325400064}
+{"step": 60, "loss": 0.0015256387614499545, "lr": 0.000189152637608584, "seconds": 735.5326289999939, "peakAllocatedBytes": 1223394304, "peakReservedBytes": 1325400064}
+{"step": 70, "loss": 0.00021989216929796385, "lr": 0.00018396000337027207, "seconds": 768.8283544000005, "peakAllocatedBytes": 1223394304, "peakReservedBytes": 1325400064}
+{"step": 80, "loss": 0.0003449219548201654, "lr": 0.00017786959487992067, "seconds": 795.7464551999874, "peakAllocatedBytes": 1223394304, "peakReservedBytes": 1325400064}
+{"step": 90, "loss": 0.0002077865269711765, "lr": 0.0001709553414463167, "seconds": 821.4723053000052, "peakAllocatedBytes": 1223394304, "peakReservedBytes": 1325400064}
+{"step": 100, "loss": 0.00015272748987626983, "lr": 0.00016330117273984822, "seconds": 850.1051361999998, "peakAllocatedBytes": 1223394304, "peakReservedBytes": 1325400064}
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+validation-10-000 2087 generated
+validation-10-001 2047 generated
+validation-10-002 2076 generated
+validation-10-003 1913 generated
+validation-10-004 2034 generated
+validation-10-005 1940 generated
+validation-10-006 1953 generated
+validation-10-007 1974 generated
+validation-10-008 2025 generated
+validation-10-009 2173 generated
+validation-10-010 2496 generated
+validation-10-011 2431 generated
+validation-10-012 2508 generated
+validation-10-013 2283 generated
+validation-10-014 2522 generated
+validation-10-015 1952 generated
+validation-10-016 1850 generated
+validation-10-017 1831 generated
+validation-10-018 1966 generated
+validation-10-019 1854 generated
+validation-11-000 1890 generated
+validation-11-001 1838 generated
+validation-11-002 2022 generated
+validation-11-003 2071 generated
+validation-11-004 2210 generated
+validation-11-005 2148 generated
+validation-11-006 2063 generated
+validation-11-007 1995 generated
+validation-11-008 2142 generated
+validation-11-009 2088 generated
+validation-11-010 2137 generated
+validation-11-011 1763 generated
+validation-11-012 1957 generated
+validation-11-013 1849 generated
+validation-11-014 1953 generated
+validation-11-015 1842 generated
+validation-11-016 1709 generated
+validation-11-017 1808 generated
+validation-11-018 2113 generated
+validation-11-019 2072 generated
+validation-12-000 2105 generated
+validation-12-001 1933 generated
+validation-12-002 2049 generated
+validation-12-003 2089 generated
+validation-12-004 1903 generated
+validation-12-005 1849 generated
+validation-12-006 1930 generated
+validation-12-007 1891 generated
+validation-12-008 1862 generated
+validation-12-009 1894 generated
+validation-12-010 1832 generated
+validation-12-011 1712 generated
+validation-12-012 1919 generated
+validation-12-013 1905 generated
+validation-12-014 1854 generated
+validation-12-015 1919 generated
+validation-12-016 1819 generated
+validation-12-017 1887 generated
+validation-12-018 2128 generated
+validation-12-019 1927 generated
+v2-validation-5-000 2058 generated
+v2-validation-5-001 1822 generated
+v2-validation-5-002 1935 generated
+v2-validation-5-003 1798 generated
+v2-validation-5-004 1838 generated
+v2-validation-5-005 1732 generated
+v2-validation-5-006 1835 generated
+v2-validation-5-007 1792 generated
+v2-validation-5-008 1923 generated
+v2-validation-5-009 1926 generated
+v2-validation-5-010 1886 generated
+v2-validation-5-011 1846 generated
+v2-validation-5-012 2112 generated
+v2-validation-5-013 1827 generated
+v2-validation-5-014 1958 generated
+v2-validation-5-015 1789 generated
+v2-validation-5-016 1916 generated
+v2-validation-5-017 1855 generated
+v2-validation-5-018 1779 generated
+v2-validation-5-019 1831 generated
+v2-validation-5-020 1839 generated
+v2-validation-5-021 1866 generated
+v2-validation-5-022 2088 generated
+v2-validation-5-023 1898 generated
+v2-validation-5-024 1790 generated
+v2-validation-5-025 1966 generated
+v2-validation-5-026 1925 generated
+v2-validation-5-027 1882 generated
+v2-validation-5-028 1822 generated
+v2-validation-5-029 2022 generated
+v2-validation-5-030 1894 generated
+v2-validation-5-031 1819 generated
+v2-validation-5-032 1936 generated
+v2-validation-5-033 1790 generated
+v2-validation-5-034 1795 generated
+v2-validation-5-035 1903 generated
+v2-validation-5-036 2070 generated
+v2-validation-5-037 1811 generated
+v2-validation-5-038 1817 generated
+v2-validation-5-039 1777 generated
+{"step": 110, "loss": 0.00011497663717818796, "lr": 0.000155, "seconds": 1071.9686894000042, "peakAllocatedBytes": 1262488576, "peakReservedBytes": 1476395008}
+{"step": 120, "loss": 7.696792636124883e-05, "lr": 0.00014615258821876724, "seconds": 1097.537795799988, "peakAllocatedBytes": 1262488576, "peakReservedBytes": 1476395008}
+{"step": 130, "loss": 0.0001467473930460983, "lr": 0.00013686633299015251, "seconds": 1122.560905899998, "peakAllocatedBytes": 1262488576, "peakReservedBytes": 1476395008}
+{"step": 140, "loss": 0.0001326283977505227, "lr": 0.00012725395687313647, "seconds": 1147.89345589999, "peakAllocatedBytes": 1262488576, "peakReservedBytes": 1476395008}
+{"step": 150, "loss": 6.782607397326501e-05, "lr": 0.00011743214109250993, "seconds": 1173.7393149999843, "peakAllocatedBytes": 1262488576, "peakReservedBytes": 1476395008}
+{"step": 160, "loss": 8.49434995870979e-05, "lr": 0.00010752010918686544, "seconds": 1199.0153487999924, "peakAllocatedBytes": 1262488576, "peakReservedBytes": 1476395008}
+{"step": 170, "loss": 9.210052439811989e-05, "lr": 9.763817979634326e-05, "seconds": 1225.4783813999966, "peakAllocatedBytes": 1262488576, "peakReservedBytes": 1476395008}
+{"step": 180, "loss": 6.123354114606627e-05, "lr": 8.790630615732811e-05, "seconds": 1254.8927029999904, "peakAllocatedBytes": 1262488576, "peakReservedBytes": 1476395008}
+{"step": 190, "loss": 6.658037045781384e-05, "lr": 7.844262003265215e-05, "seconds": 1286.2346235000005, "peakAllocatedBytes": 1262488576, "peakReservedBytes": 1476395008}
+{"step": 200, "loss": 6.116097119956976e-05, "lr": 6.936199775201998e-05, "seconds": 1318.9234922000032, "peakAllocatedBytes": 1262488576, "peakReservedBytes": 1476395008}
+validation-10-000 2668 generated
+validation-10-001 2496 generated
+validation-10-002 2550 generated
+validation-10-003 2775 generated
+validation-10-004 2864 generated
+validation-10-005 2457 generated
+validation-10-006 2189 generated
+validation-10-007 2227 generated
+validation-10-008 2272 generated
+validation-10-009 2210 generated
+validation-10-010 2306 generated
+validation-10-011 2229 generated
+validation-10-012 2504 generated
+validation-10-013 2464 generated
+validation-10-014 2630 generated
+validation-10-015 2465 generated
+validation-10-016 2913 generated
+validation-10-017 2854 generated
+validation-10-018 2810 generated
+validation-10-019 2517 generated
+validation-11-000 50811 generated
+validation-11-001 3203 generated
+validation-11-002 4261 generated
+validation-11-003 3208 generated
+validation-11-004 2295 generated
+validation-11-005 2724 generated
+validation-11-006 3360 generated
+validation-11-007 2247 generated
+validation-11-008 2139 generated
+validation-11-009 2215 generated
+validation-11-010 2411 generated
+validation-11-011 1917 generated
+validation-11-012 2113 generated
+validation-11-013 1997 generated
+validation-11-014 1912 generated
+validation-11-015 1961 generated
+validation-11-016 1864 generated
+validation-11-017 1954 generated
+validation-11-018 1914 generated
+validation-11-019 2121 generated
+validation-12-000 1964 generated
+validation-12-001 1902 generated
+validation-12-002 2069 generated
+validation-12-003 2022 generated
+validation-12-004 2062 generated
+validation-12-005 2243 generated
+validation-12-006 2275 generated
+validation-12-007 1908 generated
+validation-12-008 1902 generated
+validation-12-009 1995 generated
+validation-12-010 2297 generated
+validation-12-011 2496 generated
+validation-12-012 2476 generated
+validation-12-013 2283 generated
+validation-12-014 2070 generated
+validation-12-015 2040 generated
+validation-12-016 2030 generated
+validation-12-017 2062 generated
+validation-12-018 2273 generated
+validation-12-019 2146 generated
+v2-validation-5-000 2114 generated
+v2-validation-5-001 1818 generated
+v2-validation-5-002 2106 generated
+v2-validation-5-003 1921 generated
+v2-validation-5-004 2039 generated
+v2-validation-5-005 1921 generated
+v2-validation-5-006 1958 generated
+v2-validation-5-007 2042 generated
+v2-validation-5-008 2218 generated
+v2-validation-5-009 2233 generated
+v2-validation-5-010 2296 generated
+v2-validation-5-011 1982 generated
+v2-validation-5-012 2307 generated
+v2-validation-5-013 2035 generated
+v2-validation-5-014 2087 generated
+v2-validation-5-015 1815 generated
+v2-validation-5-016 2040 generated
+v2-validation-5-017 1914 generated
+v2-validation-5-018 1938 generated
+v2-validation-5-019 1966 generated
+v2-validation-5-020 1915 generated
+v2-validation-5-021 1925 generated
+v2-validation-5-022 2130 generated
+v2-validation-5-023 2044 generated
+v2-validation-5-024 2075 generated
+v2-validation-5-025 2183 generated
+v2-validation-5-026 2031 generated
+v2-validation-5-027 2118 generated
+v2-validation-5-028 2066 generated
+v2-validation-5-029 2058 generated
+v2-validation-5-030 1858 generated
+v2-validation-5-031 1938 generated
+v2-validation-5-032 2293 generated
+v2-validation-5-033 2150 generated
+v2-validation-5-034 1922 generated
+v2-validation-5-035 1919 generated
+v2-validation-5-036 2069 generated
+v2-validation-5-037 2316 generated
+v2-validation-5-038 2274 generated
+v2-validation-5-039 2063 generated
+{"step": 210, "loss": 5.9227969586572726e-05, "lr": 6.077466576898161e-05, "seconds": 1618.411110599991, "peakAllocatedBytes": 1262488576, "peakReservedBytes": 1476395008}
+{"step": 220, "loss": 6.822319846833125e-05, "lr": 5.27848626611029e-05, "seconds": 1644.0747009000042, "peakAllocatedBytes": 1262488576, "peakReservedBytes": 1476395008}
+{"step": 230, "loss": 7.524689999627299e-05, "lr": 4.5489573814839405e-05, "seconds": 1670.7578923999972, "peakAllocatedBytes": 1262488576, "peakReservedBytes": 1476395008}
+{"step": 240, "loss": 6.686386495857732e-05, "lr": 3.897735415432459e-05, "seconds": 1696.3440682000073, "peakAllocatedBytes": 1262488576, "peakReservedBytes": 1476395008}
+{"step": 250, "loss": 5.631022077068337e-05, "lr": 3.3327253204550576e-05, "seconds": 1722.333223900001, "peakAllocatedBytes": 1262488576, "peakReservedBytes": 1476395008}
+{"step": 260, "loss": 4.18185315993469e-05, "lr": 2.860785553721803e-05, "seconds": 1747.408684599999, "peakAllocatedBytes": 1262488576, "peakReservedBytes": 1476395008}
+{"step": 270, "loss": 7.472503421013243e-05, "lr": 2.4876448246942883e-05, "seconds": 1771.6844276000047, "peakAllocatedBytes": 1262488576, "peakReservedBytes": 1476395008}
+{"step": 280, "loss": 7.87775361459353e-05, "lr": 2.2178325563530795e-05, "seconds": 1797.3787558999902, "peakAllocatedBytes": 1262488576, "peakReservedBytes": 1476395008}
+{"step": 290, "loss": 5.563159993471345e-05, "lr": 2.054623904138455e-05, "seconds": 1821.7045054000046, "peakAllocatedBytes": 1262488576, "peakReservedBytes": 1476395008}
+{"step": 300, "loss": 5.693560228792194e-05, "lr": 2e-05, "seconds": 1846.6609446999792, "peakAllocatedBytes": 1262488576, "peakReservedBytes": 1476395008}
+validation-10-000 1908 generated
+validation-10-001 1795 generated
+validation-10-002 2183 generated
+validation-10-003 1971 generated
+validation-10-004 1956 generated
+validation-10-005 1916 generated
+validation-10-006 1985 generated
+validation-10-007 1925 generated
+validation-10-008 2001 generated
+validation-10-009 1905 generated
+validation-10-010 2077 generated
+validation-10-011 1846 generated
+validation-10-012 1890 generated
+validation-10-013 1842 generated
+validation-10-014 1889 generated
+validation-10-015 1777 generated
+validation-10-016 1794 generated
+validation-10-017 1821 generated
+validation-10-018 1981 generated
+validation-10-019 2038 generated
+validation-11-000 2022 generated
+validation-11-001 1819 generated
+validation-11-002 2045 generated
+validation-11-003 1919 generated
+validation-11-004 1936 generated
+validation-11-005 1967 generated
+validation-11-006 1925 generated
+validation-11-007 1832 generated
+validation-11-008 1815 generated
+validation-11-009 1843 generated
+validation-11-010 2001 generated
+validation-11-011 1919 generated
+validation-11-012 2000 generated
+validation-11-013 1793 generated
+validation-11-014 1913 generated
+validation-11-015 1960 generated
+validation-11-016 1810 generated
+validation-11-017 1948 generated
+validation-11-018 1869 generated
+validation-11-019 2064 generated
+validation-12-000 1895 generated
+validation-12-001 1894 generated
+validation-12-002 1873 generated
+validation-12-003 1805 generated
+validation-12-004 1879 generated
+validation-12-005 1925 generated
+validation-12-006 1894 generated
+validation-12-007 1852 generated
+validation-12-008 1850 generated
+validation-12-009 1920 generated
+validation-12-010 1806 generated
+validation-12-011 1847 generated
+validation-12-012 1943 generated
+validation-12-013 1904 generated
+validation-12-014 1891 generated
+validation-12-015 1862 generated
+validation-12-016 1903 generated
+validation-12-017 1991 generated
+validation-12-018 1963 generated
+validation-12-019 1859 generated
+v2-validation-5-000 1979 generated
+v2-validation-5-001 1818 generated
+v2-validation-5-002 2026 generated
+v2-validation-5-003 1863 generated
+v2-validation-5-004 1710 generated
+v2-validation-5-005 1786 generated
+v2-validation-5-006 1948 generated
+v2-validation-5-007 1943 generated
+v2-validation-5-008 2044 generated
+v2-validation-5-009 2031 generated
+v2-validation-5-010 1881 generated
+v2-validation-5-011 2063 generated
+v2-validation-5-012 2111 generated
+v2-validation-5-013 1885 generated
+v2-validation-5-014 1898 generated
+v2-validation-5-015 1737 generated
+v2-validation-5-016 1852 generated
+v2-validation-5-017 1789 generated
+v2-validation-5-018 1830 generated
+v2-validation-5-019 1826 generated
+v2-validation-5-020 1809 generated
+v2-validation-5-021 1798 generated
+v2-validation-5-022 2013 generated
+v2-validation-5-023 1900 generated
+v2-validation-5-024 1915 generated
+v2-validation-5-025 2072 generated
+v2-validation-5-026 1861 generated
+v2-validation-5-027 1920 generated
+v2-validation-5-028 1850 generated
+v2-validation-5-029 2088 generated
+v2-validation-5-030 1739 generated
+v2-validation-5-031 1750 generated
+v2-validation-5-032 1984 generated
+v2-validation-5-033 1834 generated
+v2-validation-5-034 1845 generated
+v2-validation-5-035 1884 generated
+v2-validation-5-036 1980 generated
+v2-validation-5-037 1935 generated
+v2-validation-5-038 1902 generated
+v2-validation-5-039 1979 generated
+{
+  "seed": 29,
+  "stepsPlanned": 300,
+  "gradientAccumulation": 8,
+  "batchSize": 1,
+  "maxSequenceTokens": 768,
+  "selection": "Max validation clothing recall, then precision, then field accuracy, then exact documents; no test access",
+  "parity": {
+    "denseLoss": 3.01193904876709,
+    "chunkedLoss": 3.01193904876709,
+    "gradientMaxAbsoluteErrors": [
+      7.450580596923828e-09,
+      2.9802322387695312e-08
+    ]
+  },
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "torch": "2.6.0+cu124",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "datasetManifestSha256": "0d6368f1dd39edddfe7f7de99950ad90bc28b434f443ed91ec29a808fd50a8f9",
+  "protocolSha256": "6b67bb3cfaeafc07cb9f6f1024169b594271f59b5d4fa5bb050b32550f7f4ba9",
+  "history": [
+    {
+      "step": 10,
+      "loss": 0.03198427089955658,
+      "lr": 0.00013333333333333334,
+      "seconds": 28.370273699983954,
+      "peakAllocatedBytes": 1223155200,
+      "peakReservedBytes": 1325400064
+    },
+    {
+      "step": 20,
+      "loss": 0.04035869991639629,
+      "lr": 0.00019986333647899847,
+      "seconds": 593.5444123999914,
+      "peakAllocatedBytes": 1223195648,
+      "peakReservedBytes": 1325400064
+    },
+    {
+      "step": 30,
+      "loss": 0.0024984065676108003,
+      "lr": 0.00019877251730624501,
+      "seconds": 632.8710947999789,
+      "peakAllocatedBytes": 1223394304,
+      "peakReservedBytes": 1325400064
+    },
+    {
+      "step": 40,
+      "loss": 0.0011100568390247645,
+      "lr": 0.00019660412002783253,
+      "seconds": 668.6605908999918,
+      "peakAllocatedBytes": 1223394304,
+      "peakReservedBytes": 1325400064
+    },
+    {
+      "step": 50,
+      "loss": 0.0005492579639394535,
+      "lr": 0.00019338446604933216,
+      "seconds": 701.890221699985,
+      "peakAllocatedBytes": 1223394304,
+      "peakReservedBytes": 1325400064
+    },
+    {
+      "step": 60,
+      "loss": 0.0015256387614499545,
+      "lr": 0.000189152637608584,
+      "seconds": 735.5326289999939,
+      "peakAllocatedBytes": 1223394304,
+      "peakReservedBytes": 1325400064
+    },
+    {
+      "step": 70,
+      "loss": 0.00021989216929796385,
+      "lr": 0.00018396000337027207,
+      "seconds": 768.8283544000005,
+      "peakAllocatedBytes": 1223394304,
+      "peakReservedBytes": 1325400064
+    },
+    {
+      "step": 80,
+      "loss": 0.0003449219548201654,
+      "lr": 0.00017786959487992067,
+      "seconds": 795.7464551999874,
+      "peakAllocatedBytes": 1223394304,
+      "peakReservedBytes": 1325400064
+    },
+    {
+      "step": 90,
+      "loss": 0.0002077865269711765,
+      "lr": 0.0001709553414463167,
+      "seconds": 821.4723053000052,
+      "peakAllocatedBytes": 1223394304,
+      "peakReservedBytes": 1325400064
+    },
+    {
+      "step": 100,
+      "loss": 0.00015272748987626983,
+      "lr": 0.00016330117273984822,
+      "seconds": 850.1051361999998,
+      "peakAllocatedBytes": 1223394304,
+      "peakReservedBytes": 1325400064
+    },
+    {
+      "step": 110,
+      "loss": 0.00011497663717818796,
+      "lr": 0.000155,
+      "seconds": 1071.9686894000042,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 120,
+      "loss": 7.696792636124883e-05,
+      "lr": 0.00014615258821876724,
+      "seconds": 1097.537795799988,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 130,
+      "loss": 0.0001467473930460983,
+      "lr": 0.00013686633299015251,
+      "seconds": 1122.560905899998,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 140,
+      "loss": 0.0001326283977505227,
+      "lr": 0.00012725395687313647,
+      "seconds": 1147.89345589999,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 150,
+      "loss": 6.782607397326501e-05,
+      "lr": 0.00011743214109250993,
+      "seconds": 1173.7393149999843,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 160,
+      "loss": 8.49434995870979e-05,
+      "lr": 0.00010752010918686544,
+      "seconds": 1199.0153487999924,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 170,
+      "loss": 9.210052439811989e-05,
+      "lr": 9.763817979634326e-05,
+      "seconds": 1225.4783813999966,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 180,
+      "loss": 6.123354114606627e-05,
+      "lr": 8.790630615732811e-05,
+      "seconds": 1254.8927029999904,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 190,
+      "loss": 6.658037045781384e-05,
+      "lr": 7.844262003265215e-05,
+      "seconds": 1286.2346235000005,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 200,
+      "loss": 6.116097119956976e-05,
+      "lr": 6.936199775201998e-05,
+      "seconds": 1318.9234922000032,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 210,
+      "loss": 5.9227969586572726e-05,
+      "lr": 6.077466576898161e-05,
+      "seconds": 1618.411110599991,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 220,
+      "loss": 6.822319846833125e-05,
+      "lr": 5.27848626611029e-05,
+      "seconds": 1644.0747009000042,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 230,
+      "loss": 7.524689999627299e-05,
+      "lr": 4.5489573814839405e-05,
+      "seconds": 1670.7578923999972,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 240,
+      "loss": 6.686386495857732e-05,
+      "lr": 3.897735415432459e-05,
+      "seconds": 1696.3440682000073,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 250,
+      "loss": 5.631022077068337e-05,
+      "lr": 3.3327253204550576e-05,
+      "seconds": 1722.333223900001,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 260,
+      "loss": 4.18185315993469e-05,
+      "lr": 2.860785553721803e-05,
+      "seconds": 1747.408684599999,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 270,
+      "loss": 7.472503421013243e-05,
+      "lr": 2.4876448246942883e-05,
+      "seconds": 1771.6844276000047,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 280,
+      "loss": 7.87775361459353e-05,
+      "lr": 2.2178325563530795e-05,
+      "seconds": 1797.3787558999902,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 290,
+      "loss": 5.563159993471345e-05,
+      "lr": 2.054623904138455e-05,
+      "seconds": 1821.7045054000046,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 300,
+      "loss": 5.693560228792194e-05,
+      "lr": 2e-05,
+      "seconds": 1846.6609446999792,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    }
+  ],
+  "examples": {
+    "positive": 630,
+    "negative": 2700,
+    "sampling": "50% positive / 50% negative with replacement",
+    "maxTokens": 233
+  },
+  "trainableParameters": 8798208,
+  "sameBatchMemoryComparison": [
+    {
+      "mode": "dense",
+      "tokens": 221,
+      "loss": 0.3149012327194214,
+      "peakAllocatedBytes": 1897475584,
+      "peakReservedBytes": 2036334592,
+      "seconds": 0.8555953000031877
+    },
+    {
+      "mode": "chunked",
+      "tokens": 221,
+      "loss": 0.3185729682445526,
+      "peakAllocatedBytes": 1658860032,
+      "peakReservedBytes": 1778384896,
+      "seconds": 0.3205978999903891
+    }
+  ],
+  "validation": [
+    {
+      "step": 100,
+      "rank": [
+        1.0,
+        1.0,
+        1.0,
+        100
+      ]
+    },
+    {
+      "step": 200,
+      "rank": [
+        1.0,
+        1.0,
+        1.0,
+        100
+      ]
+    },
+    {
+      "step": 300,
+      "rank": [
+        1.0,
+        1.0,
+        1.0,
+        100
+      ]
+    }
+  ],
+  "stepsCompleted": 300,
+  "selectedStep": 100,
+  "seconds": 2040.336350700003,
+  "peakAllocatedBytes": 1319734272,
+  "peakReservedBytes": 1610612736,
+  "stressTokens": 768,
+  "stressLoss": 1.2029025554656982,
+  "outOfMemory": false,
+  "automaticallyPromoted": false,
+  "testUsedForSelection": false,
+  "adapterSha256": "d22418a62dc277bada015dddcb43314f2f72e9959127d98a49d106d071ecb5eb"
+}

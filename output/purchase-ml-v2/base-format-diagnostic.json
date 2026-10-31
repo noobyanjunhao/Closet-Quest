@@ -1,0 +1,1109 @@
+{
+  "documents": 100,
+  "documentsWithObservedContractErrorAfterFenceRemoval": 100,
+  "observedDecisions": 100,
+  "parsedAfterFenceRemoval": 100,
+  "notes": "Diagnostic only. The strict extractor stops recording at its first malformed decision, so later line outputs are unavailable for these failures. This checks retained decisions, not a tolerant full-receipt accuracy score. It does not change the frozen primary scores or train the model.",
+  "details": [
+    {
+      "id": "v2-test-6-000",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-6-001",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-6-002",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-6-003",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-6-004",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-6-005",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-6-006",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-6-007",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-6-008",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-6-009",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-6-010",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-6-011",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-6-012",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-6-013",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-6-014",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-6-015",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-6-016",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-6-017",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-6-018",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-6-019",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-6-020",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-6-021",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-6-022",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-6-023",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-6-024",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-7-000",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-7-001",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-7-002",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-7-003",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-7-004",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-7-005",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-7-006",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-7-007",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-7-008",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-7-009",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-7-010",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-7-011",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-7-012",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-7-013",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-7-014",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-7-015",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-7-016",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-7-017",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-7-018",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-7-019",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-7-020",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-7-021",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-7-022",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-7-023",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-7-024",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-8-000",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-8-001",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-8-002",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-8-003",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-8-004",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-8-005",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-8-006",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-8-007",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-8-008",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-8-009",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-8-010",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-8-011",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-8-012",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-8-013",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-8-014",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-8-015",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-8-016",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-8-017",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-8-018",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-8-019",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-8-020",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-8-021",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-8-022",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-8-023",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-8-024",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-9-000",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-9-001",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-9-002",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-9-003",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-9-004",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-9-005",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-9-006",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-9-007",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-9-008",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-9-009",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-9-010",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-9-011",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-9-012",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-9-013",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-9-014",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-9-015",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-9-016",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-9-017",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-9-018",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-9-019",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-9-020",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-9-021",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-9-022",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-9-023",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    },
+    {
+      "id": "v2-test-9-024",
+      "observedDecisions": 1,
+      "parsedAfterFenceRemoval": 1,
+      "stillInvalid": [
+        {
+          "observedLine": 1,
+          "error": "L1: invalid garment decision"
+        }
+      ]
+    }
+  ]
+}

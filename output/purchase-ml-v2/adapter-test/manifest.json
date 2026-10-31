@@ -1,0 +1,11 @@
+{
+  "adapterSha256": "d22418a62dc277bada015dddcb43314f2f72e9959127d98a49d106d071ecb5eb",
+  "protocolSha256": "6b67bb3cfaeafc07cb9f6f1024169b594271f59b5d4fa5bb050b32550f7f4ba9",
+  "split": "test",
+  "modelLoadMs": 2043.6877000029199,
+  "peakAllocatedBytes": 1069483008,
+  "peakReservedBytes": 1184890880,
+  "batchLines": 8,
+  "maxNewTokens": 192,
+  "singleGpuNoConcurrentInference": true
+}

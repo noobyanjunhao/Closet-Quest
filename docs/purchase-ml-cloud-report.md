@@ -1,5 +1,7 @@
 # Closet Quest: purchase extraction, fine-tuning and cloud validation
 
+**Historical v1 checkpoint.** The follow-up [v2 model and GPU-memory report](purchase-ml-v2-report.md) contains the new training run, paired comparisons and remaining failures. The v1 results below are preserved as the before-change evidence.
+
 **Try the app:** [Closet Quest](https://closet-quest-junhao-s7.onrender.com/). Sign in and open **Add clothes → Import purchases**. Please try a short clothing purchase, check the proposed fields and tell us what needed correction. Remove addresses and payment details first.
 
 This report covers the next stage of **purchase-text import**, not a new image-recognition benchmark or a claim about outfit acceptance. It replaces the earlier M0–M1 review checkpoint for this feature. The implementation, synthetic dataset, per-example predictions and failed attempts are available for review. No participant results are invented.

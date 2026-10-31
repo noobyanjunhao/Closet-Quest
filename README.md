@@ -2,6 +2,14 @@
 
 **Live app:** [Try Closet Quest](https://closet-quest-junhao-s7.onrender.com/).
 
+## Purchase model v2 — fewer omissions and bounded GPU training
+
+The follow-up replaces whole-receipt generation with explicit per-line decisions, grounded evidence assembly and shorter, memory-bounded LoRA training. Read the [latest measured results and limitations](docs/purchase-ml-v2-report.md), [raw experiment evidence](output/purchase-ml-v2/README.md) and [reproduction/serving instructions](ml/purchase/V2.md). This evaluates purchase text; it does not replace the photo-recognition benchmark. The earlier experiment below is retained as the baseline.
+
+The new run completed 300/300 training steps plus a 768-token stress check without OOM, with a 1.23 GiB allocated GPU peak. The selected adapter recovered 111/112 garments on 100 new synthetic receipts (99 fully correct), and 60/60 garments on the old regression set. One unsupported hoodie name was rejected and remains in the results. The adapter is an evaluated local candidate; the hosted app continues to use its existing fallback when no worker is running.
+
+Broader probes passed 8/15 and the real local integration check passed 5/6. Store headers and continued attribute lines can still become spurious garments, so the candidate was not promoted. The report includes these failures alongside the improved benchmark and memory results.
+
 ## Purchase ML and cloud deployment — October 30
 
 Purchase-text import is enabled on the hosted app: **Add clothes → Import purchases**. Drafts and jobs persist in Supabase, with owner access controls, an outbound laptop worker and an explicitly labeled fast-parser fallback when the worker is offline. Every proposed garment still requires review and ownership confirmation. This uses the existing free services; it does not provide an always-on cloud GPU.

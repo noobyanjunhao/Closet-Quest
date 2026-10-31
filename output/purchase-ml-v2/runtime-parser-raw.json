@@ -1,0 +1,6679 @@
+[
+  {
+    "id": "v2-test-6-000",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Checkout article: Canvas sneakers -- quantity 1 -- color Red -- brand: Grove -- size: 42",
+          "category": "Shoes",
+          "color": null,
+          "size": "42",
+          "brand": "Grove",
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Checkout article: Canvas sneakers -- quantity 1 -- color Red -- brand: Grove -- size: 42"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "sneakers"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "42"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Grove"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.8521999999999821,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 1.1953000000000031
+  },
+  {
+    "id": "v2-test-6-001",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.28419999999999845,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.32269999999999754
+  },
+  {
+    "id": "v2-test-6-002",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Checkout article: Linen trousers -- size: L -- brand: Cedar -- color: Blue -- quantity: 1",
+          "category": "Bottom",
+          "color": "Blue",
+          "size": "L",
+          "brand": "Cedar",
+          "quantity": 1,
+          "source_line_ids": [
+            "L4"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L4",
+              "quote": "Checkout article: Linen trousers -- size: L -- brand: Cedar -- color: Blue -- quantity: 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L4",
+              "quote": "trousers"
+            },
+            {
+              "field": "color",
+              "line_id": "L4",
+              "quote": "Blue"
+            },
+            {
+              "field": "size",
+              "line_id": "L4",
+              "quote": "L"
+            },
+            {
+              "field": "brand",
+              "line_id": "L4",
+              "quote": "Cedar"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L4",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L5",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L6",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L7",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.3129999999999882,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.3411000000000115
+  },
+  {
+    "id": "v2-test-6-003",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.028600000000011505,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.05559999999999832
+  },
+  {
+    "id": "v2-test-6-004",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Returned (confirm ownership): Checkout article: Baseball cap -- brand: Field -- quantity: 1 -- color: Cream -- size XL",
+          "category": "Accessory",
+          "color": "Cream",
+          "size": null,
+          "brand": "Field",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm return ownership",
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Returned (confirm ownership): Checkout article: Baseball cap -- brand: Field -- quantity: 1 -- color: Cream -- size XL"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "cap"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Cream"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Field"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.19180000000000064,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.20550000000000068
+  },
+  {
+    "id": "v2-test-6-005",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Checkout article: Wool coat -- size XL -- quantity 1 -- color: Black",
+          "category": "Outerwear",
+          "color": "Black",
+          "size": null,
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Checkout article: Wool coat -- size XL -- quantity 1 -- color: Black"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "coat"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Black"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "instruction"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.06289999999998486,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.087600000000009
+  },
+  {
+    "id": "v2-test-6-006",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Checkout article: Silk scarf -- brand Juniper -- color Tan",
+          "category": "Accessory",
+          "color": null,
+          "size": null,
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Checkout article: Silk scarf -- brand Juniper -- color Tan"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "scarf"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.05570000000000164,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.06889999999998508
+  },
+  {
+    "id": "v2-test-6-007",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Checkout article: Leather loafers -- size XL -- quantity: 1 -- color: Cream",
+          "category": "Shoes",
+          "color": "Cream",
+          "size": null,
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Checkout article: Leather loafers -- size XL -- quantity: 1 -- color: Cream"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "loafers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Cream"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L7",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.0595000000000141,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.07589999999999009
+  },
+  {
+    "id": "v2-test-6-008",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Checkout article: Canvas sneakers -- size 38 -- quantity: 1 -- brand: Elm -- color: Red",
+          "category": "Shoes",
+          "color": "Red",
+          "size": null,
+          "brand": "Elm",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Checkout article: Canvas sneakers -- size 38 -- quantity: 1 -- brand: Elm -- color: Red"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "sneakers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Red"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Elm"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.20849999999998658,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.2750000000000057
+  },
+  {
+    "id": "v2-test-6-009",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.02179999999998472,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.04420000000001778
+  },
+  {
+    "id": "v2-test-6-010",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.026700000000005275,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.03860000000000241
+  },
+  {
+    "id": "v2-test-6-011",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Checkout article: Chelsea boots",
+          "category": "Shoes",
+          "color": null,
+          "size": null,
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Checkout article: Chelsea boots"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "boots"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.0362999999999829,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.04580000000001405
+  },
+  {
+    "id": "v2-test-6-012",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Checkout article: Wrap dress -- quantity: 1 -- brand: Cedar -- size: 42 -- color: Red",
+          "category": "Dress",
+          "color": "Red",
+          "size": "42",
+          "brand": "Cedar",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Checkout article: Wrap dress -- quantity: 1 -- brand: Cedar -- size: 42 -- color: Red"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Red"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "42"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Cedar"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        },
+        {
+          "description": "Checkout article: Wool coat -- size 40 -- brand Field -- color Grey -- quantity 1",
+          "category": "Outerwear",
+          "color": null,
+          "size": null,
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L3"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L3",
+              "quote": "Checkout article: Wool coat -- size 40 -- brand Field -- color Grey -- quantity 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L3",
+              "quote": "coat"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L4",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L5",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L6",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L7",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.06980000000001496,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.07779999999999632
+  },
+  {
+    "id": "v2-test-6-013",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.013200000000011869,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.021299999999996544
+  },
+  {
+    "id": "v2-test-6-014",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Returned (confirm ownership): Checkout article: Denim skirt -- size XS -- color Tan -- quantity: 1 -- brand Harbor",
+          "category": "Bottom",
+          "color": null,
+          "size": null,
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm return ownership",
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Returned (confirm ownership): Checkout article: Denim skirt -- size XS -- color Tan -- quantity: 1 -- brand Harbor"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "skirt"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.04200000000000159,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.0508999999999844
+  },
+  {
+    "id": "v2-test-6-015",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Checkout article: Silk scarf -- size: XS -- quantity 1 -- color: Tan",
+          "category": "Accessory",
+          "color": "Tan",
+          "size": "XS",
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Checkout article: Silk scarf -- size: XS -- quantity 1 -- color: Tan"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "scarf"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Tan"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "XS"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "instruction"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.10660000000001446,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.12620000000001141
+  },
+  {
+    "id": "v2-test-6-016",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.032299999999992224,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.054200000000008686
+  },
+  {
+    "id": "v2-test-6-017",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Checkout article: Leather loafers -- size: 38 -- color Tan -- quantity: 1",
+          "category": "Shoes",
+          "color": null,
+          "size": "38",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Checkout article: Leather loafers -- size: 38 -- color Tan -- quantity: 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "loafers"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "38"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L7",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.09149999999999636,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.10890000000000555
+  },
+  {
+    "id": "v2-test-6-018",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.11490000000000578,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.14440000000001874
+  },
+  {
+    "id": "v2-test-6-019",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Checkout article: Rain jacket -- brand Cedar -- size 40 -- color Grey -- quantity: 2",
+          "category": "Outerwear",
+          "color": null,
+          "size": null,
+          "brand": null,
+          "quantity": 2,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Checkout article: Rain jacket -- brand Cedar -- size 40 -- color Grey -- quantity: 2"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "jacket"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "2"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.08979999999999677,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.11029999999999518
+  },
+  {
+    "id": "v2-test-6-020",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Checkout article: Leather loafers -- color: Cream -- size S -- brand: Grove -- quantity 1",
+          "category": "Shoes",
+          "color": "Cream",
+          "size": null,
+          "brand": "Grove",
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Checkout article: Leather loafers -- color: Cream -- size S -- brand: Grove -- quantity 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "loafers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Cream"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Grove"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.048799999999999955,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.06729999999998881
+  },
+  {
+    "id": "v2-test-6-021",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.017899999999997362,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.03150000000002251
+  },
+  {
+    "id": "v2-test-6-022",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Checkout article: Silk scarf -- size: 42 -- color Red -- quantity: 1 -- brand Grove",
+          "category": "Accessory",
+          "color": null,
+          "size": "42",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Checkout article: Silk scarf -- size: 42 -- color Red -- quantity: 1 -- brand Grove"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "scarf"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "42"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        },
+        {
+          "description": "Checkout article: Silk scarf -- quantity 1 -- color Black -- size: 42 -- brand: Cedar",
+          "category": "Accessory",
+          "color": null,
+          "size": "42",
+          "brand": "Cedar",
+          "quantity": null,
+          "source_line_ids": [
+            "L4"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L4",
+              "quote": "Checkout article: Silk scarf -- quantity 1 -- color Black -- size: 42 -- brand: Cedar"
+            },
+            {
+              "field": "category",
+              "line_id": "L4",
+              "quote": "scarf"
+            },
+            {
+              "field": "size",
+              "line_id": "L4",
+              "quote": "42"
+            },
+            {
+              "field": "brand",
+              "line_id": "L4",
+              "quote": "Cedar"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L5",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L6",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L7",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.080600000000004,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.09159999999999968
+  },
+  {
+    "id": "v2-test-6-023",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.013800000000003365,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.02529999999998722
+  },
+  {
+    "id": "v2-test-6-024",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.021099999999989905,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.028699999999986403
+  },
+  {
+    "id": "v2-test-7-000",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Receipt entry {Chelsea boots}; details size 38 / brand: Field / color Grey / quantity 1",
+          "category": "Shoes",
+          "color": null,
+          "size": null,
+          "brand": "Field",
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Receipt entry {Chelsea boots}; details size 38 / brand: Field / color Grey / quantity 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "boots"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Field"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.034300000000001774,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.043200000000013006
+  },
+  {
+    "id": "v2-test-7-001",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Receipt entry {Midi dress}; details",
+          "category": "Dress",
+          "color": null,
+          "size": null,
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Receipt entry {Midi dress}; details"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.036100000000004684,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.061199999999985266
+  },
+  {
+    "id": "v2-test-7-002",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Receipt entry {Wool coat}; details size: XS / color Red / quantity 1 / brand Field",
+          "category": "Outerwear",
+          "color": null,
+          "size": "XS",
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L3"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L3",
+              "quote": "Receipt entry {Wool coat}; details size: XS / color Red / quantity 1 / brand Field"
+            },
+            {
+              "field": "category",
+              "line_id": "L3",
+              "quote": "coat"
+            },
+            {
+              "field": "size",
+              "line_id": "L3",
+              "quote": "XS"
+            }
+          ]
+        },
+        {
+          "description": "Receipt entry {Knit cardigan}; details size 40 / color Red / brand Elm / quantity 1",
+          "category": "Top",
+          "color": null,
+          "size": null,
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L4"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L4",
+              "quote": "Receipt entry {Knit cardigan}; details size 40 / color Red / brand Elm / quantity 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L4",
+              "quote": "cardigan"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L5",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L6",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L7",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.09990000000001942,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.11170000000001323
+  },
+  {
+    "id": "v2-test-7-003",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.015699999999981173,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.02770000000001005
+  },
+  {
+    "id": "v2-test-7-004",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Returned (confirm ownership): Receipt entry {Linen trousers}; details size L / color: Cream / brand: Field / quantity: 1",
+          "category": "Bottom",
+          "color": "Cream",
+          "size": null,
+          "brand": "Field",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm return ownership",
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Returned (confirm ownership): Receipt entry {Linen trousers}; details size L / color: Cream / brand: Field / quantity: 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "trousers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Cream"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Field"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.03830000000002087,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.04640000000000555
+  },
+  {
+    "id": "v2-test-7-005",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Receipt entry {Leather loafers}; details size: S / color: Black / quantity 1",
+          "category": "Shoes",
+          "color": "Black",
+          "size": "S",
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Receipt entry {Leather loafers}; details size: S / color: Black / quantity 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "loafers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Black"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "S"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "instruction"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.057599999999979445,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.06800000000001205
+  },
+  {
+    "id": "v2-test-7-006",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.019400000000018736,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.04599999999999227
+  },
+  {
+    "id": "v2-test-7-007",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L7",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.024500000000017508,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.03360000000000696
+  },
+  {
+    "id": "v2-test-7-008",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Receipt entry {Chelsea boots}; details brand Cedar / size: XL / quantity: 1 / color Blue",
+          "category": "Shoes",
+          "color": null,
+          "size": "XL",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Receipt entry {Chelsea boots}; details brand Cedar / size: XL / quantity: 1 / color Blue"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "boots"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "XL"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.05509999999998172,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.06569999999999254
+  },
+  {
+    "id": "v2-test-7-009",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.015399999999999636,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.024499999999989086
+  },
+  {
+    "id": "v2-test-7-010",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.013900000000006685,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.02019999999998845
+  },
+  {
+    "id": "v2-test-7-011",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Receipt entry {Wrap dress}; details",
+          "category": "Dress",
+          "color": null,
+          "size": null,
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Receipt entry {Wrap dress}; details"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.026700000000005275,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.03300000000001546
+  },
+  {
+    "id": "v2-test-7-012",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Receipt entry {Chelsea boots}; details quantity: 1 / size: M / color Black / brand: Juniper",
+          "category": "Shoes",
+          "color": null,
+          "size": "M",
+          "brand": "Juniper",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Receipt entry {Chelsea boots}; details quantity: 1 / size: M / color Black / brand: Juniper"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "boots"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "M"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Juniper"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        },
+        {
+          "description": "Receipt entry {Leather loafers}; details quantity: 1 / brand Harbor / size XL / color Red",
+          "category": "Shoes",
+          "color": null,
+          "size": null,
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L3"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L3",
+              "quote": "Receipt entry {Leather loafers}; details quantity: 1 / brand Harbor / size XL / color Red"
+            },
+            {
+              "field": "category",
+              "line_id": "L3",
+              "quote": "loafers"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L3",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L4",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L5",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L6",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L7",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.06940000000000168,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.07840000000001623
+  },
+  {
+    "id": "v2-test-7-013",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.011899999999997135,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.020000000000010232
+  },
+  {
+    "id": "v2-test-7-014",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.01480000000000814,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.021600000000006503
+  },
+  {
+    "id": "v2-test-7-015",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Receipt entry {Knit cardigan}; details quantity: 1 / size XS / color: Tan",
+          "category": "Top",
+          "color": "Tan",
+          "size": null,
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Receipt entry {Knit cardigan}; details quantity: 1 / size XS / color: Tan"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "cardigan"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Tan"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "instruction"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.0292999999999779,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.03640000000001464
+  },
+  {
+    "id": "v2-test-7-016",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Receipt entry {Knit cardigan}; details color: Red / brand Juniper",
+          "category": "Top",
+          "color": "Red",
+          "size": null,
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Receipt entry {Knit cardigan}; details color: Red / brand Juniper"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "cardigan"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Red"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.04570000000001073,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.05310000000000059
+  },
+  {
+    "id": "v2-test-7-017",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Receipt entry {Midi dress}; details quantity: 1 / size: L / color: Blue",
+          "category": "Dress",
+          "color": "Blue",
+          "size": "L",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Receipt entry {Midi dress}; details quantity: 1 / size: L / color: Blue"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Blue"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "L"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L7",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.03290000000001214,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.041100000000000136
+  },
+  {
+    "id": "v2-test-7-018",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.018699999999995498,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.02729999999999677
+  },
+  {
+    "id": "v2-test-7-019",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.014100000000013324,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.021800000000013142
+  },
+  {
+    "id": "v2-test-7-020",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Receipt entry {Midi dress}; details size 38 / quantity 1 / color Red / brand: Juniper",
+          "category": "Dress",
+          "color": null,
+          "size": null,
+          "brand": "Juniper",
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Receipt entry {Midi dress}; details size 38 / quantity 1 / color Red / brand: Juniper"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Juniper"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.03340000000000032,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.04420000000001778
+  },
+  {
+    "id": "v2-test-7-021",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.04219999999997981,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.05940000000001078
+  },
+  {
+    "id": "v2-test-7-022",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Receipt entry {Midi dress}; details brand: Cedar / color Olive / size: XS / quantity 1",
+          "category": "Dress",
+          "color": null,
+          "size": "XS",
+          "brand": "Cedar",
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Receipt entry {Midi dress}; details brand: Cedar / color Olive / size: XS / quantity 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "XS"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Cedar"
+            }
+          ]
+        },
+        {
+          "description": "Receipt entry {Wrap dress}; details size: L / brand Field / color Red / quantity: 1",
+          "category": "Dress",
+          "color": null,
+          "size": "L",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L3"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L3",
+              "quote": "Receipt entry {Wrap dress}; details size: L / brand Field / color Red / quantity: 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L3",
+              "quote": "dress"
+            },
+            {
+              "field": "size",
+              "line_id": "L3",
+              "quote": "L"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L3",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L4",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L5",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L6",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L7",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.11459999999999582,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.13700000000000045
+  },
+  {
+    "id": "v2-test-7-023",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.02039999999999509,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.036000000000001364
+  },
+  {
+    "id": "v2-test-7-024",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Returned (confirm ownership): Receipt entry {Leather loafers}; details brand Field / color Grey / size: 42 / quantity 1",
+          "category": "Shoes",
+          "color": null,
+          "size": "42",
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm return ownership",
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Returned (confirm ownership): Receipt entry {Leather loafers}; details brand Field / color Grey / size: 42 / quantity 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "loafers"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "42"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 1.1559999999999775,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 1.175299999999993
+  },
+  {
+    "id": "v2-test-8-000",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Selected merchandise = Oxford shirt; size M",
+          "category": "Top",
+          "color": null,
+          "size": null,
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Selected merchandise = Oxford shirt; size M"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "shirt"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.052299999999974034,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.08389999999999986
+  },
+  {
+    "id": "v2-test-8-001",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Selected merchandise = Linen trousers",
+          "category": "Bottom",
+          "color": null,
+          "size": null,
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Selected merchandise = Linen trousers"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "trousers"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.0327000000000055,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.05010000000001469
+  },
+  {
+    "id": "v2-test-8-002",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Selected merchandise = Midi dress; brand Field",
+          "category": "Dress",
+          "color": null,
+          "size": null,
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L3"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L3",
+              "quote": "Selected merchandise = Midi dress; brand Field"
+            },
+            {
+              "field": "category",
+              "line_id": "L3",
+              "quote": "dress"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L3",
+              "quote": "1"
+            }
+          ]
+        },
+        {
+          "description": "Selected merchandise = Silk scarf; quantity 1",
+          "category": "Accessory",
+          "color": null,
+          "size": "M",
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L4"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L4",
+              "quote": "Selected merchandise = Silk scarf; quantity 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L4",
+              "quote": "scarf"
+            },
+            {
+              "field": "size",
+              "line_id": "L4",
+              "quote": "M"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L5",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L6",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L7",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.10030000000000427,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.11889999999999645
+  },
+  {
+    "id": "v2-test-8-003",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.014199999999988222,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.030699999999995953
+  },
+  {
+    "id": "v2-test-8-004",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Returned (confirm ownership): Selected merchandise = Wrap dress; quantity: 1",
+          "category": "Dress",
+          "color": "Tan",
+          "size": "42",
+          "brand": "Elm",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm return ownership",
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Returned (confirm ownership): Selected merchandise = Wrap dress; quantity: 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Tan"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "42"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Elm"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.05210000000002424,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.057599999999979445
+  },
+  {
+    "id": "v2-test-8-005",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Selected merchandise = Chelsea boots; size: S",
+          "category": "Shoes",
+          "color": "Grey",
+          "size": "S",
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Selected merchandise = Chelsea boots; size: S"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "boots"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Grey"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "S"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "instruction"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.09219999999999118,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.10089999999999577
+  },
+  {
+    "id": "v2-test-8-006",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.0297000000000196,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.04569999999998231
+  },
+  {
+    "id": "v2-test-8-007",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L7",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.02529999999998722,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.036000000000001364
+  },
+  {
+    "id": "v2-test-8-008",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.026899999999983493,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.039800000000013824
+  },
+  {
+    "id": "v2-test-8-009",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Selected merchandise = Chelsea boots; color Navy",
+          "category": "Shoes",
+          "color": null,
+          "size": null,
+          "brand": null,
+          "quantity": 2,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Selected merchandise = Chelsea boots; color Navy"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "boots"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "2"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.10070000000001755,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.10859999999999559
+  },
+  {
+    "id": "v2-test-8-010",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Selected merchandise = Leather loafers; brand: Juniper",
+          "category": "Shoes",
+          "color": null,
+          "size": null,
+          "brand": "Juniper",
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Selected merchandise = Leather loafers; brand: Juniper"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "loafers"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Juniper"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.043000000000006366,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.05679999999998131
+  },
+  {
+    "id": "v2-test-8-011",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Selected merchandise = Leather loafers",
+          "category": "Shoes",
+          "color": null,
+          "size": null,
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Selected merchandise = Leather loafers"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "loafers"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.02559999999999718,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.032399999999995543
+  },
+  {
+    "id": "v2-test-8-012",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Selected merchandise = Wrap dress; size: S",
+          "category": "Dress",
+          "color": "Grey",
+          "size": "S",
+          "brand": "Field",
+          "quantity": 1,
+          "source_line_ids": [
+            "L3"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L3",
+              "quote": "Selected merchandise = Wrap dress; size: S"
+            },
+            {
+              "field": "category",
+              "line_id": "L3",
+              "quote": "dress"
+            },
+            {
+              "field": "color",
+              "line_id": "L3",
+              "quote": "Grey"
+            },
+            {
+              "field": "size",
+              "line_id": "L3",
+              "quote": "S"
+            },
+            {
+              "field": "brand",
+              "line_id": "L3",
+              "quote": "Field"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L3",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L4",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L5",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L6",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L7",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.0478000000000236,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.05379999999999541
+  },
+  {
+    "id": "v2-test-8-013",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.01089999999999236,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.019599999999996953
+  },
+  {
+    "id": "v2-test-8-014",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Returned (confirm ownership): Selected merchandise = Midi dress; size 40",
+          "category": "Dress",
+          "color": "Red",
+          "size": null,
+          "brand": "Grove",
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm return ownership",
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Returned (confirm ownership): Selected merchandise = Midi dress; size 40"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Red"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Grove"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.03440000000000509,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.039500000000003865
+  },
+  {
+    "id": "v2-test-8-015",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Selected merchandise = Knit cardigan; color Black",
+          "category": "Top",
+          "color": null,
+          "size": "XL",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Selected merchandise = Knit cardigan; color Black"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "cardigan"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "XL"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "instruction"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.02950000000001296,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.03489999999999327
+  },
+  {
+    "id": "v2-test-8-016",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Selected merchandise = Denim skirt; color Red",
+          "category": "Bottom",
+          "color": null,
+          "size": null,
+          "brand": "Harbor",
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Selected merchandise = Denim skirt; color Red"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "skirt"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Harbor"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.026299999999991996,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.03119999999998413
+  },
+  {
+    "id": "v2-test-8-017",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L7",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.01630000000000109,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.021299999999996544
+  },
+  {
+    "id": "v2-test-8-018",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Selected merchandise = Midi dress; quantity 1",
+          "category": "Dress",
+          "color": null,
+          "size": "40",
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Selected merchandise = Midi dress; quantity 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "40"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.03709999999998104,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.04339999999999122
+  },
+  {
+    "id": "v2-test-8-019",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Selected merchandise = Canvas sneakers; quantity: 2",
+          "category": "Shoes",
+          "color": null,
+          "size": null,
+          "brand": "Field",
+          "quantity": 2,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Selected merchandise = Canvas sneakers; quantity: 2"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "sneakers"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Field"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "2"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.028999999999996362,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.034300000000001774
+  },
+  {
+    "id": "v2-test-8-020",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Selected merchandise = Chelsea boots; brand Elm",
+          "category": "Shoes",
+          "color": null,
+          "size": null,
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Selected merchandise = Chelsea boots; brand Elm"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "boots"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.0257000000000005,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.030599999999992633
+  },
+  {
+    "id": "v2-test-8-021",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.012000000000000455,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.016199999999997772
+  },
+  {
+    "id": "v2-test-8-022",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Selected merchandise = Knit cardigan; brand Harbor",
+          "category": "Top",
+          "color": "Blue",
+          "size": null,
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Selected merchandise = Knit cardigan; brand Harbor"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "cardigan"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Blue"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        },
+        {
+          "description": "Selected merchandise = Denim skirt; brand: Cedar",
+          "category": "Bottom",
+          "color": null,
+          "size": "S",
+          "brand": "Cedar",
+          "quantity": null,
+          "source_line_ids": [
+            "L3"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L3",
+              "quote": "Selected merchandise = Denim skirt; brand: Cedar"
+            },
+            {
+              "field": "category",
+              "line_id": "L3",
+              "quote": "skirt"
+            },
+            {
+              "field": "size",
+              "line_id": "L3",
+              "quote": "S"
+            },
+            {
+              "field": "brand",
+              "line_id": "L3",
+              "quote": "Cedar"
+            }
+          ]
+        },
+        {
+          "description": "Selected merchandise = Cotton tee; color: Red",
+          "category": "Top",
+          "color": "Red",
+          "size": "40",
+          "brand": "Field",
+          "quantity": null,
+          "source_line_ids": [
+            "L4"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L4",
+              "quote": "Selected merchandise = Cotton tee; color: Red"
+            },
+            {
+              "field": "category",
+              "line_id": "L4",
+              "quote": "tee"
+            },
+            {
+              "field": "color",
+              "line_id": "L4",
+              "quote": "Red"
+            },
+            {
+              "field": "size",
+              "line_id": "L4",
+              "quote": "40"
+            },
+            {
+              "field": "brand",
+              "line_id": "L4",
+              "quote": "Field"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L5",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L6",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L7",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.06520000000000437,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.06999999999999318
+  },
+  {
+    "id": "v2-test-8-023",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.010300000000000864,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.015899999999987813
+  },
+  {
+    "id": "v2-test-8-024",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Returned (confirm ownership): Selected merchandise = Knit cardigan; quantity 1",
+          "category": "Top",
+          "color": "Blue",
+          "size": "38",
+          "brand": "Cedar",
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm return ownership",
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Returned (confirm ownership): Selected merchandise = Knit cardigan; quantity 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "cardigan"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Blue"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "38"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Cedar"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.028199999999998226,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.032199999999988904
+  },
+  {
+    "id": "v2-test-9-000",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Item purchased <Canvas sneakers>: quantity 1",
+          "category": "Shoes",
+          "color": "Black",
+          "size": "42",
+          "brand": "Elm",
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Item purchased <Canvas sneakers>: quantity 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "sneakers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Black"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "42"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Elm"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.03819999999998913,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.043200000000013006
+  },
+  {
+    "id": "v2-test-9-001",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.013700000000000045,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.01839999999998554
+  },
+  {
+    "id": "v2-test-9-002",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Item purchased <Baseball cap>: size: XS",
+          "category": "Accessory",
+          "color": null,
+          "size": "XS",
+          "brand": "Field",
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Item purchased <Baseball cap>: size: XS"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "cap"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "XS"
+            },
+            {
+              "field": "brand",
+              "line_id": "L2",
+              "quote": "Field"
+            }
+          ]
+        },
+        {
+          "description": "Item purchased <Cotton tee>: size XL",
+          "category": "Top",
+          "color": null,
+          "size": null,
+          "brand": "Juniper",
+          "quantity": 1,
+          "source_line_ids": [
+            "L3"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L3",
+              "quote": "Item purchased <Cotton tee>: size XL"
+            },
+            {
+              "field": "category",
+              "line_id": "L3",
+              "quote": "tee"
+            },
+            {
+              "field": "brand",
+              "line_id": "L3",
+              "quote": "Juniper"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L3",
+              "quote": "1"
+            }
+          ]
+        },
+        {
+          "description": "Item purchased <Silk scarf>: quantity: 1",
+          "category": "Accessory",
+          "color": "Navy",
+          "size": "XS",
+          "brand": "Grove",
+          "quantity": 1,
+          "source_line_ids": [
+            "L4"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L4",
+              "quote": "Item purchased <Silk scarf>: quantity: 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L4",
+              "quote": "scarf"
+            },
+            {
+              "field": "color",
+              "line_id": "L4",
+              "quote": "Navy"
+            },
+            {
+              "field": "size",
+              "line_id": "L4",
+              "quote": "XS"
+            },
+            {
+              "field": "brand",
+              "line_id": "L4",
+              "quote": "Grove"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L4",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L5",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L6",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L7",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.09109999999998308,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.09770000000000323
+  },
+  {
+    "id": "v2-test-9-003",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.023400000000009413,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.029699999999991178
+  },
+  {
+    "id": "v2-test-9-004",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.01490000000001146,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.023099999999999454
+  },
+  {
+    "id": "v2-test-9-005",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Item purchased <Midi dress>: quantity: 1",
+          "category": "Dress",
+          "color": "Grey",
+          "size": null,
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Item purchased <Midi dress>: quantity: 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Grey"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "instruction"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.03170000000000073,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.03840000000002419
+  },
+  {
+    "id": "v2-test-9-006",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.01480000000000814,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.019300000000015416
+  },
+  {
+    "id": "v2-test-9-007",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L7",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.015099999999989677,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.019499999999993634
+  },
+  {
+    "id": "v2-test-9-008",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Item purchased <Silk scarf>: color Blue",
+          "category": "Accessory",
+          "color": null,
+          "size": "M",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Item purchased <Silk scarf>: color Blue"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "scarf"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "M"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.03839999999999577,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.04410000000001446
+  },
+  {
+    "id": "v2-test-9-009",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Item purchased <Rain jacket>: brand Harbor",
+          "category": "Outerwear",
+          "color": "Navy",
+          "size": null,
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Item purchased <Rain jacket>: brand Harbor"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "jacket"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Navy"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.04220000000000823,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.048699999999996635
+  },
+  {
+    "id": "v2-test-9-010",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Item purchased <Knit cardigan>: brand Field",
+          "category": "Top",
+          "color": "Red",
+          "size": "XS",
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Item purchased <Knit cardigan>: brand Field"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "cardigan"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Red"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "XS"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.04409999999998604,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.055499999999995
+  },
+  {
+    "id": "v2-test-9-011",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.021399999999999864,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.03110000000000923
+  },
+  {
+    "id": "v2-test-9-012",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Item purchased <Cotton tee>: quantity: 1",
+          "category": "Top",
+          "color": "Navy",
+          "size": "S",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L3"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L3",
+              "quote": "Item purchased <Cotton tee>: quantity: 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L3",
+              "quote": "tee"
+            },
+            {
+              "field": "color",
+              "line_id": "L3",
+              "quote": "Navy"
+            },
+            {
+              "field": "size",
+              "line_id": "L3",
+              "quote": "S"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L3",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L4",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L5",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L6",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L7",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.06219999999999004,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.06999999999999318
+  },
+  {
+    "id": "v2-test-9-013",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.015799999999984493,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.02369999999999095
+  },
+  {
+    "id": "v2-test-9-014",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Returned (confirm ownership): Item purchased <Denim skirt>: quantity: 1",
+          "category": "Bottom",
+          "color": null,
+          "size": "XL",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm return ownership",
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Returned (confirm ownership): Item purchased <Denim skirt>: quantity: 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "skirt"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "XL"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.04870000000002506,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.055499999999995
+  },
+  {
+    "id": "v2-test-9-015",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Item purchased <Leather loafers>: color: Cream",
+          "category": "Shoes",
+          "color": "Cream",
+          "size": null,
+          "brand": null,
+          "quantity": null,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Item purchased <Leather loafers>: color: Cream"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "loafers"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Cream"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "instruction"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.04449999999999932,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.05729999999999791
+  },
+  {
+    "id": "v2-test-9-016",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.04009999999999536,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.07900000000000773
+  },
+  {
+    "id": "v2-test-9-017",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L7",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.028099999999994907,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.056100000000014916
+  },
+  {
+    "id": "v2-test-9-018",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Item purchased <Midi dress>: color: Olive",
+          "category": "Dress",
+          "color": "Olive",
+          "size": "38",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Item purchased <Midi dress>: color: Olive"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "dress"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Olive"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "38"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.0741999999999905,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.08499999999997954
+  },
+  {
+    "id": "v2-test-9-019",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.028399999999976444,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.04019999999999868
+  },
+  {
+    "id": "v2-test-9-020",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.017799999999994043,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.025099999999980582
+  },
+  {
+    "id": "v2-test-9-021",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "ambiguous"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.01690000000002101,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.02369999999999095
+  },
+  {
+    "id": "v2-test-9-022",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Item purchased <Rain jacket>: quantity: 1",
+          "category": "Outerwear",
+          "color": "Navy",
+          "size": null,
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Item purchased <Rain jacket>: quantity: 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "jacket"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Navy"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        },
+        {
+          "description": "Item purchased <Linen trousers>: size M",
+          "category": "Bottom",
+          "color": null,
+          "size": null,
+          "brand": "Cedar",
+          "quantity": null,
+          "source_line_ids": [
+            "L3"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L3",
+              "quote": "Item purchased <Linen trousers>: size M"
+            },
+            {
+              "field": "category",
+              "line_id": "L3",
+              "quote": "trousers"
+            },
+            {
+              "field": "brand",
+              "line_id": "L3",
+              "quote": "Cedar"
+            }
+          ]
+        },
+        {
+          "description": "Item purchased <Leather loafers>: size S",
+          "category": "Shoes",
+          "color": "Cream",
+          "size": null,
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L4"
+          ],
+          "review_reasons": [
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L4",
+              "quote": "Item purchased <Leather loafers>: size S"
+            },
+            {
+              "field": "category",
+              "line_id": "L4",
+              "quote": "loafers"
+            },
+            {
+              "field": "color",
+              "line_id": "L4",
+              "quote": "Cream"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L4",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L5",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L6",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L7",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.10290000000000532,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.11050000000000182
+  },
+  {
+    "id": "v2-test-9-023",
+    "prediction": {
+      "schema_version": "1",
+      "items": [],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L2",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L3",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L4",
+          "reason": "discount"
+        },
+        {
+          "line_id": "L5",
+          "reason": "non_clothing"
+        },
+        {
+          "line_id": "L6",
+          "reason": "non_clothing"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.013800000000003365,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.022599999999982856
+  },
+  {
+    "id": "v2-test-9-024",
+    "prediction": {
+      "schema_version": "1",
+      "items": [
+        {
+          "description": "Returned (confirm ownership): Item purchased <Cotton tee>: quantity: 1",
+          "category": "Top",
+          "color": "Grey",
+          "size": "40",
+          "brand": null,
+          "quantity": 1,
+          "source_line_ids": [
+            "L2"
+          ],
+          "review_reasons": [
+            "Confirm return ownership",
+            "Confirm category mapping"
+          ],
+          "evidence": [
+            {
+              "field": "description",
+              "line_id": "L2",
+              "quote": "Returned (confirm ownership): Item purchased <Cotton tee>: quantity: 1"
+            },
+            {
+              "field": "category",
+              "line_id": "L2",
+              "quote": "tee"
+            },
+            {
+              "field": "color",
+              "line_id": "L2",
+              "quote": "Grey"
+            },
+            {
+              "field": "size",
+              "line_id": "L2",
+              "quote": "40"
+            },
+            {
+              "field": "quantity",
+              "line_id": "L2",
+              "quote": "1"
+            }
+          ]
+        }
+      ],
+      "excluded_lines": [
+        {
+          "line_id": "L1",
+          "reason": "header"
+        },
+        {
+          "line_id": "L3",
+          "reason": "shipping"
+        },
+        {
+          "line_id": "L4",
+          "reason": "tax"
+        },
+        {
+          "line_id": "L5",
+          "reason": "discount"
+        }
+      ],
+      "warnings": [
+        "Fast parser result: check names, missing details and quantities."
+      ]
+    },
+    "metadata": {
+      "provider": "rules",
+      "model": "purchase-rules-v1",
+      "schemaVersion": "1",
+      "promptVersion": "none",
+      "latencyMs": 0.04239999999998645,
+      "training": false,
+      "fallbackReason": "Private inference worker offline"
+    },
+    "elapsedMs": 0.052199999999999136
+  }
+]

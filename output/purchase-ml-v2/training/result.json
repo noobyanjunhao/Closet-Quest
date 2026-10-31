@@ -1,0 +1,328 @@
+{
+  "seed": 29,
+  "stepsPlanned": 300,
+  "gradientAccumulation": 8,
+  "batchSize": 1,
+  "maxSequenceTokens": 768,
+  "selection": "Max validation clothing recall, then precision, then field accuracy, then exact documents; no test access",
+  "parity": {
+    "denseLoss": 3.01193904876709,
+    "chunkedLoss": 3.01193904876709,
+    "gradientMaxAbsoluteErrors": [
+      7.450580596923828e-09,
+      2.9802322387695312e-08
+    ]
+  },
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "torch": "2.6.0+cu124",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "datasetManifestSha256": "0d6368f1dd39edddfe7f7de99950ad90bc28b434f443ed91ec29a808fd50a8f9",
+  "protocolSha256": "6b67bb3cfaeafc07cb9f6f1024169b594271f59b5d4fa5bb050b32550f7f4ba9",
+  "history": [
+    {
+      "step": 10,
+      "loss": 0.03198427089955658,
+      "lr": 0.00013333333333333334,
+      "seconds": 28.370273699983954,
+      "peakAllocatedBytes": 1223155200,
+      "peakReservedBytes": 1325400064
+    },
+    {
+      "step": 20,
+      "loss": 0.04035869991639629,
+      "lr": 0.00019986333647899847,
+      "seconds": 593.5444123999914,
+      "peakAllocatedBytes": 1223195648,
+      "peakReservedBytes": 1325400064
+    },
+    {
+      "step": 30,
+      "loss": 0.0024984065676108003,
+      "lr": 0.00019877251730624501,
+      "seconds": 632.8710947999789,
+      "peakAllocatedBytes": 1223394304,
+      "peakReservedBytes": 1325400064
+    },
+    {
+      "step": 40,
+      "loss": 0.0011100568390247645,
+      "lr": 0.00019660412002783253,
+      "seconds": 668.6605908999918,
+      "peakAllocatedBytes": 1223394304,
+      "peakReservedBytes": 1325400064
+    },
+    {
+      "step": 50,
+      "loss": 0.0005492579639394535,
+      "lr": 0.00019338446604933216,
+      "seconds": 701.890221699985,
+      "peakAllocatedBytes": 1223394304,
+      "peakReservedBytes": 1325400064
+    },
+    {
+      "step": 60,
+      "loss": 0.0015256387614499545,
+      "lr": 0.000189152637608584,
+      "seconds": 735.5326289999939,
+      "peakAllocatedBytes": 1223394304,
+      "peakReservedBytes": 1325400064
+    },
+    {
+      "step": 70,
+      "loss": 0.00021989216929796385,
+      "lr": 0.00018396000337027207,
+      "seconds": 768.8283544000005,
+      "peakAllocatedBytes": 1223394304,
+      "peakReservedBytes": 1325400064
+    },
+    {
+      "step": 80,
+      "loss": 0.0003449219548201654,
+      "lr": 0.00017786959487992067,
+      "seconds": 795.7464551999874,
+      "peakAllocatedBytes": 1223394304,
+      "peakReservedBytes": 1325400064
+    },
+    {
+      "step": 90,
+      "loss": 0.0002077865269711765,
+      "lr": 0.0001709553414463167,
+      "seconds": 821.4723053000052,
+      "peakAllocatedBytes": 1223394304,
+      "peakReservedBytes": 1325400064
+    },
+    {
+      "step": 100,
+      "loss": 0.00015272748987626983,
+      "lr": 0.00016330117273984822,
+      "seconds": 850.1051361999998,
+      "peakAllocatedBytes": 1223394304,
+      "peakReservedBytes": 1325400064
+    },
+    {
+      "step": 110,
+      "loss": 0.00011497663717818796,
+      "lr": 0.000155,
+      "seconds": 1071.9686894000042,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 120,
+      "loss": 7.696792636124883e-05,
+      "lr": 0.00014615258821876724,
+      "seconds": 1097.537795799988,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 130,
+      "loss": 0.0001467473930460983,
+      "lr": 0.00013686633299015251,
+      "seconds": 1122.560905899998,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 140,
+      "loss": 0.0001326283977505227,
+      "lr": 0.00012725395687313647,
+      "seconds": 1147.89345589999,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 150,
+      "loss": 6.782607397326501e-05,
+      "lr": 0.00011743214109250993,
+      "seconds": 1173.7393149999843,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 160,
+      "loss": 8.49434995870979e-05,
+      "lr": 0.00010752010918686544,
+      "seconds": 1199.0153487999924,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 170,
+      "loss": 9.210052439811989e-05,
+      "lr": 9.763817979634326e-05,
+      "seconds": 1225.4783813999966,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 180,
+      "loss": 6.123354114606627e-05,
+      "lr": 8.790630615732811e-05,
+      "seconds": 1254.8927029999904,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 190,
+      "loss": 6.658037045781384e-05,
+      "lr": 7.844262003265215e-05,
+      "seconds": 1286.2346235000005,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 200,
+      "loss": 6.116097119956976e-05,
+      "lr": 6.936199775201998e-05,
+      "seconds": 1318.9234922000032,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 210,
+      "loss": 5.9227969586572726e-05,
+      "lr": 6.077466576898161e-05,
+      "seconds": 1618.411110599991,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 220,
+      "loss": 6.822319846833125e-05,
+      "lr": 5.27848626611029e-05,
+      "seconds": 1644.0747009000042,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 230,
+      "loss": 7.524689999627299e-05,
+      "lr": 4.5489573814839405e-05,
+      "seconds": 1670.7578923999972,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 240,
+      "loss": 6.686386495857732e-05,
+      "lr": 3.897735415432459e-05,
+      "seconds": 1696.3440682000073,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 250,
+      "loss": 5.631022077068337e-05,
+      "lr": 3.3327253204550576e-05,
+      "seconds": 1722.333223900001,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 260,
+      "loss": 4.18185315993469e-05,
+      "lr": 2.860785553721803e-05,
+      "seconds": 1747.408684599999,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 270,
+      "loss": 7.472503421013243e-05,
+      "lr": 2.4876448246942883e-05,
+      "seconds": 1771.6844276000047,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 280,
+      "loss": 7.87775361459353e-05,
+      "lr": 2.2178325563530795e-05,
+      "seconds": 1797.3787558999902,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 290,
+      "loss": 5.563159993471345e-05,
+      "lr": 2.054623904138455e-05,
+      "seconds": 1821.7045054000046,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    },
+    {
+      "step": 300,
+      "loss": 5.693560228792194e-05,
+      "lr": 2e-05,
+      "seconds": 1846.6609446999792,
+      "peakAllocatedBytes": 1262488576,
+      "peakReservedBytes": 1476395008
+    }
+  ],
+  "examples": {
+    "positive": 630,
+    "negative": 2700,
+    "sampling": "50% positive / 50% negative with replacement",
+    "maxTokens": 233
+  },
+  "trainableParameters": 8798208,
+  "sameBatchMemoryComparison": [
+    {
+      "mode": "dense",
+      "tokens": 221,
+      "loss": 0.3149012327194214,
+      "peakAllocatedBytes": 1897475584,
+      "peakReservedBytes": 2036334592,
+      "seconds": 0.8555953000031877
+    },
+    {
+      "mode": "chunked",
+      "tokens": 221,
+      "loss": 0.3185729682445526,
+      "peakAllocatedBytes": 1658860032,
+      "peakReservedBytes": 1778384896,
+      "seconds": 0.3205978999903891
+    }
+  ],
+  "validation": [
+    {
+      "step": 100,
+      "rank": [
+        1.0,
+        1.0,
+        1.0,
+        100
+      ]
+    },
+    {
+      "step": 200,
+      "rank": [
+        1.0,
+        1.0,
+        1.0,
+        100
+      ]
+    },
+    {
+      "step": 300,
+      "rank": [
+        1.0,
+        1.0,
+        1.0,
+        100
+      ]
+    }
+  ],
+  "stepsCompleted": 300,
+  "selectedStep": 100,
+  "seconds": 2040.336350700003,
+  "peakAllocatedBytes": 1319734272,
+  "peakReservedBytes": 1610612736,
+  "stressTokens": 768,
+  "stressLoss": 1.2029025554656982,
+  "outOfMemory": false,
+  "automaticallyPromoted": false,
+  "testUsedForSelection": false,
+  "adapterSha256": "d22418a62dc277bada015dddcb43314f2f72e9959127d98a49d106d071ecb5eb"
+}

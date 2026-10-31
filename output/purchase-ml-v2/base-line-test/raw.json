@@ -1,0 +1,902 @@
+[
+  {
+    "id": "v2-test-6-000",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 2059.3704000057187
+  },
+  {
+    "id": "v2-test-6-001",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1771.5747999900486
+  },
+  {
+    "id": "v2-test-6-002",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1766.730200004531
+  },
+  {
+    "id": "v2-test-6-003",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1717.3454000148922
+  },
+  {
+    "id": "v2-test-6-004",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"Test Order\",\n  \"category\": \"Clothing\",\n  \"color\": \"None\",\n  \"size\": \"None\",\n  \"brand\": \"V2-6\",\n  \"quantity\": 1,\n  \"reason\": null\n}\n```"
+    ],
+    "elapsedMs": 1806.565100006992
+  },
+  {
+    "id": "v2-test-6-005",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1685.941500007175
+  },
+  {
+    "id": "v2-test-6-006",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1711.7759000102524
+  },
+  {
+    "id": "v2-test-6-007",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1676.5836999984458
+  },
+  {
+    "id": "v2-test-6-008",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"A fictional merchant\",\n  \"category\": \"Café\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": 1,\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1674.5102999848314
+  },
+  {
+    "id": "v2-test-6-009",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1698.4020000090823
+  },
+  {
+    "id": "v2-test-6-010",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1709.9874000123236
+  },
+  {
+    "id": "v2-test-6-011",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1683.3635999937542
+  },
+  {
+    "id": "v2-test-6-012",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1690.3377000126056
+  },
+  {
+    "id": "v2-test-6-013",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"Test Order\",\n  \"category\": \"Clothing\",\n  \"color\": \"Black\",\n  \"size\": \"S\",\n  \"brand\": \"V2-6\",\n  \"quantity\": 1,\n  \"reason\": \"For testing purposes\"\n}\n```"
+    ],
+    "elapsedMs": 1797.526199981803
+  },
+  {
+    "id": "v2-test-6-014",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1688.993699994171
+  },
+  {
+    "id": "v2-test-6-015",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1736.6136999917217
+  },
+  {
+    "id": "v2-test-6-016",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1940.7536999788135
+  },
+  {
+    "id": "v2-test-6-017",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1870.2983999974094
+  },
+  {
+    "id": "v2-test-6-018",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"A fictional merchant\",\n  \"category\": \"Café\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": 1,\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1526.584900013404
+  },
+  {
+    "id": "v2-test-6-019",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1740.3555000200868
+  },
+  {
+    "id": "v2-test-6-020",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1796.4617000252474
+  },
+  {
+    "id": "v2-test-6-021",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1991.923699999461
+  },
+  {
+    "id": "v2-test-6-022",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1893.3038000250235
+  },
+  {
+    "id": "v2-test-6-023",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1693.419699993683
+  },
+  {
+    "id": "v2-test-6-024",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1746.0325000283774
+  },
+  {
+    "id": "v2-test-7-000",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1592.1603000024334
+  },
+  {
+    "id": "v2-test-7-001",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1454.6505000034813
+  },
+  {
+    "id": "v2-test-7-002",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1719.0358999941964
+  },
+  {
+    "id": "v2-test-7-003",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1646.2961999932304
+  },
+  {
+    "id": "v2-test-7-004",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1791.9347999850288
+  },
+  {
+    "id": "v2-test-7-005",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1689.7113999875728
+  },
+  {
+    "id": "v2-test-7-006",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1507.9658000031486
+  },
+  {
+    "id": "v2-test-7-007",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1696.183399995789
+  },
+  {
+    "id": "v2-test-7-008",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"A fictional merchant\",\n  \"category\": \"Café\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": 1,\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1701.2847000150941
+  },
+  {
+    "id": "v2-test-7-009",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1943.1324000179302
+  },
+  {
+    "id": "v2-test-7-010",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1847.1404000010807
+  },
+  {
+    "id": "v2-test-7-011",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1485.9924000047613
+  },
+  {
+    "id": "v2-test-7-012",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1826.300299988361
+  },
+  {
+    "id": "v2-test-7-013",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1695.3493999899365
+  },
+  {
+    "id": "v2-test-7-014",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1806.4705000142567
+  },
+  {
+    "id": "v2-test-7-015",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1769.5616999990307
+  },
+  {
+    "id": "v2-test-7-016",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 2349.5897999964654
+  },
+  {
+    "id": "v2-test-7-017",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1914.7784000087995
+  },
+  {
+    "id": "v2-test-7-018",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"A fictional merchant\",\n  \"category\": \"Café\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": 1,\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1665.475999994669
+  },
+  {
+    "id": "v2-test-7-019",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1684.139699995285
+  },
+  {
+    "id": "v2-test-7-020",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1687.0492000016384
+  },
+  {
+    "id": "v2-test-7-021",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1741.2156000209507
+  },
+  {
+    "id": "v2-test-7-022",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1685.1566000259481
+  },
+  {
+    "id": "v2-test-7-023",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1858.2252000051085
+  },
+  {
+    "id": "v2-test-7-024",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1835.3418000042439
+  },
+  {
+    "id": "v2-test-8-000",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1776.0456999822054
+  },
+  {
+    "id": "v2-test-8-001",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1745.1842000009492
+  },
+  {
+    "id": "v2-test-8-002",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1791.7907000228297
+  },
+  {
+    "id": "v2-test-8-003",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1719.221400009701
+  },
+  {
+    "id": "v2-test-8-004",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1745.1860000146553
+  },
+  {
+    "id": "v2-test-8-005",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1888.2793000084348
+  },
+  {
+    "id": "v2-test-8-006",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1664.2573000281118
+  },
+  {
+    "id": "v2-test-8-007",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1826.1992000043392
+  },
+  {
+    "id": "v2-test-8-008",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"A fictional merchant\",\n  \"category\": \"Café\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": 1,\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1711.0185000055935
+  },
+  {
+    "id": "v2-test-8-009",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1629.3239000078756
+  },
+  {
+    "id": "v2-test-8-010",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1721.2910999951418
+  },
+  {
+    "id": "v2-test-8-011",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1758.5312000010163
+  },
+  {
+    "id": "v2-test-8-012",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"Test Order\",\n  \"category\": \"Clothing\",\n  \"color\": \"None\",\n  \"size\": \"None\",\n  \"brand\": \"V2-8\",\n  \"quantity\": 1,\n  \"reason\": \"No specific reason provided\"\n}\n```"
+    ],
+    "elapsedMs": 1888.2757000101265
+  },
+  {
+    "id": "v2-test-8-013",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1800.185899977805
+  },
+  {
+    "id": "v2-test-8-014",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1635.8438000024762
+  },
+  {
+    "id": "v2-test-8-015",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1581.4344999962486
+  },
+  {
+    "id": "v2-test-8-016",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 2042.7654999948572
+  },
+  {
+    "id": "v2-test-8-017",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1972.4106000212487
+  },
+  {
+    "id": "v2-test-8-018",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"A fictional merchant\",\n  \"category\": \"Café\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": 1,\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1538.9319999958389
+  },
+  {
+    "id": "v2-test-8-019",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"A fictional merchant\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": 1,\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1705.9924000059254
+  },
+  {
+    "id": "v2-test-8-020",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1748.5262000118382
+  },
+  {
+    "id": "v2-test-8-021",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1947.3873000242747
+  },
+  {
+    "id": "v2-test-8-022",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1890.0403000006918
+  },
+  {
+    "id": "v2-test-8-023",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1783.9534000086132
+  },
+  {
+    "id": "v2-test-8-024",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 2008.5981000156607
+  },
+  {
+    "id": "v2-test-9-000",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 2112.8266000014264
+  },
+  {
+    "id": "v2-test-9-001",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1992.1459000033792
+  },
+  {
+    "id": "v2-test-9-002",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1958.213199977763
+  },
+  {
+    "id": "v2-test-9-003",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1869.3504999973811
+  },
+  {
+    "id": "v2-test-9-004",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 2716.1621999985073
+  },
+  {
+    "id": "v2-test-9-005",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1895.3615999780595
+  },
+  {
+    "id": "v2-test-9-006",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1992.216999991797
+  },
+  {
+    "id": "v2-test-9-007",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1780.055800016271
+  },
+  {
+    "id": "v2-test-9-008",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"A fictional merchant\",\n  \"category\": \"Café\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": 1,\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1963.8986000209115
+  },
+  {
+    "id": "v2-test-9-009",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1793.7170999939553
+  },
+  {
+    "id": "v2-test-9-010",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"A fictional merchant\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": 1,\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1749.9939999834169
+  },
+  {
+    "id": "v2-test-9-011",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1877.459799987264
+  },
+  {
+    "id": "v2-test-9-012",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1789.5074000116438
+  },
+  {
+    "id": "v2-test-9-013",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1964.2500999907497
+  },
+  {
+    "id": "v2-test-9-014",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 3199.3657000130042
+  },
+  {
+    "id": "v2-test-9-015",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1658.4882000170182
+  },
+  {
+    "id": "v2-test-9-016",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1799.805099988589
+  },
+  {
+    "id": "v2-test-9-017",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1698.5191999992821
+  },
+  {
+    "id": "v2-test-9-018",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"A fictional merchant\",\n  \"category\": \"Café\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": 1,\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1723.2013999891933
+  },
+  {
+    "id": "v2-test-9-019",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1685.457600018708
+  },
+  {
+    "id": "v2-test-9-020",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"A fictional merchant\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": 1,\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1675.2781000104733
+  },
+  {
+    "id": "v2-test-9-021",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 1838.329899997916
+  },
+  {
+    "id": "v2-test-9-022",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 2100.288899993757
+  },
+  {
+    "id": "v2-test-9-023",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"A fictional merchant\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": 1,\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 2148.974499985343
+  },
+  {
+    "id": "v2-test-9-024",
+    "prediction": null,
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "decisions": [
+      "```json\n{\n  \"description\": \"\",\n  \"category\": \"Non-Clothing\",\n  \"color\": \"\",\n  \"size\": \"\",\n  \"brand\": \"\",\n  \"quantity\": \"\",\n  \"reason\": \"\"\n}\n```"
+    ],
+    "elapsedMs": 2239.3130999989808
+  }
+]

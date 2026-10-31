@@ -1,0 +1,649 @@
+{
+  "documents": 100,
+  "jsonObjects": 100,
+  "contractValid": 91,
+  "exactGarmentDocuments": 57,
+  "clothingLines": {
+    "tp": 65,
+    "fp": 0,
+    "fn": 47,
+    "precision": 1.0,
+    "recall": 0.5803571428571429
+  },
+  "fieldExact": {
+    "correct": 384,
+    "total": 672,
+    "rate": 0.5714285714285714
+  },
+  "categoryMacroF1": 0.6415749467923381,
+  "perCategory": {
+    "Top": {
+      "tp": 7,
+      "fp": 0,
+      "fn": 9,
+      "f1": 0.6086956521739131
+    },
+    "Bottom": {
+      "tp": 7,
+      "fp": 1,
+      "fn": 10,
+      "f1": 0.56
+    },
+    "Dress": {
+      "tp": 7,
+      "fp": 0,
+      "fn": 12,
+      "f1": 0.5384615384615384
+    },
+    "Shoes": {
+      "tp": 20,
+      "fp": 0,
+      "fn": 6,
+      "f1": 0.8695652173913043
+    },
+    "Outerwear": {
+      "tp": 10,
+      "fp": 5,
+      "fn": 8,
+      "f1": 0.6060606060606061
+    },
+    "Accessory": {
+      "tp": 8,
+      "fp": 0,
+      "fn": 8,
+      "f1": 0.6666666666666666
+    }
+  },
+  "unknownPreservation": {
+    "correct": 58,
+    "total": 80
+  },
+  "unsupportedFieldRate": {
+    "unsupported": 0,
+    "nonNullPredictedFieldsOnMatchedLines": 267
+  },
+  "evidenceQuotes": {
+    "validSubstring": 388,
+    "total": 394
+  },
+  "returnWarnings": {
+    "correct": 1,
+    "total": 12
+  },
+  "latencyMs": {
+    "median": 4872.2981000028085,
+    "p95": 9161.908799986122,
+    "total": 473639.5772000542
+  },
+  "byCase": {
+    "complete": {
+      "n": 12,
+      "contractValid": 10,
+      "exact": 8
+    },
+    "unknown": {
+      "n": 12,
+      "contractValid": 12,
+      "exact": 6
+    },
+    "multiple": {
+      "n": 12,
+      "contractValid": 8,
+      "exact": 0
+    },
+    "fees_only": {
+      "n": 12,
+      "contractValid": 12,
+      "exact": 12
+    },
+    "returned": {
+      "n": 12,
+      "contractValid": 12,
+      "exact": 1
+    },
+    "injection": {
+      "n": 8,
+      "contractValid": 8,
+      "exact": 8
+    },
+    "missing_quantity": {
+      "n": 8,
+      "contractValid": 7,
+      "exact": 4
+    },
+    "mixed": {
+      "n": 8,
+      "contractValid": 7,
+      "exact": 5
+    },
+    "unicode": {
+      "n": 8,
+      "contractValid": 7,
+      "exact": 6
+    },
+    "quantity_two": {
+      "n": 8,
+      "contractValid": 8,
+      "exact": 7
+    }
+  },
+  "failures": [
+    {
+      "id": "v2-test-6-002",
+      "case": "multiple",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 12,
+      "expectedFields": 18,
+      "missingLines": [
+        "L4"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-6-004",
+      "case": "returned",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-6-012",
+      "case": "multiple",
+      "contractValid": false,
+      "error": "An evidence quote is absent from its source line.",
+      "correctFields": 0,
+      "expectedFields": 18,
+      "missingLines": [
+        "L2",
+        "L3",
+        "L4"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-6-014",
+      "case": "returned",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-6-016",
+      "case": "missing_quantity",
+      "contractValid": false,
+      "error": "Missing evidence for brand.",
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-6-018",
+      "case": "unicode",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-6-021",
+      "case": "unknown",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-6-022",
+      "case": "multiple",
+      "contractValid": false,
+      "error": "Unsupported color.",
+      "correctFields": 0,
+      "expectedFields": 18,
+      "missingLines": [
+        "L2",
+        "L3",
+        "L4"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-6-024",
+      "case": "returned",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-7-000",
+      "case": "complete",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-7-001",
+      "case": "unknown",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-7-002",
+      "case": "multiple",
+      "contractValid": false,
+      "error": "Invalid excluded line.",
+      "correctFields": 0,
+      "expectedFields": 18,
+      "missingLines": [
+        "L2",
+        "L3",
+        "L4"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-7-004",
+      "case": "returned",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-7-006",
+      "case": "missing_quantity",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-7-007",
+      "case": "mixed",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-7-008",
+      "case": "unicode",
+      "contractValid": false,
+      "error": "An evidence quote is absent from its source line.",
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-7-010",
+      "case": "complete",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-7-011",
+      "case": "unknown",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-7-012",
+      "case": "multiple",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 12,
+      "expectedFields": 18,
+      "missingLines": [
+        "L4"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-7-014",
+      "case": "returned",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-7-016",
+      "case": "missing_quantity",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-7-019",
+      "case": "quantity_two",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-7-021",
+      "case": "unknown",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-7-022",
+      "case": "multiple",
+      "contractValid": false,
+      "error": "An evidence quote is absent from its source line.",
+      "correctFields": 0,
+      "expectedFields": 18,
+      "missingLines": [
+        "L2",
+        "L3",
+        "L4"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-7-024",
+      "case": "returned",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-8-000",
+      "case": "complete",
+      "contractValid": false,
+      "error": "Give the piece a name and supported clothing category.",
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-8-002",
+      "case": "multiple",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 11,
+      "expectedFields": 18,
+      "missingLines": [
+        "L4"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-8-004",
+      "case": "returned",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-8-012",
+      "case": "multiple",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 11,
+      "expectedFields": 18,
+      "missingLines": [
+        "L4"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-8-014",
+      "case": "returned",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-8-016",
+      "case": "missing_quantity",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-8-021",
+      "case": "unknown",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-8-022",
+      "case": "multiple",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 12,
+      "expectedFields": 18,
+      "missingLines": [
+        "L4"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-8-024",
+      "case": "returned",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-9-001",
+      "case": "unknown",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-9-002",
+      "case": "multiple",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 12,
+      "expectedFields": 18,
+      "missingLines": [
+        "L4"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-9-004",
+      "case": "returned",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-9-007",
+      "case": "mixed",
+      "contractValid": false,
+      "error": "An evidence quote is absent from its source line.",
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-9-012",
+      "case": "multiple",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 12,
+      "expectedFields": 18,
+      "missingLines": [
+        "L4"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-9-014",
+      "case": "returned",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-9-017",
+      "case": "mixed",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 5,
+      "expectedFields": 6,
+      "missingLines": [],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-9-020",
+      "case": "complete",
+      "contractValid": false,
+      "error": "An evidence quote is absent from its source line.",
+      "correctFields": 0,
+      "expectedFields": 6,
+      "missingLines": [
+        "L2"
+      ],
+      "extraLines": []
+    },
+    {
+      "id": "v2-test-9-022",
+      "case": "multiple",
+      "contractValid": true,
+      "error": null,
+      "correctFields": 12,
+      "expectedFields": 18,
+      "missingLines": [
+        "L4"
+      ],
+      "extraLines": []
+    }
+  ],
+  "metricNotes": "Invalid contract results count as empty for usable-item/field metrics. Quote substring validity is not semantic evidence correctness. Unsupported fields denominator excludes category and unmatched/invalid items; inspect failures too."
+}

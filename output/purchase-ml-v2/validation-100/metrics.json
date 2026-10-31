@@ -1,0 +1,132 @@
+{
+  "documents": 100,
+  "jsonObjects": 100,
+  "contractValid": 100,
+  "exactGarmentDocuments": 100,
+  "clothingLines": {
+    "tp": 104,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+  },
+  "fieldExact": {
+    "correct": 624,
+    "total": 624,
+    "rate": 1.0
+  },
+  "categoryMacroF1": 1.0,
+  "perCategory": {
+    "Top": {
+      "tp": 18,
+      "fp": 0,
+      "fn": 0,
+      "f1": 1.0
+    },
+    "Bottom": {
+      "tp": 19,
+      "fp": 0,
+      "fn": 0,
+      "f1": 1.0
+    },
+    "Dress": {
+      "tp": 13,
+      "fp": 0,
+      "fn": 0,
+      "f1": 1.0
+    },
+    "Shoes": {
+      "tp": 15,
+      "fp": 0,
+      "fn": 0,
+      "f1": 1.0
+    },
+    "Outerwear": {
+      "tp": 21,
+      "fp": 0,
+      "fn": 0,
+      "f1": 1.0
+    },
+    "Accessory": {
+      "tp": 18,
+      "fp": 0,
+      "fn": 0,
+      "f1": 1.0
+    }
+  },
+  "unknownPreservation": {
+    "correct": 80,
+    "total": 80
+  },
+  "unsupportedFieldRate": {
+    "unsupported": 0,
+    "nonNullPredictedFieldsOnMatchedLines": 440
+  },
+  "evidenceQuotes": {
+    "validSubstring": 544,
+    "total": 544
+  },
+  "returnWarnings": {
+    "correct": 10,
+    "total": 10
+  },
+  "latencyMs": {
+    "median": 1917.1670000068843,
+    "p95": 2282.527500006836,
+    "total": 195156.8243999791
+  },
+  "byCase": {
+    "complete": {
+      "n": 10,
+      "contractValid": 10,
+      "exact": 10
+    },
+    "unknown": {
+      "n": 10,
+      "contractValid": 10,
+      "exact": 10
+    },
+    "multiple": {
+      "n": 10,
+      "contractValid": 10,
+      "exact": 10
+    },
+    "fees_only": {
+      "n": 10,
+      "contractValid": 10,
+      "exact": 10
+    },
+    "returned": {
+      "n": 10,
+      "contractValid": 10,
+      "exact": 10
+    },
+    "injection": {
+      "n": 10,
+      "contractValid": 10,
+      "exact": 10
+    },
+    "missing_quantity": {
+      "n": 10,
+      "contractValid": 10,
+      "exact": 10
+    },
+    "mixed": {
+      "n": 10,
+      "contractValid": 10,
+      "exact": 10
+    },
+    "unicode": {
+      "n": 10,
+      "contractValid": 10,
+      "exact": 10
+    },
+    "quantity_two": {
+      "n": 10,
+      "contractValid": 10,
+      "exact": 10
+    }
+  },
+  "failures": [],
+  "metricNotes": "Invalid contract results count as empty for usable-item/field metrics. Quote substring validity is not semantic evidence correctness. Unsupported fields denominator excludes category and unmatched/invalid items; inspect failures too."
+}

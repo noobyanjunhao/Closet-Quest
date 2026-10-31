@@ -1,0 +1,24 @@
+{
+  "scope": "Synthetic purchase-text extraction, not photo recognition",
+  "hardware": "Existing RTX 4060 Laptop GPU, 8188 MiB reported device memory",
+  "paidInferenceCalls": 0,
+  "rentedGpu": false,
+  "privateTrainingReceipts": 0,
+  "training": {
+    "pythonSamplingSeed": 29,
+    "torchSeedBeforeAdapterInitialization": 17,
+    "note": "The parity preflight sets torch.manual_seed(17) after set_seed(29). The original run metadata's seed=29 is the sampling seed, not the final torch RNG seed. Source now also records this distinction explicitly.",
+    "wallTimeNote": "Training wall time includes generation-based validation and other execution delays; it is not GPU kernel time."
+  },
+  "evaluation": {
+    "gpuJobs": "Sequential, after training finishes; Ollama model unloaded",
+    "latency": "One uncached pass per method, same device, no fixed GPU clock or randomized method order; each run includes its first generation call but reports model loading separately.",
+    "rawPredictions": "No failed document is dropped. Invalid results count as empty in usable garment metrics.",
+    "testPolicy": "New model checkpoint selection uses validation only. No training changes are made from final-test or diagnostic failures.",
+    "timingClarification": "The frozen dataset manifest's test-after-selection wording refers to candidate model evaluation. The deterministic CPU parser baseline was scored earlier while training ran; its results did not change the fixed training schedule, data or selection rule. Dataset integrity/contract tests inspect labels without training on them.",
+    "oldTest": "The v1 60-document test is exposed and used only for regression.",
+    "freshTest": "100 synthetic receipts, 112 garments, 672 fields, shared vocabulary but disjoint template families.",
+    "providerBaseline": "The old v1 adapter is evaluated using its original whole-receipt protocol. The untuned v2 base uses the same per-line protocol as the new adapter."
+  },
+  "deployment": "No production migration, credential change, wardrobe insertion or automatic model promotion is part of this experiment."
+}
