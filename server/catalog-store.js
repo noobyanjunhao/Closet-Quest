@@ -19,6 +19,9 @@ export function createCatalogStore({transport,now=Date.now,sleep=ms=>new Promise
       throw unavailable();
     }
     try{
+      // Another owner may have committed between our initial read and claim.
+      // Recheck under the lease before paying for a duplicate refresh.
+      const published=await read();if(published)return published;
       const clean=validateLibraryEntry(await refresh(),now());if(!matches(clean))throw unavailable();
       // Fencing token plus lease expiry prevents a slow obsolete worker overwriting
       // a newer owner's result. TTL is cleanup only, never a freshness guarantee.

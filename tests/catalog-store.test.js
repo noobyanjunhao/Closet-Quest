@@ -19,6 +19,13 @@ test('expired retained data is never trusted just because DynamoDB TTL has not d
  await store.getOrRefresh(query,async()=>{calls++;return entry(query,now);});now+=15*86400000;
  await store.getOrRefresh(query,async()=>{calls++;return entry(query,now);});assert.equal(calls,2);
 });
+
+test('catalog rechecks data published between its initial miss and lease acquisition',async()=>{
+ const t=transport(),claim=t.claim;let calls=0;
+ t.claim=async(...args)=>{const ok=await claim(...args);t.rows.get(args[0]).value=entry();return ok;};
+ const result=await createCatalogStore({transport:t}).getOrRefresh(query,async()=>{calls++;return entry();});
+ assert.equal(calls,0);assert.equal(result.distributedCached,true);assert.equal([...t.rows.values()].filter(r=>r.token).length,0);
+});
 test('lease fencing rejects a slow obsolete writer and failure releases its own lease',async()=>{
  const t=transport();await t.claim('key','old',0,10);assert.equal(await t.claim('key','new',11,10),true);
  await assert.rejects(t.commit('key','old',entry(),12,20));await t.release('key','old');assert.equal(t.rows.get('key').token,'new');
