@@ -1,0 +1,181 @@
+{
+  "measuredAt": "2026-11-10T00:20:10.542Z",
+  "kind": "deterministic provider with real local HTTP; not observed retailer traffic",
+  "scenarios": [
+    {
+      "library": false,
+      "distinct": false,
+      "injectedProviderLatencyMs": 40,
+      "waitBudgetMs": 4000,
+      "cold": {
+        "requests": 40,
+        "ok": 2,
+        "statuses": {
+          "200": 2,
+          "429": 38
+        },
+        "medianMs": 78.82,
+        "p95Ms": 81.05,
+        "providerCalls": 2
+      },
+      "warm": null,
+      "peakProviderConcurrency": 2
+    },
+    {
+      "library": true,
+      "distinct": false,
+      "injectedProviderLatencyMs": 40,
+      "waitBudgetMs": 4000,
+      "cold": {
+        "requests": 40,
+        "ok": 40,
+        "statuses": {
+          "200": 40
+        },
+        "medianMs": 93.78,
+        "p95Ms": 95.65,
+        "providerCalls": 1
+      },
+      "warm": {
+        "requests": 40,
+        "ok": 40,
+        "statuses": {
+          "200": 40
+        },
+        "medianMs": 36.49,
+        "p95Ms": 38.53,
+        "providerCalls": 0
+      },
+      "peakProviderConcurrency": 1,
+      "stats": {
+        "cacheHits": 40,
+        "coalesced": 39,
+        "liveSearches": 1,
+        "fallbacks": 0,
+        "failures": 0,
+        "distributedHits": 0,
+        "active": 0,
+        "queued": 0,
+        "peak": 1,
+        "admitted": 1,
+        "rejected": 0,
+        "concurrency": 2,
+        "maxQueued": 40,
+        "waitMs": 4000,
+        "circuitOpen": false,
+        "pending": 0
+      }
+    },
+    {
+      "library": false,
+      "distinct": true,
+      "injectedProviderLatencyMs": 40,
+      "waitBudgetMs": 4000,
+      "cold": {
+        "requests": 40,
+        "ok": 2,
+        "statuses": {
+          "200": 2,
+          "429": 38
+        },
+        "medianMs": 47.64,
+        "p95Ms": 49.56,
+        "providerCalls": 2
+      },
+      "warm": null,
+      "peakProviderConcurrency": 2
+    },
+    {
+      "library": true,
+      "distinct": true,
+      "injectedProviderLatencyMs": 40,
+      "waitBudgetMs": 4000,
+      "cold": {
+        "requests": 40,
+        "ok": 40,
+        "statuses": {
+          "200": 40
+        },
+        "medianMs": 492.01,
+        "p95Ms": 911.62,
+        "providerCalls": 40
+      },
+      "warm": {
+        "requests": 40,
+        "ok": 40,
+        "statuses": {
+          "200": 40
+        },
+        "medianMs": 57.13,
+        "p95Ms": 58.28,
+        "providerCalls": 0
+      },
+      "peakProviderConcurrency": 2,
+      "stats": {
+        "cacheHits": 40,
+        "coalesced": 0,
+        "liveSearches": 40,
+        "fallbacks": 0,
+        "failures": 0,
+        "distributedHits": 0,
+        "active": 0,
+        "queued": 0,
+        "peak": 2,
+        "admitted": 40,
+        "rejected": 0,
+        "concurrency": 2,
+        "maxQueued": 40,
+        "waitMs": 4000,
+        "circuitOpen": false,
+        "pending": 0
+      }
+    },
+    {
+      "library": true,
+      "distinct": true,
+      "injectedProviderLatencyMs": 120,
+      "waitBudgetMs": 50,
+      "cold": {
+        "requests": 40,
+        "ok": 2,
+        "statuses": {
+          "200": 2,
+          "503": 38
+        },
+        "medianMs": 96.19,
+        "p95Ms": 96.92,
+        "providerCalls": 2
+      },
+      "warm": {
+        "requests": 40,
+        "ok": 40,
+        "statuses": {
+          "200": 40
+        },
+        "medianMs": 22.3,
+        "p95Ms": 22.71,
+        "providerCalls": 0
+      },
+      "peakProviderConcurrency": 2,
+      "stats": {
+        "cacheHits": 40,
+        "coalesced": 0,
+        "liveSearches": 2,
+        "fallbacks": 0,
+        "failures": 38,
+        "distributedHits": 0,
+        "active": 0,
+        "queued": 0,
+        "peak": 2,
+        "admitted": 2,
+        "rejected": 38,
+        "concurrency": 2,
+        "maxQueued": 40,
+        "waitMs": 50,
+        "circuitOpen": false,
+        "pending": 0
+      }
+    }
+  ]
+}
+

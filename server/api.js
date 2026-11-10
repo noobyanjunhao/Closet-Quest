@@ -10,6 +10,10 @@ import { openAIStatus } from './openai.js';
 import { createDepopClient, depopStatus } from './depop.js';
 import {searchShopping} from './shopping.js';
 import {createShoppingLibrary} from './shopping-library.js';
+import {configuredCatalogStore} from './catalog-store.js';
+import {createWorkLimiter} from './work-limiter.js';
+import {randomUUID} from 'node:crypto';
+import {releaseInfo} from './release.js';
 import {join} from 'node:path';
 import { createJobQueue } from './jobs.js';
 import {createPurchaseStore} from './purchase-store.js';
@@ -48,19 +52,23 @@ async function readJson(req,maxBytes) {
 
 export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(new URL('../.local-data/jobs/',import.meta.url)),services={},queueOptions={},shoppingLibrary,knowledgeStore,knowledgeDir=fileURLToPath(new URL('../.local-data/knowledge/',import.meta.url)),access=createAccess({cloud:cloudConfigured()}),cloud=createCloud(),purchaseOptions={}}={}) {
   const handlers={recognize,analyzeInspiration,style,retrieveWardrobeHybrid,recordLearningEvent,getLearningStatus,exportLearningData,listModels,searchShopping,...services};
-  const shop=shoppingLibrary||createShoppingLibrary({search:handlers.searchShopping,cloud,storageDir:join(storageDir,'shopping-library')});
+  const shop=shoppingLibrary||createShoppingLibrary({search:handlers.searchShopping,cloud,storageDir:join(storageDir,'shopping-library'),sharedStore:configuredCatalogStore()});
   const queue=createJobQueue(handlers.recognize,{...queueOptions,storageDir});
   let knowledge=knowledgeStore;
   const getKnowledge=()=>knowledge||(knowledge=createKnowledgeStore({storageDir:knowledgeDir,embeddingClients:{openai:createScopedDocumentEmbeddings()}}));
   const hydratedKnowledge=createCloudKnowledgeHydrator({cloud,getStore:getKnowledge});
-  const controllers=new Set();let active=false,closed=false,remoteActive=0;
+  const controllers=new Set();let active=false,closed=false;
+  const remoteWork=createWorkLimiter({concurrency:2,maxQueued:8,waitMs:3000,message:'The stylist is helping a few people. Please retry in a moment; your closet is saved.',code:'CLOUD_BUSY'});
   const purchaseEnabled=purchaseOptions.enabled??process.env.CLOSET_PURCHASE_IMPORTS==='1';
   if(purchaseEnabled&&(purchaseOptions.mode||process.env.CLOSET_IMPORT_PROVIDER)==='worker'&&!cloud)throw Error('Worker imports require Supabase account mode.');
   const purchaseStore=purchaseEnabled?(purchaseOptions.store||(cloud?createPurchaseCloudStore(cloud):createPurchaseStore(join(storageDir,'purchase-imports.sqlite')))):null;
   const purchases=purchaseEnabled?createPurchaseImports({store:purchaseStore,mode:process.env.CLOSET_IMPORT_PROVIDER||'local',canStart:()=>!active&&!queue.localBusy,...purchaseOptions}):null;
   async function middleware(req,res) {
     res.setHeader('Content-Type','application/json');res.setHeader('Cache-Control','no-store');
-    let claimed=false,remoteClaimed=false,abortDisconnected,controller;
+    res.setHeader('X-Request-Id',randomUUID());
+    const requestStarted=performance.now();
+    if(process.env.CLOSET_REQUEST_LOGS==='1')res.once('finish',()=>{const family=(req.url||'').split(/[/?]/)[1],route=['session','cloud','jobs','imports','style','recognize','retrieve','shopping','knowledge','status','beta'].includes(family)?family:'other';console.log(JSON.stringify({event:'api_request',requestId:res.getHeader('X-Request-Id'),route,method:['GET','POST','PATCH','DELETE','HEAD'].includes(req.method)?req.method:'other',status:res.statusCode,durationMs:Math.round(performance.now()-requestStarted)}));});
+    let claimed=false,abortDisconnected,controller;
     try {
       if(closed)throw Object.assign(new Error('The local API is stopping. Retry after it restarts.'),{status:503,code:'SERVICE_CLOSED'});
       const route=(req.url||'/').split('?')[0];
@@ -76,6 +84,7 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
       if(req.method==='POST'&&route==='/session/logout'){access.logout(res);return res.end('{}');}
       const user=cloud?await cloud.authenticate(req,res):access.require(req);
       if(cloud&&!user)throw Object.assign(new Error('Sign in to open your closet.'),{status:401,code:'SIGN_IN_REQUIRED'});
+      if(route==='/beta/status'&&req.method==='GET')return res.end(JSON.stringify({release:releaseInfo(),shopping:shop.stats?.(),cloudWork:remoteWork.stats(),privacy:{photos:'Selected AI provider receives analysis photos. Saved images are private to your account.',retention:'Finished photo-job inputs are removed; result retention is 30 minutes. Saved cloud photos require separate cleanup; deleting a piece does not yet erase every stored copy.'}}));
       if(route==='/imports/config'&&req.method==='GET')return res.end(JSON.stringify(purchases?.info()||{enabled:false}));
       if(route==='/imports'||route.startsWith('/imports/')){
         if(!purchases)throw Object.assign(new Error('Purchase imports are not enabled on this server.'),{status:404,code:'IMPORT_DISABLED'});
@@ -134,7 +143,6 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
       const inference=(['/jobs','/recognize','/inspiration'].includes(route)&&!cloudPhoto)||localStyle;
       if(inference&&(active||purchases?.busy||(route!=='/jobs'&&(queue.localBusy??queue.busy)))){res.statusCode=429;return res.end(JSON.stringify({error:'The model is busy. Wait for the current analysis to finish, then retry.'}));}
       if(inference){active=true;claimed=true;}
-      if((route==='/style'&&!localStyle)||(route==='/recognize'&&cloudPhoto)){if(remoteActive>=2)throw Object.assign(new Error('Two direct cloud requests are already running. Try again shortly.'),{status:429,code:'CLOUD_BUSY'});remoteActive++;remoteClaimed=true;}
       if(route==='/learning/events'){res.statusCode=201;return res.end(JSON.stringify(await handlers.recordLearningEvent(body)));}
       if(route==='/jobs'){const job=queue.enqueue(body.image,{crop:body.crop,detectionMode:body.detectionMode,provider:body.provider,modelProfile:body.modelProfile,wardrobeId:body.wardrobeId});res.statusCode=202;return res.end(JSON.stringify(job));}
       controller=new AbortController();controllers.add(controller);abortDisconnected=()=>{if(!res.writableEnded)controller.abort();};res.once('close',abortDisconnected);
@@ -160,9 +168,11 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
         return res.end(JSON.stringify({retrieval}));
       }
       if(route==='/inspiration')return res.end(JSON.stringify(await handlers.analyzeInspiration(body.image,{signal:controller.signal})));
-      res.end(JSON.stringify(await(route==='/recognize'?handlers.recognize(body.image,{crop:body.crop,detectionMode:body.detectionMode,provider:body.provider,modelProfile:body.modelProfile,wardrobeId:body.wardrobeId,signal:controller.signal}):handlers.style(body,{signal:controller.signal,knowledgeSearch:async(wardrobeId,query,options)=>(await hydratedKnowledge(user,options)).search(wardrobeId,query,options)}))));
-    }catch(error){if(!res.destroyed){res.statusCode=error.status||503;res.end(JSON.stringify({error:error.message,code:error.code,retryable:error.retryable===true}));}}
-    finally{if(abortDisconnected)res.off('close',abortDisconnected);if(controller)controllers.delete(controller);if(claimed)active=false;if(remoteClaimed)remoteActive--;}
+      const work=()=>{controller.signal.throwIfAborted();return route==='/recognize'?handlers.recognize(body.image,{crop:body.crop,detectionMode:body.detectionMode,provider:body.provider,modelProfile:body.modelProfile,wardrobeId:body.wardrobeId,signal:controller.signal}):handlers.style(body,{signal:controller.signal,knowledgeSearch:async(wardrobeId,query,options)=>(await hydratedKnowledge(user,options)).search(wardrobeId,query,options)});};
+      res.end(JSON.stringify(await(((route==='/style'&&!localStyle)||(route==='/recognize'&&cloudPhoto))?remoteWork.run(work):work())));
+    }catch(error){if(!res.destroyed){res.statusCode=error.status||503;if(error.retryAfter||res.statusCode===429)res.setHeader('Retry-After',String(Math.min(3600,Math.max(1,error.retryAfter||30))));res.end(JSON.stringify({error:error.message,code:error.code,retryable:error.retryable===true}));}}
+    finally{if(abortDisconnected)res.off('close',abortDisconnected);if(controller)controllers.delete(controller);if(claimed)active=false;}
   }
   return {middleware,close:()=>{closed=true;for(const controller of controllers)controller.abort();queue.close();knowledge?.close();void purchases?.close();},queue};
 }
+

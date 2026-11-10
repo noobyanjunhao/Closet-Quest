@@ -6,7 +6,7 @@ import { createOpenAIChat, openAIModelFor } from './openai.js';
 import { PIPELINE_VERSION, PROMPT_HASH, runRecognition } from './recognition.js';
 import { MULTI_VERSION, SCENE_PROMPT_HASH, runSceneRecognition } from './multi-recognition.js';
 
-export const RECOGNITION_CACHE_VERSION = 'recognition-provider-v1';
+export const RECOGNITION_CACHE_VERSION = 'recognition-provider-v2-quality';
 
 // Only validated observations are cached, never photos. No wardrobe scope means no
 // cache. Serial photo jobs naturally reuse a completed observation without sharing
@@ -43,3 +43,4 @@ export function createRecognitionProvider({ localGenerate=chat, openaiFactory=cr
 }
 
 export const recognizeWithProvider=createRecognitionProvider();
+

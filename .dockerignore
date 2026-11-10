@@ -1,0 +1,14 @@
+node_modules
+dist
+.git
+.env
+.env.*
+.local-data
+tmp
+output
+vision/private
+ml/checkpoints
+ml/exports
+ml/.venv
+**/__pycache__
+
