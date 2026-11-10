@@ -52,5 +52,6 @@ export async function runSceneRecognition(image, generate, {signal,onStage=()=>{
   const result=await stage('recognizing',()=>generate(sceneSchema,SCENE_PROMPT,'Find each visible garment and accessory, including small hats and eyewear. Return separate observations and crop rectangles.',photo.base64,{...options,maxOutputTokens:4096,signal,temperature:0,seed:42}));
   const scene=await stage('validating',()=>validateScene(result.data,photo.warnings));
   // data remains compatible with single-piece clients; multi-piece clients use garments.
-  return {...result,...scene,data:structuredClone(scene.garments[0]),latencyMs:Math.round(performance.now()-started),pipeline:{version:MULTI_VERSION,promptSha256:SCENE_PROMPT_HASH,inputSha256:photo.inputSha256,normalizedSha256:photo.normalizedSha256,width:photo.width,height:photo.height,detectionMode:'multiple',...(crop?{crop}:{}),stages,labelPolicy:'manual-only',colorSource:'representative-palette'}};
+  return {...result,...scene,quality:photo.quality,data:structuredClone(scene.garments[0]),latencyMs:Math.round(performance.now()-started),pipeline:{version:MULTI_VERSION,promptSha256:SCENE_PROMPT_HASH,inputSha256:photo.inputSha256,normalizedSha256:photo.normalizedSha256,width:photo.width,height:photo.height,detectionMode:'multiple',...(crop?{crop}:{}),stages,labelPolicy:'manual-only',colorSource:'representative-palette'}};
 }
+

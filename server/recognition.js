@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
 import sharp from 'sharp';
+import {assessPhotoQuality} from './photo-quality.js';
 
 export const PIPELINE_VERSION = 'garment-v2.1';
 export const ITEM_CATEGORIES = Object.freeze({
@@ -70,9 +71,8 @@ export async function normalizePhoto(dataURL,{crop}={}) {
     const stats=await sharp(data).stats();
     // Only reject essentially uniform pixels; low-contrast white garments still need model/human review.
     if(stats.channels.every(channel=>channel.max-channel.min<=1))throw new PipelineError('This image is blank or a solid color. Choose a photo with the whole item visible.',{code:'EMPTY_IMAGE',status:422});
-    const warnings=[];
-    if(Math.min(info.width,info.height)<224)warnings.push('This photo has low resolution; fine details may not be visible.');
-    return {base64:data.toString('base64'),inputSha256:createHash('sha256').update(bytes).digest('hex'),normalizedSha256:createHash('sha256').update(data).digest('hex'),width:info.width,height:info.height,warnings};
+    const quality=await assessPhotoQuality(data,info),warnings=quality.warnings;
+    return {base64:data.toString('base64'),inputSha256:createHash('sha256').update(bytes).digest('hex'),normalizedSha256:createHash('sha256').update(data).digest('hex'),width:info.width,height:info.height,warnings,quality};
   }catch(error){if(error instanceof PipelineError)throw error;throw new PipelineError(error.message?.includes('pixels on each side')?error.message:'This photo cannot be decoded safely. Choose a single-frame JPG, PNG or WebP under 40 megapixels.',{code:'INVALID_IMAGE',status:400});}
 }
 
@@ -107,5 +107,6 @@ export async function runRecognition(image,chat,{signal,onStage=()=>{},crop,...o
   const photo=await stage('preparing',()=>normalizePhoto(image,{crop}));
   const result=await stage('recognizing',()=>chat(recognitionSchema,RECOGNITION_PROMPT,`Inspect the primary wardrobe item in this photograph. Return this schema: ${JSON.stringify(recognitionSchema)}`,photo.base64,{...options,signal,temperature:0,seed:42}));
   const data=await stage('validating',()=>attributesFromObservation(result.data,photo.warnings));
-  return {...result,data,latencyMs:Math.round(performance.now()-started),pipeline:{version:PIPELINE_VERSION,promptSha256:PROMPT_HASH,inputSha256:photo.inputSha256,normalizedSha256:photo.normalizedSha256,width:photo.width,height:photo.height,...(crop?{crop:{x:crop.x,y:crop.y,width:crop.width,height:crop.height}}:{}),stages,labelPolicy:'manual-only',colorSource:'representative-palette'}};
+  return {...result,data,quality:photo.quality,latencyMs:Math.round(performance.now()-started),pipeline:{version:PIPELINE_VERSION,promptSha256:PROMPT_HASH,inputSha256:photo.inputSha256,normalizedSha256:photo.normalizedSha256,width:photo.width,height:photo.height,...(crop?{crop:{x:crop.x,y:crop.y,width:crop.width,height:crop.height}}:{}),stages,labelPolicy:'manual-only',colorSource:'representative-palette'}};
 }
+

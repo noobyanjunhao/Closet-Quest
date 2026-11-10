@@ -1,0 +1,15 @@
+{
+  "measuredAt": "2026-11-10T00:25:22.395Z",
+  "environment": "Dynalite loopback emulator + official AWS SDK v3, two separate clients; NOT an AWS deployment",
+  "requests": 40,
+  "completed": 40,
+  "providerCalls": 1,
+  "sharedCacheResponses": 39,
+  "staleWriterRejected": true,
+  "foreignReleaseRejected": true,
+  "releaseRecovery": true,
+  "elapsedMs": 402,
+  "awsResourcesCreated": 0,
+  "paidModelCalls": 0
+}
+

@@ -269,10 +269,10 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
     }
   }
   function removeItem(item) {
-    if(!confirm(`Delete ${item.name}? Its photo and any saved outfits containing it will be removed from this browser.`))return;
+    if(!confirm(`Delete ${item.name} and saved outfits containing it? ${account?.cloud?'The piece will leave your closet. Previously uploaded private photo files may remain in cloud storage.':'Its photo will be removed from this browser.'}`))return;
     if(save(s=>deleteGarment(s,item.id))) {
       if(item.recognition?.jobId)api(`jobs/${item.recognition.jobId}`,null,'DELETE').catch(()=>{});
-      closeEditor();notify('Garment, photo and dependent saved outfits deleted.');
+      closeEditor();notify(account?.cloud?'Piece and dependent looks removed. Cloud photo-file cleanup is separate.':'Garment, photo and dependent saved outfits deleted.');
     }
   }
   function clearStudio() {
@@ -451,3 +451,4 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
     {account?.cloud&&state.onboardingComplete===false&&<WelcomeFlow onFinish={({name,styles,samples})=>{const next={...stateRef.current,profile:name.trim(),onboardingComplete:true,preferences:{...preferences,styles},learningEnabled:false};if(save(samples?addPhotoCollection(next):next)&&!samples)setModal('add');}}/>}
   </div>;
 }
+

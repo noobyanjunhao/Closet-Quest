@@ -1,0 +1,1242 @@
+{
+  "measuredAt": "2026-11-10T00:20:11.700Z",
+  "kind": "heuristic warning analysis on reused Sprint 8 photos; no new model calls or users",
+  "independentPhotos": 20,
+  "summary": {
+    "original": {
+      "photos": 20,
+      "anyWarning": 0,
+      "lowResolution": 0,
+      "dark": 0,
+      "softDetail": 0,
+      "medianMs": 7.42
+    },
+    "dim": {
+      "photos": 20,
+      "anyWarning": 12,
+      "lowResolution": 0,
+      "dark": 12,
+      "softDetail": 0,
+      "medianMs": 7.94
+    },
+    "blur": {
+      "photos": 20,
+      "anyWarning": 20,
+      "lowResolution": 20,
+      "dark": 0,
+      "softDetail": 0,
+      "medianMs": 2.6
+    }
+  },
+  "photos": [
+    {
+      "id": 15619,
+      "variant": "original",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 1024,
+          "height": 681,
+          "luminance": 106,
+          "laplacianVariance": 1111
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 12.16
+    },
+    {
+      "id": 15619,
+      "variant": "dim",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "dark"
+        ],
+        "warnings": [
+          "This photo looks dark. Use daylight or brighter lighting and check for missing pieces."
+        ],
+        "metrics": {
+          "width": 1024,
+          "height": 681,
+          "luminance": 39,
+          "laplacianVariance": 112
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 8.63
+    },
+    {
+      "id": 15619,
+      "variant": "blur",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "low-resolution"
+        ],
+        "warnings": [
+          "This photo is small. Hats, shoes and small accessories may be missed. Try the original phone photo or a closer shot."
+        ],
+        "metrics": {
+          "width": 160,
+          "height": 106,
+          "luminance": 106,
+          "laplacianVariance": 74
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 2.96
+    },
+    {
+      "id": 9564,
+      "variant": "original",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 682,
+          "height": 1024,
+          "luminance": 79,
+          "laplacianVariance": 807
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 8.87
+    },
+    {
+      "id": 9564,
+      "variant": "dim",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "dark"
+        ],
+        "warnings": [
+          "This photo looks dark. Use daylight or brighter lighting and check for missing pieces."
+        ],
+        "metrics": {
+          "width": 682,
+          "height": 1024,
+          "luminance": 34,
+          "laplacianVariance": 84
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 7.87
+    },
+    {
+      "id": 9564,
+      "variant": "blur",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "low-resolution"
+        ],
+        "warnings": [
+          "This photo is small. Hats, shoes and small accessories may be missed. Try the original phone photo or a closer shot."
+        ],
+        "metrics": {
+          "width": 106,
+          "height": 160,
+          "luminance": 79,
+          "laplacianVariance": 67
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 2.11
+    },
+    {
+      "id": 19845,
+      "variant": "original",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 1024,
+          "height": 683,
+          "luminance": 123,
+          "laplacianVariance": 1513
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 8.04
+    },
+    {
+      "id": 19845,
+      "variant": "dim",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "dark"
+        ],
+        "warnings": [
+          "This photo looks dark. Use daylight or brighter lighting and check for missing pieces."
+        ],
+        "metrics": {
+          "width": 1024,
+          "height": 683,
+          "luminance": 44,
+          "laplacianVariance": 139
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 8.12
+    },
+    {
+      "id": 19845,
+      "variant": "blur",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "low-resolution"
+        ],
+        "warnings": [
+          "This photo is small. Hats, shoes and small accessories may be missed. Try the original phone photo or a closer shot."
+        ],
+        "metrics": {
+          "width": 160,
+          "height": 106,
+          "luminance": 123,
+          "laplacianVariance": 159
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 1.77
+    },
+    {
+      "id": 19905,
+      "variant": "original",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 682,
+          "height": 1024,
+          "luminance": 125,
+          "laplacianVariance": 780
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 7.01
+    },
+    {
+      "id": 19905,
+      "variant": "dim",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "dark"
+        ],
+        "warnings": [
+          "This photo looks dark. Use daylight or brighter lighting and check for missing pieces."
+        ],
+        "metrics": {
+          "width": 682,
+          "height": 1024,
+          "luminance": 45,
+          "laplacianVariance": 75
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 8.05
+    },
+    {
+      "id": 19905,
+      "variant": "blur",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "low-resolution"
+        ],
+        "warnings": [
+          "This photo is small. Hats, shoes and small accessories may be missed. Try the original phone photo or a closer shot."
+        ],
+        "metrics": {
+          "width": 106,
+          "height": 160,
+          "luminance": 125,
+          "laplacianVariance": 88
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 3.26
+    },
+    {
+      "id": 15743,
+      "variant": "original",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 683,
+          "height": 1024,
+          "luminance": 144,
+          "laplacianVariance": 2541
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 8.76
+    },
+    {
+      "id": 15743,
+      "variant": "dim",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 683,
+          "height": 1024,
+          "luminance": 50,
+          "laplacianVariance": 188
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 9.45
+    },
+    {
+      "id": 15743,
+      "variant": "blur",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "low-resolution"
+        ],
+        "warnings": [
+          "This photo is small. Hats, shoes and small accessories may be missed. Try the original phone photo or a closer shot."
+        ],
+        "metrics": {
+          "width": 106,
+          "height": 160,
+          "luminance": 144,
+          "laplacianVariance": 120
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 2.56
+    },
+    {
+      "id": 17448,
+      "variant": "original",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 682,
+          "height": 1024,
+          "luminance": 128,
+          "laplacianVariance": 674
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 7.52
+    },
+    {
+      "id": 17448,
+      "variant": "dim",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 682,
+          "height": 1024,
+          "luminance": 45,
+          "laplacianVariance": 70
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 7.42
+    },
+    {
+      "id": 17448,
+      "variant": "blur",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "low-resolution"
+        ],
+        "warnings": [
+          "This photo is small. Hats, shoes and small accessories may be missed. Try the original phone photo or a closer shot."
+        ],
+        "metrics": {
+          "width": 106,
+          "height": 160,
+          "luminance": 128,
+          "laplacianVariance": 70
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 2.65
+    },
+    {
+      "id": 14432,
+      "variant": "original",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 682,
+          "height": 1024,
+          "luminance": 68,
+          "laplacianVariance": 1397
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 7.38
+    },
+    {
+      "id": 14432,
+      "variant": "dim",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "dark"
+        ],
+        "warnings": [
+          "This photo looks dark. Use daylight or brighter lighting and check for missing pieces."
+        ],
+        "metrics": {
+          "width": 682,
+          "height": 1024,
+          "luminance": 23,
+          "laplacianVariance": 148
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 6.91
+    },
+    {
+      "id": 14432,
+      "variant": "blur",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "low-resolution"
+        ],
+        "warnings": [
+          "This photo is small. Hats, shoes and small accessories may be missed. Try the original phone photo or a closer shot."
+        ],
+        "metrics": {
+          "width": 106,
+          "height": 160,
+          "luminance": 69,
+          "laplacianVariance": 151
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 3.15
+    },
+    {
+      "id": 10533,
+      "variant": "original",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 682,
+          "height": 1024,
+          "luminance": 128,
+          "laplacianVariance": 1064
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 9.41
+    },
+    {
+      "id": 10533,
+      "variant": "dim",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 682,
+          "height": 1024,
+          "luminance": 45,
+          "laplacianVariance": 98
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 8.1
+    },
+    {
+      "id": 10533,
+      "variant": "blur",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "low-resolution"
+        ],
+        "warnings": [
+          "This photo is small. Hats, shoes and small accessories may be missed. Try the original phone photo or a closer shot."
+        ],
+        "metrics": {
+          "width": 106,
+          "height": 160,
+          "luminance": 128,
+          "laplacianVariance": 84
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 2.95
+    },
+    {
+      "id": 9014,
+      "variant": "original",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 682,
+          "height": 1024,
+          "luminance": 190,
+          "laplacianVariance": 725
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 7.23
+    },
+    {
+      "id": 9014,
+      "variant": "dim",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 682,
+          "height": 1024,
+          "luminance": 63,
+          "laplacianVariance": 72
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 7.94
+    },
+    {
+      "id": 9014,
+      "variant": "blur",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "low-resolution"
+        ],
+        "warnings": [
+          "This photo is small. Hats, shoes and small accessories may be missed. Try the original phone photo or a closer shot."
+        ],
+        "metrics": {
+          "width": 106,
+          "height": 160,
+          "luminance": 190,
+          "laplacianVariance": 104
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 2.55
+    },
+    {
+      "id": 12729,
+      "variant": "original",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 682,
+          "height": 1024,
+          "luminance": 115,
+          "laplacianVariance": 2179
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 7.51
+    },
+    {
+      "id": 12729,
+      "variant": "dim",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "dark"
+        ],
+        "warnings": [
+          "This photo looks dark. Use daylight or brighter lighting and check for missing pieces."
+        ],
+        "metrics": {
+          "width": 682,
+          "height": 1024,
+          "luminance": 42,
+          "laplacianVariance": 193
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 7.11
+    },
+    {
+      "id": 12729,
+      "variant": "blur",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "low-resolution"
+        ],
+        "warnings": [
+          "This photo is small. Hats, shoes and small accessories may be missed. Try the original phone photo or a closer shot."
+        ],
+        "metrics": {
+          "width": 106,
+          "height": 160,
+          "luminance": 115,
+          "laplacianVariance": 171
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 2.39
+    },
+    {
+      "id": 20583,
+      "variant": "original",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 682,
+          "height": 1024,
+          "luminance": 117,
+          "laplacianVariance": 2669
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 7.91
+    },
+    {
+      "id": 20583,
+      "variant": "dim",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "dark"
+        ],
+        "warnings": [
+          "This photo looks dark. Use daylight or brighter lighting and check for missing pieces."
+        ],
+        "metrics": {
+          "width": 682,
+          "height": 1024,
+          "luminance": 42,
+          "laplacianVariance": 252
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 8.27
+    },
+    {
+      "id": 20583,
+      "variant": "blur",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "low-resolution"
+        ],
+        "warnings": [
+          "This photo is small. Hats, shoes and small accessories may be missed. Try the original phone photo or a closer shot."
+        ],
+        "metrics": {
+          "width": 106,
+          "height": 160,
+          "luminance": 116,
+          "laplacianVariance": 149
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 2.71
+    },
+    {
+      "id": 10282,
+      "variant": "original",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 683,
+          "height": 1024,
+          "luminance": 136,
+          "laplacianVariance": 3421
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 7.32
+    },
+    {
+      "id": 10282,
+      "variant": "dim",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 683,
+          "height": 1024,
+          "luminance": 47,
+          "laplacianVariance": 318
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 7.97
+    },
+    {
+      "id": 10282,
+      "variant": "blur",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "low-resolution"
+        ],
+        "warnings": [
+          "This photo is small. Hats, shoes and small accessories may be missed. Try the original phone photo or a closer shot."
+        ],
+        "metrics": {
+          "width": 106,
+          "height": 160,
+          "luminance": 136,
+          "laplacianVariance": 147
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 2.28
+    },
+    {
+      "id": 19616,
+      "variant": "original",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 682,
+          "height": 1024,
+          "luminance": 104,
+          "laplacianVariance": 784
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 6.81
+    },
+    {
+      "id": 19616,
+      "variant": "dim",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "dark"
+        ],
+        "warnings": [
+          "This photo looks dark. Use daylight or brighter lighting and check for missing pieces."
+        ],
+        "metrics": {
+          "width": 682,
+          "height": 1024,
+          "luminance": 38,
+          "laplacianVariance": 78
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 6.99
+    },
+    {
+      "id": 19616,
+      "variant": "blur",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "low-resolution"
+        ],
+        "warnings": [
+          "This photo is small. Hats, shoes and small accessories may be missed. Try the original phone photo or a closer shot."
+        ],
+        "metrics": {
+          "width": 106,
+          "height": 160,
+          "luminance": 104,
+          "laplacianVariance": 130
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 2.6
+    },
+    {
+      "id": 9481,
+      "variant": "original",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 683,
+          "height": 1024,
+          "luminance": 135,
+          "laplacianVariance": 762
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 6.65
+    },
+    {
+      "id": 9481,
+      "variant": "dim",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 683,
+          "height": 1024,
+          "luminance": 47,
+          "laplacianVariance": 82
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 7.15
+    },
+    {
+      "id": 9481,
+      "variant": "blur",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "low-resolution"
+        ],
+        "warnings": [
+          "This photo is small. Hats, shoes and small accessories may be missed. Try the original phone photo or a closer shot."
+        ],
+        "metrics": {
+          "width": 106,
+          "height": 160,
+          "luminance": 135,
+          "laplacianVariance": 102
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 2.36
+    },
+    {
+      "id": 10776,
+      "variant": "original",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 1024,
+          "height": 682,
+          "luminance": 79,
+          "laplacianVariance": 2853
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 6.97
+    },
+    {
+      "id": 10776,
+      "variant": "dim",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "dark"
+        ],
+        "warnings": [
+          "This photo looks dark. Use daylight or brighter lighting and check for missing pieces."
+        ],
+        "metrics": {
+          "width": 1024,
+          "height": 682,
+          "luminance": 30,
+          "laplacianVariance": 263
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 7.3
+    },
+    {
+      "id": 10776,
+      "variant": "blur",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "low-resolution"
+        ],
+        "warnings": [
+          "This photo is small. Hats, shoes and small accessories may be missed. Try the original phone photo or a closer shot."
+        ],
+        "metrics": {
+          "width": 160,
+          "height": 106,
+          "luminance": 79,
+          "laplacianVariance": 82
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 2.2
+    },
+    {
+      "id": 9835,
+      "variant": "original",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 682,
+          "height": 1024,
+          "luminance": 81,
+          "laplacianVariance": 1562
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 8.32
+    },
+    {
+      "id": 9835,
+      "variant": "dim",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "dark"
+        ],
+        "warnings": [
+          "This photo looks dark. Use daylight or brighter lighting and check for missing pieces."
+        ],
+        "metrics": {
+          "width": 682,
+          "height": 1024,
+          "luminance": 31,
+          "laplacianVariance": 160
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 9.23
+    },
+    {
+      "id": 9835,
+      "variant": "blur",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "low-resolution"
+        ],
+        "warnings": [
+          "This photo is small. Hats, shoes and small accessories may be missed. Try the original phone photo or a closer shot."
+        ],
+        "metrics": {
+          "width": 106,
+          "height": 160,
+          "luminance": 81,
+          "laplacianVariance": 90
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 2.72
+    },
+    {
+      "id": 16065,
+      "variant": "original",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 682,
+          "height": 1024,
+          "luminance": 195,
+          "laplacianVariance": 1285
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 7.42
+    },
+    {
+      "id": 16065,
+      "variant": "dim",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 682,
+          "height": 1024,
+          "luminance": 67,
+          "laplacianVariance": 130
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 6.73
+    },
+    {
+      "id": 16065,
+      "variant": "blur",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "low-resolution"
+        ],
+        "warnings": [
+          "This photo is small. Hats, shoes and small accessories may be missed. Try the original phone photo or a closer shot."
+        ],
+        "metrics": {
+          "width": 106,
+          "height": 160,
+          "luminance": 194,
+          "laplacianVariance": 116
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 3
+    },
+    {
+      "id": 17775,
+      "variant": "original",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 1024,
+          "height": 682,
+          "luminance": 112,
+          "laplacianVariance": 811
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 6.32
+    },
+    {
+      "id": 17775,
+      "variant": "dim",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "dark"
+        ],
+        "warnings": [
+          "This photo looks dark. Use daylight or brighter lighting and check for missing pieces."
+        ],
+        "metrics": {
+          "width": 1024,
+          "height": 682,
+          "luminance": 39,
+          "laplacianVariance": 87
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 7.8
+    },
+    {
+      "id": 17775,
+      "variant": "blur",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "low-resolution"
+        ],
+        "warnings": [
+          "This photo is small. Hats, shoes and small accessories may be missed. Try the original phone photo or a closer shot."
+        ],
+        "metrics": {
+          "width": 160,
+          "height": 106,
+          "luminance": 112,
+          "laplacianVariance": 117
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 3.09
+    },
+    {
+      "id": 17714,
+      "variant": "original",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 683,
+          "height": 1024,
+          "luminance": 106,
+          "laplacianVariance": 855
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 6.56
+    },
+    {
+      "id": 17714,
+      "variant": "dim",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "dark"
+        ],
+        "warnings": [
+          "This photo looks dark. Use daylight or brighter lighting and check for missing pieces."
+        ],
+        "metrics": {
+          "width": 683,
+          "height": 1024,
+          "luminance": 39,
+          "laplacianVariance": 85
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 8.44
+    },
+    {
+      "id": 17714,
+      "variant": "blur",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "low-resolution"
+        ],
+        "warnings": [
+          "This photo is small. Hats, shoes and small accessories may be missed. Try the original phone photo or a closer shot."
+        ],
+        "metrics": {
+          "width": 106,
+          "height": 160,
+          "luminance": 107,
+          "laplacianVariance": 114
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 2.38
+    },
+    {
+      "id": 10180,
+      "variant": "original",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 1024,
+          "height": 682,
+          "luminance": 141,
+          "laplacianVariance": 1730
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 13.36
+    },
+    {
+      "id": 10180,
+      "variant": "dim",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [],
+        "warnings": [],
+        "metrics": {
+          "width": 1024,
+          "height": 682,
+          "luminance": 50,
+          "laplacianVariance": 172
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 10.65
+    },
+    {
+      "id": 10180,
+      "variant": "blur",
+      "quality": {
+        "version": "photo-quality-v1",
+        "flags": [
+          "low-resolution"
+        ],
+        "warnings": [
+          "This photo is small. Hats, shoes and small accessories may be missed. Try the original phone photo or a closer shot."
+        ],
+        "metrics": {
+          "width": 160,
+          "height": 106,
+          "luminance": 141,
+          "laplacianVariance": 118
+        },
+        "policy": "advisory-only",
+        "completeInventoryVerified": false
+      },
+      "elapsedMs": 3.26
+    }
+  ]
+}
+

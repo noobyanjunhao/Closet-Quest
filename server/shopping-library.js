@@ -2,6 +2,7 @@ import {createHash} from 'node:crypto';
 import {readFileSync,mkdirSync,writeFileSync,renameSync} from 'node:fs';
 import {join} from 'node:path';
 import {shoppingQuery,publicHttps,RETAILERS} from './shopping.js';
+import {createWorkLimiter} from './work-limiter.js';
 
 export const SHOPPING_FRESH_MS=24*60*60*1000, SHOPPING_MAX_AGE_MS=14*SHOPPING_FRESH_MS;
 const categories=['Top','Bottom','Shoes','Dress','Outerwear','Accessory'];
@@ -26,9 +27,11 @@ function waitFor(promise,signal){
  if(!signal)return promise;signal.throwIfAborted();
  return new Promise((resolve,reject)=>{const aborted=()=>{cleanup();reject(signal.reason);},cleanup=()=>signal.removeEventListener('abort',aborted);signal.addEventListener('abort',aborted,{once:true});promise.then(v=>{cleanup();resolve(v);},e=>{cleanup();reject(e);});});
 }
-export function createShoppingLibrary({search,cloud,seed,storageDir,now=Date.now}={}){
+export function createShoppingLibrary({search,cloud,seed,storageDir,now=Date.now,limiter=createWorkLimiter(),failureCooldownMs=30000,sharedStore}={}){
  if(seed===undefined)try{seed=JSON.parse(readFileSync(new URL('../data/shopping-library.json',import.meta.url),'utf8')).entries;}catch{seed=[];}
- const shared=new Map(),personal=new Map(),pending=new Map();
+ const shared=new Map(),personal=new Map(),pending=new Map(),failures=new Map();
+ let failureStreak=0,openUntil=0;
+ const stats={cacheHits:0,coalesced:0,liveSearches:0,fallbacks:0,failures:0,distributedHits:0};
  const put=(map,entry)=>{const clean=validateLibraryEntry(entry,now());if(clean){map.set(key(clean.query),clean);while(map.size>120)map.delete(map.keys().next().value);}return clean;};
  for(const entry of seed||[])put(shared,entry);
  if(storageDir)try{for(const entry of JSON.parse(readFileSync(join(storageDir,'library.json'),'utf8')))put(shared,entry);}catch{}
@@ -53,6 +56,7 @@ export function createShoppingLibrary({search,cloud,seed,storageDir,now=Date.now
   try{await cloud.saveShoppingResult(user,key(entry.query),entry);let owned=personal.get(user.namespace);if(!owned){owned={map:new Map(),loadedAt:now()};personal.set(user.namespace,owned);}put(owned.map,entry);}catch{/* Show results even if private library sync temporarily fails. */}
  }
  return {
+  stats:()=>({...stats,...limiter.stats(),circuitOpen:now()<openUntil,pending:pending.size}),
   async browse(input={}, {user}={}){
    const category=input.category||'All',presentation=input.presentation||'any';
    if(!['All',...categories].includes(category)||!['any','menswear','womenswear'].includes(presentation))throw Object.assign(Error('Choose a clothing category and style.'),{status:400});
@@ -63,14 +67,24 @@ export function createShoppingLibrary({search,cloud,seed,storageDir,now=Date.now
    return result(chosen,{category,presentation,maxPrice:budget},'library',{day,libraryCount:all.length,daily,stale:chosen.some(p=>now()-Date.parse(p.checkedAt)>=SHOPPING_FRESH_MS)});
   },
   async find(input,{user,signal,beforeSearch}={}){
+   signal?.throwIfAborted();
    const q=shoppingQuery(input),entries=await entriesFor(user),fresh=selection(entries,q,true);
-   if(fresh.length){const cached=result(fresh,q,'library');await saveFor(user,{query:q,products:fresh,searchedAt:cached.searchedAt});return cached;}
+   if(fresh.length){stats.cacheHits++;const cached=result(fresh,q,'library');await saveFor(user,{query:q,products:fresh,searchedAt:cached.searchedAt});return cached;}
+   for(const[k,until]of failures)if(until<=now())failures.delete(k);
+   const older=selection(entries,q,false);
+   const fallback=()=>{stats.fallbacks++;return result(older,q,'saved-fallback',{stale:true,notice:'Live search is unavailable. These are previously saved finds. '+notice});};
    const id=key(q);if(!pending.has(id)){
+    if(now()<openUntil||failures.has(id)){
+     if(older.length)return fallback();
+     throw Object.assign(Error('Shop search is resting after a connection problem. Try again in a little while.'),{status:503,code:'SHOPPING_COOLDOWN',retryable:true,retryAfter:Math.max(1,Math.ceil((Math.max(openUntil,failures.get(id)||0)-now())/1000))});
+    }
     beforeSearch?.();
-    const task=Promise.resolve().then(()=>search(q,{scope:'public-product-library'})).then(raw=>{const clean=put(shared,raw);if(!clean)throw Object.assign(Error('No reliable new shop results. Try another category.'),{status:503});persist();return clean;}).finally(()=>pending.delete(id));pending.set(id,task);
-   }
+    const fetchFresh=async()=>{stats.liveSearches++;return search(q,{scope:'public-product-library'});};
+    const task=limiter.run(async()=>sharedStore?sharedStore.getOrRefresh(q,fetchFresh):fetchFresh()).then(raw=>{const clean=put(shared,raw);if(!clean)throw Object.assign(Error('No reliable new shop results. Try another category.'),{status:503});if(raw.distributedCached)stats.distributedHits++;failureStreak=0;openUntil=0;persist();return clean;}).catch(error=>{stats.failures++;failures.set(id,now()+failureCooldownMs);while(failures.size>120)failures.delete(failures.keys().next().value);if(++failureStreak>=3)openUntil=now()+failureCooldownMs;throw error;}).finally(()=>pending.delete(id));pending.set(id,task);
+   }else stats.coalesced++;
    try{const entry=await waitFor(pending.get(id),signal);await saveFor(user,entry);return result(entry.products,q,'live');}
-   catch(e){if(signal?.aborted)throw e;const older=selection(entries,q,false);if(older.length)return result(older,q,'saved-fallback',{stale:true,notice:'Live search is unavailable. These are previously saved finds. '+notice});throw e;}
+   catch(e){if(signal?.aborted)throw e;if(older.length)return fallback();throw e;}
   }
  };
 }
+

@@ -2,6 +2,10 @@
 
 **Live app:** [Try Closet Quest](https://closet-quest-junhao-s7.onrender.com/).
 
+## Sprint 9 beta
+
+The beta adds bounded shopping/stylist queues, reusable public catalog coordination, visible photo-quality guidance, private measurement exports and a frozen-revision independent-test flow. See the [beta report](docs/sprint9-beta.md), [three-page PDF](output/pdf/Closet-Quest-Sprint-9-Beta-Report.pdf), [user guide](docs/beta-user-guide.md) and [deployment runbook](docs/beta-deployment.md). Automated results are separate from independent-user evidence, which remains pending. The AWS SDK/SAM implementation has a real local-emulator experiment; it is not yet an AWS-hosted deployment.
+
 ## Purchase model v2 — fewer omissions and bounded GPU training
 
 The follow-up replaces whole-receipt generation with explicit per-line decisions, grounded evidence assembly and shorter, memory-bounded LoRA training. Read the [latest measured results and limitations](docs/purchase-ml-v2-report.md), [raw experiment evidence](output/purchase-ml-v2/README.md) and [reproduction/serving instructions](ml/purchase/V2.md). This evaluates purchase text; it does not replace the photo-recognition benchmark. The earlier experiment below is retained as the baseline.
@@ -226,4 +230,5 @@ Deploying the full application needs a Node runtime with built-in SQLite, durabl
 ### Reproduce current advanced measurements
 
 `npm test` and `npm run build` run without cloud inference. `npm run evaluate:advanced -- --live` intentionally performs a small paid API evaluation with public fixtures and the initial local wardrobe-embedding baseline. `node scripts/evaluate-advanced-retrieval.mjs --live` separately measures the optimized cloud wardrobe cache. Inspect `output/sprint6/advanced/results.json` and `retrieval-results.json` for exact request budgets, real provider labels and caveats. [Screenshot gallery](output/sprint6/advanced/index.html).
+
 

@@ -1,0 +1,80 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Closet Quest optional public catalog cache and bounded daily refresh
+Parameters:
+  CatalogSecretArn:
+    Type: String
+    Description: Existing Secrets Manager JSON secret containing OPENAI_API_KEY
+  EnableSchedule:
+    Type: String
+    Default: 'false'
+    AllowedValues: ['true', 'false']
+Conditions:
+  RunSchedule: !Equals [!Ref EnableSchedule, 'true']
+Resources:
+  Catalog:
+    Type: AWS::DynamoDB::Table
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      BillingMode: PROVISIONED
+      ProvisionedThroughput: {ReadCapacityUnits: 1, WriteCapacityUnits: 1}
+      AttributeDefinitions: [{AttributeName: pk, AttributeType: S}]
+      KeySchema: [{AttributeName: pk, KeyType: HASH}]
+      SSESpecification: {SSEEnabled: true}
+      TimeToLiveSpecification: {AttributeName: expiresAt, Enabled: true}
+  Refresh:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ../../tmp/aws-catalog/
+      Handler: infra/aws/catalog-refresh.handler
+      Runtime: nodejs24.x
+      Architectures: [x86_64]
+      MemorySize: 256
+      Timeout: 40
+      ReservedConcurrentExecutions: 1
+      Environment:
+        Variables:
+          CLOSET_CATALOG_TABLE: !Ref Catalog
+          CATALOG_SECRET_ARN: !Ref CatalogSecretArn
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action: [dynamodb:GetItem, dynamodb:UpdateItem]
+              Resource: !GetAtt Catalog.Arn
+            - Effect: Allow
+              Action: secretsmanager:GetSecretValue
+              Resource: !Ref CatalogSecretArn
+      Events:
+        Daily:
+          Type: ScheduleV2
+          Properties:
+            ScheduleExpression: rate(1 day)
+            State: !If [RunSchedule, ENABLED, DISABLED]
+            RetryPolicy: {MaximumRetryAttempts: 0, MaximumEventAgeInSeconds: 60}
+      EventInvokeConfig:
+        MaximumRetryAttempts: 0
+        MaximumEventAgeInSeconds: 60
+  RefreshLogs:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub /aws/lambda/${Refresh}
+      RetentionInDays: 7
+  RefreshErrors:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: Catalog refresh failed; inspect logs and keep cached fallback
+      Namespace: AWS/Lambda
+      MetricName: Errors
+      Dimensions: [{Name: FunctionName, Value: !Ref Refresh}]
+      Statistic: Sum
+      Period: 86400
+      EvaluationPeriods: 1
+      Threshold: 1
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: notBreaching
+Outputs:
+  CatalogTable: {Value: !Ref Catalog}
+  CatalogTableArn: {Value: !GetAtt Catalog.Arn}
+  RefreshFunction: {Value: !Ref Refresh}
+

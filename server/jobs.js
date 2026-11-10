@@ -30,6 +30,9 @@ export function createJobQueue(worker, { maxJobs = 8, maxRetained = 100, ttl = 3
     for (const [id, job] of jobs) if (isTerminalJob(job) && now() - job.updatedAt > ttl) discard(id);
     for (const [id, job] of jobs) if (jobs.size > maxRetained - reserve && isTerminalJob(job)) discard(id);
   }
+  // Retention must not depend on another user opening a job after its TTL.
+  const retentionTimer=setInterval(()=>{if(!closed)try{prune();}catch{diagnostic('RETENTION_CLEANUP_FAILED',null,'Expired job cleanup will retry.');}},Math.max(1000,Math.min(ttl||1000,60000)));
+  retentionTimer.unref();
   function snapshot(job) {
     return job && { id:job.id, status:job.status, stage:job.stage, attempt:job.attempt, maxAttempts, createdAt:job.createdAt, provider:job.provider, modelProfile:job.modelProfile, crop:job.crop && { ...job.crop }, result:publicJobResult(job.result), error:job.error, errorCode:job.errorCode, position:job.status === 'queued' ? [...jobs.values()].filter(j => j.status === 'queued' && lane(j) === lane(job)).findIndex(j => j.id === job.id) + 1 : 0 };
   }
@@ -121,6 +124,7 @@ export function createJobQueue(worker, { maxJobs = 8, maxRetained = 100, ttl = 3
     },
     close() {
       closed = true;
+      clearInterval(retentionTimer);
       for (const job of jobs.values()) if (!isTerminalJob(job)) { job.controller.abort(); delete job.image; }
       store?.release();
     },
@@ -132,3 +136,4 @@ export function createJobQueue(worker, { maxJobs = 8, maxRetained = 100, ttl = 3
     get activeCloudCount() { return closed ? 0 : activeCount('cloud'); },
   };
 }
+

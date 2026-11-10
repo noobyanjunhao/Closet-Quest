@@ -8,6 +8,7 @@ export default function PhotoDetections({source,result,busy,onReview}) {
     <p className="eyebrow">ONE PHOTO, SEPARATE PIECES</p>
     <h3>{result.garments.length} pieces found</h3>
     <p>Choose the pieces you want in your closet. You’ll review each name, color and category before saving.</p>
+    {result.quality?.warnings?.length>0&&<aside className="notice" role="status"><strong>A quick photo check</strong>{result.quality.warnings.map(w=><p key={w}>{w}</p>)}<p>We kept the usable pieces. Compare them with your photo before continuing.</p></aside>}
     <div className="detected-grid">{result.garments.map((garment,index)=>{
       const crop=detectionCrop(result,garment),checked=selected.includes(index);
       const width=(result.pipeline?.width||1000)/(result.pipeline?.crop?.width||1),height=(result.pipeline?.height||1000)/(result.pipeline?.crop?.height||1);
@@ -22,3 +23,4 @@ export default function PhotoDetections({source,result,busy,onReview}) {
     <button className="primary" type="button" disabled={busy||!selected.length} onClick={()=>onReview(selected)}>{busy?'Preparing pieces…':`Review ${selected.length} selected piece${selected.length===1?'':'s'}`}</button>
   </section>;
 }
+

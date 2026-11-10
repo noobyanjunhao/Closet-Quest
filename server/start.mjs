@@ -3,6 +3,7 @@ import {readFile,realpath,stat} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createApi} from './api.js';
+import {releaseInfo} from './release.js';
 
 const defaultRoot=fileURLToPath(new URL('../dist/',import.meta.url));
 const types={'.html':'text/html; charset=utf-8','.js':'application/javascript','.css':'text/css','.json':'application/json','.jpg':'image/jpeg','.jpeg':'image/jpeg','.png':'image/png','.svg':'image/svg+xml','.webp':'image/webp','.ico':'image/x-icon','.wasm':'application/wasm'};
@@ -18,6 +19,7 @@ export async function createLocalServer({distDir=defaultRoot,apiOptions={}}={}) 
     res.setHeader('X-Frame-Options','DENY');
     res.setHeader('Permissions-Policy','camera=(self), microphone=(), geolocation=()');
     if(req.url==='/healthz'){res.writeHead(200,{'Content-Type':'text/plain'}).end('ok');return;}
+    if(req.url==='/version.json'&&['GET','HEAD'].includes(req.method)){res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'}).end(req.method==='HEAD'?undefined:JSON.stringify(releaseInfo()));return;}
     if(req.url?.startsWith('/api/')){req.url=req.url.slice(4);return api.middleware(req,res);}
     if(!['GET','HEAD'].includes(req.method)){res.writeHead(405).end();return;}
     let requestPath;
@@ -49,7 +51,9 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
   const port=Number(process.env.PORT||4173);
   if(!Number.isInteger(port)||port<1024||port>65535)throw new Error('PORT must be between 1024 and 65535.');
   const server=await createLocalServer();
-  const host=process.env.CLOSET_PUBLIC_ORIGIN?'0.0.0.0':'127.0.0.1';
+  const host=process.env.CLOSET_BIND_HOST||(process.env.CLOSET_PUBLIC_ORIGIN?'0.0.0.0':'127.0.0.1');
+  if(!['127.0.0.1','0.0.0.0'].includes(host))throw Error('CLOSET_BIND_HOST must be 127.0.0.1 or 0.0.0.0.');
   server.listen(port,host,()=>console.log(`Closet Quest listening on ${host}:${port}`));
   for(const signal of ['SIGINT','SIGTERM'])process.once(signal,()=>server.shutdown().then(()=>process.exit(0)));
 }
+

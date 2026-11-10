@@ -3,6 +3,7 @@ import {api,downloadJson} from './photos.js';
 import {Garment} from './components.jsx';
 import {orderFor,measureOutfits,summarizeValidation,exportValidation} from './validation.js';
 import './validation.css';
+import BetaTest from './BetaTest.jsx';
 
 export default function ValidationStudy({state,save,account}) {
   const [participant,setParticipant]=useState(account?.id||'p01'),[source,setSource]=useState('development'),[brief,setBrief]=useState(''),[occasion,setOccasion]=useState('Campus casual'),[consent,setConsent]=useState(false),[unseen,setUnseen]=useState(false),[busy,setBusy]=useState(false),[message,setMessage]=useState(''),[active,setActive]=useState(state.validationTrials?.at(-1)?.pairId||null);
@@ -38,6 +39,7 @@ export default function ValidationStudy({state,save,account}) {
   const finished=shown.length===2&&shown.every(t=>t.status!=='pending'&&(t.status!=='ready'||!t.outfits.length||t.outfits.every(o=>typeof o.accepted==='boolean')));
   const ratio=value=>value.denominator?`${value.numerator}/${value.denominator} (${Math.round(value.value*100)}%)`:'Not measured';
   return <section className="validation-workspace">
+    <BetaTest state={state} save={save}/>
     <div className="panel"><p className="eyebrow">SPRINT 7 · PAIRED VALIDATION</p><h2>Does it help you get dressed?</h2><p>Compare two methods on the same wardrobe and brief. Ratings are recorded separately from engineering checks. This workspace never treats a rehearsal as an independent user study.</p>
       <div className="study-fields"><label>Participant code<input value={participant} onChange={e=>setParticipant(e.target.value)} pattern="p[0-9]{2,3}" placeholder="p01" disabled={busy||Boolean(account)}/></label><label>Session type<select value={source} onChange={e=>setSource(e.target.value)} disabled={busy}><option value="development">Development rehearsal</option><option value="participant">Real participant session</option></select></label><label>Occasion<select value={occasion} onChange={e=>setOccasion(e.target.value)} disabled={busy}>{['Campus casual','Coffee date','Presentation day'].map(value=><option key={value}>{value}</option>)}</select></label></div>
       <label>A real wardrobe brief<textarea value={brief} onChange={e=>setBrief(e.target.value)} maxLength={1800} rows={3} placeholder="Describe your actual plans and what you want to wear." disabled={busy}/></label>
@@ -52,3 +54,4 @@ export default function ValidationStudy({state,save,account}) {
     <section className="panel"><h2>Real participant results</h2><p>{summary.participants} participants · {summary.pairedBriefs} fully rated paired briefs. Rehearsals are excluded below.</p><div className="study-metrics">{['baseline','full'].map(condition=><div key={condition}><h3>{condition==='baseline'?'Quick baseline':'Personal RAG'}</h3><p>Top-three acceptance: <strong>{ratio(summary.conditions[condition].top3Acceptance)}</strong></p><p>Rating coverage: {ratio(summary.conditions[condition].ratingCoverage)}</p><p>Model fallback: {ratio(summary.conditions[condition].modelFallback)}</p><p>Attempts: {summary.conditions[condition].attempts} · Failed: {summary.conditions[condition].failed} · Cancelled: {summary.conditions[condition].cancelled}</p></div>)}</div><p>Reviewed photos: {summary.photoReviews.count}. No measured human result is shown until a real participant supplies it.</p></section>
   </section>;
 }
+

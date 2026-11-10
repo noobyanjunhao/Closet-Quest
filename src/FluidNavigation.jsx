@@ -33,10 +33,11 @@ export default function FluidNavigation({ page, onNavigate, moreOpen, onMore, mo
     <details className="nav-more" open={moreOpen}>
       <summary ref={moreTrigger} data-destination="More" className={`nav ${active === 'More' ? 'active' : ''}`} aria-label="More navigation" onClick={event => {event.preventDefault();onMore(!moreOpen);}}><NavIcon name="More"/><span className="nav-caption">More</span></summary>
       <div className="nav-more-menu">
-        {[['Memory','My style & memory'],['Validation','User study'],['Quests','Style quests'],['Inspiration','Inspiration'],['Resale','Closet check & resale'],['Lab','AI lab']].map(([name,label]) => <button key={name} aria-current={page === name ? 'page' : undefined} onClick={() => {closeMore();onNavigate(name);}}>{label}</button>)}
+        {[['Memory','My style & memory'],['Validation','Beta test & feedback'],['Quests','Style quests'],['Inspiration','Inspiration'],['Resale','Closet check & resale'],['Lab','AI lab']].map(([name,label]) => <button key={name} aria-current={page === name ? 'page' : undefined} onClick={() => {closeMore();onNavigate(name);}}>{label}</button>)}
         <button onClick={() => {closeMore();onModal('profile');}}>Settings & backup</button>
         <button onClick={() => {closeMore();onModal('credits');}}>Photo credits</button>
       </div>
     </details>
   </nav>;
 }
+
