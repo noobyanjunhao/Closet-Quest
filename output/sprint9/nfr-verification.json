@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-11-16",
+  "nodeTests": {
+    "passed": 271,
+    "failed": 0,
+    "command": "npm test",
+    "credentialIsolated": true
+  },
+  "build": {
+    "passed": true,
+    "command": "node scripts/review-sandbox.mjs --port=4187 --prepare-only",
+    "warning": "main JS chunk about 505kB uncompressed; code splitting remains future work"
+  },
+  "paidModelCalls": 0,
+  "newCloudResources": 0,
+  "review": {
+    "kind": "agent-assisted, intended for human supervision",
+    "baseline": "478392750024b8e2f0a11d95bd9dd27f7df4f764d835c0c8a90fd3d842849644",
+    "retest": "22dcd9405860178d5f2aec946f218fb2b5cf94d9ec99b837905760edec5391e0",
+    "targetedChecksPassed": 3,
+    "checksAttempted": 3,
+    "humanRatingsRecorded": false
+  },
+  "hosting": {
+    "newChangesVerifiedLive": false
+  },
+  "independentHumanSessionsVerified": 0
+}

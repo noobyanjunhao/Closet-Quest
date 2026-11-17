@@ -12,5 +12,6 @@ For the independent beta test, open **More -> Beta test & feedback**. Use a part
 
 Keep the exported study results for your agreed handoff to the team. The app does not send them to a professor or researcher automatically. No identifying photos, wardrobe names, free-text prompts or personal style-note excerpts are included in the study export.
 
-**Known limits:** deleting a garment removes it and dependent saved looks from the wardrobe, but may leave private photo objects in cloud storage. Full account erasure and provider-side retention have not been independently audited. Do not use sensitive photos in this beta. Physical camera operation, assistive-technology access and outfit acceptance still need independent testing.
+Choose who operates the app in the beta form: yourself or an agent while you review. These are recorded separately. “How this suggestion was made” explains the selected method and fallback. Quick mode uses local rules; references remain available to read without claiming a model used them. Settings offers backup import for local wardrobes as well as accounts; review the import before applying it.
 
+**Known limits:** deleting a garment removes it and dependent saved looks from the wardrobe, but may leave private photo objects in cloud storage. Full account erasure and provider-side retention have not been independently audited. Do not use sensitive photos in this beta. Physical camera operation, assistive-technology access and outfit acceptance still need independent testing.

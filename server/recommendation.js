@@ -7,8 +7,9 @@ import { personalizeRequest, applyPreferenceScores } from './personalization.js'
 import { retrievalDependenciesFor, interactiveRetrievalOptions } from './retrieval-provider.js';
 import { retrieveWardrobe } from './retrieval.js';
 import { stylingOccasion, shoppingSuggestions, quickStylingNote } from './styling-brief.js';
+import {selectStylistRoute,orchestrationTrace} from './stylist-orchestrator.js';
 
-export const RECOMMENDATION_VERSION = 'recommendation-v4-useful-starting-points';
+export const RECOMMENDATION_VERSION = 'recommendation-v5-bounded-specialists';
 // Abort the underlying work and settle even if a provider ignores cancellation.
 async function withinBudget(work, ms, parentSignal, code) {
   const controller = new AbortController();
@@ -43,7 +44,7 @@ export async function quickChat(_schema, _system, content) {
   } };
 }
 
-export async function recommend(body, { signal, retrieve = retrieveWardrobeHybrid, retrievalDependencies = {}, openaiChat, localChat, provider: providerOverride, knowledgeSearch, budgets={} } = {}) {
+export async function recommend(body, { signal, retrieve = retrieveWardrobeHybrid, retrievalDependencies = {}, openaiChat, localChat, provider: providerOverride, knowledgeSearch, budgets={},policy } = {}) {
   const started = performance.now();
   body={...body,allowPartial:true,context:stylingOccasion(body?.request,body?.context)};
   if(body?.studyCondition!==undefined&&!['baseline','full','no-memory'].includes(body.studyCondition))throw new PipelineError('Unknown study condition.',{status:400,code:'INVALID_STUDY_CONDITION'});
@@ -52,10 +53,12 @@ export async function recommend(body, { signal, retrieve = retrieveWardrobeHybri
     body={...body,provider:studyCondition==='baseline'?'quick':body.provider,preferences:{modelProfile:body.preferences?.modelProfile,embeddingProvider:body.preferences?.embeddingProvider},recommendationHistory:[]};
     knowledgeSearch=undefined;
   }
-  const provider = providerOverride || resolveProvider(body?.provider);
+  const availableProvider = providerOverride || resolveProvider(body?.provider);
   signal?.throwIfAborted();
   // Interactive semantic retrieval has a bounded budget; quick mode uses lexical RAG.
   const personal=personalizeRequest(body);
+  const route=selectStylistRoute({requestedProvider:providerOverride?availableProvider:body.provider||'auto',availableProvider,personal,studyCondition,policy});
+  const provider=route.provider;
   const retrievalRequest=[personal.request,personal.preferenceSummary].filter(Boolean).join(' ').slice(0,2000);
   const retrievalBudget=budgets.retrievalMs??4000;
   const fastOptions=interactiveRetrievalOptions({...personal,provider,studyCondition});
@@ -96,7 +99,9 @@ export async function recommend(body, { signal, retrieve = retrieveWardrobeHybri
     const core=outfit.itemIds.map(id=>prepared.items.find(item=>item.id===id)).filter(item=>['Top','Bottom','Dress'].includes(item.category));
     return {...outfit,title:core.map(item=>item.name||item.category).join(' + ').slice(0,80)||`${personal.context} · A starting point`};
   });
+  const totalMs=Math.round(performance.now()-started);
   return { ...result, pipeline: { version: RECOMMENDATION_VERSION, runId: randomUUID(), studyCondition:studyCondition||null, requestedProvider: body.provider || 'auto', provider: actualProvider,
+    orchestration:orchestrationTrace(route,{actualProvider,fallback,retrievalMs:Math.round(retrievalMs),totalMs,knowledgeMode:knowledge.metadata?.mode,outfits:result.data.outfits}),
     fallback, retrievalPasses: 1, stages: ['preferences', 'parallel-retrieval', 'plan', 'select', 'validate', 'missing-piece-suggestions'], modelProfile:personal.preferences.modelProfile, promptVersion:'stylist-rag-v4', knowledgeMode:knowledge.metadata?.mode,
     timingMs: { retrieval: Math.round(retrievalMs), selectionAndValidation: Math.round(performance.now() - generationStart), total: Math.round(performance.now() - started) } } };
 }

@@ -39,7 +39,7 @@ def rich(s):
     s=re.sub(r'`([^`]+)`',r'<b>\1</b>',s)
     s=s.replace('https://closet-quest-junhao-s7.onrender.com/', '<link href="https://closet-quest-junhao-s7.onrender.com/" color="#79354F">closet-quest-junhao-s7.onrender.com</link>') if '<link' not in s else s
     return s
-text=(ROOT/'docs/sprint9-beta.md').read_text(encoding='utf-8')
+text=(ROOT/'docs/sprint9-beta-validation.md').read_text(encoding='utf-8')
 story=[]
 for block in re.split(r'\n\s*\n',text):
     if block.startswith('|'):
@@ -61,10 +61,9 @@ def page(c,doc):
     c.setStrokeColor(HexColor('#DDCFD8'));c.line(38,808,557,808)
     c.setFont('CQ',8);c.setFillColor(HexColor('#766471'))
     c.drawString(38,820,'CLOSET QUEST / BETA RELEASE & INDEPENDENT TESTING')
-    c.drawString(38,22,'November 9, 2026  |  Independent participant results pending')
+    c.drawString(38,22,'November 16, 2026  |  Engineering results and assisted review')
     c.drawRightString(557,22,str(doc.page))
 doc=SimpleDocTemplate(str(OUT),pagesize=(595.28,841.89),leftMargin=38,rightMargin=38,topMargin=46,bottomMargin=38,title='Closet Quest - Sprint 9 Beta Release and Independent Testing',author='Closet Quest')
 doc.build(story,onFirstPage=page,onLaterPages=page)
 r=PdfReader(str(OUT));print({'file':str(OUT),'pages':len(r.pages),'bytes':OUT.stat().st_size})
 assert 3<=len(r.pages)<=4
-

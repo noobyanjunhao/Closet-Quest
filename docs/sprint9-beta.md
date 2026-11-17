@@ -1,5 +1,7 @@
 # Closet Quest: beta release and independent testing
 
+**Latest iteration:** [November 16 validation report](sprint9-beta-validation.md). The material below preserves the November 9 baseline.
+
 **Try the app:** https://closet-quest-junhao-s7.onrender.com/  
 **Repository:** https://github.com/noobyanjunhao/Closet-Quest  
 Prepared November 9, 2026. Independent-test results are pending. This is a beta-readiness report, not a claim that the Sprint 9 user requirement has already been completed.
@@ -59,4 +61,3 @@ Photo inputs still go to the selected AI provider. Completed photo-job input fil
 The release gate is a successful deployed smoke test plus at least one completed frozen independent session, followed by resolution and retesting of its highest-priority defects. Full photo erasure, independently verified camera use, broad accessibility and a real AWS deployment remain visible limitations. A perfect or universally scalable backend is not claimed.
 
 Reproduction: [deployment/runbook](beta-deployment.md), [short user guide](beta-user-guide.md), [AWS source](../infra/aws/template.yaml), [supporting results](../output/sprint9/). AWS design follows [conditional item writes](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html), [TTL semantics](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html), and [EventBridge scheduling](https://docs.aws.amazon.com/lambda/latest/dg/with-eventbridge-scheduler.html). The warning policy respects documented [vision limitations](https://developers.openai.com/api/docs/guides/images-vision); the evaluation separates structure and task outcomes rather than treating valid JSON as user value.
-

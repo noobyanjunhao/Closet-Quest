@@ -62,3 +62,7 @@
 @media(prefers-reduced-motion:reduce){.app .outfit-card .studio-look{animation:none}}
 
 .app .access-card label{margin:0}.app .access-card input{margin-top:0}
+.app .auth-intro,.app .agent-trace{border-top:1px solid #d5d9d2;padding-top:14px;margin-top:14px;font-size:13px;line-height:1.6}
+.app .auth-intro summary,.app .agent-trace summary{cursor:pointer;min-height:44px;display:list-item;color:#283c32;font-weight:600}
+.app .auth-intro summary:focus-visible,.app .agent-trace summary:focus-visible{outline:3px solid #6b8875;outline-offset:4px}
+.app .auth-intro ol{padding-left:20px}.app .auth-intro p,.app .agent-trace p{font-size:13px;line-height:1.6}
