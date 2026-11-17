@@ -1,0 +1,38 @@
+{
+  "checkedAt": "2026-11-17T07:29:30.751Z",
+  "origin": "https://closet-quest-junhao-s7.onrender.com",
+  "passed": true,
+  "checks": {
+    "process": {
+      "passed": true,
+      "status": 200,
+      "elapsedMs": 222,
+      "code": null
+    },
+    "release": {
+      "passed": true,
+      "status": 200,
+      "elapsedMs": 171,
+      "revision": "4418f2fcdace49c22fd97d117dacf2dcf26762c2",
+      "version": "0.2.0-beta.1",
+      "code": null
+    },
+    "authenticationPath": {
+      "passed": true,
+      "status": 401,
+      "elapsedMs": 339,
+      "code": "INVALID_CREDENTIALS",
+      "upstreamHttpResponse": true,
+      "expectedInvalidCredentialRejection": true,
+      "diagnosis": "Synthetic credentials were rejected by the authentication backend."
+    }
+  },
+  "scope": "Technical connectivity only. Does not verify real signup, email delivery, authenticated wardrobe sync, model readiness or user acceptance.",
+  "requests": {
+    "total": 3,
+    "syntheticLoginAttempts": 1,
+    "signups": 0,
+    "emails": 0,
+    "modelCalls": 0
+  }
+}

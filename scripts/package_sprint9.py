@@ -23,6 +23,7 @@ FILES = [
     'output/sprint9/shopping-http-validation.json',
     'output/sprint9/responsible-deployment-audit.json', 'output/sprint9/responsible-deployment-tests.tap',
     'output/sprint9/closet-ui-review.json', 'output/sprint9/ux-followup-validation.json',
+    'output/sprint9/ux-hosted-verification.json',
     'output/sprint9/mobile-closet.jpg', 'output/sprint9/desktop-closet.jpg',
     'output/sprint8/model-results.json', 'output/sprint8/manifest.json',
 ]
@@ -47,6 +48,7 @@ def main():
             'Results distinguish fixtures, live API checks, owner recovery and agent-operated review.\n'
             'recovery-verification.json supersedes the historical cloud-outage status in beta-completeness-verification.json.\n'
             'final-release-verification.json records the deployed 77f50e3 release and its 323 Node / 19 Python CI results.\n'
+            'ux-followup-validation.json and ux-hosted-verification.json record the seven UX fixes (commit 6f18f13) and the follow-up deployment probe (4418f2f).\n'
             'Direct-human independent testing is still pending; this package does not claim it is complete.\n')
     print(json.dumps({'path': str(dest), 'files':len(files)+2, 'bytes':dest.stat().st_size}))
 
