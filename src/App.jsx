@@ -15,7 +15,7 @@ import { Credits, Garment, GarmentCard, Modal, PhotoCredit } from './components.
 import Feasibility from './Feasibility.jsx';
 import PhotoEvidence from './PhotoEvidence.jsx';
 import RagEvidence from './RagEvidence.jsx';
-import AgentTrace from './AgentTrace.jsx';
+
 import MLStatus from './MLStatus.jsx';
 import OutfitStudio from './OutfitStudio.jsx';
 import CameraCapture from './CameraCapture.jsx';
@@ -302,15 +302,15 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
     catch(error){if(run===retrievalRun.current){setRetrieval(null);setRetrievalError(error.message);}}
     finally{if(run===retrievalRun.current)setPreviewing(false);}
   }
-  async function generate(nextContext=context, forQuest=questMode, activeQuest=questId) {
+  async function generate(nextContext=context, forQuest=questMode, activeQuest=questId, route=engine) {
     previewController.current?.abort();
     styleController.current?.abort();const controller=new AbortController();styleController.current=controller;
     const run=++styleRun.current; retrievalRun.current++;setPreviewing(false);setStyling(true);setOptions([]);setSelected(0);setStyleMessage('');setRetrievalError('');
     const items=stateRef.current.items.filter(i=>!i.needsReview);
     try {
       let choices,reason;
-      if(engine!=='baseline') {
-        const body=styleBody(nextContext,forQuest,activeQuest);setStyleStage('generating');
+      if(route!=='baseline') {
+        const body={...styleBody(nextContext,forQuest,activeQuest),provider:route==='agent'?'auto':route};setStyleStage('generating');
         const result=await api('style',body,'POST',{signal:controller.signal,timeoutMs:65000});
         if(run!==styleRun.current)return;setRetrieval(result.retrieval);
         save(s=>({...s,recommendationHistory:[...(s.recommendationHistory||[]),{runId:result.pipeline.runId,createdAt:new Date().toISOString(),context:nextContext,provider:result.pipeline.provider,model:result.model,latencyMs:result.pipeline.timingMs.total,fallback:result.pipeline.fallback,knowledgeMode:result.retrieval.knowledge?.metadata?.mode,sourceIds:result.retrieval.promptSourceIds||[],outfits:result.data.outfits.map(({itemIds,title})=>({itemIds,title})),chosenItemIds:result.data.outfits[0]?.itemIds||[],status:result.data.outfits.length?'ready':'abstained'}].slice(-100)}));
@@ -405,7 +405,7 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
         engine={engine} onEngine={value=>{clearStudio();setEngine(value);if(value==='baseline')setAnchorId('');}}
         anchorId={anchorId} onAnchor={value=>{clearStudio();setAnchorId(value);}}
         aiReady={ai.stylistReady} openaiConfigured={ai.openai?.configured} styling={styling} styleStage={styleStage} previewing={previewing}
-        retrieval={retrieval} retrievalError={retrievalError} onPreview={previewMatches} onGenerate={()=>generate()}
+        retrieval={retrieval} retrievalError={retrievalError} onPreview={previewMatches} onGenerate={()=>generate()} onQuick={()=>{setEngine('quick');void generate(context,questMode,questId,'quick');}}
         onCancel={cancelStyling}
         processingCount={processing.length} quest={questMode?selectedQuest:null}
         options={options} selected={selected} onSelect={index=>{setSelected(index);setLookName(options[index].title);trackRecommendation(options[index],{chosenItemIds:options[index].itemIds});}}
@@ -414,7 +414,7 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
           <div className="toolbar"><button className="primary" disabled={Boolean(savedSelectedLook)} onClick={()=>{if(save(s=>saveLook(s,selectedOption.itemIds,{...selectedOption,title:lookName,context:selectedOption.occasion||context}))){trackRecommendation(selectedOption,{savedAt:new Date().toISOString()});notify('Saved to your looks.');}}}>{savedSelectedLook?'✓ Saved to your looks':selectedOption.lookType==='starting-point'?'Save this starting point':'Save this look'}</button><button className="text-button" disabled={wornToday(state,selectedOption.itemIds)} onClick={()=>{if(save(s=>recordWearToday(s,selectedOption.itemIds,{runId:selectedOption.pipeline?.runId}))){notify('Wear recorded in your journal.');}}}>{wornToday(state,selectedOption.itemIds)?'✓ Wear recorded':'Wear today'}</button>{!savedSelectedLook&&<details className="look-name-details"><summary>Rename</summary><label>Name this look<input maxLength="80" value={lookName} onChange={e=>setLookName(e.target.value)}/></label></details>}</div>
           {savedSelectedLook&&<p role="status">Saved as <strong>{savedSelectedLook.title}</strong>. <button className="text-button" onClick={()=>{setStudioView(v=>({...v,cardOpen:false}));setPage('Lookbook');}}>View saved looks ↗</button></p>}
           <details open={questMode||undefined}><summary>Make this look a style quest</summary><div className="quest-submit"><label>Style quest<select value={questId} onChange={e=>setQuestId(e.target.value)}>{quests.map(q=><option key={q.id} value={q.id}>{q.title} · {q.xp} XP</option>)}</select></label><button disabled={state.completed.includes(questId)||selectedOption.lookType==='starting-point'} onClick={()=>{if(save(s=>completeQuest(s,selectedQuest,outfit,context,{stylistSuggested:selectedOption.engine==='agent'})))notify(`Quest complete! +${selectedQuest.xp} XP`);}}>{state.completed.includes(questId)?'✓ Quest completed':'Submit outfit + earn XP'}</button></div><p className="muted">{selectedQuest.subtitle} · {selectedQuest.context}. Submit before recording a wear if your hidden gem already has one wear.</p></details>
-          <AgentTrace pipeline={selectedOption.pipeline}/>
+          
           {selectedOption.pipeline&&<div className="toolbar"><span>Would you wear this?</span><button onClick={()=>{trackRecommendation(selectedOption,{feedback:'helpful',feedbackAt:new Date().toISOString()});notify('Preference saved. Future suggestions will consider these pieces.');}}>Yes, my style</button><button onClick={()=>{trackRecommendation(selectedOption,{feedback:'not-for-me',feedbackAt:new Date().toISOString()});notify('Feedback saved. These pieces will get less emphasis.');}}>Not for me</button></div>}
           {state.learningEnabled!==false&&<details className="style-feedback"><summary>Style feedback</summary><label>Would you wear this?<select value={feedback[selectedOption.wearId]||''} onChange={e=>recordStyleFeedback(e.target.value)}><option value="">Choose your feedback</option><option value="like">Yes, this feels like me</option><option value="dislike">Not my style</option></select></label><p className="muted">Stored locally to evaluate and improve future recommendations. This does not retrain a model immediately.</p></details>}
         </section>}
