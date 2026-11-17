@@ -22,7 +22,7 @@ FILES = [
     'output/sprint9/shopping-boundaries-before.json', 'output/sprint9/shopping-boundaries-after.json',
     'output/sprint9/shopping-http-validation.json',
     'output/sprint9/responsible-deployment-audit.json', 'output/sprint9/responsible-deployment-tests.tap',
-    'output/sprint9/closet-ui-review.json',
+    'output/sprint9/closet-ui-review.json', 'output/sprint9/ux-followup-validation.json',
     'output/sprint9/mobile-closet.jpg', 'output/sprint9/desktop-closet.jpg',
     'output/sprint8/model-results.json', 'output/sprint8/manifest.json',
 ]

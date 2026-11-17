@@ -1,0 +1,55 @@
+{
+  "date": "2026-11-17",
+  "kind": "agent-operated isolated browser retest",
+  "codeCommit": "6f18f13cde53d35eaa54bd5104ee59199e196cd4",
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "width": 375,
+      "height": 812
+    }
+  ],
+  "externalCallsBlocked": true,
+  "productionWardrobeWrites": 0,
+  "paidModelCalls": 0,
+  "checks": {
+    "savedLookMixedTiles": {
+      "count": 5,
+      "desktopMinWidth": 93.47,
+      "mobileMinWidth": 42.05,
+      "nonzero": true
+    },
+    "quick": {
+      "visible": true,
+      "resultCards": 3,
+      "generationAttempts": 0
+    },
+    "evidence": {
+      "singleSection": true,
+      "methodAndSourcesAndFactsPreserved": true
+    },
+    "quickTipAbsent": true,
+    "matches": {
+      "collapsed": 4,
+      "expanded": 7,
+      "finalMaxHeight": "none",
+      "finalOverflow": "visible",
+      "initialCssOverrideFailureCorrected": true
+    },
+    "pageHorizontalOverflow": false,
+    "unfilteredEmptyShelfCopy": true,
+    "coldStart": {
+      "copyInspected": true,
+      "latencyMeasured": false
+    }
+  },
+  "nodeTests": {
+    "passed": 323,
+    "failed": 0
+  },
+  "build": "pass with existing large-chunk warning",
+  "scope": "Browser emulation and sample data, not physical phone or independent human validation; deployment verification recorded separately."
+}
