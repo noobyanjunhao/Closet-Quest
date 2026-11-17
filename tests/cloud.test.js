@@ -40,6 +40,22 @@ test('expired refresh clears session, network failure does not masquerade as sig
  const offline=createCloud({...config,fetchImpl:async()=>{throw Error('offline');}});
  await assert.rejects(()=>offline.authenticate({headers:{cookie:'cq_access=x'}},{setHeader(){}}),e=>e.status===503);
 });
+test('cloud outages distinguish unreachable project, timeout and malformed response without leaking host or credentials',async()=>{
+ const cases=[
+  {failure:Object.assign(Error('fetch failed private-host'),{cause:{code:'ENOTFOUND'}}),code:'CLOUD_PROJECT_UNREACHABLE'},
+  {failure:Object.assign(Error('timed out private-host'),{name:'TimeoutError'}),code:'CLOUD_TIMEOUT'},
+  {failure:Error('offline private-host'),code:'CLOUD_UNAVAILABLE'},
+  {result:new Response('<html>not JSON</html>'),code:'CLOUD_INVALID_RESPONSE'},
+ ];
+ for(const c of cases){
+  let cleared=false;
+  const cloud=createCloud({...config,fetchImpl:async()=>{if(c.failure)throw c.failure;return c.result;}});
+  await assert.rejects(()=>cloud.authenticate({headers:{cookie:'cq_access=private-token'}},{setHeader(){cleared=true;}}),e=>{
+   assert.equal(e.status,503);assert.equal(e.code,c.code);assert.doesNotMatch(e.message,/private-host|private-token|supabase\.co/);return true;
+  });
+  assert.equal(cleared,false,'Transient outages must not clear the existing session.');
+ }
+});
 test('cloud write carries user JWT and stale revisions produce conflict',async()=>{
  const calls=[];const cloud=createCloud({...config,fetchImpl:async(url,opts)=>{calls.push({url,opts});return response([]);}});
  await assert.rejects(()=>cloud.saveCloset({id,token:'user-token'},{state,revision:3}),e=>e.code==='SYNC_CONFLICT');

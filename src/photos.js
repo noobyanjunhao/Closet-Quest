@@ -15,9 +15,9 @@ export async function preparePhoto(file) {
     return canvas.toDataURL('image/jpeg', .82);
   } finally { URL.revokeObjectURL(url); }
 }
-export async function imageData(image,{preserve=false}={}) {
+export async function imageData(image,{preserve=false,signal}={}) {
   if (image.startsWith('data:')) return image;
-  const response = await fetch(image);
+  const response = await fetch(image,{signal});
   if (!response.ok) throw new Error('The photo could not be loaded.');
   const blob=await response.blob();
   if(preserve)return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=()=>reject(new Error('The photo could not be read.'));reader.readAsDataURL(blob);});
@@ -37,7 +37,7 @@ export async function cropPhoto(imageSource, crop) {
 export async function api(path, body, method = 'POST', {signal,timeoutMs=190000} = {}) {
   let response;
   try { response = await fetch(`/api/${path}`, { method, ...(body ? { headers: { 'Content-Type':'application/json' }, body: JSON.stringify(body) } : {}), signal: signal ? AbortSignal.any([signal,AbortSignal.timeout(timeoutMs)]) : AbortSignal.timeout(timeoutMs) }); }
-  catch { if(signal?.aborted)throw Object.assign(new Error('Styling cancelled.'),{code:'CANCELLED'});throw Object.assign(new Error(path.startsWith('jobs/')?'Connection interrupted. Your photo is saved; checking analysis again shortly.':'Connection interrupted. Check the local service and try again.'),{retryable:true}); }
+  catch { if(signal?.aborted)throw Object.assign(new Error('Styling cancelled.'),{code:'CANCELLED'});throw Object.assign(new Error(path.startsWith('jobs/')?'Connection interrupted. Your photo is saved; checking analysis again shortly.':'Connection interrupted. Check your internet connection and retry. The app may need a moment to wake up.'),{retryable:true}); }
   const data = await response.json().catch(() => ({}));
   if (!response.ok) throw Object.assign(new Error(data.error || 'The local service could not finish this request.'),{status:response.status,code:data.code,retryable:data.retryable===true});
   return data;

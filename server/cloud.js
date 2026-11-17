@@ -4,6 +4,12 @@ import {BUILTIN_STYLE_DOCUMENTS,KNOWLEDGE_LIMITS,chunkKnowledgeText} from './kno
 
 const uuid=/^[a-f\d]{8}-[a-f\d]{4}-[a-f\d]{4}-[a-f\d]{4}-[a-f\d]{12}$/i;
 const error=(message,status=503,code='CLOUD_UNAVAILABLE')=>Object.assign(new Error(message),{status,code});
+function connectionError(cause) {
+ const code=cause?.cause?.code||cause?.code;
+ if(['ENOTFOUND','EAI_AGAIN'].includes(code))return error('The cloud database cannot be reached. Retry later or contact the app owner to restore its connection. Do not clear browser data if you have unsynced changes.',503,'CLOUD_PROJECT_UNREACHABLE');
+ if(cause?.name==='TimeoutError'||['UND_ERR_CONNECT_TIMEOUT','ETIMEDOUT'].includes(code))return error('The cloud service took too long to respond. Please retry; keep this page open if you have unsynced changes.',503,'CLOUD_TIMEOUT');
+ return error('Cloud connection interrupted. Please retry. Do not clear browser data if you have unsynced changes.');
+}
 export const cloudConfigured=()=>Boolean(process.env.SUPABASE_URL||process.env.SUPABASE_PUBLISHABLE_KEY);
 export function validateCloudState(value,userId) {
  if(!value||typeof value!=='object'||Array.isArray(value)||!Array.isArray(value.items)||value.items.length>300||!Array.isArray(value.completed)||!Array.isArray(value.submissions)||!Number.isFinite(value.xp)||typeof value.profile!=='string'||value.profile.length>80)throw error('This wardrobe backup is not valid.',400,'INVALID_CLOSET');
@@ -29,11 +35,11 @@ export function createCloud({url=process.env.SUPABASE_URL,key=process.env.SUPABA
  const publicUser=u=>({id:u.id,namespace:u.id,email:u.email,cloud:true});
  const cookie=(req,name)=>(req.headers.cookie||'').split(';').map(x=>x.trim()).find(x=>x.startsWith(name+'='))?.slice(name.length+1);
  async function request(path,{token,method='GET',body,headers={},raw=false,signal}={}){
-  let r;try{r=await fetchImpl(url+path,{method,redirect:'error',signal:signal?AbortSignal.any([signal,AbortSignal.timeout(15000)]):AbortSignal.timeout(15000),headers:{apikey:key,...(token?{Authorization:`Bearer ${token}`}:{}) ,...(body!==undefined?{'Content-Type':'application/json'}:{}),...headers},body:body===undefined?undefined:typeof body==='string'||Buffer.isBuffer(body)?body:JSON.stringify(body)});}catch{if(signal?.aborted)throw signal.reason;throw error('Cloud connection interrupted. Your local changes are safe.');}
+  let r;try{r=await fetchImpl(url+path,{method,redirect:'error',signal:signal?AbortSignal.any([signal,AbortSignal.timeout(15000)]):AbortSignal.timeout(15000),headers:{apikey:key,...(token?{Authorization:`Bearer ${token}`}:{}) ,...(body!==undefined?{'Content-Type':'application/json'}:{}),...headers},body:body===undefined?undefined:typeof body==='string'||Buffer.isBuffer(body)?body:JSON.stringify(body)});}catch(cause){if(signal?.aborted)throw signal.reason;throw connectionError(cause);}
   if(!r.ok){let data;try{data=await r.json();}catch{}const conflict=r.status===409;
    throw error(r.status===401||r.status===403?'Your session expired. Please sign in again.':r.status===429?'Too many attempts. Please wait before trying again.':conflict?'This record changed on another device.':r.status===400||r.status===422?'Check your details and email confirmation, then try again.':'Cloud service unavailable. Please try again.',r.status, data?.code==='email_not_confirmed'?'EMAIL_NOT_CONFIRMED':conflict?'CLOUD_CONFLICT':'CLOUD_REQUEST_FAILED');
   }
-  if(raw)return r;const text=await r.text();return text?JSON.parse(text):null;
+  if(raw)return r;try{const text=await r.text();return text?JSON.parse(text):null;}catch{throw error('The cloud service returned an unreadable response. Please retry. Saved browser data has not been changed.',503,'CLOUD_INVALID_RESPONSE');}
  }
  function setSession(res,tokens){
   if(typeof tokens.access_token!=='string'||typeof tokens.refresh_token!=='string'||tokens.access_token.length>12000||tokens.refresh_token.length>1000)throw error('Authentication did not return a valid session.');
