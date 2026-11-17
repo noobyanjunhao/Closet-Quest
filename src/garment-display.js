@@ -9,6 +9,14 @@ export function garmentPresentation(item) {
   if (item?.displayMode !== 'photo' && item?.cutoutImage) return sample ? 'Sample cutout' : 'Your cutout';
   return sample ? 'Sample photo' : 'Your photo';
 }
+export function pixelGarmentKind(item) {
+  if (item?.category === 'Accessory') {
+    const description = `${item.itemType || ''} ${item.name || ''}`.toLowerCase();
+    if (/\b(?:baseball\s+cap|cap)\b/.test(description)) return 'Cap';
+    if (/\b(?:hat|sunhat|beanie|headwear)\b/.test(description)) return 'Hat';
+  }
+  return ['Top','Bottom','Shoes','Outerwear','Dress','Accessory'].includes(item?.category) ? item.category : 'Top';
+}
 // Give real uploads the first places in the edit, without changing wardrobe order.
 export function featuredGarments(items, limit = 3) {
   const photos = items.filter(item => garmentImage(item)).slice().sort((a, b) =>
