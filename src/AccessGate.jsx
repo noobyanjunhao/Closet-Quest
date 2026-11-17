@@ -2,20 +2,23 @@ import React,{useEffect,useState} from 'react';
 import App from './App.jsx';
 import {api,downloadJson} from './photos.js';
 import {newPhotoState,migrateState} from './wardrobe.js';
+import {inspectPendingCloset,openCloudVersion} from './cloud-recovery.js';
 import './mobile-app.css';
 function CloudCloset({account,onSignOut}){
- const [loaded,setLoaded]=useState(null),[error,setError]=useState(''),[conflict,setConflict]=useState(null);
- const pendingKey=`cq-cloud-pending-${account.id}`;
+ const [loaded,setLoaded]=useState(null),[error,setError]=useState(''),[conflict,setConflict]=useState(null),[backup,setBackup]=useState(null),[exported,setExported]=useState(false),[loading,setLoading]=useState(false);
+ const emptyCloset=()=>({...newPhotoState(),items:[],profile:'',onboardingComplete:false,wardrobeId:account.id,learningEnabled:false,preferences:{recognitionProvider:'openai',recommendationProvider:'auto',embeddingProvider:'openai',modelProfile:'balanced'}});
  async function load(){try{
-  setError('');const remote=await api('cloud/closet',null,'GET');let pending;
-  try{pending=JSON.parse(localStorage.getItem(pendingKey)||'null');}catch{}
+  setError('');setLoading(true);const local=inspectPendingCloset(localStorage,account.id);setBackup(local.backup);
+  if(local.error)throw Error(local.error);
+  const pending=local.pending,remote=await api('cloud/closet',null,'GET');
+  if(!remote.state)remote.state=emptyCloset();
   if(pending&&pending.revision!==remote.revision){setConflict({pending,remote});return;}
-  const state=pending?.state||remote.state||{...newPhotoState(),items:[],profile:'',onboardingComplete:false,wardrobeId:account.id,learningEnabled:false,preferences:{recognitionProvider:'openai',recommendationProvider:'auto',embeddingProvider:'openai',modelProfile:'balanced'}};
+  const state=pending?.state||remote.state;
   setLoaded({state:migrateState(state),revision:remote.revision,resume:Boolean(pending)});
- }catch(e){setError(e.message);}}
+ }catch(e){setError(e.message);}finally{setLoading(false);}}
  useEffect(()=>{void load();},[account.id]);
- if(conflict)return <div className="app access-screen"><section className="panel access-card"><span className="auth-kicker">YOUR CHANGES ARE SAFE</span><h1>Two versions of your closet.</h1><p>This device has unsynced changes, and your cloud closet has changed too. Export this device’s version before opening the latest cloud copy.</p><button onClick={()=>downloadJson(conflict.pending.state,'closet-local-changes.json')}>Export this device’s changes</button><button className="primary" onClick={()=>{localStorage.removeItem(pendingKey);setConflict(null);void load();}}>Use latest cloud version</button></section></div>;
- if(!loaded)return <div className="app access-screen"><section className="panel access-card"><span className="brand-icon">cq</span><h1>Your closet is coming with you.</h1><p role="status">{error||'Opening your private wardrobe…'}</p>{error&&<button onClick={load}>Try again</button>}</section></div>;
+ if(conflict)return <div className="app access-screen"><section className="panel access-card"><span className="auth-kicker">YOUR CHANGES ARE SAFE</span><h1>Two versions of your closet.</h1><p>This device has unsynced changes, and your cloud closet has changed too. Export this device’s version before opening the cloud copy. Keep the backup private; cloud photo links still need the original account.</p><button onClick={()=>{downloadJson(conflict.pending.state,'closet-local-changes.json');setExported(true);}}>Export this device’s changes</button><button className="primary" disabled={!exported} onClick={()=>{try{setLoaded(openCloudVersion(localStorage,account.id,conflict.remote,{exported}));setConflict(null);}catch(e){setError(e.message);}}}>Use latest cloud version</button>{exported&&<p>Check that the backup downloaded before continuing.</p>}{error&&<p role="alert">{error}</p>}</section></div>;
+ if(!loaded)return <div className="app access-screen"><section className="panel access-card"><span className="brand-icon">cq</span><h1>Your closet is coming with you.</h1><p role="status">{error||'Opening your private wardrobe…'}</p>{error&&<><button disabled={loading} onClick={load}>Try again</button>{backup!==null&&<><button onClick={()=>downloadJson(backup,'closet-local-changes.json')}>Export this device’s changes</button><p>This saves the details and photos already stored on this device. Photos saved only in the cloud need its connection restored. Keep this backup private.</p></>}</>}</section></div>;
  return <App account={account} initialState={loaded.state} cloudRevision={loaded.revision} resumeSync={loaded.resume} onSignOut={onSignOut}/>;
 }
 export default function AccessGate(){
