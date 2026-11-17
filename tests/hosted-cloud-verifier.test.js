@@ -45,6 +45,11 @@ test('liveness and release success cannot mask DNS failure or ambiguous key reje
     assert.equal(result.passed,false,`${status} ${code}`);
   }
 });
+test('explicit invalid-credential rejection from the updated auth handler passes the connectivity probe',async()=>{
+ const result=await verifyHostedCloud({origin,fetchImpl:fixture(401,{code:'INVALID_CREDENTIALS'}).fetchImpl});
+ assert.equal(result.passed,true);assert.equal(result.checks.authenticationPath.code,'INVALID_CREDENTIALS');
+ assert.equal(result.checks.authenticationPath.expectedInvalidCredentialRejection,true);
+});
 
 test('rejects the wrong release and reports unavailable transport without leaking its error',async()=>{
   const mismatch=await verifyHostedCloud({origin,expectedRevision:'b'.repeat(40),fetchImpl:fixture().fetchImpl});

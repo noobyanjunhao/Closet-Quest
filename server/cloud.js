@@ -10,6 +10,23 @@ function connectionError(cause) {
  if(cause?.name==='TimeoutError'||['UND_ERR_CONNECT_TIMEOUT','ETIMEDOUT'].includes(code))return error('The cloud service took too long to respond. Please retry; keep this page open if you have unsynced changes.',503,'CLOUD_TIMEOUT');
  return error('Cloud connection interrupted. Please retry. Do not clear browser data if you have unsynced changes.');
 }
+function authResponseError(action,status,data) {
+ if(!['login','signup','recover'].includes(action))return null;
+ // Supabase's raw GoTrue response may use error_code + msg; its newer
+ // representation uses code + message. Match known values; never echo a body.
+ const code=typeof data?.error_code==='string'?data.error_code:typeof data?.code==='string'?data.code:null;
+ if(status===429)return error('Too many attempts. Please wait before trying again.',429,'AUTH_RATE_LIMITED');
+ if(action==='login'&&[400,401,422].includes(status)&&code==='invalid_credentials')return error('That email and password combination was not recognized. Check both, use Forgot password, or choose Create an account if you have not signed up yet.',401,'INVALID_CREDENTIALS');
+ if(action==='login'&&[400,401,403,422].includes(status)&&code==='email_not_confirmed')return error('Confirm your email before signing in. Check your inbox for the welcome link.',status,'EMAIL_NOT_CONFIRMED');
+ if(action==='signup'||action==='recover'){
+  const expectedMessage=action==='signup'?'Error sending confirmation email':'Error sending recovery email';
+  const knownDeliveryFailure=status>=500&&status<=599&&[data?.msg,data?.message,data?.error_description].some(message=>message===expectedMessage);
+  if(knownDeliveryFailure||[400,403,422].includes(status)&&code==='email_address_not_authorized')return error(action==='signup'?'Account creation did not finish because the confirmation email step failed. You are not signed in. Please retry later or contact the app owner.':'The password-reset email step failed. Please retry later or contact the app owner. This response does not confirm whether an account exists.',503,'EMAIL_DELIVERY_FAILED');
+  if(action==='signup')return error('Account creation did not finish successfully. You are not signed in. Check your details and try again later. If you already received a confirmation email, open its link before signing in.',status,'SIGNUP_FAILED');
+  return error('The password-reset request could not be completed. Please try again later. This response does not confirm whether an account exists.',status,'RECOVERY_FAILED');
+ }
+ return null;
+}
 export const cloudConfigured=()=>Boolean(process.env.SUPABASE_URL||process.env.SUPABASE_PUBLISHABLE_KEY);
 export function validateCloudState(value,userId) {
  if(!value||typeof value!=='object'||Array.isArray(value)||!Array.isArray(value.items)||value.items.length>300||!Array.isArray(value.completed)||!Array.isArray(value.submissions)||!Number.isFinite(value.xp)||typeof value.profile!=='string'||value.profile.length>80)throw error('This wardrobe backup is not valid.',400,'INVALID_CLOSET');
@@ -34,9 +51,10 @@ export function createCloud({url=process.env.SUPABASE_URL,key=process.env.SUPABA
  const refreshes=new Map(),attempts=new Map();
  const publicUser=u=>({id:u.id,namespace:u.id,email:u.email,cloud:true});
  const cookie=(req,name)=>(req.headers.cookie||'').split(';').map(x=>x.trim()).find(x=>x.startsWith(name+'='))?.slice(name.length+1);
- async function request(path,{token,method='GET',body,headers={},raw=false,signal}={}){
+ async function request(path,{token,method='GET',body,headers={},raw=false,signal,authAction}={}){
   let r;try{r=await fetchImpl(url+path,{method,redirect:'error',signal:signal?AbortSignal.any([signal,AbortSignal.timeout(15000)]):AbortSignal.timeout(15000),headers:{apikey:key,...(token?{Authorization:`Bearer ${token}`}:{}) ,...(body!==undefined?{'Content-Type':'application/json'}:{}),...headers},body:body===undefined?undefined:typeof body==='string'||Buffer.isBuffer(body)?body:JSON.stringify(body)});}catch(cause){if(signal?.aborted)throw signal.reason;throw connectionError(cause);}
   if(!r.ok){let data;try{data=await r.json();}catch{}const conflict=r.status===409;
+   const authError=authResponseError(authAction,r.status,data);if(authError)throw authError;
    throw error(r.status===401||r.status===403?'Your session expired. Please sign in again.':r.status===429?'Too many attempts. Please wait before trying again.':conflict?'This record changed on another device.':r.status===400||r.status===422?'Check your details and email confirmation, then try again.':'Cloud service unavailable. Please try again.',r.status, data?.code==='email_not_confirmed'?'EMAIL_NOT_CONFIRMED':conflict?'CLOUD_CONFLICT':'CLOUD_REQUEST_FAILED');
   }
   if(raw)return r;try{const text=await r.text();return text?JSON.parse(text):null;}catch{throw error('The cloud service returned an unreadable response. Please retry. Saved browser data has not been changed.',503,'CLOUD_INVALID_RESPONSE');}
@@ -73,11 +91,11 @@ export function createCloud({url=process.env.SUPABASE_URL,key=process.env.SUPABA
   }
   const email=String(input.email||'').trim();if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||email.length>254)throw error('Enter a valid email address.',400,'INVALID_EMAIL');
   const redirect=origin||`http://${req.headers.host}`;
-  if(action==='recover'){await request('/auth/v1/recover?redirect_to='+encodeURIComponent(redirect),{method:'POST',body:{email}});return {message:'If an account exists, a reset link is on its way. Check your inbox.'};}
+  if(action==='recover'){await request('/auth/v1/recover?redirect_to='+encodeURIComponent(redirect),{method:'POST',body:{email},authAction:action});return {message:'If an account exists, a reset link is on its way. Check your inbox.'};}
   if(action==='signup')validatePassword(input.password);
   else if(typeof input.password!=='string'||!input.password||input.password.length>256)throw error('Enter your password.',400);
   if(!['signup','login'].includes(action))throw error('Not found.',404);
-  const data=await request(action==='signup'?'/auth/v1/signup?redirect_to='+encodeURIComponent(redirect):'/auth/v1/token?grant_type=password',{method:'POST',body:{email,password:input.password}});
+  const data=await request(action==='signup'?'/auth/v1/signup?redirect_to='+encodeURIComponent(redirect):'/auth/v1/token?grant_type=password',{method:'POST',body:{email,password:input.password},authAction:action});
   if(!data?.access_token)return {message:'Check your email to confirm your account, then sign in.'};
   setSession(res,data);return {hosted:true,authMode:'account',user:publicUser(data.user)};
  }

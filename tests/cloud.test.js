@@ -56,6 +56,61 @@ test('cloud outages distinguish unreachable project, timeout and malformed respo
   assert.equal(cleared,false,'Transient outages must not clear the existing session.');
  }
 });
+test('password login recognizes raw and normalized invalid-credential codes without claiming whether an account exists',async()=>{
+ for(const body of [{error_code:'invalid_credentials',msg:'private-password'}, {code:'invalid_credentials',message:'private-email@example.com'}]){
+  let calls=0,cookies=0;
+  const cloud=createCloud({...config,fetchImpl:async()=>{calls++;return response(body,400);}});
+  await assert.rejects(()=>cloud.auth('login',{email:'test@example.com',password:'test-password'},{headers:{}},{setHeader(){cookies++;}}),e=>{
+   assert.equal(e.status,401);assert.equal(e.code,'INVALID_CREDENTIALS');assert.match(e.message,/email and password combination/);assert.match(e.message,/Create an account/);
+   assert.doesNotMatch(e.message,/private-password|private-email|does not exist|account was deleted/);return true;
+  });
+  assert.equal(calls,1);assert.equal(cookies,0);
+ }
+});
+test('signup and reset report a delivery problem only for known delivery codes or exact upstream mail-step errors',async()=>{
+ for(const [action,status,body] of [
+  ['signup',500,{error_code:'unexpected_failure',msg:'Error sending confirmation email',error:'525 private SMTP credential and IP'}],
+  ['recover',500,{code:'unexpected_failure',message:'Error sending recovery email',debug:'private-token'}],
+  ['signup',400,{code:'email_address_not_authorized',message:'private-address@example.com'}],
+  ['recover',422,{error_code:'email_address_not_authorized',msg:'private-address@example.com'}],
+ ]){
+  let calls=0,cookies=0;
+  const cloud=createCloud({...config,fetchImpl:async()=>{calls++;return response(body,status);}});
+  await assert.rejects(()=>cloud.auth(action,{email:'test@example.com',password:'test-password'},{headers:{}},{setHeader(){cookies++;}}),e=>{
+   assert.equal(e.status,503);assert.equal(e.code,'EMAIL_DELIVERY_FAILED');assert.match(e.message,/email step failed/);
+   if(action==='signup')assert.match(e.message,/not signed in/);else assert.match(e.message,/does not confirm whether an account exists/);
+   assert.doesNotMatch(e.message,/525|SMTP|private-|@|\d+\.\d+\.\d+\.\d+/);return true;
+  });
+  assert.equal(calls,1);assert.equal(cookies,0);
+ }
+});
+test('unrelated signup failures and provider rate limits never invent an email-delivery diagnosis or expose upstream details',async()=>{
+ for(const [status,body,code] of [
+  [500,{error_code:'unexpected_failure',msg:'Database error saving new user',password:'private-password'},'SIGNUP_FAILED'],
+  [500,{code:'unexpected_failure',message:'Error sending recovery email'},'SIGNUP_FAILED'],
+  [500,{message:'Error sending confirmation email: private-password'},'SIGNUP_FAILED'],
+  [500,null,'SIGNUP_FAILED'],
+  [400,{code:'invalid_credentials'},'SIGNUP_FAILED'],
+  [429,{code:'over_email_send_rate_limit',msg:'Error sending confirmation email'},'AUTH_RATE_LIMITED'],
+ ]){
+  const cloud=createCloud({...config,fetchImpl:async()=>response(body,status)});
+  await assert.rejects(()=>cloud.auth('signup',{email:'test@example.com',password:'test-password'},{headers:{}},{setHeader(){assert.fail('A failed signup cannot create a session');}}),e=>{
+   assert.equal(e.status,status);assert.equal(e.code,code);assert.doesNotMatch(e.message,/private-password|Database error|email step failed/);
+   assert.match(e.message,status===429?/wait/:/Account creation did not finish successfully/);return true;
+  });
+ }
+});
+test('mail errors remain action-scoped and reset success retains the same non-enumerating response',async()=>{
+ const failed=createCloud({...config,fetchImpl:async()=>response({msg:'Error sending confirmation email'},500)});
+ await assert.rejects(()=>failed.closet({id,token:'t'}),e=>e.code==='CLOUD_REQUEST_FAILED'&&!e.message.includes('email'));
+ const recoverFailure=createCloud({...config,fetchImpl:async()=>response({code:'unexpected_failure',msg:'private-error'},500)});
+ await assert.rejects(()=>recoverFailure.auth('recover',{email:'test@example.com'},{headers:{}},{}),e=>e.code==='RECOVERY_FAILED'&&!e.message.includes('private-error'));
+ const confirmed=createCloud({...config,fetchImpl:async()=>response({error_code:'email_not_confirmed'},400)});
+ await assert.rejects(()=>confirmed.auth('login',{email:'test@example.com',password:'test-password'},{headers:{}},{}),e=>e.code==='EMAIL_NOT_CONFIRMED');
+ const healthy=createCloud({...config,fetchImpl:async()=>response({})});
+ const result=await healthy.auth('recover',{email:'test@example.com'},{headers:{}},{});
+ assert.equal(result.message,'If an account exists, a reset link is on its way. Check your inbox.');
+});
 test('cloud write carries user JWT and stale revisions produce conflict',async()=>{
  const calls=[];const cloud=createCloud({...config,fetchImpl:async(url,opts)=>{calls.push({url,opts});return response([]);}});
  await assert.rejects(()=>cloud.saveCloset({id,token:'user-token'},{state,revision:3}),e=>e.code==='SYNC_CONFLICT');
