@@ -1,11 +1,13 @@
 FROM node:24.19.0-bookworm-slim AS build
+ENV ONNXRUNTIME_NODE_INSTALL=skip
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . .
+RUN node scripts/verify-onnx-cpu.mjs
 RUN npm run build
 FROM node:24.19.0-bookworm-slim AS runtime
-ENV NODE_ENV=production PORT=4173
+ENV NODE_ENV=production PORT=4173 ONNXRUNTIME_NODE_INSTALL=skip
 WORKDIR /app
 COPY --chown=node:node package.json package-lock.json ./
 RUN npm ci --omit=dev && npm cache clean --force
@@ -21,4 +23,3 @@ USER node
 EXPOSE 4173
 HEALTHCHECK --interval=30s --timeout=5s CMD node -e "fetch('http://127.0.0.1:4173/healthz').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
 CMD ["node", "server/start.mjs"]
-

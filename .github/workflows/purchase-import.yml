@@ -10,6 +10,8 @@ jobs:
   offline-validation:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    env:
+      ONNXRUNTIME_NODE_INSTALL: skip
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -17,6 +19,8 @@ jobs:
           node-version: '24.19.0'
           cache: npm
       - run: npm ci
+      - name: Verify bundled ONNX CPU inference
+        run: node scripts/verify-onnx-cpu.mjs
       - run: npm test
       - uses: actions/setup-python@v5
         with:
@@ -31,4 +35,3 @@ jobs:
           curl --fail http://127.0.0.1:4173/version.json
           docker stop closet-beta
       # Real Ollama tests are deliberately separate: CI needs no model or API key.
-

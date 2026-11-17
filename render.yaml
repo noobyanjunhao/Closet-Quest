@@ -10,6 +10,9 @@ services:
     envVars:
       - key: NODE_VERSION
         value: 24.19.0
+      # CPU binaries ship in the npm package; this skips optional CUDA downloads.
+      - key: ONNXRUNTIME_NODE_INSTALL
+        value: skip
       - key: CLOSET_PUBLIC_ORIGIN
         sync: false
       - key: CLOSET_SESSION_SECRET
