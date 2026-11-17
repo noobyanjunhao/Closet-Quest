@@ -1,0 +1,111 @@
+{
+  "checkedAt": "2026-11-17T05:43:59.487Z",
+  "scope": "Sanitized recovery summary. The timestamp, revision, CI and initial probe below preserve the earlier authentication repair; final-release-verification.json records the subsequent 77f50e3 deployment. Dashboard and owner-workflow observations are reported by the root agent. No credentials, account identifiers, private photos or backup contents included.",
+  "url": "https://closet-quest-junhao-s7.onrender.com/",
+  "revision": "a9f48751cf7c8c76d736587241165b9d654ad918",
+  "pullRequest": "https://github.com/noobyanjunhao/Closet-Quest/pull/9",
+  "ci": {
+    "url": "https://github.com/noobyanjunhao/Closet-Quest/actions/runs/44025622431",
+    "conclusion": "success",
+    "nodeTests": 312,
+    "pythonTests": 19,
+    "cpuInference": "pass",
+    "frontendBuild": "pass",
+    "containerBuild": "pass",
+    "containerSmoke": "pass"
+  },
+  "deployment": {
+    "provider": "Render",
+    "plan": "Free",
+    "renderDeployment": "https://dashboard.render.com/web/srv-dbba52navr4c73d3i69g/deploys/dep-dbtuihm7bikc73fpgh7g",
+    "status": "Deploy succeeded | Live",
+    "liveAt": "2026-11-17T00:43:22-05:00",
+    "healthStatus": 200,
+    "versionMatches": true
+  },
+  "syntheticConnectivityProbe": {
+    "status": 401,
+    "code": "INVALID_CREDENTIALS",
+    "latencyMs": 1286,
+    "expectedInvalidCredentialRejection": true,
+    "realCredentialsUsed": false,
+    "signups": 0,
+    "emails": 0,
+    "modelCalls": 0,
+    "limit": "Proves the deployed authentication path reaches its backend, not a valid user login or wardrobe persistence."
+  },
+  "replacementBackend": {
+    "plan": "Free",
+    "migrationsInstalled": [
+      "001_accounts",
+      "002_shopping_library",
+      "003_purchase_imports",
+      "004_purchase_workers",
+      "005_purchase_queue_terminal"
+    ],
+    "ownerIsolationSql": {
+      "status": "pass",
+      "checks": [
+        "owner read/write",
+        "stale-write rejection",
+        "cross-owner wardrobe isolation",
+        "cross-owner note isolation",
+        "cross-owner photo isolation",
+        "foreign-write rejection",
+        "anonymous denial"
+      ],
+      "testWritesRolledBack": true
+    },
+    "oldProjectReachable": false,
+    "oldProjectDeletionProven": false
+  },
+  "ownerAccountFlow": {
+    "signupCompleted": true,
+    "confirmationEmailReceived": true,
+    "emailConfirmed": true,
+    "signInObserved": true,
+    "emptyAccountSyncObserved": true,
+    "operator": "Project owner performed password/signup/confirmation steps; agent inspected resulting UI",
+    "countsAsIndependentHumanTest": false
+  },
+  "wardrobeRecovery": {
+    "backupPreserved": true,
+    "backupItems": 17,
+    "originalEmbeddedSourcePhotosIntact": 4,
+    "sampleAndLegacyDemoItems": 13,
+    "savedLooksInBackup": 0,
+    "importAndImageDecodeValidatedLocally": true,
+    "restoredToCloud": true,
+    "reason": "Original 17-record import synced and survived reload. The final fresh cloud backup has 19 records, one Quick starter look and six fully decodable photo records. All 19 records and the saved look survived a signed-in reload on release 77f50e3 with cloud sync confirmed.",
+    "cloudOnlyDataRecovered": false,
+    "originalRecordsRetained": 17,
+    "currentObservedRecords": 19,
+    "assistedReviewAddedRecords": 2,
+    "assistedReviewMeaning": "Two separately visible garments added from existing photos; originals retained. Not an independent human session or recognition-accuracy experiment.",
+    "originalPhotoBearingRecordsRetained": 4,
+    "freshCloudBackupExported": true,
+    "freshCloudBackupItems": 19,
+    "freshCloudBackupSavedLooks": 1,
+    "embeddedJpegRecords": 6,
+    "fullyDecodedJpegRecords": 6,
+    "originalSourcePhotos": 4,
+    "reusedSourcePhotosForSeparateGarments": 2,
+    "unreviewedRecords": 0,
+    "original17ReloadVerified": true,
+    "final19ReloadVerified": true,
+    "savedQuickLookReloadVerified": true,
+    "humanAcceptanceRatingsAdded": 0,
+    "wearEventsAdded": 0,
+    "finalReloadRevision": "77f50e358f1ab9ff0da2c00c2e1879c5bb67e9bb"
+  },
+  "incidentFixes": [
+    "Configured owner-approved replacement backend and verified saved environment values",
+    "Applied saved environment with a fresh deploy rather than a service restart",
+    "Repaired the confirmed SMTP source-IP rejection without disabling SMTP IP protection",
+    "Added bounded portable backup export, safe import scope and pending-change recovery",
+    "Added known-code credential and mail-delivery guidance without raw upstream disclosure"
+  ],
+  "independentHumanCompletedSessions": 0,
+  "newPaidPlanOrSubscription": false,
+  "privacy": "Private recovery originals remain in ignored local storage. The report does not publish the owner's clothes or account details."
+}

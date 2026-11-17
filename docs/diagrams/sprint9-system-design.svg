@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="519.28" height="119" preserveAspectRatio="xMinYMin meet" viewBox="0 0 519 119" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>Closet Quest system architecture</title>
+	<desc>Browser to owner-scoped Node API, private Supabase storage and external providers.</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="519.28" height="119"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-119)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="63" width="122" height="54" rx="7" ry="7" style="stroke: rgb(87%,83%,85%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(95%,93%,94%); fill-rule: evenodd;"/>
+			<text x="9" y="102" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 8.5px;fill: rgb(47%,20%,30%); stroke:none;" transform="translate(0,204) scale(1,-1)">PHONE / DESKTOP</text>
+			<text x="9" y="89" style="font-family: Arial, sans-serif; font-size: 7.5px;fill: rgb(15%,14%,16%); stroke:none;" transform="translate(0,178) scale(1,-1)">React + Vite</text>
+			<text x="9" y="79" style="font-family: Arial, sans-serif; font-size: 7.5px;fill: rgb(15%,14%,16%); stroke:none;" transform="translate(0,158) scale(1,-1)">Review, cards, backup</text>
+			<rect x="154" y="63" width="211" height="54" rx="7" ry="7" style="stroke: rgb(87%,83%,85%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(95%,93%,94%); fill-rule: evenodd;"/>
+			<text x="163" y="102" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 8.5px;fill: rgb(47%,20%,30%); stroke:none;" transform="translate(0,204) scale(1,-1)">RENDER / NODE 24 API</text>
+			<text x="163" y="89" style="font-family: Arial, sans-serif; font-size: 7.5px;fill: rgb(15%,14%,16%); stroke:none;" transform="translate(0,178) scale(1,-1)">Session + owner checks; bounded work</text>
+			<text x="163" y="79" style="font-family: Arial, sans-serif; font-size: 7.5px;fill: rgb(15%,14%,16%); stroke:none;" transform="translate(0,158) scale(1,-1)">Recognition, RAG, validation, recovery</text>
+			<rect x="397" y="63" width="122" height="54" rx="7" ry="7" style="stroke: rgb(87%,83%,85%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(95%,93%,94%); fill-rule: evenodd;"/>
+			<text x="406" y="102" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 8.5px;fill: rgb(47%,20%,30%); stroke:none;" transform="translate(0,204) scale(1,-1)">SUPABASE / PRIVATE</text>
+			<text x="406" y="89" style="font-family: Arial, sans-serif; font-size: 7.5px;fill: rgb(15%,14%,16%); stroke:none;" transform="translate(0,178) scale(1,-1)">Auth + Postgres</text>
+			<text x="406" y="79" style="font-family: Arial, sans-serif; font-size: 7.5px;fill: rgb(15%,14%,16%); stroke:none;" transform="translate(0,158) scale(1,-1)">Owner-scoped photos</text>
+			<path d="M 122,90 L 152,90 Z" style="stroke: rgb(47%,20%,30%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<polygon points="152 90, 148 92.4, 148 87.6" style="stroke: rgb(47%,20%,30%); stroke-linecap: butt; stroke-width: 1; fill: rgb(47%,20%,30%); fill-rule: evenodd;"/>
+			<path d="M 365,90 L 395,90 Z" style="stroke: rgb(47%,20%,30%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<polygon points="395 90, 391 92.4, 391 87.6" style="stroke: rgb(47%,20%,30%); stroke-linecap: butt; stroke-width: 1; fill: rgb(47%,20%,30%); fill-rule: evenodd;"/>
+			<rect x="154" y="0" width="211" height="47" rx="7" ry="7" style="stroke: rgb(87%,83%,85%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(97%,96%,94%); fill-rule: evenodd;"/>
+			<text x="163" y="32" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 8.5px;fill: rgb(47%,20%,30%); stroke:none;" transform="translate(0,64) scale(1,-1)">PROCESS-LOCAL STATE</text>
+			<text x="163" y="19" style="font-family: Arial, sans-serif; font-size: 7.5px;fill: rgb(15%,14%,16%); stroke:none;" transform="translate(0,38) scale(1,-1)">Photo jobs, vector cache, admission limits</text>
+			<rect x="397" y="0" width="122" height="47" rx="7" ry="7" style="stroke: rgb(87%,83%,85%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(97%,96%,94%); fill-rule: evenodd;"/>
+			<text x="406" y="32" style="font-family: Arial, sans-serif; font-weight: bold; font-size: 8.5px;fill: rgb(47%,20%,30%); stroke:none;" transform="translate(0,64) scale(1,-1)">EXTERNAL PROVIDERS</text>
+			<text x="406" y="19" style="font-family: Arial, sans-serif; font-size: 7.5px;fill: rgb(15%,14%,16%); stroke:none;" transform="translate(0,38) scale(1,-1)">AI + retailer sources</text>
+			<text x="406" y="9" style="font-family: Arial, sans-serif; font-size: 7.5px;fill: rgb(15%,14%,16%); stroke:none;" transform="translate(0,18) scale(1,-1)">Server-side keys only</text>
+			<path d="M 260,63 L 260,49 Z" style="stroke: rgb(47%,20%,30%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<polygon points="260 49, 257.6 53, 262.4 53" style="stroke: rgb(47%,20%,30%); stroke-linecap: butt; stroke-width: 1; fill: rgb(47%,20%,30%); fill-rule: evenodd;"/>
+			<path d="M 365,76 L 380,76 Z" style="stroke: rgb(47%,20%,30%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<path d="M 380,76 L 380,24 Z" style="stroke: rgb(47%,20%,30%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<path d="M 380,24 L 395,24 Z" style="stroke: rgb(47%,20%,30%); stroke-linecap: butt; stroke-width: 1.1;"/>
+			<polygon points="395 24, 391 26.4, 391 21.6" style="stroke: rgb(47%,20%,30%); stroke-linecap: butt; stroke-width: 1; fill: rgb(47%,20%,30%); fill-rule: evenodd;"/>
+			<text x="0" y="31" style="font-family: Arial, sans-serif; font-size: 7.8px;fill: rgb(43%,40%,43%); stroke:none;" transform="translate(0,62) scale(1,-1)">Private photos stay out</text>
+			<text x="0" y="20" style="font-family: Arial, sans-serif; font-size: 7.8px;fill: rgb(43%,40%,43%); stroke:none;" transform="translate(0,40) scale(1,-1)">of the styling prompt.</text>
+			<text x="0" y="9" style="font-family: Arial, sans-serif; font-size: 7.8px;fill: rgb(43%,40%,43%); stroke:none;" transform="translate(0,18) scale(1,-1)">AWS practice: not deployed.</text>
+		</g>
+	</g>
+</svg>

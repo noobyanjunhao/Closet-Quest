@@ -1,0 +1,67 @@
+{
+  "checkedAt": "2026-11-17T06:21:15.360Z",
+  "scope": "Sanitized engineering release verification. Render and signed-in workflow observations were recorded by the root agent; this summary excludes private account data, credentials and photos.",
+  "url": "https://closet-quest-junhao-s7.onrender.com/",
+  "revision": "77f50e358f1ab9ff0da2c00c2e1879c5bb67e9bb",
+  "pullRequest": "https://github.com/noobyanjunhao/Closet-Quest/pull/11",
+  "ci": {
+    "url": "https://github.com/noobyanjunhao/Closet-Quest/actions/runs/44029828697",
+    "conclusion": "success",
+    "nodeTests": 323,
+    "pythonTests": 19,
+    "cpuInference": "pass",
+    "frontendBuild": "pass",
+    "containerBuild": "pass",
+    "containerSmoke": "pass"
+  },
+  "deployment": {
+    "provider": "Render",
+    "plan": "Free",
+    "deploymentId": "dep-dbtv3b0jo6nc73fnghmg",
+    "status": "Your service is live",
+    "liveLogAt": "2026-11-17T06:19:11Z",
+    "healthStatus": 200,
+    "versionStatus": 200,
+    "versionMatches": true
+  },
+  "syntheticConnectivityProbe": {
+    "status": 401,
+    "code": "INVALID_CREDENTIALS",
+    "latencyMs": 481,
+    "expectedInvalidCredentialRejection": true,
+    "realCredentialsUsed": false,
+    "signups": 0,
+    "emails": 0,
+    "modelCalls": 0,
+    "limit": "Tests backend reachability and rejection of invalid credentials; it does not itself prove a valid user login."
+  },
+  "signedInWorkflow": {
+    "operator": "Agent-assisted owner-account recovery after the project owner completed signup, confirmation and sign-in",
+    "revisionObserved": "77f50e358f1ab9ff0da2c00c2e1879c5bb67e9bb",
+    "reloadCompleted": true,
+    "wardrobeRecordsAfterReload": 19,
+    "savedQuickLooksAfterReload": 1,
+    "cloudInSyncObserved": true,
+    "capSpecificIconObserved": true,
+    "freshBackupExported": true,
+    "freshBackupRecords": 19,
+    "freshBackupSavedLooks": 1,
+    "original17RecordIdsRetained": true,
+    "embeddedPhotoRecordsFullyDecoded": "6/6",
+    "sourcePhotoCount": 4,
+    "sourcePhotoReusesForSeparateGarments": 2,
+    "humanAcceptanceRatingsAdded": 0,
+    "wearEventsAdded": 0,
+    "newModelCalls": 0,
+    "countsAsIndependentHumanTest": false
+  },
+  "optionalWorker": {
+    "replacementMigrationsInstalled": true,
+    "replacementScopedCredentialRegisteredAndValidated": false,
+    "fastParserFallbackAvailable": true,
+    "limit": "Historical tuned-worker experiments do not verify worker access against the replacement backend."
+  },
+  "independentHumanCompletedSessions": 0,
+  "newPaidPlanOrSubscription": false,
+  "privacy": "Only aggregate recovery counts are published. Private account photos and backups remain outside this artifact."
+}

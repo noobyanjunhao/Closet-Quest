@@ -11,6 +11,8 @@ Set `CLOSET_STYLIST_POLICY=offline` to force local styling even when callers sel
 
 Use Node 24 (CI pins 24.19.0), npm, and the committed lockfile. Python 3.12 is needed only for the purchase-model unit tests; model weights are not required for the beta API. Native `sharp` is installed by npm for the target platform.
 
+For CPU-only hosts, set `ONNXRUNTIME_NODE_INSTALL=skip` during dependency installation. This skips optional GPU downloads, while retaining the bundled CPU runtime. CI runs a real numerical CPU inference with `scripts/verify-onnx-cpu.mjs`; do not disable every npm install script to work around a GPU-download failure. See [CPU dependency installation](cpu-dependency-install.md).
+
 ```sh
 npm ci
 npm test
@@ -37,6 +39,16 @@ node scripts/verify-hosted-cloud.mjs --origin https://closet-quest-junhao-s7.onr
 The verifier checks process liveness and release identity, then submits exactly one synthetic invalid login through the deployed API with its required Origin header. It makes no signup, reset-email, wardrobe or model requests and uses no real credentials. A normal invalid-credential rejection establishes that this authentication path reached its backend; DNS failures, 5xx responses and ambiguous 401/key failures fail the check. The JSON contains only allowlisted technical fields, never request bodies, cookies, passwords or upstream error text. Existing evidence files are not overwritten. This is technical connectivity evidence only: separately verify real email confirmation, sign-in, private wardrobe save/read/reload and photo access before claiming end-to-end readiness.
 
 Record the release SHA, browser/device, test start/end and participant code. Do not deploy, change model IDs, rotate configuration or edit code during the session. A critical safety failure ends the session; preserve the failed attempt, fix the defect, deploy a new revision, and run a separately labeled retest. An independent user must perform the test; an agent, developer rehearsal or synthetic dataset does not satisfy that requirement.
+
+### Account outage recovery
+
+Keep browser data and private exports intact. Diagnose DNS, project status, saved environment and Auth delivery separately. A process-health 200 or successful redeploy is insufficient. The November 17 incident required a new owner-approved Free Supabase project, migrations and isolation checks, verified environment values, a fresh Render deploy, and repair of an SMTP source-IP block. Verify only the specific source address observed in provider logs; do not disable the entire SMTP protection. A source-IP change can recur, so check Auth/provider logs if confirmation delivery fails again. Keep IPs, emails, keys, backups and screenshots containing private clothes out of public evidence.
+
+After confirmation and sign-in, export the new account before import. Validate the original backup, preserve its checksum, restore through the normal account UI, wait for sync, reload, inspect photos and export a fresh backup. Record exact recovered counts and what could not be recovered; do not equate a new empty database with recovery of cloud-only data. Roll back application code separately from durable data. Never overwrite a newer cloud wardrobe with an older local copy without reviewing the conflict.
+
+### Purchase worker after a backend replacement
+
+Installing migrations 003-005 does not transfer worker credentials from the old project. The November 17 replacement's scoped laptop worker has not yet been re-registered or tested. Keep the fast-parser fallback available and label it accurately. To restore the tuned-worker path, follow [the purchase worker runbook](cloud-service-lab.md), review the new credential's narrow claim/return permissions and expiry, obtain the required approval for new access, register it privately, and run a synthetic purchase job through claim, draft return, user review and acceptance. Verify owner isolation and concurrent-claim behavior before calling the worker operational. Do not copy the old secret into a new project and assume it works, or include worker secrets in a report.
 
 Rollback uses Render's prior known-good deployment. No new Supabase schema migration is required by this beta. Keep optional AWS configuration blank for the existing hosting path. Verify the rollback revision and perform a login/read/style smoke check afterward.
 

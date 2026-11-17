@@ -41,7 +41,7 @@ The saved-result scenario preserves a usable response during an injected failure
 
 ## Privacy, deletion and retention
 
-The scoped audit passed **97/97 automated checks**. It covers synthetic owner isolation at the application boundary, secure session handling, stale-write rejection, private photo paths, job cancellation and expiry, shopping validation, untrusted-context boundaries, navigation behavior and separation of human outcomes from rehearsals. The JSON matrix and raw TAP log list the tested files and limits. The full repository suite passed **320/320 tests** before the final additional quota-isolation regression; the final release check should report its own complete test count.
+The scoped audit passed **97/97 automated checks**. It covers synthetic owner isolation at the application boundary, secure session handling, stale-write rejection, private photo paths, job cancellation and expiry, shopping validation, untrusted-context boundaries, navigation behavior and separation of human outcomes from rehearsals. The JSON matrix and raw TAP log list the tested files and limits. The final [PR #11 CI run](https://github.com/noobyanjunhao/Closet-Quest/actions/runs/44029828697) passed **323/323 Node tests**, 19 Python tests, CPU inference, frontend/container builds and container smoke. Its merged runtime revision is `77f50e358f1ab9ff0da2c00c2e1879c5bb67e9bb`; deployment verification is recorded separately.
 
 | Data or control | What exists now | Remaining limitation |
 |---|---|---|
