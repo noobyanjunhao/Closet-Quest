@@ -5,6 +5,10 @@ Repository: https://github.com/noobyanjunhao/Closet-Quest
 
 ## Reproduce the release
 
+For this iteration, run `node scripts/evaluate-stylist-nfr.mjs` after `npm test`. It blocks network and writes the paired fixture results to `output/sprint9/stylist-nfr.json`. `node scripts/review-sandbox.mjs --port=4186` creates a frozen local review copy without credentials or server outbound calls; recognition is disabled and recommendations are deterministic. This is a rehearsal, not a production model test. Use a separate port/snapshot for a retest. See [the NFR acceptance contract](sprint9-nonfunctional-requirements.md) and [latest report](sprint9-beta-validation.md).
+
+Set `CLOSET_STYLIST_POLICY=offline` to force local styling even when callers select OpenAI or Deep. Default `standard` enables automatic routing for routine briefs. This setting covers styling generation and embeddings only; it is not a global spending cap. Never run live shopping/recognition as part of a zero-spend smoke test.
+
 Use Node 24 (CI pins 24.19.0), npm, and the committed lockfile. Python 3.12 is needed only for the purchase-model unit tests; model weights are not required for the beta API. Native `sharp` is installed by npm for the target platform.
 
 ```sh
@@ -59,4 +63,3 @@ The 40-request SDK experiment is local Dynalite emulation, not AWS capacity evid
 Shopping admits two provider calls and at most 40 waiting distinct searches, with a four-second wait limit. Identical requests share a promise. Recent products are reusable for 24 hours; old entries are eligible as explicitly stale fallback for at most 14 days. Per-query failures cool down for 30 seconds; three failures open a process-local circuit. A successful in-flight request may close it. No prices or products are invented to turn an error into success. Direct remote stylist work admits two calls and eight waiters for up to three seconds. Account inference budgets remain in force. These are bounded beta limits, not a global service SLA.
 
 Every API response gets a server-generated `X-Request-Id`. Optional `CLOSET_REQUEST_LOGS=1` records only that ID, an allowlisted route family, method, status and elapsed time, never bodies, tokens, account IDs or arbitrary URL text. Use 5xx rate, wait rejection count, cache-hit/coalescing rate and provider-call count to decide whether to add capacity. Review repeated errors before increasing limits. Never label `/healthz` as model readiness: it is only process liveness.
-

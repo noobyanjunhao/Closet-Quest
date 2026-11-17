@@ -1,5 +1,6 @@
 import React,{useEffect,useRef,useState} from 'react';
 import {api} from './photos.js';
+import {initialShoppingCategory} from './shopping-selection.js';
 import './shopping-finds.css';
 const cachedFinds=(store,key)=>{const value=store.current.results.get(key);if(value&&Date.now()-Date.parse(value.searchedAt)<24*60*60000)return value;store.current.results.delete(key);return null;};
 function ProductPhoto({product}){
@@ -12,7 +13,7 @@ const money=value=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD
 export function ShoppingProductCards({products}){return <div className="shopping-products">{products.map((product,index)=><a key={product.url} href={product.url} target="_blank" rel="noopener noreferrer" className="shopping-product"><div className="shopping-product-image"><ProductPhoto key={JSON.stringify([product.image,product.images])} product={product}/><span className="shopping-tier">{index===0?'Lowest price':product.tier}</span><span className="shopping-open" aria-hidden="true">↗</span></div><div className="shopping-product-info"><div className="shopping-brand-price"><small>{product.retailer.replace('.com','')}</small><strong>{money(product.price)}</strong></div><h4>{product.title}</h4><p>{product.reason}</p><span className="shopping-store-link">Take a closer look <span>↗</span></span></div></a>)}</div>;}
 
 export default function ShoppingFinds({ideas,occasion,store,onResults}){
- const saved=store.current.preferences||{},[category,setCategory]=useState(()=>['Top','Bottom','Shoes','Outerwear','Dress','Accessory'].includes(saved.category)?saved.category:ideas[0].category),[presentation,setPresentation]=useState(saved.presentation||'any'),[budget,setBudget]=useState(saved.budget||''),[result,setResult]=useState(null),[busy,setBusy]=useState(false),[error,setError]=useState('');
+ const saved=store.current.preferences||{},[category,setCategory]=useState(()=>initialShoppingCategory(ideas,saved.category)),[presentation,setPresentation]=useState(saved.presentation||'any'),[budget,setBudget]=useState(saved.budget||''),[result,setResult]=useState(null),[busy,setBusy]=useState(false),[error,setError]=useState('');
  const categories=[...ideas,...Object.entries({Top:'A top or shirt',Bottom:'Trousers or a skirt',Shoes:'Shoes',Outerwear:'A jacket',Dress:'A dress',Accessory:'An accessory'}).filter(([category])=>!ideas.some(i=>i.category===category)).map(([category,title])=>({category,title}))];
  const controller=useRef(null),generation=useRef(0);
  const query={category,occasion:/wedding|formal/i.test(occasion)?'formal':'everyday',presentation,maxPrice:budget?Number(budget):null};
