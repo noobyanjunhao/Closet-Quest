@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Garment,Modal } from './components.jsx';
 import { contexts } from './logic.js';
 import './stylist-suggestions.css';
+import {parseShopBrief} from './shop-brief.js';
 import ShoppingFinds from './ShoppingFinds.jsx';
 import StylistCompanion from './StylistCompanion.jsx';
 import DailyFinds from './DailyFinds.jsx';
@@ -39,7 +40,17 @@ export default function OutfitStudio({items,context,onContext,request,onRequest,
   const working = styling || previewing;
   const chosen = options[selected];
   const outfit = chosen?.itemIds.map(id => items.find(i => i.id === id)).filter(Boolean) || [];
-  const hasResults = Boolean(chosen);
+  const shopIntent = parseShopBrief(request);
+  const shoppingOnly = shopIntent?.mode === 'shop';
+  const [submittedShop,setSubmittedShop] = useState(shoppingStore.current.lastShopBrief || '');
+  const shopResultsRef = useRef(null);
+  function openShop() {
+    shoppingStore.current.lastShopBrief=request;
+    setSubmittedShop(request);
+    requestAnimationFrame(()=>shopResultsRef.current?.focus());
+  }
+  const hasResults = Boolean(chosen) && !shoppingOnly;
+  const mixed = shopIntent?.mode === 'mixed';
   const [elapsed,setElapsed]=useState(0);
   useEffect(()=>{if(!working){setElapsed(0);return;}const start=Date.now();const timer=setInterval(()=>setElapsed(Math.floor((Date.now()-start)/1000)),1000);return()=>clearInterval(timer);},[working]);
   const resultKey = options[0]?.wearId || '';
@@ -67,12 +78,12 @@ export default function OutfitStudio({items,context,onContext,request,onRequest,
   }
 
   const brief = <section className="studio-brief" aria-label="Outfit brief">
-    <div className="studio-title"><StylistCompanion working={working}/><span className={`studio-status ${aiReady ? 'connected' : ''}`}><i/>{engine === 'baseline' ? 'Wardrobe rules' : engine === 'local' ? (aiReady ? 'Local AI ready' : 'Local AI offline') : engine === 'openai' || engine === 'agent' && openaiConfigured ? 'OpenAI styling' : 'Quick matches'}</span></div>
-    <label className="studio-label studio-mood">What are you dressing for?
-      <textarea maxLength="1800" disabled={working} value={request} onChange={e => onRequest(e.target.value)} rows="3" placeholder="An outdoor concert on a cool evening. I'd love to wear my denim jacket."/>
+    <div className="studio-title"><StylistCompanion working={working}/><span className={`studio-status ${aiReady ? 'connected' : ''}`}><i/>{shoppingOnly ? 'Shop library' : engine === 'baseline' ? 'Wardrobe rules' : engine === 'local' ? (aiReady ? 'Local AI ready' : 'Local AI offline') : engine === 'openai' || engine === 'agent' && openaiConfigured ? 'OpenAI styling' : 'Quick matches'}</span></div>
+    <label className="studio-label studio-mood">What would you like to wear or find?
+      <textarea maxLength="1800" disabled={working} value={request} onChange={e => onRequest(e.target.value)} rows="3" placeholder="Style my denim jacket for dinner, or find black loafers under $150."/>
     </label>
-    {anchor && <div className="studio-anchor-preview"><Garment item={anchor}/><div><strong>{anchor.name}</strong><span>Included in every suggested look.</span></div><button aria-label="Clear starting piece" disabled={working} onClick={() => onAnchor('')}>×</button></div>}
-    <details className="studio-preferences"><summary>Preferences<span>{engine === 'baseline' ? 'Wardrobe rules' : context || (anchor ? 'Starting piece selected' : 'Optional')}</span></summary>
+    {!shoppingOnly && anchor && <div className="studio-anchor-preview"><Garment item={anchor}/><div><strong>{anchor.name}</strong><span>Included in every suggested look.</span></div><button aria-label="Clear starting piece" disabled={working} onClick={() => onAnchor('')}>×</button></div>}
+    {!shoppingOnly && <details className="studio-preferences"><summary>Preferences<span>{engine === 'baseline' ? 'Wardrobe rules' : context || (anchor ? 'Starting piece selected' : 'Optional')}</span></summary>
       <div className="studio-preference-fields">
         <label className="studio-label">Occasion hint
           <select disabled={working} value={context || (engine === 'baseline' ? contexts[0] : '')} onChange={e => onContext(e.target.value)}>
@@ -87,24 +98,25 @@ export default function OutfitStudio({items,context,onContext,request,onRequest,
         <button className="studio-preview-button" disabled={working || !items.some(i => !i.needsReview)} onClick={preview}>Preview wardrobe matches</button>
         {!hasResults && (retrieval || retrievalError || previewing) && <details className="studio-matches" open={matchesOpen} onToggle={e => setMatchesOpen(e.currentTarget.open)}><summary>Wardrobe matches</summary><RetrievalPanel retrieval={retrieval} items={items} onEdit={editPiece} loading={previewing} error={retrievalError}/></details>}
       </>}
-    </details>
-    {engine === 'local' && !aiReady && <p className="studio-help studio-offline">AI is offline. <button className="text-button" disabled={working} onClick={() => onEngine('quick')}>Use quick matches</button></p>}
-    {engine === 'local' && processingCount > 0 && <p className="studio-help">The local model is analyzing photos. <button className="text-button" onClick={()=>onEngine('quick')}>Use quick matches now</button></p>}
-    {items.some(i => i.needsReview) && <p className="studio-help">Review new imports to include them in your looks.</p>}
-    {quest && <div className="studio-quest"><strong>{quest.title}</strong><p>{quest.subtitle}</p></div>}
-    <p className="studio-provider-note">{engine === 'openai' || engine === 'agent' && openaiConfigured ? 'Uses OpenAI for styling advice. Your reviewed garment details, brief, preferences and retrieved notes are sent. This styling request does not send photos.' : engine === 'agent' ? 'Auto uses quick matches until an OpenAI key is configured. Your wardrobe stays on this device.' : engine === 'local' ? 'The local model can take longer. If it cannot finish, you’ll get quick matches.' : engine === 'quick' ? 'Matches your brief to saved garment details. No generative model call.' : ''}</p><div className="studio-buttons"><button className="primary" disabled={working || engine === 'local' && (!aiReady || processingCount > 0)} onClick={onGenerate}>{styling ? (styleStage === 'retrieving' ? 'Finding your pieces…' : 'Creating your looks…') : 'Create my looks'} <span aria-hidden="true">↗</span></button><button disabled={working} onClick={onQuick}>Quick look · no AI call</button></div>
+    </details>}
+    {!shoppingOnly && engine === 'local' && !aiReady && <p className="studio-help studio-offline">AI is offline. <button className="text-button" disabled={working} onClick={() => onEngine('quick')}>Use quick matches</button></p>}
+    {!shoppingOnly && engine === 'local' && processingCount > 0 && <p className="studio-help">The local model is analyzing photos. <button className="text-button" onClick={()=>onEngine('quick')}>Use quick matches now</button></p>}
+    {!shoppingOnly && items.some(i => i.needsReview) && <p className="studio-help">Review new imports to include them in your looks.</p>}
+    {!shoppingOnly && quest && <div className="studio-quest"><strong>{quest.title}</strong><p>{quest.subtitle}</p></div>}
+    <p className="studio-provider-note">{shoppingOnly ? 'Pip will check the shop library using the product details in your request.' : engine === 'openai' || engine === 'agent' && openaiConfigured ? 'Uses OpenAI for styling advice. Your reviewed garment details, brief, preferences and retrieved notes are sent. This styling request does not send photos.' : engine === 'agent' ? 'Auto uses quick matches until an OpenAI key is configured. Your wardrobe stays on this device.' : engine === 'local' ? 'The local model can take longer. If it cannot finish, you’ll get quick matches.' : engine === 'quick' ? 'Matches your brief to saved garment details. No generative model call.' : ''}</p><div className="studio-buttons"><button className="primary" disabled={working || !shoppingOnly && engine === 'local' && (!aiReady || processingCount > 0)} onClick={shoppingOnly?openShop:onGenerate}>{styling ? (styleStage === 'retrieving' ? 'Finding your pieces…' : 'Creating your looks…') : shoppingOnly ? 'Find shop picks' : mixed ? 'Style + shop' : 'Create my looks'} <span aria-hidden="true">↗</span></button>{!shoppingOnly&&<button disabled={working} onClick={onQuick}>Quick look · no AI call</button>}</div>
   </section>;
 
   return <div className={`studio studio-simple ${hasResults ? 'studio-has-results' : ''}`}>
     <div className="studio-workspace"><details className={`studio-brief-disclosure ${hasResults ? '' : 'studio-brief-initial'}`} open={!hasResults || briefOpen} onToggle={e => setBriefOpen(e.currentTarget.open)}><summary hidden={!hasResults}>Change the brief<span>{chosen?.occasion||context}{anchor ? ` · ${anchor.name}` : ''}</span></summary>{brief}</details></div>
     {working && <div className="studio-progress" role="status"><span className="pulse-dot"/><div><strong>{elapsed>=8?'Putting the finishing touches on your look…':previewing || styleStage === 'retrieving' ? 'Finding your pieces…' : 'Creating your looks…'}</strong><small>{elapsed}s · If AI takes too long, we’ll show a quick starting point.</small></div><button onClick={onCancel}>{previewing ? 'Stop preview' : 'Stop styling'}</button></div>}
-    {!styling && !hasResults && message && <div className="studio-message" role="status">{message}</div>}
+    {shoppingOnly && submittedShop===request && <div ref={shopResultsRef} tabIndex={-1} aria-label="Your shop picks"><ShoppingFinds key={request} initialQuery={shopIntent} store={shoppingStore} preview heading="Your shop picks"/></div>}
+    {!shoppingOnly && !styling && !hasResults && message && <div className="studio-message" role="status">{message}</div>}
     {hasResults&&<button className="look-preview" onClick={()=>setCardOpen(true)}><div className="look-preview-images">{outfit.slice(0,3).map(item=><Garment key={item.id} item={item}/>)}</div><span><small>READY WHEN YOU ARE</small><strong>{options.length} {options.length===1?'styling idea':'styling ideas'}, ready to try.</strong><span>Open your outfit cards ↗</span></span></button>}
     {hasResults&&cardOpen&&<Modal title="Made for your day." onClose={()=>setCardOpen(false)} scrollPosition={scrollPosition} swipeToClose wide><section className="studio-results outfit-card" aria-label="Suggested outfits" onPointerDown={e=>{gesture.current={x:e.clientX,y:e.clientY};}} onPointerCancel={()=>{gesture.current=null;}} onPointerUp={e=>{const g=gesture.current;gesture.current=null;if(!g)return;const dx=e.clientX-g.x,dy=e.clientY-g.y;if(Math.abs(dx)>65&&Math.abs(dx)>Math.abs(dy)*1.5)onSelect((selected+(dx<0?1:-1)+options.length)%options.length);}}>
       <div className="card-pagination"><button aria-label="Previous outfit" disabled={options.length<2} onClick={()=>onSelect((selected-1+options.length)%options.length)}>←</button><span>LOOK {String(selected+1).padStart(2,'0')} <small> / {String(options.length).padStart(2,'0')}</small></span><button aria-label="Next outfit" disabled={options.length<2} onClick={()=>onSelect((selected+1)%options.length)}>→</button></div>
       {chosen.pipeline?.fallback&&<p className="studio-result-notice" role="status">{chosen.pipeline.fallback.message}</p>}<div className="studio-results-heading"><h2 ref={resultsRef} tabIndex={-1}>{chosen.title}</h2><div className="studio-look-tabs" aria-label="Choose an outfit">{options.map((look, index) => <button key={look.wearId} aria-pressed={selected === index} className={selected === index ? 'chosen' : ''} onClick={() => onSelect(index)}>Look {index + 1}</button>)}</div></div>
       <div className="studio-look"><div className="studio-look-photos" style={{'--look-columns':Math.max(1,outfit.length<=4?outfit.length:3)}}>{outfit.map(item => <button key={item.id} onClick={() => editPiece(item)} aria-label={`View ${item.name}`}><div className="studio-piece-image"><Garment item={item}/>{anchorId === item.id && <span>Your starting piece</span>}</div><span className="studio-piece-category">{item.category}</span><strong>{item.name}</strong></button>)}</div><div className="studio-look-story"><span className="studio-kicker">{chosen.lookType==='starting-point'?'LET’S START HERE':'YOUR STYLIST’S TAKE'}</span><p>{chosen.explanation}</p>{chosen.provider !== 'quick' && chosen.stylingTip && <div className="studio-tip"><strong>Try this</strong><p>{chosen.stylingTip}</p></div>}<div className="studio-palette" aria-label="Outfit color palette">{outfit.map(item => <span key={item.id} style={{background:item.color}} title={item.colorName || item.name}/>)}</div><small>{chosen.provider === 'openai' ? 'Styled with OpenAI' : chosen.provider === 'local' ? 'Suggested by local AI' : chosen.provider === 'quick' ? 'Quick wardrobe matches · no generative model' : 'Matched by wardrobe rules'}</small></div></div>
-      {chosen.shoppingSuggestions?.length>0&&<ShoppingFinds key={chosen.wearId} ideas={chosen.shoppingSuggestions} occasion={chosen.occasion||context+' '+request} store={shoppingStore}/>}
+      {(mixed||chosen.shoppingSuggestions?.length>0)&&<ShoppingFinds key={chosen.wearId} ideas={chosen.shoppingSuggestions} initialQuery={mixed?shopIntent:undefined} occasion={chosen.occasion||context+' '+request} store={shoppingStore} preview heading={mixed?'Shop additions for this look':'Finish this look'}/>}
       {chosen.pipeline&&<p className="studio-timing">Ready in {Math.max(.1,chosen.pipeline.timingMs.total/1000).toFixed(1)}s · Based on your reviewed closet</p>}{children}
       {(chosen.pipeline?.orchestration || chosen.grounding?.length > 0 || engine !== 'baseline' && (retrieval || retrievalError || previewing)) && <details className="studio-grounding" open={evidenceOpen} onToggle={e => setEvidenceOpen(e.currentTarget.open)}><summary>How this look was made</summary><AgentTrace pipeline={chosen.pipeline}/>
         {retrieval?.personalization?.summary&&<p><strong>Your preferences:</strong> {retrieval.personalization.summary}</p>}

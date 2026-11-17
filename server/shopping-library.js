@@ -1,6 +1,7 @@
 import {createHash} from 'node:crypto';
 import {readFileSync,mkdirSync,writeFileSync,renameSync} from 'node:fs';
 import {join} from 'node:path';
+import {matchesShopProduct,validShopFilters} from '../src/shop-brief.js';
 import {shoppingQuery,publicHttps,RETAILERS} from './shopping.js';
 import {createWorkLimiter} from './work-limiter.js';
 
@@ -16,9 +17,10 @@ export function validateLibraryEntry(entry,now=Date.now()){
   if(!Number.isFinite(at)||at>now+60000||now-at>SHOPPING_MAX_AGE_MS)return null;
   const products=(Array.isArray(entry.products)?entry.products:[]).slice(0,6).flatMap(p=>{
    const url=publicHttps(p.url,RETAILERS);if(!url||typeof p.title!=='string'||!p.title.trim()||p.title.length>160||!Number.isFinite(p.price)||p.price<=0||p.price>10000||p.currency!=='USD'||query.maxPrice!==null&&p.price>query.maxPrice)return [];
+   if(!matchesShopProduct(p,query))return [];
    const images=[...new Set([p.image,...(Array.isArray(p.images)?p.images:[])].map(x=>publicHttps(x)).filter(Boolean))].slice(0,4);
    const path=new URL(url).pathname,presentation=query.presentation==='any'?(/\/womens\//.test(path)?'womenswear':/\/mens\//.test(path)?'menswear':'any'):query.presentation;
-   return [{title:p.title,url,price:p.price,currency:'USD',retailer:new URL(url).hostname.replace(/^www\./,''),image:images[0]||null,images,tier:p.price<60?'Budget':p.price<150?'Mid-range':'Investment',owned:false,category:query.category,presentation,occasion:query.occasion,checkedAt:new Date(at).toISOString(),reason:`A ${query.category.toLowerCase()} to consider for a ${query.occasion==='formal'?'dressier':'relaxed'} look.`,priceStatus:'Previously observed price; confirm at store'}];
+   return [{title:p.title,url,price:p.price,currency:'USD',retailer:new URL(url).hostname.replace(/^www\./,''),image:images[0]||null,images,tier:p.price<60?'Budget':p.price<150?'Mid-range':'Investment',owned:false,category:query.category,presentation,occasion:query.occasion,checkedAt:new Date(at).toISOString(),reason:`${presentation==='menswear'?'Menswear · ':presentation==='womenswear'?'Womenswear · ':''}${query.occasion==='formal'?'Dressier looks':'Everyday wear'}`,priceStatus:'Previously observed price; confirm at store'}];
   });
   return products.length?{query,products,searchedAt:new Date(at).toISOString()}:null;
  }catch{return null;}
@@ -28,7 +30,15 @@ function waitFor(promise,signal){
  return new Promise((resolve,reject)=>{const aborted=()=>{cleanup();reject(signal.reason);},cleanup=()=>signal.removeEventListener('abort',aborted);signal.addEventListener('abort',aborted,{once:true});promise.then(v=>{cleanup();resolve(v);},e=>{cleanup();reject(e);});});
 }
 export function createShoppingLibrary({search,cloud,seed,storageDir,now=Date.now,limiter=createWorkLimiter(),failureCooldownMs=30000,sharedStore}={}){
- if(seed===undefined)try{seed=JSON.parse(readFileSync(new URL('../data/shopping-library.json',import.meta.url),'utf8')).entries;}catch{seed=[];}
+ if(seed===undefined){
+  const readSeed=(file,empty)=>{try{return JSON.parse(readFileSync(new URL(file,import.meta.url),'utf8'));}catch{return empty;}};
+  seed=readSeed('../data/shopping-library.json',{entries:[]}).entries;
+  const footwear=readSeed('../data/footwear-picks.json',{products:[]});
+  for(const presentation of ['menswear','womenswear'])for(const occasion of ['formal','everyday']){
+   const products=footwear.products.filter(p=>p.presentation===presentation&&p.occasion===occasion);
+   seed.push({query:{category:'Shoes',presentation,occasion},products,searchedAt:footwear.checkedAt});
+  }
+ }
  const shared=new Map(),personal=new Map(),pending=new Map(),pendingSaves=new Map(),failures=new Map(),admissionFailures=new WeakSet();
  let failureStreak=0,openUntil=0;
  const stats={cacheHits:0,coalesced:0,liveSearches:0,fallbacks:0,failures:0,distributedHits:0};
@@ -47,8 +57,8 @@ export function createShoppingLibrary({search,cloud,seed,storageDir,now=Date.now
   // Account-controlled records never enter the shared catalog.
   return [...shared.values(),...(owned?.map.values()||[])].map(e=>validateLibraryEntry(e,now())).filter(Boolean);
  }
- const compatible=(entry,q)=>entry.query.category===q.category&&entry.query.occasion===q.occasion&&(entry.query.presentation===q.presentation||q.presentation==='any');
- function selection(entries,q,freshOnly){const products=new Map();for(const entry of entries.filter(e=>compatible(e,q)&&(!freshOnly||now()-Date.parse(e.searchedAt)<SHOPPING_FRESH_MS)).sort((a,b)=>Date.parse(b.searchedAt)-Date.parse(a.searchedAt))){for(const p of entry.products)if((q.maxPrice===null||p.price<=q.maxPrice)&&!products.has(p.url))products.set(p.url,p);}return [...products.values()].sort((a,b)=>a.price-b.price).slice(0,6);}
+ const compatible=(entry,q)=>entry.query.category===q.category&&entry.query.occasion===q.occasion&&(entry.query.presentation===q.presentation||entry.query.presentation==='any'||q.presentation==='any');
+ function selection(entries,q,freshOnly){const products=new Map();for(const entry of entries.filter(e=>compatible(e,q)&&(!freshOnly||now()-Date.parse(e.searchedAt)<SHOPPING_FRESH_MS)).sort((a,b)=>Date.parse(b.searchedAt)-Date.parse(a.searchedAt))){for(const p of entry.products)if((q.presentation==='any'||p.presentation===q.presentation||p.presentation==='any')&&matchesShopProduct(p,q)&&(q.maxPrice===null||p.price<=q.maxPrice)&&!products.has(p.url))products.set(p.url,p);}return [...products.values()].sort((a,b)=>a.price-b.price).slice(0,6);}
  function result(products,query,source,extra={}){return {products,query,searchedAt:products.length?products.map(p=>p.checkedAt).sort()[0]:new Date(now()).toISOString(),cached:source!=='live',source,notice,liveSearchUsed:source==='live',...extra};}
  async function saveFor(user,entry){
   if(!user?.cloud||!cloud?.saveShoppingResult)return;
@@ -68,7 +78,12 @@ export function createShoppingLibrary({search,cloud,seed,storageDir,now=Date.now
    const category=input.category||'All',presentation=input.presentation||'any';
    if(!['All',...categories].includes(category)||!['any','menswear','womenswear'].includes(presentation))throw Object.assign(Error('Choose a clothing category and style.'),{status:400});
    const budget=input.maxPrice==null?null:Number(input.maxPrice);if(budget!==null&&(!Number.isFinite(budget)||budget<1||budget>5000))throw Object.assign(Error('Choose a valid budget.'),{status:400});
-   const unique=new Map();for(const e of (await entriesFor(user)).sort((a,b)=>Date.parse(b.searchedAt)-Date.parse(a.searchedAt)))for(const p of e.products){if(category!=='All'&&p.category!==category||presentation!=='any'&&p.presentation!==presentation&&p.presentation!=='any'||budget!==null&&p.price>budget)continue;if(!unique.has(p.url))unique.set(p.url,p);}
+   if(!validShopFilters(category,input.kind,input.color))throw Object.assign(Error('Choose a supported product type and color.'),{status:400});
+   const unique=new Map();for(const e of (await entriesFor(user)).sort((a,b)=>Date.parse(b.searchedAt)-Date.parse(a.searchedAt)))for(const p of e.products){
+    if(category!=='All'&&p.category!==category||presentation!=='any'&&p.presentation!==presentation&&p.presentation!=='any'||budget!==null&&p.price>budget)continue;
+    if(input.occasion==='formal'&&p.occasion!=='formal'||!matchesShopProduct(p,{category,kind:input.kind,color:input.color}))continue;
+    if(!unique.has(p.url))unique.set(p.url,p);
+   }
    const day=dayAt(now()),all=[...unique.values()],daily=input.mode!=='library';
    const chosen=(daily?[...all].sort((a,b)=>hash(day+a.url).localeCompare(hash(day+b.url))).slice(0,4):all.slice(0,60)).sort((a,b)=>a.price-b.price);
    return result(chosen,{category,presentation,maxPrice:budget},'library',{day,libraryCount:all.length,daily,stale:chosen.some(p=>now()-Date.parse(p.checkedAt)>=SHOPPING_FRESH_MS)});

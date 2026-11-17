@@ -6,9 +6,11 @@ import {renderToStaticMarkup} from 'react-dom/server';
 import {build} from 'esbuild';
 
 // Exercise the actual JSX without a browser, server, or provider request.
-const compiled=await build({entryPoints:['src/OutfitStudio.jsx'],bundle:true,write:false,format:'cjs',platform:'node',external:['react'],loader:{'.css':'empty'},logLevel:'silent'});
+const compiled=await build({entryPoints:['src/OutfitStudio.jsx'],bundle:true,write:false,format:'cjs',platform:'node',external:['react','react-dom'],loader:{'.css':'empty'},logLevel:'silent'});
 const componentModule={exports:{}};
-new Function('require','module','exports',compiled.outputFiles[0].text)(createRequire(import.meta.url),componentModule,componentModule.exports);
+const requireModule=createRequire(import.meta.url);
+// Render portal contents inline so SSR can exercise the real outfit card.
+new Function('require','module','exports','document',compiled.outputFiles[0].text)(id=>id==='react-dom'?{createPortal:child=>child}:requireModule(id),componentModule,componentModule.exports,{body:{}});
 const OutfitStudio=componentModule.exports.default;
 function render(overrides={}){
  return renderToStaticMarkup(React.createElement(OutfitStudio,{
@@ -23,6 +25,17 @@ function choice(html,value){
  assert.ok(match,`${value} styling option exists`);
  return {disabled:/\bdisabled(?:=|\s|$)/.test(match[1]),label:match[2]};
 }
+
+test('the Stylist offers direct shop search without an outfit, plus shopping on a complete look',()=>{
+ const direct=render({request:'Find black loafers under $150',engine:'local',aiReady:false});
+ assert.match(direct,/<button class="primary">Find shop picks/);
+ assert.doesNotMatch(direct,/Create my looks|Quick look · no AI call/);
+ const mixed=render({request:'Style my jeans and find black loafers under $150',options:[{wearId:'test',title:'Dinner',itemIds:[],shoppingSuggestions:[]}],view:{briefOpen:true,cardOpen:true}});
+ assert.match(mixed,/Style \+ shop/);
+ assert.match(mixed,/Shop additions for this look/);
+ assert.match(mixed,/<option value="Shoes" selected="">Shoes/);
+ assert.match(mixed,/<option value="150" selected="">Up to \$150/);
+});
 
 test('stylist gates unavailable model engines while keeping configured OpenAI and quick matches available',()=>{
  const hosted=render();
