@@ -36,6 +36,18 @@ test('stylist gates unavailable model engines while keeping configured OpenAI an
  assert.equal(choice(local,'openai').disabled,true);
 });
 
+test('free text comes first and optional occasion hints start collapsed',()=>{
+ const html=render({context:'',request:'An outdoor concert'});
+ const preferences=html.match(/<details class="studio-preferences">([\s\S]*?)<\/details>/);
+ assert.ok(preferences);
+ assert.ok(html.indexOf('<textarea') < html.indexOf(preferences[0]));
+ assert.match(html,/<textarea[^>]*>An outdoor concert<\/textarea>/);
+ assert.match(preferences[1],/<option value="" selected="">Use my description<\/option>/);
+ assert.match(preferences[1],/Coffee date/);
+ assert.doesNotMatch(html,/Choose your occasion|Try a styling brief/);
+ assert.match(render({context:'',engine:'baseline'}),/<option value="Campus casual" selected="">Everyday<\/option>/);
+});
+
 test('collapsed brief shows the generated wedding occasion instead of the default occasion',()=>{
  const html=render({options:[{wearId:'synthetic-look',title:'Wedding start',occasion:'Wedding',itemIds:[]}],view:{briefOpen:false,matchesOpen:false,evidenceOpen:false,cardOpen:false}});
  assert.match(html,/<summary>Change the brief<span>Wedding<\/span><\/summary>/);

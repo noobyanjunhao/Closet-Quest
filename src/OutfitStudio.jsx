@@ -67,15 +67,19 @@ export default function OutfitStudio({items,context,onContext,request,onRequest,
   }
 
   const brief = <section className="studio-brief" aria-label="Outfit brief">
-    <div className="studio-title"><h2>What’s the plan?</h2><span className={`studio-status ${aiReady ? 'connected' : ''}`}><i/>{engine === 'baseline' ? 'Wardrobe rules' : engine === 'local' ? (aiReady ? 'Local AI ready' : 'Local AI offline') : engine === 'openai' || engine === 'agent' && openaiConfigured ? 'OpenAI styling' : 'Quick matches'}</span></div>
-    <div className="studio-brief-fields">
-      <label className="studio-label studio-occasion">Occasion<select disabled={working} value={context} onChange={e => onContext(e.target.value)}>{contexts.map(c => <option key={c} value={c}>{c}</option>)}</select></label>
-      <div className="phone-occasions" role="group" aria-label="Choose your occasion">{contexts.map((c,i)=><button key={c} disabled={working} aria-pressed={context===c} onClick={()=>onContext(c)}><span aria-hidden="true">{['☀','♡','↗'][i]}</span>{['Everyday','Coffee date','Presentation'][i]}</button>)}</div>
-      <label className="studio-label studio-mood">What do you feel like wearing?<textarea maxLength="1800" disabled={working} value={request} onChange={e => onRequest(e.target.value)} rows="2" placeholder="I’m going to a wedding—help me put together something formal…"/></label>
-    </div>
+    <div className="studio-title"><StylistCompanion working={working}/><span className={`studio-status ${aiReady ? 'connected' : ''}`}><i/>{engine === 'baseline' ? 'Wardrobe rules' : engine === 'local' ? (aiReady ? 'Local AI ready' : 'Local AI offline') : engine === 'openai' || engine === 'agent' && openaiConfigured ? 'OpenAI styling' : 'Quick matches'}</span></div>
+    <label className="studio-label studio-mood">What are you dressing for?
+      <textarea maxLength="1800" disabled={working} value={request} onChange={e => onRequest(e.target.value)} rows="3" placeholder="An outdoor concert on a cool evening. I'd love to wear my denim jacket."/>
+    </label>
     {anchor && <div className="studio-anchor-preview"><Garment item={anchor}/><div><strong>{anchor.name}</strong><span>Included in every suggested look.</span></div><button aria-label="Clear starting piece" disabled={working} onClick={() => onAnchor('')}>×</button></div>}
-    <details className="studio-preferences"><summary>Preferences<span>{engine === 'baseline' ? 'Instant styling' : anchor ? 'Starting piece selected' : 'Optional'}</span></summary>
+    <details className="studio-preferences"><summary>Preferences<span>{engine === 'baseline' ? 'Wardrobe rules' : context || (anchor ? 'Starting piece selected' : 'Optional')}</span></summary>
       <div className="studio-preference-fields">
+        <label className="studio-label">Occasion hint
+          <select disabled={working} value={context || (engine === 'baseline' ? contexts[0] : '')} onChange={e => onContext(e.target.value)}>
+            {engine !== 'baseline' && <option value="">Use my description</option>}
+            {contexts.map(occasion => <option key={occasion} value={occasion}>{occasion === 'Campus casual' ? 'Everyday' : occasion === 'Presentation day' ? 'Presentation' : occasion}</option>)}
+          </select>
+        </label>
         {engine !== 'baseline' && <label className="studio-label studio-anchor">Include a favorite piece<select value={anchorId} disabled={working} onChange={e => onAnchor(e.target.value)}><option value="">Let the stylist choose</option>{items.filter(i => !i.needsReview).map(item => <option key={item.id} value={item.id}>{item.name}</option>)}</select></label>}
         <label className="studio-label studio-engine">Styling method<select disabled={working} value={engine} onChange={e => onEngine(e.target.value)}><option value="agent">Auto · recommended</option><option value="quick">Quick matches · on device</option><option value="openai" disabled={!openaiConfigured}>OpenAI stylist{!openaiConfigured?' · key needed':''}</option><option value="local" disabled={!aiReady}>Local AI{aiReady ? " · server ready" : " · unavailable here"}</option><option value="baseline">Original wardrobe rules</option></select></label>
       </div>
@@ -92,7 +96,6 @@ export default function OutfitStudio({items,context,onContext,request,onRequest,
   </section>;
 
   return <div className={`studio studio-simple ${hasResults ? 'studio-has-results' : ''}`}>
-    <StylistCompanion working={working} onPrompt={value=>{onRequest(value);setBriefOpen(true);}}/>
     <div className="studio-workspace"><details className={`studio-brief-disclosure ${hasResults ? '' : 'studio-brief-initial'}`} open={!hasResults || briefOpen} onToggle={e => setBriefOpen(e.currentTarget.open)}><summary hidden={!hasResults}>Change the brief<span>{chosen?.occasion||context}{anchor ? ` · ${anchor.name}` : ''}</span></summary>{brief}</details></div>
     {working && <div className="studio-progress" role="status"><span className="pulse-dot"/><div><strong>{elapsed>=8?'Putting the finishing touches on your look…':previewing || styleStage === 'retrieving' ? 'Finding your pieces…' : 'Creating your looks…'}</strong><small>{elapsed}s · If AI takes too long, we’ll show a quick starting point.</small></div><button onClick={onCancel}>{previewing ? 'Stop preview' : 'Stop styling'}</button></div>}
     {!styling && !hasResults && message && <div className="studio-message" role="status">{message}</div>}
