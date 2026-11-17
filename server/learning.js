@@ -7,7 +7,7 @@ import {loadRanker,validRanker} from './reranker.js';
 
 const DEFAULT_PATH=fileURLToPath(new URL('../vision/private/learning/events.jsonl',import.meta.url));
 const categories=['Top','Bottom','Dress','Shoes','Outerwear','Accessory'];
-const contexts=['Campus casual','Coffee date','Presentation day'];
+const contexts=['Campus casual','Coffee date','Presentation day','Wedding','Formal','Your plans'];
 const fits=['Regular','Relaxed','Fitted','Oversized','Not applicable','Unknown'];
 const digest=value=>createHash('sha256').update(String(value)).digest('hex');
 const invalid=message=>Object.assign(new Error(message),{status:400,code:'INVALID_LEARNING_EVENT'});

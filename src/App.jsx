@@ -121,7 +121,7 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
   const measureReview=useReviewTiming(editor,state);
   const [ai,setAi] = useState({ready:false,model:'gemma3:4b'}), [engine,setEngine] = useState('agent'), [styling,setStyling] = useState(false);
   const recognitionReady=preferences.recognitionProvider==='openai'?ai.openai?.configured:(ai.localRecognitionReady??ai.recognitionReady);
-  const [context,setContext] = useState(contexts[0]), [request,setRequest] = useState('Something relaxed and put together. Find a fresh combination of colors and textures.');
+  const [context,setContext] = useState(''), [request,setRequest] = useState('');
   const [options,setOptions] = useState([]), [selected,setSelected] = useState(0), [styleMessage,setStyleMessage] = useState(''), [questId,setQuestId] = useState('rediscover'), [questMode,setQuestMode] = useState(false);
   const [lookName,setLookName] = useState('');
 
@@ -313,11 +313,12 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
         const body={...styleBody(nextContext,forQuest,activeQuest),provider:route==='agent'?'auto':route};setStyleStage('generating');
         const result=await api('style',body,'POST',{signal:controller.signal,timeoutMs:65000});
         if(run!==styleRun.current)return;setRetrieval(result.retrieval);
-        save(s=>({...s,recommendationHistory:[...(s.recommendationHistory||[]),{runId:result.pipeline.runId,createdAt:new Date().toISOString(),context:nextContext,provider:result.pipeline.provider,model:result.model,latencyMs:result.pipeline.timingMs.total,fallback:result.pipeline.fallback,knowledgeMode:result.retrieval.knowledge?.metadata?.mode,sourceIds:result.retrieval.promptSourceIds||[],outfits:result.data.outfits.map(({itemIds,title})=>({itemIds,title})),chosenItemIds:result.data.outfits[0]?.itemIds||[],status:result.data.outfits.length?'ready':'abstained'}].slice(-100)}));
+        save(s=>({...s,recommendationHistory:[...(s.recommendationHistory||[]),{runId:result.pipeline.runId,createdAt:new Date().toISOString(),context:result.data.outfits[0]?.occasion || nextContext || 'Your plans',provider:result.pipeline.provider,model:result.model,latencyMs:result.pipeline.timingMs.total,fallback:result.pipeline.fallback,knowledgeMode:result.retrieval.knowledge?.metadata?.mode,sourceIds:result.retrieval.promptSourceIds||[],outfits:result.data.outfits.map(({itemIds,title})=>({itemIds,title})),chosenItemIds:result.data.outfits[0]?.itemIds||[],status:result.data.outfits.length?'ready':'abstained'}].slice(-100)}));
         choices=result.data.outfits.map(o=>({...o,engine:'agent',provider:result.pipeline?.provider,pipeline:result.pipeline,model:result.model,wearId:crypto.randomUUID()}));reason=result.pipeline?.fallback?.message||result.data.reason;
       }else {
-        const result=rankOutfits(items,nextContext,{requireLowUse:forQuest&&activeQuest==='rediscover'});
-        choices=result.outfits.map((o,index)=>({itemIds:o.items.map(i=>i.id),title:`${nextContext} · ${index+1}`,explanation:o.explanation,engine:'baseline',wearId:crypto.randomUUID()}));reason=result.reason;
+        const occasion=nextContext || contexts[0];
+        const result=rankOutfits(items,occasion,{requireLowUse:forQuest&&activeQuest==='rediscover'});
+        choices=result.outfits.map((o,index)=>({itemIds:o.items.map(i=>i.id),occasion,title:`${occasion} · ${index+1}`,explanation:o.explanation,engine:'baseline',wearId:crypto.randomUUID()}));reason=result.reason;
       }
       if(run!==styleRun.current)return;
       setOptions(choices);setStyleMessage(reason);setLookName(choices[0]?.title||'');
@@ -357,7 +358,7 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
     const snapshot=selectedOption;
     const candidates=(retrieval?retrieval.items.map(match=>stateRef.current.items.find(i=>i.id===match.id)):outfit).filter(Boolean);
     const fields=['id','category','colorName','fit','itemType','wears'];
-    try{await learningEvent({type:'outfit_feedback',source:candidates.some(i=>i.sampleId)?'sample':'user',context,feedback:value,candidates:candidates.map(item=>Object.fromEntries(fields.filter(key=>item[key]!==undefined).map(key=>[key,item[key]]))),selectedItemIds:snapshot.itemIds});setFeedback(current=>({...current,[snapshot.wearId]:value}));notify('Style feedback saved locally.');}catch(error){notify(error.message);}
+    try{await learningEvent({type:'outfit_feedback',source:candidates.some(i=>i.sampleId)?'sample':'user',context:snapshot.occasion || context || 'Your plans',feedback:value,candidates:candidates.map(item=>Object.fromEntries(fields.filter(key=>item[key]!==undefined).map(key=>[key,item[key]]))),selectedItemIds:snapshot.itemIds});setFeedback(current=>({...current,[snapshot.wearId]:value}));notify('Style feedback saved locally.');}catch(error){notify(error.message);}
   }
   function styleThisPiece(item) {clearStudio();setEngine(preferences.recommendationProvider==='auto'?'agent':preferences.recommendationProvider);setAnchorId(item.id);setQuestMode(false);closeEditor();setPage('Outfits');}
   async function exportListing() {
