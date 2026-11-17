@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-19",
+  "commit": "c1e09c8307a0dcf021d3f2fd43ab94dd2effdfbf",
+  "deployment": "dep-dbbcggmq1p3s73c3mung",
+  "deploymentStatus": "Deploy succeeded | Live",
+  "environment": "https://closet-quest-junhao-s7.onrender.com/",
+  "method": "Agent-operated browser checks; desktop mobile emulation, not human usability testing",
+  "automatedTests": {"passed": 184, "failed": 0, "build": "passed"},
+  "responsiveChecks": [
+    {"environment": "local production preview", "width": 320, "height": 800, "documentScrollWidth": 320},
+    {"environment": "local production preview", "width": 390, "height": 844, "documentScrollWidth": 390},
+    {"environment": "local production preview", "width": 1600, "height": 900, "documentScrollWidth": 1581},
+    {"environment": "hosted", "width": 390, "height": 844, "documentScrollWidth": 390}
+  ],
+  "localContinuity": {
+    "wardrobeTopFilterRetained": true,
+    "scrollBeforeTabChange": 1075.71435546875,
+    "scrollAfterTabReturn": 1075.71435546875,
+    "briefAndCoffeeDateAndQuickProviderAndSweaterAnchorRetained": true,
+    "selectedLookTwoRetainedAfterGarmentInspection": true,
+    "closedSheetStayedClosedAfterTabReturn": true
+  },
+  "hostedContinuity": {
+    "existingThreeGarmentsAndOneSavedLookLoaded": true,
+    "openaiStyling": {"attempts": 1, "outfits": 1, "ownedItems": 3, "displayedProcessingSeconds": 6.0, "fallbackNotices": 0},
+    "garmentInspectionReturnedToSameOutfit": true,
+    "pointerDragOnSheetHandleDismissed": true,
+    "savedLookPresentAfterRedeploy": true,
+    "stylingResultRetainedAfterSavedLooksRoundTrip": true,
+    "dismissedSheetDidNotReopenOnTabReturn": true,
+    "newAcceptanceRatingsOrWearEvents": 0
+  },
+  "screenshots": ["mobile-closet.jpg", "mobile-stylist.jpg", "mobile-outfit.jpg"],
+  "notVerified": ["physical phone camera", "native touch gestures", "human acceptance", "correction time", "independent device conflicts"],
+  "interpretation": "Engineering flow checks only. The one new OpenAI call is a smoke test, not a benchmark or an extra human evaluation. Frozen research records were not changed."
+}

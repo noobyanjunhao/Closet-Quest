@@ -1,0 +1,140 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Closet Quest isolated synthetic catalog practice. Deploy only on a verified AWS Free account plan. No paid AI calls.",
+  "Resources": {
+    "Catalog": {
+      "Type": "AWS::DynamoDB::Table",
+      "DeletionPolicy": "Delete",
+      "UpdateReplacePolicy": "Delete",
+      "Properties": {
+        "BillingMode": "PAY_PER_REQUEST",
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "pk",
+            "AttributeType": "S"
+          }
+        ],
+        "KeySchema": [
+          {
+            "AttributeName": "pk",
+            "KeyType": "HASH"
+          }
+        ],
+        "SSESpecification": {
+          "SSEEnabled": true
+        },
+        "TimeToLiveSpecification": {
+          "AttributeName": "expiresAt",
+          "Enabled": true
+        }
+      }
+    },
+    "PracticeLogs": {
+      "Type": "AWS::Logs::LogGroup",
+      "DeletionPolicy": "Delete",
+      "Properties": {
+        "RetentionInDays": 1
+      }
+    },
+    "PracticeRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        },
+        "Policies": [
+          {
+            "PolicyName": "PracticeTableAndLogsOnly",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "dynamodb:GetItem",
+                    "dynamodb:PutItem"
+                  ],
+                  "Resource": {
+                    "Fn::GetAtt": [
+                      "Catalog",
+                      "Arn"
+                    ]
+                  }
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "logs:CreateLogStream",
+                    "logs:PutLogEvents"
+                  ],
+                  "Resource": {
+                    "Fn::GetAtt": [
+                      "PracticeLogs",
+                      "Arn"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "CatalogFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Runtime": "nodejs24.x",
+        "Handler": "index.handler",
+        "MemorySize": 128,
+        "Timeout": 10,
+        "Role": {
+          "Fn::GetAtt": [
+            "PracticeRole",
+            "Arn"
+          ]
+        },
+        "LoggingConfig": {
+          "LogGroup": {
+            "Ref": "PracticeLogs"
+          }
+        },
+        "Environment": {
+          "Variables": {
+            "PRACTICE_TABLE": {
+              "Ref": "Catalog"
+            }
+          }
+        },
+        "Code": {
+          "ZipFile": "// Isolated practice handler. Synthetic data only; no model, retailer or secret access.\nconst {DynamoDBClient,GetItemCommand,PutItemCommand}=require('@aws-sdk/client-dynamodb');\nconst fixtures=Object.freeze({\n  Top:{id:'practice-top',name:'Synthetic cotton shirt',category:'Top'},\n  Bottom:{id:'practice-bottom',name:'Synthetic straight trousers',category:'Bottom'},\n  Shoes:{id:'practice-shoes',name:'Synthetic loafers',category:'Shoes'},\n});\nfunction createHandler({client,table,now=Date.now,log=()=>{}}){\n  if(!table)throw Error('PRACTICE_TABLE is required');\n  const send=command=>client.send(command,{abortSignal:AbortSignal.timeout(3000)});\n  return async(event={})=>{\n    const category=event.category??'Top';\n    if(typeof category!=='string'||!Object.hasOwn(fixtures,category)||Object.keys(event).some(k=>k!=='category'))\n      throw Error('Use only category: Top, Bottom, or Shoes; do not submit personal data.');\n    const timestamp=Math.floor(now()/1000),Key={pk:{S:'practice-v1#'+category}};\n    const read=async()=>{\n      const {Item}=await send(new GetItemCommand({TableName:table,Key,ConsistentRead:true}));\n      if(!Item||Number(Item.expiresAt?.N)<=timestamp||!Number.isFinite(Number(Item.expiresAt?.N)))return null;\n      try{const item=JSON.parse(Item.payload.S);return JSON.stringify(item)===JSON.stringify(fixtures[category])?item:null;}catch{return null;}\n    };\n    const started=now();let cached=Boolean(await read()),reusedAfterRace=false;\n    if(!cached){\n      try{await send(new PutItemCommand({TableName:table,Item:{...Key,payload:{S:JSON.stringify(fixtures[category])},expiresAt:{N:String(timestamp+900)}},ConditionExpression:'attribute_not_exists(pk) OR expiresAt <= :now',ExpressionAttributeValues:{':now':{N:String(timestamp)}}}));}\n      catch(error){\n        if(error.name!=='ConditionalCheckFailedException')throw error;\n        if(!await read())throw Error('Practice cache contains unexpected data; inspect this isolated table.');\n        cached=true;reusedAfterRace=true;\n      }\n    }\n    const result={synthetic:true,item:{...fixtures[category]},cached,reusedAfterRace,elapsedMs:Math.max(0,now()-started)};\n    log(JSON.stringify({event:'practice_catalog',category,cached,reusedAfterRace,elapsedMs:result.elapsedMs}));\n    return result;\n  };\n}\nlet run;\nexports.handler=async event=>{\n  run??=createHandler({client:new DynamoDBClient({maxAttempts:1}),table:process.env.PRACTICE_TABLE,log:console.log});\n  return run(event);\n};\nexports.createHandler=createHandler;\n"
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "FunctionName": {
+      "Value": {
+        "Ref": "CatalogFunction"
+      }
+    },
+    "TableName": {
+      "Value": {
+        "Ref": "Catalog"
+      }
+    },
+    "LogGroup": {
+      "Value": {
+        "Ref": "PracticeLogs"
+      }
+    }
+  }
+}

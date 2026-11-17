@@ -1,0 +1,112 @@
+{
+  "runtime-parser-test": {
+    "documents": 100,
+    "contractValid": 100,
+    "exactGarmentDocuments": 12,
+    "clothingLines": {
+      "tp": 70,
+      "fp": 0,
+      "fn": 42,
+      "precision": 1.0,
+      "recall": 0.625
+    },
+    "fieldExact": {
+      "correct": 233,
+      "total": 672,
+      "rate": 0.34672619047619047
+    },
+    "latencyMs": {
+      "median": 0.04574999999999818,
+      "p95": 0.2750000000000057,
+      "total": 8.401299999999992
+    }
+  },
+  "base-line-test": {
+    "documents": 100,
+    "contractValid": 0,
+    "exactGarmentDocuments": 0,
+    "clothingLines": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 112,
+      "precision": 0.0,
+      "recall": 0.0
+    },
+    "fieldExact": {
+      "correct": 0,
+      "total": 672,
+      "rate": 0.0
+    },
+    "latencyMs": {
+      "median": 1768.1459500017809,
+      "p95": 2148.974499985343,
+      "total": 181411.75360025954
+    }
+  },
+  "v1-on-new-test": {
+    "documents": 100,
+    "contractValid": 91,
+    "exactGarmentDocuments": 57,
+    "clothingLines": {
+      "tp": 65,
+      "fp": 0,
+      "fn": 47,
+      "precision": 1.0,
+      "recall": 0.5803571428571429
+    },
+    "fieldExact": {
+      "correct": 384,
+      "total": 672,
+      "rate": 0.5714285714285714
+    },
+    "latencyMs": {
+      "median": 4872.2981000028085,
+      "p95": 9161.908799986122,
+      "total": 473639.5772000542
+    }
+  },
+  "adapter-test": {
+    "documents": 100,
+    "contractValid": 99,
+    "exactGarmentDocuments": 99,
+    "clothingLines": {
+      "tp": 111,
+      "fp": 0,
+      "fn": 1,
+      "precision": 1.0,
+      "recall": 0.9910714285714286
+    },
+    "fieldExact": {
+      "correct": 666,
+      "total": 672,
+      "rate": 0.9910714285714286
+    },
+    "latencyMs": {
+      "median": 1071.8632499920204,
+      "p95": 1399.6095999900717,
+      "total": 111057.63939995086
+    }
+  },
+  "adapter-regression": {
+    "documents": 60,
+    "contractValid": 60,
+    "exactGarmentDocuments": 60,
+    "clothingLines": {
+      "tp": 60,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    "fieldExact": {
+      "correct": 360,
+      "total": 360,
+      "rate": 1.0
+    },
+    "latencyMs": {
+      "median": 1025.0659000012092,
+      "p95": 1225.9477000043262,
+      "total": 62464.74309975747
+    }
+  }
+}

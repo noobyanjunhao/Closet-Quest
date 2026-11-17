@@ -1,0 +1,15 @@
+{
+  "scope": "Local production component with recorded live shopping results; no personal wardrobe data",
+  "checks": [
+    "Desktop and 390px mobile cards render real retailer photos",
+    "Displayed prices ascend: $39.99 then $59.99",
+    "Photo filter toggles and preserves matching cards",
+    "Injected first-image failure falls back to a loaded source photo",
+    "First-page PDF deployment hyperlink is clickable; report has four pages"
+  ],
+  "notMeasured": [
+    "Broad retail photo coverage",
+    "Physical-device usability",
+    "Stock and color/size variant accuracy"
+  ]
+}

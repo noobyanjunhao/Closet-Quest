@@ -1,0 +1,98 @@
+[
+  {
+    "case": "one-piece-wedding",
+    "provider": "openai",
+    "model": "gpt-6-luna",
+    "fallback": null,
+    "timingMs": {
+      "retrieval": 894,
+      "selectionAndValidation": 2827,
+      "total": 3721
+    },
+    "looks": [
+      {
+        "itemIds": [
+          "public-test-tee"
+        ],
+        "explanation": "I’d start with your white graphic tee, but it’s casual, so it isn’t a formal wedding outfit on its own. To dress it up, you’d need to borrow or rent tailored trousers or a dressy skirt and dress shoes; a dress shirt or dressy blouse would be a more formal alternative top. Check the invitation’s dress code before deciding whether the tee is appropriate.",
+        "lookType": "starting-point",
+        "shoppingSuggestions": [
+          {
+            "category": "Bottom",
+            "title": "Tailored trousers or a dressy skirt",
+            "kind": "missing",
+            "owned": false,
+            "status": "placeholder",
+            "url": null,
+            "note": "Not in this look. Borrow, rent, or use something you haven’t added yet."
+          },
+          {
+            "category": "Shoes",
+            "title": "Dress shoes",
+            "kind": "missing",
+            "owned": false,
+            "status": "placeholder",
+            "url": null,
+            "note": "Not in this look. Borrow, rent, or use something you haven’t added yet."
+          },
+          {
+            "category": "Top",
+            "title": "A dress shirt or dressy blouse",
+            "kind": "dress-code-upgrade",
+            "owned": false,
+            "status": "placeholder",
+            "url": null,
+            "note": "An optional swap for a dressier version of this look."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case": "empty-closet-wedding",
+    "provider": "openai",
+    "model": "gpt-6-luna",
+    "fallback": null,
+    "timingMs": {
+      "retrieval": 0,
+      "selectionAndValidation": 2397,
+      "total": 2397
+    },
+    "looks": [
+      {
+        "itemIds": [],
+        "explanation": "There aren’t any garments in the supplied wardrobe to build this from, so I can’t put together a complete outfit yet. To dress for the wedding, consider borrowing or renting a dress shirt or dressy blouse, tailored trousers or a dressy skirt, and dress shoes. Check the invitation’s dress code before choosing, especially if it calls for formal or black tie.",
+        "lookType": "starting-point",
+        "shoppingSuggestions": [
+          {
+            "category": "Top",
+            "title": "A dress shirt or dressy blouse",
+            "kind": "missing",
+            "owned": false,
+            "status": "placeholder",
+            "url": null,
+            "note": "Not in this look. Borrow, rent, or use something you haven’t added yet."
+          },
+          {
+            "category": "Bottom",
+            "title": "Tailored trousers or a dressy skirt",
+            "kind": "missing",
+            "owned": false,
+            "status": "placeholder",
+            "url": null,
+            "note": "Not in this look. Borrow, rent, or use something you haven’t added yet."
+          },
+          {
+            "category": "Shoes",
+            "title": "Dress shoes",
+            "kind": "missing",
+            "owned": false,
+            "status": "placeholder",
+            "url": null,
+            "note": "Not in this look. Borrow, rent, or use something you haven’t added yet."
+          }
+        ]
+      }
+    ]
+  }
+]

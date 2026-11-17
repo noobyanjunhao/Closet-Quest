@@ -1,0 +1,14 @@
+{
+  "measuredAt": "2026-11-10T01:01:11.296Z",
+  "environment": "Local Dynalite HTTP emulator + official AWS SDK; not AWS deployment",
+  "coldMiss": true,
+  "warmHitAcrossClients": true,
+  "concurrentRequests": 20,
+  "completed": 20,
+  "cacheWriters": 1,
+  "expiredRecordRefreshed": true,
+  "unexpectedInputRejected": true,
+  "awsResourcesCreated": 0,
+  "paidModelCalls": 0,
+  "limits": "Does not verify IAM, Lambda packaging, CloudWatch permissions, AWS credits or actual cloud throughput."
+}

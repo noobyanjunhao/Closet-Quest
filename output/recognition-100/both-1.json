@@ -1,0 +1,295 @@
+{
+  "measuredAt": "2026-10-20T19:07:24.419Z",
+  "manifestSha256": "989fdeee4fc2bedaccb27774b2c8881c6a9f1237cc8617fb726d4a7e199abb8c",
+  "model": "gpt-6-luna",
+  "profile": "fast",
+  "protocol": "Frozen public images; serial first requests, recognition cache disabled. Failures remain in all-image recall/exact-match denominators. Category-set evaluation, not instance segmentation or human acceptance.",
+  "plannedTasks": 2,
+  "completedTasks": 2,
+  "complete": true,
+  "summary": {
+    "single": {
+      "images": 1,
+      "completed": 1,
+      "failed": 0,
+      "failureRate": 0,
+      "exactSetMatches": 0,
+      "exactSetAccuracy": 0,
+      "tp": 1,
+      "fp": 0,
+      "fn": 3,
+      "microPrecision": 1,
+      "microRecall": 0.25,
+      "microF1": 0.4,
+      "perCategory": {
+        "Top": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "support": 1,
+          "precision": null,
+          "recall": 0,
+          "f1": 0
+        },
+        "Bottom": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "support": 1,
+          "precision": null,
+          "recall": 0,
+          "f1": 0
+        },
+        "Shoes": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "Dress": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "Outerwear": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "support": 1,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1
+        },
+        "Accessory": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "support": 1,
+          "precision": null,
+          "recall": 0,
+          "f1": 0
+        }
+      },
+      "hat": {
+        "positiveImages": 1,
+        "detected": 0,
+        "recall": 0
+      },
+      "latencyMs": {
+        "p50": 6172,
+        "p95": 6172
+      }
+    },
+    "multiple": {
+      "images": 1,
+      "completed": 1,
+      "failed": 0,
+      "failureRate": 0,
+      "exactSetMatches": 1,
+      "exactSetAccuracy": 1,
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "microPrecision": 1,
+      "microRecall": 1,
+      "microF1": 1,
+      "perCategory": {
+        "Top": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "support": 1,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1
+        },
+        "Bottom": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "support": 1,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1
+        },
+        "Shoes": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "Dress": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "Outerwear": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "support": 1,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1
+        },
+        "Accessory": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "support": 1,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1
+        }
+      },
+      "hat": {
+        "positiveImages": 1,
+        "detected": 1,
+        "recall": 1
+      },
+      "latencyMs": {
+        "p50": 10425,
+        "p95": 10425
+      }
+    }
+  },
+  "rows": [
+    {
+      "imageId": 15676,
+      "mode": "single",
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Outerwear",
+        "Top"
+      ],
+      "annotatedHat": true,
+      "stratum": "hat-challenge",
+      "status": "completed",
+      "predicted": [
+        "Outerwear"
+      ],
+      "hatDetected": false,
+      "pieces": [
+        {
+          "category": "Outerwear",
+          "itemType": "Blazer"
+        }
+      ],
+      "actualModel": "gpt-6-luna",
+      "usage": {
+        "input_tokens": 1368,
+        "input_tokens_details": {
+          "cache_write_tokens": 1365,
+          "cached_tokens": 0
+        },
+        "output_tokens": 232,
+        "output_tokens_details": {
+          "reasoning_tokens": 109
+        },
+        "total_tokens": 1600
+      },
+      "latencyMs": 6172
+    },
+    {
+      "imageId": 15676,
+      "mode": "multiple",
+      "expected": [
+        "Accessory",
+        "Bottom",
+        "Outerwear",
+        "Top"
+      ],
+      "annotatedHat": true,
+      "stratum": "hat-challenge",
+      "status": "completed",
+      "predicted": [
+        "Accessory",
+        "Bottom",
+        "Outerwear",
+        "Top"
+      ],
+      "hatDetected": true,
+      "pieces": [
+        {
+          "category": "Accessory",
+          "itemType": "Hat",
+          "boundingBox": {
+            "x": 0.467,
+            "y": 0.213,
+            "width": 0.083,
+            "height": 0.101
+          }
+        },
+        {
+          "category": "Outerwear",
+          "itemType": "Jacket",
+          "boundingBox": {
+            "x": 0.394,
+            "y": 0.371,
+            "width": 0.214,
+            "height": 0.38
+          }
+        },
+        {
+          "category": "Top",
+          "itemType": "Sweater",
+          "boundingBox": {
+            "x": 0.43,
+            "y": 0.437,
+            "width": 0.15,
+            "height": 0.275
+          }
+        },
+        {
+          "category": "Top",
+          "itemType": "T-shirt",
+          "boundingBox": {
+            "x": 0.434,
+            "y": 0.445,
+            "width": 0.148,
+            "height": 0.306
+          }
+        },
+        {
+          "category": "Bottom",
+          "itemType": "Jeans",
+          "boundingBox": {
+            "x": 0.434,
+            "y": 0.737,
+            "width": 0.148,
+            "height": 0.263
+          }
+        }
+      ],
+      "actualModel": "gpt-6-luna",
+      "usage": {
+        "input_tokens": 1597,
+        "input_tokens_details": {
+          "cache_write_tokens": 1594,
+          "cached_tokens": 0
+        },
+        "output_tokens": 817,
+        "output_tokens_details": {
+          "reasoning_tokens": 231
+        },
+        "total_tokens": 2414
+      },
+      "latencyMs": 10425
+    }
+  ]
+}

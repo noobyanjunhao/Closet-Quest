@@ -10,7 +10,7 @@ function CloudCloset({account,onSignOut}){
   setError('');const remote=await api('cloud/closet',null,'GET');let pending;
   try{pending=JSON.parse(localStorage.getItem(pendingKey)||'null');}catch{}
   if(pending&&pending.revision!==remote.revision){setConflict({pending,remote});return;}
-  const state=pending?.state||remote.state||{...newPhotoState(),items:[],profile:'',onboardingComplete:false,wardrobeId:account.id,learningEnabled:false,preferences:{recognitionProvider:'openai',recommendationProvider:'auto',embeddingProvider:'openai'}};
+  const state=pending?.state||remote.state||{...newPhotoState(),items:[],profile:'',onboardingComplete:false,wardrobeId:account.id,learningEnabled:false,preferences:{recognitionProvider:'openai',recommendationProvider:'auto',embeddingProvider:'openai',modelProfile:'balanced'}};
   setLoaded({state:migrateState(state),revision:remote.revision,resume:Boolean(pending)});
  }catch(e){setError(e.message);}}
  useEffect(()=>{void load();},[account.id]);

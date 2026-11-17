@@ -1,0 +1,62 @@
+{
+  "reviewDate": "2026-11-16",
+  "reviewerType": "agent-operated regression retest",
+  "environment": {
+    "url": "http://127.0.0.1:4188/",
+    "snapshot": ".local-data/review-2CZlvO",
+    "browser": "Chrome",
+    "data": "Seven built-in sample garments; one synthetic saved look",
+    "provider": "Quick wardrobe matches; no generative model",
+    "paidProviderCallsRequested": 0
+  },
+  "independentHumanTest": false,
+  "checks": [
+    {
+      "id": "general-wedding-brief",
+      "status": "pass",
+      "action": "Entered: I am a guest at a formal wedding. Start with my clothes and tell me what is missing.",
+      "observed": "Three Wedding looks appeared. First look used owned sample pieces, suggested dress shoes, and warned to check the invitation's dress code.",
+      "displayedLatencySeconds": 0.1,
+      "latencyIsBenchmark": false
+    },
+    {
+      "id": "collapsed-occasion",
+      "status": "pass",
+      "action": "Closed the generated result card.",
+      "observed": "Collapsed Change the brief summary displayed Wedding rather than the default occasion."
+    },
+    {
+      "id": "persistent-save-confirmation",
+      "status": "pass",
+      "action": "Renamed and saved Beta regression wedding, closed and reopened the result card.",
+      "observed": "Disabled Saved to your looks button, named Saved as confirmation, and View saved looks action remained visible after reopening."
+    },
+    {
+      "id": "saved-look-destination",
+      "status": "pass",
+      "action": "Selected View saved looks from the result card.",
+      "observed": "Saved looks page displayed Beta regression wedding with five sample garment images and its wedding explanation."
+    },
+    {
+      "id": "reload-route-and-scroll",
+      "status": "pass",
+      "action": "Scrolled the Saved looks page to its wear journal and footer, then reloaded the browser tab.",
+      "observed": "Saved looks page and the saved combination persisted. Before and after screenshots showed the same visible saved-card lower section, wear journal and footer at the same position.",
+      "measurement": "Visual comparison; no numeric scroll-coordinate measurement."
+    },
+    {
+      "id": "local-backup-round-trip",
+      "status": "not_completed",
+      "action": "Opened account settings and attempted Export closet backup while waiting for a browser download event.",
+      "observed": "Export and import controls were visible. The browser download-event operation stalled and was interrupted. Import confirmation and restoration were not exercised.",
+      "blocker": "Browser automation download-event interruption; not evidence of an application import failure.",
+      "separateCoverage": "tests/flow-continuity.test.js covers account-null local restore, owner rebinding, and malformed backup rejection."
+    }
+  ],
+  "limits": [
+    "Synthetic local UI regression evidence only; does not establish independent human completion, outfit acceptance or correction time.",
+    "No production authentication, cloud sync, phone camera or live model recognition tested in this run.",
+    "Stylist generated drafts and unsaved brief restoration across reload were not tested; the verified continuity was selected page, saved data and visible scroll position.",
+    "Backup round-trip remains a browser verification follow-up."
+  ]
+}
