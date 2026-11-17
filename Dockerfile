@@ -17,6 +17,7 @@ COPY --chown=node:node data ./data
 COPY --chown=node:node ml/artifacts ./ml/artifacts
 COPY --chown=node:node contracts ./contracts
 COPY --chown=node:node src/preferences.js ./src/preferences.js
+COPY --chown=node:node src/shop-brief.js ./src/shop-brief.js
 COPY --chown=node:node tests/fixtures/purchase-import ./tests/fixtures/purchase-import
 RUN mkdir -p .local-data && chown -R node:node .local-data
 USER node

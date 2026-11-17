@@ -1,0 +1,50 @@
+{
+  "checkedAt": "2026-11-17T19:12:00Z",
+  "products": [
+    {
+      "title": "White Premier low-top sneakers",
+      "presentation": "womenswear",
+      "occasion": "everyday",
+      "price": 135,
+      "currency": "USD",
+      "url": "https://thursdayboots.com/products/womens-premier-low-top-sneaker-white",
+      "image": "https://thursdayboots.com/cdn/shop/files/2800x1080-Women-Premier-LowTop-White-092226-1_2800x1080.jpg?v=1792089180"
+    },
+    {
+      "title": "Black Lincoln penny loafers",
+      "presentation": "menswear",
+      "occasion": "formal",
+      "price": 188,
+      "currency": "USD",
+      "url": "https://thursdayboots.com/products/mens-lincoln-penny-loafer-black-leather",
+      "image": "https://thursdayboots.com/cdn/shop/files/2800x1080-Men-Lincoln3.0-Black-080423-1_2800x1080.jpg?v=1691445920"
+    },
+    {
+      "title": "Black Penny lug-sole loafers",
+      "presentation": "womenswear",
+      "occasion": "formal",
+      "price": 148,
+      "currency": "USD",
+      "url": "https://thursdayboots.com/products/womens-penny-loafer-lug-sole-black-leather",
+      "image": "https://thursdayboots.com/cdn/shop/files/2800x1080-Womens-Penny-Black-092123-1_2800x1080.jpg?v=1695664824"
+    },
+    {
+      "title": "Navy Alpargata canvas espadrilles",
+      "presentation": "womenswear",
+      "occasion": "everyday",
+      "price": 50,
+      "currency": "USD",
+      "url": "https://www.toms.com/products/alpargata-women-navy-heritage-canvas",
+      "image": "https://www.toms.com/cdn/shop/files/10020790-s.jpg?v=1762277441&width=3840"
+    },
+    {
+      "title": "Black Alpargata canvas espadrilles",
+      "presentation": "menswear",
+      "occasion": "everyday",
+      "price": 50,
+      "currency": "USD",
+      "url": "https://www.toms.com/products/alpargata-all-black-heritage-canvas",
+      "image": "https://www.toms.com/cdn/shop/files/10020785-s.jpg?v=1762277354&width=3840"
+    }
+  ]
+}

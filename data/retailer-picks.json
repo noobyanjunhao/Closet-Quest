@@ -1,0 +1,44 @@
+[
+  {
+    "category": "Outerwear",
+    "presentation": "menswear",
+    "title": "Classic Blue Wash Denim Jacket",
+    "url": "https://www.everlane.com/products/mens-denim-jacket-classic-bluewash",
+    "image": "https://www.everlane.com/cdn/shop/files/a825ef47_60c9_grande.jpg?v=1750093598"
+  },
+  {
+    "category": "Outerwear",
+    "presentation": "womenswear",
+    "title": "Dark Indigo Denim Chore Jacket",
+    "url": "https://www.everlane.com/products/womens-denim-chore-jacket-2-medium-indigo",
+    "image": "https://www.everlane.com/cdn/shop/files/d9166de7_859c.jpg?v=1769803206&width=1000"
+  },
+  {
+    "category": "Dress",
+    "presentation": "womenswear",
+    "title": "Black Organic Cotton Weekend Tank Dress",
+    "url": "https://www.everlane.com/products/womens-organic-cotton-weekend-tank-dress-black",
+    "image": "https://www.everlane.com/cdn/shop/files/aa12f7ae_d1dd.jpg?v=1753411526"
+  },
+  {
+    "category": "Dress",
+    "presentation": "womenswear",
+    "title": "Selfie Tank Dress in Black",
+    "url": "https://www.everlane.com/products/womens-selfie-tank-dress-black",
+    "image": "https://www.everlane.com/cdn/shop/files/b5ba363d_58a0.jpg?v=1753411899&width=990"
+  },
+  {
+    "category": "Accessory",
+    "presentation": "womenswear",
+    "title": "Recycled Nylon Tote in Black",
+    "url": "https://www.everlane.com/products/womens-recycled-nylon-tote-black",
+    "image": "https://media.everlane.com/image/upload/c_fill%2Cw_3840%2Car_4%3A5%2Cq_auto%2Cdpr_1.0%2Cf_auto%2Cfl_progressive%3Asteep/i/6db2bff9_869d"
+  },
+  {
+    "category": "Accessory",
+    "presentation": "womenswear",
+    "title": "Recycled Nylon Tote in Khaki",
+    "url": "https://www.everlane.com/products/womens-recycled-nylon-tote-khaki",
+    "image": "https://media.everlane.com/image/upload/c_fill%2Cw_3840%2Car_4%3A5%2Cq_auto%2Cdpr_1.0%2Cf_auto%2Cfl_progressive%3Asteep/i/7df717fc_9b9a"
+  }
+]

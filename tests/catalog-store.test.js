@@ -4,7 +4,7 @@ import {createCatalogStore,createDynamoTransport} from '../server/catalog-store.
 import {refreshCatalog} from '../infra/aws/catalog-refresh.mjs';
 import {setTimeout as delay} from 'node:timers/promises';
 const query={category:'Top',occasion:'formal',presentation:'any',maxPrice:null};
-const entry=(q=query,now=Date.now())=>({query:q,searchedAt:new Date(now).toISOString(),products:[{title:'Tee',url:'https://www.jcrew.com/p/tee/ABC',price:25,currency:'USD'}]});
+const entry=(q=query,now=Date.now())=>({query:q,searchedAt:new Date(now).toISOString(),products:[{title:q.category==='Shoes'?'Canvas sneakers':'Tee',url:q.category==='Shoes'?'https://www.jcrew.com/p/shoes/ABC':'https://www.jcrew.com/p/tee/ABC',price:25,currency:'USD'}]});
 function transport(){
  const rows=new Map();return {rows,async get(k){return rows.get(k);},async claim(k,token,now,ms){const old=rows.get(k)||{};if(old.leaseUntil>=now)return false;rows.set(k,{...old,token,leaseUntil:now+ms});return true;},async commit(k,token,value,now,ttl){const row=rows.get(k);if(row?.token!==token||row.leaseUntil<now)throw Error('lease lost');rows.set(k,{value,ttl});},async release(k,token){const row=rows.get(k);if(row?.token===token){delete row.token;delete row.leaseUntil;}}};
 }
@@ -41,4 +41,3 @@ test('scheduled worker minimizes data, uses stable daily query, and caches repea
  let calls=0;const store=createCatalogStore({transport:transport()});const opts={store,search:async q=>{calls++;assert.deepEqual(Object.keys(q).sort(),['category','maxPrice','occasion','presentation']);return entry(q);}};
  const a=await refreshCatalog(opts),b=await refreshCatalog(opts);assert.equal(calls,1);assert.equal(a.products,1);assert.equal(b.cached,true);
 });
-
