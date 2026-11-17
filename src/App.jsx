@@ -34,6 +34,7 @@ import { ClosetCheck, FavoriteQuest, Inspiration } from './Journey.jsx';
 import GarmentDisplay from './GarmentDisplay.jsx';
 import WardrobeRail from './WardrobeRail.jsx';
 import ClosetCarousel from './ClosetCarousel.jsx';
+import GarmentColorField from './GarmentColorField.jsx';
 import { roleplayState } from './roleplay.js';
 import { alphaDemoState } from './alpha-demo.js';
 import StyleMemory from './PersonalStyle.jsx';
@@ -445,7 +446,7 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
         {editorDetections&&<PhotoDetections key={editorRecognition.jobId} source={editorStored} result={editorRecognition.result} busy={busy} onReview={reviewDetectedPieces}/>}
         {!editorDetections&&<>
         <label>Garment name<input required maxLength="80" value={editor.name} onChange={e=>setEditor({...editor,name:e.target.value})}/></label>
-        <div className="form-row"><label>Category<select value={editor.category} onChange={e=>setEditor({...editor,category:e.target.value})}>{categories.map(c=><option key={c}>{c}</option>)}</select></label><label>Color<input type="color" value={editor.color} onChange={e=>setEditor({...editor,color:e.target.value})}/></label></div>
+        <div className="form-row"><label>Category<select value={editor.category} onChange={e=>setEditor({...editor,category:e.target.value})}>{categories.map(c=><option key={c}>{c}</option>)}</select></label><GarmentColorField key={editor.id} value={editor.color} onChange={color=>setEditor(current=>({...current,color}))}/></div>
         <details className="attribute-details" open={editor.appliedSuggestions||undefined}><summary>Style & garment details</summary><label>Style & occasions<input maxLength="500" value={editor.tags} onChange={e=>setEditor({...editor,tags:e.target.value})}/></label>{['colorName','pattern','fit','materialAppearance','visibleLabelText'].map(field=><label key={field}>{{colorName:'Color description',pattern:'Pattern',fit:'Apparent fit',materialAppearance:'Material appearance (unverified)',visibleLabelText:'Visible label text (unverified)'}[field]}<input maxLength="500" value={editor[field]||''} onChange={e=>setEditor({...editor,[field]:e.target.value})}/></label>)}</details>
         {editor.uncertainty?.length>0&&<p className="muted">Review notes: {editor.uncertainty.join(' ')}</p>}
         {editor.isNew&&<p className="muted">{!editor.image?'Save the details now. You can add and analyze a photo later.':recognitionReady?'Save your piece to start photo analysis in the background.':'Save your photo and label it manually. Choose an available photo provider in My style to enable analysis.'}</p>}

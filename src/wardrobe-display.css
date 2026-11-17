@@ -67,5 +67,6 @@
 .saved-outfit-scroll:focus-visible{outline-offset:-3px}
 .rail-empty{padding:28px 8px}.rail-empty>span{color:#842e45}.rail-empty p{font-size:13px;line-height:1.6}
 .app .garment-display{background:#f4eee6;border-color:#ded3c6}
+.form-row>.garment-color-field{flex:1;min-width:0}.garment-color-controls{display:grid;grid-template-columns:48px minmax(0,1fr);gap:8px}.garment-color-controls label{min-width:0}.garment-color-controls input[type=text]{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;min-height:44px;padding-inline:10px}.garment-color-controls input[type=color]{min-height:44px;width:100%;padding:4px}.app .color-entry-help{font-size:11px;color:#842e45;line-height:1.5;margin:0 0 12px}
 .display-heading span,.app .garment-display .muted{color:#66584e}
 @media(max-width:760px){.rail-heading>button{min-height:44px}.rail-look-title{font-size:12px}.rail-look-context{font-size:10px}.is-carousel .rail-look{width:160px}.is-carousel .saved-outfit-scroll{padding:3px 3px 8px;scroll-snap-type:x proximity}.is-carousel .rail-look{scroll-snap-align:start}.is-carousel .rail-new-look{margin-top:8px}}
