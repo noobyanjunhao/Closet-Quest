@@ -6,3 +6,27 @@
 @media(prefers-reduced-motion:reduce){.closet-orbit .closet-orbit-piece{transition:none;transform:translateX(calc(var(--offset)*180px)) scale(calc(1 - var(--distance)*.1))}.closet-piece-surface{backdrop-filter:none}}
 
 @media(max-width:760px){.wardrobe-with-looks.is-carousel{grid-template-columns:minmax(0,1fr)}.is-carousel .wardrobe-look-rail{position:static;padding:14px}.is-carousel .rail-heading{flex-wrap:nowrap}.is-carousel .rail-heading>button{width:44px;min-height:44px}.is-carousel .saved-outfit-scroll{flex-direction:row;overflow-x:auto;overflow-y:hidden;max-height:none}.is-carousel .rail-look{width:145px}.is-carousel .rail-empty{width:100%;padding:10px}.is-carousel .rail-empty>span{display:none}.is-carousel .rail-heading h2{font-size:18px}}
+
+/* A quiet photo stage, with readable controls and room for each piece. */
+.app .closet-carousel{background:radial-gradient(ellipse at 50% 28%,#fffdf9 0,#f0e9e0 66%,#e8dfd4 100%);border-color:#ded3c6;box-shadow:inset 0 1px 0 #fff,0 16px 38px #3c2a1810}
+.app .closet-carousel .eyebrow{color:#744455;letter-spacing:.12em;font-size:10px}
+.closet-count{color:#382a24}.closet-count span{opacity:1;color:#66584e}
+.closet-orbit .closet-piece-surface{background:#fffc;border:5px solid #fff;border-radius:22px;box-shadow:0 14px 24px #4f382319}
+.closet-orbit-piece.is-selected .closet-piece-surface{box-shadow:0 20px 35px #4f38232b,inset 0 0 0 1px #e4dace}
+.closet-piece-surface .garment-photo{mix-blend-mode:normal;padding:10px}
+.closet-piece-label{color:#625044;font-size:10px;letter-spacing:.14em}
+.closet-selected-detail h3{font-family:Georgia,serif;font-size:29px;line-height:1.12;font-weight:400;text-wrap:balance}
+.closet-selected-detail .eyebrow{color:#744455;font-size:10px;letter-spacing:.09em}
+.closet-selected-actions button,.closet-view-switch button{min-height:44px}
+.closet-album-strip{position:relative;border-top:1px solid #ded3c6;gap:12px;padding-block:18px;scrollbar-color:#9f7d6a #f0e8df;scroll-padding-inline:20px;overscroll-behavior-inline:contain}
+.closet-album-strip button{width:80px;padding:6px;border-radius:15px;background:#fff8;border-color:#e3d9ce}
+.closet-album-strip button[aria-pressed=true]{background:#fffdf9;border:2px solid #842e45;padding:5px;box-shadow:0 4px 12px #842e4514}
+.closet-album-strip .garment-photo,.closet-album-strip .pixel-garment{width:66px;height:76px;mix-blend-mode:normal}
+.closet-album-strip span{font-size:10px;line-height:1.4;color:#463a32;padding-top:6px}
+.app .closet-gesture-hint{font-size:11px;color:#66584e;padding:12px 16px;line-height:1.5}
+.app .closet-selected-detail p{color:#66584e}
+.closet-carousel button:focus-visible,.closet-orbit:focus-visible{outline:3px solid #842e45;outline-offset:3px}
+.closet-album-strip button:focus-visible{outline-offset:-4px}
+@media(max-width:760px){.is-carousel .rail-heading>button span{display:inline-block;transform:rotate(-90deg)}}
+@media(max-width:650px){.closet-arrow{width:44px;height:44px;top:calc(50% - 22px)}.closet-selected-detail h3{font-size:25px}.closet-carousel .eyebrow{font-size:10px}.closet-selected-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.closet-selected-actions button{padding:11px 9px;line-height:1.4}.closet-album-strip{padding-inline:18px}.closet-gesture-hint{font-size:11px}}
+@media(forced-colors:active){.closet-orbit-piece.is-selected .closet-piece-surface,.closet-album-strip button[aria-pressed=true]{outline:2px solid Highlight}.closet-hanging-rail{background:CanvasText}}

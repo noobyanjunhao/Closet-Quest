@@ -15,7 +15,7 @@ export function validateLibraryEntry(entry,now=Date.now()){
   const query=shoppingQuery(entry?.query),at=Date.parse(entry.searchedAt);
   if(!Number.isFinite(at)||at>now+60000||now-at>SHOPPING_MAX_AGE_MS)return null;
   const products=(Array.isArray(entry.products)?entry.products:[]).slice(0,6).flatMap(p=>{
-   const url=publicHttps(p.url,RETAILERS);if(!url||typeof p.title!=='string'||!p.title.trim()||p.title.length>160||!Number.isFinite(p.price)||p.price<=0||p.price>10000||p.currency!=='USD')return [];
+   const url=publicHttps(p.url,RETAILERS);if(!url||typeof p.title!=='string'||!p.title.trim()||p.title.length>160||!Number.isFinite(p.price)||p.price<=0||p.price>10000||p.currency!=='USD'||query.maxPrice!==null&&p.price>query.maxPrice)return [];
    const images=[...new Set([p.image,...(Array.isArray(p.images)?p.images:[])].map(x=>publicHttps(x)).filter(Boolean))].slice(0,4);
    const path=new URL(url).pathname,presentation=query.presentation==='any'?(/\/womens\//.test(path)?'womenswear':/\/mens\//.test(path)?'menswear':'any'):query.presentation;
    return [{title:p.title,url,price:p.price,currency:'USD',retailer:new URL(url).hostname.replace(/^www\./,''),image:images[0]||null,images,tier:p.price<60?'Budget':p.price<150?'Mid-range':'Investment',owned:false,category:query.category,presentation,occasion:query.occasion,checkedAt:new Date(at).toISOString(),reason:`A ${query.category.toLowerCase()} to consider for a ${query.occasion==='formal'?'dressier':'relaxed'} look.`,priceStatus:'Previously observed price; confirm at store'}];
@@ -29,7 +29,7 @@ function waitFor(promise,signal){
 }
 export function createShoppingLibrary({search,cloud,seed,storageDir,now=Date.now,limiter=createWorkLimiter(),failureCooldownMs=30000,sharedStore}={}){
  if(seed===undefined)try{seed=JSON.parse(readFileSync(new URL('../data/shopping-library.json',import.meta.url),'utf8')).entries;}catch{seed=[];}
- const shared=new Map(),personal=new Map(),pending=new Map(),failures=new Map();
+ const shared=new Map(),personal=new Map(),pending=new Map(),pendingSaves=new Map(),failures=new Map(),admissionFailures=new WeakSet();
  let failureStreak=0,openUntil=0;
  const stats={cacheHits:0,coalesced:0,liveSearches:0,fallbacks:0,failures:0,distributedHits:0};
  const put=(map,entry)=>{const clean=validateLibraryEntry(entry,now());if(clean){map.set(key(clean.query),clean);while(map.size>120)map.delete(map.keys().next().value);}return clean;};
@@ -53,7 +53,14 @@ export function createShoppingLibrary({search,cloud,seed,storageDir,now=Date.now
  async function saveFor(user,entry){
   if(!user?.cloud||!cloud?.saveShoppingResult)return;
   const previous=personal.get(user.namespace)?.map.get(key(entry.query));if(previous&&previous.searchedAt===entry.searchedAt&&JSON.stringify(previous.products)===JSON.stringify(entry.products))return;
-  try{await cloud.saveShoppingResult(user,key(entry.query),entry);let owned=personal.get(user.namespace);if(!owned){owned={map:new Map(),loadedAt:now()};personal.set(user.namespace,owned);}put(owned.map,entry);}catch{/* Show results even if private library sync temporarily fails. */}
+  // Coalescing the public search must also coalesce identical writes for one owner.
+  // Different owners and different result versions retain independent writes.
+  const saveKey=hash(JSON.stringify([user.namespace,entry]));
+  if(!pendingSaves.has(saveKey)){
+   const task=(async()=>{try{await cloud.saveShoppingResult(user,key(entry.query),entry);let owned=personal.get(user.namespace);if(!owned){owned={map:new Map(),loadedAt:now()};personal.set(user.namespace,owned);}put(owned.map,entry);}catch{/* Show results even if private library sync temporarily fails. */}})().finally(()=>pendingSaves.delete(saveKey));
+   pendingSaves.set(saveKey,task);
+  }
+  await pendingSaves.get(saveKey);
  }
  return {
   stats:()=>({...stats,...limiter.stats(),circuitOpen:now()<openUntil,pending:pending.size}),
@@ -66,25 +73,33 @@ export function createShoppingLibrary({search,cloud,seed,storageDir,now=Date.now
    const chosen=(daily?[...all].sort((a,b)=>hash(day+a.url).localeCompare(hash(day+b.url))).slice(0,4):all.slice(0,60)).sort((a,b)=>a.price-b.price);
    return result(chosen,{category,presentation,maxPrice:budget},'library',{day,libraryCount:all.length,daily,stale:chosen.some(p=>now()-Date.parse(p.checkedAt)>=SHOPPING_FRESH_MS)});
   },
-  async find(input,{user,signal,beforeSearch}={}){
+  find:async function find(input,{user,signal,beforeSearch}={}){
    signal?.throwIfAborted();
    const q=shoppingQuery(input),entries=await entriesFor(user),fresh=selection(entries,q,true);
    if(fresh.length){stats.cacheHits++;const cached=result(fresh,q,'library');await saveFor(user,{query:q,products:fresh,searchedAt:cached.searchedAt});return cached;}
    for(const[k,until]of failures)if(until<=now())failures.delete(k);
    const older=selection(entries,q,false);
    const fallback=()=>{stats.fallbacks++;return result(older,q,'saved-fallback',{stale:true,notice:'Live search is unavailable. These are previously saved finds. '+notice});};
-   const id=key(q);if(!pending.has(id)){
+   const id=key(q),joined=pending.has(id);if(!joined){
     if(now()<openUntil||failures.has(id)){
      if(older.length)return fallback();
      throw Object.assign(Error('Shop search is resting after a connection problem. Try again in a little while.'),{status:503,code:'SHOPPING_COOLDOWN',retryable:true,retryAfter:Math.max(1,Math.ceil((Math.max(openUntil,failures.get(id)||0)-now())/1000))});
     }
-    beforeSearch?.();
-    const fetchFresh=async()=>{stats.liveSearches++;return search(q,{scope:'public-product-library'});};
-    const task=limiter.run(async()=>sharedStore?sharedStore.getOrRefresh(q,fetchFresh):fetchFresh()).then(raw=>{const clean=put(shared,raw);if(!clean)throw Object.assign(Error('No reliable new shop results. Try another category.'),{status:503});if(raw.distributedCached)stats.distributedHits++;failureStreak=0;openUntil=0;persist();return clean;}).catch(error=>{stats.failures++;failures.set(id,now()+failureCooldownMs);while(failures.size>120)failures.delete(failures.keys().next().value);if(++failureStreak>=3)openUntil=now()+failureCooldownMs;throw error;}).finally(()=>pending.delete(id));pending.set(id,task);
+    let searchStarted=false;
+    const fetchFresh=async()=>{try{beforeSearch?.();}catch(error){const failure=error instanceof Error?error:new Error('Shopping request allowance unavailable.');admissionFailures.add(failure);throw failure;}searchStarted=true;stats.liveSearches++;return search(q,{scope:'public-product-library'});};
+    const task=limiter.run(async()=>sharedStore?sharedStore.getOrRefresh(q,fetchFresh):fetchFresh()).then(raw=>{const clean=put(shared,raw);if(!clean)throw Object.assign(Error('No reliable new shop results. Try another category.'),{status:503});if(raw.distributedCached)stats.distributedHits++;failureStreak=0;openUntil=0;persist();return clean;}).catch(error=>{
+     // Local admission and account quotas are not evidence that the provider is down.
+     // They neither open the global circuit nor consume a provider-attempt allowance.
+     if(searchStarted){stats.failures++;failures.set(id,now()+failureCooldownMs);while(failures.size>120)failures.delete(failures.keys().next().value);if(++failureStreak>=3)openUntil=now()+failureCooldownMs;}
+     throw error;
+    }).finally(()=>pending.delete(id));pending.set(id,task);
    }else stats.coalesced++;
    try{const entry=await waitFor(pending.get(id),signal);await saveFor(user,entry);return result(entry.products,q,'live');}
-   catch(e){if(signal?.aborted)throw e;if(older.length)return fallback();throw e;}
+   catch(e){if(signal?.aborted)throw e;if(older.length)return fallback();
+    // A different account's exhausted allowance must not deny an eligible waiter.
+    // The rejected task has left pending; this waiter may start with its own quota.
+    if(joined&&admissionFailures.has(e))return find(input,{user,signal,beforeSearch});
+    throw e;}
   }
  };
 }
-

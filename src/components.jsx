@@ -11,7 +11,7 @@ function PixelGarment({item}) {
 export function Garment({ item, loading = 'lazy' }) {
   const source=garmentImage(item);
   const [failed,setFailed]=React.useState(null);
-  if (source&&failed!==source) return <img className={`garment-photo ${source===item.cutoutImage?'garment-cutout':''}`} src={source} alt={item.name} loading={loading} onError={()=>setFailed(source)}/>;
+  if (source&&failed!==source) return <img className={`garment-photo ${source===item.cutoutImage?'garment-cutout':''}`} src={source} alt={item.name} loading={loading} decoding="async" draggable={false} onError={()=>setFailed(source)}/>;
   return <PixelGarment item={item}/>;
 }
 export function PhotoCredit({ item }) {

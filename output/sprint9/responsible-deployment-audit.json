@@ -1,0 +1,118 @@
+{
+  "measuredAt": "2026-11-17T05:52:21.556Z",
+  "kind": "Scoped code and automated application audit",
+  "passed": true,
+  "counts": {
+    "tests": 97,
+    "pass": 97,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "command": "node scripts/audit-responsible-deployment.mjs",
+  "suites": [
+    "tests/cloud.test.js",
+    "tests/cloud-api.test.js",
+    "tests/retention.test.js",
+    "tests/job-persistence.test.js",
+    "tests/jobs.test.js",
+    "tests/shopping.test.js",
+    "tests/shopping-library.test.js",
+    "tests/beta-reliability.test.js",
+    "tests/personal-rag.test.js",
+    "tests/validation.test.js",
+    "tests/page-motion.test.js",
+    "tests/navigation-memory.test.js",
+    "tests/purchase-import.test.js"
+  ],
+  "checks": [
+    {
+      "area": "Account isolation and sessions",
+      "status": "scoped-pass",
+      "evidence": [
+        "tests/cloud.test.js",
+        "tests/cloud-api.test.js"
+      ],
+      "scope": "Mocked authentication/database plus real loopback HTTP: foreign-origin write denied, anonymous access denied, owner-derived photo paths, secure cookies and conflict handling. Does not replace hosted RLS testing or a penetration test."
+    },
+    {
+      "area": "Recognition job photo retention",
+      "status": "scoped-pass",
+      "evidence": [
+        "tests/retention.test.js",
+        "tests/job-persistence.test.js",
+        "tests/jobs.test.js"
+      ],
+      "scope": "Synthetic files: terminal photos removed, result metadata expires without a new request, cancellation survives restart, orphan cleanup, failed writes and bounded queues. Production default result TTL is 30 minutes; tests use accelerated clocks/TTLs."
+    },
+    {
+      "area": "Saved cloud photo erasure",
+      "status": "open",
+      "evidence": [
+        "server/api.js",
+        "server/cloud.js",
+        "supabase/migrations/001_accounts.sql"
+      ],
+      "scope": "Owner-only storage DELETE policy exists, but garment removal does not trigger stored-object deletion and the app has no complete account-erasure workflow. Do not describe garment removal as full deletion."
+    },
+    {
+      "area": "External-model retention",
+      "status": "open",
+      "evidence": [
+        "server/openai.js",
+        "server/shopping.js"
+      ],
+      "scope": "Application requests opt out of response storage where configured; photos selected for analysis still leave the device. Provider-side retention and downstream erasure were not audited."
+    },
+    {
+      "area": "Shopping operational bounds",
+      "status": "scoped-pass",
+      "evidence": [
+        "output/sprint9/shopping-http-validation.json",
+        "output/sprint9/shopping-boundaries-before.json",
+        "output/sprint9/shopping-boundaries-after.json"
+      ],
+      "scope": "Synthetic provider via real application HTTP; cache/coalescing, bounded queue and explicit stale fallback. Slow unique queries can still receive 503 with Retry-After; no production throughput claim."
+    },
+    {
+      "area": "Retailer evidence and budgets",
+      "status": "scoped-pass",
+      "evidence": [
+        "tests/shopping.test.js",
+        "tests/shopping-library.test.js"
+      ],
+      "scope": "Source-linked product pages, observed USD amounts, budget bounds and guarded redirects are tested. Real-time price, selected variant, stock, sizing, shipping and catalog freshness are not independently verified."
+    },
+    {
+      "area": "Grounding and untrusted context",
+      "status": "scoped-pass",
+      "evidence": [
+        "tests/personal-rag.test.js",
+        "tests/purchase-import.test.js"
+      ],
+      "scope": "Document data boundaries, owned-garment rules, purchase evidence and foreign-owner denial. This does not establish fashion quality or complete prompt-injection resistance."
+    },
+    {
+      "area": "Human evaluation provenance",
+      "status": "scoped-pass",
+      "evidence": [
+        "tests/validation.test.js"
+      ],
+      "scope": "Rehearsals excluded from human denominators; missing acceptance and correction-time values remain null. No independent user outcomes produced by this audit."
+    },
+    {
+      "area": "Accessibility",
+      "status": "partial",
+      "evidence": [
+        "tests/page-motion.test.js",
+        "tests/navigation-memory.test.js"
+      ],
+      "scope": "Reduced-motion and navigation continuity logic tested. Full WCAG 2.2 assessment, contrast coverage, screen-reader testing and real assistive-technology sessions remain untested."
+    }
+  ],
+  "limits": [
+    "No paid model calls or external deployment changes.",
+    "No production user data processed.",
+    "No formal WCAG, provider-retention or full-erasure certification."
+  ]
+}
