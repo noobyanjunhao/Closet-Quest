@@ -26,6 +26,16 @@ Copy `.env.example` to `.env.local` for local live inference. Keep secrets out o
 
 The existing `render.yaml` runs `npm ci --include=dev && npm run build -- --configLoader runner`, then `npm start`, with `/healthz` as the liveness check. Automatic deployment stays **off**. Deploy the inspected GitHub commit manually. Verify `/version.json` returns that exact 40-character revision, load the sign-in page, and run the signed-in smoke flow before inviting the tester. `/api/beta/status` requires authentication and reports bounded queue/cache state; it is not proof of provider health.
 
+When changing `SUPABASE_URL`, its publishable key or another environment value, save it and re-open the setting to verify the saved value before deploying. **Save only does not update the running service. Restart service also retains the environment values from its current deployment.** Use **Save and deploy** to apply the new values to the existing build, or deploy the inspected commit again. A successful restart or unchanged revision is not evidence that the replacement database is connected. These distinctions follow [Render's environment-variable options](https://render.com/docs/configure-environment-variables) and [restart behavior](https://render.com/docs/deploys#restarting-a-service).
+
+After the new deployment is live, run this bounded connectivity check with the full expected commit SHA and a new output filename:
+
+```sh
+node scripts/verify-hosted-cloud.mjs --origin https://closet-quest-junhao-s7.onrender.com --expect-revision FULL_40_CHARACTER_SHA --out output/sprint9/cloud-connectivity.json
+```
+
+The verifier checks process liveness and release identity, then submits exactly one synthetic invalid login through the deployed API with its required Origin header. It makes no signup, reset-email, wardrobe or model requests and uses no real credentials. A normal invalid-credential rejection establishes that this authentication path reached its backend; DNS failures, 5xx responses and ambiguous 401/key failures fail the check. The JSON contains only allowlisted technical fields, never request bodies, cookies, passwords or upstream error text. Existing evidence files are not overwritten. This is technical connectivity evidence only: separately verify real email confirmation, sign-in, private wardrobe save/read/reload and photo access before claiming end-to-end readiness.
+
 Record the release SHA, browser/device, test start/end and participant code. Do not deploy, change model IDs, rotate configuration or edit code during the session. A critical safety failure ends the session; preserve the failed attempt, fix the defect, deploy a new revision, and run a separately labeled retest. An independent user must perform the test; an agent, developer rehearsal or synthetic dataset does not satisfy that requirement.
 
 Rollback uses Render's prior known-good deployment. No new Supabase schema migration is required by this beta. Keep optional AWS configuration blank for the existing hosting path. Verify the rollback revision and perform a login/read/style smoke check afterward.
