@@ -1,0 +1,39 @@
+{
+  "releaseDate": "2026-11-16",
+  "repository": "https://github.com/noobyanjunhao/Closet-Quest",
+  "pullRequest": "https://github.com/noobyanjunhao/Closet-Quest/pull/5",
+  "reviewedHead": "385a52c5273825347cfbcddb760d534b6d2f3bb2",
+  "deployedRevision": "d5c7c45b69012db4b38b8e56d36796a06a899675",
+  "url": "https://closet-quest-junhao-s7.onrender.com/",
+  "renderDeployment": "https://dashboard.render.com/web/srv-dbba52navr4c73d3i69g/deploys/dep-dbtslpl6e07s73b3oa0g",
+  "hostingPlan": "Free (user explicitly declined recurring upgrade)",
+  "ci": {
+    "url": "https://github.com/noobyanjunhao/Closet-Quest/actions/runs/44010564536",
+    "conclusion": "success",
+    "nodeTests": 294,
+    "pythonTests": 19,
+    "frontendBuild": "pass",
+    "containerBuild": "pass",
+    "containerSmoke": "pass",
+    "credentialsUsed": false
+  },
+  "local": {"nodePassed": 294, "nodeFailed": 0, "pythonPassed": 19, "frontendBuild": "pass"},
+  "hosted": {
+    "healthHttpStatus": 200,
+    "versionMatchesDeployment": true,
+    "anonymousProtectedEndpointStatus": 401,
+    "renderStatus": "Deploy succeeded | Live",
+    "renderDurationSeconds": 67,
+    "signInPage": "rendered",
+    "authenticatedWorkflow": "blocked: sign-in reported Cloud connection interrupted. Your local changes are safe.",
+    "databaseDiagnosis": "Read-only auth-health request to the original configured Supabase hostname failed with ENOTFOUND. Needs authenticated project dashboard access; pause/deletion is not confirmed.",
+    "signInAttempts": {"beforeDeployment": "cloud connection interruption", "afterDeployment": "cloud connection interruption"},
+    "privateWardrobeMutated": false
+  },
+  "liveProviderChecks": {"results": "live-capabilities.json", "requests": 4, "usableResponses": 4, "scope": "Application modules, public samples; not hosted/account workflow", "approvedBudgetUSD": 5, "actualInvoiceCostUSD": null},
+  "browserRegression": {"results": "flow-completeness.json", "passed": 5, "notCompleted": 1, "scope": "Agent-operated frozen synthetic local review"},
+  "independentHumanCompletedSessions": 0,
+  "releaseGate": "NOT READY for independent end-to-end testing until cloud account access is restored and signed-in workflow is verified",
+  "remaining": ["Resolve hosted cloud connection", "Authenticated photo/style/save/wear/re-entry smoke test", "Physical phone camera and independent human session", "Browser backup restoration", "Formal erasure/retention and accessibility audit"],
+  "costChanges": {"hostingSubscriptionChanged": false, "awsResourcesCreated": false, "apiTestingExceptionUSD": 5}
+}

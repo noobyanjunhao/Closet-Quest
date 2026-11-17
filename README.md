@@ -4,9 +4,9 @@
 
 ## Sprint 9 beta
 
-Start with the [user guide](docs/beta-user-guide.md), [developer guide](docs/developer-guide.md), [deployment runbook](docs/beta-deployment.md) and [Sprint 9 delivery checklist / independent-test handoff](docs/sprint9-delivery-checklist.md). The [current validation report](docs/sprint9-beta-validation.md) and [three-page PDF](output/pdf/Closet-Quest-Sprint-9-Beta-Report.pdf) separate measured results from remaining release gates.
+Start with the [user guide](docs/beta-user-guide.md), [developer guide](docs/developer-guide.md), [deployment runbook](docs/beta-deployment.md) and [Sprint 9 delivery checklist / independent-test handoff](docs/sprint9-delivery-checklist.md). The [current validation report](docs/sprint9-beta-validation.md) and [four-page PDF](output/pdf/Closet-Quest-Sprint-9-Beta-Report.pdf) separate measured results from remaining release gates.
 
-The beta integrates accounts, private wardrobe sync, photo recognition/review, owned-clothes RAG, outfit cards, saved looks, feedback and optional shopping. Bounded queues, reusable catalog results and same-evidence fallback handle failures. Current local tests and bounded live-provider checks are documented in the checklist; the latest release still needs hosted verification. Independent-human results remain pending. Optional AWS catalog work has local-emulator evidence, not an AWS-hosted deployment.
+The beta integrates accounts, private wardrobe sync, photo recognition/review, owned-clothes RAG, outfit cards, saved looks, feedback and optional shopping. Bounded queues, reusable catalog results and same-evidence fallback handle failures. PR #5 passed 294 Node tests, 19 Python tests and build/container checks, then deployed to Render. **Current operational blocker:** the original Supabase project hostname fails DNS and production sign-in reports a cloud connection interruption. Account recovery and an authenticated workflow check are required before independent testing. Independent-human results remain pending. Optional AWS catalog work has local-emulator evidence, not an AWS-hosted deployment.
 
 ## Purchase model v2 — fewer omissions and bounded GPU training
 

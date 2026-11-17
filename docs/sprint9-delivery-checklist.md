@@ -2,7 +2,7 @@
 
 [Live beta](https://closet-quest-junhao-s7.onrender.com/) · [Repository](https://github.com/noobyanjunhao/Closet-Quest) · [Validation report](sprint9-beta-validation.md) · [User guide](beta-user-guide.md) · [Developer guide](developer-guide.md) · [Deployment instructions](beta-deployment.md)
 
-This is a requirements-to-evidence map, not a claim that all gates are complete. Recheck release metadata after every deployment. The November 16 verification record identifies code revision `3b90ecc82e547b4c0212f978dd04101cd2b78b69`; a documentation-only commit can be newer without changing the deployed app. The current follow-up has 294 passing local Node tests; publication, CI and hosted verification of this new release remain separate gates.
+This is a requirements-to-evidence map, not a claim that all gates are complete. The November 16 release is `d5c7c45b69012db4b38b8e56d36796a06a899675`, merged through PR #5 and verified on Render. CI passes 294 Node tests, 19 Python tests, frontend/container builds and container smoke. **The account workflow is blocked:** production sign-in reports an interrupted cloud connection and the original Supabase hostname returns DNS `ENOTFOUND`. Restore access through the original project owner and rerun the authenticated workflow before inviting the independent tester. A later documentation-only commit does not change the deployed app.
 
 ## Requirement coverage
 
@@ -20,7 +20,8 @@ The fixture/agent evidence is useful and remains in the report. It cannot replac
 
 ## Evidence currently available
 
-- **Current follow-up:** 294 local Node tests pass. New-release hosted verification and CI results must be recorded after publication; do not reuse the previous release's pass as proof.
+- [Current release verification](../output/sprint9/beta-completeness-verification.json): 294 local/CI Node tests and 19 Python tests pass; deployed revision, HTTP 200 health and anonymous HTTP 401 verified. Sign-in failed before and after deployment; account workflow remains blocked. The user chose to retain Free hosting.
+- [Browser retest](../output/sprint9/flow-completeness.json): five synthetic local checks passed (wedding context, save feedback, navigation and reload continuity). Backup round-trip was not completed because the download-event automation stalled; helper tests are separate evidence.
 - [Previous hosted and CI verification](../output/sprint9/nfr-verification.json): November 16 anonymous hosted checks; 268 repository Node tests, 19 Python tests and build/container checks for the prior published revision.
 - [Bounded live capabilities](../output/sprint9/live-capabilities.json): four usable OpenAI calls through application modules on public sample data: tee-category recognition (5.197 s), wedding styling with Luna (3.086 s) and Sol (8.108 s), and retailer search (12.241 s; two products with image URLs). The original recognition assertion incorrectly expected `data.items`; it was corrected from the saved first-garment result without another paid call. This checks one tee category, not full-scene recall. These are local module/provider checks, not hosted authentication, human acceptance or independently verified price/stock results.
 - [Routing experiment](../output/sprint9/stylist-nfr.json): 36 requests per route, only owned IDs in all requests, 36 versus 18 mocked generation calls. No live model latency or human preference claim.

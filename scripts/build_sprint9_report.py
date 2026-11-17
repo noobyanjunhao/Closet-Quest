@@ -1,7 +1,7 @@
 from pathlib import Path
 import re
 from html import escape
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, KeepTogether
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, KeepTogether, PageBreak
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.colors import HexColor, white
 from reportlab.pdfbase import pdfmetrics
@@ -22,10 +22,10 @@ else:
     pdfmetrics.registerFont(Font('CQ','Helvetica','WinAnsiEncoding'))
     pdfmetrics.registerFont(Font('CQBold','Helvetica-Bold','WinAnsiEncoding'))
 styles={
-    'body':ParagraphStyle('body',fontName='CQ',fontSize=10.2,leading=14.3,spaceAfter=8,textColor=HexColor('#302B33')),
+    'body':ParagraphStyle('body',fontName='CQ',fontSize=10,leading=13.4,spaceAfter=7,textColor=HexColor('#302B33')),
     'h1':ParagraphStyle('h1',fontName='CQBold',fontSize=24,leading=28,spaceAfter=16,textColor=HexColor('#79354F')),
     'h2':ParagraphStyle('h2',fontName='CQBold',fontSize=14,leading=18,spaceBefore=12,spaceAfter=8,keepWithNext=True,textColor=HexColor('#79354F')),
-    'cell':ParagraphStyle('cell',fontName='CQ',fontSize=8.4,leading=11.3,textColor=HexColor('#302B33')),
+    'cell':ParagraphStyle('cell',fontName='CQ',fontSize=8.4,leading=10.8,textColor=HexColor('#302B33')),
 }
 def rich(s):
     s=escape(s.replace('\u2014',' - ').replace('\u2013','-').replace('\u2011','-'))
@@ -42,6 +42,7 @@ def rich(s):
 text=(ROOT/'docs/sprint9-beta-validation.md').read_text(encoding='utf-8')
 story=[]
 for block in re.split(r'\n\s*\n',text):
+    if re.match(r'## [234]\.',block): story.append(PageBreak())
     if block.startswith('|'):
         rows=[]
         for line in block.splitlines():
@@ -51,7 +52,7 @@ for block in re.split(r'\n\s*\n',text):
         width=519.28
         widths=[width*.27,width*.25,width*.28,width*.2] if len(rows[0])==4 else [width*.44,width*.56]
         table=Table(rows,colWidths=widths,repeatRows=1,hAlign='LEFT')
-        table.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),HexColor('#EDE2E9')),('VALIGN',(0,0),(-1,-1),'TOP'),('LEFTPADDING',(0,0),(-1,-1),7),('RIGHTPADDING',(0,0),(-1,-1),7),('TOPPADDING',(0,0),(-1,-1),7),('BOTTOMPADDING',(0,0),(-1,-1),7),('LINEBELOW',(0,0),(-1,-1),.4,HexColor('#DCD2DA'))]))
+        table.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),HexColor('#EDE2E9')),('VALIGN',(0,0),(-1,-1),'TOP'),('LEFTPADDING',(0,0),(-1,-1),7),('RIGHTPADDING',(0,0),(-1,-1),7),('TOPPADDING',(0,0),(-1,-1),6),('BOTTOMPADDING',(0,0),(-1,-1),6),('LINEBELOW',(0,0),(-1,-1),.4,HexColor('#DCD2DA'))]))
         story.append(KeepTogether([table,Spacer(1,8)]))
     else:
         style='h2' if block.startswith('## ') else 'h1' if block.startswith('# ') else 'body'
