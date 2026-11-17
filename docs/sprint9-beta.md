@@ -1,6 +1,6 @@
 # Closet Quest: beta release and independent testing
 
-**Latest iteration:** [November 16 validation report](sprint9-beta-validation.md). The material below preserves the November 9 baseline.
+**Latest iteration:** [November 17 validation report](sprint9-beta-validation.md). The material below preserves the November 9 baseline.
 
 **Try the app:** https://closet-quest-junhao-s7.onrender.com/  
 **Repository:** https://github.com/noobyanjunhao/Closet-Quest  

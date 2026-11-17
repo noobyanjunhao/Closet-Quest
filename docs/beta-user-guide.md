@@ -18,11 +18,15 @@ External finds are suggestions to consider, not clothes in your wardrobe. Browse
 
 Open **More → Settings & backup** to export your wardrobe or import a previous backup. **Import replaces the current wardrobe:** export the current version first, check the displayed piece/look counts, then confirm only the backup you intended. A wardrobe backup can contain personal data; keep it private. The beta-test results export is a separate, smaller measurement file.
 
+If the download does not open, choose **Show backup text** and save the displayed JSON in a private file. Export waits only a bounded time for cloud photos; read any missing-photo warning before relying on that file as your only copy. Keep the original backup until the restored wardrobe shows **in sync**, then refresh and check the photos again. Importing into a signed-in account binds the restored data to that account; an old backup's account identifier does not grant access to another person's closet.
+
 ## If something goes wrong
 
 | Situation | What to do |
 |---|---|
 | Sign-in asks for email confirmation | Check your inbox and spam folder, open the confirmation email, then sign in again. Use **Forgot password?** for a reset. |
+| Signup reports that email could not be sent | Account creation may not have finished. Report the message to the owner; do not repeatedly submit or assume a reset email will fix a missing account. |
+| Cloud database cannot be reached | Keep browser data and export pending work. The owner must repair the backend connection; changing your password does not repair a database outage. |
 | Photo is blurry, dark or misses a piece | Keep correct detections, retake a closer photo or add the missing piece manually. |
 | AI is busy, unavailable or returns a fallback | Your saved clothes remain available. Try Quick matches, keep the useful starting point, or retry later. |
 | Changes have not synced | Keep the page open and use **Retry sync**. Export a backup before signing out. |
