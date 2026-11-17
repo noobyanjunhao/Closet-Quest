@@ -56,3 +56,16 @@
  .rail-detail-pieces img,.rail-detail-pieces svg{height:160px}
 }
 @media(prefers-reduced-motion:no-preference){.rail-look{transition:transform .2s,box-shadow .2s}.rail-look:hover{transform:translateY(-2px);box-shadow:0 6px 14px #3325140c}}
+
+.app .wardrobe-look-rail{background:linear-gradient(160deg,#fffc,#eee5dc);border-color:#ded3c6;box-shadow:0 8px 25px #3c2a1808}
+.rail-heading>button{width:44px;min-height:44px;flex-shrink:0;border-radius:50%;background:#fff9;border:1px solid #ded3c6}
+.rail-heading h2 small{display:inline-grid;place-items:center;min-width:22px;min-height:22px;margin-left:5px;border-radius:50%;background:#eaded4;color:#5c4037}
+.rail-look{padding:10px;border-color:#e2d7cc;background:#fffdf9}
+.rail-look-collage{background:#f0e9e1;border-radius:13px;padding:7px;gap:5px}
+.rail-look-title{font-size:13px;color:#362c27}.rail-look-context{font-size:11px;color:#685950}
+.wardrobe-look-rail :is(button,[tabindex]):focus-visible,.garment-display :is(button,summary):focus-visible{outline:3px solid #842e45;outline-offset:3px}
+.saved-outfit-scroll:focus-visible{outline-offset:-3px}
+.rail-empty{padding:28px 8px}.rail-empty>span{color:#842e45}.rail-empty p{font-size:13px;line-height:1.6}
+.app .garment-display{background:#f4eee6;border-color:#ded3c6}
+.display-heading span,.app .garment-display .muted{color:#66584e}
+@media(max-width:760px){.rail-heading>button{min-height:44px}.rail-look-title{font-size:12px}.rail-look-context{font-size:10px}.is-carousel .rail-look{width:160px}.is-carousel .saved-outfit-scroll{padding:3px 3px 8px;scroll-snap-type:x proximity}.is-carousel .rail-look{scroll-snap-align:start}.is-carousel .rail-new-look{margin-top:8px}}

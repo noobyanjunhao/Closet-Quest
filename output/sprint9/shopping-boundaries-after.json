@@ -1,0 +1,44 @@
+{
+  "measuredAt": "2026-11-17T05:52:17.092Z",
+  "stage": "after",
+  "kind": "Synthetic in-process boundary experiment; no external services",
+  "cloudSave": {
+    "requests": 40,
+    "successful": 40,
+    "providerCalls": 1,
+    "cloudWrites": 1,
+    "elapsedMs": 43.89
+  },
+  "budget": {
+    "maximum": 50,
+    "returnedPrices": [
+      40
+    ],
+    "overBudget": 0
+  },
+  "capacity": {
+    "refusals": [
+      {
+        "status": 503,
+        "code": "SHOPPING_CAPACITY"
+      },
+      {
+        "status": 503,
+        "code": "SHOPPING_CAPACITY"
+      },
+      {
+        "status": 503,
+        "code": "SHOPPING_CAPACITY"
+      }
+    ],
+    "budgetChecks": 1,
+    "providerCalls": 1,
+    "providerFailures": 0,
+    "circuitOpen": false
+  },
+  "requests": {
+    "realUserSessions": 0,
+    "paidModelCalls": 0,
+    "retailerRequests": 0
+  }
+}
