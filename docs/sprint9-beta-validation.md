@@ -28,7 +28,7 @@ We ran twelve synthetic briefs three times per route, giving 36 requests per con
 | Median latency | 46.52 ms | 1.57 ms | Local fixture measurement |
 | p95 latency | 47.64 ms | 47.89 ms | Richer briefs still generate |
 
-The median improves because the routine half skips generation; the tail does not improve. These results cannot establish production model latency or dollar savings. Four injected conditions—provider error, unknown plan, empty selection and timeout—each recovered with owned suggestions after exactly one generation attempt. Offline-policy tests verify that even an explicit Deep request cannot trigger styling generation or embeddings. The final suite passes 271/271 Node tests and the production frontend build passes. Supporting logs preserve the exact test output.
+The median improves because the routine half skips generation; the tail does not improve. These results cannot establish production model latency or dollar savings. Four injected conditions—provider error, unknown plan, empty selection and timeout—each recovered with owned suggestions after exactly one generation attempt. Offline-policy tests verify that even an explicit Deep request cannot trigger styling generation or embeddings. The local suite passes 271/271 Node tests, including three local practice-stack checks. GitHub CI passes the 268 repository Node tests, 19 Python tests, frontend build and container smoke test. Supporting logs preserve the exact output.
 
 Earlier Sprint 9 load evidence remains relevant. With a deterministic 40 ms shopping provider and 40 simultaneous local HTTP requests, equivalent searches improved from 2/40 completions and 38 rate limits to 40/40 with one provider call. Distinct cold searches completed 40/40 with peak concurrency two; warm repeats required zero calls. With a slower 120 ms provider and a shortened 50 ms queue deadline, only 2/40 completed and 38 received HTTP 503 responses. This demonstrates bounded backpressure, not unlimited throughput or live retailer capacity.
 
@@ -47,7 +47,7 @@ The reviewer manually added a synthetic shirt, retained it as the starting piece
 | Wedding advice suggested shoes but shopping default retained Top | Reuse a previous category only if it fits current gaps. Separate retest selected Dress shoes correctly. |
 | Quick evidence claimed “Included in the model context” | Quick now says references are available to read and no model was used. Retest confirmed correct text and zero model attempts. |
 | Local settings exposed export without import | Existing import/review entry is now visible locally. Retest confirmed discovery; restore execution remains untested. |
-| Public introduction gave little workflow/provider context | Added expandable workflow, privacy, recovery and service-cost explanation. Public deployment verification remains separate. |
+| Public introduction gave little workflow/provider context | Added expandable workflow, privacy, recovery and service-cost explanation. The updated disclosures were verified on the deployed sign-in page. |
 | Save confirmation fleeting; reload changed current page | Data persistence passed. Persistent confirmation and page restoration remain lower-priority work. |
 
 The revised review also noticed a collapsed brief label retaining the default occasion after a wedding result. The supporting review lists this and a preliminary menu-accessibility concern. No formal WCAG claim is made. Physical camera use, human correction time, human top-three acceptance, email delivery and production sync were not measured here.
@@ -56,7 +56,7 @@ Verified direct-human completed sessions remain zero in the available results. T
 
 ## 4. Deployment, privacy and remaining gates
 
-The runbook specifies Node 24, locked dependencies, credential-isolated tests, frontend build, non-root container and health/version checks. Hosted configuration uses HTTPS and Supabase owner policies. Release identity comes from the deployed Git revision. A local build is not a live deployment claim: the new commit must pass CI and its hosted revision must be verified before calling these changes live. The report's supporting release status records what was actually checked.
+The runbook specifies Node 24, locked dependencies, credential-isolated tests, frontend build, non-root container and health/version checks. Hosted configuration uses HTTPS and Supabase owner policies. Release identity comes from the deployed Git revision. PR #4 passed CI and was merged. Render deployed revision 3b90ecc82e547b4c0212f978dd04101cd2b78b69 on its existing Free service. The hosted version matched, health returned HTTP 200, anonymous access to the protected beta endpoint returned 401, and the new onboarding disclosures rendered correctly. Authenticated model calls were not exercised in this no-spend verification.
 
 No paid model calls or cloud resources were used for this iteration. `CLOSET_STYLIST_POLICY=offline` disables remote styling, but is not a spending cap for shopping, recognition or hosting. The AWS catalog extension remains implemented and locally tested, but undeployed; no free-plan restrictions were bypassed. Free Render startup delay remains an operational limitation.
 

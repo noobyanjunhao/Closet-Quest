@@ -4,7 +4,8 @@
     "passed": 271,
     "failed": 0,
     "command": "npm test",
-    "credentialIsolated": true
+    "credentialIsolated": true,
+    "note": "271 local tests include three practice-stack checks not in this published release."
   },
   "build": {
     "passed": true,
@@ -22,7 +23,22 @@
     "humanRatingsRecorded": false
   },
   "hosting": {
-    "newChangesVerifiedLive": false
+    "newChangesVerifiedLive": true,
+    "appRevision": "3b90ecc82e547b4c0212f978dd04101cd2b78b69",
+    "planObserved": "Free",
+    "healthStatus": 200,
+    "anonymousProtectedStatus": 401,
+    "onboardingChecked": true,
+    "authenticatedModelCallsTested": false,
+    "deploymentUrl": "https://dashboard.render.com/web/srv-dbba52navr4c73d3i69g/deploys/dep-dbtrrbsipgvc739vhrag"
   },
-  "independentHumanSessionsVerified": 0
+  "independentHumanSessionsVerified": 0,
+  "ci": {
+    "nodePassed": 268,
+    "pythonPassed": 19,
+    "build": true,
+    "containerSmoke": true,
+    "url": "https://github.com/noobyanjunhao/Closet-Quest/actions/runs/44003981859",
+    "head": "4ed843213c2bb6747616e68e214c919ea27420e2"
+  }
 }
