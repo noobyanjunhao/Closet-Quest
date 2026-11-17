@@ -16,3 +16,7 @@
   .shopping-suggestions { padding:18px; border-radius:20px; }
   .shopping-idea-grid { grid-template-columns:1fr; }
 }
+
+.retrieval-panel .retrieval-items{max-height:none!important;overflow:visible!important}
+.studio-buttons{flex-wrap:wrap;gap:10px}
+.studio-buttons>button{min-height:44px}
