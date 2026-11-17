@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-19",
+  "commit": "ec8b05631cf6371fc20baaaab706d26b0dab7c6c",
+  "change": "Shared editorial styling across desktop and mobile, floating desktop navigation, wardrobe hero and filters, stylist and secondary surfaces",
+  "productionBuild": "passed",
+  "deployment": {"id": "dep-dbbcmhgm7kps73eggsog", "status": "Deploy succeeded | Live", "hostedWidth": 1280, "hostedHeight": 720, "hostedScrollWidth": 1265, "loadedBundle": "/assets/index-Cz0KJRaU.js", "existingTabRefreshed": true},
+  "navigationRegressionTests": {"passed": 7, "failed": 0},
+  "browserChecks": [
+    {"width": 1600, "height": 900, "documentScrollWidth": 1581, "environment": "local production preview"},
+    {"width": 800, "height": 800, "documentScrollWidth": 781, "environment": "local production preview"},
+    {"width": 390, "height": 844, "documentScrollWidth": 390, "environment": "local production preview"}
+  ],
+  "visuallyInspected": ["wardrobe", "stylist form", "outfit card", "More navigation menu", "personal style and memory"],
+  "localOutfitMethod": "Quick matches; no provider call or acceptance rating",
+  "scope": "Presentation update; existing account storage and navigation state logic retained",
+  "limitations": ["Browser checks are not a physical-device usability study", "No new human acceptance evidence"]
+}

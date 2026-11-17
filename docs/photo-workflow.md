@@ -1,5 +1,21 @@
 # Real-photo development increment — September 21, 2026
 
+## October 6 follow-up: outfit photos and multiple-piece review
+
+New uploads (including camera captures) now request multiple-piece recognition. Up to eight photos can be selected in one batch; each photo can yield up to six separate clothing/accessory candidates. Baseball caps and glasses have explicit item types. A matching pair of shoes remains one piece.
+
+When several pieces are found, the review dialog shows suggested crops and selection checkboxes. **Review selected pieces** creates separate, unreviewed garment drafts in one browser-storage write. The user then checks and saves each draft. Reviewed garments are the only ones eligible for styling retrieval. Retrying an existing photo is available under **More actions → Find all pieces in this photo**. Existing reviewed garments keep their IDs, saved outfits and wear history when additional detections are added.
+
+The API accepts `detectionMode: "multiple"` on both `POST /api/jobs` and `POST /api/recognize`; omitted mode preserves single-piece compatibility. Multi-piece output has a bounded `garments` array with per-piece attributes and normalized bounding boxes. The mode survives durable job restart and is included in the recognition cache key. OpenAI uses high-detail normalized images and a 4,096-token output budget for this path; local generation has the same bounded output allowance. Boxes are approximate proposals, not segmentation masks. Incorrect or missed pieces still need human correction or manual entry.
+
+A live browser check recognized a cap, glasses and hoodie from one outfit photo; cap and hoodie were selected, saved separately and retained after reload. A separate two-file upload produced a T-shirt and tote review. These checks demonstrate integration on three photos, not general recognition accuracy. Private input/capture files stay in ignored local folders and are not repository fixtures.
+
+The previous generic OpenAI error was reproduced as a sandbox network `EACCES` failure. Launch the local server with outbound API access when using OpenAI. The adapter now distinguishes network permissions, connection errors, refusals, malformed output and output-budget exhaustion; transient failures use the existing bounded job retries. API-key configuration alone is not proof of connectivity.
+
+The September notes below are historical; see the current integration report for durable jobs, separate provider lanes and document RAG.
+
+---
+
 **Follow-up:** the [September 22 recognition pipeline](ai-pipeline.md) improves the same seven-photo check to 7/7 returned results and 7/7 matching categories, adds image validation and bounded retries, and leaves label text manual. The measurements below preserve the first increment's failures. `photos:test` now runs the revised evaluator and never overwrites that baseline.
 
 This increment follows the technical design's upload → asynchronous processing → human correction flow and its Outfit / WearRecord data relationships. It extends the existing React / local Ollama prototype; it does not complete the proposed hosted FastAPI architecture.

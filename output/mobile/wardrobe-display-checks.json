@@ -1,0 +1,29 @@
+{
+  "commit": "50df4a1cfc38ef66fc0d7ebe0b303dc0ff2b69c5",
+  "deployment": "dep-dbbr3qoae00c73ajido0",
+  "tests": {
+    "passed": 188,
+    "failed": 0
+  },
+  "build": "passed",
+  "browserChecks": {
+    "localProductionAiCutout": "Public sweater: preview, apply, save, reopen succeeded",
+    "pixelIcon": "Selected and original image remained accessible",
+    "savedOutfit": "Opened from side rail",
+    "railScrollRestore": {
+      "before": 197.85714721679688,
+      "after": 197.85714721679688
+    },
+    "responsive": {
+      "phoneWidth": 390,
+      "desktopWidth": 1600,
+      "horizontalOverflow": false
+    },
+    "liveCloudCutout": "Latest cloud wardrobe loaded with user approval; only TEST Graphic tee cutout reapplied. Cloud reported in sync; reload retained Cutout selection and loaded private PNG at 500 x 700."
+  },
+  "limitations": [
+    "Foreground extraction, not semantic garment segmentation",
+    "Physical phone and touch gestures not verified",
+    "No segmentation accuracy benchmark or human study"
+  ]
+}

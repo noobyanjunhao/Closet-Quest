@@ -52,7 +52,7 @@ for block in re.split(r'\n\s*\n',text):
         widths=[width*.27,width*.25,width*.28,width*.2] if len(rows[0])==4 else [width*.44,width*.56]
         table=Table(rows,colWidths=widths,repeatRows=1,hAlign='LEFT')
         table.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),HexColor('#EDE2E9')),('VALIGN',(0,0),(-1,-1),'TOP'),('LEFTPADDING',(0,0),(-1,-1),7),('RIGHTPADDING',(0,0),(-1,-1),7),('TOPPADDING',(0,0),(-1,-1),7),('BOTTOMPADDING',(0,0),(-1,-1),7),('LINEBELOW',(0,0),(-1,-1),.4,HexColor('#DCD2DA'))]))
-        story.extend([table,Spacer(1,8)])
+        story.append(KeepTogether([table,Spacer(1,8)]))
     else:
         style='h2' if block.startswith('## ') else 'h1' if block.startswith('# ') else 'body'
         value=re.sub(r'^#{1,2} ','',block).replace('  \n','<br/>').replace('\n',' ')

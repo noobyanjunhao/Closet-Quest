@@ -1,0 +1,28 @@
+{
+  "build": "passed",
+  "realOpenAiSyntheticResults": "stylist-live-smoke.json",
+  "localUiWeddingSeconds": 3.7,
+  "deployment": "dep-dbbrcf5pkucs739gea9g",
+  "deploymentStatus": "live",
+  "date": "2026-10-20",
+  "limitations": [
+    "Shopping cards are placeholders; no online shopping search",
+    "Render Free can sleep; cold-start delay is outside the styling budget",
+    "Smoke timings are individual checks, not latency distributions"
+  ],
+  "commit": "973467faea755b63a8dd4cb1bf3dd16985dbf473",
+  "deploymentBranch": "main",
+  "openPullRequests": 0,
+  "tests": {
+    "passed": 197,
+    "failed": 0
+  },
+  "mainMerge": "4689cee16b9fde8628087183d822e9f679a4ebd0",
+  "hostedWeddingCheck": {
+    "seconds": 5.4,
+    "cloudInSync": true,
+    "outfitCards": 1,
+    "shoppingPlaceholders": 2,
+    "provider": "OpenAI"
+  }
+}

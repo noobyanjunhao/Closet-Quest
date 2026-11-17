@@ -1,0 +1,207 @@
+{
+  "measuredAt": "2026-11-17T03:10:23.355Z",
+  "scope": "Live OpenAI calls through application modules on public sample data; not hosted/authenticated or human acceptance testing",
+  "authorization": "Up to $5, at most four calls; two web-search tool calls; bounded tokens; only Luna/Sol. No automatic retries.",
+  "checks": [
+    {
+      "name": "multi-piece recognition, public tee photo",
+      "passed": true,
+      "model": "gpt-6-luna",
+      "data": {
+        "isGarment": true,
+        "name": "White T-shirt",
+        "category": "Top",
+        "itemType": "T-shirt",
+        "color": "#f4f3ef",
+        "colorName": "White",
+        "secondaryColors": [
+          "Black",
+          "Gray",
+          "Green"
+        ],
+        "pattern": "Graphic print",
+        "fit": "Regular",
+        "materialAppearance": "Smooth, lightweight knit fabric.",
+        "styleTags": [
+          "Crew neck",
+          "Short sleeve",
+          "Graphic tee"
+        ],
+        "occasions": [
+          "Campus casual",
+          "Coffee date"
+        ],
+        "visibleLabelText": "",
+        "uncertainty": [
+          "Color swatch is an approximate palette color, not a measured fabric color.",
+          "Material and occasions are visual suggestions; verify them manually."
+        ],
+        "brandVerified": false,
+        "targetDescription": "Short-sleeved crew-neck T-shirt with a large abstract multicolor graphic across the lower front.",
+        "labelPolicy": "manual-only",
+        "colorSource": "representative-palette",
+        "reviewRequired": true,
+        "boundingBox": {
+          "x": 0.01,
+          "y": 0.01,
+          "width": 0.89,
+          "height": 0.97
+        },
+        "detectionId": "piece-1"
+      },
+      "elapsedMs": 5197,
+      "initialHarnessPassed": false,
+      "harnessCorrection": "Original assertion looked for data.items; scene API returns garments plus first garment in data. Corrected from saved first-garment result without another paid call. This verifies the tee category, not full scene recall."
+    },
+    {
+      "name": "wedding styling fast",
+      "passed": true,
+      "model": "gpt-6-luna",
+      "provider": "openai",
+      "fallback": null,
+      "outfits": [
+        {
+          "title": "Forest cable-knit sweater + Pleated sand trousers",
+          "explanation": "I\u9225\u6a87 start with the forest cable-knit sweater, pleated sand trousers, navy everyday blazer, white canvas sneakers, and sand everyday tote. The blazer and trousers give this the most structure of the available options, but the knit and canvas sneakers keep it casual\u9225\u650fot formal wedding attire. Dress shoes are missing; for a more formal event, consider borrowing or renting dressier pieces, and check the invitation\u9225\u6a9a dress code before deciding this works.",
+          "itemIds": [
+            "photo-knit",
+            "photo-trousers",
+            "photo-sneakers",
+            "photo-blazer",
+            "photo-tote"
+          ],
+          "missingCategories": []
+        }
+      ],
+      "elapsedMs": 3086
+    },
+    {
+      "name": "wedding styling balanced",
+      "passed": true,
+      "model": "gpt-6.1-sol",
+      "provider": "openai",
+      "fallback": null,
+      "outfits": [
+        {
+          "title": "Forest cable-knit sweater + Pleated sand trousers",
+          "explanation": "I'd start with your navy everyday blazer, pleated sand trousers and forest cable-knit sweater: the structured pieces and restrained colors make this your strongest option. The white canvas sneakers remain casual, and the knit keeps this from reading as formal wedding attire. Consider borrowing or renting dress shoes and a dress shirt or dressy blouse; a formal dress code may require a different outfit altogether.",
+          "itemIds": [
+            "photo-knit",
+            "photo-trousers",
+            "photo-sneakers",
+            "photo-blazer",
+            "photo-tote"
+          ],
+          "missingCategories": []
+        }
+      ],
+      "elapsedMs": 8108
+    },
+    {
+      "name": "live formal shoes search",
+      "passed": true,
+      "products": [
+        {
+          "title": "Toe-ring kitten-heel sandals in leather",
+          "url": "https://www.jcrew.com/p/womens/categories/shoes/heels/CU531?colorCode=BR8825&colorProductCode=CU531&display=all&fit=Classic",
+          "price": 59.99,
+          "hasImage": true
+        },
+        {
+          "title": "Robin ruched pumps in suede",
+          "url": "https://www.jcrew.com/p/CR933",
+          "price": 99.99,
+          "hasImage": true
+        }
+      ],
+      "notice": "External finds, not owned clothes. Prices come from search and can change. Check size, stock, shipping and dress code at the retailer. Photo-focused selection from J.Crew, J.Crew Factory and Everlane; not the whole market. No affiliate ranking.",
+      "elapsedMs": 12241
+    }
+  ],
+  "usage": [
+    {
+      "model": "gpt-6-luna",
+      "status": 200,
+      "usage": {
+        "input_tokens": 1712,
+        "input_tokens_details": {
+          "cache_write_tokens": 1709,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1709
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 224,
+        "output_tokens_details": {
+          "reasoning_tokens": 57
+        },
+        "total_tokens": 1936
+      },
+      "toolCalls": 0
+    },
+    {
+      "model": "gpt-6-luna",
+      "status": 200,
+      "usage": {
+        "input_tokens": 1388,
+        "input_tokens_details": {
+          "cache_write_tokens": 1385,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1385
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 188,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1576
+      },
+      "toolCalls": 0
+    },
+    {
+      "model": "gpt-6.1-sol",
+      "status": 200,
+      "usage": {
+        "input_tokens": 1388,
+        "input_tokens_details": {
+          "cache_write_tokens": 1385,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 1385
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 185,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1573
+      },
+      "toolCalls": 0
+    },
+    {
+      "model": "gpt-6-luna",
+      "status": 200,
+      "usage": {
+        "input_tokens": 20895,
+        "input_tokens_details": {
+          "cache_write_tokens": 4617,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 4617
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 287,
+        "output_tokens_details": {
+          "reasoning_tokens": 183
+        },
+        "total_tokens": 21182
+      },
+      "toolCalls": 2
+    }
+  ]
+}

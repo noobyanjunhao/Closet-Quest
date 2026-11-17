@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-27",
+  "url": "https://closet-quest-junhao-s7.onrender.com/",
+  "commit": "a14d0d07efb54ba212efd6118139ff3bed4e064b",
+  "renderDeployment": "dep-dbgf9nmi0phs73em2vng",
+  "healthStatus": 200,
+  "javascriptAsset": "/assets/index-CN72w72K.js",
+  "cssAsset": "/assets/index-DgsF3ArN.css",
+  "observations": {
+    "signedInStylistShowsPip": true,
+    "dailyProductsShown": 4,
+    "dailyProductPhotosLoaded": 4,
+    "formalTopSearchProducts": 3,
+    "searchSourceLabel": "Reused from your product library.",
+    "supabaseSavedLibraryRecords": 1,
+    "supabaseProductsInSavedResult": 3
+  },
+  "limitations": [
+    "This hosted check verifies one signed-in account, not a multi-account penetration test.",
+    "The six-product starter library has limited retailer and category coverage.",
+    "Daily recommendations rotate saved results, without automatic paid searches.",
+    "Local benchmark latency is not production latency."
+  ]
+}

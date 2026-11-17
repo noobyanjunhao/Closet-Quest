@@ -4,7 +4,9 @@
 
 ## Sprint 9 beta
 
-The beta adds bounded shopping/stylist queues, reusable public catalog coordination, visible photo-quality guidance, private measurement exports and a frozen-revision independent-test flow. See the [beta report](docs/sprint9-beta.md), [three-page PDF](output/pdf/Closet-Quest-Sprint-9-Beta-Report.pdf), [user guide](docs/beta-user-guide.md) and [deployment runbook](docs/beta-deployment.md). Automated results are separate from independent-user evidence, which remains pending. The AWS SDK/SAM implementation has a real local-emulator experiment; it is not yet an AWS-hosted deployment.
+Start with the [user guide](docs/beta-user-guide.md), [developer guide](docs/developer-guide.md), [deployment runbook](docs/beta-deployment.md) and [Sprint 9 delivery checklist / independent-test handoff](docs/sprint9-delivery-checklist.md). The [current validation report](docs/sprint9-beta-validation.md) and [three-page PDF](output/pdf/Closet-Quest-Sprint-9-Beta-Report.pdf) separate measured results from remaining release gates.
+
+The beta integrates accounts, private wardrobe sync, photo recognition/review, owned-clothes RAG, outfit cards, saved looks, feedback and optional shopping. Bounded queues, reusable catalog results and same-evidence fallback handle failures. Current local tests and bounded live-provider checks are documented in the checklist; the latest release still needs hosted verification. Independent-human results remain pending. Optional AWS catalog work has local-emulator evidence, not an AWS-hosted deployment.
 
 ## Purchase model v2 — fewer omissions and bounded GPU training
 
@@ -230,5 +232,4 @@ Deploying the full application needs a Node runtime with built-in SQLite, durabl
 ### Reproduce current advanced measurements
 
 `npm test` and `npm run build` run without cloud inference. `npm run evaluate:advanced -- --live` intentionally performs a small paid API evaluation with public fixtures and the initial local wardrobe-embedding baseline. `node scripts/evaluate-advanced-retrieval.mjs --live` separately measures the optimized cloud wardrobe cache. Inspect `output/sprint6/advanced/results.json` and `retrieval-results.json` for exact request budgets, real provider labels and caveats. [Screenshot gallery](output/sprint6/advanced/index.html).
-
 

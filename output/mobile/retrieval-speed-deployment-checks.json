@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-20",
+  "commit": "efc4a92af83e9646db9cd1dd79a51ba04e5163aa",
+  "branch": "main",
+  "deployId": "dep-dbbrk65g1s2s73c2ruk0",
+  "deployStatus": "Deploy succeeded | Live",
+  "deployDuration": "1m11s",
+  "testsPassed": 202,
+  "buildPassed": true,
+  "hostedSmokeTest": {
+    "request": "I am going to a wedding, give me something formal.",
+    "visibleReadySeconds": 4.3,
+    "provider": "OpenAI",
+    "reviewedPieces": 9,
+    "shortlistedPieces": 9,
+    "outfitCardReturned": true,
+    "shoppingPlaceholdersVisible": true,
+    "note": "One UI smoke test, not a controlled end-to-end latency or fashion-quality experiment."
+  }
+}

@@ -1,17 +1,37 @@
-# Try Closet Quest
+# Closet Quest user guide
 
-Open [Closet Quest](https://closet-quest-junhao-s7.onrender.com/), create an account, confirm your email, and sign in. The free server may take a little time to wake. Never enter payment details or private addresses into purchase import.
+[Open Closet Quest](https://closet-quest-junhao-s7.onrender.com/). The hosted app saves your wardrobe to your account. The local development version saves it in that browser. A sleeping free server can take time to open.
 
-1. **Closet -> Add clothes.** Take a phone photo or select up to eight JPEG, PNG or WebP photos. With OpenAI selected, the analysis photo goes to OpenAI; saved wardrobe photos are private in Supabase. You can add a piece manually instead.
-2. **Review each piece.** Check the suggested category, color, crop and name. A successful request does not prove that every piece was found. Small/dark/soft-photo hints explain when to retake the image. Keep valid detections and add closer photos for missing pieces.
-3. **Stylist.** Describe your occasion in ordinary language. Your reviewed clothes form the outfit; a small closet can produce a starting point with clearly marked missing pieces. Inspect the evidence, choose a suggestion, save it, and record a wear.
-4. **Optional shopping.** Browse saved finds first. Searches reuse recent public results; a busy provider may ask you to retry. Prices are observed prices, not guaranteed stock or your chosen variant. Check size, color, shipping and final price on the store site. No purchase is made by the app.
-5. **Settings & backup.** Export a private wardrobe backup before moving devices or resolving a sync conflict. Wait for sync before signing out. A conflict preserves your pending edits rather than overwriting a newer wardrobe.
+## Your first outfit
 
-For the independent beta test, open **More -> Beta test & feedback**. Use a participant code such as `p01`, not your name or email. Confirm that you are outside the development team and that the team will not change the deployed release during your session. Use your own unseen photos and no sample clothes. Start each task timer before attempting it, record completion/failure/skipping and any help needed, then export the results. Timers include time away from the feedback page. Correction time is a separate self-reported measurement; the paired-study tool below also supports active review timing.
+1. **Create an account and confirm your email.** Use a password of at least ten characters. Follow the confirmation link, then sign in. You can explore sample clothes during onboarding or start with your own.
+2. **Closet → Add clothes.** Take a photo or choose up to eight JPEG, PNG or WebP photos. A scene can contain multiple pieces. Use a clear, well-lit photo; choose **Add without a photo** if you prefer to enter details yourself.
+3. **Review before saving.** Compare the suggestions with the original image. Correct the name, category, color and crop; save each piece. Add anything the model missed. A completed analysis does not mean every garment was found.
+4. **Stylist → describe your plans.** For example: “I'm a guest at an evening wedding. I'd like something formal from what I own.” You can choose a starting piece. Small closets receive a starting point with missing-piece ideas. Check the dress code yourself.
+5. **Save a look and return to it.** Open an outfit card, choose **Save this look** or **Save this starting point**, then find it in **Saved looks**. **Wear today** records a wear. In account mode, wait for the saved/synced indicator before signing out.
 
-Keep the exported study results for your agreed handoff to the team. The app does not send them to a professor or researcher automatically. No identifying photos, wardrobe names, free-text prompts or personal style-note excerpts are included in the study export.
+**My style** stores your preferred colors, fit and style. Knowledge notes can add context, and explicit outfit feedback influences future ranking. These preferences do not retrain a model immediately. The explanation and evidence panels show which owned pieces and references support a suggestion. A Quick result uses local rules; a fallback notice means the selected model did not finish successfully.
 
-Choose who operates the app in the beta form: yourself or an agent while you review. These are recorded separately. “How this suggestion was made” explains the selected method and fallback. Quick mode uses local rules; references remain available to read without claiming a model used them. Settings offers backup import for local wardrobes as well as accounts; review the import before applying it.
+## Optional shopping and backups
 
-**Known limits:** deleting a garment removes it and dependent saved looks from the wardrobe, but may leave private photo objects in cloud storage. Full account erasure and provider-side retention have not been independently audited. Do not use sensitive photos in this beta. Physical camera operation, assistive-technology access and outfit acceptance still need independent testing.
+External finds are suggestions to consider, not clothes in your wardrobe. Browse by category and budget; check the retailer's final price, variant, stock and delivery before deciding. Saved catalog entries may be old. The app does not purchase anything for you.
+
+Open **More → Settings & backup** to export your wardrobe or import a previous backup. **Import replaces the current wardrobe:** export the current version first, check the displayed piece/look counts, then confirm only the backup you intended. A wardrobe backup can contain personal data; keep it private. The beta-test results export is a separate, smaller measurement file.
+
+## If something goes wrong
+
+| Situation | What to do |
+|---|---|
+| Sign-in asks for email confirmation | Check your inbox and spam folder, open the confirmation email, then sign in again. Use **Forgot password?** for a reset. |
+| Photo is blurry, dark or misses a piece | Keep correct detections, retake a closer photo or add the missing piece manually. |
+| AI is busy, unavailable or returns a fallback | Your saved clothes remain available. Try Quick matches, keep the useful starting point, or retry later. |
+| Changes have not synced | Keep the page open and use **Retry sync**. Export a backup before signing out. |
+| Two versions of the closet appear | Export this device's pending changes before loading the latest cloud version. Do not discard the only copy of unsynced work. |
+
+To report a defect, send the team the page/action, expected result, actual message, device/browser and approximate time. Include the request ID if shown. Do not post passwords, API keys, confirmation links or private photographs in a public issue.
+
+## Privacy and beta testing
+
+In **My style → AI preferences**, choose **Manual review** to add photos without AI analysis. Saved account photos still go to private Supabase storage. OpenAI recognition sends the analysis image to OpenAI. In knowledge settings, **Keyword only** avoids embedding API requests; retrieved notes can still reach your chosen styling model. **Quick** styling uses rules without generation. Styling sends reviewed descriptions, preferences and relevant notes, rather than your photo or display name. Removing a garment may leave private photo objects in cloud storage; full erasure and provider retention have not been independently audited. Avoid sensitive images and do not put payment details into purchase import.
+
+For a formal session, open **More → Beta test & feedback** and use a code such as `p01`. Record whether you operate the app yourself or an agent operates it while you review. Use your own untested photos, no sample clothes, and an agreed frozen release. Start each task timer, record passed/failed/skipped and assistance, then export. The team does not receive this file automatically. See the [test handoff](sprint9-delivery-checklist.md#independent-tester-handoff).

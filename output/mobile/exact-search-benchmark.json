@@ -1,0 +1,20 @@
+{
+  "measuredAt": "2026-10-20T19:06:01.807Z",
+  "chunks": 240,
+  "dimensions": 512,
+  "design": "Paired local searches with deterministic synthetic embeddings. Uncached preparation vs bounded prepared-record cache. Exact returned sources and scores checked on all 210 searches. No network/model-generation latency.",
+  "summary": {
+    "uncached": {
+      "samples": 100,
+      "medianTotalMs": 31.773400000000038,
+      "p95TotalMs": 56.76109999999994,
+      "medianScoringMs": 14.448
+    },
+    "prepared": {
+      "samples": 100,
+      "medianTotalMs": 18.611299999999574,
+      "p95TotalMs": 33.698799999999665,
+      "medianScoringMs": 2.147
+    }
+  }
+}

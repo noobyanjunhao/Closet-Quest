@@ -3,6 +3,7 @@ import './env.js';
 import { createAccess } from './access.js';
 import {createCloud,cloudConfigured} from './cloud.js';
 import {createCloudKnowledgeHydrator} from './cloud-knowledge.js';
+import {normalizePreferences} from '../src/preferences.js';
 import { recognizeWithProvider as recognize } from './recognition-provider.js';
 import { createKnowledgeStore } from './knowledge.js';
 import { recommend as style, resolveProvider } from './recommendation.js';
@@ -23,6 +24,7 @@ import { PIPELINE_VERSION } from './recognition.js';
 import { retrieveWardrobeHybrid } from './hybrid-retrieval.js';
 import { recordLearningEvent, getLearningStatus, exportLearningData } from './learning.js';
 import { modelFor } from './model-config.js';
+import {capabilityStatus} from './capability-status.js';
 import { analyzeInspiration } from './inspiration.js';
 import { personalizeRequest, applyPreferenceScores } from './personalization.js';
 import { retrievalDependenciesFor, interactiveRetrievalOptions, createScopedDocumentEmbeddings } from './retrieval-provider.js';
@@ -116,11 +118,11 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
       if(access.hosted&&(route.startsWith('/learning/')||route.startsWith('/depop/'))){res.statusCode=403;return res.end(JSON.stringify({error:'This integration is disabled on the participant deployment.'}));}
       if(req.method==='GET'&&route==='/status'){
         const models={recognition:modelFor('recognition'),stylist:modelFor('stylist'),embedding:modelFor('embedding')};
-        try {
-          const data=await handlers.listModels();
-          const installed=name=>data.models?.some(m=>m.name===name);
-          return res.end(JSON.stringify({model:models.recognition,models,openai:openAIStatus(),depop:depopStatus(),recommendationReady:true,pipelineVersion:PIPELINE_VERSION,ready:installed(models.recognition)&&installed(models.stylist),localRecognitionReady:installed(models.recognition),recognitionReady:installed(models.recognition)||openAIStatus().configured,stylistReady:installed(models.stylist),embeddingReady:installed(models.embedding),busy:active||queue.busy,durableJobs:true}));
-        }catch{return res.end(JSON.stringify({model:models.recognition,models,openai:openAIStatus(),depop:depopStatus(),recommendationReady:true,pipelineVersion:PIPELINE_VERSION,ready:false,localRecognitionReady:false,recognitionReady:openAIStatus().configured,stylistReady:false,embeddingReady:false,busy:active||queue.busy,durableJobs:true}));}
+        let installedModels=[];
+        // Render cannot reach the user's Ollama. Avoid a pointless localhost
+        // connection on every hosted page load/status refresh.
+        if(!access.hosted)try{installedModels=(await handlers.listModels()).models||[];}catch{}
+        return res.end(JSON.stringify(capabilityStatus({hosted:access.hosted,models,installedModels,openai:openAIStatus(),depop:depopStatus(),stylistPolicy:process.env.CLOSET_STYLIST_POLICY||'standard',purchaseImports:purchases?.info(),pipelineVersion:PIPELINE_VERSION,busy:active||queue.busy})));
       }
       if(req.method==='GET'&&['/depop/shop','/depop/products'].includes(route)) {
         controller=new AbortController();controllers.add(controller);abortDisconnected=()=>{if(!res.writableEnded)controller.abort();};res.once('close',abortDisconnected);
@@ -139,6 +141,9 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
       if(access.hosted&&['/jobs','/recognize','/style','/retrieve','/inspiration','/knowledge/documents','/knowledge/search','/knowledge/reindex'].includes(route))access.allowInference(user);
       if(access.hosted&&(body.provider==='local'||route==='/inspiration'))throw Object.assign(new Error('Local inference is unavailable on this cloud deployment. Select OpenAI or Quick matches.'),{status:400});
       const localStyle=route==='/style'&&resolveProvider(body.provider)==='local';
+      // Preserve the user's provider choice: a hosted server cannot use their
+      // local embedding model, so fall back to lexical retrieval, not a new API.
+      const hostedLocalEmbeddings=access.hosted&&normalizePreferences(body.preferences).embeddingProvider==='local';
       const cloudPhoto=['/jobs','/recognize'].includes(route)&&body.provider==='openai';
       const inference=(['/jobs','/recognize','/inspiration'].includes(route)&&!cloudPhoto)||localStyle;
       if(inference&&(active||purchases?.busy||(route!=='/jobs'&&(queue.localBusy??queue.busy)))){res.statusCode=429;return res.end(JSON.stringify({error:'The model is busy. Wait for the current analysis to finish, then retry.'}));}
@@ -149,30 +154,31 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
       if(route==='/shopping/library')return res.end(JSON.stringify(await shop.browse(body,{user})));
       if(route==='/shopping')return res.end(JSON.stringify(await shop.find(body,{user,signal:controller.signal,beforeSearch:()=>{if(access.hosted)access.allowInference(user);}})));
       if(route.startsWith('/knowledge/')) {
+        const localKnowledgeUnavailable=access.hosted&&(body.embeddingProvider||'local')==='local';
+        if(localKnowledgeUnavailable&&route==='/knowledge/reindex')throw Object.assign(new Error('Local embeddings are unavailable on this hosted app. Keyword search still works; select OpenAI to build a semantic index.'),{status:400,code:'LOCAL_EMBEDDINGS_UNAVAILABLE'});
         let saved,removed;
         if(cloud&&user?.cloud&&route==='/knowledge/documents')saved=await cloud.saveDocument(user,body);
         if(cloud&&user?.cloud&&route==='/knowledge/delete')removed=await cloud.removeDocument(user,body.id);
-        const store=await hydratedKnowledge(user,{signal:controller.signal});let result;
+        const store=await hydratedKnowledge(user,{signal:controller.signal,indexOnRead:!localKnowledgeUnavailable&&body.lexicalOnly!==true});let result;
         if(route==='/knowledge/list')result={documents:await store.list(body.wardrobeId)};
-        if(route==='/knowledge/documents')result=saved?{document:(await store.list(user.namespace)).find(d=>d.id===saved.id),indexing:{mode:'cloud-saved',message:'Saved to your account. Your search index is rebuilt as needed.'}}:await store.upsert(body.wardrobeId,body,{signal:controller.signal,embeddingProvider:body.embeddingProvider||'local'});
+        if(route==='/knowledge/documents')result=saved?{document:(await store.list(user.namespace)).find(d=>d.id===saved.id),indexing:{mode:'cloud-saved',message:'Saved to your account. Your search index is rebuilt as needed.'}}:await store.upsert(body.wardrobeId,body,{signal:controller.signal,embeddingProvider:body.embeddingProvider||'local',lexicalOnly:localKnowledgeUnavailable});
         if(route==='/knowledge/delete')result=removed||await store.remove(body.wardrobeId,body.id);
         if(route==='/knowledge/reindex')result=await store.reindex(body.wardrobeId,{signal:controller.signal,embeddingProvider:body.embeddingProvider||'local'});
-        if(route==='/knowledge/search')result=await store.search(body.wardrobeId,body.query,{signal:controller.signal,limit:4,lexicalOnly:body.lexicalOnly===true,embeddingProvider:body.embeddingProvider||'local'});
+        if(route==='/knowledge/search')result=await store.search(body.wardrobeId,body.query,{signal:controller.signal,limit:4,lexicalOnly:localKnowledgeUnavailable||body.lexicalOnly===true,embeddingProvider:body.embeddingProvider||'local'});
         return res.end(JSON.stringify(result||{ok:true}));
       }
       if(route==='/retrieve'){
         const personal=personalizeRequest(body);
         const request=[personal.request,personal.preferenceSummary].filter(Boolean).join(' ').slice(0,2000);
-        const prepared=await handlers.retrieveWardrobeHybrid(personal.items,{...personal,request,signal:controller.signal},{timeoutMs:6000,...retrievalDependenciesFor({provider:body.provider,embeddingProvider:personal.preferences.embeddingProvider,wardrobeId:body.wardrobeId}),...interactiveRetrievalOptions({...personal,provider:body.provider,studyCondition:body.studyCondition})});
+        const prepared=await handlers.retrieveWardrobeHybrid(personal.items,{...personal,request,signal:controller.signal},{timeoutMs:6000,...retrievalDependenciesFor({provider:body.provider,embeddingProvider:personal.preferences.embeddingProvider,wardrobeId:body.wardrobeId}),...interactiveRetrievalOptions({...personal,provider:body.provider,studyCondition:body.studyCondition}),...(hostedLocalEmbeddings?{enabled:false}:{})});
         const {retrieval}=applyPreferenceScores(prepared,personal);
         return res.end(JSON.stringify({retrieval}));
       }
       if(route==='/inspiration')return res.end(JSON.stringify(await handlers.analyzeInspiration(body.image,{signal:controller.signal})));
-      const work=()=>{controller.signal.throwIfAborted();return route==='/recognize'?handlers.recognize(body.image,{crop:body.crop,detectionMode:body.detectionMode,provider:body.provider,modelProfile:body.modelProfile,wardrobeId:body.wardrobeId,signal:controller.signal}):handlers.style(body,{signal:controller.signal,knowledgeSearch:async(wardrobeId,query,options)=>(await hydratedKnowledge(user,options)).search(wardrobeId,query,options)});};
+      const work=()=>{controller.signal.throwIfAborted();return route==='/recognize'?handlers.recognize(body.image,{crop:body.crop,detectionMode:body.detectionMode,provider:body.provider,modelProfile:body.modelProfile,wardrobeId:body.wardrobeId,signal:controller.signal}):handlers.style(body,{signal:controller.signal,retrievalDependencies:hostedLocalEmbeddings?{enabled:false}:{},knowledgeSearch:async(wardrobeId,query,options)=>{const effectiveOptions=hostedLocalEmbeddings?{...options,lexicalOnly:true,indexOnRead:false}:options;return(await hydratedKnowledge(user,effectiveOptions)).search(wardrobeId,query,effectiveOptions);}});};
       res.end(JSON.stringify(await(((route==='/style'&&!localStyle)||(route==='/recognize'&&cloudPhoto))?remoteWork.run(work):work())));
     }catch(error){if(!res.destroyed){res.statusCode=error.status||503;if(error.retryAfter||res.statusCode===429)res.setHeader('Retry-After',String(Math.min(3600,Math.max(1,error.retryAfter||30))));res.end(JSON.stringify({error:error.message,code:error.code,retryable:error.retryable===true}));}}
     finally{if(abortDisconnected)res.off('close',abortDisconnected);if(controller)controllers.delete(controller);if(claimed)active=false;}
   }
   return {middleware,close:()=>{closed=true;for(const controller of controllers)controller.abort();queue.close();knowledge?.close();void purchases?.close();},queue};
 }
-

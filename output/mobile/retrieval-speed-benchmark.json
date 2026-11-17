@@ -1,0 +1,250 @@
+{
+  "date": "2026-10-20T18:57:54.633Z",
+  "design": "Three synthetic briefs, 18 reviewed garments, one synthetic style note; sequential paired cold/warm retrieval. Live OpenAI embeddings, local process. No outfit acceptance or hosted total-latency claim.",
+  "summary": {
+    "wardrobeMs": {
+      "hybrid-cold": 739.84,
+      "hybrid-warm": 2.89,
+      "fast-small-closet": 0.65
+    },
+    "documentsMs": {
+      "cold-query": 197.54,
+      "cached-query": 0.46
+    }
+  },
+  "wardrobe": [
+    {
+      "request": "I am going to a wedding, give me something formal.",
+      "mode": "hybrid-cold",
+      "ms": 2104.19,
+      "retrieved": 18,
+      "allEligibleIncluded": true,
+      "embeddingCache": {
+        "scope": "wardrobe",
+        "requested": 19,
+        "unique": 7,
+        "hits": 0,
+        "memoryHits": 0,
+        "misses": 7,
+        "generated": 7
+      },
+      "acceleration": null
+    },
+    {
+      "request": "I am going to a wedding, give me something formal.",
+      "mode": "hybrid-warm",
+      "ms": 2.89,
+      "retrieved": 18,
+      "allEligibleIncluded": true,
+      "embeddingCache": {
+        "scope": "wardrobe",
+        "requested": 19,
+        "unique": 7,
+        "hits": 7,
+        "memoryHits": 7,
+        "misses": 0,
+        "generated": 0
+      },
+      "acceleration": null
+    },
+    {
+      "request": "I am going to a wedding, give me something formal.",
+      "mode": "fast-small-closet",
+      "ms": 1.48,
+      "retrieved": 18,
+      "allEligibleIncluded": true,
+      "embeddingCache": null,
+      "acceleration": {
+        "mode": "small-closet",
+        "allEligibleIncluded": true,
+        "remoteEmbeddingCalls": 0
+      }
+    },
+    {
+      "request": "Casual coffee with friends.",
+      "mode": "hybrid-cold",
+      "ms": 670.68,
+      "retrieved": 18,
+      "allEligibleIncluded": true,
+      "embeddingCache": {
+        "scope": "wardrobe",
+        "requested": 19,
+        "unique": 7,
+        "hits": 0,
+        "memoryHits": 0,
+        "misses": 7,
+        "generated": 7
+      },
+      "acceleration": null
+    },
+    {
+      "request": "Casual coffee with friends.",
+      "mode": "hybrid-warm",
+      "ms": 3.28,
+      "retrieved": 18,
+      "allEligibleIncluded": true,
+      "embeddingCache": {
+        "scope": "wardrobe",
+        "requested": 19,
+        "unique": 7,
+        "hits": 7,
+        "memoryHits": 7,
+        "misses": 0,
+        "generated": 0
+      },
+      "acceleration": null
+    },
+    {
+      "request": "Casual coffee with friends.",
+      "mode": "fast-small-closet",
+      "ms": 0.65,
+      "retrieved": 18,
+      "allEligibleIncluded": true,
+      "embeddingCache": null,
+      "acceleration": {
+        "mode": "small-closet",
+        "allEligibleIncluded": true,
+        "remoteEmbeddingCalls": 0
+      }
+    },
+    {
+      "request": "A polished look for a work presentation.",
+      "mode": "hybrid-cold",
+      "ms": 739.84,
+      "retrieved": 18,
+      "allEligibleIncluded": true,
+      "embeddingCache": {
+        "scope": "wardrobe",
+        "requested": 19,
+        "unique": 7,
+        "hits": 0,
+        "memoryHits": 0,
+        "misses": 7,
+        "generated": 7
+      },
+      "acceleration": null
+    },
+    {
+      "request": "A polished look for a work presentation.",
+      "mode": "hybrid-warm",
+      "ms": 1.58,
+      "retrieved": 18,
+      "allEligibleIncluded": true,
+      "embeddingCache": {
+        "scope": "wardrobe",
+        "requested": 19,
+        "unique": 7,
+        "hits": 7,
+        "memoryHits": 7,
+        "misses": 0,
+        "generated": 0
+      },
+      "acceleration": null
+    },
+    {
+      "request": "A polished look for a work presentation.",
+      "mode": "fast-small-closet",
+      "ms": 0.19,
+      "retrieved": 18,
+      "allEligibleIncluded": true,
+      "embeddingCache": null,
+      "acceleration": {
+        "mode": "small-closet",
+        "allEligibleIncluded": true,
+        "remoteEmbeddingCalls": 0
+      }
+    }
+  ],
+  "documents": [
+    {
+      "query": "I am going to a wedding, give me something formal.",
+      "mode": "cold-query",
+      "ms": 153.18,
+      "sources": 1,
+      "cache": {
+        "scope": "wardrobe",
+        "requested": 1,
+        "unique": 1,
+        "hits": 0,
+        "memoryHits": 0,
+        "misses": 1,
+        "generated": 1
+      }
+    },
+    {
+      "query": "I am going to a wedding, give me something formal.",
+      "mode": "cached-query",
+      "ms": 0.46,
+      "sources": 1,
+      "cache": {
+        "scope": "wardrobe",
+        "requested": 1,
+        "unique": 1,
+        "hits": 1,
+        "memoryHits": 1,
+        "misses": 0,
+        "generated": 0
+      }
+    },
+    {
+      "query": "Casual coffee with friends.",
+      "mode": "cold-query",
+      "ms": 451.45,
+      "sources": 1,
+      "cache": {
+        "scope": "wardrobe",
+        "requested": 1,
+        "unique": 1,
+        "hits": 0,
+        "memoryHits": 0,
+        "misses": 1,
+        "generated": 1
+      }
+    },
+    {
+      "query": "Casual coffee with friends.",
+      "mode": "cached-query",
+      "ms": 0.43,
+      "sources": 1,
+      "cache": {
+        "scope": "wardrobe",
+        "requested": 1,
+        "unique": 1,
+        "hits": 1,
+        "memoryHits": 1,
+        "misses": 0,
+        "generated": 0
+      }
+    },
+    {
+      "query": "A polished look for a work presentation.",
+      "mode": "cold-query",
+      "ms": 197.54,
+      "sources": 1,
+      "cache": {
+        "scope": "wardrobe",
+        "requested": 1,
+        "unique": 1,
+        "hits": 0,
+        "memoryHits": 0,
+        "misses": 1,
+        "generated": 1
+      }
+    },
+    {
+      "query": "A polished look for a work presentation.",
+      "mode": "cached-query",
+      "ms": 0.47,
+      "sources": 1,
+      "cache": {
+        "scope": "wardrobe",
+        "requested": 1,
+        "unique": 1,
+        "hits": 1,
+        "memoryHits": 1,
+        "misses": 0,
+        "generated": 0
+      }
+    }
+  ]
+}
