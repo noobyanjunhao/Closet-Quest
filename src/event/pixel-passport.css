@@ -1,0 +1,154 @@
+/* Pixel Passport styles. Everything is scoped under .cqpp so the ordinary
+   Closet Quest app, body and button rules are never touched. System fonts only. */
+.cqpp {
+  --ink: #263e33; --ink-soft: #4e5f55; --paper: #fbf8ef; --card: #fffdf6; --sage: #e4ecd9; --sage-deep: #c9d8bd;
+  --lav: #d9d2ee; --lav-deep: #7c70ae; --coral: #d4573f; --line: #cfd6c8; --focus: #1f5fbf;
+  --serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, monospace;
+  --step: polygon(0 6px, 6px 6px, 6px 0, calc(100% - 6px) 0, calc(100% - 6px) 6px, 100% 6px, 100% calc(100% - 6px), calc(100% - 6px) calc(100% - 6px), calc(100% - 6px) 100%, 6px 100%, 6px calc(100% - 6px), 0 calc(100% - 6px));
+  position: fixed; inset: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; z-index: 1;
+  background: var(--paper); color: var(--ink); font: 400 16px/1.5 var(--sans); -webkit-text-size-adjust: 100%;
+  background-image: radial-gradient(var(--sage) 1.5px, transparent 1.5px); background-size: 22px 22px;
+}
+.cqpp *, .cqpp *::before, .cqpp *::after { box-sizing: border-box; }
+.cqpp-screen { width: 100%; max-width: 460px; margin: 0 auto; padding: 20px 20px calc(36px + env(safe-area-inset-bottom)); display: flex; flex-direction: column; gap: 16px; min-height: 100%; background: var(--paper); animation: cqpp-in .35s ease-out both; }
+@media (min-width: 520px) { .cqpp-screen { margin: 24px auto; min-height: auto; border: 2px solid var(--line); border-radius: 28px; box-shadow: 0 18px 0 -8px var(--sage-deep); } }
+.cqpp h1 { font: 400 clamp(2rem, 9vw, 2.6rem)/1.08 var(--serif); margin: 4px 0 0; letter-spacing: -0.01em; outline: none; }
+.cqpp h2 { font: 400 1.5rem/1.2 var(--serif); margin: 0; outline: none; }
+.cqpp p { margin: 0; }
+.cqpp-lead { color: var(--ink-soft); font-size: 1.0625rem; }
+.cqpp-hint { color: var(--ink-soft); font-size: .9375rem; }
+.cqpp-center { text-align: center; }
+.cqpp-sr { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.cqpp-pixel { image-rendering: pixelated; image-rendering: crisp-edges; display: block; }
+
+.cqpp-brand { display: flex; align-items: center; gap: 12px; }
+.cqpp-brand-mark { font: 400 1.75rem/1 var(--serif); width: 44px; height: 44px; display: grid; place-items: center; background: var(--ink); color: var(--card); clip-path: var(--step); padding-bottom: 4px; }
+.cqpp-brand b { display: block; font: 700 .8125rem/1.2 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+.cqpp-brand small { display: block; font: 400 .75rem/1.3 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); }
+
+.cqpp-steps { list-style: none; display: flex; gap: 8px; padding: 0; margin: 0; font: 700 .75rem/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
+.cqpp-steps li { flex: 1; display: flex; align-items: center; gap: 6px; padding: 8px 0 0; border-top: 4px solid var(--line); }
+.cqpp-steps li span { display: none; }
+.cqpp-steps .is-done { border-color: var(--sage-deep); }
+.cqpp-steps .is-current { border-color: var(--ink); color: var(--ink); }
+
+/* Buttons: chunky stepped corners, at least 48px tall */
+.cqpp-btn { appearance: none; margin: 0; min-height: 52px; padding: 12px 20px; display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; background: var(--card); color: var(--ink); font: 700 1.0625rem/1.2 var(--sans); text-decoration: none; text-align: center; cursor: pointer; border: 2px solid var(--ink); border-radius: 0; box-shadow: 0 4px 0 var(--sage-deep); transition: transform .08s, filter .15s; -webkit-tap-highlight-color: transparent; }
+.cqpp-btn small { font: 400 .8125rem var(--sans); color: var(--ink-soft); }
+.cqpp-btn:active:not(:disabled) { transform: translateY(2px); }
+.cqpp-btn:hover:not(:disabled) { filter: brightness(1.04); }
+.cqpp-btn:disabled { opacity: .55; cursor: default; }
+.cqpp-btn-primary { background: var(--ink); color: #fff; min-height: 58px; font-size: 1.125rem; border: 0; clip-path: var(--step); box-shadow: inset 0 -6px 0 #16261f; }
+.cqpp-btn-quiet { background: transparent; border-color: transparent; box-shadow: none; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; font-weight: 600; }
+.cqpp-btn-small { min-height: 44px; padding: 8px 14px; font-size: .9375rem; width: auto; flex: 1; box-shadow: 0 3px 0 var(--sage-deep); }
+.cqpp-btn-small.cqpp-btn-quiet { box-shadow: none; }
+.cqpp-link { appearance: none; background: none; border: 0; padding: 12px; min-height: 44px; color: var(--ink); font: 600 1rem var(--sans); text-decoration: underline; text-underline-offset: 4px; cursor: pointer; text-align: center; align-self: center; }
+.cqpp :is(button, a, input, summary, label.cqpp-swatch):focus-visible, .cqpp label.cqpp-swatch:focus-within { outline: 3px solid var(--focus); outline-offset: 2px; }
+.cqpp-btn-primary:focus-visible { outline-offset: -7px; outline-color: #fff; box-shadow: inset 0 0 0 4px var(--focus); }
+.cqpp-row { display: flex; gap: 10px; }
+.cqpp-row-tight { justify-content: center; }
+.cqpp-row-tight .cqpp-btn { flex: 0 1 150px; }
+.cqpp-actions { display: flex; flex-direction: column; gap: 10px; }
+
+/* Entry */
+.cqpp-hero { position: relative; background: var(--sage); border-radius: 20px; padding: 22px 0 26px; display: grid; place-items: center; overflow: hidden; }
+.cqpp-hero-card { width: 58%; height: auto; transform: rotate(-4deg); box-shadow: 10px 12px 0 rgba(38, 62, 51, .18); animation: cqpp-float 5s ease-in-out infinite; }
+.cqpp-spark { position: absolute; width: 18px; height: 18px; background: linear-gradient(var(--card), var(--card)) center/100% 6px no-repeat, linear-gradient(var(--card), var(--card)) center/6px 100% no-repeat; animation: cqpp-twinkle 2.4s steps(2) infinite; }
+.cqpp-spark.s1 { top: 14%; left: 9%; } .cqpp-spark.s2 { top: 22%; right: 10%; animation-delay: .8s; } .cqpp-spark.s3 { bottom: 14%; left: 14%; animation-delay: 1.5s; }
+.cqpp-form { display: flex; flex-direction: column; gap: 10px; }
+.cqpp-form > label, .cqpp-field legend, .cqpp-details summary { font: 700 .8125rem/1.2 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink); }
+.cqpp-nickname { display: flex; gap: 8px; }
+.cqpp-nickname input { flex: 1; min-width: 0; min-height: 52px; padding: 10px 14px; font: 600 1.125rem var(--sans); color: var(--ink); background: var(--card); border: 2px solid var(--ink); border-radius: 0; }
+.cqpp-nickname .cqpp-btn { width: auto; flex: 0 0 auto; padding-inline: 12px; }
+
+/* Editor */
+.cqpp-stage { position: sticky; top: 0; z-index: 3; background: var(--sage); border-radius: 20px; height: 232px; display: grid; place-items: center; overflow: hidden; box-shadow: 0 8px 0 -4px var(--paper), 0 10px 14px -10px rgba(38, 62, 51, .5); background-image: linear-gradient(transparent 78%, var(--sage-deep) 78%); }
+.cqpp-stage-avatar { position: relative; z-index: 1; margin-top: -8px; animation: cqpp-pop .28s steps(4) both; }
+.cqpp-stage-avatar canvas { width: 168px; height: 210px; }
+.cqpp-stage-shadow { position: absolute; bottom: 12px; width: 150px; height: 14px; background: rgba(38, 62, 51, .18); clip-path: var(--step); }
+.cqpp-stage-name { position: absolute; top: 12px; left: 14px; font: 700 .75rem var(--mono); letter-spacing: .1em; text-transform: uppercase; background: var(--card); padding: 5px 9px; max-width: 60%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cqpp-field { border: 0; padding: 0; margin: 0; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+.cqpp-field legend { padding: 0; margin-bottom: 8px; }
+.cqpp-presets { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+.cqpp-preset { appearance: none; border: 2px solid var(--line); background: var(--card); padding: 6px 0 2px; cursor: pointer; display: grid; place-items: center; min-height: 76px; }
+.cqpp-preset canvas { width: 48px; height: 60px; }
+.cqpp-preset[aria-pressed="true"] { border-color: var(--ink); background: var(--sage); box-shadow: 0 4px 0 var(--ink); }
+.cqpp-tabs { display: flex; gap: 4px; border-bottom: 3px solid var(--ink); }
+.cqpp-tab { appearance: none; flex: 1; min-height: 48px; border: 2px solid var(--line); border-bottom: 0; background: var(--card); color: var(--ink-soft); font: 700 .875rem var(--mono); letter-spacing: .1em; text-transform: uppercase; cursor: pointer; }
+.cqpp-tab[aria-selected="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.cqpp-panel { display: flex; flex-direction: column; gap: 18px; }
+.cqpp-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.cqpp-chip { appearance: none; min-height: 44px; padding: 8px 14px; border: 2px solid var(--line); background: var(--card); color: var(--ink); font: 600 .9375rem var(--sans); cursor: pointer; }
+.cqpp-chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.cqpp-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(44px, 1fr)); gap: 8px; }
+.cqpp-swatch { appearance: none; position: relative; aspect-ratio: 1; min-height: 44px; border: 2px solid rgba(38, 62, 51, .35); background: var(--swatch); cursor: pointer; padding: 0; display: grid; place-items: center; }
+.cqpp-swatch[aria-pressed="true"], .cqpp-swatch-custom.is-active { border-color: var(--ink); box-shadow: 0 0 0 3px var(--card), 0 0 0 6px var(--ink); z-index: 1; }
+.cqpp-swatch[aria-pressed="true"]::after { content: ""; width: 14px; height: 14px; background: #fff; border: 3px solid var(--ink); }
+.cqpp-swatch-custom { background: var(--card); border-style: dashed; border-color: var(--ink); font: 700 1.375rem var(--mono); color: var(--ink); }
+.cqpp-swatch-custom.is-active { background: var(--swatch); color: #fff; text-shadow: 0 0 3px #000; }
+.cqpp-swatch-custom input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.cqpp-details { border: 2px solid var(--line); background: var(--card); padding: 0 14px; }
+.cqpp-details summary { min-height: 52px; display: flex; align-items: center; cursor: pointer; list-style: none; justify-content: space-between; }
+.cqpp-details summary::-webkit-details-marker { display: none; }
+.cqpp-details summary::after { content: "+"; font: 700 1.375rem var(--mono); }
+.cqpp-details[open] summary::after { content: "–"; }
+.cqpp-details[open] { padding-bottom: 16px; display: flex; flex-direction: column; gap: 18px; }
+.cqpp-details[open] > .cqpp-field + .cqpp-field { margin-top: 18px; }
+.cqpp-alert { background: #fbe9e4; border-left: 6px solid var(--coral); padding: 10px 12px; color: #6e2415; font-weight: 600; }
+
+/* Photo-first step */
+.cqpp-consent { display: grid; grid-template-columns: 28px 1fr; gap: 12px; align-items: start; padding: 14px; border: 2px solid var(--ink); background: var(--card); cursor: pointer; font-size: .9375rem; }
+.cqpp-consent input { width: 26px; height: 26px; margin: 0; accent-color: var(--ink); }
+.cqpp-note { background: var(--sage); border-left: 6px solid var(--ink); padding: 10px 12px; font-weight: 600; }
+.cqpp-building { background: var(--sage); border-radius: 20px; padding: 24px 20px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+.cqpp-building-avatar canvas { width: 168px; height: 210px; filter: grayscale(1) contrast(.7) brightness(1.15); animation: cqpp-bob 1s steps(2) infinite; }
+.cqpp-loader { display: flex; gap: 8px; }
+.cqpp-loader i { width: 14px; height: 14px; background: var(--ink); animation: cqpp-blink 1s steps(1) infinite; }
+.cqpp-loader i:nth-child(2) { animation-delay: .2s; } .cqpp-loader i:nth-child(3) { animation-delay: .4s; } .cqpp-loader i:nth-child(4) { animation-delay: .6s; } .cqpp-loader i:nth-child(5) { animation-delay: .8s; }
+@keyframes cqpp-bob { 50% { transform: translateY(-6px); } }
+@keyframes cqpp-blink { 0%, 100% { opacity: .2; } 40% { opacity: 1; } }
+
+/* Photo reference */
+.cqpp-photo { display: grid; grid-template-columns: 132px 1fr; gap: 12px; border: 2px solid var(--line); background: var(--card); padding: 10px; }
+.cqpp-photo-frame { position: relative; height: 176px; background: #1d2a24; }
+.cqpp-photo-frame canvas { width: 100%; height: 100%; object-fit: contain; display: block; cursor: crosshair; touch-action: manipulation; }
+.cqpp-photo-mark { position: absolute; width: 22px; height: 22px; margin: -11px 0 0 -11px; border: 3px solid #fff; box-shadow: 0 0 0 2px var(--ink); pointer-events: none; }
+.cqpp-photo-side { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.cqpp-photo-side .cqpp-chip { padding-inline: 10px; }
+
+/* Capture sheet */
+.cqpp-sheet-backdrop { position: fixed; inset: 0; z-index: 20; background: rgba(22, 38, 31, .55); display: flex; align-items: flex-end; justify-content: center; }
+.cqpp-sheet { width: 100%; max-width: 460px; max-height: 92%; overflow-y: auto; background: var(--paper); padding: 22px 20px calc(22px + env(safe-area-inset-bottom)); display: flex; flex-direction: column; gap: 12px; border-top: 4px solid var(--ink); animation: cqpp-sheet .25s ease-out both; }
+.cqpp-camera { position: relative; background: #1d2a24; aspect-ratio: 3 / 4; max-height: 46vh; display: grid; place-items: center; color: #fff; }
+.cqpp-camera video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.cqpp-camera span { position: relative; font-weight: 600; }
+
+/* Scene picker */
+.cqpp-scenes { display: flex; flex-direction: column; gap: 14px; }
+.cqpp-scene { appearance: none; display: grid; grid-template-columns: 138px 1fr; gap: 14px; align-items: center; text-align: left; padding: 8px; border: 2px solid var(--ink); background: var(--card); color: var(--ink); cursor: pointer; box-shadow: 0 6px 0 var(--sage-deep); transition: transform .1s, box-shadow .1s; font: inherit; }
+.cqpp-scene:hover, .cqpp-scene:focus-visible { transform: translateY(-2px); box-shadow: 0 8px 0 var(--ink); }
+.cqpp-scene:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--ink); }
+.cqpp-scene canvas { width: 138px; height: 129px; }
+.cqpp-scene b { display: block; font: 400 1.375rem/1.2 var(--serif); }
+.cqpp-scene small { display: block; margin-top: 4px; font-size: .9375rem; color: var(--ink-soft); }
+
+/* Result */
+.cqpp-card-wrap { position: relative; background: var(--lav); padding: 0; animation: cqpp-reveal .7s cubic-bezier(.2, 1.4, .4, 1) both; box-shadow: 10px 12px 0 rgba(124, 112, 174, .35); }
+.cqpp-card { width: 100%; height: auto; display: block; }
+.cqpp-confetti { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 2; }
+.cqpp-confetti i { position: absolute; top: -12px; left: calc(6% + var(--i) * 6.6%); width: 10px; height: 10px; background: hsl(calc(var(--i) * 47), 70%, 62%); animation: cqpp-fall 1.6s steps(12) calc(var(--i) * 45ms) both; }
+.cqpp-confirm { border: 2px solid var(--ink); background: var(--card); padding: 12px; display: flex; flex-direction: column; gap: 10px; }
+
+@keyframes cqpp-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes cqpp-sheet { from { transform: translateY(40px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes cqpp-pop { 0% { transform: translateY(6px) scale(.96); } 60% { transform: translateY(-4px) scale(1.02); } 100% { transform: none; } }
+@keyframes cqpp-float { 0%, 100% { transform: rotate(-4deg) translateY(0); } 50% { transform: rotate(-2.5deg) translateY(-6px); } }
+@keyframes cqpp-twinkle { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.6); } }
+@keyframes cqpp-reveal { 0% { opacity: 0; transform: scale(.82) rotate(-5deg); } 100% { opacity: 1; transform: none; } }
+@keyframes cqpp-fall { 0% { transform: translateY(0) rotate(0); opacity: 1; } 100% { transform: translateY(560px) rotate(270deg); opacity: 0; } }
+
+/* Motion off: the visitor's toggle and the system setting both land here */
+.cqpp[data-motion="reduced"] *, .cqpp[data-motion="reduced"] *::before, .cqpp[data-motion="reduced"] *::after { animation: none !important; transition: none !important; }
+@media (prefers-reduced-motion: reduce) { .cqpp-hero-card, .cqpp-spark { animation: none; } }
