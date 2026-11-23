@@ -24,8 +24,8 @@ export const EVENT_AVATAR_LIMITS = Object.freeze({ maxBodyBytes: 700_000, maxIma
 const ids = list => list.map(entry => entry.id);
 const hex = { type: 'string', pattern: '^#[0-9A-Fa-f]{6}$' };
 const part = list => ({ type: 'object', additionalProperties: false, required: ['type', 'color'], properties: { type: { type: 'string', enum: ids(list) }, color: hex } });
-const pick = list => ({ type: 'string', enum: ids(list) }), size = { type: 'string', enum: ['narrow', 'average', 'wide'] };
-const SIZE = Object.freeze({ narrow: -1, average: 0, wide: 1 });
+const pick = list => ({ type: 'string', enum: ids(list) }), size = { type: 'string', enum: ['narrow', 'slightly narrow', 'average', 'slightly wide', 'wide'] };
+const SIZE = Object.freeze({ narrow: -2, 'slightly narrow': -1, average: 0, 'slightly wide': 1, wide: 2 });
 export const CHARACTER_SCHEMA = Object.freeze({
   type: 'object', additionalProperties: false,
   required: ['person_visible', 'top', 'bottom', 'shoes', 'hair', 'skin_color', 'headwear', 'glasses', 'face_shape', 'build', 'eyes', 'eye_color', 'brows', 'nose', 'mouth', 'facial_hair', 'head_width', 'jaw', 'eye_spacing'],
@@ -35,7 +35,10 @@ export const CHARACTER_INSTRUCTIONS = [
   'You turn one outfit photo into settings for a small, friendly pixel-art character.',
   'Report only what is visible: the top, the bottom, the shoes, the hair style and hair colour, a skin colour, any headwear, and whether glasses are worn.',
   'Pick the closest allowed type for each part and give each colour as a six-digit hex value sampled from the photo.',
-  'So the drawing resembles the photo, also choose the closest drawing options for what is visible: face outline, body build, eye shape and eye colour, eyebrows, nose, mouth, facial hair, and whether the head, jaw and eye spacing look narrow, average or wide. Lean towards the more distinctive option when a feature stands out. These are drawing choices only.',
+  'When clothes are layered, the top is the outermost visible layer: an open blazer or jacket over a shirt is the type "jacket" in the jacket colour, not the shirt.',
+  'Sample the skin colour from an evenly lit area of the forehead or cheek, not from shadow, lips or blush.',
+  'So the drawing resembles the photo, also choose the closest drawing options for what is visible: face outline, body build, eye shape and eye colour, eyebrows, nose, mouth, facial hair, and how wide the head, jaw and eye spacing look.',
+  'A small drawing is only recognisable when it commits. For every feature pick the option that sets this face apart from a generic one, and use "average", "oval", "regular" or "medium" only when the feature is truly unremarkable. Report stubble or a beard shadow as "stubble". Use eye shape "narrow" only for clearly narrow eyes. These are drawing choices only.',
   'A one-piece dress is the top type "dress". If hair is fully covered, use hair type "none". If a part is not visible, choose a plain, neutral guess.',
   'Set person_visible to false when no person wearing clothes can be seen.',
   'Never identify the person and never infer or mention gender, age, ethnicity, health, attractiveness or personality.',
@@ -60,8 +63,7 @@ export function characterFromObservation(data) {
   set('glasses', data.glasses);
   set('faceId', data.face_shape); set('buildId', data.build); set('eyeId', data.eyes); set('eyeColor', data.eye_color);
   set('browId', data.brows); set('noseId', data.nose); set('mouthId', data.mouth); set('facialHairId', data.facial_hair);
-  // Stand-out proportions are pushed a little further than measured: mild exaggeration is what makes a small drawing recognisable.
-  for (const [field, value, scale] of [['headWidth', data.head_width, 2], ['jaw', data.jaw, 2], ['eyeGap', data.eye_spacing, 1]]) if (Object.hasOwn(SIZE, value)) set(field, SIZE[value] * scale);
+  for (const [field, value] of [['headWidth', data.head_width], ['jaw', data.jaw], ['eyeGap', data.eye_spacing]]) if (Object.hasOwn(SIZE, value)) set(field, Math.max(manifest.sliders[field][0], Math.min(manifest.sliders[field][1], SIZE[value])));
   if (!validateSpec(spec).ok) return null;
   const { presetId, ...outfit } = spec.outfit;
   return { outfit, appearance: spec.appearance };
@@ -90,7 +92,7 @@ export function createEventAvatar({ env = process.env, analyze, normalize = norm
   const configuredCalls = Number.parseInt(env.CLOSET_EVENT_AI_MAX_CALLS || '', 10);
   const limits = { ...EVENT_AVATAR_LIMITS, ...(Number.isInteger(configuredCalls) && configuredCalls >= 0 && configuredCalls <= 2000 ? { maxCalls: configuredCalls } : {}), ...overrides };
   const enabled = env.CLOSET_EVENT_AI === '1' && (Boolean(analyze) || Boolean(env.OPENAI_API_KEY?.trim()));
-  const run = analyze || (async image => (await createOpenAIChat({ apiKey: env.OPENAI_API_KEY, task: 'recognition', modelProfile: 'fast', timeoutMs: limits.timeoutMs, maxOutputTokens: 900, imageDetail: 'low' })(CHARACTER_SCHEMA, CHARACTER_INSTRUCTIONS, 'Describe this outfit photo as pixel character settings.', image)).data);
+  const run = analyze || (async image => (await createOpenAIChat({ apiKey: env.OPENAI_API_KEY, task: 'recognition', modelProfile: 'fast', timeoutMs: limits.timeoutMs, maxOutputTokens: 900, imageDetail: 'high' })(CHARACTER_SCHEMA, CHARACTER_INSTRUCTIONS, 'Describe this outfit photo as pixel character settings.', image)).data);
   const publicOrigin = env.CLOSET_PUBLIC_ORIGIN || '';
   const visitors = new Map(); let calls = 0, active = 0;
 
