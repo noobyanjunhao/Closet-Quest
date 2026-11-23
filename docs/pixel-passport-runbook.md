@@ -11,7 +11,8 @@ Design source: `docs/pixel-passport-implementation-handoff.md`.
 | `src/main.jsx` | Chooses the event root or the account app from the pathname. Both are lazy imports, so an event visitor never loads `AccessGate`. |
 | `server/start.mjs` | Maps the two exact event paths to `dist/index.html`. There is no general SPA fallback. |
 | `src/event/event-config.js` | `enabled`, event ID, optional display name and date. Build-time only. |
-| `src/event/manifest.js` | Presets, parts, swatches, scenes and captions for renderer `cq-pixel-v1`. |
+| `src/event/manifest.js` | Presets, parts, swatches, scenes and captions for renderer `cq-pixel-v2`. |
+| `src/event/figure.js` | The 96 x 136 full-body figure: shapes, shading, hair, face and build parts. |
 | `src/event/state.js` | Character specification, validation, edits and the screen reducer. |
 | `src/event/render-avatar.js`, `scenes.js`, `render-card.js` | All artwork is drawn from code. One path serves preview, reveal and export. |
 | `src/event/capture.js`, `palette.js` | Optional on-device photo reference, camera and colour sampling. |

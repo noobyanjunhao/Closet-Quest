@@ -4,7 +4,7 @@
 import { manifest as defaultManifest } from './manifest.js';
 import { resolveScene } from './state.js';
 import { buildAvatarDrawPlan, poseForScene, drawPlan } from './render-avatar.js';
-import { buildScenePlan, SCENE_W, SCENE_H, AVATAR_X, AVATAR_Y } from './scenes.js';
+import { buildScenePlan, SCENE_W, SCENE_H, AVATAR_X, AVATAR_Y, AVATAR_SCALE } from './scenes.js';
 
 export const CARD_W = 1080, CARD_H = 1350;
 export const CARD_FILENAME = 'closet-quest-pixel-passport.png';
@@ -64,7 +64,7 @@ export function drawScene(ctx, spec, { sceneId = spec.sceneId, frame = null, x =
   const avatar = buildAvatarDrawPlan(spec, poseForScene(scene.reveal, frame));
   ctx.save(); ctx.beginPath(); ctx.rect(x, y, SCENE_W * scale, SCENE_H * scale); ctx.clip();
   drawPlan(ctx, { rects: plan.back }, x, y, scale);
-  drawPlan(ctx, avatar, x + AVATAR_X * scale, y + AVATAR_Y * scale, scale);
+  drawPlan(ctx, avatar, x + AVATAR_X * scale, y + AVATAR_Y * scale, scale * AVATAR_SCALE);
   drawPlan(ctx, { rects: plan.front }, x, y, scale);
   ctx.restore();
 }

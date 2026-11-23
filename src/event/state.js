@@ -8,7 +8,10 @@ export const NICKNAME_MAX = 20;
 export const FALLBACK_NICKNAME = 'Pixel Pal';
 const HEX = /^#[0-9A-F]{6}$/;
 const OUTFIT_KEYS = ['presetId', 'topId', 'topColor', 'bottomId', 'bottomColor', 'shoeId', 'shoeColor'];
-const APPEARANCE_KEYS = ['skinColor', 'hairId', 'hairColor', 'headwearId', 'headwearColor', 'glasses'];
+const APPEARANCE_KEYS = ['skinColor', 'hairId', 'hairColor', 'headwearId', 'headwearColor', 'glasses', 'faceId', 'buildId', 'eyeId', 'eyeColor', 'browId', 'noseId', 'mouthId', 'facialHairId', 'headWidth', 'jaw', 'eyeGap'];
+// Face and body parts chosen from a list, and the three whole-number sliders.
+const FACE_PARTS = Object.freeze({ faceId: 'faces', buildId: 'builds', eyeId: 'eyes', browId: 'brows', noseId: 'noses', mouthId: 'mouths', facialHairId: 'facialHair' });
+const inRange = (value, [low, high]) => Number.isInteger(value) && value >= low && value <= high;
 const SPEC_KEYS = ['schemaVersion', 'rendererVersion', 'eventId', 'nickname', 'outfit', 'appearance', 'sceneId', 'motion'];
 
 // Control characters, bidi overrides/isolates and invisible marks that could
@@ -89,6 +92,9 @@ export function validateSpec(input, manifest = defaultManifest) {
     if (!has('headwear', appearance.headwearId)) errors.push('appearance.headwearId is not recognised');
     for (const key of ['skinColor', 'hairColor', 'headwearColor']) if (typeof appearance[key] !== 'string' || !HEX.test(appearance[key])) errors.push(`appearance.${key} must be a six-digit hex colour`);
     if (typeof appearance.glasses !== 'boolean') errors.push('appearance.glasses must be true or false');
+    for (const [key, table] of Object.entries(FACE_PARTS)) if (!has(table, appearance[key])) errors.push(`appearance.${key} is not recognised`);
+    if (typeof appearance.eyeColor !== 'string' || !HEX.test(appearance.eyeColor)) errors.push('appearance.eyeColor must be a six-digit hex colour');
+    for (const [key, range] of Object.entries(manifest.sliders)) if (!inRange(appearance[key], range)) errors.push(`appearance.${key} is out of range`);
   }
   if (errors.length) return { ok: false, errors, spec: null };
   return {
@@ -96,7 +102,7 @@ export function validateSpec(input, manifest = defaultManifest) {
     spec: {
       schemaVersion: 1, rendererVersion: input.rendererVersion, eventId: input.eventId, nickname: input.nickname,
       outfit: { presetId: outfit.presetId, topId: outfit.topId, topColor: outfit.topColor, bottomId: outfit.bottomId, bottomColor: outfit.bottomColor, shoeId: outfit.shoeId, shoeColor: outfit.shoeColor },
-      appearance: { skinColor: appearance.skinColor, hairId: appearance.hairId, hairColor: appearance.hairColor, headwearId: appearance.headwearId, headwearColor: appearance.headwearColor, glasses: appearance.glasses },
+      appearance: { skinColor: appearance.skinColor, hairId: appearance.hairId, hairColor: appearance.hairColor, headwearId: appearance.headwearId, headwearColor: appearance.headwearColor, glasses: appearance.glasses, faceId: appearance.faceId, buildId: appearance.buildId, eyeId: appearance.eyeId, eyeColor: appearance.eyeColor, browId: appearance.browId, noseId: appearance.noseId, mouthId: appearance.mouthId, facialHairId: appearance.facialHairId, headWidth: appearance.headWidth, jaw: appearance.jaw, eyeGap: appearance.eyeGap },
       sceneId: input.sceneId, motion: input.motion
     }
   };
@@ -106,7 +112,8 @@ const EDITS = {
   topId: ['outfit', 'tops'], bottomId: ['outfit', 'bottoms'], shoeId: ['outfit', 'shoes'],
   hairId: ['appearance', 'hair'], headwearId: ['appearance', 'headwear'],
   topColor: ['outfit'], bottomColor: ['outfit'], shoeColor: ['outfit'],
-  skinColor: ['appearance'], hairColor: ['appearance'], headwearColor: ['appearance']
+  skinColor: ['appearance'], hairColor: ['appearance'], headwearColor: ['appearance'],
+  eyeColor: ['appearance'], ...Object.fromEntries(Object.entries(FACE_PARTS).map(([field, table]) => [field, ['appearance', table]]))
 };
 
 // Applies one named edit. An invalid edit returns the same specification
@@ -114,6 +121,7 @@ const EDITS = {
 export function applyEdit(spec, field, value) {
   if (field === 'nickname') return { ...spec, nickname: normalizeNickname(value) };
   if (field === 'glasses') return typeof value === 'boolean' ? { ...spec, appearance: { ...spec.appearance, glasses: value } } : spec;
+  if (Object.hasOwn(defaultManifest.sliders, field)) return inRange(value, defaultManifest.sliders[field]) && spec.appearance[field] !== value ? { ...spec, appearance: { ...spec.appearance, [field]: value } } : spec;
   if (field === 'motion') return defaultManifest.motions.includes(value) ? { ...spec, motion: value } : spec;
   if (field === 'sceneId') return has('scenes', value) ? { ...spec, sceneId: value } : spec;
   if (field === 'presetId') {
@@ -129,7 +137,7 @@ export function applyEdit(spec, field, value) {
   return { ...spec, [group]: { ...spec[group], [field]: next } };
 }
 
-const CHARACTER_FIELDS = Object.freeze({ outfit: ['topId', 'topColor', 'bottomId', 'bottomColor', 'shoeId', 'shoeColor'], appearance: ['skinColor', 'hairId', 'hairColor', 'headwearId', 'headwearColor', 'glasses'] });
+const CHARACTER_FIELDS = Object.freeze({ outfit: ['topId', 'topColor', 'bottomId', 'bottomColor', 'shoeId', 'shoeColor'], appearance: APPEARANCE_KEYS });
 
 // Applies character settings that came from outside the page (the photo step).
 // Only known fields are read, each through applyEdit, so anything unexpected is ignored.

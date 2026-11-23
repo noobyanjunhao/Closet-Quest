@@ -8,7 +8,7 @@ import {manifest} from '../src/event/manifest.js';
 import {createDefaultSpec,applyCharacter,validateSpec,reducer,createInitialState} from '../src/event/state.js';
 import {requestCharacter,likenessAvailable,encodePhoto,LIKENESS_ENDPOINT} from '../src/event/likeness.js';
 
-const observation={person_visible:true,top:{type:'hoodie',color:'#3366cc'},bottom:{type:'shorts',color:'#222222'},shoes:{type:'boots',color:'#7A5238'},hair:{type:'curly',color:'#1F1B1E'},skin_color:'#A66B46',headwear:{type:'cap',color:'#E0705A'},glasses:false};
+const observation={person_visible:true,top:{type:'hoodie',color:'#3366cc'},bottom:{type:'shorts',color:'#222222'},shoes:{type:'boots',color:'#7A5238'},hair:{type:'curly',color:'#1F1B1E'},skin_color:'#A66B46',headwear:{type:'cap',color:'#E0705A'},glasses:false,face_shape:'square',build:'broad',eyes:'wide',eye_color:'#4f7fc2',brows:'thick',nose:'wide',mouth:'wide',facial_hair:'stubble',head_width:'wide',jaw:'narrow',eye_spacing:'wide'};
 const jpeg=await sharp({create:{width:40,height:60,channels:3,background:'#3366cc'}}).jpeg().toBuffer();
 const ON={CLOSET_EVENT_AI:'1'};
 
@@ -28,7 +28,9 @@ test('the model schema only offers manifest parts, and its reply is mapped throu
   assert.deepEqual(CHARACTER_SCHEMA.properties.top.properties.type.enum,manifest.tops.map(t=>t.id));assert.equal(CHARACTER_SCHEMA.additionalProperties,false);
   assert.match(CHARACTER_INSTRUCTIONS,/Never identify the person/);assert.match(CHARACTER_INSTRUCTIONS,/gender, age, ethnicity/);
   const character=characterFromObservation(observation);
-  assert.deepEqual(character,{outfit:{topId:'hoodie',topColor:'#3366CC',bottomId:'shorts',bottomColor:'#222222',shoeId:'boots',shoeColor:'#7A5238'},appearance:{skinColor:'#A66B46',hairId:'curly',hairColor:'#1F1B1E',headwearId:'cap',headwearColor:'#E0705A',glasses:false}});
+  assert.deepEqual(character,{outfit:{topId:'hoodie',topColor:'#3366CC',bottomId:'shorts',bottomColor:'#222222',shoeId:'boots',shoeColor:'#7A5238'},appearance:{skinColor:'#A66B46',hairId:'curly',hairColor:'#1F1B1E',headwearId:'cap',headwearColor:'#E0705A',glasses:false,faceId:'square',buildId:'broad',eyeId:'wide',eyeColor:'#4F7FC2',browId:'thick',noseId:'wide',mouthId:'wide',facialHairId:'stubble',headWidth:2,jaw:-2,eyeGap:1}});
+  {const plain=characterFromObservation({...observation,face_shape:'triangle',head_width:'huge',eye_color:'blue',facial_hair:7});assert.equal(plain.appearance.faceId,'oval');assert.equal(plain.appearance.headWidth,0);assert.equal(plain.appearance.eyeColor,'#6B4226');assert.equal(plain.appearance.facialHairId,'none');}
+  assert.deepEqual(CHARACTER_SCHEMA.properties.face_shape.enum,manifest.faces.map(f=>f.id));
   const odd=characterFromObservation({...observation,top:{type:'cape',color:'javascript:1'},skin_color:'tan',glasses:'yes',extra:{a:1}});
   assert.equal(odd.outfit.topId,'jacket');assert.equal(odd.outfit.topColor,'#627F62');assert.equal(odd.appearance.glasses,true);assert.equal(JSON.stringify(odd).includes('javascript'),false);
   for(const none of [null,'x',{},{...observation,person_visible:false},{...observation,person_visible:'true'}])assert.equal(characterFromObservation(none),null);

@@ -3,7 +3,8 @@
 // buildScenePlan returns { back, front }: rectangles behind and in front of the
 // character. `frame` is null for the static card and 0..n during the reveal.
 export const SCENE_W = 92, SCENE_H = 86, FLOOR_Y = 62;
-export const AVATAR_X = 14, AVATAR_Y = 5;
+// The figure is drawn at 0.6 of the scene's pixel size (6 px per figure pixel on the saved card).
+export const AVATAR_SCALE = 0.6, AVATAR_X = 17, AVATAR_Y = 0;
 
 function painter() {
   const rects = [];
