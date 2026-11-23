@@ -70,8 +70,8 @@ export default function ShoppingFinds({ideas=[],occasion='',store,onResults,init
   </div>
   {phase==='shelf'&&<p role="status">Checking the saved shop library…</p>}
   {error&&<p role="alert" className="shopping-search-error">{error}</p>}
-  {showResults&&<><div className="shopping-results-heading"><div><h4>{priced.length?'Your shortlist':products.length?'Explore these pieces':'No matching price on file'}</h4>
-   <p role="status">{priced.length?priced.length+' finds · Lowest price first':products.length?'Retailer links · Check prices and availability in store':'Try another filter or check a retailer directly.'}</p></div>
+  {showResults&&<><div className="shopping-results-heading"><div><h4>{priced.length?(result?.relaxed?.length?'Closest saved finds':'Your shortlist'):products.length?'Explore these pieces':'No matching price on file'}</h4>
+   <p role="status">{priced.length?(result?.relaxed?.length?'No exact match for that '+result.relaxed.map(f=>f==='kind'?'type':f).join(' and ')+' yet · ':'')+priced.length+' finds · Lowest price first':products.length?'Retailer links · Check prices and availability in store':'Try another filter or check a retailer directly.'}</p></div>
    {products.length>0&&<label className="shopping-photo-filter"><input type="checkbox" checked={photosOnly} onChange={e=>setPhotosOnly(e.target.checked)}/> With photos</label>}</div>
    <ShoppingProductCards products={visible}/>
    {photosOnly&&products.length>0&&!visible.length&&<p>Turn off “With photos” to see the product links.</p>}

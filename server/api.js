@@ -86,7 +86,7 @@ export function createApi({storageDir=process.env.CLOSET_JOB_DIR||fileURLToPath(
       if(req.method==='POST'&&route==='/session/logout'){access.logout(res);return res.end('{}');}
       const user=cloud?await cloud.authenticate(req,res):access.require(req);
       if(cloud&&!user)throw Object.assign(new Error('Sign in to open your closet.'),{status:401,code:'SIGN_IN_REQUIRED'});
-      if(route==='/beta/status'&&req.method==='GET')return res.end(JSON.stringify({release:releaseInfo(),shopping:shop.stats?.(),cloudWork:remoteWork.stats(),privacy:{photos:'Selected AI provider receives analysis photos. Saved images are private to your account.',retention:'Finished photo-job inputs are removed; result retention is 30 minutes. Saved cloud photos require separate cleanup; deleting a piece does not yet erase every stored copy.'}}));
+      if(route==='/beta/status'&&req.method==='GET')return res.end(JSON.stringify({release:releaseInfo(),shopping:shop.stats?.(),shoppingSearches:handlers.searchShopping?.diagnostics?.()||[],cloudWork:remoteWork.stats(),privacy:{photos:'Selected AI provider receives analysis photos. Saved images are private to your account.',retention:'Finished photo-job inputs are removed; result retention is 30 minutes. Saved cloud photos require separate cleanup; deleting a piece does not yet erase every stored copy.'}}));
       if(route==='/imports/config'&&req.method==='GET')return res.end(JSON.stringify(purchases?.info()||{enabled:false}));
       if(route==='/imports'||route.startsWith('/imports/')){
         if(!purchases)throw Object.assign(new Error('Purchase imports are not enabled on this server.'),{status:404,code:'IMPORT_DISABLED'});

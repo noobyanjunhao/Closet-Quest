@@ -73,3 +73,13 @@ test('an exhausted first caller cannot deny another account sharing its query',a
  await assert.rejects(denied,e=>e.status===429);assert.equal((await eligible).products.length,6);
  assert.equal(calls,1);assert.equal(allowed,1);assert.equal(library.stats().failures,0);
 });
+
+test('a failed live search offers the closest saved finds and labels them',async()=>{
+ const {createShoppingLibrary}=await import('../server/shopping-library.js');
+ const at=new Date().toISOString();
+ const seed=[{query:{category:'Top',occasion:'everyday',presentation:'any'},searchedAt:at,products:[{title:'Navy merino sweater',url:'https://www.everlane.com/products/navy-merino',price:98,currency:'USD'}]}];
+ const lib=createShoppingLibrary({seed,search:async()=>{throw Object.assign(Error('down'),{status:503});}});
+ const out=await lib.find({category:'Top',kind:'sweater',color:'cream',occasion:'everyday'});
+ assert.equal(out.source,'saved-fallback');assert.deepEqual(out.relaxed,['color']);assert.equal(out.products[0].title,'Navy merino sweater');
+ await assert.rejects(lib.find({category:'Dress',occasion:'everyday'}));
+});

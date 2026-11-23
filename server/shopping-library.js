@@ -94,10 +94,14 @@ export function createShoppingLibrary({search,cloud,seed,storageDir,now=Date.now
    if(fresh.length){stats.cacheHits++;const cached=result(fresh,q,'library');await saveFor(user,{query:q,products:fresh,searchedAt:cached.searchedAt});return cached;}
    for(const[k,until]of failures)if(until<=now())failures.delete(k);
    const older=selection(entries,q,false);
-   const fallback=()=>{stats.fallbacks++;return result(older,q,'saved-fallback',{stale:true,notice:'Live search is unavailable. These are previously saved finds. '+notice});};
+   // With no saved match for the exact request, offer the nearest saved pieces (colour first, then product type) and say so.
+   const nearest=()=>{for(const drop of [['color'],['color','kind']]){const loose={...q};for(const f of drop)delete loose[f];if(drop.every(f=>q[f]===undefined))continue;const found=selection(entries,loose,false);if(found.length)return {products:found,dropped:drop.filter(f=>q[f]!==undefined)};}return null;};
+   const close=nearest;
+   const fallback=()=>{stats.fallbacks++;if(older.length)return result(older,q,'saved-fallback',{stale:true,notice:'Live search is unavailable. These are previously saved finds. '+notice});const near=close();return result(near.products,q,'saved-fallback',{stale:true,relaxed:near.dropped,notice:'No exact match was found. These are the closest saved finds. '+notice});};
+   const canFallback=()=>older.length>0||!!close();
    const id=key(q),joined=pending.has(id);if(!joined){
     if(now()<openUntil||failures.has(id)){
-     if(older.length)return fallback();
+     if(canFallback())return fallback();
      throw Object.assign(Error('Shop search is resting after a connection problem. Try again in a little while.'),{status:503,code:'SHOPPING_COOLDOWN',retryable:true,retryAfter:Math.max(1,Math.ceil((Math.max(openUntil,failures.get(id)||0)-now())/1000))});
     }
     let searchStarted=false;
@@ -110,7 +114,7 @@ export function createShoppingLibrary({search,cloud,seed,storageDir,now=Date.now
     }).finally(()=>pending.delete(id));pending.set(id,task);
    }else stats.coalesced++;
    try{const entry=await waitFor(pending.get(id),signal);await saveFor(user,entry);return result(entry.products,q,'live');}
-   catch(e){if(signal?.aborted)throw e;if(older.length)return fallback();
+   catch(e){if(signal?.aborted)throw e;if(canFallback())return fallback();
     // A different account's exhausted allowance must not deny an eligible waiter.
     // The rejected task has left pending; this waiter may start with its own quota.
     if(joined&&admissionFailures.has(e))return find(input,{user,signal,beforeSearch});
