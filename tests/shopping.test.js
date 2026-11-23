@@ -21,7 +21,7 @@ test('shopping request minimization, private destinations and prompt-like catego
 });
 test('shopping caches by account and request, and bounds concurrent searches',async()=>{
  let calls=0,release;const gate=new Promise(r=>release=r);
- const search=createShoppingSearch({apiKey:'test',fetchImpl:async()=>{calls++;await gate;return new Response(JSON.stringify(response()));}});
+ const search=createShoppingSearch({apiKey:'test',fetchImpl:async url=>{if(!String(url).includes('api.openai.com'))return new Response('',{status:404});/* product-page checks are not provider calls */calls++;await gate;return new Response(JSON.stringify(response()));}});
  const a=search(query,{scope:'a'}),b=search(query,{scope:'b'});await assert.rejects(search(query,{scope:'c'}),e=>e.status===429);release();await Promise.all([a,b]);assert.equal(calls,2);assert.equal((await search(query,{scope:'a'})).cached,true);assert.equal(calls,2);await search(query,{scope:'c'});assert.equal(calls,3);
 });
 test('provider failure and malformed search output are explicit, never fake products',async()=>{
@@ -66,4 +66,19 @@ test('a price missing from search snippets is kept only when the retailer page d
  assert.equal(out.products[0].image,'https://media.everlane.com/a.jpg');
  assert.equal('needsPriceCheck' in out.products[0],false);
  const d=search.diagnostics().at(-1);assert.equal(d.kept,1);assert.equal(d.priceNotObserved,1);assert.equal(d.proposed,2);
+});
+
+test('round two: links outside the search sources and wrong prices are settled on the retailer page',async()=>{
+ const {createShoppingSearch}=await import('../server/shopping.js');
+ const {matchesShopProduct}=await import('../src/shop-brief.js');
+ assert.equal(matchesShopProduct({title:'Slim straight jeans',url:'https://www2.hm.com/en_us/productpage.123.html'},{category:'Bottom',kind:'jeans',color:'blue'}),true);
+ assert.equal(matchesShopProduct({title:'Black slim jeans'},{category:'Bottom',kind:'jeans',color:'blue'}),false);
+ assert.equal(matchesShopProduct({title:'Wide-leg pants',url:'https://www.uniqlo.com/us/en/products/E1-000/wide-jeans-dark-blue'},{category:'Bottom',kind:'jeans',color:'blue'}),true);
+ const good='https://www.nordstrom.com/s/satin-midi-dress/7654321',cheap='https://www.uniqlo.com/us/en/products/E469872-000/00',listing='https://www.nordstrom.com/browse/women/dresses';
+ const openai={status:'completed',output:[{type:'web_search_call',action:{sources:[{url:cheap}]},results:[{type:'text_result',url:cheap,snippet:'Save $1.90 today. Crossbody dress $19.90'}]},{type:'message',content:[{type:'output_text',text:JSON.stringify({products:[{title:'Satin midi dress',url:good,price:129,currency:'USD'},{title:'Mini dress',url:cheap,price:1.9,currency:'USD'},{title:'Jersey dress',url:cheap+'?x=1',price:19.9,currency:'USD'},{title:'Dresses',url:listing,price:50,currency:'USD'}]})}]}]};
+ const page=price=>new Response(`<script type="application/ld+json">{"@type":"Product","offers":{"price":${price},"priceCurrency":"USD"}}</script>`,{headers:{'content-type':'text/html'}});
+ const search=createShoppingSearch({apiKey:'k',fetchImpl:async url=>String(url).includes('api.openai.com')?Response.json(openai):page(String(url)===good?129:19.9)});
+ const out=await search({category:'Dress',occasion:'formal',maxPrice:200});
+ assert.deepEqual(out.products.map(p=>p.price),[19.9,129]);
+ const d=search.diagnostics().at(-1);assert.equal(d.implausiblePrice,1);assert.equal(d.notProductPage,1);assert.deepEqual(d.samples.notProductPage,['nordstrom.com/browse/women/dresses']);
 });
