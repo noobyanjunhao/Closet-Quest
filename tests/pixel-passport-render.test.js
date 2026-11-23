@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {manifest} from '../src/event/manifest.js';
 import {createDefaultSpec,applyEdit} from '../src/event/state.js';
-import {buildAvatarDrawPlan,poseForScene,REST_POSE,SPRITE_W,SPRITE_H,OUTLINE,darken} from '../src/event/render-avatar.js';
+import {buildAvatarDrawPlan,poseForScene,REST_POSE,SPRITE_W,SPRITE_H,outlineOf} from '../src/event/render-avatar.js';
 import {buildScenePlan,SCENE_W,SCENE_H} from '../src/event/scenes.js';
 import {describeCard,drawCard,CARD_W,CARD_H,CARD_LAYOUT,CARD_FILENAME,pixelTextWidth} from '../src/event/render-card.js';
 import {containRect,mapPointToSource,medianColor,rgbToHex} from '../src/event/palette.js';
@@ -13,24 +13,26 @@ const colors=plan=>new Set(plan.rects.map(r=>r.color));
 const area=(plan,color)=>plan.rects.filter(r=>r.color===color).reduce((n,r)=>n+r.w*r.h,0);
 const inBounds=(rects,w,h)=>rects.every(r=>r.x>=0&&r.y>=0&&r.w>0&&r.h>0&&r.x+r.w<=w&&r.y+r.h<=h&&/^#[0-9A-F]{6}$/i.test(r.color));
 
-test('every legal part combination renders inside the 64 x 80 sprite in every pose',()=>{
+test('every legal part combination renders inside the 96 x 144 sprite in every pose',()=>{
   let count=0;const base=createDefaultSpec();
   for(const top of manifest.tops)for(const bottom of manifest.bottoms)for(const shoe of manifest.shoes)for(const hair of manifest.hair)for(const headwear of manifest.headwear){
     let spec=base;for(const [f,v] of [['topId',top.id],['bottomId',bottom.id],['shoeId',shoe.id],['hairId',hair.id],['headwearId',headwear.id]])spec=applyEdit(spec,f,v);
     for(const scene of manifest.scenes)for(const frame of [null,3]){const plan=buildAvatarDrawPlan(spec,poseForScene(scene.reveal,frame));assert.ok(inBounds(plan.rects,SPRITE_W,SPRITE_H));assert.ok(plan.rects.length>50);count++;}
   }
-  assert.equal(count,5*3*3*7*4*6);
+  assert.equal(count,5*3*3*manifest.hair.length*4*6);
+  // Face, build and slider extremes stay inside the sprite too, including the jump.
+  for(const face of manifest.faces)for(const build of manifest.builds)for(const beard of manifest.facialHair)for(const w of [-2,2]){let spec=base;for(const [f,v] of [['faceId',face.id],['buildId',build.id],['facialHairId',beard.id],['headWidth',w],['jaw',w],['eyeGap',w>0?2:-1],['hairId','afro']])spec=applyEdit(spec,f,v);for(const scene of manifest.scenes)for(let frame=0;frame<8;frame++){const plan=buildAvatarDrawPlan(spec,poseForScene(scene.reveal,frame));assert.ok(inBounds(plan.rects,SPRITE_W,SPRITE_H));const top=Math.min(...plan.rects.map(r=>r.y));assert.ok(top>0,'hair is not clipped at the top of the jump');}}
 });
 
 test('the draw plan shows the chosen outfit and keeps appearance through every reveal frame',()=>{
   const spec=applyEdit(applyEdit(createDefaultSpec({presetId:'navy-knit'}),'topColor','#12AB34'),'bottomColor','#AB1234');
   const rest=buildAvatarDrawPlan(spec,REST_POSE);
-  for(const c of ['#12AB34','#AB1234',spec.outfit.shoeColor,spec.appearance.skinColor,spec.appearance.hairColor,OUTLINE])assert.ok(colors(rest).has(c),c);
-  const band=buildAvatarDrawPlan(spec).rects.filter(r=>r.y<17).length;assert.ok(band>10);
+  for(const c of ['#12AB34','#AB1234',spec.outfit.shoeColor,spec.appearance.skinColor,spec.appearance.hairColor,outlineOf('#12AB34')])assert.ok(colors(rest).has(c),c);
+  const band=buildAvatarDrawPlan(spec).rects.filter(r=>r.y<34).length;assert.ok(band>10);
   const withGlasses=applyEdit(spec,'glasses',true);
   for(const scene of manifest.scenes)for(let frame=0;frame<16;frame++){
     const plan=buildAvatarDrawPlan(withGlasses,poseForScene(scene.reveal,frame));
-    for(const c of ['#12AB34','#AB1234',spec.appearance.hairColor,darken(spec.appearance.headwearColor,0.22)])assert.ok(colors(plan).has(c),`${scene.id} ${frame} ${c}`);
+    for(const c of ['#12AB34','#AB1234',spec.appearance.hairColor,spec.appearance.headwearColor])assert.ok(colors(plan).has(c),`${scene.id} ${frame} ${c}`);
     assert.ok(plan.rects.length>buildAvatarDrawPlan(spec,poseForScene(scene.reveal,frame)).rects.length,'glasses stay on');
   }
   const dress=applyEdit(spec,'topId','dress');assert.equal(colors(buildAvatarDrawPlan(dress)).has('#AB1234'),false);assert.equal(dress.outfit.bottomColor,'#AB1234');

@@ -24,15 +24,18 @@ export const EVENT_AVATAR_LIMITS = Object.freeze({ maxBodyBytes: 700_000, maxIma
 const ids = list => list.map(entry => entry.id);
 const hex = { type: 'string', pattern: '^#[0-9A-Fa-f]{6}$' };
 const part = list => ({ type: 'object', additionalProperties: false, required: ['type', 'color'], properties: { type: { type: 'string', enum: ids(list) }, color: hex } });
+const pick = list => ({ type: 'string', enum: ids(list) }), size = { type: 'string', enum: ['narrow', 'average', 'wide'] };
+const SIZE = Object.freeze({ narrow: -1, average: 0, wide: 1 });
 export const CHARACTER_SCHEMA = Object.freeze({
   type: 'object', additionalProperties: false,
-  required: ['person_visible', 'top', 'bottom', 'shoes', 'hair', 'skin_color', 'headwear', 'glasses'],
-  properties: { person_visible: { type: 'boolean' }, top: part(manifest.tops), bottom: part(manifest.bottoms), shoes: part(manifest.shoes), hair: part(manifest.hair), skin_color: hex, headwear: part(manifest.headwear), glasses: { type: 'boolean' } }
+  required: ['person_visible', 'top', 'bottom', 'shoes', 'hair', 'skin_color', 'headwear', 'glasses', 'face_shape', 'build', 'eyes', 'eye_color', 'brows', 'nose', 'mouth', 'facial_hair', 'head_width', 'jaw', 'eye_spacing'],
+  properties: { person_visible: { type: 'boolean' }, top: part(manifest.tops), bottom: part(manifest.bottoms), shoes: part(manifest.shoes), hair: part(manifest.hair), skin_color: hex, headwear: part(manifest.headwear), glasses: { type: 'boolean' }, face_shape: pick(manifest.faces), build: pick(manifest.builds), eyes: pick(manifest.eyes), eye_color: hex, brows: pick(manifest.brows), nose: pick(manifest.noses), mouth: pick(manifest.mouths), facial_hair: pick(manifest.facialHair), head_width: size, jaw: size, eye_spacing: size }
 });
 export const CHARACTER_INSTRUCTIONS = [
   'You turn one outfit photo into settings for a small, friendly pixel-art character.',
   'Report only what is visible: the top, the bottom, the shoes, the hair style and hair colour, a skin colour, any headwear, and whether glasses are worn.',
   'Pick the closest allowed type for each part and give each colour as a six-digit hex value sampled from the photo.',
+  'So the drawing resembles the photo, also choose the closest drawing options for what is visible: face outline, body build, eye shape and eye colour, eyebrows, nose, mouth, facial hair, and whether the head, jaw and eye spacing look narrow, average or wide. Lean towards the more distinctive option when a feature stands out. These are drawing choices only.',
   'A one-piece dress is the top type "dress". If hair is fully covered, use hair type "none". If a part is not visible, choose a plain, neutral guess.',
   'Set person_visible to false when no person wearing clothes can be seen.',
   'Never identify the person and never infer or mention gender, age, ethnicity, health, attractiveness or personality.',
@@ -55,6 +58,10 @@ export function characterFromObservation(data) {
   set('skinColor', data.skin_color);
   set('headwearId', data.headwear?.type); set('headwearColor', data.headwear?.color);
   set('glasses', data.glasses);
+  set('faceId', data.face_shape); set('buildId', data.build); set('eyeId', data.eyes); set('eyeColor', data.eye_color);
+  set('browId', data.brows); set('noseId', data.nose); set('mouthId', data.mouth); set('facialHairId', data.facial_hair);
+  // Stand-out proportions are pushed a little further than measured: mild exaggeration is what makes a small drawing recognisable.
+  for (const [field, value, scale] of [['headWidth', data.head_width, 2], ['jaw', data.jaw, 2], ['eyeGap', data.eye_spacing, 1]]) if (Object.hasOwn(SIZE, value)) set(field, SIZE[value] * scale);
   if (!validateSpec(spec).ok) return null;
   const { presetId, ...outfit } = spec.outfit;
   return { outfit, appearance: spec.appearance };
@@ -83,7 +90,7 @@ export function createEventAvatar({ env = process.env, analyze, normalize = norm
   const configuredCalls = Number.parseInt(env.CLOSET_EVENT_AI_MAX_CALLS || '', 10);
   const limits = { ...EVENT_AVATAR_LIMITS, ...(Number.isInteger(configuredCalls) && configuredCalls >= 0 && configuredCalls <= 2000 ? { maxCalls: configuredCalls } : {}), ...overrides };
   const enabled = env.CLOSET_EVENT_AI === '1' && (Boolean(analyze) || Boolean(env.OPENAI_API_KEY?.trim()));
-  const run = analyze || (async image => (await createOpenAIChat({ apiKey: env.OPENAI_API_KEY, task: 'recognition', modelProfile: 'fast', timeoutMs: limits.timeoutMs, maxOutputTokens: 700, imageDetail: 'low' })(CHARACTER_SCHEMA, CHARACTER_INSTRUCTIONS, 'Describe this outfit photo as pixel character settings.', image)).data);
+  const run = analyze || (async image => (await createOpenAIChat({ apiKey: env.OPENAI_API_KEY, task: 'recognition', modelProfile: 'fast', timeoutMs: limits.timeoutMs, maxOutputTokens: 900, imageDetail: 'low' })(CHARACTER_SCHEMA, CHARACTER_INSTRUCTIONS, 'Describe this outfit photo as pixel character settings.', image)).data);
   const publicOrigin = env.CLOSET_PUBLIC_ORIGIN || '';
   const visitors = new Map(); let calls = 0, active = 0;
 

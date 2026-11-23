@@ -7,6 +7,6 @@ export const eventConfig = Object.freeze({
   displayName: '',
   displayDate: '',
   sceneIds: Object.freeze(['coffee-break', 'campus-walk', 'after-talks']),
-  rendererVersion: 'cq-pixel-v1',
+  rendererVersion: 'cq-pixel-v2',
   maxVisitors: 20
 });

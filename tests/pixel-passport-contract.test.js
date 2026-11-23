@@ -8,7 +8,9 @@ import {isPixelPassportPath} from '../src/event/route.js';
 test('every preset and the documented contract example validate against the manifest',()=>{
   assert.equal(manifest.presets.length,6);
   for(const preset of manifest.presets)assert.deepEqual(validateSpec(createDefaultSpec({presetId:preset.id})).errors,[]);
-  const example={schemaVersion:1,rendererVersion:'cq-pixel-v1',eventId:'campus-demo',nickname:'Pixel Fern',outfit:{presetId:'green-jacket',topId:'jacket',topColor:'#627F62',bottomId:'trousers',bottomColor:'#3D4D5A',shoeId:'sneakers',shoeColor:'#EDE9D9'},appearance:{skinColor:'#C88962',hairId:'short',hairColor:'#3A2C27',headwearId:'none',headwearColor:'#2F5D46',glasses:true},sceneId:'coffee-break',motion:'system'};
+  const example={schemaVersion:1,rendererVersion:'cq-pixel-v2',eventId:'campus-demo',nickname:'Pixel Fern',outfit:{presetId:'green-jacket',topId:'jacket',topColor:'#627F62',bottomId:'trousers',bottomColor:'#3D4D5A',shoeId:'sneakers',shoeColor:'#EDE9D9'},appearance:{skinColor:'#C88962',hairId:'short',hairColor:'#3A2C27',headwearId:'none',headwearColor:'#2F5D46',glasses:true,faceId:'oval',buildId:'regular',eyeId:'round',eyeColor:'#6B4226',browId:'soft',noseId:'medium',mouthId:'smile',facialHairId:'none',headWidth:0,jaw:0,eyeGap:0},sceneId:'coffee-break',motion:'system'};
+  for(const bad of [{faceId:'triangle'},{headWidth:3},{jaw:0.5},{eyeGap:-2},{eyeColor:'blue'},{facialHairId:'mutton'}])assert.equal(validateSpec({...example,appearance:{...example.appearance,...bad}}).ok,false,JSON.stringify(bad));
+  {const s0=validateSpec(example).spec;assert.equal(applyEdit(s0,'headWidth',9),s0);assert.equal(applyEdit(s0,'faceId','triangle'),s0);assert.equal(applyEdit(s0,'jaw',2).appearance.jaw,2);assert.equal(applyEdit(s0,'faceId','square').appearance.faceId,'square');}
   const checked=validateSpec(example);assert.equal(checked.ok,true);assert.deepEqual(checked.spec,example);assert.notEqual(checked.spec.outfit,example.outfit);
   assert.deepEqual(eventConfig.sceneIds,manifest.scenes.map(s=>s.id));assert.equal(eventConfig.rendererVersion,manifest.rendererVersion);
 });

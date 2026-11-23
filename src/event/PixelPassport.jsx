@@ -157,7 +157,7 @@ function PhotoStep({ state, dispatch, photos, camera, setPhoto }) {
     <h1 tabIndex={-1}>{busy ? 'Building your pixel self…' : 'Start with your look.'}</h1>
     {busy ? <>
       <div className="cqpp-building" role="status" aria-live="polite">
-        <div className="cqpp-building-avatar"><AvatarCanvas spec={state.spec} scale={4} label=""/></div>
+        <div className="cqpp-building-avatar"><AvatarCanvas spec={state.spec} scale={2} label=""/></div>
         <div className="cqpp-loader" aria-hidden="true"><i/><i/><i/><i/><i/></div>
         <p className="cqpp-lead">Matching your outfit, hair and colours. This takes a few seconds.</p>
       </div>
@@ -213,6 +213,12 @@ function PhotoReference({ photo, part, setPart, spec, dispatch, canUndo, onRemov
   </section>;
 }
 
+function Slider({ label, field, spec, edit, ends }) {
+  const [min, max] = manifest.sliders[field], id = `cqpp-slider-${field}`;
+  return <div className="cqpp-field cqpp-slider"><label htmlFor={id}>{label}</label>
+    <div className="cqpp-slider-row"><span aria-hidden="true">{ends[0]}</span><input id={id} type="range" min={min} max={max} step="1" value={spec.appearance[field]} onChange={e => edit(field, Number(e.target.value))}/><span aria-hidden="true">{ends[1]}</span></div></div>;
+}
+
 function Editor({ state, dispatch, photo, photos, camera, setPhoto }) {
   const { spec } = state, [tab, setTab] = useState('top'), [sheet, setSheet] = useState(false), [part, setPart] = useState('top');
   const edit = (field, value) => dispatch({ type: 'edit', field, value });
@@ -225,8 +231,8 @@ function Editor({ state, dispatch, photo, photos, camera, setPhoto }) {
     {state.notice && <p className="cqpp-alert" role="alert">{state.notice}</p>}
     {state.fromPhoto && <p className="cqpp-note" role="status">Built from your photo. It is a playful guess, so change anything you like.</p>}
     <div className="cqpp-stage">
-      <div className="cqpp-stage-avatar" key={`${spec.outfit.topId}${spec.outfit.bottomId}${spec.outfit.shoeId}${spec.appearance.hairId}${spec.appearance.headwearId}${spec.appearance.glasses}`}>
-        <AvatarCanvas spec={spec} scale={4} label={`Your pixel character, ${spec.nickname}`}/>
+      <div className="cqpp-stage-avatar" key={`${spec.outfit.topId}${spec.outfit.bottomId}${spec.outfit.shoeId}${spec.appearance.hairId}${spec.appearance.headwearId}${spec.appearance.glasses}${spec.appearance.faceId}${spec.appearance.buildId}${spec.appearance.facialHairId}`}>
+        <AvatarCanvas spec={spec} scale={2} label={`Your pixel character, ${spec.nickname}`}/>
       </div>
       <span className="cqpp-stage-shadow" aria-hidden="true"/>
       <p className="cqpp-stage-name">{spec.nickname}</p>
@@ -258,6 +264,21 @@ function Editor({ state, dispatch, photo, photos, camera, setPhoto }) {
       <Choices label="Headwear" options={manifest.headwear} value={spec.appearance.headwearId} onPick={v => edit('headwearId', v)}/>
       {spec.appearance.headwearId !== 'none' && <Swatches label="Headwear colour" swatches={manifest.clothingSwatches} value={spec.appearance.headwearColor} onPick={v => edit('headwearColor', v)}/>}
       <Choices label="Glasses" options={[{ id: 'on', label: 'Glasses' }, { id: 'off', label: 'No glasses' }]} value={spec.appearance.glasses ? 'on' : 'off'} onPick={v => edit('glasses', v === 'on')}/>
+    </details>
+
+    <details className="cqpp-details">
+      <summary>Face and build <small>fine-tune the likeness</small></summary>
+      <Choices label="Face shape" options={manifest.faces} value={spec.appearance.faceId} onPick={v => edit('faceId', v)}/>
+      <Slider label="Head width" field="headWidth" spec={spec} edit={edit} ends={['Narrow', 'Wide']}/>
+      <Slider label="Jaw" field="jaw" spec={spec} edit={edit} ends={['Pointed', 'Broad']}/>
+      <Choices label="Eyes" options={manifest.eyes} value={spec.appearance.eyeId} onPick={v => edit('eyeId', v)}/>
+      <Swatches label="Eye colour" swatches={manifest.eyeSwatches} value={spec.appearance.eyeColor} onPick={v => edit('eyeColor', v)}/>
+      <Slider label="Eye spacing" field="eyeGap" spec={spec} edit={edit} ends={['Close', 'Wide']}/>
+      <Choices label="Eyebrows" options={manifest.brows} value={spec.appearance.browId} onPick={v => edit('browId', v)}/>
+      <Choices label="Nose" options={manifest.noses} value={spec.appearance.noseId} onPick={v => edit('noseId', v)}/>
+      <Choices label="Mouth" options={manifest.mouths} value={spec.appearance.mouthId} onPick={v => edit('mouthId', v)}/>
+      <Choices label="Facial hair" options={manifest.facialHair} value={spec.appearance.facialHairId} onPick={v => edit('facialHairId', v)}/>
+      <Choices label="Build" options={manifest.builds} value={spec.appearance.buildId} onPick={v => edit('buildId', v)}/>
     </details>
 
     <div className="cqpp-actions">
