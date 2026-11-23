@@ -1,2 +1,47 @@
-.photo-detections h3{font-size:1.7rem;margin:.4rem 0}.photo-detections>p{line-height:1.5}.detected-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:20px 0}.detected-card{display:flex;flex-direction:column;gap:8px;padding:10px;border:1px solid #dce2d5;border-radius:14px;background:#fff;cursor:pointer;min-width:0}.detected-card.selected{border-color:#2a4337;box-shadow:0 0 0 1px #2a4337}.detected-crop{display:block;position:relative;overflow:hidden;border-radius:8px;background:#eeeee7;width:100%;max-height:160px}.detected-crop img{position:absolute;max-width:none;object-fit:fill}.detected-title{display:flex;gap:8px;align-items:center;font-size:.93rem}.detected-title input{width:18px;height:18px;flex-shrink:0;accent-color:#2a4337}.detected-card small{color:#637066}.photo-detections>.primary{width:100%}.photo-detections .eyebrow{font-size:.7rem;letter-spacing:.1em}.photo-detections+details{margin-top:20px}
-@media(max-width:420px){.detected-grid{gap:8px}.detected-card{padding:8px}.detected-title{font-size:.82rem}}
+.photo-detections{--ink:#2a4337;--reveal:1}
+.photo-detections h3{font-size:1.7rem;margin:.4rem 0}.photo-detections>p{line-height:1.5}
+.photo-detections .eyebrow{font-size:.7rem;letter-spacing:.1em}.photo-detections+details{margin-top:20px}.photo-detections>.primary{width:100%}
+.detected-count{display:inline-block;animation:detected-pop .5s cubic-bezier(.3,1.6,.5,1) both;animation-delay:calc(.55s + var(--count)*.16s)}
+
+/* The photo: a scanning beam passes once, then each piece is outlined and numbered in turn. */
+.detected-stage{margin:16px auto 0;border-radius:18px;overflow:hidden;background:#1f2a24;box-shadow:0 12px 30px -18px rgba(31,42,36,.7)}
+.detected-stage svg{display:block;width:100%}
+.detected-veil{fill:#16201b;opacity:.42;animation:detected-veil .7s ease-out both}
+.detected-beam{fill:rgba(214,240,222,.34);pointer-events:none;transform-box:view-box;animation:detected-beam 1.05s cubic-bezier(.5,0,.4,1) both}
+.detected-box{cursor:pointer;transition:opacity .2s}
+.detected-box>rect{fill:none;stroke:#fff;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:0;filter:drop-shadow(0 1px 3px rgba(0,0,0,.45));animation:detected-draw .55s ease-out both;animation-delay:calc(.5s + var(--i)*.16s);transition:stroke .2s,opacity .2s}
+.detected-lift{animation:detected-fade .4s ease-out both;animation-delay:calc(.5s + var(--i)*.16s);transition:opacity .2s}
+.detected-tag{animation:detected-pop .4s cubic-bezier(.3,1.7,.5,1) both;animation-delay:calc(.75s + var(--i)*.16s)}
+.detected-tag circle{fill:var(--ink);stroke:#fff;stroke-width:.4px;transition:fill .2s}.detected-tag text{fill:#fff;font-weight:700;font-family:inherit}
+.detected-box.is-active>rect{stroke:#ffe9a8}.detected-box.is-active .detected-tag circle{fill:#b7791f}
+.detected-box.is-dim{opacity:.45}
+.detected-box.is-off .detected-lift{opacity:0}.detected-box.is-off>rect{stroke:rgba(255,255,255,.55);stroke-dasharray:.02 .02}.detected-box.is-off .detected-tag circle{fill:#7b857e}
+
+/* The pieces: each card lifts out of the photo after its outline lands. */
+.detected-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0 20px}
+.detected-card{position:relative;display:flex;flex-direction:column;gap:8px;padding:8px 8px 12px;border:1px solid #e3e6dc;border-radius:18px;background:#fff;cursor:pointer;min-width:0;box-shadow:0 8px 20px -16px rgba(39,62,51,.55);transition:transform .2s,box-shadow .2s,border-color .2s,opacity .2s;animation:detected-rise .55s cubic-bezier(.2,.9,.3,1.2) both;animation-delay:calc(.95s + var(--count)*.08s + var(--i)*.12s)}
+.detected-card.selected{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink),0 12px 24px -16px rgba(39,62,51,.7)}
+.detected-card.is-active{transform:translateY(-3px)}
+.detected-card:has(input:focus-visible){outline:3px solid #b7791f;outline-offset:2px}
+.detected-card:not(.selected){opacity:.72}.detected-card:not(.selected) .detected-crop{filter:grayscale(.85)}
+.detected-frame{position:relative;display:block;border-radius:12px;overflow:hidden;background:radial-gradient(120% 90% at 50% 20%,color-mix(in srgb,var(--piece) 14%,#fbfaf6),color-mix(in srgb,var(--piece) 30%,#ecebe3))}
+.detected-crop{display:block;width:100%;height:160px;transition:filter .2s}
+.detected-number{position:absolute;left:8px;top:8px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:#fff;font-size:.78rem;font-weight:700;box-shadow:0 0 0 2px #fff}
+.detected-keep{position:absolute;right:8px;bottom:8px;padding:3px 9px;border-radius:999px;background:var(--ink);color:#fff;font-size:.7rem;font-weight:600;letter-spacing:.02em}
+.detected-card:not(.selected) .detected-keep{background:#fff;color:#5d695f;box-shadow:inset 0 0 0 1px #cfd5ca}
+.detected-title{display:flex;gap:8px;align-items:center;font-size:.93rem;padding:0 4px;min-width:0}.detected-title strong{overflow-wrap:anywhere}
+.detected-title input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.detected-card small{display:flex;align-items:center;gap:6px;flex-wrap:wrap;color:#637066;padding:0 4px}
+.detected-swatch{width:12px;height:12px;border-radius:50%;background:var(--piece);box-shadow:inset 0 0 0 1px rgba(0,0,0,.18);flex-shrink:0}
+.detected-card small b{margin-left:auto;font-weight:600;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:#eef1ea;color:#3d5246}
+
+@keyframes detected-beam{from{transform:translateY(0);opacity:1}85%{opacity:1}to{transform:translateY(118%);opacity:0}}
+.detected-tag{transform-box:view-box}
+@keyframes detected-veil{from{opacity:0}to{opacity:.42}}
+@keyframes detected-draw{from{stroke-dashoffset:1;opacity:0}15%{opacity:1}to{stroke-dashoffset:0;opacity:1}}
+@keyframes detected-fade{from{opacity:0}to{opacity:1}}
+@keyframes detected-pop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes detected-rise{from{opacity:0;transform:translateY(-26px) scale(.86) rotate(-2.5deg)}to{opacity:1;transform:none}}
+.photo-detections.is-settled *{animation:none!important}.photo-detections.is-settled .detected-beam{display:none}
+@media(prefers-reduced-motion:reduce){.photo-detections *{animation:none!important;transition:none!important}.detected-beam{display:none}}
+@media(max-width:420px){.detected-grid{gap:8px}.detected-card{padding:6px 6px 10px}.detected-title{font-size:.82rem}.detected-crop{height:130px}}

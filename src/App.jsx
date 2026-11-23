@@ -444,7 +444,7 @@ export default function App({account,onSignOut,initialState,cloudRevision=0,resu
         {editor.appliedSuggestions&&<div className="analysis-panel"><strong>Review the suggested details below.</strong><p>{editorRecognition?.result?.model||'Model suggestions'}{editorRecognition?.result?.pipeline?.cache?.hit?' · cached result':''}</p><p>Your changes take effect when you save.</p></div>}
         {editorRecognition?.status==='failed'&&<div className="analysis-panel error" role="status"><strong>Photo saved. Analysis needs another try.</strong><p>{editorRecognition.error}</p></div>}
         {editorRecognition?.status==='cancelled'&&<div className="analysis-panel" role="status"><strong>Analysis cancelled.</strong><p>Your photo and saved details are still here. You can analyze it again when ready.</p></div>}
-        {editorDetections&&<PhotoDetections key={editorRecognition.jobId} source={editorStored} result={editorRecognition.result} busy={busy} onReview={reviewDetectedPieces}/>}
+        {editorDetections&&<PhotoDetections key={editorRecognition.jobId} revealKey={editorRecognition.jobId} source={editorStored} result={editorRecognition.result} busy={busy} onReview={reviewDetectedPieces}/>}
         {!editorDetections&&<>
         <label>Garment name<input required maxLength="80" value={editor.name} onChange={e=>setEditor({...editor,name:e.target.value})}/></label>
         <div className="form-row"><label>Category<select value={editor.category} onChange={e=>setEditor({...editor,category:e.target.value})}>{categories.map(c=><option key={c}>{c}</option>)}</select></label><GarmentColorField key={editor.id} value={editor.color} onChange={color=>setEditor(current=>({...current,color}))}/></div>

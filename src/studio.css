@@ -74,3 +74,26 @@
 .studio-simple .studio-message{margin-top:18px;border-radius:7px}
 @media(max-width:980px){.studio-brief-fields{grid-template-columns:minmax(155px,.75fr) minmax(0,1.4fr);gap:19px}.studio-simple .studio-brief{padding:25px}.studio-simple .studio-title{gap:16px}}
 @media(max-width:760px){.studio-brief-fields,.studio-preference-fields{grid-template-columns:1fr;gap:19px}.studio-simple .studio-brief{padding:23px 20px}.studio-simple .studio-title{margin-bottom:21px;flex-wrap:wrap;gap:10px}.studio-simple .studio-title h2{font-size:25px}.studio-simple .studio-status{font-size:10px}.studio-simple .studio-label select,.studio-simple .studio-label textarea{font-size:16px}.studio-simple .studio-label textarea{min-height:107px}.studio-simple .studio-buttons{flex-direction:row}.studio-simple .studio-buttons>.primary{flex:1;min-height:47px;font-size:13px}.studio-preferences{margin-top:20px}.studio-preference-fields{margin-bottom:18px}.studio-brief-disclosure>summary{padding:15px 18px}.studio-brief-disclosure>summary>span{display:block;margin:4px 0 0 16px;font-size:11px}.studio-simple .studio-results{margin-top:24px}.studio-simple .studio-results-heading{gap:16px}.studio-simple .studio-results-heading h2{font-size:27px}.studio-simple .studio-look-story{padding:23px}.studio-simple .studio-grounding{padding-left:18px;padding-right:18px}.studio-simple .retrieval-items{grid-template-columns:1fr;max-height:325px}.studio-simple .studio-progress{gap:10px;padding:14px}.studio-simple .studio-progress>button{margin-left:auto}}
+
+/* Stylist at work: the closet passes under a lens while the looks are built. */
+.studio .studio-progress.studio-progress-stage{display:block}
+.studio-progress-line{display:flex;align-items:center;gap:12px}.studio-progress-line>div{flex:1;min-width:0}.studio-progress-line>button{font-size:12px;min-height:42px;flex-shrink:0}
+.studio-shuffle{position:relative;margin:14px 0 4px;overflow:hidden;border-radius:14px;height:92px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent)}
+.studio-shuffle-track{display:flex;gap:10px;width:max-content;padding:6px 0;animation:studio-shuffle calc(var(--pieces)*1.5s) linear infinite}
+.studio-shuffle-piece{width:68px;height:80px;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 6px 14px -10px rgba(34,61,50,.6);flex-shrink:0;display:grid}
+.studio-shuffle-piece>*{width:100%;height:100%;object-fit:cover;grid-area:1/1}.studio-shuffle-piece img{width:100%;height:100%;object-fit:cover}
+.studio-shuffle-lens{position:absolute;left:50%;top:0;width:78px;height:92px;margin-left:-39px;border-radius:14px;border:2px solid #223d32;box-shadow:0 0 0 999px rgba(238,230,220,.38),0 0 18px rgba(34,61,50,.25);pointer-events:none;animation:studio-lens 1.5s ease-in-out infinite}
+.studio-steps{display:flex;gap:6px;list-style:none;margin:10px 0 0;padding:0;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#8a938b}
+.studio-steps li{flex:1;padding-top:7px;border-top:3px solid #d5dbd0;transition:border-color .4s,color .4s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.studio-steps li.done{border-color:#223d32;color:#3f5547}.studio-steps li.now{border-color:#b7791f;color:#223d32;font-weight:700}
+@keyframes studio-shuffle{to{transform:translateX(calc(-50% - 5px))}}
+@keyframes studio-lens{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+
+/* A new look is dealt in piece by piece, then its story and palette follow. */
+.studio-look-deal .studio-look-photos>button{animation:studio-deal .5s cubic-bezier(.2,.9,.3,1.15) both;animation-delay:calc(var(--n)*90ms)}
+.studio-look-deal .studio-look-story{animation:studio-story .45s ease-out both;animation-delay:.28s}
+.studio-look-deal .studio-palette span{animation:studio-dot .35s cubic-bezier(.3,1.7,.5,1) both;animation-delay:calc(.45s + var(--n)*70ms)}
+@keyframes studio-deal{from{opacity:0;transform:translateY(22px) rotate(calc((var(--n) - 1.5)*2deg)) scale(.94)}to{opacity:1;transform:none}}
+@keyframes studio-story{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes studio-dot{from{transform:scale(0)}to{transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){.studio-shuffle-track,.studio-shuffle-lens,.studio-look-deal .studio-look-photos>button,.studio-look-deal .studio-look-story,.studio-look-deal .studio-palette span{animation:none}}
