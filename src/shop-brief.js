@@ -37,10 +37,15 @@ const productColors = {
   red: /\b(?:red|burgundy|maroon|crimson|wine|scarlet)\b/, pink: /\b(?:pink|rose|blush|fuchsia|mauve)\b/,
 };
 export function matchesShopProduct(product, query) {
-  const title = product.title || '', plain = title.toLowerCase().replace(/\bgrey\b/g,'gray');
-  if (query.category === 'Shoes' && (!(categories.Shoes.test(title) || Object.keys(productTypes).some(t=>typeCategory[t]==='Shoes'&&productTypes[t].test(title))) || /\b(?:shoe (?:bags?|racks?|trees?|polish)|boot socks?|shoelaces?|insoles?)\b/i.test(title))) return false;
-  if (query.kind && !(types[query.kind]?.test(title) || productTypes[query.kind]?.test(title))) return false;
-  return !query.color || productColors[query.color]?.test(plain) || plain.split(/[^a-z]+/).includes(query.color);
+  const title = product.title || '';
+  // The page address often names the colour or type when the title does not ("/slim-jeans-dark-blue").
+  let slug=''; try{slug=decodeURIComponent(new URL(product.url).pathname).replace(/[^a-z0-9]+/gi,' ');}catch{/* no usable link */}
+  const text = title+' '+slug, plain = text.toLowerCase().replace(/\bgrey\b/g,'gray');
+  if (query.category === 'Shoes' && (!(categories.Shoes.test(text) || Object.keys(productTypes).some(t=>typeCategory[t]==='Shoes'&&productTypes[t].test(text))) || /\b(?:shoe (?:bags?|racks?|trees?|polish)|boot socks?|shoelaces?|insoles?)\b/i.test(title))) return false;
+  if (query.kind && !(types[query.kind]?.test(text) || productTypes[query.kind]?.test(text))) return false;
+  if (!query.color || productColors[query.color]?.test(plain) || plain.split(/[^a-z]+/).includes(query.color)) return true;
+  // Jeans are blue unless the shop says otherwise.
+  return query.kind==='jeans' && query.color==='blue' && !Object.keys(productColors).some(c=>!['blue','navy'].includes(c)&&productColors[c].test(title.toLowerCase().replace(/\bgrey\b/g,'gray')));
 }
 export function parseShopBrief(brief = '') {
   const text = brief.toLowerCase().replace(/[’']/g,"'").replace(/\bgrey\b/g,'gray');
