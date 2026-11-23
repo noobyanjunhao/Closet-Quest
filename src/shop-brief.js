@@ -19,11 +19,28 @@ const colors = ['black','white','brown','navy','blue','red','green','pink','crea
 export function validShopFilters(category,kind,color) {
   return (kind==null || typeof kind==='string' && Object.hasOwn(typeCategory,kind) && typeCategory[kind] === category) && (color==null || colors.includes(color));
 }
+// Retailer titles rarely repeat the shopper's exact word ("ecru cardigan" is a cream sweater),
+// so product matching accepts common trade synonyms. Parsing a brief still uses the stricter lists above.
+const productTypes = {
+  sneakers: /\b(?:sneakers?|trainers?|runners?|tennis shoes?|court shoes?)\b/i, loafers: /\b(?:loafers?|moccasins?|penny)\b/i,
+  boots: /\b(?:boots?|booties?|chelseas?)\b/i, sandals: /\b(?:sandals?|slides?|flip[- ]flops?)\b/i, heels: /\b(?:heels?|pumps?|stilettos?|slingbacks?)\b/i,
+  flats: /\b(?:flats?|ballerinas?|mary janes?)\b/i, jeans: /\b(?:jeans?|denim)\b/i,
+  jacket: /\b(?:jackets?|bombers?|truckers?|anoraks?|parkas?|overshirts?|shackets?|windbreakers?)\b/i, blazer: /\b(?:blazers?|sport ?coats?|suit jackets?)\b/i,
+  sweater: /\b(?:sweaters?|knitwear|knits?|cardigans?|pullovers?|crewnecks?|turtlenecks?|jumpers?)\b/i,
+  bag: /\b(?:bags?|totes?|backpacks?|crossbod(?:y|ies)|satchels?|purses?)\b/i, shirt: /\b(?:shirts?|oxfords?|button[- ](?:down|up)s?|tees?|polos?)\b/i,
+};
+const productColors = {
+  black: /\b(?:black|onyx|jet)\b/, white: /\b(?:white|optic)\b/, cream: /\b(?:cream|ivory|ecru|off[- ]white|oatmeal|natural|bone|eggshell)\b/,
+  gray: /\b(?:gray|charcoal|heather|slate|graphite|silver)\b/, beige: /\b(?:beige|tan|khaki|camel|sand|stone|taupe)\b/,
+  navy: /\b(?:navy|midnight)\b/, blue: /\b(?:blue|indigo|denim|cobalt|sky|azure|(?:light|medium|dark) wash)\b/,
+  brown: /\b(?:brown|chocolate|espresso|cognac|tobacco|chestnut|walnut|mocha)\b/, green: /\b(?:green|olive|sage|forest|emerald|moss)\b/,
+  red: /\b(?:red|burgundy|maroon|crimson|wine|scarlet)\b/, pink: /\b(?:pink|rose|blush|fuchsia|mauve)\b/,
+};
 export function matchesShopProduct(product, query) {
-  const title = product.title || '';
-  if (query.category === 'Shoes' && (!categories.Shoes.test(title) || /\b(?:shoe (?:bags?|racks?|trees?|polish)|boot socks?|shoelaces?|insoles?)\b/i.test(title))) return false;
-  if (query.kind && !types[query.kind]?.test(title)) return false;
-  return !query.color || title.toLowerCase().replace(/\bgrey\b/g,'gray').split(/[^a-z]+/).includes(query.color);
+  const title = product.title || '', plain = title.toLowerCase().replace(/\bgrey\b/g,'gray');
+  if (query.category === 'Shoes' && (!(categories.Shoes.test(title) || Object.keys(productTypes).some(t=>typeCategory[t]==='Shoes'&&productTypes[t].test(title))) || /\b(?:shoe (?:bags?|racks?|trees?|polish)|boot socks?|shoelaces?|insoles?)\b/i.test(title))) return false;
+  if (query.kind && !(types[query.kind]?.test(title) || productTypes[query.kind]?.test(title))) return false;
+  return !query.color || productColors[query.color]?.test(plain) || plain.split(/[^a-z]+/).includes(query.color);
 }
 export function parseShopBrief(brief = '') {
   const text = brief.toLowerCase().replace(/[’']/g,"'").replace(/\bgrey\b/g,'gray');

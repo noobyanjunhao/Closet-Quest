@@ -44,3 +44,26 @@ test('photo enrichment stops at foreign redirects and blocked retailers',async()
  let calls=0;const images=await pageImages(url,AbortSignal.timeout(1000),async()=>{calls++;return new Response(null,{status:302,headers:{location:'https://127.0.0.1/private'}});});assert.deepEqual(images,[]);assert.equal(calls,1);
  assert.deepEqual(await pageImages(url,AbortSignal.timeout(1000),async()=>new Response('blocked',{status:403})),[]);
 });
+
+test('product matching accepts trade synonyms for type and colour',async()=>{
+ const {matchesShopProduct}=await import('../src/shop-brief.js');
+ assert.equal(matchesShopProduct({title:'Ecru cotton cardigan'},{category:'Top',kind:'sweater',color:'cream'}),true);
+ assert.equal(matchesShopProduct({title:'Dark wash straight denim'},{category:'Bottom',kind:'jeans',color:'blue'}),true);
+ assert.equal(matchesShopProduct({title:'Black penny moccasin'},{category:'Shoes',kind:'loafers',color:'black'}),true);
+ assert.equal(matchesShopProduct({title:'Navy cotton cardigan'},{category:'Top',kind:'sweater',color:'cream'}),false);
+ assert.equal(matchesShopProduct({title:'Shoe polish kit black'},{category:'Shoes',color:'black'}),false);
+});
+test('a price missing from search snippets is kept only when the retailer page declares it',async()=>{
+ const {createShoppingSearch,productPricesFromHtml}=await import('../server/shopping.js');
+ assert.deepEqual(productPricesFromHtml('<script type="application/ld+json">{"@type":"Product","offers":{"price":"89.50","priceCurrency":"USD"}}</script><meta property="product:price:amount" content="89.50">'),[89.5]);
+ assert.deepEqual(productPricesFromHtml('<p>Now only $12.00!</p>'),[]);
+ const urlA='https://www.everlane.com/products/womens-cream-sweater',urlB='https://www.everlane.com/products/womens-cream-cardigan';
+ const openai={status:'completed',output:[{type:'web_search_call',action:{sources:[{url:urlA},{url:urlB}]},results:[]},{type:'message',content:[{type:'output_text',text:JSON.stringify({products:[{title:'Cream alpaca sweater',url:urlA,price:89.5,currency:'USD'},{title:'Ivory cardigan',url:urlB,price:70,currency:'USD'}]})}]}]};
+ const page=price=>new Response(`<script type="application/ld+json">{"@type":"Product","image":"https://media.everlane.com/a.jpg","offers":{"price":${price},"priceCurrency":"USD"}}</script>`,{headers:{'content-type':'text/html'}});
+ const search=createShoppingSearch({apiKey:'k',fetchImpl:async url=>String(url).includes('api.openai.com')?Response.json(openai):page(String(url)===urlA?89.5:95)});
+ const out=await search({category:'Top',kind:'sweater',color:'cream',occasion:'everyday'});
+ assert.deepEqual(out.products.map(p=>p.url),[urlA]);
+ assert.equal(out.products[0].image,'https://media.everlane.com/a.jpg');
+ assert.equal('needsPriceCheck' in out.products[0],false);
+ const d=search.diagnostics().at(-1);assert.equal(d.kept,1);assert.equal(d.priceNotObserved,1);assert.equal(d.proposed,2);
+});
