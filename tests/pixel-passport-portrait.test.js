@@ -18,8 +18,8 @@ test('portrait endpoint needs consent, a listed style and the same origin, and s
   assert.equal((await call(p,{body:{consent:true,style:'oil',image:'QUJD'}})).body.code,'BAD_STYLE');
   assert.equal((await call(p,{origin:'https://evil.example',body:{consent:true,style:'toon',image:'QUJD'}})).status,403);
   assert.equal(p.stats().calls,0,'rejected requests spend nothing');
-  const done=await call(p,{body:{consent:true,style:'toy',image:'QUJD'}});
-  assert.equal(done.status,200);assert.deepEqual(done.body,{image:'QUJD',style:'toy'});assert.equal(p.stats().recent[0].usage.outputTokens,20);
+  const done=await call(p,{body:{consent:true,style:'quest',image:'QUJD'}});
+  assert.equal(done.status,200);assert.deepEqual(done.body,{image:'QUJD',style:'quest'});assert.equal(p.stats().recent[0].usage.outputTokens,20);
 });
 test('portrait spending is capped per visitor and overall, and failures still count',async()=>{
   const p=createEventPortrait({env,limits:{maxCalls:3,perVisitor:2},normalize:async i=>i,generate:async()=>{throw new Error('provider down');}});
@@ -35,6 +35,6 @@ test('the image request asks for a redrawn full-body figure and never stores or 
   assert.equal(sent.url,'https://api.openai.com/v1/images/edits');assert.equal(sent.body.model,PORTRAIT_MODEL);assert.equal(sent.body.quality,'low');assert.equal(sent.body.n,1);
   assert.equal(sent.body.images[0].image_url,'data:image/jpeg;base64,QUJD');
   assert.match(sent.body.prompt,/redraw everything from scratch/);assert.match(sent.body.prompt,/head to shoes/);assert.doesNotMatch(sent.body.prompt,/name|who (?:this|they) (?:is|are)/i);
-  assert.deepEqual(out,{image:'UElD',usage:{inputTokens:5,outputTokens:9}});assert.deepEqual(Object.keys(PORTRAIT_STYLES),['toon','toy','pixel']);
+  assert.deepEqual(out,{image:'UElD',usage:{inputTokens:5,outputTokens:9}});assert.deepEqual(Object.keys(PORTRAIT_STYLES),['toon','comic','anime','fashion','sticker','quest']);
   await assert.rejects(generatePortrait({apiKey:'k',image:'QUJD',style:'toon',fetchImpl:async()=>Response.json({error:{code:'moderation_blocked'}},{status:400})}),{code:'PORTRAIT_REFUSED'});
 });
