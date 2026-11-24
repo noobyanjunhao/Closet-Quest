@@ -35,6 +35,6 @@ test('the image request asks for a redrawn full-body figure and never stores or 
   assert.equal(sent.url,'https://api.openai.com/v1/images/edits');assert.equal(sent.body.model,PORTRAIT_MODEL);assert.equal(sent.body.quality,'low');assert.equal(sent.body.n,1);
   assert.equal(sent.body.images[0].image_url,'data:image/jpeg;base64,QUJD');
   assert.match(sent.body.prompt,/redraw everything from scratch/);assert.match(sent.body.prompt,/head to shoes/);assert.doesNotMatch(sent.body.prompt,/name|who (?:this|they) (?:is|are)/i);
-  assert.deepEqual(out,{image:'UElD',usage:{inputTokens:5,outputTokens:9}});assert.deepEqual(Object.keys(PORTRAIT_STYLES),['toon','comic','anime','fashion','sticker','quest']);
+  assert.deepEqual(out,{image:'UElD',usage:{inputTokens:5,outputTokens:9}});assert.deepEqual(Object.keys(PORTRAIT_STYLES),['toon','comic','sticker','quest','geometric','papercut','oneline','caricature','chibi','doodle']);assert.match(PORTRAIT_STYLES.caricature,/never mocking/);
   await assert.rejects(generatePortrait({apiKey:'k',image:'QUJD',style:'toon',fetchImpl:async()=>Response.json({error:{code:'moderation_blocked'}},{status:400})}),{code:'PORTRAIT_REFUSED'});
 });
