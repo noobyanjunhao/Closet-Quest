@@ -5,6 +5,7 @@ import {fileURLToPath} from 'node:url';
 import {createApi} from './api.js';
 import {releaseInfo} from './release.js';
 import {createEventAvatar,EVENT_AVATAR_PATH} from './event-avatar.js';
+import {createEventPortrait,EVENT_PORTRAIT_PATH} from './event-portrait.js';
 
 const defaultRoot=fileURLToPath(new URL('../dist/',import.meta.url));
 const types={'.html':'text/html; charset=utf-8','.js':'application/javascript','.css':'text/css','.json':'application/json','.jpg':'image/jpeg','.jpeg':'image/jpeg','.png':'image/png','.svg':'image/svg+xml','.webp':'image/webp','.ico':'image/x-icon','.wasm':'application/wasm'};
@@ -12,7 +13,7 @@ const types={'.html':'text/html; charset=utf-8','.js':'application/javascript','
 const eventEntryPaths=new Set(['/event/pixel-passport','/event/pixel-passport/']);
 const inside=(root,target)=>{const relative=path.relative(root,target);return relative!== '..'&&!relative.startsWith(`..${path.sep}`)&&!path.isAbsolute(relative);};
 
-export async function createLocalServer({distDir=defaultRoot,apiOptions={},eventAvatar=createEventAvatar()}={}) {
+export async function createLocalServer({distDir=defaultRoot,apiOptions={},eventAvatar=createEventAvatar(),eventPortrait=createEventPortrait()}={}) {
   const root=await realpath(distDir).catch(()=>{throw new Error('Build the client first with npm run build.');});
   await stat(path.join(root,'index.html')).catch(()=>{throw new Error('Build the client first with npm run build.');});
   const api=createApi(apiOptions);
@@ -25,6 +26,7 @@ export async function createLocalServer({distDir=defaultRoot,apiOptions={},event
     if(req.url==='/version.json'&&['GET','HEAD'].includes(req.method)){res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'}).end(req.method==='HEAD'?undefined:JSON.stringify(releaseInfo()));return;}
     // The one public event route. Everything else under /api stays behind the authenticated API.
     if(req.url?.split('?')[0]===EVENT_AVATAR_PATH)return eventAvatar.handle(req,res);
+    if(req.url?.split('?')[0]===EVENT_PORTRAIT_PATH)return eventPortrait.handle(req,res);
     if(req.url?.startsWith('/api/')){req.url=req.url.slice(4);return api.middleware(req,res);}
     if(!['GET','HEAD'].includes(req.method)){res.writeHead(405).end();return;}
     let requestPath;
