@@ -6,13 +6,16 @@
 import { fail, normalizeJpeg, readBody } from './event-avatar.js';
 
 export const EVENT_PORTRAIT_PATH = '/api/event/pixel-passport/portrait';
-export const EVENT_PORTRAIT_LIMITS = Object.freeze({ maxBodyBytes: 700_000, maxImageBytes: 500_000, maxSide: 768, maxCalls: 30, perVisitor: 3, concurrency: 1, timeoutMs: 90_000 });
+export const EVENT_PORTRAIT_LIMITS = Object.freeze({ maxBodyBytes: 700_000, maxImageBytes: 500_000, maxSide: 768, maxCalls: 30, perVisitor: 6, concurrency: 1, timeoutMs: 90_000 });
 export const PORTRAIT_MODEL = 'gpt-image-2.6-flare';
 const COMMON = 'Draw a brand-new illustrated character of the person in this photo. Do not trace, filter or paste the photo: redraw everything from scratch. Keep the likeness so friends would recognise them: face shape, hairstyle and hair colour, skin tone, eyebrows, eye shape, glasses, facial hair and their expression. Dress the character in the clothes visible in the photo, using the outermost layer; where the photo does not show the lower body, add simple trousers and shoes that match. Show the whole figure from head to shoes, standing, facing the viewer, centred, with a little space above the head and below the feet. Plain flat background in soft sage green (#E4ECD9), a small soft shadow under the feet. No text, no logos, no frame, no extra people or objects.';
 export const PORTRAIT_STYLES = Object.freeze({
-  toon: 'Style: clean modern cartoon illustration with smooth shapes, soft cel shading and friendly proportions (head slightly larger than life, about four heads tall).',
-  toy: 'Style: a cute 3D collectible vinyl toy figure, softly lit studio render, smooth rounded forms, about three and a half heads tall.',
-  pixel: 'Style: detailed 32-bit pixel art sprite with crisp square pixels, a limited palette and a dark coloured outline, about four heads tall.'
+  toon: 'Style: clean modern cartoon illustration with smooth shapes, soft cel shading and natural proportions.',
+  comic: 'Style: bold comic-book hero art with confident black ink outlines, dramatic cel shading, halftone dot shadows and saturated colours; a confident, dynamic standing pose.',
+  anime: 'Style: polished modern anime character art with clean thin line work, crisp cel shading, expressive eyes and glossy hair highlights; natural adult proportions.',
+  fashion: 'Style: a fashion designer\'s runway illustration in ink and loose marker with watercolour washes, elongated elegant proportions, quick expressive strokes, and the outfit rendered with the most care.',
+  sticker: 'Style: a bold streetwear die-cut sticker with flat graphic colours, thick dark outline, a wide white sticker border around the whole figure and a slight drop shadow; playful, slightly chunky proportions.',
+  quest: 'Style: a role-playing game character-select portrait, painterly digital art with rim lighting and a subtle glow at the feet, the everyday outfit treated like heroic adventuring gear; grounded, confident stance.'
 });
 
 export async function generatePortrait({ apiKey, image, style, quality = 'low', model = PORTRAIT_MODEL, timeoutMs = EVENT_PORTRAIT_LIMITS.timeoutMs, fetchImpl = globalThis.fetch }) {
