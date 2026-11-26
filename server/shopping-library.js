@@ -16,7 +16,7 @@ export function validateLibraryEntry(entry,now=Date.now()){
   const query=shoppingQuery(entry?.query),at=Date.parse(entry.searchedAt);
   if(!Number.isFinite(at)||at>now+60000||now-at>SHOPPING_MAX_AGE_MS)return null;
   const products=(Array.isArray(entry.products)?entry.products:[]).slice(0,6).flatMap(p=>{
-   const url=publicHttps(p.url,RETAILERS);if(!url||typeof p.title!=='string'||!p.title.trim()||p.title.length>160||!Number.isFinite(p.price)||p.price<=0||p.price>10000||p.currency!=='USD'||query.maxPrice!==null&&p.price>query.maxPrice)return [];
+   const url=publicHttps(p.url,RETAILERS);if(!url||typeof p.title!=='string'||!p.title.trim()||p.title.length>160||!Number.isFinite(p.price)||p.price<2||p.price>10000||p.currency!=='USD'||query.maxPrice!==null&&p.price>query.maxPrice)return [];
    if(!matchesShopProduct(p,query))return [];
    const images=[...new Set([p.image,...(Array.isArray(p.images)?p.images:[])].map(x=>publicHttps(x)).filter(Boolean))].slice(0,4);
    const path=new URL(url).pathname,presentation=query.presentation==='any'?(/\/womens\//.test(path)?'womenswear':/\/mens\//.test(path)?'menswear':'any'):query.presentation;

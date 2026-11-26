@@ -165,6 +165,10 @@ function drawFace(s, spec, g, pose, head) {
   if (beard === 'goatee') for (let y = 47; y <= chin; y++) for (let x = cx - 4; x <= cx + 4; x++) if (head[y * W + x]) s.dot(x, y, (x + y) % 4 === 0 ? hair.sh : hair.base);
   for (const ex of [lx, rx]) {
     if (pose.blink) { s.rect(ex - 2, EY + 1, ex + 2, EY + 1, hair.line); s.dot(ex > cx ? ex + 3 : ex - 3, EY, hair.line); continue; }
+    if (a.eyeId === 'narrow') { // a smaller, fully open eye: two rows, round iris, bright catch-light
+      s.rect(ex - 2, EY + 1, ex + 2, EY + 2, '#FDFBF6'); s.rect(ex - 1, EY + 1, ex + 1, EY + 2, iris); s.dot(ex, EY + 2, '#1C1210'); s.dot(ex - 1, EY + 1, '#FFFFFF');
+      s.rect(ex - 2, EY, ex + 2, EY, hair.line); s.dot(ex > cx ? ex + 3 : ex - 3, EY + 1, hair.line); continue;
+    }
     s.rect(ex - 2, EY, ex + 2, EY + eh - 1, '#FDFBF6'); s.rect(ex - 1, EY, ex + 1, EY + eh - 1, iris); s.rect(ex, EY + (eh > 2 ? 1 : 0), ex, EY + eh - 1, '#1C1210'); s.dot(ex - 1, EY, '#FFFFFF');
     s.rect(ex - 2, EY - 1, ex + 2, EY - 1, hair.line); s.dot(ex > cx ? ex + 3 : ex - 3, EY, hair.line);
     if (a.eyeId === 'lashes') s.dots(ex > cx ? [[ex + 3, EY - 1], [ex + 4, EY - 2]] : [[ex - 3, EY - 1], [ex - 4, EY - 2]], hair.line);
